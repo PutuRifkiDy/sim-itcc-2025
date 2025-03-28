@@ -11,3 +11,7 @@ export const STATUS = {
     PENDING: 'pending',
     REJECTED: 'rejected',
 };
+
+export function flashMessage(params){
+    return params.props.flash_message;
+}
