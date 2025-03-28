@@ -1,13 +1,12 @@
-import { STATUS } from "@/lib/utils";
-import { Badge} from "@/components/ui/badge";
+import { Badge } from '@/components/ui/badge';
+import { STATUS } from '@/lib/utils';
 
-export function GetStatusBadge({ status })
-{
-    const {VERIFIED, REQUEST, PENDING, REJECTED} = STATUS;
+export function GetStatusBadge({ status }) {
+    const { VERIFIED, REQUEST, PENDING, REJECTED } = STATUS;
 
     let status, text;
 
-    switch(status){
+    switch (status) {
         case VERIFIED:
             status = 'bg-green-500 hover:bg-green-600';
             text = 'Verified';
