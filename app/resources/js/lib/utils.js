@@ -12,6 +12,14 @@ export const STATUS = {
     REJECTED: 'rejected',
 };
 
+export const STATUS_USER = {
+    MAHASISWA: 'Mahasiswa',
+    SMASMK: 'SMASMK',
+    SMP: 'SMP',
+    SD: 'SD',
+    UMUM: 'Umum',
+}
+
 export function flashMessage(params){
     return params.props.flash_message;
 }
