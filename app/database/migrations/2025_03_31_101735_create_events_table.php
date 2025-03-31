@@ -19,6 +19,7 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->string('category');
             $table->boolean('is_open_regis')->default(false);
+            $table->string('event_type'); // webnas / workshop
             $table->timestamps();
         });
     }
