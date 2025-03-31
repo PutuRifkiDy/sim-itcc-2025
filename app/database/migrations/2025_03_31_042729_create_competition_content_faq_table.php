@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('competition_content_faq', function (Blueprint $table) {
             $table->id();
             $table->foreignId('competition_content_id')->constrained('competition_content')->cascadeOnDelete();
-            $table->string('answer');
-            $table->string('question');
+            $table->text('answer');
+            $table->text('question');
             $table->timestamps();
         });
     }

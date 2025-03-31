@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('kode')->unique();
             $table->string('name');
             $table->string('slug')->unique();
-            $table->string('description')->nullable();
+            $table->text('description')->nullable();
             $table->boolean('is_team')->default(false);
             $table->boolean('is_need_submission')->default(false);
             $table->boolean('is_open_regis')->default(false);

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreignId('competition_registration_id')->constrained('competition_registrations')->cascadeOnDelete();
             $table->string('submission_link')->nullable();
             $table->string('submission_status')->default(SubmissionStatus::REQUESTED->value);
-            $table->string('reject_reason')->nullable();
+            $table->text('reject_reason')->nullable();
             $table->timestamps();
         });
     }

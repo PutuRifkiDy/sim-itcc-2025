@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('payment_proof_path')->nullable();
             $table->unsignedInteger('total_payment')->default(0);
             $table->string('payment_status')->default(PaymentStatus::REQUESTED->value);
-            $table->string('reject_reason')->nullable();
+            $table->text('reject_reason')->nullable();
             $table->timestamps();
         });
     }
