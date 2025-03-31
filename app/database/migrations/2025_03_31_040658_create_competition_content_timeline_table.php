@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('competition_content_timeline', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('competition_content_id')->constrained('competition_contents')->onDelete('cascade');
+            $table->foreignId('competition_content_id')->constrained('competition_contents')->cascadeOnDelete();
             $table->string('title');
             $table->date('start_date');
             $table->date('end_date');
