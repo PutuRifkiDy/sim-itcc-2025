@@ -1,7 +1,7 @@
 import { Badge } from '@/components/ui/badge';
 import { STATUS } from '@/lib/utils';
 
-export function GetSPaymentStatusBadge({ status }) {
+export function GetStatusBadge({ status }) {
     const { VERIFIED, REQUEST, PENDING, REJECTED } = STATUS;
 
     let status, text;
