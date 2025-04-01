@@ -17,6 +17,8 @@ class EventContentFaq extends Model
         'answer'
     ];
 
+    protected $table = 'event_content_faq';
+
     public function event_content(): BelongsTo
     {
         return $this->belongsTo(EventContent::class);
