@@ -19,6 +19,8 @@ class CompetitionContentTimeline extends Model
         'date_range',
         'description',
     ];
+
+    protected $table = 'competition_content_timeline';
     public function competition_content(): BelongsTo
     {
         return $this->belongsTo(CompetitionContent::class);
