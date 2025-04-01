@@ -16,8 +16,8 @@ return new class extends Migration
             $table->foreignId('event_id')->constrained('events')->cascadeOnDelete();
             $table->string('periode_name');
             $table->unsignedInteger('price');
-            $table->date('start_date');
-            $table->date('end_date');
+            $table->dateTimeTz('start_date');
+            $table->dateTimeTz('end_date');
             $table->timestamps();
         });
     }

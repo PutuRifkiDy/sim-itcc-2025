@@ -17,8 +17,8 @@ return new class extends Migration
             $table->foreignId('competition_category_id')->constrained('competition_categories')->cascadeOnDelete();
             $table->string('periode_name');
             $table->unsignedInteger('price');
-            $table->date('start_date');
-            $table->date('end_date');
+            $table->dateTimeTz('start_date');
+            $table->dateTimeTz('end_date');
             $table->timestamps();
         });
     }
