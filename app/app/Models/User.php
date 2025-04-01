@@ -3,10 +3,14 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Teams;
 use App\Enums\UserStatus;
+use App\Models\EventRegistrations;
+use App\Models\CompetitionRegistrations;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
@@ -53,5 +57,20 @@ class User extends Authenticatable
             'password' => 'hashed',
             'status' => UserStatus::class,
         ];
+    }
+
+    public function competition_registrations(): HasMany
+    {
+        return $this->hasMany(CompetitionRegistrations::class);
+    }
+
+    public function teams(): HasMany
+    {
+        return $this->hasMany(Teams::class);
+    }
+
+    public function event_registrations(): HasMany
+    {
+        return $this->hasMany(EventRegistrations::class);
     }
 }

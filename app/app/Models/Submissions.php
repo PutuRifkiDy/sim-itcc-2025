@@ -3,8 +3,10 @@
 namespace App\Models;
 
 use App\Enums\SubmissionStatus;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\CompetitionRegistrations;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Submissions extends Model
 {
@@ -22,5 +24,10 @@ class Submissions extends Model
         return [
             'submission_status' => SubmissionStatus::class
         ];
+    }
+
+    public function competition_registrations(): BelongsTo
+    {
+        return $this->belongsTo(CompetitionRegistrations::class);
     }
 }

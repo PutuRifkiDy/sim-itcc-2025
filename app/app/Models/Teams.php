@@ -2,8 +2,14 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\User;
+use App\Models\TeamMembers;
+use App\Models\Competitions;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\CompetitionRegistrations;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Teams extends Model
 {
@@ -15,4 +21,24 @@ class Teams extends Model
         'team_name',
         'token',
     ];
+
+    public function users(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'leader_id', 'id');
+    }
+
+    public function competitions(): BelongsTo
+    {
+        return $this->belongsTo(Competitions::class);
+    }
+
+    public function competition_registrations(): HasMany
+    {
+        return $this->hasMany(CompetitionRegistrations::class);
+    }
+
+    public function team_members(): HasMany
+    {
+        return $this->hasMany(TeamMembers::class);
+    }
 }

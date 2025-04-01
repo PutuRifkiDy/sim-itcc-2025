@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\EventContent;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class EventContentTimeline extends Model
 {
@@ -17,4 +19,9 @@ class EventContentTimeline extends Model
         'date_range',
         'description'
     ];
+
+    public function event_content(): BelongsTo
+    {
+        return $this->belongsTo(EventContent::class);
+    }
 }

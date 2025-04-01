@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\CompetitionContent;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class CompetitionContentFaq extends Model
 {
@@ -14,4 +16,9 @@ class CompetitionContentFaq extends Model
         'answer',
         'question',
     ];
+
+    public function competition_content(): BelongsTo
+    {
+        return $this->belongsTo(CompetitionContent::class);
+    }
 }

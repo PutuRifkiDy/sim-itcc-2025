@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\CompetitionContent;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class CompetitionContentTimeline extends Model
 {
@@ -17,4 +19,8 @@ class CompetitionContentTimeline extends Model
         'date_range',
         'description',
     ];
+    public function competition_content(): BelongsTo
+    {
+        return $this->belongsTo(CompetitionContent::class);
+    }
 }
