@@ -23,6 +23,8 @@ class CompetitionContent extends Model
         'guidebook_link',
     ];
 
+    protected $table = 'competition_content';
+
     public function competitions(): BelongsTo
     {
         return $this->belongsTo(Competitions::class);
