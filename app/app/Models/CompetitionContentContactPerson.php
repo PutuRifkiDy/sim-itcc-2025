@@ -18,6 +18,8 @@ class CompetitionContentContactPerson extends Model
         'wa_number',
     ];
 
+    protected $table = 'competition_content_contact';
+
     public function competition_content(): BelongsTo
     {
         return $this->belongsTo(CompetitionContent::class);
