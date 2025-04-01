@@ -20,6 +20,8 @@ class EventContentTimeline extends Model
         'description'
     ];
 
+    protected $table = 'event_content_timeline';
+
     public function event_content(): BelongsTo
     {
         return $this->belongsTo(EventContent::class);
