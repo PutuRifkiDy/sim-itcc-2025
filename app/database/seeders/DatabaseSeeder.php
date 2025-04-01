@@ -38,7 +38,8 @@ class DatabaseSeeder extends Seeder
             EventContentTimelineSeeder::class,
             EventContentFaqSeeder::class,
             EventContentContactSeeder::class,
-            MerchandiseSeeder::class
+            MerchandiseSeeder::class,
+            PaymentMethodsSeeder::class,
         ]);
     }
 }
