@@ -5,6 +5,9 @@ namespace Database\Seeders;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Database\Seeders\CompetitionsSeeder;
+use Database\Seeders\CompetitionPricesSeeder;
+use Database\Seeders\CompetitionContentSeeder;
 use Database\Seeders\CompetitionCategoriesSeeder;
 
 class DatabaseSeeder extends Seeder
@@ -23,7 +26,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             CompetitionCategoriesSeeder::class,
             CompetitionsSeeder::class,
-            CompetitionPricesSeeder::class
+            CompetitionPricesSeeder::class,
+            CompetitionContentSeeder::class
         ]);
     }
 }
