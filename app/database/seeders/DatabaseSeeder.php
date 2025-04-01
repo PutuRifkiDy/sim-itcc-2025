@@ -22,7 +22,8 @@ class DatabaseSeeder extends Seeder
         // ]);
         $this->call([
             CompetitionCategoriesSeeder::class,
-            CompetitionsSeeder::class
+            CompetitionsSeeder::class,
+            CompetitionPricesSeeder::class
         ]);
     }
 }
