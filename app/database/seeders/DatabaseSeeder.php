@@ -33,7 +33,8 @@ class DatabaseSeeder extends Seeder
             CompetitionContentFaqSeeder::class,
             CompetitionContentContactSeeder::class,
             EventsSeeder::class,
-            EventPricesSeeder::class
+            EventPricesSeeder::class,
+            EventContentSeeder::class
         ]);
     }
 }

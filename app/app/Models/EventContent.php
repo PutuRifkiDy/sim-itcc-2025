@@ -19,6 +19,8 @@ class EventContent extends Model
         'guidebook_link'
     ];
 
+    protected $table = 'event_content';
+
     public function events(): BelongsTo
     {
         return $this->belongsTo(Events::class);
