@@ -37,6 +37,7 @@ class DatabaseSeeder extends Seeder
             EventContentSeeder::class,
             EventContentTimelineSeeder::class,
             EventContentFaqSeeder::class,
+            EventContentContactSeeder::class
         ]);
     }
 }

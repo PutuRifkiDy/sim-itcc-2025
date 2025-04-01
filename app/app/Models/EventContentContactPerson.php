@@ -18,6 +18,8 @@ class EventContentContactPerson extends Model
         'wa_number',
     ];
 
+    protected $table = 'event_content_contact_person';
+
     public function event_content(): BelongsTo
     {
         return $this->belongsTo(EventContent::class);
