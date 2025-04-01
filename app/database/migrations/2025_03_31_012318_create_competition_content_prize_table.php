@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('competition_content_id')->constrained('competition_content')->cascadeOnDelete();
             $table->integer('rank');
-            $table->unsignedInteger('price');
+            $table->string('name')->nullable();
+            $table->unsignedInteger('money');
             $table->string('additional')->nullable();
             $table->timestamps();
         });

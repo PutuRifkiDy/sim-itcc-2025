@@ -14,9 +14,12 @@ class CompetitionContentPrize extends Model
     protected $fillable = [
         'competition_content_id',
         'rank',
-        'price',
+        'name',
+        'money',
         'additional',
     ];
+
+    protected $table = 'competition_content_prize';
 
     public function competition_content(): BelongsTo
     {
