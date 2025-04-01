@@ -43,7 +43,7 @@ class CompetitionContent extends Model
         return $this->hasMany(CompetitionContentFaq::class);
     }
 
-    public function competition_content_contact_person(): HasMany
+    public function competition_content_contact(): HasMany
     {
         return $this->hasMany(CompetitionContentContactPerson::class);
     }
