@@ -31,7 +31,8 @@ class DatabaseSeeder extends Seeder
             CompetitionContentPrizeSeeder::class,
             CompetitionContentTimelineSeeder::class,
             CompetitionContentFaqSeeder::class,
-            CompetitionContentContactSeeder::class
+            CompetitionContentContactSeeder::class,
+            EventsSeeder::class
         ]);
     }
 }

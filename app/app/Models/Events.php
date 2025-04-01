@@ -19,6 +19,7 @@ class Events extends Model
         'slug',
         'description',
         'category',
+        'event_type',
         'is_open_regis',
     ];
 
