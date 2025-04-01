@@ -19,4 +19,6 @@ class Merchandise extends Model
         'start_date',
         'end_date',
     ];
+
+    protected $table = 'merchandise';
 }
