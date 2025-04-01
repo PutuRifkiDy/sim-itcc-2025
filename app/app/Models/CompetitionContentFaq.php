@@ -17,6 +17,8 @@ class CompetitionContentFaq extends Model
         'question',
     ];
 
+    protected $table = 'competition_content_faq';
+
     public function competition_content(): BelongsTo
     {
         return $this->belongsTo(CompetitionContent::class);
