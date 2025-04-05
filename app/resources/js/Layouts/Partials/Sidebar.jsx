@@ -12,7 +12,7 @@ import { useEffect, useState } from "react";
 import { IconDashboard, IconDropdown, IconHome, IconLogout, IconLogoutSideBar, IconProfile, IconSideBar, IconSilangResponsiveWeb } from "../../Components/IconAdmin";
 import DarkMode from "../../Components/DarkMode";
 
-export default function Sidebar({ user, navigations, children }) {
+export default function Sidebar({ navigations, children }) {
     const [isSidebarOpen, setIsSidebarOpen] = useState(window.innerWidth >= 768);
 
     const currentRoute = route().current();
@@ -61,19 +61,15 @@ export default function Sidebar({ user, navigations, children }) {
                                 );
                             })}
                             <li className={`py-4 ${isSidebarOpen ? "px-8" : "items-center"} flex flex-col justify-center cursor-pointer`}>
-                                <a
-                                    onClick={() =>
-                                        document
-                                            .getElementById(
-                                                "logout-confirmation"
-                                            )
-                                            .showModal()
-                                    }
+                                <Link
+                                    href={route('logout')}
+                                    as="button"
+                                    method="post"
                                     className="font-semibold text-[14px] tracking-[0.3px] flex flex-row gap-5 items-center text-[#FF0000]"
                                 >
                                     <IconLogoutSideBar />
-                                    {isSidebarOpen && "Keluar"}
-                                </a>
+                                    {isSidebarOpen && "Logout"}
+                                </Link>
                             </li>
                         </ul>
                     </nav>
@@ -115,20 +111,16 @@ export default function Sidebar({ user, navigations, children }) {
                                     </li>
                                 );
                             })}
-                            <li className={`py-4 ${isSidebarOpen ? "px-8" : "items-center"} flex flex-col justify-center cursor-pointer`}>
-                                <a
-                                    onClick={() =>
-                                        document
-                                            .getElementById(
-                                                "logout-confirmation"
-                                            )
-                                            .showModal()
-                                    }
-                                    className="font-semibold text-[14px] tracking-[0.3px] flex flex-row gap-5 items-center text-[#FF0000]"
+                            <li>
+                                <Link
+                                    href={route('logout')}
+                                    as="button"
+                                    method="post"
+                                    className="flex flex-row gap-2 justify-start items-center font-medium text-[14px] light:text-[#404040] dark:text-white tracking-[0.11em]"
                                 >
-                                    <IconLogoutSideBar />
-                                    {isSidebarOpen && "Keluar"}
-                                </a>
+                                    <IconLogout />
+                                    Logout
+                                </Link>
                             </li>
                         </ul>
                     </nav>
@@ -165,10 +157,10 @@ export default function Sidebar({ user, navigations, children }) {
                                         <div className="rounded-full overflow-hidden w-[50px] h-[52px]">
                                             <img src={`${window.location.origin}/images/admin/icon-profile.png`} alt="" />
                                         </div>
-                                        <div className="flex flex-col">
+                                        {/* <div className="flex flex-col">
                                             <p className="font-bold text-[16px] light:text-[#404040] dark:text-white">{user.name}</p>
                                             <p className="font-medium text-[14px] light:text-[#565656] dark:text-white">{user.role}</p>
-                                        </div>
+                                        </div> */}
                                     </div>
                                     <IconDropdown className="w-9 h-9" />
                                 </div>
@@ -179,44 +171,16 @@ export default function Sidebar({ user, navigations, children }) {
                                             Home
                                         </Link>
                                     </li>
-                                    {user.role === "admin" &&
-                                        (location.pathname.search(/admin/) === -1 ? (
-                                            <li className="border-b-2 border-slate-200 dark:border-slate-600">
-                                                <Link
-                                                    href={route("admin.dashboard")}
-                                                    as="button"
-                                                    className="flex flex-row gap-2 justify-start items-center font-medium text-[14px] light:text-[#404040] dark:text-white tracking-[0.11em]"
-                                                >
-                                                    <ShieldExclamationIcon className="h-6 w-6" />
-                                                    Mode Admin
-                                                </Link>
-                                            </li>
-                                        ) : (
-                                            <li className="border-b-2 border-slate-200 dark:border-slate-600">
-                                                <Link
-                                                    href={route("dashboard")}
-                                                    as="button"
-                                                    className="flex flex-row gap-2 justify-start items-center font-medium text-[14px] light:text-[#404040] dark:text-white tracking-[0.11em]"
-                                                >
-                                                    <AcademicCapIcon className="h-6 w-6" />
-                                                    Mode Participant
-                                                </Link>
-                                            </li>
-                                        ))}
                                     <li>
-                                        <a
-                                            onClick={() =>
-                                                document
-                                                    .getElementById(
-                                                        "logout-confirmation"
-                                                    )
-                                                    .showModal()
-                                            }
+                                        <Link
+                                            href={route('logout')}
+                                            as="button"
+                                            method="post"
                                             className="flex flex-row gap-2 justify-start items-center font-medium text-[14px] light:text-[#404040] dark:text-white tracking-[0.11em]"
                                         >
                                             <IconLogout />
                                             Keluar
-                                        </a>
+                                        </Link>
                                     </li>
                                 </ul>
                             </div>
@@ -250,29 +214,6 @@ export default function Sidebar({ user, navigations, children }) {
                     </div>
                 </div>
             </div>
-
-
-
-            {/* Logout confirmation */}
-            <dialog id="logout-confirmation" className="modal">
-                <div className="modal-box">
-                    <h3 className="font-bold text-lg">Keluar</h3>
-                    <p className="py-4">Apakah Anda yakin untuk keluar?</p>
-                    <div className="modal-action">
-                        <form method="dialog">
-                            <Link
-                                as="button"
-                                className="btn btn-error me-1"
-                                method="post"
-                                href={route("logout")}
-                            >
-                                Keluar
-                            </Link>
-                            <button className="btn ms-1">Batal</button>
-                        </form>
-                    </div>
-                </div>
-            </dialog>
         </>
     );
 }
