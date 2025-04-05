@@ -84,7 +84,7 @@ export default function Sidebar({ user, navigations, children }) {
                 )}
                 <aside className={`fixed top-0 left-0 h-full w-full bg-white z-50 transition-transform transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"} md:hidden`}>
                     <div className="flex justify-between items-center p-5 border-b">
-                        <span className="font-bold text-xl">PKM <span className="text-[#42A1A4]">TI 2025</span></span>
+                        <span className="font-bold text-xl">ITCC<span className="text-[#42A1A4]">2025</span></span>
                         <button onClick={() => setIsSidebarOpen(false)} className="">
                             <IconSilangResponsiveWeb width="100" height="12" />
                         </button>
@@ -92,7 +92,6 @@ export default function Sidebar({ user, navigations, children }) {
                     <nav className="mt-5 text-center">
                         <ul className="font-bold">
                             {navigations.map((navigation, i) => {
-                                // Ambil hanya path dari URL navigation.link
                                 let routePath = window.location.pathname;
                                 const routeName = navigation.link.startsWith("http")
                                     ? new URL(navigation.link).pathname
@@ -147,7 +146,7 @@ export default function Sidebar({ user, navigations, children }) {
 
                         <div className="flex md:flex-row flex-col justify-center items-center gap-5">
 
-                            {/* Untuk Tampilan Mobile */}
+                            {/* Untuk Tampilan Responsive */}
                             <div className="md:hidden flex flex-row justify-between md:w-full md:px-0 px-5 w-screen">
                                 <button onClick={() => setIsSidebarOpen(!isSidebarOpen)} className="text-xl">
                                     <IconSideBar />
