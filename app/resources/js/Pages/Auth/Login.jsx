@@ -28,12 +28,11 @@ export default function Login({ status, canResetPassword }) {
 
     return (
         <>
-            <Head title="Log in" />
             <div className='flex flex-row justify-center items-center'>
 
                 <div className='min-w-full min-h-full'>
 
-                    <div className='flex flex-row p-5 border-[3px] border-[#E6E6E6] shadow-sm rounded-[28px] md:mx-36'>
+                    <div className='flex flex-row p-5 border-[3px] border-[#E6E6E6] shadow rounded-[28px] md:mx-36'>
 
                         <div className='md:flex-col gap-5 bg-[#4880FF] rounded-[28px] px-10 py-10 md:flex hidden'>
                             <p className='text-[32px] font-bold text-[#FFFFFF] w-[500px]'>
