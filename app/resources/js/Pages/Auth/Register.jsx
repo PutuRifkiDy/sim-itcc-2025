@@ -124,7 +124,7 @@ export default function Register() {
                                                 />
                                             </div>
                                             <div>
-                                                <Button type="submit" variant="blue" className="w-full" disabled={processing}>
+                                                <Button type="submit" variant="blue" className="w-full transition-all duration-500 ease-in-out" disabled={processing}>
                                                     Register
                                                 </Button>
                                             </div>

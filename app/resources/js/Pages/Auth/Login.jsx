@@ -98,7 +98,7 @@ export default function Login({ status, canResetPassword }) {
                                                 {canResetPassword && (
                                                     <div className="text-sm text-end mt-3">
                                                         <Link
-                                                            href="#"
+                                                            href={route('password.request')}
                                                             className="font-regular text-[#4880FF] hover:text-[#4880FF]/80 underline hover:no-underline transition-all duration-400 ease-in-out"
                                                         >
                                                             Forgot your password?
@@ -117,7 +117,7 @@ export default function Login({ status, canResetPassword }) {
                                                 </label>
                                             </div>
                                             <div>
-                                                <Button type="submit" variant="blue" className="w-full" disabled={processing}>
+                                                <Button type="submit" variant="blue" className="w-full transition-all duration-500 ease-in-out" disabled={processing}>
                                                     Login
                                                 </Button>
                                             </div>
