@@ -35,7 +35,6 @@ export default function ResetPassword({ token, email }) {
                             <p className='text-[32px] font-bold text-[#FFFFFF] w-[500px]'>
                                 Very good events are
                                 waiting for you
-                                Login Now
                             </p>
                             <img src="/assets/images/image_for_auth.png" alt="" className='w-[354px] h-[379px]' />
                         </div>
