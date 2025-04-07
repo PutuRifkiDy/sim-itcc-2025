@@ -3,7 +3,7 @@ import InputLabel from '@/Components/InputLabel';
 import TextInput from '@/Components/TextInput';
 import { Card, CardContent, CardHeader } from '@/Components/ui/card';
 import GuestLayout from '@/Layouts/GuestLayout';
-import { Head, Link, useForm } from '@inertiajs/react';
+import { Link, useForm } from '@inertiajs/react';
 
 export default function ConfirmPassword() {
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -40,14 +40,13 @@ export default function ConfirmPassword() {
                                         Confirm Password
                                     </Link>
                                     <h2 className="text-md w-[400px] text-center font-medium leading-relaxed tracking-tight text-muted-foreground">
-                                        This is a secure area of the application. Please confirm your password before continuing.
+                                        This is a secure area of the application. Please confirm your password before
+                                        continuing.
                                     </h2>
                                 </CardHeader>
                                 <CardContent>
                                     <div className="mt-6 sm:mx-auto sm:w-full sm:max-w-sm">
-
                                         <form onSubmit={submit}>
-
                                             <div className="mt-4">
                                                 <InputLabel htmlFor="password" value="Password" />
 
@@ -59,9 +58,12 @@ export default function ConfirmPassword() {
                                                     className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F]"
                                                     isFocused={true}
                                                     onChange={(e) => setData('password', e.target.value)}
-                                                    onErrors={errors.password && <InputError message={errors.password} className='mt-2' />}
+                                                    onErrors={
+                                                        errors.password && (
+                                                            <InputError message={errors.password} className="mt-2" />
+                                                        )
+                                                    }
                                                 />
-
                                             </div>
 
                                             <Button
