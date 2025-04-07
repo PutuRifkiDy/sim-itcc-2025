@@ -1,7 +1,6 @@
-import GuestLayout from "@/Layouts/GuestLayout";
+import GuestLayout from '@/Layouts/GuestLayout';
 
-export default function Welcome()
-{
+export default function Welcome() {
     return (
         <>
             <p>Ini adalah halaman welcome</p>
@@ -9,4 +8,4 @@ export default function Welcome()
     );
 }
 
-Welcome.layout = (page) => <GuestLayout children={page} title="Welcome" />
+Welcome.layout = (page) => <GuestLayout children={page} title="Welcome" />;

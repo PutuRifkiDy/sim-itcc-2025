@@ -18,8 +18,8 @@ export const STATUS_USER = {
     SMP: 'SMP',
     SD: 'SD',
     UMUM: 'Umum',
-}
+};
 
-export function flashMessage(params){
+export function flashMessage(params) {
     return params.props.flash_message;
 }

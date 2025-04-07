@@ -1,41 +1,39 @@
-import { useState, useEffect } from "react";
-import { SunIcon, MoonIcon } from "@heroicons/react/24/outline";
+import { MoonIcon, SunIcon } from '@heroicons/react/24/outline';
+import { useEffect, useState } from 'react';
 
 export default function DarkMode({}) {
-    const [theme, setThemes] = useState(
-        localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
-    );
+    const [theme, setThemes] = useState(localStorage.getItem('theme') ? localStorage.getItem('theme') : 'light');
 
     const handleTheme = (e) => {
         if (e.target.checked) {
-            setThemes("dark");
+            setThemes('dark');
         } else {
-            setThemes("light");
+            setThemes('light');
         }
     };
 
     useEffect(() => {
-        localStorage.setItem("theme", theme);
-        const deviceTheme = localStorage.getItem("theme");
+        localStorage.setItem('theme', theme);
+        const deviceTheme = localStorage.getItem('theme');
 
-        document.querySelector("html").setAttribute("data-theme", deviceTheme);
-        document.querySelector("html").setAttribute("class", deviceTheme);
+        document.querySelector('html').setAttribute('data-theme', deviceTheme);
+        document.querySelector('html').setAttribute('class', deviceTheme);
     }, [theme]);
 
     return (
         <>
             <div className="toggle-theme cursor-pointer">
-                <label className="swap swap-rotate bg-[#42A1A4] p-2 rounded-full shadow-[0_0_10px_#59DFD1]">
+                <label className="swap swap-rotate rounded-full bg-[#42A1A4] p-2 shadow-[0_0_10px_#59DFD1]">
                     <input
                         type="checkbox"
                         onChange={handleTheme}
                         className="hidden"
-                        checked={theme === "light" ? false : true}
+                        checked={theme === 'light' ? false : true}
                     />
 
-                    <SunIcon className="swap-on dark:text-white text-white fill-current w-5 h-5 " />
+                    <SunIcon className="swap-on h-5 w-5 fill-current text-white dark:text-white" />
 
-                    <MoonIcon className="swap-off text-white fill-current w-5 h-5" />
+                    <MoonIcon className="swap-off h-5 w-5 fill-current text-white" />
                 </label>
             </div>
         </>
