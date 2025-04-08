@@ -10,7 +10,7 @@ import {
     IconSilangResponsiveWeb,
 } from '../../Components/IconAdmin';
 
-export default function Sidebar({ navigations, children }) {
+export default function Sidebar({ navigations, children, header }) {
     const [isSidebarOpen, setIsSidebarOpen] = useState(window.innerWidth >= 768);
 
     const currentRoute = route().current();
@@ -148,7 +148,7 @@ export default function Sidebar({ navigations, children }) {
                 <div
                     className={`flex-1 ${isSidebarOpen ? 'ml-0 md:ml-[242px] lg:w-[75%] xl:w-[80%] 2xl:w-[85%]' : 'ml-0 md:ml-16 lg:w-[75%] xl:w-[80%] 2xl:w-[85%]'} overflow-x-auto transition-all`}
                 >
-                    <header className="flex w-full items-center justify-center border-b-[1px] border-b-slate-200 px-0 py-4 dark:border-b-slate-600 md:justify-between md:px-5">
+                    <header className="flex w-full items-center justify-center border-b-[1px] border-b-slate-200 px-0 py-7 dark:border-b-slate-600 md:justify-between md:px-5">
                         {/* Untuk Tampilan Laptop */}
                         <button onClick={() => setIsSidebarOpen(!isSidebarOpen)} className="hidden text-xl md:block">
                             <IconSideBar />
@@ -165,10 +165,11 @@ export default function Sidebar({ navigations, children }) {
 
                             <div className="divider flex h-[2px] w-auto bg-slate-200 dark:bg-slate-600 md:hidden md:w-full"></div>
 
-                            <div className="hidden md:flex">
+                            {/* <div className="hidden md:flex">
                                 <DarkMode />
-                            </div>
-                            <div className="dropdown">
+                            </div> */}
+
+                            {/* <div className="dropdown">
                                 <div
                                     tabIndex={0}
                                     role="button"
@@ -181,10 +182,10 @@ export default function Sidebar({ navigations, children }) {
                                                 alt=""
                                             />
                                         </div>
-                                        {/* <div className="flex flex-col">
+                                        <div className="flex flex-col">
                                             <p className="font-bold text-[16px] light:text-[#404040] dark:text-white">{user.name}</p>
                                             <p className="font-medium text-[14px] light:text-[#565656] dark:text-white">{user.role}</p>
-                                        </div> */}
+                                        </div>
                                     </div>
                                     <IconDropdown className="h-9 w-9" />
                                 </div>
@@ -213,28 +214,14 @@ export default function Sidebar({ navigations, children }) {
                                         </Link>
                                     </li>
                                 </ul>
-                            </div>
+                            </div> */}
                         </div>
                     </header>
 
-                    <div className="flex min-h-screen flex-col gap-2 bg-[#F5F6FA] px-4 py-2 dark:bg-[#1d232a] md:px-12 md:py-5">
-                        {navigations.map((navigation, i) => {
-                            let routePath = window.location.pathname;
-                            const routeName = navigation.link.startsWith('http')
-                                ? new URL(navigation.link).pathname
-                                : navigation.link;
-
-                            let displayText = routeName === routePath ? navigation.text : ' ';
-                            if (displayText === 'Asistensi') {
-                                displayText = 'Bukti Asistensi';
-                            }
-                            return (
-                                <h1 key={i} className={`text-[48px] font-semibold`}>
-                                    {displayText}
-                                </h1>
-                            );
-                        })}
-
+                    <div className="flex min-h-screen flex-col gap-1 bg-[#F5F6FA] px-4 py-2 dark:bg-[#1d232a] md:px-10 md:py-5">
+                        <h1 className='text-4xl font-semibold leading-tight text-gray-800'>
+                            {header}
+                        </h1>
                         {children}
                     </div>
                 </div>

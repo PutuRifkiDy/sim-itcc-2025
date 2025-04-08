@@ -274,3 +274,27 @@ export const IconUnduh = () => {
         </svg>
     );
 };
+
+export const IconEditForDashboard = () => {
+    return (
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clipPath="url(#clip0_22_23163)">
+                <path d="M9.16797 3.33398H3.33464C2.89261 3.33398 2.46868 3.50958 2.15612 3.82214C1.84356 4.1347 1.66797 4.55862 1.66797 5.00065V16.6673C1.66797 17.1093 1.84356 17.5333 2.15612 17.8458C2.46868 18.1584 2.89261 18.334 3.33464 18.334H15.0013C15.4433 18.334 15.8673 18.1584 16.1798 17.8458C16.4924 17.5333 16.668 17.1093 16.668 16.6673V10.834" stroke="white" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M15.418 2.08417C15.7495 1.75265 16.1991 1.56641 16.668 1.56641C17.1368 1.56641 17.5864 1.75265 17.918 2.08417C18.2495 2.41569 18.4357 2.86533 18.4357 3.33417C18.4357 3.80301 18.2495 4.25265 17.918 4.58417L10.0013 12.5008L6.66797 13.3342L7.5013 10.0008L15.418 2.08417Z" stroke="white" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" />
+            </g>
+            <defs>
+                <clipPath id="clip0_22_23163">
+                    <rect width="20" height="20" fill="white" />
+                </clipPath>
+            </defs>
+        </svg>
+    );
+}
+
+export const IconPreviewImageProfile = () => {
+    return (
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6.25 2.5H3.75C3.41848 2.5 3.10054 2.6317 2.86612 2.86612C2.6317 3.10054 2.5 3.41848 2.5 3.75V11.25C2.5 11.5815 2.6317 11.8995 2.86612 12.1339C3.10054 12.3683 3.41848 12.5 3.75 12.5H11.25C11.5815 12.5 11.8995 12.3683 12.1339 12.1339C12.3683 11.8995 12.5 11.5815 12.5 11.25V8.75M7.5 7.5L12.5 2.5M12.5 2.5V5.625M12.5 2.5H9.375" stroke="#6D98F9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+    );
+}

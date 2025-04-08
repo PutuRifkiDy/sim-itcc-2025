@@ -1,16 +1,33 @@
+import { IconEditForDashboard, IconPreviewImageProfile } from '@/Components/IconAdmin';
 import InputError from '@/Components/InputError';
 import InputLabel from '@/Components/InputLabel';
-import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
-import { Transition } from '@headlessui/react';
+import { Button } from '@/Components/ui/button';
 import { Link, useForm, usePage } from '@inertiajs/react';
+import { useState } from 'react';
+import {
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+} from "@/components/ui/dialog"
 
 export default function UpdateProfileInformation({ mustVerifyEmail, status, className = '' }) {
     const user = usePage().props.auth.user;
+    const [updateProfileInformation, setUpdateProfileInformation] = useState(false);
 
     const { data, setData, patch, errors, processing, recentlySuccessful } = useForm({
         name: user.name,
         email: user.email,
+        phone_number: user.phone_number,
+        address: user.address,
+        line_id: user.line_id,
+        birthdate: user.birthdate,
+        institution: user.institution,
+        institution_path: user.institution_path,
+        status: user.status,
     });
 
     const submit = (e) => {
@@ -21,71 +38,155 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
 
     return (
         <section className={className}>
-            <header>
-                <h2 className="text-lg font-medium text-gray-900">Profile Information</h2>
+            <div className='flex flex-row justify-between w-full'>
+                <header>
+                    <h2 className="text-lg font-medium text-gray-900">Profile Information</h2>
 
-                <p className="mt-1 text-sm text-gray-600">
-                    Update your account's profile information and email address.
-                </p>
-            </header>
-
-            <form onSubmit={submit} className="mt-6 space-y-6">
-                <div>
-                    <InputLabel htmlFor="name" value="Name" />
-
-                    <TextInput
-                        id="name"
-                        className="mt-1 block w-full"
-                        value={data.name}
-                        onChange={(e) => setData('name', e.target.value)}
-                        required
-                        isFocused
-                        autoComplete="name"
-                    />
-
-                    <InputError className="mt-2" message={errors.name} />
-                </div>
-
-                <div>
-                    <InputLabel htmlFor="email" value="Email" />
-
-                    <TextInput
-                        id="email"
-                        type="email"
-                        className="mt-1 block w-full"
-                        value={data.email}
-                        onChange={(e) => setData('email', e.target.value)}
-                        required
-                        autoComplete="username"
-                    />
-
-                    <InputError className="mt-2" message={errors.email} />
-                </div>
-
-                {mustVerifyEmail && user.email_verified_at === null && (
-                    <div>
-                        <p className="mt-2 text-sm text-gray-800">
-                            Your email address is unverified.
-                            <Link
-                                href={route('verification.send')}
-                                method="post"
-                                as="button"
-                                className="rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                            >
-                                Click here to re-send the verification email.
-                            </Link>
-                        </p>
-
-                        {status === 'verification-link-sent' && (
-                            <div className="mt-2 text-sm font-medium text-green-600">
-                                A new verification link has been sent to your email address.
-                            </div>
-                        )}
-                    </div>
+                    <p className="mt-1 text-sm text-gray-600">
+                        Update your account's profile information.
+                    </p>
+                </header>
+                {updateProfileInformation == false && (
+                    <Button className='flex justify-center items-center gap-3' variant="blue" onClick={() => setUpdateProfileInformation(true)}>
+                        <IconEditForDashboard />
+                        Edit
+                    </Button>
                 )}
+                {updateProfileInformation == true && (
+                    <Button className='flex justify-center items-center gap-3' variant="blue" onClick={() => setUpdateProfileInformation(false)}>
+                        <IconEditForDashboard />
+                        Cancel
+                    </Button>
+                )}
+            </div>
 
-                <div className="flex items-center gap-4">
-                    <PrimaryButton disabled={processing}>Save</PrimaryButton>
+            {updateProfileInformation && (
+                <form onSubmit={submit} className="mt-10 grid md:grid-cols-2 grid-cols-1 gap-5">
+                    <div>
+                        <InputLabel htmlFor="name" value="Name" className='text-[12px] text-[#676767] font-normal' />
+
+                        <TextInput
+                            id="name"
+                            type="text"
+                            className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F]"
+                            value={data.name}
+                            onChange={(e) => setData('name', e.target.value)}
+                            required
+                            isFocused
+                            autoComplete="name"
+                            onErrors={errors.name && <InputError message={errors.name} className='mt-2' />}
+                        />
+
+                    </div>
+                    <div>
+                        <InputLabel htmlFor="phone_number" value="Phone Number" className='text-[12px] text-[#676767] font-normal' />
+
+                        <TextInput
+                            id="phone_number"
+                            type='text'
+                            className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F]"
+                            value={data.phone_number}
+                            onChange={(e) => setData('phone_number', e.target.value)}
+                            required
+                            isFocused
+                            autoComplete="phone_number"
+                            onErrors={errors.phone_number && <InputError message={errors.phone_number} className='mt-2' />}
+                        />
+
+                    </div>
+
+                    <div>
+                        <InputLabel htmlFor="address" value="Address" className='text-[12px] text-[#676767] font-normal' />
+
+                        <TextInput
+                            id="address"
+                            type='text'
+                            className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F]"
+                            value={data.address}
+                            onChange={(e) => setData('address', e.target.value)}
+                            required
+                            isFocused
+                            autoComplete="address"
+                            onErrors={errors.address && <InputError message={errors.address} className='mt-2' />}
+                        />
+
+                    </div>
+
+                    <div>
+                        <InputLabel htmlFor="line_id" value="Line Account" className='text-[12px] text-[#676767] font-normal' />
+
+                        <TextInput
+                            id="line_id"
+                            type='text'
+                            className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F]"
+                            value={data.line_id}
+                            onChange={(e) => setData('line_id', e.target.value)}
+                            required
+                            isFocused
+                            autoComplete="line_id"
+                            onErrors={errors.line_id && <InputError message={errors.line_id} className='mt-2' />}
+                        />
+
+                    </div>
+
+                    <div>
+                        <InputLabel htmlFor="birthdate" value="Birthdate" className='text-[12px] text-[#676767] font-normal' />
+
+                        <TextInput
+                            id="birthdate"
+                            type="date"
+                            className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F]"
+                            value={data.birthdate}
+                            onChange={(e) => setData('birthdate', e.target.value)}
+                            required
+                            isFocused
+                            autoComplete="birthdate"
+                            onErrors={errors.birthdate && <InputError message={errors.birthdate} className='mt-2' />}
+                        />
+
+                    </div>
+
+                    <div>
+                        <InputLabel htmlFor="institution" value="Institution" className='text-[12px] text-[#676767] font-normal' />
+
+                        <TextInput
+                            id="institution"
+                            type="text"
+                            className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F]"
+                            value={data.institution}
+                            onChange={(e) => setData('institution', e.target.value)}
+                            required
+                            isFocused
+                            autoComplete="institution"
+                            onErrors={errors.institution && <InputError message={errors.institution} className='mt-2' />}
+                        />
+
+                    </div>
+
+                    <div>
+                        <InputLabel htmlFor="institution_path" value="Institution Card" className='text-[12px] text-[#676767] font-normal' />
+
+                        {/* Input Image Incoming sajalah */}
+
+                    </div>
+
+                    <div>
+                        <InputLabel htmlFor="status" value="Status" className='text-[12px] text-[#676767] font-normal' />
+
+                        <TextInput
+                            id="status"
+                            className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F]"
+                            value={data.status}
+                            onChange={(e) => setData('status', e.target.value)}
+                            required
+                            isFocused
+                            autoComplete="status"
+                            onErrors={errors.status && <InputError message={errors.status} className='mt-2' />}
+                        />
+
+                    </div>
+                    <div className="flex items-center gap-4">
+                        {/* <PrimaryButton disabled={processing}>Save</PrimaryButton>
 
                     <Transition
                         show={recentlySuccessful}
@@ -95,9 +196,54 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
                         leaveTo="opacity-0"
                     >
                         <p className="text-sm text-gray-600">Saved.</p>
-                    </Transition>
+                    </Transition> */}
+                    </div>
+                </form>
+            )}
+
+            {updateProfileInformation == false && (
+                <div className='mt-10 grid md:grid-cols-2 grid-cols-1 gap-5'>
+                    <div>
+                        <InputLabel htmlFor="name" value="Name" className='text-[12px] text-[#676767] font-normal' />
+                        <p>{data.name}</p>
+                    </div>
+                    <div>
+                        <InputLabel htmlFor="phone_number" value="Phone Number" className='text-[12px] text-[#676767] font-normal' />
+                        <p>{data.phone_number ? data.phone_number : '-'}</p>
+                    </div>
+                    <div>
+                        <InputLabel htmlFor="address" value="Address" className='text-[12px] text-[#676767] font-normal' />
+                        <p>{data.address ? data.address : '-'}</p>
+                    </div>
+                    <div>
+                        <InputLabel htmlFor="line_id" value="Line ID" className='text-[12px] text-[#676767] font-normal' />
+                        <p>{data.line_id ? data.line_id : '-'}</p>
+                    </div>
+                    <div>
+                        <InputLabel htmlFor="birthdate" value="Birthdate" className='text-[12px] text-[#676767] font-normal' />
+                        <p>{data.birthdate ? data.birthdate : '-'}</p>
+                    </div>
+                    <div>
+                        <InputLabel htmlFor="institution" value="Institution" className='text-[12px] text-[#676767] font-normal' />
+                        <p>{data.institution ? data.institution : '-'}</p>
+                    </div>
+                    <div>
+                        <Dialog>
+                            <DialogTrigger className='flex flex-row gap-3 justify-center items-center text-[12px] text-[#676767] font-normal'>
+                                Institution Card
+                                <IconPreviewImageProfile />
+                            </DialogTrigger>
+                            <DialogContent>
+                                <img src={data.institution_path ? data.institution_path : 'assets/images/default_image_profile.png'} className="w-full" alt="" />
+                            </DialogContent>
+                        </Dialog>
+                    </div>
+                    <div>
+                        <InputLabel htmlFor="institution" value="Institution" className='text-[12px] text-[#676767] font-normal' />
+                        <p>{data.institution ? data.institution : '-'}</p>
+                    </div>
                 </div>
-            </form>
+            )}
         </section>
     );
 }

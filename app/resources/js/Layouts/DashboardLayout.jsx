@@ -2,7 +2,7 @@ import { IconBerandaSideBar, IconProfileSideBar } from '@/Components/IconAdmin';
 import { Head } from '@inertiajs/react';
 import Sidebar from './Partials/Sidebar';
 
-export default function DashboardLayout({ children, title }) {
+export default function DashboardLayout({ children, title, header }) {
     const route_sidebar = [
         {
             icon: <IconBerandaSideBar />,
@@ -19,7 +19,9 @@ export default function DashboardLayout({ children, title }) {
     return (
         <>
             <Head title={title} />
-            <Sidebar navigations={route_sidebar}>{children}</Sidebar>
+            <Sidebar navigations={route_sidebar} header={header}>
+                {children}
+            </Sidebar>
         </>
     );
 }
