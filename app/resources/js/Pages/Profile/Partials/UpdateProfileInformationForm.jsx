@@ -15,28 +15,52 @@ import {
 } from "@/components/ui/dialog"
 import { Transition } from '@headlessui/react';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/Components/ui/select';
+import { flashMessage } from '@/lib/utils';
+import { toast } from 'sonner';
+import { ImageUpload } from '@/Components/ImageUpload';
 
 export default function UpdateProfileInformation({ mustVerifyEmail, status, status_students, className = '' }) {
     const user = usePage().props.auth.user;
     const [updateProfileInformation, setUpdateProfileInformation] = useState(false);
 
-    const { data, setData, patch, errors, processing, recentlySuccessful } = useForm({
+    const { data, setData, patch, post, errors, processing, recentlySuccessful } = useForm({
         name: user.name,
         email: user.email,
-        phone_number: user.phone_number,
-        address: user.address,
-        line_id: user.line_id,
-        birthdate: user.birthdate,
-        institution: user.institution,
-        institution_path: user.institution_path,
-        status: user.status,
+        phone_number: user.phone_number ?? '',
+        address: user.address ?? '',
+        line_id: user.line_id ?? '',
+        birthdate: user.birthdate ?? '',
+        institution: user.institution ?? '',
+        institution_path: user.institution_path ?? '',
+        status: user.status ?? '',
+        _method: 'PUT',
     });
 
-    const submit = (e) => {
-        e.preventDefault();
+    // const submit = (e) => {
+    //     e.preventDefault();
 
-        patch(route('profile.update'));
+    //     patch(route('profile.update'));
+    // };
+    const onHandleChange = (e) => {
+        setData(e.target.name, e.target.value);
     };
+
+    const onHandleSubmit = (e) => {
+        e.preventDefault();
+        post(route('profile.update'), {
+            onSuccess: (success) => {
+                const flash = flashMessage(success);
+                if (flash) toast[flash.type](flash.message);
+
+                setTimeout(() => {
+                    window.location.reload();
+                }, 1000);
+            },
+            preserveScroll: true,
+            preserveState: true,
+        });
+    };
+
 
     return (
         <section className={className}>
@@ -63,163 +87,185 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, stat
             </div>
 
             {updateProfileInformation && (
-                <form onSubmit={submit} className="mt-10 grid md:grid-cols-2 grid-cols-1 gap-5">
-                    <div>
-                        <InputLabel htmlFor="name" value="Name" className='text-[12px] text-[#676767] font-normal' />
+                <form onSubmit={onHandleSubmit} className="">
+                    <div className='mt-10 grid md:grid-cols-2 grid-cols-1 gap-5'>
+                        <div>
+                            <InputLabel htmlFor="name" value="Name" className='text-[12px] text-[#676767] font-normal' />
 
-                        <TextInput
-                            id="name"
-                            type="text"
-                            className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F]"
-                            value={data.name}
-                            onChange={(e) => setData('name', e.target.value)}
-                            required
-                            isFocused
-                            autoComplete="name"
-                            onErrors={errors.name && <InputError message={errors.name} className='mt-2' />}
-                        />
+                            <TextInput
+                                id="name"
+                                type="text"
+                                className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F]"
+                                name="name"
+                                value={data.name}
+                                onChange={onHandleChange}
+                                required
+                                isFocused
+                                autoComplete="name"
+                                onErrors={errors.name && <InputError message={errors.name} className='mt-2' />}
+                            />
 
+                        </div>
+                        <div>
+                            <InputLabel htmlFor="email" value="Email" className='text-[12px] text-[#676767] font-normal' />
+
+                            <TextInput
+                                id="email"
+                                name="email"
+                                type="email"
+                                className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F]"
+                                value={data.email}
+                                onChange={onHandleChange}
+                                required
+                                isFocused
+                                autoComplete="username"
+                                onErrors={errors.email && <InputError message={errors.email} className='mt-2' />}
+                            />
+                        </div>
+                        <div>
+                            <InputLabel htmlFor="phone_number" value="Phone Number" className='text-[12px] text-[#676767] font-normal' />
+
+                            <TextInput
+                                id="phone_number"
+                                name="phone_number"
+                                type='text'
+                                className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F]"
+                                value={data.phone_number}
+                                onChange={onHandleChange}
+                                required
+                                isFocused
+                                autoComplete="phone_number"
+                                onErrors={errors.phone_number && <InputError message={errors.phone_number} className='mt-2' />}
+                            />
+
+                        </div>
+
+                        <div>
+                            <InputLabel htmlFor="address" value="Address" className='text-[12px] text-[#676767] font-normal' />
+
+                            <TextInput
+                                id="address"
+                                name="address"
+                                type='text'
+                                className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F]"
+                                value={data.address}
+                                onChange={onHandleChange}
+                                required
+                                isFocused
+                                autoComplete="address"
+                                onErrors={errors.address && <InputError message={errors.address} className='mt-2' />}
+                            />
+
+                        </div>
+
+                        <div>
+                            <InputLabel htmlFor="line_id" value="Line Account" className='text-[12px] text-[#676767] font-normal' />
+
+                            <TextInput
+                                id="line_id"
+                                name="line_id"
+                                type='text'
+                                className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F]"
+                                value={data.line_id}
+                                onChange={onHandleChange}
+                                required
+                                isFocused
+                                autoComplete="line_id"
+                                onErrors={errors.line_id && <InputError message={errors.line_id} className='mt-2' />}
+                            />
+
+                        </div>
+                        {/*
+                        <div>
+                            <InputLabel htmlFor="birthdate" value="Birthdate" className='text-[12px] text-[#676767] font-normal' />
+
+                            <TextInput
+                                id="birthdate"
+                                name="birthdate"
+                                type="date"
+                                className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F]"
+                                value={data.birthdate}
+                                onChange={onHandleChange}
+                                required
+                                isFocused
+                                autoComplete="birthdate"
+                                onErrors={errors.birthdate && <InputError message={errors.birthdate} className='mt-2' />}
+                            />
+
+                        </div> */}
+
+                        <div>
+                            <InputLabel htmlFor="institution" value="Institution" className='text-[12px] text-[#676767] font-normal' />
+
+                            <TextInput
+                                id="institution"
+                                name="institution"
+                                type="text"
+                                className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F]"
+                                value={data.institution}
+                                onChange={onHandleChange}
+                                required
+                                isFocused
+                                autoComplete="institution"
+                                onErrors={errors.institution && <InputError message={errors.institution} className='mt-2' />}
+                            />
+
+                        </div>
+
+                        <div className='flex flex-col gap-2'>
+                            <InputLabel htmlFor="institution_path" value="Institution Card" className='text-[12px] text-[#676767] font-normal' />
+
+                            {/* <TextInput
+                                id="institution_path"
+                                name="institution_path"
+                                type="file"
+                                className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F]"
+                                onChange={(e) => setData(e.target.name, e.target.files[0])}
+                                required
+                                isFocused
+                                autoComplete="institution_path"
+                                onErrors={errors.institution_path && <InputError message={errors.institution_path} className='mt-2' />}
+                            /> */}
+
+                            <ImageUpload
+                                imagePath={data.institution_path}
+                                onChangeImage={(file, previewUrl) => {
+                                    setData("institution_path", file);
+                                    setPreview(previewUrl);
+                                }}
+                               errorMessage={errors.institution_path}
+                            />
+
+                            {/* Input Image Incoming sajalah */}
+
+                        </div>
+
+                        <div className='flex flex-col gap-2'>
+                            <InputLabel htmlFor="status" value="Status" className='text-[12px] text-[#676767] font-normal' />
+
+                            <Select
+                                defaultValue={data.status}
+                                onValueChange={(value) => setData('status', value)}
+                                className='mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F]'
+                            >
+                                <SelectTrigger>
+                                    <SelectValue>
+                                        {status_students.find((status_student) => status_student.value == data.status)
+                                            ?.label ?? 'Select a priority'}
+                                    </SelectValue>
+                                </SelectTrigger>
+                                <SelectContent>
+                                    {status_students.map((status_student, index) => (
+                                        <SelectItem key={index} value={status_student.value}>
+                                            {status_student.label}
+                                        </SelectItem>
+                                    ))}
+                                </SelectContent>
+                            </Select>
+
+                        </div>
                     </div>
-                    <div>
-                        <InputLabel htmlFor="phone_number" value="Phone Number" className='text-[12px] text-[#676767] font-normal' />
-
-                        <TextInput
-                            id="phone_number"
-                            type='text'
-                            className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F]"
-                            value={data.phone_number}
-                            onChange={(e) => setData('phone_number', e.target.value)}
-                            required
-                            isFocused
-                            autoComplete="phone_number"
-                            onErrors={errors.phone_number && <InputError message={errors.phone_number} className='mt-2' />}
-                        />
-
-                    </div>
-
-                    <div>
-                        <InputLabel htmlFor="address" value="Address" className='text-[12px] text-[#676767] font-normal' />
-
-                        <TextInput
-                            id="address"
-                            type='text'
-                            className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F]"
-                            value={data.address}
-                            onChange={(e) => setData('address', e.target.value)}
-                            required
-                            isFocused
-                            autoComplete="address"
-                            onErrors={errors.address && <InputError message={errors.address} className='mt-2' />}
-                        />
-
-                    </div>
-
-                    <div>
-                        <InputLabel htmlFor="line_id" value="Line Account" className='text-[12px] text-[#676767] font-normal' />
-
-                        <TextInput
-                            id="line_id"
-                            type='text'
-                            className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F]"
-                            value={data.line_id}
-                            onChange={(e) => setData('line_id', e.target.value)}
-                            required
-                            isFocused
-                            autoComplete="line_id"
-                            onErrors={errors.line_id && <InputError message={errors.line_id} className='mt-2' />}
-                        />
-
-                    </div>
-
-                    <div>
-                        <InputLabel htmlFor="birthdate" value="Birthdate" className='text-[12px] text-[#676767] font-normal' />
-
-                        <TextInput
-                            id="birthdate"
-                            type="date"
-                            className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F]"
-                            value={data.birthdate}
-                            onChange={(e) => setData('birthdate', e.target.value)}
-                            required
-                            isFocused
-                            autoComplete="birthdate"
-                            onErrors={errors.birthdate && <InputError message={errors.birthdate} className='mt-2' />}
-                        />
-
-                    </div>
-
-                    <div>
-                        <InputLabel htmlFor="institution" value="Institution" className='text-[12px] text-[#676767] font-normal' />
-
-                        <TextInput
-                            id="institution"
-                            type="text"
-                            className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F]"
-                            value={data.institution}
-                            onChange={(e) => setData('institution', e.target.value)}
-                            required
-                            isFocused
-                            autoComplete="institution"
-                            onErrors={errors.institution && <InputError message={errors.institution} className='mt-2' />}
-                        />
-
-                    </div>
-
-                    <div>
-                        <InputLabel htmlFor="institution_path" value="Institution Card" className='text-[12px] text-[#676767] font-normal' />
-
-                        <TextInput
-                            id="institution_path"
-                            type="file"
-                            className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F]"
-                            value={data.institution_path}
-                            onChange={(e) => setData('institution_path', e.target.value)}
-                            required
-                            isFocused
-                            autoComplete="institution_path"
-                            onErrors={errors.institution_path && <InputError message={errors.institution_path} className='mt-2' />}
-                        />
-
-                        {/* Input Image Incoming sajalah */}
-
-                    </div>
-
-                    <div className='flex flex-col gap-2'>
-                        <InputLabel htmlFor="status" value="Status" className='text-[12px] text-[#676767] font-normal' />
-
-                        {/* <TextInput
-                            id="status"
-                            className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F]"
-                            value={data.status}
-                            onChange={(e) => setData('status', e.target.value)}
-                            required
-                            isFocused
-                            autoComplete="status"
-                            onErrors={errors.status && <InputError message={errors.status} className='mt-2' />}
-                        /> */}
-
-                        <Select
-                            defaultValue={data.status}
-                            onValueChange={(value) => setData('status', value)}
-                            className='mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F]'
-                        >
-                            <SelectTrigger>
-                                <SelectValue>
-                                    {status_students.find((status_student) => status_student.value == data.status)
-                                        ?.label ?? 'Select a priority'}
-                                </SelectValue>
-                            </SelectTrigger>
-                            <SelectContent>
-                                {status_students.map((status_student, index) => (
-                                    <SelectItem key={index} value={status_student.value}>
-                                        {status_student.label}
-                                    </SelectItem>
-                                ))}
-                            </SelectContent>
-                        </Select>
-
-                    </div>
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-4 mt-10">
                         <Button variant="blue" disabled={processing}>Save</Button>
 
                         <Transition
@@ -242,6 +288,10 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, stat
                         <p>{data.name}</p>
                     </div>
                     <div>
+                        <InputLabel htmlFor="email" value="Email" className='text-[12px] text-[#676767] font-normal' />
+                        <p>{data.email}</p>
+                    </div>
+                    <div>
                         <InputLabel htmlFor="phone_number" value="Phone Number" className='text-[12px] text-[#676767] font-normal' />
                         <p>{data.phone_number ? data.phone_number : '-'}</p>
                     </div>
@@ -253,10 +303,10 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, stat
                         <InputLabel htmlFor="line_id" value="Line ID" className='text-[12px] text-[#676767] font-normal' />
                         <p>{data.line_id ? data.line_id : '-'}</p>
                     </div>
-                    <div>
+                    {/* <div>
                         <InputLabel htmlFor="birthdate" value="Birthdate" className='text-[12px] text-[#676767] font-normal' />
                         <p>{data.birthdate ? data.birthdate : '-'}</p>
-                    </div>
+                    </div> */}
                     <div>
                         <InputLabel htmlFor="institution" value="Institution" className='text-[12px] text-[#676767] font-normal' />
                         <p>{data.institution ? data.institution : '-'}</p>
@@ -271,13 +321,13 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, stat
                                 <DialogTitle>
                                     Institution Card
                                 </DialogTitle>
-                                <img src={data.institution_path ? data.institution_path : 'assets/images/default_image_profile.png'} className="w-full" alt="" />
+                                <img src={data.institution_path ? data.institution_path : 'assets/images/default_image_profile.png'} className="h-64 w-auto" alt="" />
                             </DialogContent>
                         </Dialog>
                     </div>
                     <div>
-                        <InputLabel htmlFor="institution" value="Institution" className='text-[12px] text-[#676767] font-normal' />
-                        <p>{data.institution ? data.institution : '-'}</p>
+                        <InputLabel htmlFor="status" value="Status" className='text-[12px] text-[#676767] font-normal' />
+                        <p>{data.status ? data.status : '-'}</p>
                     </div>
                 </div>
             )}

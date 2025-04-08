@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class UserSingleResource extends JsonResource
@@ -22,7 +23,7 @@ class UserSingleResource extends JsonResource
             'line_id' => $this->line_id,
             'phone_number' => $this->phone_number,
             'institution' => $this->institution,
-            'institution_path' => $this->institution_path,
+            'institution_path' => Storage::url($this->institution_path),
             'address' => $this->address,
         ];
     }

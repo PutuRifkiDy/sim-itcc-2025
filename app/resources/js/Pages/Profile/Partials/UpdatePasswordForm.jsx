@@ -13,7 +13,6 @@ export default function UpdatePasswordForm({ className = '' }) {
     const user = usePage().props.auth.user;
 
     const { data, setData, errors, put, reset, processing, recentlySuccessful } = useForm({
-        email: user.email,
         current_password: '',
         password: '',
         password_confirmation: '',
@@ -51,8 +50,8 @@ export default function UpdatePasswordForm({ className = '' }) {
 
             <form onSubmit={updatePassword} className="mt-6 flex flex-row justify-between gap-5">
 
-                <div className='flex flex-col gap-16 w-full'>
-                    <div>
+                <div className='flex flex-col justify-end w-full'>
+                    {/* <div>
                         <InputLabel htmlFor="email" value="Email" className='text-[12px] text-[#676767] font-normal' />
 
                         <TextInput
@@ -66,7 +65,7 @@ export default function UpdatePasswordForm({ className = '' }) {
                             autoComplete="username"
                             onErrors={errors.email && <InputError message={errors.email} className='mt-2' />}
                         />
-                    </div>
+                    </div> */}
 
                     <DeleteUserForm />
 

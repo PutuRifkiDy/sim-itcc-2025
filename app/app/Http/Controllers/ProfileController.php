@@ -1,9 +1,9 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Enums\UserStatus;
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Traits\HasFile;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -14,6 +14,7 @@ use Inertia\Response;
 
 class ProfileController extends Controller
 {
+    use HasFile;
     /**
      * Display the user's profile form.
      */
@@ -21,7 +22,7 @@ class ProfileController extends Controller
     {
         return Inertia::render('Profile/Edit', [
             'mustVerifyEmail' => $request->user() instanceof MustVerifyEmail,
-            'status' => session('status'),
+            'status'          => session('status'),
             'status_students' => UserStatus::options(),
         ]);
     }
@@ -31,13 +32,28 @@ class ProfileController extends Controller
      */
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
-        $request->user()->fill($request->validated());
+        $user = $request->user();
 
-        if ($request->user()->isDirty('email')) {
-            $request->user()->email_verified_at = null;
+        // ambil data validasi profile
+        $user->fill($request->validated());
+
+        // Mengupdate file kalo ada
+        $institutionPath = $this->update_file($request, $user, 'institution_path', 'institutions');
+
+        // Jika ada file baru, update kolom institution_path
+        if ($institutionPath) {
+            $user->institution_path = $institutionPath;
         }
 
-        $request->user()->save();
+        if ($user->isDirty('email')) {
+            $user->email_verified_at = null;
+        }
+
+        if ($user->save()) {
+            flashMessage('Your profile has been updated.', 'success');
+        } else {
+            flashMessage('Your profile could not be updated.', 'danger');
+        }
 
         return Redirect::route('profile.edit');
     }
