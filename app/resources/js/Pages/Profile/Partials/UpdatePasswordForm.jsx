@@ -1,15 +1,19 @@
 import InputError from '@/Components/InputError';
 import InputLabel from '@/Components/InputLabel';
 import TextInput from '@/Components/TextInput';
+import { Button } from '@/Components/ui/button';
 import { Transition } from '@headlessui/react';
-import { useForm } from '@inertiajs/react';
-import { useRef } from 'react';
+import { useForm, usePage } from '@inertiajs/react';
+import { use, useRef } from 'react';
+import DeleteUserForm from './DeleteUserForm';
 
 export default function UpdatePasswordForm({ className = '' }) {
     const passwordInput = useRef();
     const currentPasswordInput = useRef();
+    const user = usePage().props.auth.user;
 
     const { data, setData, errors, put, reset, processing, recentlySuccessful } = useForm({
+        email: user.email,
         current_password: '',
         password: '',
         password_confirmation: '',
@@ -38,111 +42,102 @@ export default function UpdatePasswordForm({ className = '' }) {
     return (
         <section className={className}>
             <header>
-                <h2 className="text-lg font-medium text-gray-900">Update Password</h2>
+                <h2 className="text-lg font-medium text-gray-900">Account Setting</h2>
 
                 <p className="mt-1 text-sm text-gray-600">
                     Ensure your account is using a long, random password to stay secure.
                 </p>
             </header>
 
-            <form onSubmit={updatePassword} className="mt-6 space-y-6">
-                <div>
-                    <InputLabel htmlFor="email" value="Email" />
+            <form onSubmit={updatePassword} className="mt-6 flex flex-row justify-between gap-5">
 
-                    <TextInput
-                        id="email"
-                        type="email"
-                        className="mt-1 block w-full"
-                        value={data.email}
-                        onChange={(e) => setData('email', e.target.value)}
-                        required
-                        autoComplete="username"
-                    />
-
-                    <InputError className="mt-2" message={errors.email} />
-                </div>
-
-                {mustVerifyEmail && user.email_verified_at === null && (
+                <div className='flex flex-col gap-16 w-full'>
                     <div>
-                        <p className="mt-2 text-sm text-gray-800">
-                            Your email address is unverified.
-                            <Link
-                                href={route('verification.send')}
-                                method="post"
-                                as="button"
-                                className="rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                            >
-                                Click here to re-send the verification email.
-                            </Link>
-                        </p>
+                        <InputLabel htmlFor="email" value="Email" className='text-[12px] text-[#676767] font-normal' />
 
-                        {status === 'verification-link-sent' && (
-                            <div className="mt-2 text-sm font-medium text-green-600">
-                                A new verification link has been sent to your email address.
-                            </div>
-                        )}
+                        <TextInput
+                            id="email"
+                            type="email"
+                            className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F]"
+                            value={data.email}
+                            onChange={(e) => setData('email', e.target.value)}
+                            required
+                            isFocused
+                            autoComplete="username"
+                            onErrors={errors.email && <InputError message={errors.email} className='mt-2' />}
+                        />
                     </div>
-                )}
-                <div>
-                    <InputLabel htmlFor="current_password" value="Current Password" />
 
-                    <TextInput
-                        id="current_password"
-                        ref={currentPasswordInput}
-                        value={data.current_password}
-                        onChange={(e) => setData('current_password', e.target.value)}
-                        type="password"
-                        className="mt-1 block w-full"
-                        autoComplete="current-password"
-                    />
+                    <DeleteUserForm />
 
-                    <InputError message={errors.current_password} className="mt-2" />
                 </div>
 
-                <div>
-                    <InputLabel htmlFor="password" value="New Password" />
 
-                    <TextInput
-                        id="password"
-                        ref={passwordInput}
-                        value={data.password}
-                        onChange={(e) => setData('password', e.target.value)}
-                        type="password"
-                        className="mt-1 block w-full"
-                        autoComplete="new-password"
-                    />
+                <div className='w-full flex flex-col gap-5'>
+                    <div>
+                        <InputLabel htmlFor="current_password" value="Current Password" className='text-[12px] text-[#676767] font-normal' />
 
-                    <InputError message={errors.password} className="mt-2" />
+                        <TextInput
+                            id="current_password"
+                            ref={currentPasswordInput}
+                            value={data.current_password}
+                            onChange={(e) => setData('current_password', e.target.value)}
+                            type="password"
+                            className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F]"
+                            isFocused
+                            autoComplete="current-password"
+                            onErrors={errors.current_password && <InputError message={errors.current_password} className='mt-2' />}
+                        />
+
+                    </div>
+
+                    <div>
+                        <InputLabel htmlFor="password" value="New Password" className='text-[12px] text-[#676767] font-normal' />
+
+                        <TextInput
+                            id="password"
+                            ref={passwordInput}
+                            value={data.password}
+                            onChange={(e) => setData('password', e.target.value)}
+                            type="password"
+                            className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F]"
+                            isFocused
+                            autoComplete="new-password"
+                            onErrors={errors.password && <InputError message={errors.password} className='mt-2' />}
+                        />
+
+                    </div>
+
+                    <div>
+                        <InputLabel htmlFor="password_confirmation" value="Confirm Password" className='text-[12px] text-[#676767] font-normal' />
+
+                        <TextInput
+                            id="password_confirmation"
+                            value={data.password_confirmation}
+                            onChange={(e) => setData('password_confirmation', e.target.value)}
+                            type="password"
+                            className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F]"
+                            isFocused
+                            autoComplete="new-password"
+                            onErrors={errors.password_confirmation && <InputError message={errors.password_confirmation} className='mt-2' />}
+                        />
+
+                    </div>
+                    <div className="flex items-center gap-4">
+                        <Button variant="blue" disabled={processing}>Save</Button>
+
+                        <Transition
+                            show={recentlySuccessful}
+                            enter="transition ease-in-out"
+                            enterFrom="opacity-0"
+                            leave="transition ease-in-out"
+                            leaveTo="opacity-0"
+                        >
+                            <p className="text-sm text-gray-600">Saved.</p>
+                        </Transition>
+                    </div>
                 </div>
 
-                <div>
-                    <InputLabel htmlFor="password_confirmation" value="Confirm Password" />
-
-                    <TextInput
-                        id="password_confirmation"
-                        value={data.password_confirmation}
-                        onChange={(e) => setData('password_confirmation', e.target.value)}
-                        type="password"
-                        className="mt-1 block w-full"
-                        autoComplete="new-password"
-                    />
-
-                    <InputError message={errors.password_confirmation} className="mt-2" />
-                </div>
-
-                <div className="flex items-center gap-4">
-                    <PrimaryButton disabled={processing}>Save</PrimaryButton>
-
-                    <Transition
-                        show={recentlySuccessful}
-                        enter="transition ease-in-out"
-                        enterFrom="opacity-0"
-                        leave="transition ease-in-out"
-                        leaveTo="opacity-0"
-                    >
-                        <p className="text-sm text-gray-600">Saved.</p>
-                    </Transition>
-                </div>
             </form>
         </section>
     );

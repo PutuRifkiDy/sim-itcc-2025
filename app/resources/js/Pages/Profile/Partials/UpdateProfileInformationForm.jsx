@@ -13,6 +13,7 @@ import {
     DialogTitle,
     DialogTrigger,
 } from "@/components/ui/dialog"
+import { Transition } from '@headlessui/react';
 
 export default function UpdateProfileInformation({ mustVerifyEmail, status, className = '' }) {
     const user = usePage().props.auth.user;
@@ -186,17 +187,17 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
 
                     </div>
                     <div className="flex items-center gap-4">
-                        {/* <PrimaryButton disabled={processing}>Save</PrimaryButton>
+                        <Button variant="blue" disabled={processing}>Save</Button>
 
-                    <Transition
-                        show={recentlySuccessful}
-                        enter="transition ease-in-out"
-                        enterFrom="opacity-0"
-                        leave="transition ease-in-out"
-                        leaveTo="opacity-0"
-                    >
-                        <p className="text-sm text-gray-600">Saved.</p>
-                    </Transition> */}
+                        <Transition
+                            show={recentlySuccessful}
+                            enter="transition ease-in-out"
+                            enterFrom="opacity-0"
+                            leave="transition ease-in-out"
+                            leaveTo="opacity-0"
+                        >
+                            <p className="text-sm text-gray-600">Saved.</p>
+                        </Transition>
                     </div>
                 </form>
             )}
@@ -234,6 +235,9 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
                                 <IconPreviewImageProfile />
                             </DialogTrigger>
                             <DialogContent>
+                                <DialogTitle>
+                                    Institution Card
+                                </DialogTitle>
                                 <img src={data.institution_path ? data.institution_path : 'assets/images/default_image_profile.png'} className="w-full" alt="" />
                             </DialogContent>
                         </Dialog>
