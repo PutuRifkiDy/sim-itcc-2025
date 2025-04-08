@@ -14,8 +14,9 @@ import {
     DialogTrigger,
 } from "@/components/ui/dialog"
 import { Transition } from '@headlessui/react';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/Components/ui/select';
 
-export default function UpdateProfileInformation({ mustVerifyEmail, status, className = '' }) {
+export default function UpdateProfileInformation({ mustVerifyEmail, status, status_students, className = '' }) {
     const user = usePage().props.auth.user;
     const [updateProfileInformation, setUpdateProfileInformation] = useState(false);
 
@@ -167,14 +168,26 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
                     <div>
                         <InputLabel htmlFor="institution_path" value="Institution Card" className='text-[12px] text-[#676767] font-normal' />
 
+                        <TextInput
+                            id="institution_path"
+                            type="file"
+                            className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F]"
+                            value={data.institution_path}
+                            onChange={(e) => setData('institution_path', e.target.value)}
+                            required
+                            isFocused
+                            autoComplete="institution_path"
+                            onErrors={errors.institution_path && <InputError message={errors.institution_path} className='mt-2' />}
+                        />
+
                         {/* Input Image Incoming sajalah */}
 
                     </div>
 
-                    <div>
+                    <div className='flex flex-col gap-2'>
                         <InputLabel htmlFor="status" value="Status" className='text-[12px] text-[#676767] font-normal' />
 
-                        <TextInput
+                        {/* <TextInput
                             id="status"
                             className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F]"
                             value={data.status}
@@ -183,7 +196,27 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
                             isFocused
                             autoComplete="status"
                             onErrors={errors.status && <InputError message={errors.status} className='mt-2' />}
-                        />
+                        /> */}
+
+                        <Select
+                            defaultValue={data.status}
+                            onValueChange={(value) => setData('status', value)}
+                            className='mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F]'
+                        >
+                            <SelectTrigger>
+                                <SelectValue>
+                                    {status_students.find((status_student) => status_student.value == data.status)
+                                        ?.label ?? 'Select a priority'}
+                                </SelectValue>
+                            </SelectTrigger>
+                            <SelectContent>
+                                {status_students.map((status_student, index) => (
+                                    <SelectItem key={index} value={status_student.value}>
+                                        {status_student.label}
+                                    </SelectItem>
+                                ))}
+                            </SelectContent>
+                        </Select>
 
                     </div>
                     <div className="flex items-center gap-4">

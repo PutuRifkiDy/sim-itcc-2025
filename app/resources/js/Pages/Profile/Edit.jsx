@@ -4,7 +4,7 @@ import DeleteUserForm from './Partials/DeleteUserForm';
 import UpdatePasswordForm from './Partials/UpdatePasswordForm';
 import UpdateProfileInformationForm from './Partials/UpdateProfileInformationForm';
 
-export default function Edit({ mustVerifyEmail, status }) {
+export default function Edit({ mustVerifyEmail, status, status_students }) {
     return (
         <>
             <div className="py-5">
@@ -13,7 +13,8 @@ export default function Edit({ mustVerifyEmail, status }) {
                         <UpdateProfileInformationForm
                             mustVerifyEmail={mustVerifyEmail}
                             status={status}
-                            className="w-full"
+                            status_students={status_students}
+                            className="w-fu ll"
                         />
                     </div>
 
