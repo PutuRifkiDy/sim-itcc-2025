@@ -1,8 +1,9 @@
 <?php
-
 namespace App\Http\Middleware;
 
+use App\Http\Resources\NavbarResource;
 use App\Http\Resources\UserSingleResource;
+use App\Models\Competitions;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
 use Tighten\Ziggy\Ziggy;
@@ -32,16 +33,21 @@ class HandleInertiaRequests extends Middleware
     public function share(Request $request): array
     {
         return [
-            ...parent::share($request),
-            'auth' => [
+             ...parent::share($request),
+            'auth'          => [
                 'user' => fn() => $request->user() ? new UserSingleResource($request->user()) : null,
             ],
             'flash_message' => fn() => [
-                'type' => $request->session()->get('type'),
+                'type'    => $request->session()->get('type'),
                 'message' => $request->session()->get('message'),
             ],
-            'ziggy' => fn () => [
-                ...(new Ziggy)->toArray(),
+
+            'competitions'  => fn()  => $request->user() ? NavbarResource::collection(
+                Competitions::get()
+            ) : null,
+
+            'ziggy'         => fn()         => [
+                 ...(new Ziggy)->toArray(),
                 'location' => $request->url(),
             ],
         ];
