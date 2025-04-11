@@ -55,6 +55,19 @@ function Competitions({ ...props }) {
                         ))}
                     </div>
                 ))}
+
+                {competitions.competition_content.map((content, idx) => (
+                    <div key={idx} className="mt-10 grid md:grid-cols-3 grid-cols-1 justify-center items-center gap-24">
+                        {content.competition_content_contact.map((contact, i) => (
+                            <div className="flex flex-col bg-red-500" key={i}>
+                                {contact.name ?? ''}
+                                {contact.id_line ?? ''}
+                                {contact.wa_number ?? ''}
+                            </div>
+                        ))}
+                    </div>
+                ))}
+                
             </div>
         </>
     );
