@@ -5,11 +5,12 @@ import Navbar from './Partials/Navbar';
 export default function GuestLayout({ children, title }) {
     const auth = usePage().props.auth.user;
     const competitions = usePage().props.competitions;
+    const events = usePage().props.events;
 
     return (
         <>
             <Head title={title} />
-            <Navbar auth={auth} competitions={competitions}/>
+            <Navbar auth={auth} competitions={competitions} events={events} />
                 {children}
             <Footer />
         </>

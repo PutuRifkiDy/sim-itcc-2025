@@ -12,7 +12,7 @@ import {
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 
-export default function NavBar({ auth, competitions }) {
+export default function NavBar({ auth, competitions, events }) {
     const [openNav, setOpenNav] = useState(false);
     const [scrolled, setScrolled] = useState(false);
 
@@ -43,7 +43,7 @@ export default function NavBar({ auth, competitions }) {
             {/* link untuk ngarah ke page lain */}
             <div className="flex flex-row gap-10 justify-center items-center">
                 <Link
-                    href="#"
+                    href={route('welcome')}
                 >
                     Home
                 </Link>
@@ -68,11 +68,19 @@ export default function NavBar({ auth, competitions }) {
                             ))}
                     </DropdownMenuContent>
                 </DropdownMenu>
+
                 <Link
-                    href="#"
+                    href={route('event.front.show', ['seminar-nasional-teknologi-informasi-of'])}
+                    className="truncate"
                 >
                     Semnas
                 </Link>
+
+                {/* <Link
+                    href={route('event.front.show', [events.slug])}
+                >
+                    Semnas
+                </Link> */}
                 <Link
                     href="#"
                 >
@@ -90,7 +98,7 @@ export default function NavBar({ auth, competitions }) {
                     <DropdownMenu>
                         <DropdownMenuTrigger asChild>
                             <p className='cursor-pointer flex flex-row gap-2 justify-center items-center'>
-                            <UserCircleIcon class="h-6 w-6 text-gray-500" />
+                                <UserCircleIcon class="h-6 w-6 text-gray-500" />
                             </p>
                         </DropdownMenuTrigger>
                         <DropdownMenuContent className="w-56 flex flex-col justify-start px-4 gap-3 py-3 outline-none" >
