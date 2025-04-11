@@ -1,6 +1,6 @@
 import { Link } from "@inertiajs/react";
 import DarkMode from "@/Components/DarkMode";
-import { ChevronDownIcon, UserCircleIcon, Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
+import { ChevronDownIcon, UserCircleIcon, Bars3Icon, XMarkIcon, ArrowRightStartOnRectangleIcon, Squares2X2Icon } from "@heroicons/react/24/solid";
 import { useState, useEffect } from "react";
 import { Button } from "@/Components/ui/button";
 import {
@@ -82,7 +82,7 @@ export default function NavBar({ auth, competitions, events }) {
                     Semnas
                 </Link> */}
                 <Link
-                    href="#"
+                    href={route('merchandise.front.show')}
                 >
                     Merchandise
                 </Link>
@@ -98,18 +98,22 @@ export default function NavBar({ auth, competitions, events }) {
                     <DropdownMenu>
                         <DropdownMenuTrigger asChild>
                             <p className='cursor-pointer flex flex-row gap-2 justify-center items-center'>
-                                <UserCircleIcon class="h-6 w-6 text-gray-500" />
+                                <UserCircleIcon class="h-8 w-8 text-gray-500" />
                             </p>
                         </DropdownMenuTrigger>
-                        <DropdownMenuContent className="w-56 flex flex-col justify-start px-4 gap-3 py-3 outline-none" >
+                        <DropdownMenuContent className="w-56 flex flex-col justify-start px-4 gap-4 py-3 outline-none mr-12" >
                             <Link
                                 href={route('dashboard')}
+                                className="flex flex-row items-center gap-2"
                             >
-                                <UserCircleIcon class="h-6 w-6 text-gray-500" />
+                                <Squares2X2Icon class="h-6 w-6 text-gray-500" />
+                                Dashboard
                             </Link>
                             <Link
                                 href={route('logout')}
+                                className="text-red-500 flex flex-row items-center gap-2"
                             >
+                                <ArrowRightStartOnRectangleIcon class="h-6 w-6 text-red-500" />
                                 Logout
                             </Link>
                         </DropdownMenuContent>
