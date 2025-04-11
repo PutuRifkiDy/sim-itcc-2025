@@ -22,6 +22,7 @@ Route::get('/dashboard', function () {
 Route::controller(FrontController::class)->group(function(){
     Route::get('competitions/{competition:slug}', 'show_competitions')->name('competition.front.show');
     Route::get('events/{event:slug}', 'show_events')->name('event.front.show');
+    Route::get('merchandise', 'show_merchandise')->name('merchandise.front.show');
 });
 
 Route::middleware('auth')->group(function () {

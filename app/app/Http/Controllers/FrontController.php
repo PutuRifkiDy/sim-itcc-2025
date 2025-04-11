@@ -1,14 +1,12 @@
 <?php
-
 namespace App\Http\Controllers;
 
-use App\Http\Resources\CompetitionCategoryResource;
 use App\Http\Resources\CompetitionResource;
 use App\Http\Resources\EventResource;
-use App\Models\CompetitionCategory;
+use App\Http\Resources\MerchandiseResource;
 use App\Models\Competitions;
 use App\Models\Events;
-use Illuminate\Http\Request;
+use App\Models\Merchandise;
 use Inertia\Response;
 
 class FrontController extends Controller
@@ -22,7 +20,7 @@ class FrontController extends Controller
                 'competition_content_prizes',
                 'competition_content_timeline',
                 'competition_content_faq',
-                'competition_content_contact'
+                'competition_content_contact',
             ]),
         ])->where('slug', $slug)->firstOrFail();
 
@@ -38,12 +36,20 @@ class FrontController extends Controller
             'event_content' => fn($q) => $q->with([
                 'event_content_timeline',
                 'event_content_faq',
-                'event_content_contact'
+                'event_content_contact',
             ]),
         ])->where('slug', $slug)->firstOrFail();
 
         return inertia(component: 'Semnas/Front/Semnas', props: [
             'event' => fn() => new EventResource($event),
+        ]);
+    }
+
+    public function show_merchandise(): Response
+    {
+        $merchandise = Merchandise::select('name', 'slug', 'price', 'image_path', 'description', 'batch_name', 'start_date', 'end_date')->get();
+        return inertia(component: 'Merchandise', props: [
+            'merchandise' => MerchandiseResource::collection($merchandise),
         ]);
     }
 }
