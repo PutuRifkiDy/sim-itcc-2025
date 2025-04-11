@@ -12,7 +12,11 @@ class CompetitionCategory extends Model
 {
     use HasFactory;
 
-    protected $guarded = [];
+    protected $fillable = [
+        'id',
+        'category_name'
+    ];
+
 
     public function competitions(): HasMany
     {

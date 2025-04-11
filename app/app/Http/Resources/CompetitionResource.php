@@ -4,6 +4,8 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use App\Http\Resources\CompetitionContentResource;
+use App\Http\Resources\CompetitionCategoryResource;
 
 class CompetitionResource extends JsonResource
 {
@@ -24,6 +26,9 @@ class CompetitionResource extends JsonResource
             'is_team' => $this->is_team,
             'is_need_submission' => $this->is_need_submission,
             'is_open_regis' => $this->is_open_regis,
+            'competition_content' => CompetitionContentResource::collection($this->competition_content),
+            'competition_category' => new CompetitionCategoryResource($this->competition_category),
+            'competition_prices' => CompetitionPriceResource::collection($this->competition_prices),
         ];
     }
 }

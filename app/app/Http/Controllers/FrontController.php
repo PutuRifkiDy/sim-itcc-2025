@@ -2,21 +2,33 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\CompetitionCategoryResource;
 use App\Http\Resources\CompetitionResource;
+use App\Models\CompetitionCategory;
 use App\Models\Competitions;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 use Inertia\Response;
 
 class FrontController extends Controller
 {
-    public function show_competition(Competitions $competition): Response
+    public function show_competition(string $slug): Response
     {
-        return inertia(component: 'Competition/Front/Competitions', props: [
-            'competitions' => fn() => CompetitionResource::colection($competition->load([
-                'competition_categories', 'competition_prices',
-                'competition_prize',
-                'competition_content', 'competition_registrations', 'teams'
-            ]))
+        $competition = Competitions::with([
+            'competition_category',
+            'competition_prices',
+            'competition_content' => fn($q) => $q->with([
+                'competition_content_prizes',
+                'competition_content_timeline',
+                'competition_content_faq',
+                'competition_content_contact'
+            ]),
+            'competition_registrations',
+            'teams',
+        ])->where('slug', $slug)->firstOrFail();
+
+        return Inertia::render('Competition/Front/Competitions', [
+            'competition' => fn() => new CompetitionResource($competition),
         ]);
     }
 }

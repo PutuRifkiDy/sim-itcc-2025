@@ -28,6 +28,7 @@ class CompetitionRegistrations extends Model
         'reject_reason',
     ];
 
+
     protected function casts(): array
     {
         return [

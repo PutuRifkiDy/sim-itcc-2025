@@ -42,9 +42,9 @@ class HandleInertiaRequests extends Middleware
                 'message' => $request->session()->get('message'),
             ],
 
-            'competitions'  => fn()  => $request->user() ? NavbarResource::collection(
+            'competitions'  => fn()  =>  NavbarResource::collection(
                 Competitions::get()
-            ) : null,
+            ),
 
             'ziggy'         => fn()         => [
                  ...(new Ziggy)->toArray(),

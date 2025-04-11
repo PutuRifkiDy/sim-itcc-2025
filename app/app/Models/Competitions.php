@@ -27,28 +27,30 @@ class Competitions extends Model
         'competition_category_id',
     ];
 
-    public function competition_categories(): BelongsTo
+    protected $table = 'competitions';
+
+    public function competition_category(): BelongsTo
     {
-        return $this->belongsTo(CompetitionCategory::class);
+        return $this->belongsTo(CompetitionCategory::class, 'competition_category_id', 'id');
     }
 
     public function competition_prices(): HasMany
     {
-        return $this->hasMany(CompetitionPrices::class);
+        return $this->hasMany(CompetitionPrices::class, 'competition_id', 'id');
     }
 
     public function competition_content(): HasMany
     {
-        return $this->hasMany(CompetitionContent::class);
+        return $this->hasMany(CompetitionContent::class, 'competition_id', 'id');
     }
 
     public function competition_registrations(): HasMany
     {
-        return $this->hasMany(CompetitionRegistrations::class);
+        return $this->hasMany(CompetitionRegistrations::class, 'competition_id', 'id');
     }
 
     public function teams(): HasMany
     {
-        return $this->hasMany(Teams::class);
+        return $this->hasMany(Teams::class, 'competition_id', 'id');
     }
 }
