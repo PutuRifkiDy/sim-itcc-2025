@@ -25,16 +25,16 @@ class Events extends Model
 
     public function event_prices(): HasMany
     {
-        return $this->hasMany(EventPrices::class);
+        return $this->hasMany(EventPrices::class, 'event_id', 'id');
     }
 
     public function event_registrations(): HasMany
     {
-        return $this->hasMany(EventRegistrations::class);
+        return $this->hasMany(EventRegistrations::class, 'event_id', 'id');
     }
 
     public function event_content(): HasMany
     {
-        return $this->hasMany(EventContent::class);
+        return $this->hasMany(EventContent::class, 'event_id', 'id');
     }
 }

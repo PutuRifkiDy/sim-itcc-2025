@@ -28,16 +28,16 @@ class EventContent extends Model
 
     public function event_content_timeline(): HasMany
     {
-        return $this->hasMany(EventContentTimeline::class);
+        return $this->hasMany(EventContentTimeline::class, 'event_content_id', 'id');
     }
 
     public function event_content_faq(): HasMany
     {
-        return $this->hasMany(EventContentFaq::class);
+        return $this->hasMany(EventContentFaq::class, 'event_content_id', 'id');
     }
 
-    public function event_content_contact_person(): HasMany
+    public function event_content_contact(): HasMany
     {
-        return $this->hasMany(EventContentContactPerson::class);
+        return $this->hasMany(EventContentContactPerson::class, 'event_content_id', 'id');
     }
 }
