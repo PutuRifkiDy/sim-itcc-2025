@@ -1,7 +1,6 @@
 import { Link } from "@inertiajs/react";
 import DarkMode from "@/Components/DarkMode";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
-import { ChevronDownIcon } from "@heroicons/react/24/solid";
+import { ChevronDownIcon, UserCircleIcon, Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import { useState, useEffect } from "react";
 import { Button } from "@/Components/ui/button";
 import {
@@ -43,6 +42,11 @@ export default function NavBar({ auth, competitions }) {
 
             {/* link untuk ngarah ke page lain */}
             <div className="flex flex-row gap-10 justify-center items-center">
+                <Link
+                    href="#"
+                >
+                    Home
+                </Link>
                 <DropdownMenu>
                     <DropdownMenuTrigger asChild>
                         <p className='cursor-pointer flex flex-row gap-2 justify-center items-center'>
@@ -54,25 +58,20 @@ export default function NavBar({ auth, competitions }) {
                         {competitions
                             .filter((competition) => competition.is_open_regis == true)
                             .map((competition) => (
-                            <Link
-                                key={competition.id}
-                                href={route('competition.front.show', [competition.slug])}
-                                className="truncate"
-                            >
-                                {competition.name}
-                            </Link>
-                        ))}
+                                <Link
+                                    key={competition.id}
+                                    href={route('competition.front.show', [competition.slug])}
+                                    className="truncate"
+                                >
+                                    {competition.name}
+                                </Link>
+                            ))}
                     </DropdownMenuContent>
                 </DropdownMenu>
                 <Link
                     href="#"
                 >
                     Semnas
-                </Link>
-                <Link
-                    href="#"
-                >
-                    P'cozzy
                 </Link>
                 <Link
                     href="#"
@@ -88,11 +87,25 @@ export default function NavBar({ auth, competitions }) {
                     {/* darkmode */}
                 </div>
                 {auth ? (
-                    <Link
-                        href={route('dashboard')}
-                    >
-                        {auth.name}
-                    </Link>
+                    <DropdownMenu>
+                        <DropdownMenuTrigger asChild>
+                            <p className='cursor-pointer flex flex-row gap-2 justify-center items-center'>
+                            <UserCircleIcon class="h-6 w-6 text-gray-500" />
+                            </p>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent className="w-56 flex flex-col justify-start px-4 gap-3 py-3 outline-none" >
+                            <Link
+                                href={route('dashboard')}
+                            >
+                                <UserCircleIcon class="h-6 w-6 text-gray-500" />
+                            </Link>
+                            <Link
+                                href={route('logout')}
+                            >
+                                Logout
+                            </Link>
+                        </DropdownMenuContent>
+                    </DropdownMenu>
                 ) : (
                     <Button asChild variant="blue">
                         <Link

@@ -24,9 +24,9 @@ export default function Register() {
 
     return (
         <>
-            <div className="flex flex-row items-center justify-center">
+            <div className="flex flex-row items-center justify-center mt-24">
                 <div className="min-h-full min-w-full">
-                    <div className="flex flex-row rounded-[28px] border-[3px] border-[#E6E6E6] p-5 shadow md:mx-36">
+                    <div className="flex flex-row rounded-[28px] border-[1px] shadow p-5 md:mx-36">
                         <div className="w-full">
                             <Card className="border-none shadow-none">
                                 <CardHeader className="flex flex-col items-center justify-center">
