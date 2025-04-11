@@ -1,6 +1,6 @@
 import { Link } from "@inertiajs/react";
 import DarkMode from "@/Components/DarkMode";
-import { ChevronDownIcon, UserCircleIcon, Bars3Icon, XMarkIcon, ArrowRightStartOnRectangleIcon, Squares2X2Icon } from "@heroicons/react/24/solid";
+import { ChevronDownIcon, UserCircleIcon, Bars3Icon, XMarkIcon, ArrowRightStartOnRectangleIcon, Squares2X2Icon, Bars3BottomLeftIcon, SunIcon } from "@heroicons/react/24/solid";
 import { useState, useEffect } from "react";
 import { Button } from "@/Components/ui/button";
 import {
@@ -12,13 +12,9 @@ import {
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 
-export default function NavBar({ auth, competitions, events }) {
+export default function NavBar({ auth, competitions }) {
     const [openNav, setOpenNav] = useState(false);
     const [scrolled, setScrolled] = useState(false);
-
-    function toggleNav() {
-        setOpenNav(!openNav);
-    }
 
     useEffect(() => {
         window.addEventListener("scroll", () => {
@@ -32,102 +28,197 @@ export default function NavBar({ auth, competitions, events }) {
     }, [scrolled]);
 
     return (
-        <nav className="flex flex-row justify-between py-5 px-12 border-b-[1px] fixed top-0 left-0 w-full z-50 shadow">
-            {/* logo */}
-            <div>
-                <h1 className="text-4xl">
-                    Logo
-                </h1>
-            </div>
+        <>
+            <nav className="md:flex hidden flex-row justify-between py-5 px-12 border-b-[1px] fixed top-0 left-0 w-full z-50 shadow">
+                {/* logo */}
+                <div>
+                    <h1 className="text-4xl">
+                        Logo
+                    </h1>
+                </div>
 
-            {/* link untuk ngarah ke page lain */}
-            <div className="flex flex-row gap-10 justify-center items-center">
-                <Link
-                    href={route('welcome')}
-                >
-                    Home
-                </Link>
-                <DropdownMenu>
-                    <DropdownMenuTrigger asChild>
-                        <p className='cursor-pointer flex flex-row gap-2 justify-center items-center'>
-                            Competitions
-                            <ChevronDownIcon className="font-bold h-4 w-4" />
-                        </p>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent className="w-56 flex flex-col justify-start px-4 gap-3 py-3 outline-none" >
-                        {competitions
-                            .filter((competition) => competition.is_open_regis == true)
-                            .map((competition) => (
-                                <Link
-                                    key={competition.id}
-                                    href={route('competition.front.show', [competition.slug])}
-                                    className="truncate"
-                                >
-                                    {competition.name}
-                                </Link>
-                            ))}
-                    </DropdownMenuContent>
-                </DropdownMenu>
+                {/* link untuk ngarah ke page lain */}
+                <div className="flex flex-row gap-10 justify-center items-center">
+                    <Link
+                        href={route('welcome')}
+                    >
+                        Home
+                    </Link>
+                    <DropdownMenu>
+                        <DropdownMenuTrigger asChild>
+                            <p className='cursor-pointer flex flex-row gap-2 justify-center items-center'>
+                                Competitions
+                                <ChevronDownIcon className="font-bold h-4 w-4" />
+                            </p>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent className="w-56 flex flex-col justify-start px-4 gap-3 py-3 outline-none" >
+                            {competitions
+                                .filter((competition) => competition.is_open_regis == true)
+                                .map((competition) => (
+                                    <Link
+                                        key={competition.id}
+                                        href={route('competition.front.show', [competition.slug])}
+                                        className="truncate"
+                                    >
+                                        {competition.name}
+                                    </Link>
+                                ))}
+                        </DropdownMenuContent>
+                    </DropdownMenu>
 
-                <Link
-                    href={route('event.front.show', ['seminar-nasional-teknologi-informasi-of'])}
-                    className="truncate"
-                >
-                    Semnas
-                </Link>
+                    <Link
+                        href={route('event.front.show', ['seminar-nasional-teknologi-informasi-of'])}
+                        className="truncate"
+                    >
+                        Semnas
+                    </Link>
 
-                {/* <Link
+                    {/* <Link
                     href={route('event.front.show', [events.slug])}
                 >
                     Semnas
                 </Link> */}
-                <Link
-                    href={route('merchandise.front.show')}
-                >
-                    Merchandise
-                </Link>
-            </div>
-
-            {/* login dan darkmode */}
-            <div className="flex flex-row gap-5 justify-center items-center">
-                {/* darkmode */}
-                <div>
-                    {/* darkmode */}
+                    <Link
+                        href={route('merchandise.front.show')}
+                    >
+                        Merchandise
+                    </Link>
                 </div>
-                {auth ? (
-                    <DropdownMenu>
-                        <DropdownMenuTrigger asChild>
-                            <p className='cursor-pointer flex flex-row gap-2 justify-center items-center'>
-                                <UserCircleIcon class="h-8 w-8 text-gray-500" />
-                            </p>
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent className="w-56 flex flex-col justify-start px-4 gap-4 py-3 outline-none mr-12" >
+
+                {/* login dan darkmode */}
+                <div className="flex flex-row gap-5 justify-center items-center">
+                    {/* darkmode */}
+                    <div>
+                        {/* darkmode */}
+                        <SunIcon className="w-8 h-8 text-yellow-200" />
+                    </div>
+                    {auth ? (
+                        <DropdownMenu>
+                            <DropdownMenuTrigger asChild>
+                                <p className='cursor-pointer flex flex-row gap-2 justify-center items-center'>
+                                    <UserCircleIcon className="h-8 w-8 text-gray-500" />
+                                </p>
+                            </DropdownMenuTrigger>
+                            <DropdownMenuContent className="w-56 flex flex-col justify-start px-4 gap-4 py-3 outline-none mr-12" >
+                                <Link
+                                    href={route('dashboard')}
+                                    className="flex flex-row items-center gap-2"
+                                >
+                                    <Squares2X2Icon className="h-6 w-6 text-gray-500" />
+                                    Dashboard
+                                </Link>
+                                <Link
+                                    href={route('logout')}
+                                    className="text-red-500 flex flex-row items-center gap-2"
+                                >
+                                    <ArrowRightStartOnRectangleIcon className="h-6 w-6 text-red-500" />
+                                    Logout
+                                </Link>
+                            </DropdownMenuContent>
+                        </DropdownMenu>
+                    ) : (
+                        <Button asChild variant="blue">
                             <Link
-                                href={route('dashboard')}
-                                className="flex flex-row items-center gap-2"
+                                href={route('login')}
                             >
-                                <Squares2X2Icon class="h-6 w-6 text-gray-500" />
-                                Dashboard
+                                Login
                             </Link>
+                        </Button>
+                    )}
+                </div>
+            </nav>
+
+            {/* untuk rensponsivenya */}
+
+            <nav className="md:hidden flex flex-col justify-between py-5 border-b-[1px] fixed top-0 left-0 w-full z-50 shadow">
+                <div className="flex flex-row justify-between">
+                    <Bars3BottomLeftIcon className="w-6 h-6 text-gray-600 mx-5" onClick={() => setOpenNav(!openNav)} />
+                    <SunIcon className="w-6 h-6 text-yellow-200 mx-5" />
+                </div>
+                {openNav == true && (
+                    <div className="mt-10">
+                        <div className="flex flex-col bg-white gap-5 justify-start px-5">
                             <Link
-                                href={route('logout')}
-                                className="text-red-500 flex flex-row items-center gap-2"
+                                href={route('welcome')}
                             >
-                                <ArrowRightStartOnRectangleIcon class="h-6 w-6 text-red-500" />
-                                Logout
+                                Home
                             </Link>
-                        </DropdownMenuContent>
-                    </DropdownMenu>
-                ) : (
-                    <Button asChild variant="blue">
-                        <Link
-                            href={route('login')}
-                        >
-                            Login
-                        </Link>
-                    </Button>
+                            <DropdownMenu>
+                                <DropdownMenuTrigger asChild>
+                                    <p className='cursor-pointer flex flex-row gap-2 items-center'>
+                                        Competitions
+                                        <ChevronDownIcon className="font-bold h-4 w-4" />
+                                    </p>
+                                </DropdownMenuTrigger>
+                                <DropdownMenuContent className="w-56 flex flex-col justify-start px-4 gap-3 py-3 outline-none" >
+                                    {competitions
+                                        .filter((competition) => competition.is_open_regis == true)
+                                        .map((competition) => (
+                                            <Link
+                                                key={competition.id}
+                                                href={route('competition.front.show', [competition.slug])}
+                                                className="truncate"
+                                            >
+                                                {competition.name}
+                                            </Link>
+                                        ))}
+                                </DropdownMenuContent>
+                            </DropdownMenu>
+
+                            <Link
+                                href={route('event.front.show', ['seminar-nasional-teknologi-informasi-of'])}
+                                className="truncate"
+                            >
+                                Semnas
+                            </Link>
+
+                            <Link
+                                href={route('merchandise.front.show')}
+                            >
+                                Merchandise
+                            </Link>
+                        </div>
+
+                        {/* login dan darkmode */}
+                        <div className="flex flex-row gap-5 pt-5 justify-start bg-white">
+                            {auth ? (
+                                <DropdownMenu>
+                                    <DropdownMenuTrigger asChild>
+                                        <p className='cursor-pointer flex flex-row gap-2 justify-center items-center px-5'>
+                                            <UserCircleIcon className="h-8 w-8 text-gray-500" />
+                                        </p>
+                                    </DropdownMenuTrigger>
+                                    <DropdownMenuContent className="w-56 flex flex-col justify-center px-4 gap-4 py-3 outline-none ml-5" >
+                                        <Link
+                                            href={route('dashboard')}
+                                            className="flex flex-row items-center gap-2"
+                                        >
+                                            <Squares2X2Icon className="h-6 w-6 text-gray-500" />
+                                            Dashboard
+                                        </Link>
+                                        <Link
+                                            href={route('logout')}
+                                            className="text-red-500 flex flex-row items-center gap-2"
+                                        >
+                                            <ArrowRightStartOnRectangleIcon className="h-6 w-6 text-red-500" />
+                                            Logout
+                                        </Link>
+                                    </DropdownMenuContent>
+                                </DropdownMenu>
+                            ) : (
+                                <Button asChild variant="blue">
+                                    <Link
+                                        href={route('login')}
+                                    >
+                                        Login
+                                    </Link>
+                                </Button>
+                            )}
+                        </div>
+                    </div>
                 )}
-            </div>
-        </nav>
+            </nav>
+
+        </>
     );
 }
