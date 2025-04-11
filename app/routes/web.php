@@ -20,7 +20,8 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::controller(FrontController::class)->group(function(){
-    Route::get('competitions/{competition:slug}', 'show_competition')->name('competition.front.show');
+    Route::get('competitions/{competition:slug}', 'show_competitions')->name('competition.front.show');
+    Route::get('events/{event:slug}', 'show_events')->name('event.front.show');
 });
 
 Route::middleware('auth')->group(function () {
