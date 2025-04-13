@@ -1,4 +1,4 @@
-import { Link } from '@inertiajs/react';
+import { Link, usePage } from '@inertiajs/react';
 import { useEffect, useState } from 'react';
 import DarkMode from '../../Components/DarkMode';
 import {
@@ -9,9 +9,14 @@ import {
     IconSideBar,
     IconSilangResponsiveWeb,
 } from '../../Components/IconAdmin';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from '@/Components/ui/dropdown-menu';
+import { ArrowRightStartOnRectangleIcon, Squares2X2Icon, SunIcon, UserCircleIcon } from '@heroicons/react/24/solid';
+import { UserIcon } from '@heroicons/react/24/outline';
+import { User } from 'lucide-react';
 
 export default function Sidebar({ navigations, children, header }) {
     const [isSidebarOpen, setIsSidebarOpen] = useState(window.innerWidth >= 768);
+    const auth = usePage().props.auth.user;
 
     const currentRoute = route().current();
     console.log(currentRoute);
@@ -28,13 +33,13 @@ export default function Sidebar({ navigations, children, header }) {
                 <aside
                     className={`hidden flex-col items-center justify-start gap-6 overflow-hidden border-r-[1px] border-r-slate-200 transition-all duration-200 ease-in-out dark:border-r-slate-600 md:flex ${isSidebarOpen ? 'w-16 md:w-[242px]' : 'w-0 md:w-16'} fixed min-h-screen`}
                 >
-                    <div className="flex w-full flex-row items-center justify-center gap-1 border-b-[1px] border-slate-200 py-6 text-[24px] font-semibold text-[#285B70] dark:border-slate-600">
-                        ITCC<span className={`${isSidebarOpen ? 'flex flex-row text-[#42A1A4]' : 'hidden'}`}>2025</span>
+                    <div className="flex w-full flex-row items-center justify-center gap-1 border-b-[1px] border-slate-200 py-6 text-[24px] font-semibold text-[#6D98F9] dark:border-slate-600">
+                        ITCC<span className={`${isSidebarOpen ? 'flex flex-row text-[#4880FF]' : 'hidden'}`}>2025</span>
                     </div>
                     <img
-                        src={`${window.location.origin}/images/Logo-PKM-TI-2025.png`}
+                        src='assets/images/image_for_sidebar.png'
                         alt="Profile"
-                        className={`${isSidebarOpen ? 'h-[111px] w-[90px]' : 'h-[46px] w-[37px]'}`}
+                        className={`${isSidebarOpen ? 'h-[111px] w-[90px]' : 'h-[50px] w-[50px]'}`}
                     />
                     <nav className={`mt-1 w-full ${isSidebarOpen ? 'px-5' : ' '} text-center`}>
                         <ul className="font-bold">
@@ -49,10 +54,10 @@ export default function Sidebar({ navigations, children, header }) {
                                 return (
                                     <li
                                         key={i}
-                                        className={`py-4 ${isSidebarOpen ? 'relative rounded-[6px] px-8' : 'items-center'} flex flex-col justify-center ${isActive ? 'bg-[#42A1A4] stroke-white text-white' : 'transition-all duration-200 ease-in-out hover:bg-[#42A1A4]/20'}`}
+                                        className={`py-4 ${isSidebarOpen ? 'relative rounded-[6px] px-8' : 'items-center'} flex flex-col justify-center ${isActive ? 'bg-[#6D98F9] stroke-white text-white' : 'transition-all duration-200 ease-in-out hover:bg-[#42A1A4]/20'}`}
                                     >
                                         {isActive && isSidebarOpen && (
-                                            <div className="absolute left-0 top-0 h-full w-[8px] rounded-r-md bg-[#285B70]"></div>
+                                            <div className="absolute left-0 top-0 h-full w-[8px] rounded-r-md bg-[#4880FF]"></div>
                                         )}
                                         <Link
                                             href={navigation.link}
@@ -165,9 +170,34 @@ export default function Sidebar({ navigations, children, header }) {
 
                             <div className="divider flex h-[2px] w-auto bg-slate-200 dark:bg-slate-600 md:hidden md:w-full"></div>
 
-                            {/* <div className="hidden md:flex">
-                                <DarkMode />
-                            </div> */}
+                            <SunIcon className="w-8 h-8 text-yellow-200" />
+                            <DropdownMenu>
+                                <DropdownMenuTrigger asChild>
+                                    <p className='cursor-pointer flex flex-row gap-2 justify-center items-center'>
+                                        {/* <UserIcon className="h-6 w-6 text-black" /> */}
+                                        <UserCircleIcon className="h-6 w-6 text-gray-500" />
+                                        {/* <img src="assets/images/image_for_sidebar.png" alt="" className='w-6 h-6' /> */}
+                                        {auth.name}
+                                    </p>
+                                </DropdownMenuTrigger>
+                                <DropdownMenuContent className="w-56 flex flex-col justify-start px-4 gap-4 py-3 outline-none mr-12" >
+                                    <Link
+                                        href={route('welcome')}
+                                        className="flex flex-row items-center gap-2"
+                                    >
+                                        <Squares2X2Icon className="h-6 w-6 text-gray-500" />
+                                        Home
+                                    </Link>
+                                    <Link
+                                        href={route('logout')}
+                                        className="text-red-500 flex flex-row items-center gap-2"
+                                    >
+                                        <ArrowRightStartOnRectangleIcon className="h-6 w-6 text-red-500" />
+                                        Logout
+                                    </Link>
+                                </DropdownMenuContent>
+                            </DropdownMenu>
+
 
                             {/* <div className="dropdown">
                                 <div
@@ -219,9 +249,9 @@ export default function Sidebar({ navigations, children, header }) {
                     </header>
 
                     <div className="flex min-h-screen flex-col gap-1 bg-[#F5F6FA] px-4 py-2 dark:bg-[#1d232a] md:px-10 md:py-5">
-                        <h1 className='text-4xl font-semibold leading-tight text-gray-800'>
+                        <p className='text-3xl font-semibold leading-tight text-gray-800'>
                             {header}
-                        </h1>
+                        </p>
                         {children}
                     </div>
                 </div>
