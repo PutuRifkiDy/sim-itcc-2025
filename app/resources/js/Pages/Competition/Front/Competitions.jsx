@@ -6,7 +6,7 @@ function Competitions({ ...props }) {
 
     return (
         <>
-            <div className="mt-24">
+            <div className="">
                 <p>{competitions.competition_content[0]?.location}</p>
                 <p>{competitions.competition_prices[0]?.periode_name}</p>
                 <p>{competitions.competition_prices[0]?.start_date}</p>
@@ -67,7 +67,7 @@ function Competitions({ ...props }) {
                         ))}
                     </div>
                 ))}
-                
+
             </div>
         </>
     );

@@ -11,7 +11,9 @@ export default function GuestLayout({ children, title }) {
         <>
             <Head title={title} />
             <Navbar auth={auth} competitions={competitions} events={events} />
+            <div className='flex flex-col gap-10 py-24'>
                 {children}
+            </div>
             <Footer />
         </>
     );

@@ -19,7 +19,7 @@ export default function ForgotPassword({ status }) {
     return (
         <>
             {/* Template Login */}
-            <div className="flex flex-row items-center justify-center mt-24">
+            <div className="flex flex-row items-center justify-center">
                 <div className="min-h-full min-w-full">
                     <div className="flex flex-row rounded-[28px] p-5 border-[1px] shadow md:mx-36">
                         <div className="hidden gap-5 rounded-[28px] bg-[#4880FF] px-10 py-10 md:flex md:flex-col">

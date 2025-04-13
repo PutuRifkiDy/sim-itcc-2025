@@ -24,7 +24,7 @@ export default function Register() {
 
     return (
         <>
-            <div className="flex flex-row items-center justify-center mt-24">
+            <div className="flex flex-row items-center justify-center">
                 <div className="min-h-full min-w-full">
                     <div className="flex flex-row rounded-[28px] border-[1px] shadow p-5 md:mx-36">
                         <div className="w-full">
