@@ -33,9 +33,12 @@ export default function Sidebar({ navigations, children, header }) {
                 <aside
                     className={`hidden flex-col items-center justify-start gap-6 overflow-hidden border-r-[1px] border-r-slate-200 transition-all duration-200 ease-in-out dark:border-r-slate-600 md:flex ${isSidebarOpen ? 'w-16 md:w-[242px]' : 'w-0 md:w-16'} fixed min-h-screen`}
                 >
-                    <div className="flex w-full flex-row items-center justify-center gap-1 border-b-[1px] border-slate-200 py-6 text-[24px] font-semibold text-[#6D98F9] dark:border-slate-600">
+                    <Link
+                        href={route('welcome')}
+                        className="flex w-full flex-row items-center justify-center gap-1 border-b-[1px] border-slate-200 py-6 text-[24px] font-semibold text-[#6D98F9] dark:border-slate-600"
+                    >
                         ITCC<span className={`${isSidebarOpen ? 'flex flex-row text-[#4880FF]' : 'hidden'}`}>2025</span>
-                    </div>
+                    </Link>
                     <img
                         src='assets/images/image_for_sidebar.png'
                         alt="Profile"
@@ -54,7 +57,7 @@ export default function Sidebar({ navigations, children, header }) {
                                 return (
                                     <li
                                         key={i}
-                                        className={`py-4 ${isSidebarOpen ? 'relative rounded-[6px] px-8' : 'items-center'} flex flex-col justify-center ${isActive ? 'bg-[#6D98F9] stroke-white text-white' : 'transition-all duration-200 ease-in-out hover:bg-[#42A1A4]/20'}`}
+                                        className={`py-4 ${isSidebarOpen ? 'relative rounded-[6px] px-8' : 'items-center'} flex flex-col justify-center ${isActive ? 'bg-[#6D98F9] stroke-white text-white' : 'transition-all duration-200 ease-in-out hover:bg-[#4880FF]/20'}`}
                                     >
                                         {isActive && isSidebarOpen && (
                                             <div className="absolute left-0 top-0 h-full w-[8px] rounded-r-md bg-[#4880FF]"></div>
@@ -117,7 +120,7 @@ export default function Sidebar({ navigations, children, header }) {
                                 return (
                                     <li
                                         key={i}
-                                        className={`py-4 ${isSidebarOpen ? 'relative rounded-[6px] px-8' : 'items-center'} flex flex-col justify-center ${isActive ? 'bg-[#6D98F9] stroke-white text-white' : 'transition-all duration-200 ease-in-out hover:bg-[#42A1A4]/20'}`}
+                                        className={`py-4 ${isSidebarOpen ? 'relative rounded-[6px] px-8' : 'items-center'} flex flex-col justify-center ${isActive ? 'bg-[#6D98F9] stroke-white text-white' : 'transition-all duration-200 ease-in-out hover:bg-[#4880FF]/20'}`}
                                     >
                                         {/* Garis warna di samping */}
                                         {isActive && isSidebarOpen && (
