@@ -101,6 +101,8 @@ export default function NavBar({ auth, competitions }) {
                                 <Link
                                     href={route('logout')}
                                     className="text-red-500 flex flex-row items-center gap-2"
+                                    type="button"
+                                    method="post"
                                 >
                                     <ArrowRightStartOnRectangleIcon className="h-6 w-6 text-red-500" />
                                     Logout

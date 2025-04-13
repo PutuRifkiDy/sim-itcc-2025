@@ -32,7 +32,7 @@ class ProfileUpdateRequest extends FormRequest
             'line_id' => ['required', 'string', 'max:255'],
             // 'birthdate' => ['required', 'date'],
             'institution' => ['required', 'string', 'max:255'],
-            'institution_path' => ['required', 'mimes:png,jpg,jpeg', 'max:2048'],
+            'institution_path' => ['nullable', 'mimes:png,jpg', 'max:2048'],
             'status' => ['required', new Enum(UserStatus::class)],
         ];
     }

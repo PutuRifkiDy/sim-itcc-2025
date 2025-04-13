@@ -221,7 +221,6 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, stat
                                 type="file"
                                 className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F]"
                                 onChange={(e) => setData(e.target.name, e.target.files[0])}
-                                required
                                 isFocused
                                 autoComplete="institution_path"
                                 onErrors={errors.institution_path && <InputError message={errors.institution_path} className='mt-2' />}

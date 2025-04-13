@@ -97,8 +97,8 @@ export default function Sidebar({ navigations, children, header }) {
                     className={`fixed left-0 top-0 z-50 h-full w-full transform bg-white transition-transform ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'} md:hidden`}
                 >
                     <div className="flex items-center justify-between border-b p-5">
-                        <span className="text-xl font-bold">
-                            ITCC<span className="text-[#42A1A4]">2025</span>
+                        <span className="text-xl font-bold text-[#4880FF]">
+                            ITCC{" "}<span className="text-[#6D98F9]">2025</span>
                         </span>
                         <button onClick={() => setIsSidebarOpen(false)} className="">
                             <IconSilangResponsiveWeb width="100" height="12" />
@@ -117,11 +117,11 @@ export default function Sidebar({ navigations, children, header }) {
                                 return (
                                     <li
                                         key={i}
-                                        className={`py-4 ${isSidebarOpen ? 'relative rounded-[6px] px-8' : 'items-center'} flex flex-col justify-center ${isActive ? 'bg-[#42A1A4] stroke-white text-white' : 'transition-all duration-200 ease-in-out hover:bg-[#42A1A4]/20'}`}
+                                        className={`py-4 ${isSidebarOpen ? 'relative rounded-[6px] px-8' : 'items-center'} flex flex-col justify-center ${isActive ? 'bg-[#6D98F9] stroke-white text-white' : 'transition-all duration-200 ease-in-out hover:bg-[#42A1A4]/20'}`}
                                     >
                                         {/* Garis warna di samping */}
                                         {isActive && isSidebarOpen && (
-                                            <div className="absolute left-0 top-0 h-full w-[8px] rounded-r-md bg-[#285B70]"></div>
+                                            <div className="absolute left-0 top-0 h-full w-[8px] rounded-r-md bg-[#4880FF]"></div>
                                         )}
                                         <Link
                                             href={navigation.link}
@@ -134,14 +134,14 @@ export default function Sidebar({ navigations, children, header }) {
                                     </li>
                                 );
                             })}
-                            <li>
+                            <li className={`py-4 ${isSidebarOpen ? 'px-8' : 'items-center'} flex cursor-pointer flex-col justify-center`}>
                                 <Link
                                     href={route('logout')}
                                     as="button"
                                     method="post"
                                     className="light:text-[#404040] flex flex-row items-center justify-start gap-2 text-[14px] font-medium tracking-[0.11em] dark:text-white"
                                 >
-                                    <IconLogout />
+                                    <IconLogoutSideBar />
                                     Logout
                                 </Link>
                             </li>
@@ -153,7 +153,7 @@ export default function Sidebar({ navigations, children, header }) {
                 <div
                     className={`flex-1 ${isSidebarOpen ? 'ml-0 md:ml-[242px] lg:w-[75%] xl:w-[80%] 2xl:w-[85%]' : 'ml-0 md:ml-16 lg:w-[75%] xl:w-[80%] 2xl:w-[85%]'} overflow-x-auto transition-all`}
                 >
-                    <header className="flex w-full items-center justify-center border-b-[1px] border-b-slate-200 px-0 py-[1.85rem] dark:border-b-slate-600 md:justify-between md:px-5">
+                    <header className="flex w-full items-center justify-center border-b-[1px] border-b-slate-200 px-0 py-[1.62rem] dark:border-b-slate-600 md:justify-between md:px-5">
                         {/* Untuk Tampilan Laptop */}
                         <button onClick={() => setIsSidebarOpen(!isSidebarOpen)} className="hidden text-xl md:block">
                             <IconSideBar />
@@ -165,19 +165,18 @@ export default function Sidebar({ navigations, children, header }) {
                                 <button onClick={() => setIsSidebarOpen(!isSidebarOpen)} className="text-xl">
                                     <IconSideBar />
                                 </button>
-                                <DarkMode />
+                                <SunIcon className="w-8 h-8 text-yellow-200" />
                             </div>
 
                             <div className="divider flex h-[2px] w-auto bg-slate-200 dark:bg-slate-600 md:hidden md:w-full"></div>
 
-                            <SunIcon className="w-8 h-8 text-yellow-200" />
+                            <SunIcon className="w-8 h-8 text-yellow-200 md:flex hidden" />
                             <DropdownMenu>
                                 <DropdownMenuTrigger asChild>
                                     <p className='cursor-pointer flex flex-row gap-2 justify-center items-center'>
-                                        {/* <UserIcon className="h-6 w-6 text-black" /> */}
-                                        <UserCircleIcon className="h-6 w-6 text-gray-500" />
-                                        {/* <img src="assets/images/image_for_sidebar.png" alt="" className='w-6 h-6' /> */}
+                                        <UserCircleIcon className="h-8 w-8 text-gray-500" />
                                         {auth.name}
+                                        <IconDropdown />
                                     </p>
                                 </DropdownMenuTrigger>
                                 <DropdownMenuContent className="w-56 flex flex-col justify-start px-4 gap-4 py-3 outline-none mr-12" >
@@ -191,6 +190,8 @@ export default function Sidebar({ navigations, children, header }) {
                                     <Link
                                         href={route('logout')}
                                         className="text-red-500 flex flex-row items-center gap-2"
+                                        type='button'
+                                        method='post'
                                     >
                                         <ArrowRightStartOnRectangleIcon className="h-6 w-6 text-red-500" />
                                         Logout
@@ -198,53 +199,6 @@ export default function Sidebar({ navigations, children, header }) {
                                 </DropdownMenuContent>
                             </DropdownMenu>
 
-
-                            {/* <div className="dropdown">
-                                <div
-                                    tabIndex={0}
-                                    role="button"
-                                    className="flex w-screen cursor-pointer flex-row items-center justify-between gap-5 px-5 md:w-full md:justify-center md:px-0"
-                                >
-                                    <div className="flex flex-row gap-3">
-                                        <div className="h-[52px] w-[50px] overflow-hidden rounded-full">
-                                            <img
-                                                src={`${window.location.origin}/images/admin/icon-profile.png`}
-                                                alt=""
-                                            />
-                                        </div>
-                                        <div className="flex flex-col">
-                                            <p className="font-bold text-[16px] light:text-[#404040] dark:text-white">{user.name}</p>
-                                            <p className="font-medium text-[14px] light:text-[#565656] dark:text-white">{user.role}</p>
-                                        </div>
-                                    </div>
-                                    <IconDropdown className="h-9 w-9" />
-                                </div>
-                                <ul
-                                    tabIndex={0}
-                                    className="menu dropdown-content bg-base-100 rounded-box z-[1] w-full p-2 px-8 shadow md:w-52 md:px-0"
-                                >
-                                    <li className="border-b-2 border-slate-200 dark:border-slate-600">
-                                        <Link
-                                            href={route('welcome')}
-                                            className="light:text-[#404040] flex flex-row items-center justify-start gap-2 text-[14px] font-medium tracking-[0.11em] dark:text-white"
-                                        >
-                                            <IconHome />
-                                            Home
-                                        </Link>
-                                    </li>
-                                    <li>
-                                        <Link
-                                            href={route('logout')}
-                                            as="button"
-                                            method="post"
-                                            className="light:text-[#404040] flex flex-row items-center justify-start gap-2 text-[14px] font-medium tracking-[0.11em] dark:text-white"
-                                        >
-                                            <IconLogout />
-                                            Keluar
-                                        </Link>
-                                    </li>
-                                </ul>
-                            </div> */}
                         </div>
                     </header>
 

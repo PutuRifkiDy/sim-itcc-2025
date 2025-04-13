@@ -48,24 +48,9 @@ export default function UpdatePasswordForm({ className = '' }) {
                 </p>
             </header>
 
-            <form onSubmit={updatePassword} className="mt-6 flex flex-row justify-between gap-5">
+            <form onSubmit={updatePassword} className="mt-6 flex md:flex-row flex-col-reverse justify-between gap-5">
 
                 <div className='flex flex-col justify-end w-full'>
-                    {/* <div>
-                        <InputLabel htmlFor="email" value="Email" className='text-[12px] text-[#676767] font-normal' />
-
-                        <TextInput
-                            id="email"
-                            type="email"
-                            className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F]"
-                            value={data.email}
-                            onChange={(e) => setData('email', e.target.value)}
-                            required
-                            isFocused
-                            autoComplete="username"
-                            onErrors={errors.email && <InputError message={errors.email} className='mt-2' />}
-                        />
-                    </div> */}
 
                     <DeleteUserForm />
 

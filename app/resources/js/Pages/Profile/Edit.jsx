@@ -8,7 +8,7 @@ export default function Edit({ mustVerifyEmail, status, status_students }) {
     return (
         <>
             <div className="py-5">
-                <div className="mx-auto max-w-7xl space-y-6">
+                <div className="mx-auto w-full space-y-6">
                     <div className="bg-white p-4 shadow sm:rounded-lg sm:p-8">
                         <UpdateProfileInformationForm
                             mustVerifyEmail={mustVerifyEmail}
