@@ -41,7 +41,7 @@ function Semnas({ ...props }) {
                 {events.event_content.map((content, idx) => (
                     <div key={idx} className="mt-10 grid md:grid-cols-3 grid-cols-1 w-full justify-center items-center gap-24">
                         {content.event_content_contact.map((contact, i) => (
-                            <div>
+                            <div key={i}>
                                 {contact.name ?? ''}
                                 {contact.id_line ?? ''}
                                 {contact.wa_number ?? ''}

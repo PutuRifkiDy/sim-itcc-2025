@@ -1,7 +1,57 @@
-export default function Footer() {
+import { IconFacebook, IconInstagram, IconTiktok, IconYoutube } from "@/Components/IconGuest";
+import ScrollToTop from "@/Components/ScrollToTop";
+import { Link, usePage } from "@inertiajs/react";
+import { ChevronRightIcon } from "@heroicons/react/24/solid";
+
+export default function Footer({ ...props }) {
+    const competitions = usePage().props.competitions;
     return (
         <>
-            <p>Ini adalah footer</p>
+            <footer className="bg-[#328AC9] w-full px-12 py-12">
+                <div className="flex flex-row justify-between mb-10">
+
+                    <div className="flex flex-col gap-5">
+                        <h1 className="text-white font-semibold text-[24px]">ITCC 2025</h1>
+                        <p className="text-[18px] text-white md:w-[420px] w-full">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ornare cursus sed nunc eget dictum  Sed ornare cursus sed nunc eget dictumd nunc eget dictum  Sed ornare cursus sed nunc eget dictum
+                        </p>
+                        <div className="flex flex-row gap-5">
+                            <IconInstagram />
+                            <IconTiktok />
+                            <IconFacebook />
+                            <IconYoutube />
+                        </div>
+                    </div>
+
+                    <div className="flex flex-col gap-5">
+                        <h1 className="text-white font-semibold text-[24px]">Competition</h1>
+                        {competitions
+                            .filter((competition) => competition.is_open_regis == true)
+                            .map((competition) => (
+                                <Link
+                                    key={competition.id}
+                                    href={route('competition.front.show', [competition.slug])}
+                                    className="text-white flex flex-row justify-start items-center gap-2"
+                                >
+                                    {competition.name} <ChevronRightIcon className="w-5 h-5" />
+                                </Link>
+                            ))}
+                    </div>
+                    <div className="flex flex-col gap-5">
+                        <h1 className="text-white font-semibold text-[24px]">Other</h1>
+
+                        <Link
+                            href={route('event.front.show', ['seminar-nasional-teknologi-informasi-of'])}
+                            className="text-white flex flex-row justify-start items-center gap-2"
+                        >
+                            Seminar Nasional <ChevronRightIcon className="w-5 h-5" />
+                        </Link>
+                    </div>
+
+                </div>
+                    <div className="divider h-[1px] w-auto md:w-full bg-white mb-10"></div>
+                    <ScrollToTop />
+            </footer>
         </>
     );
 }

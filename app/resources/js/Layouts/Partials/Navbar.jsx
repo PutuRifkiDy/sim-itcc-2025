@@ -29,8 +29,7 @@ export default function NavBar({ auth, competitions }) {
 
     return (
         <>
-            <nav className="md:flex hidden flex-row justify-between py-5 px-12 border-b-[1px] fixed top-0 left-0 w-full z-50 shadow">
-                {/* logo */}
+            <nav className="md:flex hidden flex-row justify-between py-5 px-12 border-b-[1px] fixed top-0 left-0 w-full z-50 shadow bg-white">
                 <div>
                     <h1 className="text-4xl">
                         Logo
@@ -73,11 +72,6 @@ export default function NavBar({ auth, competitions }) {
                         Semnas
                     </Link>
 
-                    {/* <Link
-                    href={route('event.front.show', [events.slug])}
-                >
-                    Semnas
-                </Link> */}
                     <Link
                         href={route('merchandise.front.show')}
                     >
@@ -85,11 +79,8 @@ export default function NavBar({ auth, competitions }) {
                     </Link>
                 </div>
 
-                {/* login dan darkmode */}
                 <div className="flex flex-row gap-5 justify-center items-center">
-                    {/* darkmode */}
                     <div>
-                        {/* darkmode */}
                         <SunIcon className="w-8 h-8 text-yellow-200" />
                     </div>
                     {auth ? (
@@ -117,7 +108,7 @@ export default function NavBar({ auth, competitions }) {
                             </DropdownMenuContent>
                         </DropdownMenu>
                     ) : (
-                        <Button asChild variant="blue">
+                        <Button asChild variant="blue" size="lg">
                             <Link
                                 href={route('login')}
                             >
@@ -128,11 +119,9 @@ export default function NavBar({ auth, competitions }) {
                 </div>
             </nav>
 
-            {/* untuk rensponsivenya */}
-
-            <nav className="md:hidden flex flex-col justify-between py-5 border-b-[1px] fixed top-0 left-0 w-full z-50 shadow">
+            <nav className="md:hidden flex flex-col justify-between py-5 border-b-[1px] fixed top-0 left-0 w-full z-50 shadow bg-white">
                 <div className="flex flex-row justify-between">
-                    <Bars3BottomLeftIcon className="w-6 h-6 text-gray-600 mx-5" onClick={() => setOpenNav(!openNav)} />
+                    <Bars3BottomLeftIcon className="w-6 h-6 text-gray-600 mx-5 cursor-pointer" onClick={() => setOpenNav(!openNav)} />
                     <SunIcon className="w-6 h-6 text-yellow-200 mx-5" />
                 </div>
                 {openNav == true && (
@@ -179,7 +168,6 @@ export default function NavBar({ auth, competitions }) {
                             </Link>
                         </div>
 
-                        {/* login dan darkmode */}
                         <div className="flex flex-row gap-5 pt-5 justify-start bg-white">
                             {auth ? (
                                 <DropdownMenu>
@@ -206,7 +194,7 @@ export default function NavBar({ auth, competitions }) {
                                     </DropdownMenuContent>
                                 </DropdownMenu>
                             ) : (
-                                <Button asChild variant="blue">
+                                <Button asChild variant="blue" size="lg" className='mx-5'>
                                     <Link
                                         href={route('login')}
                                     >
