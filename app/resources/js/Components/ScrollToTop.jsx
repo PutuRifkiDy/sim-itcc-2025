@@ -54,10 +54,9 @@ const ScrollToTop = () => {
                     onMouseEnter={() => setIsHovered(true)}
                     onMouseLeave={() => setIsHovered(false)}
                     onClick={scrollToTop}
-                    className={`bg-[#2A3374] transition-all duration-100 ease-in-out text-white rounded-full p-3 ${
-                        isHovered ? "tooltip tooltip-open tooltip-left" : ""
-                    }`}
-                    {...(isHovered ? { "data-tip": "Click untuk naik" } : {})}
+                    className={`bg-[#2A3374] transition-all duration-100 ease-in-out text-white rounded-full p-3 ${isHovered ? "tooltip tooltip-open tooltip-left" : ""
+                        }`}
+                    {...(isHovered ? { "data-tip": "Click to go to the top" } : {})}
                 >
                     <ChevronUpIcon className="h-6 w-6 text-white" />
                 </button>
@@ -66,21 +65,21 @@ const ScrollToTop = () => {
                     onMouseEnter={() => setIsHovered(true)}
                     onMouseLeave={() => setIsHovered(false)}
                     onClick={scrollToBottom}
-                    className={`bg-[#2A3374] transition-all duration-100 ease-in-out text-white rounded-full p-3 ${
-                        isHovered ? "tooltip tooltip-open tooltip-left" : ""
-                    }`}
-                    {...(isHovered ? { "data-tip": "Click untuk turun" } : {})}
+                    className={`bg-[#2A3374] transition-all duration-100 ease-in-out text-white rounded-full p-3 ${isHovered ? "tooltip tooltip-open tooltip-left" : ""
+                        }`}
+                    {...(isHovered ? { "data-tip": "Click to go to the bottom" } : {})}
                 >
                     <ChevronDownIcon className="h-6 w-6 text-white" />
                 </button>
-            )}
+            )
+            }
             <div className="h-1 w-full bg-slate-300 rounded-2xl relative">
                 <div
                     className="h-full bg-[#2A3374] absolute rounded-2xl"
                     style={{ width: `${scrollProgress}%` }}
                 />
             </div>
-        </div>
+        </div >
     );
 };
 
