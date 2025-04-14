@@ -9,7 +9,7 @@ import { Semnas } from './pages/semnas';
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/home",
     element: <Landing />,
   },
   {
