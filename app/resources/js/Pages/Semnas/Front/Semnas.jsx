@@ -1,5 +1,6 @@
+import { Button } from "@/Components/ui/button";
 import GuestLayout from "@/Layouts/GuestLayout";
-import { usePage } from "@inertiajs/react";
+import { Link, usePage } from "@inertiajs/react";
 
 function Semnas({ ...props }) {
     const events = usePage().props.event;
@@ -13,6 +14,14 @@ function Semnas({ ...props }) {
                 <p>{events.event_prices[0]?.end_date}</p>
                 <p>{events.event_content[0]?.how_to_join_link}</p>
                 <p>{events.event_content[0]?.guidebook_link}</p>
+
+                <Button asChild>
+                    <Link
+                        href={route('register.semnas.show')}
+                    >
+                        Register
+                    </Link>
+                </Button>
 
                 <p className="mt-10">{events.description}</p>
 

@@ -20,8 +20,13 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::controller(FrontController::class)->group(function(){
+    // competition
     Route::get('competitions/{competition:slug}', 'show_competitions')->name('competition.front.show');
+    // semnas
     Route::get('events/{event:slug}', 'show_events')->name('event.front.show');
+    Route::get('register/semnas', 'show_register_semnas')->name('register.semnas.show');
+    Route::post('register/semnas/{event:slug}', 'store_register_semnas')->name('register.semnas.store');
+    // merch
     Route::get('merchandise', 'show_merchandise')->name('merchandise.front.show');
 });
 
