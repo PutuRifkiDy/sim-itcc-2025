@@ -49,6 +49,8 @@ class ProfileController extends Controller
             $user->email_verified_at = null;
         }
 
+        $user->already_filled = true;
+
         if ($user->save()) {
             flashMessage('Your profile has been updated.', 'success');
         } else {

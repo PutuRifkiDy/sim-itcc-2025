@@ -132,7 +132,6 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, stat
                                 className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F]"
                                 value={data.phone_number}
                                 onChange={onHandleChange}
-                                required
                                 isFocused
                                 autoComplete="phone_number"
                                 onErrors={errors.phone_number && <InputError message={errors.phone_number} className='mt-2' />}
@@ -150,7 +149,6 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, stat
                                 className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F]"
                                 value={data.address}
                                 onChange={onHandleChange}
-                                required
                                 isFocused
                                 autoComplete="address"
                                 onErrors={errors.address && <InputError message={errors.address} className='mt-2' />}
@@ -168,7 +166,6 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, stat
                                 className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F]"
                                 value={data.line_id}
                                 onChange={onHandleChange}
-                                required
                                 isFocused
                                 autoComplete="line_id"
                                 onErrors={errors.line_id && <InputError message={errors.line_id} className='mt-2' />}
@@ -204,7 +201,6 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, stat
                                 className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F]"
                                 value={data.institution}
                                 onChange={onHandleChange}
-                                required
                                 isFocused
                                 autoComplete="institution"
                                 onErrors={errors.institution && <InputError message={errors.institution} className='mt-2' />}
@@ -214,17 +210,6 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, stat
 
                         <div className='flex flex-col gap-2'>
                             <InputLabel htmlFor="institution_path" value="Institution Card" className='text-[12px] text-[#676767] font-normal' />
-
-                            {/* <TextInput
-                                id="institution_path"
-                                name="institution_path"
-                                type="file"
-                                className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F]"
-                                onChange={(e) => setData(e.target.name, e.target.files[0])}
-                                isFocused
-                                autoComplete="institution_path"
-                                onErrors={errors.institution_path && <InputError message={errors.institution_path} className='mt-2' />}
-                            /> */}
 
                             <ImageUpload
                                 imagePath={data.institution_path}

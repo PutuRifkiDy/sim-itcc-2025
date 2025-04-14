@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('institution_path')->nullable();
             $table->string('address')->nullable();
             $table->string('status')->default(UserStatus::UMUM->value);
+            $table->boolean('already_filled')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });

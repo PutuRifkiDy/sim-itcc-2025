@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Requests;
 
 use App\Enums\UserStatus;
@@ -18,8 +17,8 @@ class ProfileUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => [
+            'name'             => ['required', 'string', 'max:255'],
+            'email'            => [
                 'required',
                 'string',
                 'lowercase',
@@ -27,28 +26,34 @@ class ProfileUpdateRequest extends FormRequest
                 'max:255',
                 Rule::unique(User::class)->ignore($this->user()->id),
             ],
-            'phone_number' => ['required', 'string', 'max:15'],
-            'address' => ['required', 'string', 'max:255'],
-            'line_id' => ['required', 'string', 'max:255'],
-            // 'birthdate' => ['required', 'date'],
-            'institution' => ['required', 'string', 'max:255'],
-            'institution_path' => ['nullable', 'mimes:png,jpg', 'max:2048'],
-            'status' => ['required', new Enum(UserStatus::class)],
+            'phone_number'     => ['required', 'string', 'max:15'],
+            'address'          => ['required', 'string', 'max:255'],
+            'line_id'          => ['required', 'string', 'max:255'],
+            'institution'      => ['required', 'string', 'max:255'],
+            'institution_path' => [
+                Rule::when(
+                    empty($this->user()->institution_path),
+                    ['required', 'mimes:png,jpg', 'max:2048'],
+                    ['nullable', 'mimes:png,jpg', 'max:2048']
+                ),
+            ],
+            'status'           => ['required', new Enum(UserStatus::class)],
+            'already_filled'   => ['nullable', 'boolean'],
         ];
     }
 
     public function attributes()
     {
         return [
-            'name' => 'Name',
-            'email' => 'Email',
-            'phone_number' => 'Phone Number',
-            'address' => 'Address',
-            'line_id' => 'Line ID',
+            'name'             => 'Name',
+            'email'            => 'Email',
+            'phone_number'     => 'Phone Number',
+            'address'          => 'Address',
+            'line_id'          => 'Line ID',
             // 'birthdate' => 'Birthdate',
-            'institution' => 'Institution',
+            'institution'      => 'Institution',
             'institution_path' => 'Institution Path',
-            'status' => 'Status',
+            'status'           => 'Status',
         ];
     }
 }
