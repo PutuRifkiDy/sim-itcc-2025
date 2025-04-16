@@ -1,4 +1,4 @@
-import { IconEditForDashboard, IconPreviewImageProfile } from '@/Components/IconAdmin';
+import { CancelUpdateProfile, IconEditForDashboard, IconPreviewImageProfile } from '@/Components/IconAdmin';
 import InputError from '@/Components/InputError';
 import InputLabel from '@/Components/InputLabel';
 import TextInput from '@/Components/TextInput';
@@ -75,8 +75,8 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, stat
                     </Button>
                 )}
                 {updateProfileInformation == true && (
-                    <Button className='flex justify-center items-center gap-3' variant="blue" onClick={() => setUpdateProfileInformation(false)}>
-                        <IconEditForDashboard />
+                    <Button className='flex justify-center items-center gap-3 bg-white border-[#4880FF] border-2 text-[#4880FF]' variant="blue" onClick={() => setUpdateProfileInformation(false)}>
+                        <CancelUpdateProfile />
                         Cancel
                     </Button>
                 )}
