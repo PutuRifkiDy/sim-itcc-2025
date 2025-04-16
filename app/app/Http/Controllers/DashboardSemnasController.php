@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PaymentStoreRequest;
 use App\Http\Resources\EventRegistrationResource;
 use App\Http\Resources\PaymentMethodsResource;
 use App\Models\EventRegistrations;
@@ -36,5 +37,24 @@ class DashboardSemnasController extends Controller
             'event_registrations' => fn() => $show_registration_semnas ? new EventRegistrationResource($show_registration_semnas) : null,
             'payment_methods' => new PaymentMethodsResource($payment_methods)
         ]);
+    }
+
+    public function payment_store(PaymentStoreRequest $request, $id): RedirectResponse
+    {
+        $eventRegistrations = EventRegistrations::find($id);
+        // dd($eventRegistrations->event_id);
+
+        EventRegistrations::find($id)->update([
+            'payment_proof_path' => $request->hasFile('payment_proof_path') ? $this->upload_file($request, 'payment_proof_path', 'semnas_payments') : $eventRegistrations->payment_proof_path,
+            'payment_status' => $request->payment_status,
+            'event_id' => $eventRegistrations->event_id,
+            'user_id' => $eventRegistrations->user_id,
+            'code_registration' => $eventRegistrations->code_registration,
+            'total_payment' => $eventRegistrations->total_payment,
+            'reject_reason' => $eventRegistrations->reject_reason,
+        ]);
+
+        flashMessage('Your payment proof has been uploaded.', 'success');
+        return back();
     }
 }

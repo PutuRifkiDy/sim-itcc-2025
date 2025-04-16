@@ -35,6 +35,7 @@ Route::controller(FrontController::class)->group(function(){
 
 Route::controller(DashboardSemnasController::class)->group(function() {
     Route::get('dashboard/semnas', 'index')->name('dashboard.semnas.index');
+    Route::post('dashboard/semnas/{id}/payment', 'payment_store')->name('dashboard.semnas.payment');
 })->middleware('auth');
 
 Route::middleware('auth')->group(function () {

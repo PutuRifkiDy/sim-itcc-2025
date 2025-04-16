@@ -101,10 +101,6 @@ class FrontController extends Controller
         flashMessage('Your registration has been successful.');
 
         return to_route('dashboard.semnas.index');
-            // ->with([
-            //     'message' => 'Your registration has been successful.',
-            //     'type'    => 'success',
-            // ]);
 
     }
 }

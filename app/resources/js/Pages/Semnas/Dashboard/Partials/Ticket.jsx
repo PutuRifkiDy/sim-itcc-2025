@@ -6,25 +6,25 @@ function Ticket({ event_registrations, className }) {
         <>
             <section className={className}>
                 {event_registrations.payment_status == 'Requested' && (
-                    <div className="flex flex-row gap-2 px-4 py-2 border-2 border-l-[#4880FF] bg-[#4880FF]/20 w-full items-center mb-5">
+                    <div className="flex flex-row gap-2 px-4 py-2 border-l-4 border-l-[#4880FF] bg-[#4880FF]/20 w-full items-center mb-5">
                         <ClockIcon className="h-5 w-5 text-[#4880FF]" />
                         <p className='text-[#4880FF] font-medium text-[12px] leading-[16px]'>Complete your payment before the deadline</p>
                     </div>
                 )}
                 {event_registrations.payment_status == 'Pending' && (
-                    <div className="flex flex-row gap-2 px-4 py-2 border-2 border-l-[#FFC300] bg-[#FFC300]/20 w-full items-center mb-5">
+                    <div className="flex flex-row gap-2 px-4 py-2 border-l-4 border-l-[#FFC300] bg-[#FFC300]/20 w-full items-center mb-5">
                         <ClockIcon className="h-5 w-5 text-[#FFC300]" />
                         <p className='text-[#FFC300] font-medium text-[12px] leading-[16px]'>Verification in progress</p>
                     </div>
                 )}
                 {event_registrations.payment_status == 'Verified' && (
-                    <div className="flex flex-row gap-2 px-4 py-2 border-2 border-l-[#00D238] bg-[#00D238]/20 w-full items-center mb-5">
+                    <div className="flex flex-row gap-2 px-4 py-2 border-l-4 border-l-[#00D238] bg-[#00D238]/20 w-full items-center mb-5">
                         <ClockIcon className="h-5 w-5 text-[#00D238]" />
                         <p className='text-[#00D238] font-medium text-[12px] leading-[16px]'>Payment has been verified</p>
                     </div>
                 )}
                 {event_registrations.payment_status == 'Rejected' && (
-                    <div className="flex flex-row gap-2 px-4 py-2 border-2 border-l-[#E82323] bg-[#E82323]/20 w-full items-center mb-5">
+                    <div className="flex flex-row gap-2 px-4 py-2 border-l-4 border-l-[#E82323] bg-[#E82323]/20 w-full items-center mb-5">
                         <ClockIcon className="h-5 w-5 text-[#E82323]" />
                         <p className='text-[#E82323] font-medium text-[12px] leading-[16px]'>{event_registrations.reject_reason}</p>
                     </div>

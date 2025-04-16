@@ -36,11 +36,7 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, stat
         _method: 'PUT',
     });
 
-    // const submit = (e) => {
-    //     e.preventDefault();
 
-    //     patch(route('profile.update'));
-    // };
     const onHandleChange = (e) => {
         setData(e.target.name, e.target.value);
     };

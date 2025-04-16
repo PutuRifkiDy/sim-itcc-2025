@@ -33,8 +33,8 @@ class ProfileUpdateRequest extends FormRequest
             'institution_path' => [
                 Rule::when(
                     empty($this->user()->institution_path),
-                    ['required', 'mimes:png,jpg', 'max:2048'],
-                    ['nullable', 'mimes:png,jpg', 'max:2048']
+                    ['required', 'mimes:png,jpg', 'max:1048'],
+                    ['nullable', 'mimes:png,jpg', 'max:1048']
                 ),
             ],
             'status'           => ['required', new Enum(UserStatus::class)],
