@@ -7,11 +7,13 @@ use App\Http\Resources\EventResource;
 use App\Http\Resources\MerchandiseResource;
 use App\Models\Competitions;
 use App\Models\EventPrices;
+use App\Models\EventRegistrations;
 use App\Models\Events;
 use App\Models\Merchandise;
 use Illuminate\Http\RedirectResponse;
-use Redirect;
+use Inertia\Inertia;
 use Inertia\Response;
+use Illuminate\Support\Facades\Redirect;
 
 class FrontController extends Controller
 {
@@ -59,7 +61,7 @@ class FrontController extends Controller
 
     public function show_register_semnas(): Response
     {
-        $show_register_semnas = Events::where('is_open_regis', true)->get();
+        $show_register_semnas = Events::where('is_open_regis', true)->where('event_type', 'semnas')->get();
         return inertia(component: 'Semnas/Front/Register', props: [
             'show_register_semnas' => EventResource::collection($show_register_semnas),
         ]);
@@ -68,27 +70,41 @@ class FrontController extends Controller
     public function store_register_semnas(SemnasRegistrationRequest $request, Events $event): RedirectResponse
     {
         // dd($request);
-        $code_registration = Events::where('slug', $request->slug)->select('kode')->first();
+        $already_registered = EventRegistrations::where('user_id', $request->user()->id)
+            ->where('event_id', $event->id)
+            ->exists();
+        $total_payment = EventPrices::where('event_id', $event->id)
+            ->where('start_date', '<=', now())
+            ->where('end_date', '>=', now())->value('price');
+        $in_periode_registration = EventPrices::where('event_id', $event->id)
+            ->where('start_date', '<=', now())
+            ->where('end_date', '>=', now())
+            ->exists();
 
-        $total_payment = EventPrices::where('event_id', $event->id)->where('start_date', '<=', now())->where('end_date', '>=', now())->select('price')->first();
-
-        if ($request->user()->user_id == auth()->user()->user_id) {
-            flashMessage('You have already registered for this event.', 'danger');
-        }
-
-        if ($request->user()->already_filled == true) {
+        if ($already_registered) {
+            flashMessage('You have already registered for this event.', 'error');
+            return back();
+        } else if ($request->user()->already_filled == false) {
+            flashMessage('Please fill your profile first.', 'error');
+            return back();
+        } else if ($in_periode_registration == false) {
+            flashMessage('The registration period for this event has ended.', 'error');
+            return back();
+        } else if ($request->user()->already_filled == true) {
             $request->user()->event_registrations()->create([
                 'event_id'          => $event->id,
-                'user_id'           => $request->user()->user_id,
-                'code_registration' => $code_registration->kode . '-' . '00' . $request->user()->id,
-                'total_payment'     => $total_payment->price,
+                'user_id'           => auth()->user()->user_id,
+                'code_registration' => $event->kode . '-' . '00' . $request->user()->id,
+                'total_payment'     => $total_payment ?? 0,
             ]);
-            flashMessage('Your registration has been successful.');
-        } else if($request->user()->already_filled == false) {
-            flashMessage('Please fill your profile first.', 'danger');
         }
+        flashMessage('Your registration has been successful.');
 
-        return to_route('dashboard');
+        return to_route('dashboard.semnas.index');
+            // ->with([
+            //     'message' => 'Your registration has been successful.',
+            //     'type'    => 'success',
+            // ]);
 
     }
 }

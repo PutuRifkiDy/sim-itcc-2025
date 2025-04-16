@@ -50,15 +50,15 @@ class EventPricesSeeder extends Seeder
             [
                 'periode_name' => "Semnas Offline Batch I",
                 'price'        => 100000,
-                'start_date'   => '2024-07-31 16:00:00',
-                'end_date'     => '2024-08-20 15:59:59',
+                'start_date'   => '2025-03-01 16:00:00',
+                'end_date'     => '2025-03-30 15:59:59',
                 'event_id'     => 3,
             ],
             [
                 'periode_name' => "Semnas Offline Batch II",
                 'price'        => 115000,
-                'start_date'   => '2024-08-20 16:00:00',
-                'end_date'     => '2024-09-20 15:59:59',
+                'start_date'   => '2025-04-01 16:00:00',
+                'end_date'     => '2025-06-30 15:59:59',
                 'event_id'     => 3,
             ],
             [

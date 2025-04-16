@@ -1,0 +1,92 @@
+import { LineIcon, WhatsappIcon } from "@/Components/IconAdmin";
+import DashboardLayout from "@/Layouts/DashboardLayout";
+import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";
+
+function About({ event_registrations, className }) {
+    console.log('cek isi', event_registrations)
+    return (
+        <>
+            <section className={className}>
+                <div className="flex flex-row gap-5">
+                    <p className="text-[#000000] font-semibold text-[22px]">
+                        {event_registrations.events?.name}
+                    </p>
+                    {event_registrations.payment_status == "Requested" && (
+                        <div className="bg-[#4880FF]/20 rounded-md flex justify-center items-center py-2 px-5">
+                            <p className="text-[#4880FF] font-bold text-[12px]">{event_registrations.payment_status ?? ' '}</p>
+                        </div>
+                    )}
+                    {event_registrations.payment_status == "Pending" && (
+                        <div className="bg-[#FFC300]/20 rounded-md flex justify-center items-center py-2 px-5">
+                            <p className="text-[#FFC300] font-bold text-[12px]">{event_registrations.payment_status ?? ' '}</p>
+                        </div>
+                    )}
+                    {event_registrations.payment_status == "Verified" && (
+                        <div className="bg-[#00D238]/20 rounded-md flex justify-center items-center py-2 px-5">
+                            <p className="text-[#00D238] font-bold text-[12px]">{event_registrations.payment_status ?? ' '}</p>
+                        </div>
+                    )}
+                    {event_registrations.payment_status == "Rejected" && (
+                        <div className="bg-[#E82323]/20 rounded-md flex justify-center items-center py-2 px-5">
+                            <p className="text-[#E82323] font-bold text-[12px]">{event_registrations.payment_status ?? ' '}</p>
+                        </div>
+                    )}
+                </div>
+                <div className="grid md:grid-cols-3 grid-cols-1 mt-8">
+                    <div className="flex flex-col gap-2">
+                        <p className="font-bold text-[12px] tracking-[0.03em] text-[#5E5E5E]">Registration Code</p>
+                        <p className="font-reguler text-[18px] tracking-[0.03em]">{event_registrations.code_registration ?? ' '}</p>
+                    </div>
+                    <div className="flex flex-col gap-2">
+                        <p className="font-bold text-[12px] tracking-[0.03em] text-[#5E5E5E]">Name</p>
+                        <p className="font-reguler text-[18px] tracking-[0.03em]">{event_registrations.user?.name ?? ' '}</p>
+                    </div>
+                    <div className="flex flex-col gap-2">
+                        <p className="font-bold text-[12px] tracking-[0.03em] text-[#5E5E5E]">Institution</p>
+                        <p className="font-reguler text-[18px] tracking-[0.03em]">{event_registrations.user?.institution ?? ' '}</p>
+                    </div>
+
+                </div>
+                {event_registrations.events.event_content.map((event_content, index) => (
+                    <div key={index} className="grid md:grid-cols-3 grid-cols-1 w-full mt-8">
+                        {event_content.event_content_contact.map((content_contact, idx) => (
+                            <div className="flex flex-col gap-2" key={idx}>
+                                <p className="font-bold text-[12px] tracking-[0.03em] text-[#5E5E5E]">Contact Person {idx + 1}</p>
+                                <div className="flex flex-row items-center">
+                                    <WhatsappIcon />
+                                    <p className="text-[#6D98F9] text-[13px] tracking-[0.03em]">{content_contact.wa_number}</p>
+                                </div>
+                                <div className="flex flex-row items-center">
+                                    <LineIcon />
+                                    <p className="text-[#6D98F9] text-[13px] tracking-[0.03em]">{content_contact.id_line}</p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                ))}
+                {event_registrations.events.event_content.map((event_content, index) => (
+                    <div key={index} className="grid md:grid-cols-3 grid-cols-1 w-full mt-8">
+                        <div className="flex flex-col gap-1">
+                            <p className="font-bold text-[12px] tracking-[0.03em] text-[#5E5E5E]">{event_content.guidebook_link && "Guidebook"}</p>
+                            <a href={event_content.guidebook_link ?? '#'} target="_blank" className="flex flex-row gap-2 items-center text-[#6D98F9]">
+                                Open Guidebook
+                                <ArrowTopRightOnSquareIcon className="w-4 h-4 text-[#6D98F9] font-semibold" />
+                            </a>
+                        </div>
+                        <div className="flex flex-col gap-1">
+                            <p className="font-bold text-[12px] tracking-[0.03em] text-[#5E5E5E]">{event_content.how_to_join_link && "How to Join"}</p>
+                            <a href={event_content.how_to_join_link ?? '#'} target="_blank" className="flex flex-row gap-2 items-center text-[#6D98F9]">
+                                Play Video
+                                <ArrowTopRightOnSquareIcon className="w-4 h-4 text-[#6D98F9] font-semibold" />
+                            </a>
+                        </div>
+
+                    </div>
+                ))}
+            </section>
+        </>
+    );
+}
+
+export default About;
+About.layout = (page) => <DashboardLayout children={page} title="Semnas" header="Seminar Nasional" />

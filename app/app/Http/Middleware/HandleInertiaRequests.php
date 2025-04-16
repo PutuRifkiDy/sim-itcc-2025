@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Middleware;
 
+use App\Http\Resources\EventRegistrationResource;
 use App\Http\Resources\NavbarResource;
 use App\Http\Resources\UserSingleResource;
 use App\Models\Competitions;
@@ -38,7 +39,7 @@ class HandleInertiaRequests extends Middleware
                 'user' => fn() => $request->user() ? new UserSingleResource($request->user()) : null,
             ],
             'flash_message' => fn() => [
-                'type'    => $request->session()->get('type'),
+                'type' => $request->session()->get('type'),
                 'message' => $request->session()->get('message'),
             ],
 

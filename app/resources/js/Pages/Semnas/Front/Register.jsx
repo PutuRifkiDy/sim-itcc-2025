@@ -2,33 +2,40 @@ import Checkbox from "@/Components/Checkbox";
 import TextInput from "@/Components/TextInput";
 import { Button } from "@/Components/ui/button";
 import GuestLayout from "@/Layouts/GuestLayout";
-import { flashMessage } from "@/lib/utils";
 import { Transition } from "@headlessui/react";
 import { Link, useForm, usePage } from "@inertiajs/react";
-import { toast } from "sonner";
+import { flashMessage } from '@/lib/utils';
+import { toast } from 'sonner';
 
-function Register() {
+function Register({...props}) {
     const show_register_semnas = usePage().props.show_register_semnas;
+    const user = usePage().props.auth.user;
 
     const { data, setData, post, processing, errors, reset, recentlySuccessful } = useForm({
         slug: '',
         _method: 'POST',
     });
 
+
     const onHandleSubmit = (e) => {
         e.preventDefault();
 
+        if (!data.slug) {
+            toast.error("Please select an event type.");
+            return;
+        }
+
         post(route('register.semnas.store', data.slug), {
-            preserveScroll: true,
-            preserveState: true,
+
             onSuccess: (success) => {
                 const flash = flashMessage(success);
                 if (flash) toast[flash.type](flash.message);
             },
+            preserveScroll: true,
+            preserveState: true,
         });
     };
 
-    console.log('cek isi', show_register_semnas);
     return (
         <>
             <div className="w-full flex justify-center items-center">
@@ -58,7 +65,7 @@ function Register() {
                             <Button type="submit" variant="blue" disabled={processing}>
                                 Save
                             </Button>
-                            <Transition
+                            {/* <Transition
                                 show={recentlySuccessful}
                                 enter="transition ease-in-out"
                                 enterForm="opacity-0"
@@ -66,7 +73,7 @@ function Register() {
                                 leaveTo="opacity-0"
                             >
                                 <p className="text-sm text-muted-foreground">Saved.</p>
-                            </Transition>
+                            </Transition> */}
                         </div>
                     </form>
                 </div>
