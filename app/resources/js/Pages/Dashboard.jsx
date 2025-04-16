@@ -1,7 +1,8 @@
 import DashboardLayout from '@/Layouts/DashboardLayout';
-import { Head } from '@inertiajs/react';
 
-export default function Dashboard() {
+
+export default function Dashboard({...props}) {
+    const event_registrations = props.event_registrations;
     return (
         <div className="py-12">
             <div className="mx-auto w-full">

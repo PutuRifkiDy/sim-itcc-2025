@@ -32,10 +32,10 @@ class EventRegistrations extends Model
 
     public function events(): BelongsTo
     {
-        return $this->belongsTo(Events::class);
+        return $this->belongsTo(Events::class, 'event_id', 'id');
     }
 
-    public function users(): BelongsTo
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }

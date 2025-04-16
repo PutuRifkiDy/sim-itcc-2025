@@ -25,6 +25,7 @@ class UserSingleResource extends JsonResource
             'institution' => $this->institution,
             'institution_path' => Storage::url($this->institution_path),
             'address' => $this->address,
+            'already_filled' => $this->already_filled   
         ];
     }
 }

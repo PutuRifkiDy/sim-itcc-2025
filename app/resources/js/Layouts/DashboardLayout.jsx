@@ -1,4 +1,4 @@
-import { IconBerandaSideBar, IconProfileSideBar } from '@/Components/IconAdmin';
+import { IconBerandaSideBar, IconProfileSideBar, IconSidebarSemnas } from '@/Components/IconAdmin';
 import { Head } from '@inertiajs/react';
 import Sidebar from './Partials/Sidebar';
 import { Toaster } from '@/Components/ui/sonner';
@@ -15,6 +15,11 @@ export default function DashboardLayout({ children, title, header }) {
             text: 'Profile',
             link: route('profile.edit'),
         },
+        {
+            icon: <IconSidebarSemnas />,
+            text: 'Semnas',
+            link: route('dashboard.semnas.index'),
+        }
     ];
 
     return (

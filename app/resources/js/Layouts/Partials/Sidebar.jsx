@@ -40,7 +40,7 @@ export default function Sidebar({ navigations, children, header }) {
                         ITCC<span className={`${isSidebarOpen ? 'flex flex-row text-[#4880FF]' : 'hidden'}`}>2025</span>
                     </Link>
                     <img
-                        src='assets/images/image_for_sidebar.png'
+                        src={`${window.location.origin}/assets/images/image_for_sidebar.png`}
                         alt="Profile"
                         className={`${isSidebarOpen ? 'h-[111px] w-[90px]' : 'h-[50px] w-[50px]'}`}
                     />

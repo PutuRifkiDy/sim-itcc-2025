@@ -7,6 +7,7 @@ import TextInput from '@/Components/TextInput';
 import { Button } from '@/Components/ui/button';
 import { useForm } from '@inertiajs/react';
 import { useRef, useState } from 'react';
+import { toast } from 'sonner';
 
 export default function DeleteUserForm({ className = '' }) {
     const [confirmingUserDeletion, setConfirmingUserDeletion] = useState(false);
@@ -30,6 +31,10 @@ export default function DeleteUserForm({ className = '' }) {
 
     const deleteUser = (e) => {
         e.preventDefault();
+
+        if (!data.password) {
+            toast.error("Please enter your current password.");
+        }
 
         destroy(route('profile.destroy'), {
             preserveScroll: true,
@@ -84,14 +89,14 @@ export default function DeleteUserForm({ className = '' }) {
 
                         <InputError message={errors.password} className="mt-2" />
                     </div>
-{/*
-                    <div className="mt-6 flex justify-end">
-                        <SecondaryButton onClick={closeModal}>Cancel</SecondaryButton>
 
-                        <DangerButton className="ms-3" disabled={processing}>
+                    <div className="mt-6 flex justify-end">
+                        <Button onClick={closeModal} variant="blue" type="button">Cancel</Button>
+
+                        <Button className="ms-3" variant="red" type="submit" disabled={processing}>
                             Delete Account
-                        </DangerButton>
-                    </div> */}
+                        </Button>
+                    </div>
                 </form>
             </Modal>
         </section>
