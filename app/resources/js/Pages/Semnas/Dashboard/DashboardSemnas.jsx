@@ -43,7 +43,7 @@ function DashboardSemnas() {
                 ) : (
                     <div className="bg-white p-4 shadow sm:rounded-lg sm:p-8 flex flex-col gap-2 justify-center items-center">
                         {/* {`${window.location.origin} */}
-                        <img src={`${window.location.origin}/assets/images/image_for_dashboard_semnas.png`} alt="waw" className="w-[416px] h-[377px]" />
+                        <img src={`${window.location.origin}/assets/images/image_for_dashboard_semnas.png`} alt="waw" className="w-[344px] h-[312px]" />
                         <div className="flex flex-col gap-2 justify-center items-center">
                             <p className="font-semibold text-[22px] text-[#5E5E5E]">
                                 Not Registered for Seminar National

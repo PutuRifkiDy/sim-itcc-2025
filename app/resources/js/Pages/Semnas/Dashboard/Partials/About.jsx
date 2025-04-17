@@ -109,9 +109,11 @@ function About({ event_registrations, className }) {
                         Cancel Registration
                     </Button>
 
-                    <Modal show={confirmingUserDeletion} onClose={closeModal}>
-                        <h2 className="text-lg font-medium text-gray-900">Are you sure you want to delete your account?</h2>
-
+                    <Modal show={confirmingUserDeletion} onClose={closeModal} className="px-5 py-5">
+                        <h2 className="text-lg font-medium text-gray-900">Are you sure you want cancel your registration?</h2>
+                        <p className="mt-1 text-sm text-gray-600 mb-10">
+                            Once you cancel your registration, you will not be able to revert this action.
+                        </p>
                         <div className="mt-6 flex justify-end">
                             <Button onClick={closeModal} variant="blue" type="button">Cancel</Button>
 
@@ -120,9 +122,9 @@ function About({ event_registrations, className }) {
                                     className="text-white"
                                     type="button"
                                     method="delete"
-                                    href={route('dashboard.semnas.destroy', {id: event_registrations.id})}
+                                    href={route('dashboard.semnas.destroy', { id: event_registrations.id })}
                                 >
-                                    Delete Account
+                                    Cancel Registration
                                 </Link>
                             </Button>
                         </div>

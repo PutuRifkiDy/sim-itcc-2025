@@ -35,9 +35,9 @@ export default function Sidebar({ navigations, children, header }) {
                 >
                     <Link
                         href={route('welcome')}
-                        className="flex w-full flex-row items-center justify-center gap-1 border-b-[1px] border-slate-200 py-6 text-[24px] font-semibold text-[#6D98F9] dark:border-slate-600"
+                        className="flex w-full flex-row items-center justify-center gap-1 border-b-[1px] border-slate-200 py-6 text-[24px] font-semibold text-[#4880FF] dark:border-slate-600"
                     >
-                        ITCC<span className={`${isSidebarOpen ? 'flex flex-row text-[#4880FF]' : 'hidden'}`}>2025</span>
+                        ITCC<span className={`${isSidebarOpen ? 'flex flex-row text-[#6D98F9]' : 'hidden'}`}>2025</span>
                     </Link>
                     <img
                         src={`${window.location.origin}/assets/images/image_for_sidebar.png`}
