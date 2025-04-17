@@ -3,6 +3,7 @@ import { ImageUpload } from "@/Components/ImageUpload";
 import ImageUploadDashboard from "@/Components/ImageUploadDashboard";
 import { Button } from "@/Components/ui/button";
 import DashboardLayout from "@/Layouts/DashboardLayout";
+import { flashMessage } from "@/lib/utils";
 import { Transition } from "@headlessui/react";
 import { ClockIcon, DocumentDuplicateIcon } from "@heroicons/react/24/solid";
 import { useForm } from "@inertiajs/react";
@@ -88,7 +89,7 @@ function Payment({ event_registrations, payment_methods, className }) {
                     </div>
                 )}
 
-                <div className="grid md:grid-cols-3 grid-cols-1">
+                <div className="grid md:grid-cols-3 grid-cols-1 md:gap-0 gap-4">
                     <div className="flex flex-col gap-2">
                         <p className="font-bold text-[14px] tracking-[0.03em] text-[#5E5E5E]">Total Payment</p>
                         <p className="font-bold text-[20px] tracking-[0.03em] text-[#000000]">Rp. {event_registrations.total_payment}</p>

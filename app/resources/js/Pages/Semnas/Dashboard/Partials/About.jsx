@@ -7,7 +7,7 @@ function About({ event_registrations, className }) {
     return (
         <>
             <section className={className}>
-                <div className="flex flex-row gap-5">
+                <div className="flex md:flex-row flex-col gap-5">
                     <p className="text-[#000000] font-semibold text-[22px]">
                         {event_registrations.events?.name}
                     </p>
@@ -32,7 +32,7 @@ function About({ event_registrations, className }) {
                         </div>
                     )}
                 </div>
-                <div className="grid md:grid-cols-3 grid-cols-1 mt-8">
+                <div className="grid md:grid-cols-3 grid-cols-1 mt-8 md:gap-0 gap-4">
                     <div className="flex flex-col gap-2">
                         <p className="font-bold text-[12px] tracking-[0.03em] text-[#5E5E5E]">Registration Code</p>
                         <p className="font-reguler text-[18px] tracking-[0.03em]">{event_registrations.code_registration ?? ' '}</p>
@@ -48,7 +48,7 @@ function About({ event_registrations, className }) {
 
                 </div>
                 {event_registrations.events.event_content.map((event_content, index) => (
-                    <div key={index} className="grid md:grid-cols-3 grid-cols-1 w-full mt-8">
+                    <div key={index} className="grid md:grid-cols-3 grid-cols-1 w-full mt-8 md:gap-0 gap-4">
                         {event_content.event_content_contact.map((content_contact, idx) => (
                             <div className="flex flex-col gap-2" key={idx}>
                                 <p className="font-bold text-[12px] tracking-[0.03em] text-[#5E5E5E]">Contact Person {idx + 1}</p>
@@ -65,7 +65,7 @@ function About({ event_registrations, className }) {
                     </div>
                 ))}
                 {event_registrations.events.event_content.map((event_content, index) => (
-                    <div key={index} className="grid md:grid-cols-3 grid-cols-1 w-full mt-8">
+                    <div key={index} className="grid md:grid-cols-3 grid-cols-1 w-full mt-8 md:gap-0 gap-4">
                         <div className="flex flex-col gap-1">
                             <p className="font-bold text-[12px] tracking-[0.03em] text-[#5E5E5E]">{event_content.guidebook_link && "Guidebook"}</p>
                             <a href={event_content.guidebook_link ?? '#'} target="_blank" className="flex flex-row gap-2 items-center text-[#6D98F9]">

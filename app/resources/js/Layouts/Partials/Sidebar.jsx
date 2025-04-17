@@ -10,7 +10,7 @@ import {
     IconSilangResponsiveWeb,
 } from '../../Components/IconAdmin';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from '@/Components/ui/dropdown-menu';
-import { ArrowRightStartOnRectangleIcon, Squares2X2Icon, SunIcon, UserCircleIcon } from '@heroicons/react/24/solid';
+import { ArrowRightStartOnRectangleIcon, Squares2X2Icon, SunIcon, UserCircleIcon, Bars3BottomRightIcon } from '@heroicons/react/24/solid';
 import { UserIcon } from '@heroicons/react/24/outline';
 import { User } from 'lucide-react';
 
@@ -104,7 +104,7 @@ export default function Sidebar({ navigations, children, header }) {
                             ITCC{" "}<span className="text-[#6D98F9]">2025</span>
                         </span>
                         <button onClick={() => setIsSidebarOpen(false)} className="">
-                            <IconSilangResponsiveWeb width="100" height="12" />
+                            <Bars3BottomRightIcon className="h-6 w-6 text-gray-600" />
                         </button>
                     </div>
                     <nav className="mt-5 text-center">
@@ -142,7 +142,7 @@ export default function Sidebar({ navigations, children, header }) {
                                     href={route('logout')}
                                     as="button"
                                     method="post"
-                                    className="light:text-[#404040] flex flex-row items-center justify-start gap-2 text-[14px] font-medium tracking-[0.11em] dark:text-white"
+                                    className="light:text-[#404040] flex flex-row items-center justify-start gap-5 text-[14px] font-medium tracking-[0.11em] text-[#FF0000]"
                                 >
                                     <IconLogoutSideBar />
                                     Logout
@@ -205,7 +205,7 @@ export default function Sidebar({ navigations, children, header }) {
                         </div>
                     </header>
 
-                    <div className="flex min-h-screen flex-col gap-1 bg-[#F5F6FA] px-4 py-2 dark:bg-[#1d232a] md:px-10 md:py-5">
+                    <div className="flex min-h-screen flex-col gap-1 bg-[#F5F6FA] px-4 py-2 dark:bg-[#1d232a] md:px-10 md:py-5 md:mt-0 pt-10">
                         <p className='text-3xl font-semibold leading-tight text-gray-800'>
                             {header}
                         </p>

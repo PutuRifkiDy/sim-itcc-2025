@@ -23,8 +23,8 @@ function DashboardSemnas() {
         <>
             <div className="py-5">
                 {event_registrations != null ? (
-                    <div className="bg-white p-4 shadow sm:rounded-lg sm:p-8">
-                        <div className="flex flex-row gap-10">
+                    <div className="bg-white p-4 shadow rounded-lg sm:p-8">
+                        <div className="flex flex-row md:gap-10 gap-5">
                             <Button variant="none" asChild onClick={() => setTabs("about")}>
                                 <p className={`cursor-pointer ${tabs == "about" ? "text-[#4880FF] font-bold border-[#4880FF] border-b-[4px] rounded-[2px] transition-all ease-in-out duration-400 text-[16px]" : "text-[#5E5E5E] text-[16px]"}`}>About</p>
                             </Button>
