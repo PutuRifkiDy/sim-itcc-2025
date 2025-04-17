@@ -17,7 +17,7 @@ export default function DashboardLayout({ children, title, header }) {
         },
         {
             icon: <IconSidebarSemnas />,
-            text: 'Semnas',
+            text: 'Seminar Nasional',
             link: route('dashboard.semnas.index'),
         }
     ];

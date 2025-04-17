@@ -31,7 +31,7 @@ export default function Sidebar({ navigations, children, header }) {
             <div className="flex flex-col justify-between md:flex-row">
                 {/* Sidebar */}
                 <aside
-                    className={`hidden flex-col items-center justify-start gap-6 overflow-hidden border-r-[1px] border-r-slate-200 transition-all duration-200 ease-in-out dark:border-r-slate-600 md:flex ${isSidebarOpen ? 'w-16 md:w-[242px]' : 'w-0 md:w-16'} fixed min-h-screen`}
+                    className={`hidden flex-col items-center justify-start gap-6 overflow-hidden border-r-[1px] border-r-slate-200 transition-all duration-200 ease-in-out dark:border-r-slate-600 md:flex ${isSidebarOpen ? 'w-16 md:w-[300px]' : 'w-0 md:w-16'} fixed min-h-screen`}
                 >
                     <Link
                         href={route('welcome')}
@@ -154,7 +154,7 @@ export default function Sidebar({ navigations, children, header }) {
 
                 {/* Main Content */}
                 <div
-                    className={`flex-1 ${isSidebarOpen ? 'ml-0 md:ml-[242px] lg:w-[75%] xl:w-[80%] 2xl:w-[85%]' : 'ml-0 md:ml-16 lg:w-[75%] xl:w-[80%] 2xl:w-[85%]'} overflow-x-auto transition-all`}
+                    className={`flex-1 ${isSidebarOpen ? 'ml-0 md:ml-[300px] lg:w-[75%] xl:w-[80%] 2xl:w-[85%]' : 'ml-0 md:ml-16 lg:w-[75%] xl:w-[80%] 2xl:w-[85%]'} overflow-x-auto transition-all`}
                 >
                     <header className="flex w-full items-center justify-center border-b-[1px] border-b-slate-200 px-0 py-[1.62rem] dark:border-b-slate-600 md:justify-between md:px-5">
                         {/* Untuk Tampilan Laptop */}
