@@ -1,8 +1,24 @@
 import { LineIcon, WhatsappIcon } from "@/Components/IconAdmin";
+import Modal from "@/Components/Modal";
+import { Button } from "@/Components/ui/button";
 import DashboardLayout from "@/Layouts/DashboardLayout";
 import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";
+import { Link } from "@inertiajs/react";
+import { useState } from "react";
 
 function About({ event_registrations, className }) {
+    const [confirmingUserDeletion, setConfirmingUserDeletion] = useState(false);
+    const confirmUserDeletion = () => {
+        setConfirmingUserDeletion(true);
+    };
+
+    const closeModal = () => {
+        setConfirmingUserDeletion(false);
+
+        clearErrors();
+        reset();
+    };
+
     console.log('cek isi', event_registrations)
     return (
         <>
@@ -83,6 +99,35 @@ function About({ event_registrations, className }) {
 
                     </div>
                 ))}
+
+                <div className="flex justify-start w-full">
+                    <Button
+                        variant='red'
+                        className="mt-8"
+                        onClick={confirmUserDeletion}
+                    >
+                        Cancel Registration
+                    </Button>
+
+                    <Modal show={confirmingUserDeletion} onClose={closeModal}>
+                        <h2 className="text-lg font-medium text-gray-900">Are you sure you want to delete your account?</h2>
+
+                        <div className="mt-6 flex justify-end">
+                            <Button onClick={closeModal} variant="blue" type="button">Cancel</Button>
+
+                            <Button className="ms-3" variant="red" type="submit" asChild>
+                                <Link
+                                    className="text-white"
+                                    type="button"
+                                    method="delete"
+                                    href={route('dashboard.semnas.destroy', {id: event_registrations.id})}
+                                >
+                                    Delete Account
+                                </Link>
+                            </Button>
+                        </div>
+                    </Modal>
+                </div>
             </section>
         </>
     );

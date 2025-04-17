@@ -57,4 +57,11 @@ class DashboardSemnasController extends Controller
         flashMessage('Your payment proof has been uploaded.', 'success');
         return back();
     }
+
+    public function destroy($id): RedirectResponse
+    {
+        EventRegistrations::find($id)->delete();
+        flashMessage('Your registration has been cancelled.', 'success');
+        return back();
+    }
 }

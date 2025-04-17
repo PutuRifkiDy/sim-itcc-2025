@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardSemnasController;
+use App\Http\Controllers\DashboardSemnasForKesekreController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
@@ -35,9 +36,13 @@ Route::controller(FrontController::class)->group(function(){
 
 Route::controller(DashboardSemnasController::class)->group(function() {
     Route::get('dashboard/semnas', 'index')->name('dashboard.semnas.index');
+    Route::delete('dashboard/semnas/{id}', 'destroy')->name('dashboard.semnas.destroy');
     Route::post('dashboard/semnas/{id}/payment', 'payment_store')->name('dashboard.semnas.payment');
 })->middleware('auth');
 
+Route::controller(DashboardSemnasForKesekreController::class)->group(function() {
+    Route::get('dashboard/semnas/admin-kesekre', 'index')->name('dashboard.semnas.admin-kesekre.index');
+})->middleware('auth');
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
