@@ -126,7 +126,7 @@ function Payment({ event_registrations, payment_methods, className }) {
                                     setPreview(previewUrl);
                                 }}
                                 errorMessage={errors.payment_proof_path}
-                                classNameForBG={`${event_registrations.payment_status === "Pending" && "cursor-not-allowed bg-[#4880FF]/30"}`}
+                                classNameForBG={`${event_registrations.payment_status === "Pending" && "cursor-not-allowed bg-[#4880FF]/15"}`}
                             />
                         ) : (
                             <div className="flex flex-col items-center justify-center gap-4">

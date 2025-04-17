@@ -43,6 +43,7 @@ Route::controller(DashboardSemnasController::class)->group(function() {
 Route::controller(DashboardSemnasForKesekreController::class)->group(function() {
     Route::get('dashboard/semnas/admin-kesekre', 'index')->name('dashboard.semnas.admin-kesekre.index');
 })->middleware('auth');
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
