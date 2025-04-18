@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Enums\PaymentStatus;
+use App\Http\Requests\RejectReasonRequest;
 use App\Http\Resources\EventRegistrationResource;
 use App\Models\EventRegistrations;
 use Illuminate\Http\Request;
@@ -45,6 +46,17 @@ class DashboardSemnasForKesekreController extends Controller
         ]);
 
         flashMessage('Payment has been verified.', 'success');
+        return back();
+    }
+
+    public function reject_payment($id, RejectReasonRequest $request): RedirectResponse
+    {
+        EventRegistrations::find($id)->update([
+            'payment_status' => PaymentStatus::REJECTED->value,
+            'reject_reason' => $request->reject_reason
+        ]);
+
+        flashMessage('Payment has been rejected.', 'success');
         return back();
     }
 }

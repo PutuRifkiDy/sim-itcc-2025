@@ -1,14 +1,17 @@
 import { IconPreviewImageProfile } from "@/Components/IconAdmin";
+import InputError from "@/Components/InputError";
 import InputLabel from "@/Components/InputLabel";
 import Modal from "@/Components/Modal";
+import TextInput from "@/Components/TextInput";
 import { Badge } from "@/Components/ui/badge";
 import { Button } from "@/Components/ui/button";
 import { Card, CardContent, CardFooter } from "@/Components/ui/card";
 import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "@/Components/ui/dialog";
 import DashboardLayout from "@/Layouts/DashboardLayout";
+import { flashMessage } from "@/lib/utils";
 import { CheckBadgeIcon, ClockIcon, PaperAirplaneIcon, ArchiveBoxXMarkIcon, DocumentCheckIcon, XCircleIcon } from "@heroicons/react/24/solid";
-import { Link, usePage } from "@inertiajs/react";
-import { useEffect, useState } from "react";
+import { Link, useForm, usePage } from "@inertiajs/react";
+import { useEffect, useRef, useState } from "react";
 import { PiArrowsDownUp } from "react-icons/pi";
 import { toast } from "sonner";
 
@@ -20,17 +23,36 @@ function DashboardKesekreSemnas() {
     const count_requested = usePage().props.count_requested;
     const { flash_message } = usePage().props;
 
+    const { data, setData, post, put, patch, errors, processing, recentlySuccessful, formData } = useForm({
+        reject_reason: event_registrations_semnas.reject_reason ?? '',
+        _method: 'POST',
+    });
+
     const [confirmingUserDeletion, setConfirmingUserDeletion] = useState(false);
+    const [modalFormOpen, setModalFormOpen] = useState(false);
+    const hasShownToast = useRef(false);
     const [selectedUser, setSelectedUser] = useState(null);
+
     const confirmUserDeletion = (user) => {
         setConfirmingUserDeletion(true);
         setSelectedUser(user);
     };
 
+    const modalFormOpenHandler = () => {
+        setModalFormOpen(true);
+    };
+
+
     const closeModal = () => {
         setSelectedUser(null);
         setConfirmingUserDeletion(false);
 
+        clearErrors();
+        reset();
+    };
+
+    const closeModalForm = () => {
+        setModalFormOpen(false);
         clearErrors();
         reset();
     };
@@ -41,27 +63,36 @@ function DashboardKesekreSemnas() {
         }
     }, [flash_message]);
 
-
-    // const { data: users, meta, links } = props.users;
-    // const [params, setParams] = useState(props.state);
-    // console.log('Cek isi user', users);
-
     console.log('cek isi', event_registrations_semnas)
     console.log('cek isi', event_registrations_semnas[0].payment_proof_path)
 
-    // useFilter({
-    //     route: route('users.index'),
-    //     values: params,
-    //     only: ['users'],
-    // });
 
-    // const onSortable = (field) => {
-    //     setParams({
-    //         ...params,
-    //         field: field,
-    //         direction: params.direction === 'asc' ? 'desc' : 'asc',
-    //     });
-    // };
+    const onHandleSubmit = (e, id) => {
+        e.preventDefault();
+
+        if (!data.reject_reason) {
+            if (!hasShownToast.current) {
+                toast.error("Please enter reject reason.");
+                hasShownToast.current = true;
+            }
+            return;
+        }
+
+
+        post(route('dashboard.semnas.admin-kesekre.reject', { id: id }), {
+
+            onSuccess: (success) => {
+                const flash = flashMessage(success);
+                if (flash) toast[flash.type](flash.message);
+
+                setTimeout(() => {
+                    window.location.reload();
+                }, 1000);
+            },
+            preserveScroll: true,
+            preserveState: true,
+        });
+    };
     return (
         <>
             <div className="py-5">
@@ -112,30 +143,6 @@ function DashboardKesekreSemnas() {
                             </div>
                         </div>
                     </div>
-
-                    {/* data semnas registrations */}
-                    {/* <div className="my-4 flex flex-col justify-between space-y-4 sm:flex-row sm:space-x-4 sm:space-y-8">
-                        <div className="flex w-full flex-col gap-4 sm:flex-row">
-                            <Input
-                                className="w-full sm:w-1/4"
-                                placeholder="Search"
-                                value={params?.search}
-                                onChange={(e) => setParams((prev) => ({ ...prev, search: e.target.value }))}
-                            />
-                            <Select value={params?.load} onValueChange={(e) => setParams({ ...params, load: e })}>
-                                <SelectTrigger className="w-full sm:w-24">
-                                    <SelectValue placeholder="Load" />
-                                </SelectTrigger>
-                                <SelectContent>
-                                    {[10, 25, 50, 75, 100].map((number, index) => (
-                                        <SelectItem key={index} value={number}>
-                                            {number}
-                                        </SelectItem>
-                                    ))}
-                                </SelectContent>
-                            </Select>
-                        </div>
-                    </div> */}
                     <Card>
                         <CardContent>
                             <div className="my-8 flow-root">
@@ -356,15 +363,45 @@ function DashboardKesekreSemnas() {
                                                         <td className="whitespace-nowrap px-6 py-8 flex md:flex-row gap-2">
                                                             <Link
                                                                 className="flex justify-center items-center border-2 rounded-md border-[#4DE45C] p-1 hover:bg-[#4DE45C]/20 transition-all duration-300 ease-in-out"
-                                                                href={route('dashboard.semnas.admin-kesekre.payment', {id: semnas.id})}
+                                                                href={route('dashboard.semnas.admin-kesekre.payment', { id: semnas.id })}
                                                                 method="post">
                                                                 <DocumentCheckIcon className="text-[#4DE45C] w-5 h-5" />
                                                             </Link>
-                                                            <Link
-                                                                className="flex justify-center items-center border-2 rounded-md border-[#E82323] p-1 hover:bg-[#E82323]/20 transition-all duration-300 ease-in-out"
-                                                                href="flex justify-center items-center border-4 border-[#E82323] p-4">
+                                                            <Button variant="none" className="flex justify-center items-center border-2 rounded-md border-[#E82323] p-1 hover:bg-[#E82323]/20 transition-all duration-300 ease-in-out" onClick={modalFormOpenHandler}>
                                                                 <XCircleIcon className="text-[#E82323] w-5 h-5" />
-                                                            </Link>
+                                                            </Button>
+                                                            <form onSubmit={(e) => onHandleSubmit(e, semnas.id)}>
+
+                                                                <Modal show={modalFormOpen} onClose={closeModalForm} maxWidth="md" className="p-4">
+                                                                    <form onSubmit={onHandleSubmit} className="p-6">
+                                                                        <h2 className="text-lg font-medium text-gray-900">Please input a reject reason</h2>
+
+                                                                        <div className="mt-6">
+
+                                                                            <TextInput
+                                                                                id="reject_reason"
+                                                                                type="reject_reason"
+                                                                                name="reject_reason"
+                                                                                value={data.reject_reason}
+                                                                                onChange={(e) => setData('reject_reason', e.target.value)}
+                                                                                className="mt-1 block w-3/4"
+                                                                                isFocused
+                                                                                placeholder="Reject Reason"
+                                                                            />
+
+                                                                            <InputError message={errors.reject_reason} className="mt-2" />
+                                                                        </div>
+
+                                                                        <div className="mt-6 flex justify-end">
+                                                                            <Button onClick={closeModalForm} variant="blue" type="button">Cancel</Button>
+
+                                                                            <Button className="ms-3" variant="red" type="submit" disabled={processing}>
+                                                                                Reject
+                                                                            </Button>
+                                                                        </div>
+                                                                    </form>
+                                                                </Modal>
+                                                            </form>
                                                         </td>
                                                     </tr>
                                                 ))}
@@ -374,39 +411,6 @@ function DashboardKesekreSemnas() {
                                 </div>
                             </div>
                         </CardContent>
-
-                        {/* <CardFooter className="justify-between border-t pt-6 text-sm text-muted-foreground">
-                            <p className="text-sm text-muted-foreground">
-                                Showing <span className="font-medium text-red-500">{meta.from}</span> of {meta.total}
-                            </p>
-                            {meta.has_page && (
-                                <div className="flex items-center gap-x-1">
-                                    <Button size="sm" variant="red" asChild>
-                                        {links.prev ? (
-                                            <Link href={links.prev}>
-                                                <PiArrowLeft className="-ml-1 mr-1 size-4" />
-                                            </Link>
-                                        ) : (
-                                            <span>Prev</span>
-                                        )}
-                                    </Button>
-                                    {meta.links.slice(1, -1).map((link, index) => (
-                                        <Button key={index} size="sm" variant="outline" asChild>
-                                            <Link href={link.url}>{link.label}</Link>
-                                        </Button>
-                                    ))}
-                                    <Button size="sm" variant="red" asChild>
-                                        {links.next ? (
-                                            <Link href={links.next}>
-                                                Next <PiArrowRight className="-mr-1 ml-1 size-4" />
-                                            </Link>
-                                        ) : (
-                                            <span>Next</span>
-                                        )}
-                                    </Button>
-                                </div>
-                            )}
-                        </CardFooter> */}
                     </Card>
                 </div>
             </div>
