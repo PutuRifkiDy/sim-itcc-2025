@@ -28,30 +28,33 @@ function DashboardKesekreSemnas() {
         _method: 'POST',
     });
 
-    const [confirmingUserDeletion, setConfirmingUserDeletion] = useState(false);
+    const [modalIdentifyUserOpen, setModalIdentifyUserOpen] = useState(false);
     const [modalFormOpen, setModalFormOpen] = useState(false);
     const hasShownToast = useRef(false);
     const [selectedUser, setSelectedUser] = useState(null);
+    const [selectId, setSelectId] = useState(null);
 
-    const confirmUserDeletion = (user) => {
-        setConfirmingUserDeletion(true);
+    const modalIdentifyUserHandler = (user) => {
+        setModalIdentifyUserOpen(true);
         setSelectedUser(user);
     };
 
-    const modalFormOpenHandler = () => {
+    const modalFormOpenHandler = (id) => {
         setModalFormOpen(true);
+        setSelectId(id);
     };
 
 
     const closeModal = () => {
         setSelectedUser(null);
-        setConfirmingUserDeletion(false);
+        setModalIdentifyUserOpen(false);
 
         clearErrors();
         reset();
     };
 
     const closeModalForm = () => {
+        setSelectId(null);
         setModalFormOpen(false);
         clearErrors();
         reset();
@@ -67,7 +70,7 @@ function DashboardKesekreSemnas() {
     console.log('cek isi', event_registrations_semnas[0].payment_proof_path)
 
 
-    const onHandleSubmit = (e, id) => {
+    const onHandleSubmit = (e, semnasId) => {
         e.preventDefault();
 
         if (!data.reject_reason) {
@@ -79,7 +82,7 @@ function DashboardKesekreSemnas() {
         }
 
 
-        post(route('dashboard.semnas.admin-kesekre.reject', { id: id }), {
+        post(route('dashboard.semnas.admin-kesekre.reject', { id: semnasId }), {
 
             onSuccess: (success) => {
                 const flash = flashMessage(success);
@@ -151,6 +154,21 @@ function DashboardKesekreSemnas() {
                                         <table className="w-full text-left">
                                             <thead>
                                                 <tr className="bg-gray-50">
+                                                    <th
+                                                        className="5 font-semibold px-2 py-3 text-left text-sm text-foreground"
+                                                        scope="col"
+                                                    >
+                                                        <Button
+                                                            variant="ghost"
+                                                            className="group inline-flex"
+                                                        // onClick={() => onSortable('title')}
+                                                        >
+                                                            No
+                                                            <span className="ml-2 flex-none rounded text-foreground">
+                                                                <PiArrowsDownUp className="h-5 w-5" />
+                                                            </span>
+                                                        </Button>
+                                                    </th>
                                                     <th
                                                         className="5 font-semibold px-2 py-3 text-left text-sm text-foreground"
                                                         scope="col"
@@ -259,6 +277,9 @@ function DashboardKesekreSemnas() {
                                                 {event_registrations_semnas.map((semnas, index) => (
                                                     <tr key={index}>
                                                         <td className="whitespace-nowrap px-6 py-8 text-sm font-medium text-foreground">
+                                                            {index + 1}
+                                                        </td>
+                                                        <td className="whitespace-nowrap px-6 py-8 text-sm font-medium text-foreground">
                                                             {semnas.user.name}
                                                         </td>
                                                         <td className="whitespace-nowrap px-6 py-8 text-sm font-medium text-foreground">
@@ -287,12 +308,12 @@ function DashboardKesekreSemnas() {
                                                             <Button
                                                                 variant='none'
                                                                 className="flex flex-row gap-3 justify-center items-center text-foreground font-normal"
-                                                                onClick={() => confirmUserDeletion(semnas.user)}
+                                                                onClick={() => modalIdentifyUserHandler(semnas.user)}
                                                             >
                                                                 Open
                                                                 <IconPreviewImageProfile />
                                                             </Button>
-                                                            <Modal show={confirmingUserDeletion} onClose={closeModal} className="px-5 py-5">
+                                                            <Modal show={modalIdentifyUserOpen} onClose={closeModal} className="px-5 py-5">
                                                                 <h2 className="text-lg font-medium text-gray-900">Identity User</h2>
                                                                 <div className='mt-10 grid md:grid-cols-2 grid-cols-1 gap-5'>
                                                                     <div>
@@ -362,15 +383,18 @@ function DashboardKesekreSemnas() {
                                                         </td>
                                                         <td className="whitespace-nowrap px-6 py-8 flex md:flex-row gap-2">
                                                             <Link
-                                                                className="flex justify-center items-center border-2 rounded-md border-[#4DE45C] p-1 hover:bg-[#4DE45C]/20 transition-all duration-300 ease-in-out"
+                                                                className="flex justify-center items-center border-2 rounded-md border-[#4DE45C] p-1.5 hover:bg-[#4DE45C]/20 transition-all duration-300 ease-in-out"
                                                                 href={route('dashboard.semnas.admin-kesekre.payment', { id: semnas.id })}
                                                                 method="post">
                                                                 <DocumentCheckIcon className="text-[#4DE45C] w-5 h-5" />
                                                             </Link>
-                                                            <Button variant="none" className="flex justify-center items-center border-2 rounded-md border-[#E82323] p-1 hover:bg-[#E82323]/20 transition-all duration-300 ease-in-out" onClick={modalFormOpenHandler}>
+                                                            <Button
+                                                                variant="none"
+                                                                className="flex justify-center items-center border-2 rounded-md border-[#E82323] p-1.5 hover:bg-[#E82323]/20 transition-all duration-300 ease-in-out"
+                                                                onClick={() => modalFormOpenHandler(semnas.id)}>
                                                                 <XCircleIcon className="text-[#E82323] w-5 h-5" />
                                                             </Button>
-                                                            <form onSubmit={(e) => onHandleSubmit(e, semnas.id)}>
+                                                            <form onSubmit={(e) => onHandleSubmit(e, selectId)}>
 
                                                                 <Modal show={modalFormOpen} onClose={closeModalForm} maxWidth="md" className="p-4">
                                                                     <form onSubmit={onHandleSubmit} className="p-6">
