@@ -48,6 +48,7 @@ class DashboardSemnasForKesekreController extends Controller
             'state'                      => [
                 'page'  => request()->page ?? 1,
                 'searh' => request()->search ?? '',
+                'load' => 10,
             ],
 
             'count_verified'             => $count_verified,

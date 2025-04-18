@@ -8,6 +8,7 @@ import { Button } from "@/Components/ui/button";
 import { Card, CardContent, CardFooter } from "@/Components/ui/card";
 import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "@/Components/ui/dialog";
 import { Input } from "@/Components/ui/input";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/Components/ui/select";
 import { useFilter } from "@/Hooks/UseFilter";
 import DashboardLayout from "@/Layouts/DashboardLayout";
 import { flashMessage } from "@/lib/utils";
@@ -159,8 +160,8 @@ function DashboardKesekreSemnas({ ...props }) {
                             value={params?.search}
                             onChange={(e) => setParams((prev) => ({ ...prev, search: e.target.value }))}
                         />
-                        {/* <Select value={params?.load} onValueChange={(e) => setParams({ ...params, load: e })}>
-                            <SelectTrigger className="w-full sm:w-24">
+                        <Select value={params?.load} onValueChange={(e) => setParams({ ...params, load: e })}>
+                            <SelectTrigger className="w-full h-9 sm:w-24">
                                 <SelectValue placeholder="Load" />
                             </SelectTrigger>
                             <SelectContent>
@@ -170,7 +171,7 @@ function DashboardKesekreSemnas({ ...props }) {
                                     </SelectItem>
                                 ))}
                             </SelectContent>
-                        </Select> */}
+                        </Select>
                         <Button variant="outline" onClick={() => setParams(props.state)}>
                             <PiArrowsClockwise className="mr-2 h-5 w-5" />
                             Clear
