@@ -12,11 +12,10 @@ class DashboardSemnasForKesekreController extends Controller
 
     public function index(): Response
     {
-        // return inertia(component: 'Semnas/Dashboard/DashboardSemnasForKesekre', props: [
-        //     ''
-        // ]);
+        $event_registrations_semnas = EventRegistrations::with('events', 'user')
+            ->get();
+            // ->paginate(10);
 
-        $event_registrations_semnas = EventRegistrations::with('events', 'user')->get();
         $count_verified = EventRegistrations::where('payment_status', 'Verified')->count();
         $count_pending = EventRegistrations::where('payment_status', 'Pending')->count();
         $count_requested = EventRegistrations::where('payment_status', 'Requested')->count();
@@ -24,6 +23,11 @@ class DashboardSemnasForKesekreController extends Controller
 
         return inertia(component: 'Semnas/Dashboard/DashboardKesekreSemnas', props: [
             'event_registrations_semnas' => EventRegistrationResource::collection($event_registrations_semnas),
+            // ->additional([
+            //     'meta' => [
+            //         'has_pages' => $event_registrations_semnas->hasPages(),
+            //     ],
+            // ]),
             'count_verified' => $count_verified,
             'count_pending' => $count_pending,
             'count_requested' => $count_requested,
