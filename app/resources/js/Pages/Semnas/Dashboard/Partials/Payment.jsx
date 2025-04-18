@@ -118,7 +118,7 @@ function Payment({ event_registrations, payment_methods, className }) {
                 <form onSubmit={onHandleSubmit}>
                     <div className="flex justify-center flex-col gap-5 items-center mt-10">
 
-                        {event_registrations.payment_status === "Requested" || "Pending" || "Rejected" ? (
+                        {["Requested", "Pending", "Rejected"].includes(event_registrations.payment_status) ? (
                             <ImageUploadDashboard
                                 imagePath={data.payment_proof_path}
                                 onChangeImage={(file, previewUrl) => {
@@ -128,7 +128,7 @@ function Payment({ event_registrations, payment_methods, className }) {
                                 errorMessage={errors.payment_proof_path}
                                 classNameForBG={`${event_registrations.payment_status === "Pending" && "cursor-not-allowed bg-[#4880FF]/15"}`}
                             />
-                        ) : (
+                        ) : event_registrations.payment_status === "Verified" && (
                             <div className="flex flex-col items-center justify-center gap-4">
                                 <img src={`${window.location.origin}/assets/images/image_for_people_verified_semnas.png`} className="w-[200px] h-[200px]" alt="" />
                                 <div className="flex flex-col gap-2 justify-center items-center">
@@ -138,12 +138,12 @@ function Payment({ event_registrations, payment_methods, className }) {
                             </div>
                         )}
 
-                        {event_registrations.payment_status === "Pending" ? (
-                            <Button variant="blue" type="submit" className="px-10 rounded-[8px] shadow-xl cursor-not-allowed" disabled>
+                        {['Requested', 'Rejected'].includes(event_registrations.payment_status) ? (
+                            <Button variant="blue" type="submit" className="px-10 rounded-[8px] shadow-xl">
                                 Submit
                             </Button>
-                        ) : (
-                            <Button variant="blue" type="submit" disabled={processing} className="px-10 rounded-[8px] shadow-xl">
+                        ) : event_registrations.payment_status === "Pending" && (
+                            <Button variant="blue" type="submit" className="px-10 rounded-[8px] shadow-xl cursor-not-allowed" disabled>
                                 Submit
                             </Button>
                         )}

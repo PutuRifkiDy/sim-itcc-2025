@@ -31,14 +31,15 @@ function Ticket({ event_registrations, className }) {
                 )}
 
 
-                {event_registrations.payment_status == 'Requested' || event_registrations.payment_status == 'Pending' || event_registrations.payment_status == 'Rejected' ? (
+                {['Pending', 'Requested', 'Rejected'].includes(event_registrations.payment_status) ? (
                     <div className="flex flex-col gap-2 items-center justify-center mt-10">
                         <img src={`${window.location.origin}/assets/images/image_for_ticket_no_available.png`} className="w-[246px] h-[246px]" alt="" />
                         <p className="font-bold text-[26px] text-[#5E5E5E]">No Ticket Available</p>
                     </div>
                 ) : (
-                    <div className="flex flex-col gap-2 items-center justify-center mt-10">
-                        <img src={`${window.location.origin}/assets/images/image_for_ticket_no_available.png`} className="w-[246px] h-[246px]" alt="" />
+                    <div className="flex flex-col gap-2 items-center justify-center mt-10 w-full">
+                        {/* <img src={`${window.location.origin}/assets/images/image_for_ticket_no_available.png`} className="w-[246px] h-[246px]" alt="" /> */}
+                        {/* gambar ticket dan button download */}
                     </div>
                 )}
             </section>

@@ -11,19 +11,20 @@ import DashboardLayout from "@/Layouts/DashboardLayout";
 import { flashMessage } from "@/lib/utils";
 import { CheckBadgeIcon, ClockIcon, PaperAirplaneIcon, ArchiveBoxXMarkIcon, DocumentCheckIcon, XCircleIcon } from "@heroicons/react/24/solid";
 import { Link, useForm, usePage } from "@inertiajs/react";
-import { useEffect, useRef, useState } from "react";
-import { PiArrowsDownUp } from "react-icons/pi";
+import { use, useEffect, useRef, useState } from "react";
+import { PiArrowLeft, PiArrowRight, PiArrowsDownUp } from "react-icons/pi";
 import { toast } from "sonner";
 
-function DashboardKesekreSemnas() {
-    const event_registrations_semnas = usePage().props.event_registrations_semnas;
+function DashboardKesekreSemnas({ ...props }) {
+    // const event_registrations_semnas = usePage().props.event_registrations_semnas;
     const count_verified = usePage().props.count_verified;
     const count_pending = usePage().props.count_pending;
     const count_rejected = usePage().props.count_rejected;
     const count_requested = usePage().props.count_requested;
     const { flash_message } = usePage().props;
+    const { data: event_registrations_semnas, meta, links } = props.event_registrations_semnas;
 
-    const { data, setData, post, put, patch, errors, processing, recentlySuccessful, formData } = useForm({
+    const { data, setData, post, put, patch, errors, processing, recentlySuccessful, formData, clearErrors, reset } = useForm({
         reject_reason: event_registrations_semnas.reject_reason ?? '',
         _method: 'POST',
     });
@@ -66,11 +67,14 @@ function DashboardKesekreSemnas() {
         }
     }, [flash_message]);
 
-    console.log('cek isi', event_registrations_semnas)
-    console.log('cek isi', event_registrations_semnas[0].payment_proof_path)
-
-
+    // useEffect(() => {
+    //     if (recentlySuccessful) {
+    //         closeModalForm();
+    //         hasShownToast.current = false;
+    //     }
+    // }, [recentlySuccessful]);
     const onHandleSubmit = (e, semnasId) => {
+
         e.preventDefault();
 
         if (!data.reject_reason) {
@@ -83,19 +87,15 @@ function DashboardKesekreSemnas() {
 
 
         post(route('dashboard.semnas.admin-kesekre.reject', { id: semnasId }), {
-
-            onSuccess: (success) => {
-                const flash = flashMessage(success);
-                if (flash) toast[flash.type](flash.message);
-
-                setTimeout(() => {
-                    window.location.reload();
-                }, 1000);
+            onSuccess: () => {
+                closeModalForm();
+                hasShownToast.current = false;
             },
             preserveScroll: true,
             preserveState: true,
         });
     };
+
     return (
         <>
             <div className="py-5">
@@ -394,38 +394,36 @@ function DashboardKesekreSemnas() {
                                                                 onClick={() => modalFormOpenHandler(semnas.id)}>
                                                                 <XCircleIcon className="text-[#E82323] w-5 h-5" />
                                                             </Button>
-                                                            <form onSubmit={(e) => onHandleSubmit(e, selectId)}>
 
-                                                                <Modal show={modalFormOpen} onClose={closeModalForm} maxWidth="md" className="p-4">
-                                                                    <form onSubmit={onHandleSubmit} className="p-6">
-                                                                        <h2 className="text-lg font-medium text-gray-900">Please input a reject reason</h2>
+                                                            <Modal show={modalFormOpen} onClose={closeModalForm} maxWidth="md" className="p-4">
+                                                                <form onSubmit={(e) => onHandleSubmit(e, selectId)}>
+                                                                    <h2 className="text-lg font-medium text-gray-900">Please input a reject reason</h2>
 
-                                                                        <div className="mt-6">
+                                                                    <div className="mt-6">
 
-                                                                            <TextInput
-                                                                                id="reject_reason"
-                                                                                type="reject_reason"
-                                                                                name="reject_reason"
-                                                                                value={data.reject_reason}
-                                                                                onChange={(e) => setData('reject_reason', e.target.value)}
-                                                                                className="mt-1 block w-3/4"
-                                                                                isFocused
-                                                                                placeholder="Reject Reason"
-                                                                            />
+                                                                        <TextInput
+                                                                            id="reject_reason"
+                                                                            type="reject_reason"
+                                                                            name="reject_reason"
+                                                                            value={data.reject_reason}
+                                                                            onChange={(e) => setData('reject_reason', e.target.value)}
+                                                                            className="mt-1 block w-3/4"
+                                                                            isFocused
+                                                                            placeholder="Reject Reason"
+                                                                        />
 
-                                                                            <InputError message={errors.reject_reason} className="mt-2" />
-                                                                        </div>
+                                                                        <InputError message={errors.reject_reason} className="mt-2" />
+                                                                    </div>
 
-                                                                        <div className="mt-6 flex justify-end">
-                                                                            <Button onClick={closeModalForm} variant="blue" type="button">Cancel</Button>
+                                                                    <div className="mt-6 flex justify-end">
+                                                                        <Button onClick={closeModalForm} variant="blue" type="button">Cancel</Button>
 
-                                                                            <Button className="ms-3" variant="red" type="submit" disabled={processing}>
-                                                                                Reject
-                                                                            </Button>
-                                                                        </div>
-                                                                    </form>
-                                                                </Modal>
-                                                            </form>
+                                                                        <Button className="ms-3" variant="red" type="submit" disabled={processing}>
+                                                                            Reject
+                                                                        </Button>
+                                                                    </div>
+                                                                </form>
+                                                            </Modal>
                                                         </td>
                                                     </tr>
                                                 ))}
@@ -435,6 +433,38 @@ function DashboardKesekreSemnas() {
                                 </div>
                             </div>
                         </CardContent>
+                        <CardFooter className="justify-between border-t pt-6 text-sm text-muted-foreground">
+                            <p className="text-sm text-muted-foreground">
+                                Showing <span className="font-medium text-[#4880FF]">{meta.from}</span> of {meta.total}
+                            </p>
+                            {meta.has_page && (
+                                <div className="flex items-center gap-x-1">
+                                    <Button size="sm" variant="blue" asChild>
+                                        {links.prev ? (
+                                            <Link href={links.prev}>
+                                                <PiArrowLeft className="-ml-1 mr-1 size-4" />
+                                            </Link>
+                                        ) : (
+                                            <span>Prev</span>
+                                        )}
+                                    </Button>
+                                    {meta.links.slice(1, -1).map((link, index) => (
+                                        <Button key={index} size="sm" variant="outline" asChild>
+                                            <Link href={link.url}>{link.label}</Link>
+                                        </Button>
+                                    ))}
+                                    <Button size="sm" variant="blue" asChild>
+                                        {links.next ? (
+                                            <Link href={links.next}>
+                                                Next <PiArrowRight className="-mr-1 ml-1 size-4" />
+                                            </Link>
+                                        ) : (
+                                            <span>Next</span>
+                                        )}
+                                    </Button>
+                                </div>
+                            )}
+                        </CardFooter>
                     </Card>
                 </div>
             </div>
