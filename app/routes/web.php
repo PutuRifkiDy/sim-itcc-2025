@@ -42,6 +42,7 @@ Route::controller(DashboardSemnasController::class)->group(function() {
 
 Route::controller(DashboardSemnasForKesekreController::class)->group(function() {
     Route::get('dashboard/semnas/admin-kesekre', 'index')->name('dashboard.semnas.admin-kesekre.index');
+    Route::post('dashboard/semnas/admin-kesekre/{id}/payment', 'verif_payment')->name('dashboard.semnas.admin-kesekre.payment');
 })->middleware('auth');
 
 Route::middleware('auth')->group(function () {

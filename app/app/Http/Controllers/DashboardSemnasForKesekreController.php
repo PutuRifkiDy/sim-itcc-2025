@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\PaymentStatus;
 use App\Http\Resources\EventRegistrationResource;
 use App\Models\EventRegistrations;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Http\RedirectResponse;
 use Inertia\Response;
 class DashboardSemnasForKesekreController extends Controller
 {
@@ -33,5 +36,15 @@ class DashboardSemnasForKesekreController extends Controller
             'count_requested' => $count_requested,
             'count_rejected' => $count_rejected
         ]);
+    }
+
+    public function verif_payment($id): RedirectResponse
+    {
+        EventRegistrations::find($id)->update([
+            'payment_status' => PaymentStatus::VERIFIED->value,
+        ]);
+
+        flashMessage('Payment has been verified.', 'success');
+        return back();
     }
 }

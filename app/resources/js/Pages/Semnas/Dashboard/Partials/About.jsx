@@ -109,7 +109,7 @@ function About({ event_registrations, className }) {
                         Cancel Registration
                     </Button>
 
-                    <Modal show={confirmingUserDeletion} onClose={closeModal} className="px-5 py-5">
+                    <Modal show={confirmingUserDeletion} onClose={closeModal} className="px-5 py-5" maxWidth="md">
                         <h2 className="text-lg font-medium text-gray-900">Are you sure you want cancel your registration?</h2>
                         <p className="mt-1 text-sm text-gray-600 mb-10">
                             Once you cancel your registration, you will not be able to revert this action.

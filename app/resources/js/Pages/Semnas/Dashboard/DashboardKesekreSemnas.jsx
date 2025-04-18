@@ -8,8 +8,9 @@ import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "@/Components/
 import DashboardLayout from "@/Layouts/DashboardLayout";
 import { CheckBadgeIcon, ClockIcon, PaperAirplaneIcon, ArchiveBoxXMarkIcon, DocumentCheckIcon, XCircleIcon } from "@heroicons/react/24/solid";
 import { Link, usePage } from "@inertiajs/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { PiArrowsDownUp } from "react-icons/pi";
+import { toast } from "sonner";
 
 function DashboardKesekreSemnas() {
     const event_registrations_semnas = usePage().props.event_registrations_semnas;
@@ -17,6 +18,7 @@ function DashboardKesekreSemnas() {
     const count_pending = usePage().props.count_pending;
     const count_rejected = usePage().props.count_rejected;
     const count_requested = usePage().props.count_requested;
+    const { flash_message } = usePage().props;
 
     const [confirmingUserDeletion, setConfirmingUserDeletion] = useState(false);
     const [selectedUser, setSelectedUser] = useState(null);
@@ -32,6 +34,12 @@ function DashboardKesekreSemnas() {
         clearErrors();
         reset();
     };
+
+    useEffect(() => {
+        if (flash_message?.message) {
+            toast[flash_message.type || 'success'](flash_message.message);
+        }
+    }, [flash_message]);
 
 
     // const { data: users, meta, links } = props.users;
@@ -348,7 +356,8 @@ function DashboardKesekreSemnas() {
                                                         <td className="whitespace-nowrap px-6 py-8 flex md:flex-row gap-2">
                                                             <Link
                                                                 className="flex justify-center items-center border-2 rounded-md border-[#4DE45C] p-1 hover:bg-[#4DE45C]/20 transition-all duration-300 ease-in-out"
-                                                                href="">
+                                                                href={route('dashboard.semnas.admin-kesekre.payment', {id: semnas.id})}
+                                                                method="post">
                                                                 <DocumentCheckIcon className="text-[#4DE45C] w-5 h-5" />
                                                             </Link>
                                                             <Link
