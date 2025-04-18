@@ -69,9 +69,11 @@ class FrontController extends Controller
 
     public function store_register_semnas(SemnasRegistrationRequest $request, Events $event): RedirectResponse
     {
-        // dd($request);
         $already_registered = EventRegistrations::where('user_id', $request->user()->id)
             ->where('event_id', $event->id)
+            ->exists();
+        $ensure_user_must_regis_one_event = EventRegistrations::where('user_id', $request->user()->id)
+            ->where('event_id', '!=', $event->id)
             ->exists();
         $total_payment = EventPrices::where('event_id', $event->id)
             ->where('start_date', '<=', now())
@@ -84,7 +86,10 @@ class FrontController extends Controller
         if ($already_registered) {
             flashMessage('You have already registered for this event.', 'error');
             return back();
-        } else if ($request->user()->already_filled == false) {
+        } else if ($ensure_user_must_regis_one_event) {
+            flashMessage('You have already registered for another event.', 'error');
+            return back();
+        }else if ($request->user()->already_filled == false) {
             flashMessage('Please fill your profile first.', 'error');
             return back();
         } else if ($in_periode_registration == false) {
