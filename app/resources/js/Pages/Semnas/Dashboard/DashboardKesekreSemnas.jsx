@@ -100,6 +100,14 @@ function DashboardKesekreSemnas({ ...props }) {
         only: ['event_registrations_semnas', 'params'],
     });
 
+    const onSortable = (field) => {
+        setParams({
+            ...params,
+            field: field,
+            direction: params.direction === 'asc' ? 'desc' : 'asc',
+        });
+    };
+
     return (
         <>
             <div className="py-5">
@@ -153,9 +161,9 @@ function DashboardKesekreSemnas({ ...props }) {
                         </div>
                     </div>
 
-                    <div className="flex w-full flex-col gap-4 sm:flex-row">
+                    <div className="flex w-full flex-col gap-4 md:flex-row">
                         <Input
-                            className="w-full sm:w-1/4"
+                            className="w-full sm:w-1/4 outline-none ring-0 focus-visible:ring-0"
                             placeholder="Search"
                             value={params?.search}
                             onChange={(e) => setParams((prev) => ({ ...prev, search: e.target.value }))}
@@ -193,12 +201,8 @@ function DashboardKesekreSemnas({ ...props }) {
                                                         <Button
                                                             variant="ghost"
                                                             className="group inline-flex"
-                                                        // onClick={() => onSortable('title')}
                                                         >
                                                             No
-                                                            <span className="ml-2 flex-none rounded text-foreground">
-                                                                <PiArrowsDownUp className="h-5 w-5" />
-                                                            </span>
                                                         </Button>
                                                     </th>
                                                     <th
@@ -208,12 +212,8 @@ function DashboardKesekreSemnas({ ...props }) {
                                                         <Button
                                                             variant="ghost"
                                                             className="group inline-flex"
-                                                        // onClick={() => onSortable('title')}
                                                         >
                                                             Name
-                                                            <span className="ml-2 flex-none rounded text-foreground">
-                                                                <PiArrowsDownUp className="h-5 w-5" />
-                                                            </span>
                                                         </Button>
                                                     </th>
                                                     <th
@@ -223,12 +223,8 @@ function DashboardKesekreSemnas({ ...props }) {
                                                         <Button
                                                             variant="ghost"
                                                             className="group inline-flex"
-                                                        // onClick={() => onSortable('status')}
                                                         >
                                                             Type
-                                                            <span className="ml-2 flex-none rounded text-foreground">
-                                                                <PiArrowsDownUp className="h-5 w-5" />
-                                                            </span>
                                                         </Button>
                                                     </th>
                                                     <th
@@ -238,12 +234,8 @@ function DashboardKesekreSemnas({ ...props }) {
                                                         <Button
                                                             variant="ghost"
                                                             className="group inline-flex"
-                                                        // onClick={() => onSortable('created_at')}
                                                         >
                                                             Proof Payment
-                                                            <span className="ml-2 flex-none rounded text-foreground">
-                                                                <PiArrowsDownUp className="h-5 w-5" />
-                                                            </span>
                                                         </Button>
                                                     </th>
                                                     <th
@@ -253,12 +245,8 @@ function DashboardKesekreSemnas({ ...props }) {
                                                         <Button
                                                             variant="ghost"
                                                             className="group inline-flex"
-                                                            onClick={() => onSortable('created_at')}
                                                         >
                                                             Identity
-                                                            <span className="ml-2 flex-none rounded text-foreground">
-                                                                <PiArrowsDownUp className="h-5 w-5" />
-                                                            </span>
                                                         </Button>
                                                     </th>
                                                     <th
@@ -268,7 +256,7 @@ function DashboardKesekreSemnas({ ...props }) {
                                                         <Button
                                                             variant="ghost"
                                                             className="group inline-flex"
-                                                        // onClick={() => onSortable('created_at')}
+                                                            onClick={() => onSortable('payment_status')}
                                                         >
                                                             Status
                                                             <span className="ml-2 flex-none rounded text-foreground">
@@ -283,7 +271,7 @@ function DashboardKesekreSemnas({ ...props }) {
                                                         <Button
                                                             variant="ghost"
                                                             className="group inline-flex"
-                                                        // onClick={() => onSortable('created_at')}
+                                                            onClick={() => onSortable('total_payment')}
                                                         >
                                                             Total
                                                             <span className="ml-2 flex-none rounded text-foreground">
@@ -298,7 +286,6 @@ function DashboardKesekreSemnas({ ...props }) {
                                                         <Button
                                                             variant="ghost"
                                                             className="group inline-flex"
-                                                        // onClick={() => onSortable('created_at')}
                                                         >
                                                             Action
                                                         </Button>
