@@ -124,7 +124,7 @@ function About({ event_registrations, className }) {
                                     method="delete"
                                     href={route('dashboard.semnas.destroy', { id: event_registrations.id })}
                                 >
-                                    Cancel Registration
+                                    Confirm
                                 </Link>
                             </Button>
                         </div>
