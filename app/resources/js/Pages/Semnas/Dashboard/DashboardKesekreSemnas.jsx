@@ -108,6 +108,12 @@ function DashboardKesekreSemnas({ ...props }) {
         });
     };
 
+    const handleExportCSV = () => {
+        window.location.href = route('export.event-registrations', {
+            search: params.search,
+        });
+    };
+
     return (
         <>
             <div className="py-5">
@@ -161,30 +167,37 @@ function DashboardKesekreSemnas({ ...props }) {
                         </div>
                     </div>
 
-                    <div className="flex w-full flex-col gap-4 md:flex-row">
-                        <Input
-                            className="w-full sm:w-1/4 outline-none ring-0 focus-visible:ring-0"
-                            placeholder="Search"
-                            value={params?.search}
-                            onChange={(e) => setParams((prev) => ({ ...prev, search: e.target.value }))}
-                        />
-                        <Select value={params?.load} onValueChange={(e) => setParams({ ...params, load: e })}>
-                            <SelectTrigger className="w-full h-9 sm:w-24">
-                                <SelectValue placeholder="Load" />
-                            </SelectTrigger>
-                            <SelectContent>
-                                {[10, 25, 50, 75, 100].map((number, index) => (
-                                    <SelectItem key={index} value={number}>
-                                        {number}
-                                    </SelectItem>
-                                ))}
-                            </SelectContent>
-                        </Select>
-                        <Button variant="outline" onClick={() => setParams(props.state)}>
-                            <PiArrowsClockwise className="mr-2 h-5 w-5" />
-                            Clear
+                    <div className="flex w-full md:flex-row flex-col justify-between mt-4">
+                        <div className="flex md:flex-row flex-col gap-4 w-full">
+                            <Input
+                                className="w-full sm:w-1/4 outline-none ring-0 focus-visible:ring-0"
+                                placeholder="Search"
+                                value={params?.search}
+                                onChange={(e) => setParams((prev) => ({ ...prev, search: e.target.value }))}
+                            />
+                            <Select value={params?.load} onValueChange={(e) => setParams({ ...params, load: e })}>
+                                <SelectTrigger className="w-full h-9 sm:w-24">
+                                    <SelectValue placeholder="Load" />
+                                </SelectTrigger>
+                                <SelectContent>
+                                    {[10, 25, 50, 75, 100].map((number, index) => (
+                                        <SelectItem key={index} value={number}>
+                                            {number}
+                                        </SelectItem>
+                                    ))}
+                                </SelectContent>
+                            </Select>
+                            <Button variant="outline" onClick={() => setParams(props.state)}>
+                                <PiArrowsClockwise className="mr-2 h-5 w-5" />
+                                Clear
+                            </Button>
+                        </div>
+                        <Button variant="blue" type="button" onClick={handleExportCSV}>
+                            Export CSV
                         </Button>
                     </div>
+
+
 
                     <Card>
                         <CardContent>

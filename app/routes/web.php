@@ -2,11 +2,13 @@
 
 use App\Http\Controllers\DashboardSemnasController;
 use App\Http\Controllers\DashboardSemnasForKesekreController;
+use App\Http\Controllers\ExportController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
@@ -44,6 +46,7 @@ Route::controller(DashboardSemnasForKesekreController::class)->group(function() 
     Route::get('dashboard/semnas/admin-kesekre', 'index')->name('dashboard.semnas.admin-kesekre.index');
     Route::post('dashboard/semnas/admin-kesekre/{id}/payment', 'verif_payment')->name('dashboard.semnas.admin-kesekre.payment');
     Route::post('dashboard/semnas/admin-kesekre/{id}/reject', 'reject_payment')->name('dashboard.semnas.admin-kesekre.reject');
+    Route::get('export/event-registrations', [ExportController::class, 'export'])->name('export.event-registrations');
 })->middleware('auth');
 
 Route::middleware('auth')->group(function () {
