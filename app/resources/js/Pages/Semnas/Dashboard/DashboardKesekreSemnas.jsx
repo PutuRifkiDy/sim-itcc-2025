@@ -7,22 +7,24 @@ import { Badge } from "@/Components/ui/badge";
 import { Button } from "@/Components/ui/button";
 import { Card, CardContent, CardFooter } from "@/Components/ui/card";
 import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "@/Components/ui/dialog";
+import { Input } from "@/Components/ui/input";
+import { useFilter } from "@/Hooks/UseFilter";
 import DashboardLayout from "@/Layouts/DashboardLayout";
 import { flashMessage } from "@/lib/utils";
 import { CheckBadgeIcon, ClockIcon, PaperAirplaneIcon, ArchiveBoxXMarkIcon, DocumentCheckIcon, XCircleIcon } from "@heroicons/react/24/solid";
 import { Link, useForm, usePage } from "@inertiajs/react";
 import { use, useEffect, useRef, useState } from "react";
-import { PiArrowLeft, PiArrowRight, PiArrowsDownUp } from "react-icons/pi";
+import { PiArrowLeft, PiArrowRight, PiArrowsClockwise, PiArrowsDownUp } from "react-icons/pi";
 import { toast } from "sonner";
 
 function DashboardKesekreSemnas({ ...props }) {
-    // const event_registrations_semnas = usePage().props.event_registrations_semnas;
     const count_verified = usePage().props.count_verified;
     const count_pending = usePage().props.count_pending;
     const count_rejected = usePage().props.count_rejected;
     const count_requested = usePage().props.count_requested;
     const { flash_message } = usePage().props;
     const { data: event_registrations_semnas, meta, links } = props.event_registrations_semnas;
+    const [params, setParams] = useState(props.state);
 
     const { data, setData, post, put, patch, errors, processing, recentlySuccessful, formData, clearErrors, reset } = useForm({
         reject_reason: event_registrations_semnas.reject_reason ?? '',
@@ -67,12 +69,7 @@ function DashboardKesekreSemnas({ ...props }) {
         }
     }, [flash_message]);
 
-    // useEffect(() => {
-    //     if (recentlySuccessful) {
-    //         closeModalForm();
-    //         hasShownToast.current = false;
-    //     }
-    // }, [recentlySuccessful]);
+
     const onHandleSubmit = (e, semnasId) => {
 
         e.preventDefault();
@@ -96,10 +93,18 @@ function DashboardKesekreSemnas({ ...props }) {
         });
     };
 
+    useFilter({
+        route: route('dashboard.semnas.admin-kesekre.index'),
+        values: params,
+        only: ['event_registrations_semnas', 'params'],
+    });
+
     return (
         <>
             <div className="py-5">
                 <div className="bg-white p-4 shadow rounded-lg sm:p-8 flex flex-col gap-5 justify-between">
+                    {/* start searching */}
+
                     <div className="flex md:flex-row flex-col gap-5 justify-between">
                         {/* ada 3 div untuk count requested, pending, sama rejected*/}
                         <div className="border-2 border-[#E4F0F8] flex justify-center items-center flex-row gap-5 py-4 px-10 rounded-xl">
@@ -146,6 +151,32 @@ function DashboardKesekreSemnas({ ...props }) {
                             </div>
                         </div>
                     </div>
+
+                    <div className="flex w-full flex-col gap-4 sm:flex-row">
+                        <Input
+                            className="w-full sm:w-1/4"
+                            placeholder="Search"
+                            value={params?.search}
+                            onChange={(e) => setParams((prev) => ({ ...prev, search: e.target.value }))}
+                        />
+                        {/* <Select value={params?.load} onValueChange={(e) => setParams({ ...params, load: e })}>
+                            <SelectTrigger className="w-full sm:w-24">
+                                <SelectValue placeholder="Load" />
+                            </SelectTrigger>
+                            <SelectContent>
+                                {[10, 25, 50, 75, 100].map((number, index) => (
+                                    <SelectItem key={index} value={number}>
+                                        {number}
+                                    </SelectItem>
+                                ))}
+                            </SelectContent>
+                        </Select> */}
+                        <Button variant="outline" onClick={() => setParams(props.state)}>
+                            <PiArrowsClockwise className="mr-2 h-5 w-5" />
+                            Clear
+                        </Button>
+                    </div>
+
                     <Card>
                         <CardContent>
                             <div className="my-8 flow-root">
