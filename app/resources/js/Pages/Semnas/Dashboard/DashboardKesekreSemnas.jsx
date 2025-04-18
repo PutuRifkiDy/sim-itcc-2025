@@ -413,12 +413,24 @@ function DashboardKesekreSemnas({ ...props }) {
                                                             Rp.{" "}{semnas.total_payment}
                                                         </td>
                                                         <td className="whitespace-nowrap px-6 py-8 flex md:flex-row gap-2">
-                                                            <Link
-                                                                className="flex justify-center items-center border-2 rounded-md border-[#4DE45C] p-1.5 hover:bg-[#4DE45C]/20 transition-all duration-300 ease-in-out"
-                                                                href={route('dashboard.semnas.admin-kesekre.payment', { id: semnas.id })}
-                                                                method="post">
-                                                                <DocumentCheckIcon className="text-[#4DE45C] w-5 h-5" />
-                                                            </Link>
+                                                            {semnas.payment_status === 'Requested' ? (
+                                                                <Link
+                                                                    className="flex justify-center items-center border-2 rounded-md border-[#4DE45C] p-1.5 hover:bg-[#4DE45C]/20 transition-all duration-300 ease-in-out cursor-not-allowed"
+                                                                    href={route('dashboard.semnas.admin-kesekre.payment', { id: semnas.id })}
+                                                                    method="post"
+                                                                    disabled>
+                                                                    <DocumentCheckIcon className="text-[#4DE45C] w-5 h-5" />
+                                                                </Link>
+                                                            ) : (
+
+                                                                <Link
+                                                                    className="flex justify-center items-center border-2 rounded-md border-[#4DE45C] p-1.5 hover:bg-[#4DE45C]/20 transition-all duration-300 ease-in-out"
+                                                                    href={route('dashboard.semnas.admin-kesekre.payment', { id: semnas.id })}
+                                                                    method="post">
+                                                                    <DocumentCheckIcon className="text-[#4DE45C] w-5 h-5" />
+                                                                </Link>
+                                                            )}
+
                                                             <Button
                                                                 variant="none"
                                                                 className="flex justify-center items-center border-2 rounded-md border-[#E82323] p-1.5 hover:bg-[#E82323]/20 transition-all duration-300 ease-in-out"
