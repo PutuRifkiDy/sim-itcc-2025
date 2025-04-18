@@ -16,6 +16,7 @@ class ProfileUpdateRequest extends FormRequest
      */
     public function rules(): array
     {
+        $user = $this->user();
         return [
             'name'             => ['required', 'string', 'max:255'],
             'email'            => [
@@ -30,12 +31,16 @@ class ProfileUpdateRequest extends FormRequest
             'address'          => ['required', 'string', 'max:255'],
             'line_id'          => ['required', 'string', 'max:255'],
             'institution'      => ['required', 'string', 'max:255'],
+            // 'institution_path' => array_merge(
+            //     empty($this->user()->institution_path)
+            //     ? ['required']
+            //     : ['nullable'],
+            //     ['mimes:png,jpg', 'max:1048']
+            // ),
             'institution_path' => [
-                Rule::when(
-                    empty($this->user()->institution_path),
-                    ['required', 'mimes:png,jpg', 'max:1048'],
-                    ['nullable', 'mimes:png,jpg', 'max:1048']
-                ),
+                'nullable',
+                'mimes:jpg,jpeg,png',
+                'max:1048',
             ],
             'status'           => ['required', new Enum(UserStatus::class)],
             'already_filled'   => ['nullable', 'boolean'],

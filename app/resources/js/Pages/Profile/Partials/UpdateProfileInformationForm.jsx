@@ -36,13 +36,16 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, stat
         _method: 'PUT',
     });
 
-
     const onHandleChange = (e) => {
         setData(e.target.name, e.target.value);
     };
 
     const onHandleSubmit = (e) => {
         e.preventDefault();
+
+        if (!(data.institution_path instanceof File)) {
+            delete data.institution_path;
+        }
         post(route('profile.update'), {
             onSuccess: (success) => {
                 const flash = flashMessage(success);
@@ -208,12 +211,12 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, stat
                             <InputLabel htmlFor="institution_path" value="Institution Card" className='text-[12px] text-[#676767] font-normal' />
 
                             <ImageUpload
-                                imagePath={data.institution_path}
+                                imagePath={user.institution_path}
                                 onChangeImage={(file, previewUrl) => {
                                     setData("institution_path", file);
                                     setPreview(previewUrl);
                                 }}
-                               errorMessage={errors.institution_path}
+                                errorMessage={errors.institution_path}
                             />
 
                             {/* Input Image Incoming sajalah */}
@@ -301,7 +304,7 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, stat
                                 <DialogTitle>
                                     Institution Card
                                 </DialogTitle>
-                                <img src={data.institution_path ? data.institution_path : 'assets/images/default_image_profile.png'} className="h-64 w-auto" alt="" />
+                                <img src={user.institution_path ? user.institution_path : 'assets/images/default_image_profile.png'} className="h-64 w-auto" alt="" />
                             </DialogContent>
                         </Dialog>
                     </div>

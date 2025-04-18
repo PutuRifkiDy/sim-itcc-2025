@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 
 use App\Enums\UserStatus;
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\User;
 use App\Traits\HasFile;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Http\RedirectResponse;
@@ -30,18 +31,16 @@ class ProfileController extends Controller
     /**
      * Update the user's profile information.
      */
-    public function update(ProfileUpdateRequest $request): RedirectResponse
+    public function update(ProfileUpdateRequest $request, User $user_model): RedirectResponse
     {
-        // dd($request->all());
         $user = $request->user();
 
-        // ambil data validasi profile
         $user->fill($request->validated());
 
-        // Mengupdate file kalo ada
-        $institutionPath = $this->update_file($request, $user, 'institution_path', 'institutions');
+        $institutionPath = $request->hasFile('institution_path')
+        ? $this->update_file($request, $user, 'institution_path', 'institutions')
+        : ($user->institution_path ?? null);
 
-        // Jika ada file baru, update kolom institution_path
         if ($institutionPath) {
             $user->institution_path = $institutionPath;
         }
