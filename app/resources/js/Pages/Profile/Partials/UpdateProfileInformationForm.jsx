@@ -29,7 +29,7 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, stat
         phone_number: user.phone_number ?? '',
         address: user.address ?? '',
         line_id: user.line_id ?? '',
-        birthdate: user.birthdate ?? '',
+        nim: user.nim ?? '',
         institution: user.institution ?? '',
         institution_path: user.institution_path ?? '',
         status: user.status ?? '',
@@ -121,6 +121,25 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, stat
                                 onErrors={errors.email && <InputError message={errors.email} className='mt-2' />}
                             />
                         </div>
+
+                        <div>
+                            <InputLabel htmlFor="nim" value="NIM" className='text-[12px] text-[#676767] font-normal' />
+
+                            <TextInput
+                                id="nim"
+                                name="nim"
+                                type="text"
+                                className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F]"
+                                value={data.nim}
+                                onChange={onHandleChange}
+                                required
+                                isFocused
+                                placeholder="Insert your identification number"
+                                autoComplete="nim"
+                                onErrors={errors.nim && <InputError message={errors.nim} className='mt-2' />}
+                            />
+
+                        </div>
                         <div>
                             <InputLabel htmlFor="phone_number" value="Phone Number" className='text-[12px] text-[#676767] font-normal' />
 
@@ -132,6 +151,7 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, stat
                                 value={data.phone_number}
                                 onChange={onHandleChange}
                                 isFocused
+                                placeholder="Insert your phone number"
                                 autoComplete="phone_number"
                                 onErrors={errors.phone_number && <InputError message={errors.phone_number} className='mt-2' />}
                             />
@@ -149,6 +169,7 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, stat
                                 value={data.address}
                                 onChange={onHandleChange}
                                 isFocused
+                                placeholder="Insert your address"
                                 autoComplete="address"
                                 onErrors={errors.address && <InputError message={errors.address} className='mt-2' />}
                             />
@@ -166,29 +187,12 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, stat
                                 value={data.line_id}
                                 onChange={onHandleChange}
                                 isFocused
+                                placeholder="Insert your line ID"
                                 autoComplete="line_id"
                                 onErrors={errors.line_id && <InputError message={errors.line_id} className='mt-2' />}
                             />
 
                         </div>
-                        {/*
-                        <div>
-                            <InputLabel htmlFor="birthdate" value="Birthdate" className='text-[12px] text-[#676767] font-normal' />
-
-                            <TextInput
-                                id="birthdate"
-                                name="birthdate"
-                                type="date"
-                                className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F]"
-                                value={data.birthdate}
-                                onChange={onHandleChange}
-                                required
-                                isFocused
-                                autoComplete="birthdate"
-                                onErrors={errors.birthdate && <InputError message={errors.birthdate} className='mt-2' />}
-                            />
-
-                        </div> */}
 
                         <div>
                             <InputLabel htmlFor="institution" value="Institution" className='text-[12px] text-[#676767] font-normal' />
@@ -201,27 +205,13 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, stat
                                 value={data.institution}
                                 onChange={onHandleChange}
                                 isFocused
+                                placeholder="Insert your institution"
                                 autoComplete="institution"
                                 onErrors={errors.institution && <InputError message={errors.institution} className='mt-2' />}
                             />
 
                         </div>
 
-                        <div className='flex flex-col gap-2'>
-                            <InputLabel htmlFor="institution_path" value="Institution Card" className='text-[12px] text-[#676767] font-normal' />
-
-                            <ImageUpload
-                                imagePath={user.institution_path}
-                                onChangeImage={(file, previewUrl) => {
-                                    setData("institution_path", file);
-                                    setPreview(previewUrl);
-                                }}
-                                errorMessage={errors.institution_path}
-                            />
-
-                            {/* Input Image Incoming sajalah */}
-
-                        </div>
 
                         <div className='flex flex-col gap-2'>
                             <InputLabel htmlFor="status" value="Status" className='text-[12px] text-[#676767] font-normal' />
@@ -245,6 +235,21 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, stat
                                     ))}
                                 </SelectContent>
                             </Select>
+
+                        </div>
+                        <div className='flex flex-col gap-2'>
+                            <InputLabel htmlFor="institution_path" value="Institution Card" className='text-[12px] text-[#676767] font-normal' />
+
+                            <ImageUpload
+                                imagePath={user.institution_path}
+                                onChangeImage={(file, previewUrl) => {
+                                    setData("institution_path", file);
+                                    setPreview(previewUrl);
+                                }}
+                                errorMessage={errors.institution_path}
+                            />
+
+                            {/* Input Image Incoming sajalah */}
 
                         </div>
                     </div>
@@ -286,13 +291,17 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, stat
                         <InputLabel htmlFor="line_id" value="Line ID" className='text-[12px] text-[#676767] font-normal' />
                         <p>{data.line_id ? data.line_id : '-'}</p>
                     </div>
-                    {/* <div>
-                        <InputLabel htmlFor="birthdate" value="Birthdate" className='text-[12px] text-[#676767] font-normal' />
-                        <p>{data.birthdate ? data.birthdate : '-'}</p>
-                    </div> */}
+                    <div>
+                        <InputLabel htmlFor="nim" value="NIM" className='text-[12px] text-[#676767] font-normal' />
+                        <p>{data.nim ? data.nim : '-'}</p>
+                    </div>
                     <div>
                         <InputLabel htmlFor="institution" value="Institution" className='text-[12px] text-[#676767] font-normal' />
                         <p>{data.institution ? data.institution : '-'}</p>
+                    </div>
+                    <div>
+                        <InputLabel htmlFor="status" value="Status" className='text-[12px] text-[#676767] font-normal' />
+                        <p>{data.status ? data.status : '-'}</p>
                     </div>
                     <div>
                         <Dialog>
@@ -307,10 +316,6 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, stat
                                 <img src={user.institution_path ? user.institution_path : 'assets/images/default_image_profile.png'} className="h-64 w-auto" alt="" />
                             </DialogContent>
                         </Dialog>
-                    </div>
-                    <div>
-                        <InputLabel htmlFor="status" value="Status" className='text-[12px] text-[#676767] font-normal' />
-                        <p>{data.status ? data.status : '-'}</p>
                     </div>
                 </div>
             )}

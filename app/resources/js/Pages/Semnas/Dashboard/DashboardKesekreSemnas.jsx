@@ -357,6 +357,10 @@ function DashboardKesekreSemnas({ ...props }) {
                                                                         <p>{selectedUser?.email}</p>
                                                                     </div>
                                                                     <div>
+                                                                        <InputLabel htmlFor="nim" value="NIM" className='text-[12px] text-[#676767] font-normal' />
+                                                                        <p>{selectedUser?.nim ?? '-'}</p>
+                                                                    </div>
+                                                                    <div>
                                                                         <InputLabel htmlFor="phone_number" value="Phone Number" className='text-[12px] text-[#676767] font-normal' />
                                                                         <p>{selectedUser?.phone_number ? selectedUser?.phone_number : '-'}</p>
                                                                     </div>

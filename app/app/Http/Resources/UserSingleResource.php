@@ -23,9 +23,10 @@ class UserSingleResource extends JsonResource
             'line_id' => $this->line_id,
             'phone_number' => $this->phone_number,
             'institution' => $this->institution,
+            'nim' => $this->nim,
             'institution_path' => Storage::url($this->institution_path),
             'address' => $this->address,
-            'already_filled' => $this->already_filled   
+            'already_filled' => $this->already_filled
         ];
     }
 }
