@@ -31,17 +31,12 @@ class ProfileUpdateRequest extends FormRequest
             'address'          => ['required', 'string', 'max:255'],
             'line_id'          => ['required', 'string', 'max:255'],
             'institution'      => ['required', 'string', 'max:255'],
-            // 'institution_path' => array_merge(
-            //     empty($this->user()->institution_path)
-            //     ? ['required']
-            //     : ['nullable'],
-            //     ['mimes:png,jpg', 'max:1048']
-            // ),
             'institution_path' => [
-                'nullable',
+                Rule::requiredIf(!$user->institution_path),
                 'mimes:jpg,jpeg,png',
                 'max:1048',
             ],
+            'nim'              => ['required', 'string', 'max:255', Rule::unique(User::class, 'nim')->ignore($this->user()->id),],
             'status'           => ['required', new Enum(UserStatus::class)],
             'already_filled'   => ['nullable', 'boolean'],
         ];
