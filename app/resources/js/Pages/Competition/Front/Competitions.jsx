@@ -12,6 +12,7 @@ function Competitions({ ...props }) {
                 <p>{current_batch?.periode_name}</p>
                 <p>{current_batch?.start_date}</p>
                 <p>{current_batch?.end_date}</p>
+                <p>{current_batch?.price}</p>
                 <p>{competitions.competition_content[0]?.how_to_join_link}</p>
                 <p>{competitions.competition_content[0]?.guidebook_link}</p>
 
