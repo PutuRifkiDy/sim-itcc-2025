@@ -237,6 +237,17 @@ function DashboardKesekreSemnas({ ...props }) {
                                                             variant="ghost"
                                                             className="group inline-flex"
                                                         >
+                                                            Code Registration
+                                                        </Button>
+                                                    </th>
+                                                    <th
+                                                        className="5 font-semibold px-2 py-3 text-left text-sm text-foreground"
+                                                        scope="col"
+                                                    >
+                                                        <Button
+                                                            variant="ghost"
+                                                            className="group inline-flex"
+                                                        >
                                                             Type
                                                         </Button>
                                                     </th>
@@ -315,6 +326,9 @@ function DashboardKesekreSemnas({ ...props }) {
                                                             {semnas.user.name}
                                                         </td>
                                                         <td className="whitespace-nowrap px-6 py-8 text-sm font-medium text-foreground">
+                                                            {semnas.code_registration}
+                                                        </td>
+                                                        <td className="whitespace-nowrap px-6 py-8 text-sm font-medium text-foreground">
                                                             {semnas.events.kode === 'SMNTIOF' ? (
                                                                 'Offline'
                                                             ) : (
@@ -323,7 +337,7 @@ function DashboardKesekreSemnas({ ...props }) {
                                                         </td>
                                                         <td className="whitespace-nowrap px-6 py-8 text-sm font-medium text-foreground">
                                                             <Dialog>
-                                                                <DialogTrigger className='flex flex-row gap-3 justify-center items-center text-foreground font-normal'>
+                                                                <DialogTrigger className='flex flex-row gap-3 justify-center items-center text-foreground font-medium'>
                                                                     Open
                                                                     <IconPreviewImageProfile />
                                                                 </DialogTrigger>
@@ -339,7 +353,7 @@ function DashboardKesekreSemnas({ ...props }) {
                                                         <td className="whitespace-nowrap px-6 py-8 text-sm font-medium text-foreground">
                                                             <Button
                                                                 variant='none'
-                                                                className="flex flex-row gap-3 justify-center items-center text-foreground font-normal"
+                                                                className="flex flex-row gap-3 justify-center items-center text-foreground font-medium"
                                                                 onClick={() => modalIdentifyUserHandler(semnas.user)}
                                                             >
                                                                 Open
