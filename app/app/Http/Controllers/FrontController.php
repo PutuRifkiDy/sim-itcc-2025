@@ -13,7 +13,6 @@ use App\Models\Merchandise;
 use Illuminate\Http\RedirectResponse;
 use Inertia\Inertia;
 use Inertia\Response;
-use Illuminate\Support\Facades\Redirect;
 
 class FrontController extends Controller
 {
@@ -30,8 +29,21 @@ class FrontController extends Controller
             ]),
         ])->where('slug', $slug)->firstOrFail();
 
+        $current_batch = $competition->competition_prices()
+            ->where('start_date', '<=', now())
+            ->where('end_date', '>=', now())
+            ->first();
+
+        if (! $current_batch) {
+            $current_batch = $competition->competition_prices()
+                ->where('start_date', '>', now())
+                ->orderBy('start_date')
+                ->first();
+        }
+
         return inertia('Competition/Front/Competitions', [
             'competition' => fn() => new CompetitionResource($competition),
+            'current_batch' => $current_batch
         ]);
     }
 
@@ -46,9 +58,21 @@ class FrontController extends Controller
             ]),
         ])->where('slug', $slug)->firstOrFail();
 
+        $current_batch = $event->event_prices()
+            ->where('start_date', '<=', now())
+            ->where('end_date', '>=', now())
+            ->first();
+
+        if (! $current_batch) {
+            $current_batch = $event->event_prices()
+                ->where('start_date', '>', now())
+                ->orderBy('start_date')
+                ->first();
+        }
+
         return inertia(component: 'Semnas/Front/Semnas', props: [
-            'event' => fn() => new EventResource($event),
-            'time_server' => now()
+            'event'         => fn()         => new EventResource($event),
+            'current_batch' => $current_batch,
         ]);
     }
 
@@ -90,7 +114,7 @@ class FrontController extends Controller
         } else if ($ensure_user_must_regis_one_event) {
             flashMessage('You have already registered for another event.', 'error');
             return back();
-        }else if ($request->user()->already_filled == false) {
+        } else if ($request->user()->already_filled == false) {
             flashMessage('Please fill your profile first.', 'error');
             return back();
         } else if ($in_periode_registration == false) {

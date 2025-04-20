@@ -3,14 +3,15 @@ import { usePage } from "@inertiajs/react";
 
 function Competitions({ ...props }) {
     const competitions = usePage().props.competition;
+    const current_batch = usePage().props.current_batch;
 
     return (
         <>
             <div className="">
                 <p>{competitions.competition_content[0]?.location}</p>
-                <p>{competitions.competition_prices[0]?.periode_name}</p>
-                <p>{competitions.competition_prices[0]?.start_date}</p>
-                <p>{competitions.competition_prices[0]?.end_date}</p>
+                <p>{current_batch?.periode_name}</p>
+                <p>{current_batch?.start_date}</p>
+                <p>{current_batch?.end_date}</p>
                 <p>{competitions.competition_content[0]?.how_to_join_link}</p>
                 <p>{competitions.competition_content[0]?.guidebook_link}</p>
 

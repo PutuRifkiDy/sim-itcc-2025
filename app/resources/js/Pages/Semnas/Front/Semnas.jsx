@@ -4,14 +4,16 @@ import { Link, usePage } from "@inertiajs/react";
 
 function Semnas({ ...props }) {
     const events = usePage().props.event;
-    console.log(events);
+    const current_batch = usePage().props.current_batch;
+
     return (
         <>
             <div className="mt-24">
-                <p>{events.event_content[0]?.location}</p>
-                <p>{events.event_prices[0]?.periode_name}</p>
-                <p>{events.event_prices[0]?.start_date}</p>
-                <p>{events.event_prices[0]?.end_date}</p>
+                <p>Hibrid</p>
+                <p>{current_batch.periode_name}</p>
+                <p>{current_batch.start_date}</p>
+                <p>{current_batch.end_date}</p>
+                <p>{current_batch.price}</p>
                 <p>{events.event_content[0]?.how_to_join_link}</p>
                 <p>{events.event_content[0]?.guidebook_link}</p>
 
