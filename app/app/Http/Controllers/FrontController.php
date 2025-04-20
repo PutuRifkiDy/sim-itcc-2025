@@ -48,6 +48,7 @@ class FrontController extends Controller
 
         return inertia(component: 'Semnas/Front/Semnas', props: [
             'event' => fn() => new EventResource($event),
+            'time_server' => now()
         ]);
     }
 
