@@ -1,9 +1,12 @@
+import { Button } from "@/Components/ui/button";
 import GuestLayout from "@/Layouts/GuestLayout";
-import { usePage } from "@inertiajs/react";
+import { Link, usePage } from "@inertiajs/react";
 
 function Competitions({ ...props }) {
     const competitions = usePage().props.competition;
     const current_batch = usePage().props.current_batch;
+
+    console.log('cek isi var', competitions);
 
     return (
         <>
@@ -15,6 +18,23 @@ function Competitions({ ...props }) {
                 <p>{current_batch?.price}</p>
                 <p>{competitions.competition_content[0]?.how_to_join_link}</p>
                 <p>{competitions.competition_content[0]?.guidebook_link}</p>
+                {competitions.is_team == false ? (
+                    <Button asChild>
+                        <Link
+                            href={route('register.competition.store', competitions.slug)}
+                        >
+                            Register
+                        </Link>
+                    </Button>
+                ) : (
+                    <Button asChild>
+                        <Link
+                            href={route('register.competition.show')}
+                        >
+                            Register
+                        </Link>
+                    </Button>
+                )}
 
                 <p className="mt-10">{competitions.description}</p>
 

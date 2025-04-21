@@ -26,6 +26,11 @@ Route::get('/dashboard', function () {
 Route::controller(FrontController::class)->group(function(){
     // competition
     Route::get('competitions/{competition:slug}', 'show_competitions')->name('competition.front.show');
+    // competition is_team tampilin form register dulu kalo user klik register maka data store ke register competition, kalo user klik join team maka diminta input token teamnya
+    Route::get('register/competition', 'show_register_competition')->name('register.competition.show');
+    
+    // competition bukan team, langsung aja store data ke competition registration
+    Route::post('register/competition/{competition:slug}', 'store_register_competition')->name('register.competition.store')->middleware('auth');
 
     // semnas
     Route::get('events/{event:slug}', 'show_events')->name('event.front.show');
