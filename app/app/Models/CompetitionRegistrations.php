@@ -43,12 +43,12 @@ class CompetitionRegistrations extends Model
 
     public function competitions(): BelongsTo
     {
-        return $this->belongsTo(Competitions::class);
+        return $this->belongsTo(Competitions::class, 'competition_id', 'id');
     }
 
     public function teams(): BelongsTo
     {
-        return $this->belongsTo(Teams::class);
+        return $this->belongsTo(Teams::class, 'team_id', 'id');
     }
 
     public function team_members(): HasMany
