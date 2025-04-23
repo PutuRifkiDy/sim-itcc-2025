@@ -1,4 +1,4 @@
-import { IconBerandaSideBar, IconProfileSideBar, IconSidebarSemnas } from '@/Components/IconAdmin';
+import { IconBerandaSideBar, IconCompetitionSidebar, IconProfileSideBar, IconSidebarSemnas } from '@/Components/IconAdmin';
 import { Head } from '@inertiajs/react';
 import Sidebar from './Partials/Sidebar';
 import { Toaster } from '@/Components/ui/sonner';
@@ -24,6 +24,11 @@ export default function DashboardLayout({ children, title, header }) {
             icon: <IconSidebarSemnas />,
             text: 'Seminar Nasional',
             link: route('dashboard.semnas.admin-kesekre.index'),
+        },
+        {
+            icon: <IconCompetitionSidebar />,
+            text: 'Competition',
+            link: route('dashboard.competition.index'),
         }
     ];
 

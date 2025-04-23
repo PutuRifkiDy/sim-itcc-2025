@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardCompetitionController;
 use App\Http\Controllers\DashboardSemnasController;
 use App\Http\Controllers\DashboardSemnasForKesekreController;
 use App\Http\Controllers\ExportController;
@@ -28,7 +29,7 @@ Route::controller(FrontController::class)->group(function(){
     Route::get('competitions/{competition:slug}', 'show_competitions')->name('competition.front.show');
     // competition is_team tampilin form register dulu kalo user klik register maka data store ke register competition, kalo user klik join team maka diminta input token teamnya
     Route::get('register/competition', 'show_register_competition')->name('register.competition.show');
-    
+
     // competition bukan team, langsung aja store data ke competition registration
     Route::post('register/competition/{competition:slug}', 'store_register_competition')->name('register.competition.store')->middleware('auth');
 
@@ -52,6 +53,10 @@ Route::controller(DashboardSemnasForKesekreController::class)->group(function() 
     Route::post('dashboard/semnas/admin-kesekre/{id}/payment', 'verif_payment')->name('dashboard.semnas.admin-kesekre.payment');
     Route::post('dashboard/semnas/admin-kesekre/{id}/reject', 'reject_payment')->name('dashboard.semnas.admin-kesekre.reject');
     Route::get('export/event-registrations', [ExportController::class, 'export'])->name('export.event-registrations');
+})->middleware('auth');
+
+Route::controller(DashboardCompetitionController::class)->group(function() {
+    Route::get('dashboard/competition', 'index')->name('dashboard.competition.index');
 })->middleware('auth');
 
 Route::middleware('auth')->group(function () {

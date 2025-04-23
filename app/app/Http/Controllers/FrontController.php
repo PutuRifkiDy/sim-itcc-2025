@@ -1,10 +1,13 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CompetitionRegistrationRequest;
 use App\Http\Requests\SemnasRegistrationRequest;
 use App\Http\Resources\CompetitionResource;
 use App\Http\Resources\EventResource;
 use App\Http\Resources\MerchandiseResource;
+use App\Models\CompetitionPrices;
+use App\Models\CompetitionRegistrations;
 use App\Models\Competitions;
 use App\Models\EventPrices;
 use App\Models\EventRegistrations;
@@ -92,6 +95,7 @@ class FrontController extends Controller
         ]);
     }
 
+    // store register semnas
     public function store_register_semnas(SemnasRegistrationRequest $request, Events $event): RedirectResponse
     {
         $already_registered = EventRegistrations::where('user_id', $request->user()->id)
@@ -132,5 +136,43 @@ class FrontController extends Controller
 
         return to_route('dashboard.semnas.index');
 
+    }
+
+    // store register competition
+    public function store_register_competition(CompetitionRegistrationRequest $request, Competitions $competition): RedirectResponse
+    {
+        $already_registered = CompetitionRegistrations::where('user_id', $request->user()->id)
+            ->where('competition_id', $competition->id)
+            ->exists();
+        $total_payment = CompetitionPrices::where('competition_id', $competition->id)
+            ->where('start_date', '<=', now())
+            ->where('end_date', '>=', now())
+            ->value('price');
+        $in_periode_registration = CompetitionPrices::where('competition_id', $competition->id)
+            ->where('start_date', '<=', now())
+            ->where('end_date', '>=', now())
+            ->exists();
+
+        if ($already_registered) {
+            flashMessage('You have already registered for this competition.', 'error');
+            return back();
+        } else if ($in_periode_registration == false) {
+            flashMessage('The registration period for this competition has ended.', 'error');
+            return back();
+        } else if ($request->user()->already_filled == false) {
+            flashMessage('Please fill your profile first.', 'error');
+            return back();
+        } else if ($request->user()->already_filled == true) {
+            $request->user()->competition_registrations()->create([
+                'competition_id'    => $competition->id,
+                'user_id'           => auth()->user()->user_id,
+                'code_registration' => $competition->kode . '-' . '00' . $request->user()->id,
+                'total_payment'     => $total_payment ?? 0
+            ]);
+        }
+
+        flashMessage('Your registration has been successful.');
+
+        return to_route('dashboard.competition.index');
     }
 }

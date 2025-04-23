@@ -1,12 +1,37 @@
 import { Button } from "@/Components/ui/button";
 import GuestLayout from "@/Layouts/GuestLayout";
-import { Link, usePage } from "@inertiajs/react";
+import { flashMessage } from "@/lib/utils";
+import { Link, useForm, usePage } from "@inertiajs/react";
+import { useEffect } from "react";
+import { toast } from "sonner";
 
 function Competitions({ ...props }) {
     const competitions = usePage().props.competition;
     const current_batch = usePage().props.current_batch;
+    const { flash_message } = usePage().props;
+    const { data, setData, post, processing, errors, reset, recentlySuccessful } = useForm({
+        slug: competitions.slug ?? '',
+        _method: 'POST',
+    });
 
-    console.log('cek isi var', competitions);
+    console.log('cek isi var competition', competitions);
+
+
+    const onHandleSubmit = (e) => {
+        e.preventDefault();
+
+        post(route('register.competition.store', data.slug), {
+
+            onSuccess: (success) => {
+                const flash = flashMessage(success);
+                if (flash) toast[flash.type](flash.message);
+            },
+            preserveScroll: true,
+            preserveState: true,
+        });
+    };
+
+
 
     return (
         <>
@@ -19,12 +44,14 @@ function Competitions({ ...props }) {
                 <p>{competitions.competition_content[0]?.how_to_join_link}</p>
                 <p>{competitions.competition_content[0]?.guidebook_link}</p>
                 {competitions.is_team == false ? (
-                    <Button asChild>
-                        <Link
+                    <Button type="submit" onClick={onHandleSubmit}>
+                        {/* <Link
                             href={route('register.competition.store', competitions.slug)}
+                            method="post"
                         >
                             Register
-                        </Link>
+                        </Link> */}
+                        Register
                     </Button>
                 ) : (
                     <Button asChild>
