@@ -123,7 +123,7 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, stat
                         </div>
 
                         <div>
-                            <InputLabel htmlFor="nim" value="NIM" className='text-[12px] text-[#676767] font-normal' />
+                            <InputLabel htmlFor="nim" value="Identification Number" className='text-[12px] text-[#676767] font-normal' />
 
                             <TextInput
                                 id="nim"
@@ -292,7 +292,7 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, stat
                         <p>{data.line_id ? data.line_id : '-'}</p>
                     </div>
                     <div>
-                        <InputLabel htmlFor="nim" value="NIM" className='text-[12px] text-[#676767] font-normal' />
+                        <InputLabel htmlFor="nim" value="Identification Number" className='text-[12px] text-[#676767] font-normal' />
                         <p>{data.nim ? data.nim : '-'}</p>
                     </div>
                     <div>
@@ -305,8 +305,8 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, stat
                     </div>
                     <div>
                         <Dialog>
-                            <DialogTrigger className='flex flex-row gap-3 justify-center items-center text-[12px] text-[#676767] font-normal'>
-                                Institution Card
+                            <DialogTrigger className='flex flex-row gap-3 justify-center items-center '>
+                                <p className='text-[#676767] text-[14px]'>Institution Card</p>
                                 <IconPreviewImageProfile />
                             </DialogTrigger>
                             <DialogContent>

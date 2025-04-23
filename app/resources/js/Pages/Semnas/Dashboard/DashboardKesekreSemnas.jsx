@@ -319,25 +319,25 @@ function DashboardKesekreSemnas({ ...props }) {
                                             <tbody>
                                                 {event_registrations_semnas.map((semnas, index) => (
                                                     <tr key={index}>
-                                                        <td className="whitespace-nowrap px-6 py-8 text-sm font-medium text-foreground">
+                                                        <td className="whitespace-nowrap px-6 py-8 text-sm font-normal text-foreground">
                                                             {index + 1}
                                                         </td>
-                                                        <td className="whitespace-nowrap px-6 py-8 text-sm font-medium text-foreground">
+                                                        <td className="whitespace-nowrap px-6 py-8 text-sm font-normal text-foreground">
                                                             {semnas.user.name}
                                                         </td>
-                                                        <td className="whitespace-nowrap px-6 py-8 text-sm font-medium text-foreground">
+                                                        <td className="whitespace-nowrap px-6 py-8 text-sm font-normal text-foreground">
                                                             {semnas.code_registration}
                                                         </td>
-                                                        <td className="whitespace-nowrap px-6 py-8 text-sm font-medium text-foreground">
+                                                        <td className="whitespace-nowrap px-6 py-8 text-sm font-normal text-foreground">
                                                             {semnas.events.kode === 'SMNTIOF' ? (
                                                                 'Offline'
                                                             ) : (
                                                                 'Online'
                                                             )}
                                                         </td>
-                                                        <td className="whitespace-nowrap px-6 py-8 text-sm font-medium text-foreground">
+                                                        <td className="whitespace-nowrap px-6 py-8 text-sm font-normal text-foreground">
                                                             <Dialog>
-                                                                <DialogTrigger className='flex flex-row gap-3 justify-center items-center text-foreground font-medium'>
+                                                                <DialogTrigger className='flex flex-row gap-3 justify-center items-center text-foreground font-normal'>
                                                                     Open
                                                                     <IconPreviewImageProfile />
                                                                 </DialogTrigger>
@@ -350,17 +350,17 @@ function DashboardKesekreSemnas({ ...props }) {
                                                                 </DialogContent>
                                                             </Dialog>
                                                         </td>
-                                                        <td className="whitespace-nowrap px-6 py-8 text-sm font-medium text-foreground">
+                                                        <td className="whitespace-nowrap px-6 py-8 text-sm font-normal text-foreground">
                                                             <Button
                                                                 variant='none'
-                                                                className="flex flex-row gap-3 justify-center items-center text-foreground font-medium"
+                                                                className="flex flex-row gap-3 justify-center items-center text-foreground font-normal"
                                                                 onClick={() => modalIdentifyUserHandler(semnas.user)}
                                                             >
                                                                 Open
                                                                 <IconPreviewImageProfile />
                                                             </Button>
                                                             <Modal show={modalIdentifyUserOpen} onClose={closeModal} className="px-5 py-5">
-                                                                <h2 className="text-lg font-medium text-gray-900">Identity User</h2>
+                                                                <h2 className="text-lg font-normal text-gray-900">Identity User</h2>
                                                                 <div className='mt-10 grid md:grid-cols-2 grid-cols-1 gap-5'>
                                                                     <div>
                                                                         <InputLabel htmlFor="name" value="Name" className='text-[12px] text-[#676767] font-normal' />
@@ -415,7 +415,7 @@ function DashboardKesekreSemnas({ ...props }) {
                                                                 </div>
                                                             </Modal>
                                                         </td>
-                                                        <td className="whitespace-nowrap px-6 py-8 text-sm font-medium text-foreground">
+                                                        <td className="whitespace-nowrap px-6 py-8 text-sm font-normal text-foreground">
                                                             <Badge
                                                                 className={`
                                                                 ${semnas.payment_status === 'Pending' ? 'bg-yellow-500 hover:bg-yellow-600' : ''}
@@ -428,7 +428,7 @@ function DashboardKesekreSemnas({ ...props }) {
                                                                 {semnas.payment_status}
                                                             </Badge>
                                                         </td>
-                                                        <td className="whitespace-nowrap px-6 py-8 text-sm font-medium text-foreground">
+                                                        <td className="whitespace-nowrap px-6 py-8 text-sm font-normal text-foreground">
                                                             Rp.{" "}{semnas.total_payment}
                                                         </td>
                                                         <td className="whitespace-nowrap px-6 py-8 flex md:flex-row gap-2">
@@ -459,7 +459,7 @@ function DashboardKesekreSemnas({ ...props }) {
 
                                                             <Modal show={modalFormOpen} onClose={closeModalForm} maxWidth="md" className="p-4">
                                                                 <form onSubmit={(e) => onHandleSubmit(e, selectId)}>
-                                                                    <h2 className="text-lg font-medium text-gray-900">Please input a reject reason</h2>
+                                                                    <h2 className="text-lg font-normal text-gray-900">Please input a reject reason</h2>
 
                                                                     <div className="mt-6">
 
@@ -497,7 +497,7 @@ function DashboardKesekreSemnas({ ...props }) {
                         </CardContent>
                         <CardFooter className="justify-between border-t pt-6 text-sm text-muted-foreground">
                             <p className="text-sm text-muted-foreground">
-                                Showing <span className="font-medium text-[#4880FF]">{meta.from}</span> of {meta.total}
+                                Showing <span className="font-normal text-[#4880FF]">{meta.from}</span> of {meta.total}
                             </p>
                             {meta.has_page && (
                                 <div className="flex items-center gap-x-1">

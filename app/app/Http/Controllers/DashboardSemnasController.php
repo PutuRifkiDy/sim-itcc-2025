@@ -3,7 +3,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\PaymentStoreRequest;
 use App\Http\Resources\EventRegistrationResource;
+use App\Http\Resources\NavbarResource;
 use App\Http\Resources\PaymentMethodsResource;
+use App\Models\Competitions;
 use App\Models\EventRegistrations;
 use App\Models\PaymentMethods;
 use App\Traits\HasFile;
@@ -35,7 +37,8 @@ class DashboardSemnasController extends Controller
 
         return inertia(component: 'Semnas/Dashboard/DashboardSemnas', props: [
             'event_registrations' => fn() => $show_registration_semnas ? new EventRegistrationResource($show_registration_semnas) : null,
-            'payment_methods' => new PaymentMethodsResource($payment_methods)
+            'payment_methods' => new PaymentMethodsResource($payment_methods),
+            'competitions' => fn() => new NavbarResource(Competitions::get()),
         ]);
     }
 
