@@ -6,6 +6,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from "@/Compon
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
 import { Button } from "@/Components/ui/button";
 import { toast } from "sonner";
+import Payment from "./Partials/Payment";
 
 function DashboardCompetition() {
     const competition_registrations = usePage().props.competition_registrations;
@@ -37,6 +38,7 @@ function DashboardCompetition() {
                         </div>
 
                         {tabs == "about" && <About className="w-full mt-5" competition_registrations={competition_registrations} />}
+                        {tabs == "payment" && <Payment className="w-full mt-5" competition_registrations={competition_registrations} payment_methods={payment_methods} />}
 
                     </div>
                 ) : (
