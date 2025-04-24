@@ -58,6 +58,7 @@ Route::controller(DashboardSemnasForKesekreController::class)->group(function() 
 Route::controller(DashboardCompetitionController::class)->group(function() {
     Route::get('dashboard/competition', 'index')->name('dashboard.competition.index');
     Route::post('dashboard/competition/{id}/payment', 'payment_store')->name('dashboard.competition.payment');
+    Route::post('dashboard/competition/submission', 'submission_store')->name('dashboard.competition.submission');
 })->middleware('auth');
 
 Route::middleware('auth')->group(function () {

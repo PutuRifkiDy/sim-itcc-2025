@@ -28,6 +28,6 @@ class Submissions extends Model
 
     public function competition_registrations(): BelongsTo
     {
-        return $this->belongsTo(CompetitionRegistrations::class);
+        return $this->belongsTo(CompetitionRegistrations::class, 'competition_registration_id', 'id');
     }
 }

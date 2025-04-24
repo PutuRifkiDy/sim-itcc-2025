@@ -7,11 +7,13 @@ import { ChevronDownIcon } from "@heroicons/react/24/solid";
 import { Button } from "@/Components/ui/button";
 import { toast } from "sonner";
 import Payment from "./Partials/Payment";
+import Submission from "./Partials/Submission";
 
 function DashboardCompetition() {
     const competition_registrations = usePage().props.competition_registrations;
     const payment_methods = usePage().props.payment_methods;
     const competitions = usePage().props.competitions;
+    const status_submission = usePage().props.status_submission;
     const [tabs, setTabs] = useState("about");
     const { flash_message } = usePage().props;
 
@@ -33,12 +35,13 @@ function DashboardCompetition() {
                                 <p className={`cursor-pointer ${tabs == "payment" ? "text-[#4880FF] font-bold border-[#4880FF] border-b-[4px] rounded-[2px] transition-all ease-in-out duration-400 text-[16px]" : "text-[#5E5E5E] text-[16px]"}`} >Payment</p>
                             </Button>
                             <Button variant="none" asChild onClick={() => setTabs("submission")}>
-                                <p className={`cursor-pointer ${tabs == "ticket" ? "text-[#4880FF] font-bold border-[#4880FF] border-b-[4px] rounded-[2px] transition-all ease-in-out duration-400 text-[16px]" : "text-[#5E5E5E] text-[16px]"}`} >Submission</p>
+                                <p className={`cursor-pointer ${tabs == "submission" ? "text-[#4880FF] font-bold border-[#4880FF] border-b-[4px] rounded-[2px] transition-all ease-in-out duration-400 text-[16px]" : "text-[#5E5E5E] text-[16px]"}`} >Submission</p>
                             </Button>
                         </div>
 
                         {tabs == "about" && <About className="w-full mt-5" competition_registrations={competition_registrations} />}
                         {tabs == "payment" && <Payment className="w-full mt-5" competition_registrations={competition_registrations} payment_methods={payment_methods} />}
+                        {tabs == "submission" && <Submission className="w-full mt-5" competition_registrations={competition_registrations} competitions={competitions} status_submission={status_submission} />}
 
                     </div>
                 ) : (

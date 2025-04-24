@@ -58,6 +58,6 @@ class CompetitionRegistrations extends Model
 
     public function submissions(): HasMany
     {
-        return $this->hasMany(Submissions::class);
+        return $this->hasMany(Submissions::class, 'competition_registration_id', 'id');
     }
 }
