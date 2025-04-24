@@ -17,11 +17,11 @@ function DashboardCompetition() {
     const [tabs, setTabs] = useState("about");
     const { flash_message } = usePage().props;
 
-    useEffect(() => {
-        if (flash_message?.message) {
-            toast[flash_message.type || 'success'](flash_message.message);
-        }
-    }, [flash_message]);
+    // useEffect(() => {
+    //     if (flash_message?.message) {
+    //         toast[flash_message.type || 'success'](flash_message.message);
+    //     }
+    // }, [flash_message]);
     return (
         <>
             <div className="py-5">

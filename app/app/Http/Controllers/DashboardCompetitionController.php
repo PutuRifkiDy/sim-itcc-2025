@@ -1,7 +1,7 @@
 <?php
-
 namespace App\Http\Controllers;
 
+use App\Enums\SubmissionStatus;
 use App\Http\Requests\PaymentStoreRequest;
 use App\Http\Requests\SubmissionStoreRequest;
 use App\Http\Resources\CompetitionRegistrationResource;
@@ -11,16 +11,15 @@ use App\Models\PaymentMethods;
 use App\Models\Submissions;
 use App\Traits\HasFile;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 use Inertia\Response;
 
 class DashboardCompetitionController extends Controller
 {
     use HasFile;
-    public function index(): Response|RedirectResponse
+    public function index(): Response | RedirectResponse
     {
-        if (!auth()->check()) {
+        if (! auth()->check()) {
             return to_route('login');
         }
 
@@ -41,8 +40,8 @@ class DashboardCompetitionController extends Controller
 
         return inertia(component: 'Competition/Dashboard/DashboardCompetition', props: [
             'competition_registrations' => fn() => $show_registration_competition ? new CompetitionRegistrationResource($show_registration_competition) : null,
-            'payment_methods' => new PaymentMethodsResource($payment_methods),
-            'status_submission' => $show_status_submission
+            'payment_methods'           => new PaymentMethodsResource($payment_methods),
+            'status_submission'         => $show_status_submission,
         ]);
     }
 
@@ -53,12 +52,12 @@ class DashboardCompetitionController extends Controller
 
         CompetitionRegistrations::find($id)->update([
             'payment_proof_path' => $request->hasFile('payment_proof_path') ? $this->upload_file($request, 'payment_proof_path', 'competition_payments') : $competitionRegistrations->payment_proof_path,
-            'payment_status' => $request->payment_status,
-            'competition_id' => $competitionRegistrations->competition_id,
-            'user_id' => $competitionRegistrations->user_id,
-            'code_registration' => $competitionRegistrations->code_registration,
-            'total_payment' => $competitionRegistrations->total_payment,
-            'reject_reason' => $competitionRegistrations->reject_reason,
+            'payment_status'     => $request->payment_status,
+            'competition_id'     => $competitionRegistrations->competition_id,
+            'user_id'            => $competitionRegistrations->user_id,
+            'code_registration'  => $competitionRegistrations->code_registration,
+            'total_payment'      => $competitionRegistrations->total_payment,
+            'reject_reason'      => $competitionRegistrations->reject_reason,
         ]);
 
         flashMessage('Your payment proof has been uploaded.', 'success');
@@ -67,19 +66,23 @@ class DashboardCompetitionController extends Controller
 
     public function submission_store(SubmissionStoreRequest $request): RedirectResponse
     {
+        $find_status_submission = Submissions::where('competition_registration_id', $request->competition_registration_id)
+            ->value('submission_status');
 
-        // buat validasi kalo misal belum end submission baru bisa upload submission
-        // buat validasi kalo misalnya udah verified paymentnya, baru bisa upload submission
-        // buat validasi hanya leader team yang bisa upload kalo competitionnya is_team
+        if ($find_status_submission->value == SubmissionStatus::PENDING->value) {
+            flashMessage('Please wait until verification is done if you want to submit your submission again', 'error');
+            return back();
+        } else if (
+            $find_status_submission->value == SubmissionStatus::VERIFIED->value ||
+            $find_status_submission->value == SubmissionStatus::REJECTED->value ||
+            $find_status_submission->value == SubmissionStatus::REQUESTED->value) {
 
-
-
-
-       Submissions::query()->create([
-           'competition_registration_id' => $request->competition_registration_id,
-           'submission_link' => $request->submission_link,
-           'submission_status' => $request->submission_status
-       ]);
+            Submissions::query()->create([
+                'competition_registration_id' => $request->competition_registration_id,
+                'submission_link'             => $request->submission_link,
+                'submission_status'           => $request->submission_status,
+            ]);
+        }
 
         flashMessage('Your submission has been uploaded.', 'success');
         return back();
