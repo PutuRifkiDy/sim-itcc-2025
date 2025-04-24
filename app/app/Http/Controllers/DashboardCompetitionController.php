@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Enums\PaymentStatus;
 use App\Enums\SubmissionStatus;
 use App\Http\Requests\PaymentStoreRequest;
 use App\Http\Requests\SubmissionStoreRequest;
@@ -33,15 +34,17 @@ class DashboardCompetitionController extends Controller
             ->where('user_id', $id_user)
             ->first();
 
-        $show_status_submission = Submissions::where('competition_registration_id', $show_registration_competition->id)
-            ->value('submission_status');
+        if ($show_registration_competition) {
+            $show_status_submission = Submissions::where('competition_registration_id', $show_registration_competition->id)
+                ->value('submission_status');
+        }
 
         $payment_methods = PaymentMethods::where('id', '1')->first();
 
         return inertia(component: 'Competition/Dashboard/DashboardCompetition', props: [
             'competition_registrations' => fn() => $show_registration_competition ? new CompetitionRegistrationResource($show_registration_competition) : null,
             'payment_methods'           => new PaymentMethodsResource($payment_methods),
-            'status_submission'         => $show_status_submission,
+            'status_submission'         => $show_status_submission ?? null,
         ]);
     }
 
@@ -69,20 +72,33 @@ class DashboardCompetitionController extends Controller
         $find_status_submission = Submissions::where('competition_registration_id', $request->competition_registration_id)
             ->value('submission_status');
 
-        if ($find_status_submission->value == SubmissionStatus::PENDING->value) {
-            flashMessage('Please wait until verification is done if you want to submit your submission again', 'error');
-            return back();
-        } else if (
-            $find_status_submission->value == SubmissionStatus::VERIFIED->value ||
-            $find_status_submission->value == SubmissionStatus::REJECTED->value ||
-            $find_status_submission->value == SubmissionStatus::REQUESTED->value) {
+        $find_status_payment = CompetitionRegistrations::where('id', $request->competition_registration_id)
+            ->value('payment_status');
 
-            Submissions::query()->create([
-                'competition_registration_id' => $request->competition_registration_id,
-                'submission_link'             => $request->submission_link,
-                'submission_status'           => $request->submission_status,
-            ]);
+        if ($find_status_submission){
+            if ($find_status_submission->value == SubmissionStatus::PENDING->value) {
+                flashMessage('Please wait until verification is done if you want to submit your submission again', 'error');
+                return back();
+            } else if (
+                $find_status_submission->value == SubmissionStatus::VERIFIED->value ||
+                $find_status_submission->value == SubmissionStatus::REJECTED->value ||
+                $find_status_submission->value == SubmissionStatus::REQUESTED->value) {
+
+                Submissions::query()->create([
+                    'competition_registration_id' => $request->competition_registration_id,
+                    'submission_link'             => $request->submission_link,
+                    'submission_status'           => $request->submission_status,
+                ]);
+            }
+        } else if (
+            $find_status_payment->value == PaymentStatus::PENDING->value ||
+            $find_status_payment->value == PaymentStatus::REQUESTED->value ||
+            $find_status_payment->value == PaymentStatus::REJECTED->value
+            ) {
+                flashMessage('Please finish your payment first', 'error');
+                return back();
         }
+
 
         flashMessage('Your submission has been uploaded.', 'success');
         return back();

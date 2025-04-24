@@ -20,7 +20,7 @@ class DashboardSemnasController extends Controller
     public function index(): Response|RedirectResponse
     {
         if (!auth()->check()) {
-            return Inertia::location(route('login'));
+            return to_route('login');
         }
 
         $id_user = auth()->user()->id;
@@ -38,7 +38,7 @@ class DashboardSemnasController extends Controller
         return inertia(component: 'Semnas/Dashboard/DashboardSemnas', props: [
             'event_registrations' => fn() => $show_registration_semnas ? new EventRegistrationResource($show_registration_semnas) : null,
             'payment_methods' => new PaymentMethodsResource($payment_methods),
-            'competitions' => fn() => new NavbarResource(Competitions::get()),
+            // 'competitions' => fn() => new NavbarResource(Competitions::get()),
         ]);
     }
 

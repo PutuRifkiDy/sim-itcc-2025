@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\CompetitionRegistrationsExport;
 use Event;
 use Illuminate\Http\Request;
 use App\Exports\EventRegistrationsExport;
@@ -14,5 +15,15 @@ class ExportController extends Controller
         $filters = [
             'search' => $request->search,
         ];
-        return Excel::download(new EventRegistrationsExport($filters), 'event_registrations.csv');    }
+        return Excel::download(new EventRegistrationsExport($filters), 'event_registrations.csv');
+    }
+
+    public function export_competition(Request $request)
+    {
+        $filters = [
+            'search' => $request->search,
+        ];
+
+        return Excel::download(new CompetitionRegistrationsExport($filters), 'competition_registrations.csv');
+    }
 }

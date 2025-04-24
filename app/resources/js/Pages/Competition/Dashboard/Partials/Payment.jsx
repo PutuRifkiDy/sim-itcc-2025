@@ -59,7 +59,7 @@ function Payment({ competition_registrations, payment_methods, className }) {
             preserveState: true,
         });
     };
-    
+
     return (
         <>
             <section className={className}>
@@ -84,7 +84,7 @@ function Payment({ competition_registrations, payment_methods, className }) {
                 {competition_registrations.payment_status == 'Rejected' && (
                     <div className="flex flex-row gap-2 px-4 py-2 border-l-4 border-l-[#E82323] bg-[#E82323]/20 w-full items-center mb-5">
                         <ClockIcon className="h-5 w-5 text-[#E82323]" />
-                        <p className='text-[#E82323] font-medium text-[12px] leading-[16px]'>{event_registrations.reject_reason}</p>
+                        <p className='text-[#E82323] font-medium text-[12px] leading-[16px]'>{competition_registrations.reject_reason}</p>
                     </div>
                 )}
 
@@ -131,7 +131,7 @@ function Payment({ competition_registrations, payment_methods, className }) {
                                 <img src={`${window.location.origin}/assets/images/image_for_people_verified_semnas.png`} className="w-[200px] h-[200px]" alt="" />
                                 <div className="flex flex-col gap-2 justify-center items-center">
                                     <p className="text-[29px] font-bold">Payment Successfull</p>
-                                    <p className="text-[14px] font-normal">Go download your ticket in the Ticket tab</p>
+                                    <p className="text-[14px] font-normal">Go upload your submission</p>
                                 </div>
                             </div>
                         )}

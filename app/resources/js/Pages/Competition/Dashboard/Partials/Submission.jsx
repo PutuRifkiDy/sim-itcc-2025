@@ -26,7 +26,7 @@ function Submission({ className, competition_registrations, competitions, status
         e.preventDefault();
 
         if (!data.submission_link) {
-            toast.error("Please upload your submission");
+            toast.error("Please don't leave the submission link empty.");
             return;
         }
 
@@ -73,14 +73,7 @@ function Submission({ className, competition_registrations, competitions, status
                 )}
 
 
-                {competition_registrations.payment_status == 'Requested' ? (
-                    <div className="flex flex-row gap-2 px-4 py-2 border-l-4 border-l-[#4880FF] bg-[#4880FF]/20 w-full items-center mb-5">
-                        <ClockIcon className="h-5 w-5 text-[#4880FF]" />
-                        <p className='text-[#4880FF] font-medium text-[12px] leading-[16px]'>
-                            Complete your payment before upload your submission
-                        </p>
-                    </div>
-                ) : competition_registrations.payment_status == 'Verified' ? (
+                {competition_registrations.payment_status == 'Verified' && status_submission == 'Requested' ? (
                     <div className="flex flex-row gap-2 px-4 py-2 border-l-4 border-l-[#4880FF] bg-[#4880FF]/20 w-full items-center mb-5">
                         <ClockIcon className="h-5 w-5 text-[#4880FF]" />
                         <p className='text-[#4880FF] font-medium text-[12px] leading-[16px]'>
@@ -105,7 +98,7 @@ function Submission({ className, competition_registrations, competitions, status
                     <div className="flex flex-row gap-2 px-4 py-2 border-l-4 border-l-[#E82323] bg-[#E82323]/20 w-full items-center mb-5">
                         <ClockIcon className="h-5 w-5 text-[#E82323]" />
                         <p className='text-[#E82323] font-medium text-[12px] leading-[16px]'>
-                            Your submission has been verified
+                            Your submission has been rejected
                         </p>
                     </div>
                 )}
