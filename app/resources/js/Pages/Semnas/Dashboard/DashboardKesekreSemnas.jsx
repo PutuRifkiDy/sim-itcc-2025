@@ -200,8 +200,8 @@ function DashboardKesekreSemnas({ ...props }) {
 
 
                     <Card>
-                        <CardContent>
-                            <div className="my-8 flow-root">
+                        <CardContent className="overflow-hidden">
+                            <div className="my-8">
                                 <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-5 lg:-mx-8">
                                     <div className="inline-block w-full py-2 align-middle sm:px-2">
                                         <table className="w-full text-left">
