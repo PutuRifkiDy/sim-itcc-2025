@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\DashboardCompetitionController;
+use App\Http\Controllers\DashboardCompetitionForKesekre;
+use App\Http\Controllers\DashboardCompetitionForKesekreController;
 use App\Http\Controllers\DashboardSemnasController;
 use App\Http\Controllers\DashboardSemnasForKesekreController;
 use App\Http\Controllers\ExportController;
@@ -60,6 +62,14 @@ Route::controller(DashboardCompetitionController::class)->group(function() {
     Route::post('dashboard/competition/{id}/payment', 'payment_store')->name('dashboard.competition.payment');
     Route::post('dashboard/competition/submission', 'submission_store')->name('dashboard.competition.submission');
 })->middleware('auth');
+
+Route::controller(DashboardCompetitionForKesekreController::class)->group(function() {
+    Route::get('dashboard/competition/admin-kesekre', 'index')->name('dashboard.competition.admin-kesekre.index');
+    Route::post('dashboard/competition/admin-kesekre/{id}/payment', 'verif_payment')->name('dashboard.competition.admin-kesekre.payment');
+    Route::post('dashboard/competition/admin-kesekre/{id}/reject', 'reject_payment')->name('dashboard.competition.admin-kesekre.reject');
+    Route::get('export/competition-registrations', [ExportController::class, 'export_competition'])->name('export.competition-registrations');
+})->middleware('auth');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
