@@ -38,14 +38,12 @@ class DashboardSemnasController extends Controller
         return inertia(component: 'Semnas/Dashboard/DashboardSemnas', props: [
             'event_registrations' => fn() => $show_registration_semnas ? new EventRegistrationResource($show_registration_semnas) : null,
             'payment_methods' => new PaymentMethodsResource($payment_methods),
-            // 'competitions' => fn() => new NavbarResource(Competitions::get()),
         ]);
     }
 
     public function payment_store(PaymentStoreRequest $request, $id): RedirectResponse
     {
         $eventRegistrations = EventRegistrations::find($id);
-        // dd($eventRegistrations->event_id);
 
         EventRegistrations::find($id)->update([
             'payment_proof_path' => $request->hasFile('payment_proof_path') ? $this->upload_file($request, 'payment_proof_path', 'semnas_payments') : $eventRegistrations->payment_proof_path,

@@ -1,6 +1,9 @@
 import { LineIcon, WhatsappIcon } from "@/Components/IconAdmin";
+import Modal from "@/Components/Modal";
+import { Button } from "@/Components/ui/button";
 import DashboardLayout from "@/Layouts/DashboardLayout";
 import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/solid";
+import { Link } from "@inertiajs/react";
 import { useState } from "react";
 
 function About({ competition_registrations, className }) {
@@ -98,7 +101,7 @@ function About({ competition_registrations, className }) {
                     </div>
                 ))}
 
-                {/* <div className="flex justify-start w-full">
+                <div className="flex justify-start w-full">
                     <Button
                         variant='red'
                         className="mt-8"
@@ -120,14 +123,14 @@ function About({ competition_registrations, className }) {
                                     className="text-white"
                                     type="button"
                                     method="delete"
-                                    href={route('dashboard.semnas.destroy', { id: competition_registrations.id })}
+                                    href={route('dashboard.competition.destroy', { id: competition_registrations.id })}
                                 >
                                     Confirm
                                 </Link>
                             </Button>
                         </div>
                     </Modal>
-                </div> */}
+                </div>
             </section>
         </>
     );

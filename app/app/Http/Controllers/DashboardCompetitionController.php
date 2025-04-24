@@ -6,8 +6,10 @@ use App\Enums\SubmissionStatus;
 use App\Http\Requests\PaymentStoreRequest;
 use App\Http\Requests\SubmissionStoreRequest;
 use App\Http\Resources\CompetitionRegistrationResource;
+use App\Http\Resources\NavbarResource;
 use App\Http\Resources\PaymentMethodsResource;
 use App\Models\CompetitionRegistrations;
+use App\Models\Competitions;
 use App\Models\PaymentMethods;
 use App\Models\Submissions;
 use App\Traits\HasFile;
@@ -75,7 +77,7 @@ class DashboardCompetitionController extends Controller
         $find_status_payment = CompetitionRegistrations::where('id', $request->competition_registration_id)
             ->value('payment_status');
 
-        if ($find_status_submission){
+        if ($find_status_submission) {
             if ($find_status_submission->value == SubmissionStatus::PENDING->value) {
                 flashMessage('Please wait until verification is done if you want to submit your submission again', 'error');
                 return back();
@@ -94,13 +96,19 @@ class DashboardCompetitionController extends Controller
             $find_status_payment->value == PaymentStatus::PENDING->value ||
             $find_status_payment->value == PaymentStatus::REQUESTED->value ||
             $find_status_payment->value == PaymentStatus::REJECTED->value
-            ) {
-                flashMessage('Please finish your payment first', 'error');
-                return back();
+        ) {
+            flashMessage('Please finish your payment first', 'error');
+            return back();
         }
 
-
         flashMessage('Your submission has been uploaded.', 'success');
+        return back();
+    }
+
+    public function destroy($id): RedirectResponse
+    {
+        CompetitionRegistrations::find($id)->delete();
+        flashMessage('Your registration has been cancelled.', 'success');
         return back();
     }
 }

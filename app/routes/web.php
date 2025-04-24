@@ -61,6 +61,7 @@ Route::controller(DashboardCompetitionController::class)->group(function() {
     Route::get('dashboard/competition', 'index')->name('dashboard.competition.index');
     Route::post('dashboard/competition/{id}/payment', 'payment_store')->name('dashboard.competition.payment');
     Route::post('dashboard/competition/submission', 'submission_store')->name('dashboard.competition.submission');
+    Route::delete('dashboard/competition/{id}', 'destroy')->name('dashboard.competition.destroy');
 })->middleware('auth');
 
 Route::controller(DashboardCompetitionForKesekreController::class)->group(function() {
