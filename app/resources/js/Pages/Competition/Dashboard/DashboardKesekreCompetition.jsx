@@ -23,7 +23,7 @@ function DashboardKesekreCompetition({ ...props }) {
     const count_rejected = usePage().props.count_rejected;
     const count_requested = usePage().props.count_requested;
     const { flash_message } = usePage().props;
-    const { data: competition_registrations, meta, links } = props.competition_registrations;
+    const { data: admin_competition_registrations, meta, links } = props.admin_competition_registrations;
     const [params, setParams] = useState(props.state);
 
     const [modalIdentifyUserOpen, setModalIdentifyUserOpen] = useState(false);
@@ -32,10 +32,9 @@ function DashboardKesekreCompetition({ ...props }) {
     const [selectId, setSelectId] = useState(null);
     const hasShownToast = useRef(false);
 
-    console.log("cek isi", competition_registrations);
 
     const { data, setData, post, put, patch, errors, processing, recentlySuccessful, formData, clearErrors, reset } = useForm({
-        reject_reason: competition_registrations.reject_reason ?? '',
+        reject_reason: admin_competition_registrations.reject_reason ?? '',
         _method: 'POST',
     });
 
@@ -96,7 +95,7 @@ function DashboardKesekreCompetition({ ...props }) {
     useFilter({
         route: route('dashboard.competition.admin-kesekre.index'),
         values: params,
-        only: ['competition_registrations', 'params'],
+        only: ['admin_competition_registrations', 'params'],
     });
 
     const onSortable = (field) => {
@@ -316,7 +315,7 @@ function DashboardKesekreCompetition({ ...props }) {
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                {competition_registrations.map((competition, index) => (
+                                                {admin_competition_registrations.map((competition, index) => (
                                                     <tr key={index}>
                                                         <td className="whitespace-nowrap px-6 py-8 text-sm font-normal text-foreground">
                                                             {index + 1}
