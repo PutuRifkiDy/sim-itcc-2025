@@ -32,7 +32,8 @@ class CompetitionRegistrationsExport implements FromCollection, WithHeadings, Wi
                     $q3->where('location', 'REGEXP', $value);
                 });
                 $q->orWhere('payment_status', 'REGEXP', $value)
-                  ->orWhere('total_payment', 'REGEXP', $value);
+                  ->orWhere('total_payment', 'REGEXP', $value)
+                  ->orWhere('code_registration', 'REGEXP', $value);
             });
         })
         ->get();

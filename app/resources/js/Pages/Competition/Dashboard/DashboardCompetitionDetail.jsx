@@ -3,7 +3,7 @@ import About from "./Partials/About";
 import { Link, usePage } from "@inertiajs/react";
 import { useEffect, useState } from "react";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from "@/Components/ui/dropdown-menu";
-import { ChevronDownIcon } from "@heroicons/react/24/solid";
+import { ChevronDownIcon, ChevronLeftIcon } from "@heroicons/react/24/solid";
 import { Button } from "@/Components/ui/button";
 import { toast } from "sonner";
 import Payment from "./Partials/Payment";
@@ -26,6 +26,15 @@ function DashboardCompetitionDetail() {
     return (
         <>
             <div className="py-5">
+                <Link
+                    href={route('dashboard.competition.index')}
+                    className="flex flex-row gap-2 items-center text-[#5E5E5E] hover:text-[#000000] hover:transition-all duration-500 ease-in-out mb-5 font-bold w-fit"
+                >
+                    {/* <div className="flex flex-row justify-center items-center bg-gray-200 rounded-full p-2"> */}
+                        <ChevronLeftIcon className="w-5 h-5" />
+                    {/* </div> */}
+                    Back
+                </Link>
                 <div className="bg-white p-4 shadow rounded-lg sm:p-8">
                     <div className="flex flex-row md:gap-10 gap-5">
                         <Button variant="none" asChild onClick={() => setTabs("about")}>

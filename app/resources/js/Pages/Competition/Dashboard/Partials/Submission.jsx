@@ -110,7 +110,7 @@ function Submission({ className, user_competition_registrations, competitions, s
                             id="submission_link"
                             name="submission_link"
                             type="text"
-                            className="mt-1 block w-1/3 rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F]"
+                            className="mt-1 block w-2/5 rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F]"
                             value={data.submission_link}
                             onChange={onHandleChange}
                             isFocused

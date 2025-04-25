@@ -35,25 +35,25 @@ function DashboardCompetition() {
                                     <p className="font-bold text-[20px] text-[#000000]">{competition_registration.competitions.name}</p>
                                 </div>
                                 {competition_registration.payment_status == "Requested" && (
-                                    <div className="flex flex-row gap-2 items-center bg-[#4880FF]/20 py-1 px-2 rounded-lg text-[#4880FF] w-1/2">
+                                    <div className="flex flex-row gap-2 items-center bg-[#4880FF]/20 py-1 px-2 rounded-lg text-[#4880FF] w-fit">
                                         <div className="bg-[#4880FF] rounded-full w-[10px] h-[10px]"></div>
                                         <p className="text-[14px] font-semibold text-[#4880FF]">{competition_registration.payment_status}</p>
                                     </div>
                                 )}
                                 {competition_registration.payment_status == "Pending" && (
-                                    <div className="flex flex-row gap-2 items-center bg-[#FFC300]/20 py-1 px-2 rounded-lg text-[#FFC300] w-1/2">
+                                    <div className="flex flex-row gap-2 items-center bg-[#FFC300]/20 py-1 px-2 rounded-lg text-[#FFC300] w-fit">
                                         <div className="bg-[#FFC300] rounded-full w-[10px] h-[10px]"></div>
                                         <p className="text-[14px] font-semibold text-[#FFC300]">{competition_registration.payment_status}</p>
                                     </div>
                                 )}
                                 {competition_registration.payment_status == "Verified" && (
-                                    <div className="flex flex-row gap-2 items-center bg-[#00D238]/20 py-1 px-2 rounded-lg text-[#00D238] w-1/2">
+                                    <div className="flex flex-row gap-2 items-center bg-[#00D238]/20 py-1 px-2 rounded-lg text-[#00D238] w-fit">
                                         <div className="bg-[#00D238] rounded-full w-[10px] h-[10px]"></div>
                                         <p className="text-[14px] font-semibold text-[#00D238]">{competition_registration.payment_status}</p>
                                     </div>
                                 )}
                                 {competition_registration.payment_status == "Rejected" && (
-                                    <div className="flex flex-row gap-2 items-center bg-[#E82323]/20 py-1 px-2 rounded-lg text-[#E82323] w-1/2">
+                                    <div className="flex flex-row gap-2 items-center bg-[#E82323]/20 py-1 px-2 rounded-lg text-[#E82323] w-fit">
                                         <div className="bg-[#E82323] rounded-full w-[10px] h-[10px]"></div>
                                         <p className="text-[14px] font-semibold text-[#E82323]">{competition_registration.payment_status}</p>
                                     </div>

@@ -24,7 +24,8 @@ class DashboardCompetitionForKesekreController extends Controller
                     });
 
                     $q->orWhere('payment_status', 'REGEXP', $value)
-                        ->orWhere('total_payment', 'REGEXP', $value);
+                        ->orWhere('total_payment', 'REGEXP', $value)
+                        ->orWhere('code_registration', 'REGEXP', $value);
                 });
             })
             ->when(request()->field && request()->direction, fn($query) => $query->orderBy(request()->field, request()->direction))
