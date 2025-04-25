@@ -6,6 +6,7 @@ use App\Http\Resources\EventRegistrationResource;
 use App\Http\Resources\NavbarResource;
 use App\Http\Resources\PaymentMethodsResource;
 use App\Models\Competitions;
+use App\Models\EventPrices;
 use App\Models\EventRegistrations;
 use App\Models\PaymentMethods;
 use App\Traits\HasFile;
@@ -45,17 +46,27 @@ class DashboardSemnasController extends Controller
     {
         $eventRegistrations = EventRegistrations::find($id);
 
-        EventRegistrations::find($id)->update([
-            'payment_proof_path' => $request->hasFile('payment_proof_path') ? $this->upload_file($request, 'payment_proof_path', 'semnas_payments') : $eventRegistrations->payment_proof_path,
-            'payment_status' => $request->payment_status,
-            'event_id' => $eventRegistrations->event_id,
-            'user_id' => $eventRegistrations->user_id,
-            'code_registration' => $eventRegistrations->code_registration,
-            'total_payment' => $eventRegistrations->total_payment,
-            'reject_reason' => $eventRegistrations->reject_reason,
-        ]);
+        $in_periode_registration = EventPrices::where('event_id', $eventRegistrations->event_id)
+            ->where('start_date', '<=', now())
+            ->where('end_date', '>=', now())
+            ->exists();
 
-        flashMessage('Your payment proof has been uploaded.', 'success');
+        if($in_periode_registration) {
+            EventRegistrations::find($id)->update([
+                'payment_proof_path' => $request->hasFile('payment_proof_path') ? $this->upload_file($request, 'payment_proof_path', 'semnas_payments') : $eventRegistrations->payment_proof_path,
+                'payment_status' => $request->payment_status,
+                'event_id' => $eventRegistrations->event_id,
+                'user_id' => $eventRegistrations->user_id,
+                'code_registration' => $eventRegistrations->code_registration,
+                'total_payment' => $eventRegistrations->total_payment,
+                'reject_reason' => $eventRegistrations->reject_reason,
+            ]);
+            flashMessage('Your payment proof has been uploaded.', 'success');
+        } else if (!$in_periode_registration) {
+            flashMessage('Payment period has ended', 'error');
+            return back();
+        }
+
         return back();
     }
 

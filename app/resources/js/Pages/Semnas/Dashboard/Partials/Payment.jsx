@@ -52,10 +52,6 @@ function Payment({ event_registrations, payment_methods, className }) {
             onSuccess: (success) => {
                 const flash = flashMessage(success);
                 if (flash) toast[flash.type](flash.message);
-
-                setTimeout(() => {
-                    window.location.reload();
-                }, 1000);
             },
             preserveScroll: true,
             preserveState: true,

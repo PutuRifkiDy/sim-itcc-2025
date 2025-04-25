@@ -5,16 +5,19 @@ import { Button } from "@/Components/ui/button";
 import { flashMessage } from "@/lib/utils";
 import Dashboard from "@/Pages/Dashboard";
 import { ClockIcon } from "@heroicons/react/24/solid";
-import { useForm } from "@inertiajs/react";
+import { useForm, usePage } from "@inertiajs/react";
+import { useEffect } from "react";
 import { toast } from "sonner";
 
-function Submission({ className, competition_registrations, competitions, status_submission }) {
+function Submission({ className, user_competition_registrations, competitions, status_submission }) {
     const { data, setData, post, put, patch, errors, processing, recentlySuccessful, formData } = useForm({
-        competition_registration_id: competition_registrations.id,
+        competition_registration_id: user_competition_registrations.id,
         submission_link: '',
         submission_status: 'Pending',
         _method: 'POST',
     });
+
+    console.log("user_competition_registrations", user_competition_registrations);
 
     console.log("status_submission", status_submission);
 
@@ -34,10 +37,6 @@ function Submission({ className, competition_registrations, competitions, status
             onSuccess: (success) => {
                 const flash = flashMessage(success);
                 if (flash) toast[flash.type](flash.message);
-
-                setTimeout(() => {
-                    window.location.reload();
-                }, 1000);
             },
             preserveScroll: true,
             preserveState: true,
@@ -47,33 +46,33 @@ function Submission({ className, competition_registrations, competitions, status
     return (
         <>
             <section className={className}>
-                {competition_registrations.payment_status == 'Requested' && (
+                {user_competition_registrations.payment_status == 'Requested' && (
                     <div className="flex flex-row gap-2 px-4 py-2 border-l-4 border-l-[#4880FF] bg-[#4880FF]/20 w-full items-center mb-5">
                         <ClockIcon className="h-5 w-5 text-[#4880FF]" />
                         <p className='text-[#4880FF] font-medium text-[12px] leading-[16px]'>Complete your payment before the deadline</p>
                     </div>
                 )}
-                {competition_registrations.payment_status == 'Pending' && (
+                {user_competition_registrations.payment_status == 'Pending' && (
                     <div className="flex flex-row gap-2 px-4 py-2 border-l-4 border-l-[#FFC300] bg-[#FFC300]/20 w-full items-center mb-5">
                         <ClockIcon className="h-5 w-5 text-[#FFC300]" />
                         <p className='text-[#FFC300] font-medium text-[12px] leading-[16px]'>Verification in progress</p>
                     </div>
                 )}
-                {/* {competition_registrations.payment_status == 'Verified' && (
+                {/* {user_competition_registrations.payment_status == 'Verified' && (
                     <div className="flex flex-row gap-2 px-4 py-2 border-l-4 border-l-[#00D238] bg-[#00D238]/20 w-full items-center mb-5">
                         <ClockIcon className="h-5 w-5 text-[#00D238]" />
                         <p className='text-[#00D238] font-medium text-[12px] leading-[16px]'>Payment has been verified</p>
                     </div>
                 )} */}
-                {competition_registrations.payment_status == 'Rejected' && (
+                {user_competition_registrations.payment_status == 'Rejected' && (
                     <div className="flex flex-row gap-2 px-4 py-2 border-l-4 border-l-[#E82323] bg-[#E82323]/20 w-full items-center mb-5">
                         <ClockIcon className="h-5 w-5 text-[#E82323]" />
-                        <p className='text-[#E82323] font-medium text-[12px] leading-[16px]'>{competition_registrations.reject_reason}</p>
+                        <p className='text-[#E82323] font-medium text-[12px] leading-[16px]'>{user_competition_registrations.reject_reason}</p>
                     </div>
                 )}
 
 
-                {competition_registrations.payment_status == 'Verified' && status_submission == 'Requested' ? (
+                {status_submission== null && user_competition_registrations.payment_status == 'Verified' ? (
                     <div className="flex flex-row gap-2 px-4 py-2 border-l-4 border-l-[#4880FF] bg-[#4880FF]/20 w-full items-center mb-5">
                         <ClockIcon className="h-5 w-5 text-[#4880FF]" />
                         <p className='text-[#4880FF] font-medium text-[12px] leading-[16px]'>
@@ -134,4 +133,3 @@ function Submission({ className, competition_registrations, competitions, status
 }
 
 export default Submission;
-Submission.layout = (page) => <Dashboard children={page} title="Submission" />

@@ -57,19 +57,21 @@ Route::controller(DashboardSemnasForKesekreController::class)->group(function() 
     Route::get('export/event-registrations', [ExportController::class, 'export'])->name('export.event-registrations');
 })->middleware('auth');
 
-Route::controller(DashboardCompetitionController::class)->group(function() {
-    Route::get('dashboard/competition', 'index')->name('dashboard.competition.index');
-    Route::post('dashboard/competition/{id}/payment', 'payment_store')->name('dashboard.competition.payment');
-    Route::post('dashboard/competition/submission', 'submission_store')->name('dashboard.competition.submission');
-    Route::delete('dashboard/competition/{id}', 'destroy')->name('dashboard.competition.destroy');
-})->middleware('auth');
-
 Route::controller(DashboardCompetitionForKesekreController::class)->group(function() {
     Route::get('dashboard/competition/admin-kesekre', 'index')->name('dashboard.competition.admin-kesekre.index');
     Route::post('dashboard/competition/admin-kesekre/{id}/payment', 'verif_payment')->name('dashboard.competition.admin-kesekre.payment');
     Route::post('dashboard/competition/admin-kesekre/{id}/reject', 'reject_payment')->name('dashboard.competition.admin-kesekre.reject');
     Route::get('export/competition-registrations', [ExportController::class, 'export_competition'])->name('export.competition-registrations');
 })->middleware('auth');
+
+Route::controller(DashboardCompetitionController::class)->group(function() {
+    Route::get('dashboard/competition', 'index')->name('dashboard.competition.index');
+    Route::get('dashboard/competition/{id}', 'show')->name('dashboard.competition.show');
+    Route::post('dashboard/competition/{id}/payment', 'payment_store')->name('dashboard.competition.payment');
+    Route::post('dashboard/competition/submission/submission-store', 'submission_store')->name('dashboard.competition.submission');
+    Route::delete('dashboard/competition/{id}', 'destroy')->name('dashboard.competition.destroy');
+})->middleware('auth');
+
 
 
 Route::middleware('auth')->group(function () {

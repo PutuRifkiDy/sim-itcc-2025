@@ -37,7 +37,7 @@ class DashboardCompetitionForKesekreController extends Controller
         $count_rejected  = CompetitionRegistrations::where('payment_status', 'Rejected')->count();
 
         return inertia(component: 'Competition/Dashboard/DashboardKesekreCompetition', props: [
-            'competition_registrations' => CompetitionRegistrationResource::collection($competition_registrations)->additional([
+            'admin_competition_registrations' => CompetitionRegistrationResource::collection($competition_registrations)->additional([
                 'meta' => [
                     'has_page' => $competition_registrations->hasPages(),
                 ],

@@ -6,6 +6,7 @@ use App\Http\Requests\SemnasRegistrationRequest;
 use App\Http\Resources\CompetitionResource;
 use App\Http\Resources\EventResource;
 use App\Http\Resources\MerchandiseResource;
+use App\Models\CompetitionCategory;
 use App\Models\CompetitionPrices;
 use App\Models\CompetitionRegistrations;
 use App\Models\Competitions;
@@ -153,6 +154,9 @@ class FrontController extends Controller
             ->where('end_date', '>=', now())
             ->exists();
 
+        $get_competition = Competitions::where('id', $competition->id)->with('competition_category')->first();
+
+
         if ($already_registered) {
             flashMessage('You have already registered for this competition.', 'error');
             return back();
@@ -162,7 +166,10 @@ class FrontController extends Controller
         } else if ($request->user()->already_filled == false) {
             flashMessage('Please fill your profile first.', 'error');
             return back();
-        } else if ($request->user()->already_filled == true) {
+        } else if ($request->user()->status->value != $get_competition->competition_category->category_name) {
+            flashMessage('You are not allowed to register for this competition.', 'error');
+            return back();
+        } else if ($request->user()->already_filled == true && $request->user()->status->value == $get_competition->competition_category->category_name) {
             $request->user()->competition_registrations()->create([
                 'competition_id'    => $competition->id,
                 'user_id'           => auth()->user()->user_id,
