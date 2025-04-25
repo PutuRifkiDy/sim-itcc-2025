@@ -453,7 +453,7 @@ function DashboardKesekreCompetition({ ...props }) {
 
                                                             <Modal show={modalFormOpen} onClose={closeModalForm} maxWidth="md" className="p-4">
                                                                 <form onSubmit={(e) => onHandleSubmit(e, selectId)}>
-                                                                    <h2 className="text-lg font-normal text-gray-900">Please input a reject reason</h2>
+                                                                    <h2 className="text-lg font-semibold text-gray-900">Please input a reject reason</h2>
 
                                                                     <div className="mt-6">
 

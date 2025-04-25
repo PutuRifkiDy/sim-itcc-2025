@@ -9,6 +9,7 @@ use App\Http\Resources\CompetitionRegistrationResource;
 use App\Http\Resources\PaymentMethodsResource;
 use App\Models\CompetitionPrices;
 use App\Models\CompetitionRegistrations;
+use App\Models\Competitions;
 use App\Models\PaymentMethods;
 use App\Models\Submissions;
 use App\Traits\HasFile;
@@ -96,6 +97,12 @@ class DashboardCompetitionController extends Controller
         $payment_status = CompetitionRegistrations::where('id', $request->competition_registration_id)
             ->value('payment_status');
 
+        $find_competition_id = CompetitionRegistrations::where('id', $request->competition_registration_id)
+            ->value('competition_id');
+
+        $is_need_submission = Competitions::where('id', $find_competition_id)
+            ->value('is_need_submission');
+
         if (in_array($payment_status->value, [
             PaymentStatus::PENDING->value,
             PaymentStatus::REQUESTED->value,
@@ -106,13 +113,16 @@ class DashboardCompetitionController extends Controller
         }
 
         if ($payment_status->value === PaymentStatus::VERIFIED->value) {
-            if (! $submission) {
+            if (! $submission && $is_need_submission) {
                 Submissions::create([
                     'competition_registration_id' => $request->competition_registration_id,
                     'submission_link'             => $request->submission_link,
                     'submission_status'           => $request->submission_status,
                 ]);
                 flashMessage('Your submission has been uploaded.');
+                return back();
+            } else {
+                flashMessage('This competition does not need submission.', 'error');
                 return back();
             }
 
