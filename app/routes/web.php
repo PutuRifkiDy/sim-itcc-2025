@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\DashboardCompetitionController;
+use App\Http\Controllers\DashboardCompetitionForAdminLomba;
 use App\Http\Controllers\DashboardCompetitionForKesekre;
 use App\Http\Controllers\DashboardCompetitionForKesekreController;
+use App\Http\Controllers\DashboardCompetitionForLomba;
 use App\Http\Controllers\DashboardSemnasController;
 use App\Http\Controllers\DashboardSemnasForKesekreController;
 use App\Http\Controllers\ExportController;
@@ -72,7 +74,13 @@ Route::controller(DashboardCompetitionController::class)->group(function() {
     Route::delete('dashboard/competition/{id}', 'destroy')->name('dashboard.competition.destroy');
 })->middleware('auth');
 
-
+Route::controller(DashboardCompetitionForAdminLomba::class)->group(function() {
+    Route::get('dashboard/competition/admin-lomba', 'show_participant')->name('dashboard.competition.admin-lomba.index');
+    Route::get('dashboard/competition/admin-lomba/submission', 'show_submission')->name('dashboard.competition.admin-lomba.submission');
+    Route::post('dashboard/competiiton/admin-lomba/{id}/verif-submission', 'verif_submission')->name('dashboard.competition.admin-lomba.verif-submission');
+    Route::post('dashboard/competition/admin-lomba/{id}/reject-submission', 'reject_submission')->name('dashboard.competition.admin-lomba.reject-submission');
+    Route::get('export/competition-submissions', [ExportController::class, 'export_competition_submission'])->name('export.competition-submissions');
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
