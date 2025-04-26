@@ -133,6 +133,7 @@ class DashboardCompetitionController extends Controller
                 return back();
             }
 
+            // kondisi yang ini belum di coba
             if (in_array($submission->submission_status->value, [
                 SubmissionStatus::REJECTED->value,
                 SubmissionStatus::VERIFIED->value,
