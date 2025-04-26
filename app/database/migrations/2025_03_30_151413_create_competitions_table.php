@@ -21,6 +21,8 @@ return new class extends Migration
             $table->boolean('is_team')->default(false);
             $table->boolean('is_need_submission')->default(false);
             $table->boolean('is_open_regis')->default(false);
+            $table->string('icon_path')->nullable();
+            $table->dateTimeTz('end_submission');
             $table->timestamps();
         });
     }

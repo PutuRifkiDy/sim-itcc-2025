@@ -11,13 +11,13 @@ function DashboardSemnas() {
     const event_registrations = usePage().props.event_registrations;
     const payment_methods = usePage().props.payment_methods;
     const [tabs, setTabs] = useState("about");
-    // const { flash_message } = usePage().props;
+    const { flash_message } = usePage().props;
 
-    // useEffect(() => {
-    //     if (flash_message?.message) {
-    //         toast[flash_message.type || 'success'](flash_message.message);
-    //     }
-    // }, [flash_message]);
+    useEffect(() => {
+        if (flash_message?.message) {
+            toast[flash_message.type || 'success'](flash_message.message);
+        }
+    }, [flash_message]);
     console.log(event_registrations);
     return (
         <>

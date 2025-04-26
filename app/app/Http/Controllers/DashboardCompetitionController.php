@@ -103,6 +103,10 @@ class DashboardCompetitionController extends Controller
         $is_need_submission = Competitions::where('id', $find_competition_id)
             ->value('is_need_submission');
 
+        $in_periode_submission = Competitions::where('id', $find_competition_id)
+            ->where('end_submission', '>=', now())
+            ->exists();
+
         if (in_array($payment_status->value, [
             PaymentStatus::PENDING->value,
             PaymentStatus::REQUESTED->value,
@@ -113,7 +117,7 @@ class DashboardCompetitionController extends Controller
         }
 
         if ($payment_status->value === PaymentStatus::VERIFIED->value) {
-            if (! $submission && $is_need_submission) {
+            if (! $submission && $is_need_submission && $in_periode_submission) {
                 Submissions::create([
                     'competition_registration_id' => $request->competition_registration_id,
                     'submission_link'             => $request->submission_link,
@@ -121,8 +125,11 @@ class DashboardCompetitionController extends Controller
                 ]);
                 flashMessage('Your submission has been uploaded.');
                 return back();
-            } else {
+            } else if (!$is_need_submission) {
                 flashMessage('This competition does not need submission.', 'error');
+                return back();
+            } else if (! $in_periode_submission) {
+                flashMessage('Submission period has ended.', 'error');
                 return back();
             }
 

@@ -21,6 +21,8 @@ class CompetitionsSeeder extends Seeder
                 'is_team' => true,
                 'is_need_submission' => true,
                 'is_open_regis' => true,
+                'icon_path' => null,
+                'end_submission' => '2025-04-30 15:59:59.000'
             ],
             [
                 'competition_category_id' => '5',
@@ -31,6 +33,8 @@ class CompetitionsSeeder extends Seeder
                 'is_team' => false,
                 'is_need_submission' => false,
                 'is_open_regis' => false,
+                'icon_path' => null,
+                'end_submission' => '2025-04-30 15:59:59.000'
             ],
             [
                 'competition_category_id' => '4',
@@ -41,6 +45,8 @@ class CompetitionsSeeder extends Seeder
                 'is_team' => false,
                 'is_need_submission' => true,
                 'is_open_regis' => true,
+                'icon_path' => null,
+                'end_submission' => '2025-04-30 15:59:59.000'
             ],
             [
                 'competition_category_id' => '5',
@@ -51,6 +57,8 @@ class CompetitionsSeeder extends Seeder
                 'is_team' => false,
                 'is_need_submission' => true,
                 'is_open_regis' => true,
+                'icon_path' => null,
+                'end_submission' => '2025-04-30 15:59:59.000'
             ],
             [
                 'competition_category_id' => '4',
@@ -61,6 +69,8 @@ class CompetitionsSeeder extends Seeder
                 'is_team' => false,
                 'is_need_submission' => false,
                 'is_open_regis' => true,
+                'icon_path' => null,
+                'end_submission' => '2025-04-30 15:59:59.000'
             ],
             [
                 'competition_category_id' => '3',
@@ -71,6 +81,8 @@ class CompetitionsSeeder extends Seeder
                 'is_team' => false,
                 'is_need_submission' => false,
                 'is_open_regis' => true,
+                'icon_path' => null,
+                'end_submission' => '2025-04-30 15:59:59.000'
             ],
             [
                 'competition_category_id' => '4',
@@ -81,6 +93,8 @@ class CompetitionsSeeder extends Seeder
                 'is_team' => true,
                 'is_need_submission' => false,
                 'is_open_regis' => true,
+                'icon_path' => null,
+                'end_submission' => '2025-04-30 15:59:59.000'
             ],
             [
                 'competition_category_id' => '5',
@@ -91,6 +105,8 @@ class CompetitionsSeeder extends Seeder
                 'is_team' => true,
                 'is_need_submission' => true,
                 'is_open_regis' => true,
+                'icon_path' => null,
+                'end_submission' => '2025-04-30 15:59:59.000'
             ],
             [
                 'competition_category_id' => '4',
@@ -101,6 +117,8 @@ class CompetitionsSeeder extends Seeder
                 'is_team' => true,
                 'is_need_submission' => true,
                 'is_open_regis' => true,
+                'icon_path' => null,
+                'end_submission' => '2025-04-30 15:59:59.000'
             ],
             [
                 'competition_category_id' => '1',
@@ -111,6 +129,8 @@ class CompetitionsSeeder extends Seeder
                 'is_team' => false,
                 'is_need_submission' => false,
                 'is_open_regis' => true,
+                'icon_path' => null,
+                'end_submission' => '2025-04-30 15:59:59.000'
             ],
             [
                 'competition_category_id' => '2',
@@ -121,6 +141,8 @@ class CompetitionsSeeder extends Seeder
                 'is_team' => false,
                 'is_need_submission' => false,
                 'is_open_regis' => true,
+                'icon_path' => null,
+                'end_submission' => '2025-04-30 15:59:59.000'
             ],
         ];
 

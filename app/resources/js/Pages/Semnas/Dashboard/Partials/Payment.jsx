@@ -49,10 +49,6 @@ function Payment({ event_registrations, payment_methods, className }) {
 
         post(route('dashboard.semnas.payment', { id: event_registrations.id }), {
             forceFormData: true,
-            onSuccess: (success) => {
-                const flash = flashMessage(success);
-                if (flash) toast[flash.type](flash.message);
-            },
             preserveScroll: true,
             preserveState: true,
         });
