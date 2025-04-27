@@ -80,7 +80,7 @@ function DashboardAdminLombaData({ ...props }) {
                             </Select>
                             <Button variant="outline" onClick={() => setParams(props.state)}>
                                 <PiArrowsClockwise className="mr-2 h-5 w-5" />
-                                Clear
+                                Clear Filter
                             </Button>
                         </div>
                         <Button variant="blue" type="button" onClick={handleExportCSV}>
