@@ -315,21 +315,6 @@ function DashboardAdminLombaSubmission({ ...props }) {
                                                         <td className="whitespace-nowrap px-6 py-8 text-sm font-normal text-foreground">
                                                             {submission.competition_registrations.competitions.is_team ? 'Team' : 'Individual'}
                                                         </td>
-                                                        {/* <td className="whitespace-nowrap px-6 py-8 text-sm font-normal text-foreground">
-                                                            <Dialog>
-                                                                <DialogTrigger className='flex flex-row gap-3 justify-center items-center text-foreground font-normal'>
-                                                                    Open
-                                                                    <IconPreviewImageProfile />
-                                                                </DialogTrigger>
-                                                                <DialogContent>
-                                                                    <DialogTitle>
-                                                                        Proof Payment
-                                                                    </DialogTitle>
-                                                                    <img src={Submission.payment_proof_path ? `${Submission.payment_proof_path}` : 'assets/images/default_image_profile.png'} className="h-64 w-auto" alt="" />
-                                                                    <a href={Submission.payment_proof_path ? `${Submission.payment_proof_path}` : 'assets/images/default_image_profile.png'} className="text-center" target="_blank" rel="noopener noreferrer">Open in new tab</a>
-                                                                </DialogContent>
-                                                            </Dialog>
-                                                        </td> */}
                                                         <td className="whitespace-nowrap px-6 py-8 text-sm font-normal text-foreground">
                                                             <Button
                                                                 variant='none'
