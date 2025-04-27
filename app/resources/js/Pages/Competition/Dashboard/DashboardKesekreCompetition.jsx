@@ -417,7 +417,7 @@ function DashboardKesekreCompetition({ ...props }) {
                                                                     </div>
                                                                 </div>
                                                                 <div className="mt-6 flex justify-end">
-                                                                    <Button onClick={closeModal} variant="blue" type="button">Cancel</Button>
+                                                                    <Button onClick={closeModal} variant="blue" type="button">Close</Button>
                                                                 </div>
                                                             </Modal>
                                                         </td>
