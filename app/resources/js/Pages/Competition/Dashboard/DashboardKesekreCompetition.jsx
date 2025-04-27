@@ -235,6 +235,17 @@ function DashboardKesekreCompetition({ ...props }) {
                                                             variant="ghost"
                                                             className="group inline-flex"
                                                         >
+                                                            Competition Name
+                                                        </Button>
+                                                    </th>
+                                                    <th
+                                                        className="5 font-semibold px-2 py-3 text-left text-sm text-foreground"
+                                                        scope="col"
+                                                    >
+                                                        <Button
+                                                            variant="ghost"
+                                                            className="group inline-flex"
+                                                        >
                                                             Code Registration
                                                         </Button>
                                                     </th>
@@ -322,6 +333,9 @@ function DashboardKesekreCompetition({ ...props }) {
                                                         </td>
                                                         <td className="whitespace-nowrap px-6 py-8 text-sm font-normal text-foreground">
                                                             {competition.user.name}
+                                                        </td>
+                                                        <td className="whitespace-nowrap px-6 py-8 text-sm font-normal text-foreground">
+                                                            {competition.competitions.name}
                                                         </td>
                                                         <td className="whitespace-nowrap px-6 py-8 text-sm font-normal text-foreground">
                                                             {competition.code_registration}

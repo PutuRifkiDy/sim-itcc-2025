@@ -46,6 +46,12 @@ function DashboardAdminLombaData({ ...props }) {
             direction: params.direction === 'asc' ? 'desc' : 'asc',
         });
     };
+
+    const handleExportCSV = () => {
+        window.location.href = route('export.competition-participants', {
+            search: params.search,
+        });
+    };
     return (
         <>
             <div className="py-5">
@@ -77,9 +83,9 @@ function DashboardAdminLombaData({ ...props }) {
                                 Clear
                             </Button>
                         </div>
-                        {/* <Button variant="blue" type="button" onClick={handleExportCSV}>
-                    Export CSV
-                </Button> */}
+                        <Button variant="blue" type="button" onClick={handleExportCSV}>
+                            Export CSV
+                        </Button>
                     </div>
 
                     <Card>
@@ -110,6 +116,17 @@ function DashboardAdminLombaData({ ...props }) {
                                                             className="group inline-flex"
                                                         >
                                                             Name
+                                                        </Button>
+                                                    </th>
+                                                    <th
+                                                        className="5 font-semibold px-2 py-3 text-left text-sm text-foreground"
+                                                        scope="col"
+                                                    >
+                                                        <Button
+                                                            variant="ghost"
+                                                            className="group inline-flex"
+                                                        >
+                                                            Competition Name
                                                         </Button>
                                                     </th>
                                                     <th
@@ -196,6 +213,9 @@ function DashboardAdminLombaData({ ...props }) {
                                                         </td>
                                                         <td className="whitespace-nowrap px-6 py-8 text-sm font-normal text-foreground">
                                                             {competition.user.name}
+                                                        </td>
+                                                        <td className="whitespace-nowrap px-6 py-8 text-sm font-normal text-foreground">
+                                                            {competition.competitions.name}
                                                         </td>
                                                         <td className="whitespace-nowrap px-6 py-8 text-sm font-normal text-foreground">
                                                             {competition.code_registration}
