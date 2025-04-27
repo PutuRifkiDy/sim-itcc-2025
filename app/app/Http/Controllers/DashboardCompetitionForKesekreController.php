@@ -46,7 +46,7 @@ class DashboardCompetitionForKesekreController extends Controller
 
             'state'                      => [
                 'page'  => request()->page ?? 1,
-                'searh' => request()->search ?? '',
+                'search' => request()->search ?? '',
                 'load'  => 10,
             ],
 

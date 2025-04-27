@@ -39,13 +39,13 @@ class DashboardCompetitionForAdminLomba extends Controller
                 'meta' => [
                     'has_page' => $show_all_participant->hasPages(),
                 ],
-                
-                'state'                      => [
-                    'page'  => request()->page ?? 1,
-                    'searh' => request()->search ?? '',
-                    'load'  => 10,
-                ],
             ]),
+
+            'state'                     => [
+                'page'   => request()->page ?? 1,
+                'search' => request()->search ?? '',
+                'load'   => 10,
+            ],
         ]);
     }
 
