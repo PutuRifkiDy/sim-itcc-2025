@@ -51,10 +51,52 @@ class DashboardCompetitionForAdminLomba extends Controller
 
     public function show_submission(): Response
     {
-        $show_all_submission = Submissions::get();
+        // $show_all_submission = Submissions::get();
+        $show_all_submission = Submissions::with('competition_registrations.user', 'competition_registrations.competitions', 'competition_registrations')
+            ->when(request()->search, function ($query, $value) {
+                $query->where(function ($q) use ($value) {
+                    $q->whereHas('competition_registrations.user', function ($q2) use ($value) {
+                        $q2->where('name', 'REGEXP', $value);
+                    });
+                    $q->orWhereHas('competition_registrations.competitions.competition_content', function ($q3) use ($value) {
+                        $q3->where('location', 'REGEXP', $value);
+                    });
+                    $q->orWhereHas('competition_registrations.competitions', function($q4) use ($value) {
+                        $q4->where('name', 'REGEXP', $value);
+                    });
+                    $q->orWhereHas('competition_registrations', function($q5) use ($value) {
+                        $q5->where('code_registration', 'REGEXP', $value);
+                    });
+
+                    $q->orWhere('submission_link', 'REGEXP', $value)
+                        ->orWhere('submission_status', 'REGEXP', $value);
+                });
+            })
+            ->when(request()->field && request()->direction, fn($query) => $query->orderBy(request()->field, request()->direction))
+            ->paginate(request()->load ?? 10)
+            ->withQueryString();
+
+            $count_pending   = Submissions::where('submission_status', 'Pending')->count();
+            $count_verified  = Submissions::where('submission_status', 'Verified')->count();
+            $count_rejected  = Submissions::where('submission_status', 'Rejected')->count();
 
         return inertia(component: 'Competition/Dashboard/DashboardAdminLombaSubmission', props: [
-            'submissions' => new SubmissionResource($show_all_submission),
+            'submissions' => SubmissionResource::collection($show_all_submission)->additional([
+                'meta' => [
+                    'has_page' => $show_all_submission->hasPages(),
+                ],
+            ]),
+
+            'state'                      => [
+                'page'  => request()->page ?? 1,
+                'search' => request()->search ?? '',
+                'load'  => 10,
+            ],
+
+            'count_pending'   => $count_pending,
+            'count_verified'  => $count_verified,
+            'count_rejected'  => $count_rejected,
+
         ]);
     }
 }

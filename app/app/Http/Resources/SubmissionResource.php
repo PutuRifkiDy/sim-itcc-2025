@@ -15,6 +15,7 @@ class SubmissionResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
+            'id' => $this->id,
             'competition_registration_id' => $this->competition_registration_id,
             'submission_link' => $this->submission_link,
             'submission_status' => $this->submission_status,

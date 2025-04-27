@@ -2,6 +2,8 @@ import { IconBerandaSideBar, IconCompetitionSidebar, IconProfileSideBar, IconSid
 import { Head } from '@inertiajs/react';
 import Sidebar from './Partials/Sidebar';
 import { Toaster } from '@/Components/ui/sonner';
+import { DocumentTextIcon } from "@heroicons/react/24/outline";
+
 
 export default function DashboardLayout({ children, title, header }) {
     const route_sidebar = [
@@ -40,6 +42,11 @@ export default function DashboardLayout({ children, title, header }) {
             text: 'Competition',
             link: route('dashboard.competition.admin-lomba.index'),
         },
+        {
+            icon: <DocumentTextIcon className='w-6 h-6 text-current'/>,
+            text: 'Submission',
+            link: route('dashboard.competition.admin-lomba.submission'),
+        }
     ];
 
     return (
