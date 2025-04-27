@@ -34,7 +34,12 @@ export default function DashboardLayout({ children, title, header }) {
             icon: <IconCompetitionSidebar />,
             text: 'Competition',
             link: route('dashboard.competition.admin-kesekre.index'),
-        }
+        },
+        {
+            icon: <IconCompetitionSidebar />,
+            text: 'Competition',
+            link: route('dashboard.competition.admin-lomba.index'),
+        },
     ];
 
     return (
