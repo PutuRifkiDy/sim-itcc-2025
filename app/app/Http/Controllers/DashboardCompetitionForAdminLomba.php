@@ -1,10 +1,13 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Enums\SubmissionStatus;
+use App\Http\Requests\RejectReasonRequest;
 use App\Http\Resources\CompetitionRegistrationResource;
 use App\Http\Resources\SubmissionResource;
 use App\Models\CompetitionRegistrations;
 use App\Models\Submissions;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Inertia\Response;
 
@@ -98,5 +101,26 @@ class DashboardCompetitionForAdminLomba extends Controller
             'count_rejected'  => $count_rejected,
 
         ]);
+    }
+
+    public function verif_submission($id): RedirectResponse
+    {
+        Submissions::find($id)->update([
+            'submission_status' => SubmissionStatus::VERIFIED->value,
+        ]);
+
+        flashMessage('Submission has been verified.', 'success');
+        return back();
+    }
+
+    public function reject_submission($id, RejectReasonRequest $request): RedirectResponse
+    {
+        Submissions::find($id)->update([
+            'submission_status' => SubmissionStatus::REJECTED->value,
+            'reject_reason'  => $request->reject_reason,
+        ]);
+
+        flashMessage('Submission has been rejected.', 'success');
+        return back();
     }
 }

@@ -13,6 +13,7 @@ function DashboardCompetitionDetail() {
     const user_competition_registrations = usePage().props.user_competition_registrations;
     const payment_methods = usePage().props.payment_methods;
     const competitions = usePage().props.competitions;
+    const show_reject_reason_submission = usePage().props.show_reject_reason_submission;
 
     const status_submission = usePage().props.status_submission;
     const [tabs, setTabs] = useState("about");
@@ -55,7 +56,7 @@ function DashboardCompetitionDetail() {
                         <Payment className="w-full mt-5" user_competition_registrations={user_competition_registrations} payment_methods={payment_methods} />
                     )}
                     {tabs == "submission" && user_competition_registrations && (
-                        <Submission className="w-full mt-5" user_competition_registrations={user_competition_registrations} competitions={competitions} status_submission={status_submission} />
+                        <Submission className="w-full mt-5" user_competition_registrations={user_competition_registrations} competitions={competitions} status_submission={status_submission} show_reject_reason_submission={show_reject_reason_submission} />
                     )}
                 </div>
             </div>

@@ -9,17 +9,13 @@ import { useForm, usePage } from "@inertiajs/react";
 import { useEffect } from "react";
 import { toast } from "sonner";
 
-function Submission({ className, user_competition_registrations, competitions, status_submission }) {
+function Submission({ className, user_competition_registrations, competitions, status_submission, show_reject_reason_submission }) {
     const { data, setData, post, put, patch, errors, processing, recentlySuccessful, formData } = useForm({
         competition_registration_id: user_competition_registrations.id,
         submission_link: '',
         submission_status: 'Pending',
         _method: 'POST',
     });
-
-    console.log("user_competition_registrations", user_competition_registrations);
-
-    console.log("status_submission", status_submission);
 
     const onHandleChange = (e) => {
         setData(e.target.name, e.target.value);
@@ -93,7 +89,7 @@ function Submission({ className, user_competition_registrations, competitions, s
                             <div className="flex flex-row gap-2 px-4 py-2 border-l-4 border-l-[#E82323] bg-[#E82323]/20 w-full items-center mb-5">
                                 <ClockIcon className="h-5 w-5 text-[#E82323]" />
                                 <p className='text-[#E82323] font-medium text-[12px] leading-[16px]'>
-                                    Your submission has been rejected
+                                    {show_reject_reason_submission}
                                 </p>
                             </div>
                         )}

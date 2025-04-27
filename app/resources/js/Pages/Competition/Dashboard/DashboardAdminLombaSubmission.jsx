@@ -83,7 +83,6 @@ function DashboardAdminLombaSubmission({ ...props }) {
             return;
         }
 
-
         post(route('dashboard.competition.admin-lomba.reject-submission', { id: submissionId }), {
             onSuccess: () => {
                 closeModalForm();
@@ -397,7 +396,7 @@ function DashboardAdminLombaSubmission({ ...props }) {
                                                             </Modal>
                                                         </td>
                                                         <td className="whitespace-nowrap px-6 py-8 text-sm font-normal text-foreground ">
-                                                            <a href={submission.submission_link} className='flex flex-row gap-3 justify-center items-center text-foreground font-normal'>
+                                                            <a href={submission.submission_link} className='flex flex-row gap-3 justify-center items-center text-foreground font-normal' target="_blank" rel="noopener noreferrer">
                                                                 Link
                                                                 <IconPreviewImageProfile />
                                                             </a>
@@ -415,9 +414,6 @@ function DashboardAdminLombaSubmission({ ...props }) {
                                                                 {submission.submission_status}
                                                             </Badge>
                                                         </td>
-                                                        {/* <td className="whitespace-nowrap px-6 py-8 text-sm font-normal text-foreground">
-                                                            Rp.{" "}{Submission.total_payment}
-                                                        </td> */}
                                                         <td className="whitespace-nowrap px-6 py-8 flex md:flex-row gap-2">
                                                             {submission.submission_status === 'Requested' ? (
                                                                 <Link
@@ -515,6 +511,10 @@ function DashboardAdminLombaSubmission({ ...props }) {
                             )}
                         </CardFooter>
                     </Card>
+
+                    <p className="text-[14px] font-normal text-[#5E5E5E] mt-3">
+                        *Make sure to download the current submission file before verification, as it will be replaced if the user uploads a new one.
+                    </p>
                 </div>
             </div>
         </>

@@ -47,6 +47,10 @@ class DashboardCompetitionController extends Controller
             ->where('id', $id)
             ->first();
 
+        $show_reject_reason_submission = Submissions::where('competition_registration_id', $show_registration_competition->id)
+            ->value('reject_reason');
+
+
         if ($show_registration_competition) {
             $show_status_submission = Submissions::where('competition_registration_id', $show_registration_competition->id)
                 ->value('submission_status');
@@ -58,6 +62,7 @@ class DashboardCompetitionController extends Controller
             'user_competition_registrations' => fn() => $show_registration_competition ? new CompetitionRegistrationResource($show_registration_competition) : null,
             'payment_methods'                => new PaymentMethodsResource($payment_methods),
             'status_submission'              => $show_status_submission ?? null,
+            'show_reject_reason_submission'  => $show_reject_reason_submission ?? null
         ]);
     }
 
@@ -138,7 +143,7 @@ class DashboardCompetitionController extends Controller
                 SubmissionStatus::REJECTED->value,
                 SubmissionStatus::VERIFIED->value,
             ])) {
-                Submissions::create([
+                $submission->update([
                     'competition_registration_id' => $request->competition_registration_id,
                     'submission_link'             => $request->submission_link,
                     'submission_status'           => $request->submission_status,
