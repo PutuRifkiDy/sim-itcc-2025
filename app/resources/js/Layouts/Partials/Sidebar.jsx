@@ -18,6 +18,10 @@ export default function Sidebar({ navigations, children, header }) {
     const [isSidebarOpen, setIsSidebarOpen] = useState(window.innerWidth >= 768);
     const auth = usePage().props.auth.user;
 
+    if(!auth) {
+        window.location.href = route('login');
+    }
+
     const currentRoute = route().current();
     console.log(currentRoute);
 
