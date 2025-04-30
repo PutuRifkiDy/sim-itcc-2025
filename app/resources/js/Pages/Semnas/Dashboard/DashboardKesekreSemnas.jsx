@@ -48,12 +48,6 @@ function DashboardKesekreSemnas({ ...props }) {
         setSelectId(id);
     };
 
-    const reloadPage = () => {
-        setTimeout(() => {
-            window.location.reload();
-        }, 400);
-    }
-
     const closeModal = () => {
         setSelectedUser(null);
         setModalIdentifyUserOpen(false);
@@ -454,14 +448,13 @@ function DashboardKesekreSemnas({ ...props }) {
                                                                         </DialogTrigger>
                                                                         <DialogContent className="max-w-l">
                                                                             <DialogTitle>
-                                                                                Are you sure you want verif your registration?
+                                                                                Are you sure you want verif this registration?
                                                                             </DialogTitle>
                                                                             <DialogDescription>
                                                                                 You will not be able to revert this action.
                                                                             </DialogDescription>
                                                                             <DialogFooter className="mt-4">
-                                                                                <Button aschild variant="blue"
-                                                                                onClick={() => reloadPage()}>
+                                                                                <Button aschild variant="blue">
                                                                                     <Link
                                                                                         href={route('dashboard.semnas.admin-kesekre.payment', { id: semnas.id })}
                                                                                         method="post">
@@ -483,7 +476,10 @@ function DashboardKesekreSemnas({ ...props }) {
 
                                                             <Modal show={modalFormOpen} onClose={closeModalForm} maxWidth="md" className="p-4">
                                                                 <form onSubmit={(e) => onHandleSubmit(e, selectId)}>
-                                                                    <h2 className="text-lg font-normal text-gray-900">Please input a reject reason</h2>
+                                                                    <h2 className="text-lg font-bold text-gray-900">Please input a reject reason</h2>
+                                                                    <p className="mt-1 text-sm text-gray-600">
+                                                                        You will not be able to revert this action.
+                                                                    </p>
 
                                                                     <div className="mt-6">
 
