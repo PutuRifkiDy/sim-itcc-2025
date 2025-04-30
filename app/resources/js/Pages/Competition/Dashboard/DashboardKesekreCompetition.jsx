@@ -485,6 +485,10 @@ function DashboardKesekreCompetition({ ...props }) {
                                                                 <form onSubmit={(e) => onHandleSubmit(e, selectId)}>
                                                                     <h2 className="text-lg font-semibold text-gray-900">Please input a reject reason</h2>
 
+                                                                    <p className="mt-1 text-sm text-gray-600">
+                                                                        You will not be able to revert this action.
+                                                                    </p>
+
                                                                     <div className="mt-6">
 
                                                                         <TextInput

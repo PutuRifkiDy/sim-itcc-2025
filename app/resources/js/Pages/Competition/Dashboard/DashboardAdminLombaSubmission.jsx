@@ -6,7 +6,7 @@ import TextInput from "@/Components/TextInput";
 import { Badge } from "@/Components/ui/badge";
 import { Button } from "@/Components/ui/button";
 import { Card, CardContent, CardFooter } from "@/Components/ui/card";
-import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "@/Components/ui/dialog";
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogTitle, DialogTrigger } from "@/Components/ui/dialog";
 import { Input } from "@/Components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/Components/ui/select";
 import { useFilter } from "@/Hooks/UseFilter";
@@ -410,12 +410,32 @@ function DashboardAdminLombaSubmission({ ...props }) {
                                                                 </Link>
                                                             ) : (
 
-                                                                <Link
-                                                                    className="flex justify-center items-center border-2 rounded-md border-[#4DE45C] p-1.5 hover:bg-[#4DE45C]/20 transition-all duration-300 ease-in-out"
-                                                                    href={route('dashboard.competition.admin-lomba.verif-submission', { id: submission.id })}
-                                                                    method="post">
-                                                                    <DocumentCheckIcon className="text-[#4DE45C] w-5 h-5" />
-                                                                </Link>
+                                                                <div>
+                                                                    <Dialog>
+                                                                        <DialogTrigger className='flex justify-center items-center border-2 rounded-md border-[#4DE45C] p-1.5 hover:bg-[#4DE45C]/20 transition-all duration-300 ease-in-out'
+                                                                        >
+                                                                            <DocumentCheckIcon className="text-[#4DE45C] w-5 h-5" />
+                                                                        </DialogTrigger>
+                                                                        <DialogContent className="max-w-l">
+                                                                            <DialogTitle>
+                                                                                Are you sure you want verif this submission?
+                                                                            </DialogTitle>
+                                                                            <DialogDescription>
+                                                                                You will not be able to revert this action.
+                                                                            </DialogDescription>
+                                                                            <DialogFooter className="mt-4">
+                                                                                <Button aschild variant="blue"
+                                                                                onClick={() => {window.location.reload()}}>
+                                                                                    <Link
+                                                                                        href={route('dashboard.competition.admin-lomba.verif-submission', { id: submission.id })}
+                                                                                        method="post">
+                                                                                        Confirm
+                                                                                    </Link>
+                                                                                </Button>
+                                                                            </DialogFooter>
+                                                                        </DialogContent>
+                                                                    </Dialog>
+                                                                </div>
                                                             )}
 
                                                             <Button
@@ -428,6 +448,10 @@ function DashboardAdminLombaSubmission({ ...props }) {
                                                             <Modal show={modalFormOpen} onClose={closeModalForm} maxWidth="md" className="p-4">
                                                                 <form onSubmit={(e) => onHandleSubmit(e, selectId)}>
                                                                     <h2 className="text-lg font-semibold text-gray-900">Please input a reject reason</h2>
+
+                                                                    <p className="mt-1 text-sm text-gray-600">
+                                                                        You will not be able to revert this action.
+                                                                    </p>
 
                                                                     <div className="mt-6">
 
