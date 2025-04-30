@@ -1,5 +1,5 @@
 import DashboardLayout from "@/Layouts/DashboardLayout";
-import { ArchiveBoxXMarkIcon, BuildingLibraryIcon, CheckBadgeIcon, ClockIcon, PaperAirplaneIcon, UserCircleIcon } from "@heroicons/react/24/solid";
+import { ArchiveBoxXMarkIcon, BanknotesIcon, BuildingLibraryIcon, CheckBadgeIcon, ClockIcon, PaperAirplaneIcon, UserCircleIcon, UserGroupIcon } from "@heroicons/react/24/solid";
 import { usePage } from "@inertiajs/react";
 
 function Overview() {
@@ -17,7 +17,7 @@ function Overview() {
                     <div className="border-2 border-[#E4F0F8] flex items-center flex-row gap-10 py-5 px-5 rounded-xl">
                         {/* start icon */}
                         <div className="flex justify-center items-center p-4 rounded-2xl bg-[#718EBF]/40">
-                            <PaperAirplaneIcon className="text-[#718EBF] w-6 h-6" />
+                            <UserGroupIcon className="text-[#718EBF] w-6 h-6" />
                         </div>
                         <div className="flex flex-col gap-1">
                             <p className="text-[#3A3A3A]/90 text-[14px] font-medium">Participant Semnas</p>
@@ -28,7 +28,7 @@ function Overview() {
                     <div className="border-2 border-[#E4F0F8] flex items-center flex-row gap-10 py-5 px-5 rounded-xl">
                         {/* start icon */}
                         <div className="flex justify-center items-center p-4 rounded-2xl bg-[#FFC300]/20">
-                            <ClockIcon className="text-[#FFC300] w-6 h-6" />
+                            <UserGroupIcon className="text-[#FFC300] w-6 h-6" />
                         </div>
                         <div className="flex flex-col gap-1">
                             <p className="text-[#3A3A3A]/90 text-[14px] font-medium">Participant Competition</p>
@@ -49,7 +49,7 @@ function Overview() {
                     <div className="border-2 border-[#E4F0F8] flex items-center flex-row gap-10 py-5 px-5 rounded-xl">
                         {/* start icon */}
                         <div className="flex justify-center items-center p-4 rounded-2xl bg-[#4DE45C]/20">
-                            <CheckBadgeIcon className="text-[#4DE45C] w-6 h-6" />
+                            <BanknotesIcon className="text-[#4DE45C] w-6 h-6" />
                         </div>
                         <div className="flex flex-col gap-1">
                             <p className="text-[#3A3A3A]/90 text-[14px] font-medium">Total Semnas Income</p>
@@ -59,8 +59,8 @@ function Overview() {
                     </div>
                     <div className="border-2 border-[#E4F0F8] flex items-center flex-row gap-10 py-5 px-5 rounded-xl">
                         {/* start icon */}
-                        <div className="flex justify-center items-center p-4 rounded-2xl bg-[#E82323]/20">
-                            <ArchiveBoxXMarkIcon className="text-[#E82323] w-6 h-6" />
+                        <div className="flex justify-center items-center p-4 rounded-2xl bg-[#4DE45C]/20">
+                            <BanknotesIcon className="text-[#4DE45C] w-6 h-6" />
                         </div>
                         <div className="flex flex-col gap-1">
                             <p className="text-[#3A3A3A]/90 text-[14px] font-medium">Total Competition Income</p>
