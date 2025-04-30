@@ -9,6 +9,7 @@ use App\Http\Controllers\DashboardSemnasController;
 use App\Http\Controllers\DashboardSemnasForKesekreController;
 use App\Http\Controllers\ExportController;
 use App\Http\Controllers\FrontController;
+use App\Http\Controllers\OverviewForKesekreController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -52,6 +53,10 @@ Route::controller(DashboardSemnasController::class)->group(function() {
     Route::post('dashboard/semnas/{id}/payment', 'payment_store')->name('dashboard.semnas.payment');
 })->middleware('auth');
 
+Route::controller(OverviewForKesekreController::class)->group(function() {
+    Route::get('dashboard/overview/admin-kesekre', 'index')->name('dashboard.overview.admin-kesekre.index');
+})->middleware('auth');
+
 Route::controller(DashboardSemnasForKesekreController::class)->group(function() {
     Route::get('dashboard/semnas/admin-kesekre', 'index')->name('dashboard.semnas.admin-kesekre.index');
     Route::post('dashboard/semnas/admin-kesekre/{id}/payment', 'verif_payment')->name('dashboard.semnas.admin-kesekre.payment');
@@ -73,7 +78,7 @@ Route::controller(DashboardCompetitionForAdminLomba::class)->group(function() {
     Route::post('dashboard/competition/admin-lomba/{id}/reject-submission', 'reject_submission')->name('dashboard.competition.admin-lomba.reject-submission');
     Route::get('export/competition-submissions', [ExportController::class, 'export_competition_submission'])->name('export.competition-submissions');
     Route::get('export/competition-participants', [ExportController::class, 'export_competition_participant'])->name('export.competition-participants');
-});
+})->middleware('auth');
 
 Route::controller(DashboardCompetitionController::class)->group(function() {
     Route::get('dashboard/competition', 'index')->name('dashboard.competition.index');

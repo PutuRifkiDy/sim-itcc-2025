@@ -43,6 +43,11 @@ export default function DashboardLayout({ children, title, header }) {
             link: route('dashboard.competition.admin-lomba.index'),
         },
         {
+            icon: <IconBerandaSideBar />,
+            text: 'Overview',
+            link: route('dashboard.overview.admin-kesekre.index'),
+        },
+        {
             icon: <DocumentTextIcon className='w-6 h-6 text-current'/>,
             text: 'Submission',
             link: route('dashboard.competition.admin-lomba.submission'),
