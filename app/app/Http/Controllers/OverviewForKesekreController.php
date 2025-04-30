@@ -12,10 +12,10 @@ class OverviewForKesekreController extends Controller
 {
     public function index(): Response
     {
-        $count_participant_semnas = EventRegistrations::count();
-        $count_participant_competition = CompetitionRegistrations::count();
-        $sum_total_payment_semnas = EventRegistrations::sum('total_payment');
-        $sum_total_payment_competition = CompetitionRegistrations::sum('total_payment');
+        $count_participant_semnas = EventRegistrations::where('payment_status', 'Verified')->count();
+        $count_participant_competition = CompetitionRegistrations::where('payment_status', 'Verified')->count();
+        $sum_total_payment_semnas = EventRegistrations::where('payment_status', 'Verified')->sum('total_payment');
+        $sum_total_payment_competition = CompetitionRegistrations::where('payment_status', 'Verified')->sum('total_payment');
         $count_institution = User::where('institution', '!=', null)->count();
 
         // dd($sum_total_payment_competition);

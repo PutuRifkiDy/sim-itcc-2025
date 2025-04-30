@@ -1,6 +1,8 @@
 import DashboardLayout from "@/Layouts/DashboardLayout";
 import { ArchiveBoxXMarkIcon, BanknotesIcon, BuildingLibraryIcon, CheckBadgeIcon, ClockIcon, PaperAirplaneIcon, UserCircleIcon, UserGroupIcon } from "@heroicons/react/24/solid";
 import { usePage } from "@inertiajs/react";
+import { useEffect } from "react";
+import { toast } from "sonner";
 
 function Overview() {
     const count_participant_semnas = usePage().props.count_participant_semnas;
@@ -8,6 +10,14 @@ function Overview() {
     const sum_total_payment_semnas = usePage().props.sum_total_payment_semnas;
     const sum_total_payment_competition = usePage().props.sum_total_payment_competition;
     const count_institution = usePage().props.count_institution;
+
+    const { flash_message } = usePage().props;
+
+    useEffect(() => {
+        if (flash_message?.message) {
+            toast[flash_message.type || 'success'](flash_message.message);
+        }
+    }, [flash_message]);
 
     return (
         <div className="py-5">
