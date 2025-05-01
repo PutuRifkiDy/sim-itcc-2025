@@ -45,7 +45,7 @@ Route::controller(FrontController::class)->group(function(){
 
     // merch
     Route::get('merchandise', 'show_merchandise')->name('merchandise.front.show');
-});
+})->middleware('role:guest');
 
 
 Route::controller(DashboardSemnasController::class)->group(function() {
