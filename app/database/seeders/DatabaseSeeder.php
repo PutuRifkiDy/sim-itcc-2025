@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
         $this->call([
             CompetitionCategoriesSeeder::class,
             CompetitionsSeeder::class,
@@ -40,6 +41,26 @@ class DatabaseSeeder extends Seeder
             EventContentContactSeeder::class,
             MerchandiseSeeder::class,
             PaymentMethodsSeeder::class,
+            RoleSeeder::class
         ]);
+
+        User::create([
+            'email' => 'adminKesekre@gmail.com',
+            'name' => 'Admin Kesekre',
+            'password' => bcrypt('adminKesekreITCC2025YesWeCan1'),
+            'email_verified_at' => now(),
+        ])->assignRole('admin');
+        User::create([
+            'email' => 'adminPemrograman@gmail.com',
+            'name' => 'Admin Pemrograman',
+            'password' => bcrypt('adminPemrogramanITCC2025YesWeCan1'),
+            'email_verified_at' => now(),
+        ])->assignRole('admin');
+        User::create([
+            'email' => 'adminWebDesignSMASMK@gmail.com',
+            'name' => 'Admin Web Design SMASMK',
+            'password' => bcrypt('adminWebDesignSMASMKITCC2025YesWeCan1'),
+            'email_verified_at' => now(),
+        ])->assignRole('admin');
     }
 }

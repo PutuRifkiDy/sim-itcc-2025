@@ -26,7 +26,8 @@ class UserSingleResource extends JsonResource
             'nim' => $this->nim,
             'institution_path' => Storage::url($this->institution_path),
             'address' => $this->address,
-            'already_filled' => $this->already_filled
+            'already_filled' => $this->already_filled,
+            'is_admin' => $this->when($this->hasRole('admin'), true),
         ];
     }
 }

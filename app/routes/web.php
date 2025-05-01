@@ -47,29 +47,30 @@ Route::controller(FrontController::class)->group(function(){
     Route::get('merchandise', 'show_merchandise')->name('merchandise.front.show');
 });
 
+
 Route::controller(DashboardSemnasController::class)->group(function() {
     Route::get('dashboard/semnas', 'index')->name('dashboard.semnas.index');
     Route::delete('dashboard/semnas/{id}', 'destroy')->name('dashboard.semnas.destroy');
     Route::post('dashboard/semnas/{id}/payment', 'payment_store')->name('dashboard.semnas.payment');
-})->middleware('auth');
+})->middleware(['auth']);
 
 Route::controller(OverviewForKesekreController::class)->group(function() {
     Route::get('dashboard/overview/admin-kesekre', 'index')->name('dashboard.overview.admin-kesekre.index');
-})->middleware('auth');
+})->middleware(['auth', 'role:admin']);
 
 Route::controller(DashboardSemnasForKesekreController::class)->group(function() {
     Route::get('dashboard/semnas/admin-kesekre', 'index')->name('dashboard.semnas.admin-kesekre.index');
     Route::post('dashboard/semnas/admin-kesekre/{id}/payment', 'verif_payment')->name('dashboard.semnas.admin-kesekre.payment');
     Route::post('dashboard/semnas/admin-kesekre/{id}/reject', 'reject_payment')->name('dashboard.semnas.admin-kesekre.reject');
     Route::get('export/event-registrations', [ExportController::class, 'export'])->name('export.event-registrations');
-})->middleware('auth');
+})->middleware(['auth', 'role:admin']);
 
 Route::controller(DashboardCompetitionForKesekreController::class)->group(function() {
     Route::get('dashboard/competition/admin-kesekre', 'index')->name('dashboard.competition.admin-kesekre.index');
     Route::post('dashboard/competition/admin-kesekre/{id}/payment', 'verif_payment')->name('dashboard.competition.admin-kesekre.payment');
     Route::post('dashboard/competition/admin-kesekre/{id}/reject', 'reject_payment')->name('dashboard.competition.admin-kesekre.reject');
     Route::get('export/competition-registrations', [ExportController::class, 'export_competition'])->name('export.competition-registrations');
-})->middleware('auth');
+})->middleware(['auth', 'role:admin']);
 
 Route::controller(DashboardCompetitionForAdminLomba::class)->group(function() {
     Route::get('dashboard/competition/admin-lomba', 'show_participant')->name('dashboard.competition.admin-lomba.index');
@@ -78,7 +79,7 @@ Route::controller(DashboardCompetitionForAdminLomba::class)->group(function() {
     Route::post('dashboard/competition/admin-lomba/{id}/reject-submission', 'reject_submission')->name('dashboard.competition.admin-lomba.reject-submission');
     Route::get('export/competition-submissions', [ExportController::class, 'export_competition_submission'])->name('export.competition-submissions');
     Route::get('export/competition-participants', [ExportController::class, 'export_competition_participant'])->name('export.competition-participants');
-})->middleware('auth');
+})->middleware(['auth', 'role:admin']);
 
 Route::controller(DashboardCompetitionController::class)->group(function() {
     Route::get('dashboard/competition', 'index')->name('dashboard.competition.index');
