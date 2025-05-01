@@ -6,6 +6,7 @@ use App\Http\Requests\RejectReasonRequest;
 use App\Http\Resources\CompetitionRegistrationResource;
 use App\Http\Resources\SubmissionResource;
 use App\Models\CompetitionRegistrations;
+use App\Models\Competitions;
 use App\Models\Submissions;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -15,6 +16,7 @@ class DashboardCompetitionForAdminLomba extends Controller
 {
     public function show_participant(): Response
     {
+        $show_competition_is_open_regis = Competitions::where('is_open_regis', true)->get('name');
         $show_all_participant = CompetitionRegistrations::with('competitions', 'user')
             ->when(request()->search, function ($query, $value) {
                 $query->where(function ($q) use ($value) {
@@ -30,6 +32,11 @@ class DashboardCompetitionForAdminLomba extends Controller
                         ->orWhere('code_registration', 'REGEXP', $value);
                 });
             })
+            ->when(request()->competition_name, function ($query, $value) {
+                $query->whereHas('competitions', function ($q) use ($value) {
+                    $q->where('name', $value);
+                });
+            })
             ->when(request()->field && request()->direction, fn($query) => $query->orderBy(request()->field, request()->direction))
             ->paginate(request()->load ?? 10)
             ->withQueryString();
@@ -37,24 +44,29 @@ class DashboardCompetitionForAdminLomba extends Controller
         // tampilin data berdasarkan admin apa
         //code
 
+        // return dd($show_competition_is_open_regis);
+
         return inertia(component: 'Competition/Dashboard/DashboardAdminLombaData', props: [
             'competition_registrations' => CompetitionRegistrationResource::collection($show_all_participant)->additional([
                 'meta' => [
                     'has_page' => $show_all_participant->hasPages(),
                 ],
             ]),
-
+            'show_competition_is_open_regis' => $show_competition_is_open_regis,
             'state'                     => [
                 'page'   => request()->page ?? 1,
                 'search' => request()->search ?? '',
                 'load'   => 10,
+                'competition_name' => request()->competition_name ?? 'Pemrograman',
             ],
         ]);
     }
 
     public function show_submission(): Response
     {
-        // $show_all_submission = Submissions::get();
+        $show_competition_is_open_regis = Competitions::where('is_open_regis', true)
+            ->where('is_need_submission', true)
+            ->get('name');
         $show_all_submission = Submissions::with('competition_registrations.user', 'competition_registrations.competitions', 'competition_registrations')
             ->when(request()->search, function ($query, $value) {
                 $query->where(function ($q) use ($value) {
@@ -75,6 +87,16 @@ class DashboardCompetitionForAdminLomba extends Controller
                         ->orWhere('submission_status', 'REGEXP', $value);
                 });
             })
+            ->when(request()->competition_name, function ($query, $value) {
+                $query->whereHas('competition_registrations.competitions', function ($q) use ($value) {
+                    $q->where('name', $value);
+                });
+            })
+            ->when(request()->competition_name, function ($query, $value) {
+                $query->whereHas('competition_registrations.competitions', function ($q) use ($value) {
+                    $q->where('name', $value);
+                });
+            })
             ->when(request()->field && request()->direction, fn($query) => $query->orderBy(request()->field, request()->direction))
             ->paginate(request()->load ?? 10)
             ->withQueryString();
@@ -89,11 +111,12 @@ class DashboardCompetitionForAdminLomba extends Controller
                     'has_page' => $show_all_submission->hasPages(),
                 ],
             ]),
-
+            'show_competition_is_open_regis' => $show_competition_is_open_regis,
             'state'                      => [
                 'page'  => request()->page ?? 1,
                 'search' => request()->search ?? '',
                 'load'  => 10,
+                'competition_name' => request()->competition_name ?? '',
             ],
 
             'count_pending'   => $count_pending,

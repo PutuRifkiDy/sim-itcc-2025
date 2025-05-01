@@ -28,6 +28,9 @@ class DashboardCompetitionForKesekreController extends Controller
                         ->orWhere('code_registration', 'REGEXP', $value);
                 });
             })
+            ->when(request()->payment_status, function ($query, $value) {
+                $query->where('payment_status', $value);
+            })
             ->when(request()->field && request()->direction, fn($query) => $query->orderBy(request()->field, request()->direction))
             ->paginate(request()->load ?? 10)
             ->withQueryString();
@@ -44,16 +47,17 @@ class DashboardCompetitionForKesekreController extends Controller
                 ],
             ]),
 
-            'state'                      => [
-                'page'  => request()->page ?? 1,
+            'state'                           => [
+                'page'   => request()->page ?? 1,
                 'search' => request()->search ?? '',
-                'load'  => 10,
+                'load'   => 10,
+                'payment_status' => request()->payment_status ?? '',
             ],
 
-            'count_verified'             => $count_verified,
-            'count_pending'              => $count_pending,
-            'count_requested'            => $count_requested,
-            'count_rejected'             => $count_rejected,
+            'count_verified'                  => $count_verified,
+            'count_pending'                   => $count_pending,
+            'count_requested'                 => $count_requested,
+            'count_rejected'                  => $count_rejected,
         ]);
     }
 

@@ -9,11 +9,7 @@ export default function DashboardLayout({ children, title, header }) {
     const auth = usePage().props.auth.user;
     console.log('cek isi', auth);
     const route_sidebar = [
-        {
-            icon: <IconProfileSideBar />,
-            text: 'Profile',
-            link: route('profile.edit'),
-        },
+
         ...(auth.is_admin === true && auth.name == 'Admin Kesekre' ? [
             {
                 icon: <IconBerandaSideBar />,
@@ -42,6 +38,11 @@ export default function DashboardLayout({ children, title, header }) {
                 link: route('dashboard.competition.admin-lomba.submission'),
             }
         ] : [
+            {
+                icon: <IconProfileSideBar />,
+                text: 'Profile',
+                link: route('profile.edit'),
+            },
             {
                 icon: <IconBerandaSideBar />,
                 text: 'Dashboard',

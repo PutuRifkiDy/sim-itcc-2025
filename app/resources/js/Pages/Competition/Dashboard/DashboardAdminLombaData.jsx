@@ -15,7 +15,10 @@ import { PiArrowLeft, PiArrowRight, PiArrowsClockwise, PiArrowsDownUp } from "re
 
 function DashboardAdminLombaData({ ...props }) {
     const { data: competition_registrations, meta, links } = props.competition_registrations;
+    const show_competition_is_open_regis = usePage().props.show_competition_is_open_regis;
     const [params, setParams] = useState(props.state);
+
+    console.log("cek isi", show_competition_is_open_regis);
 
     const [modalIdentifyUserOpen, setModalIdentifyUserOpen] = useState(false);
     const [selectedUser, setSelectedUser] = useState(null);
@@ -74,6 +77,21 @@ function DashboardAdminLombaData({ ...props }) {
                                     {[10, 25, 50, 75, 100].map((number, index) => (
                                         <SelectItem key={index} value={number}>
                                             {number}
+                                        </SelectItem>
+                                    ))}
+                                </SelectContent>
+                            </Select>
+                            <Select
+                                value={params?.competition_name}
+                                onValueChange={(e) => setParams({ ...params, competition_name: e })}
+                            >
+                                <SelectTrigger className="w-full h-9 sm:w-40">
+                                    <SelectValue placeholder="Filter by Competition" />
+                                </SelectTrigger>
+                                <SelectContent>
+                                    {show_competition_is_open_regis.map((competition, index) => (
+                                        <SelectItem key={index} value={competition.name}>
+                                            {competition.name}
                                         </SelectItem>
                                     ))}
                                 </SelectContent>

@@ -29,6 +29,9 @@ class DashboardSemnasForKesekreController extends Controller
                         ->orWhere('total_payment', 'REGEXP', $value);
                 });
             })
+            ->when(request()->payment_status, function ($query, $value) {
+                $query->where('payment_status', $value);
+            })
             ->when(request()->field && request()->direction, fn($query) => $query->orderBy(request()->field, request()->direction))
             ->paginate(request()->load ?? 10)
             ->withQueryString();
@@ -49,6 +52,7 @@ class DashboardSemnasForKesekreController extends Controller
                 'page'  => request()->page ?? 1,
                 'searh' => request()->search ?? '',
                 'load' => 10,
+                'payment_status' => request()->payment_status ?? '',
             ],
 
             'count_verified'             => $count_verified,

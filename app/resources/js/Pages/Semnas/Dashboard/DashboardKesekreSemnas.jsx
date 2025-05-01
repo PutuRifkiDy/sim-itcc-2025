@@ -213,6 +213,21 @@ function DashboardKesekreSemnas({ ...props }) {
                                     ))}
                                 </SelectContent>
                             </Select>
+                            <Select
+                                value={params?.payment_status}
+                                onValueChange={(e) => setParams({ ...params, payment_status: e })}
+                            >
+                                <SelectTrigger className="w-full h-9 sm:w-40">
+                                    <SelectValue placeholder="Filter by Status" />
+                                </SelectTrigger>
+                                <SelectContent>
+                                    {['Verified', 'Pending', 'Requested', 'Rejected'].map((payment_status, index) => (
+                                        <SelectItem key={index} value={payment_status}>
+                                            {payment_status}
+                                        </SelectItem>
+                                    ))}
+                                </SelectContent>
+                            </Select>
                             <Button variant="outline" onClick={() => setParams(props.state)}>
                                 <PiArrowsClockwise className="mr-2 h-5 w-5" />
                                 Clear Filter

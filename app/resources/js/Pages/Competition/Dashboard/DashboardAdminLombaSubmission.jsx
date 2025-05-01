@@ -24,6 +24,8 @@ function DashboardAdminLombaSubmission({ ...props }) {
     const count_verified = usePage().props.count_verified;
     const count_rejected = usePage().props.count_rejected;
     const [params, setParams] = useState(props.state);
+    const show_competition_is_open_regis = usePage().props.show_competition_is_open_regis;
+
 
     // untuk modal identity
     const [modalIdentifyUserOpen, setModalIdentifyUserOpen] = useState(false);
@@ -192,6 +194,21 @@ function DashboardAdminLombaSubmission({ ...props }) {
                                     {[10, 25, 50, 75, 100].map((number, index) => (
                                         <SelectItem key={index} value={number}>
                                             {number}
+                                        </SelectItem>
+                                    ))}
+                                </SelectContent>
+                            </Select>
+                            <Select
+                                value={params?.competition_name}
+                                onValueChange={(e) => setParams({ ...params, competition_name: e })}
+                            >
+                                <SelectTrigger className="w-full h-9 sm:w-40">
+                                    <SelectValue placeholder="Filter by Competition" />
+                                </SelectTrigger>
+                                <SelectContent>
+                                    {show_competition_is_open_regis.map((competition, index) => (
+                                        <SelectItem key={index} value={competition.name}>
+                                            {competition.name}
                                         </SelectItem>
                                     ))}
                                 </SelectContent>
