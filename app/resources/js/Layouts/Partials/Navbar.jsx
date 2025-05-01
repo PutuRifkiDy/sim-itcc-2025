@@ -91,13 +91,32 @@ export default function NavBar({ auth, competitions }) {
                                 </p>
                             </DropdownMenuTrigger>
                             <DropdownMenuContent className="w-56 flex flex-col justify-start px-4 gap-4 py-3 outline-none mr-12" >
-                                <Link
-                                    href={route('profile.edit')}
-                                    className="flex flex-row items-center gap-2"
-                                >
-                                    <Squares2X2Icon className="h-6 w-6 text-gray-500" />
-                                    Dashboard
-                                </Link>
+                                {auth.is_admin === true && auth.name == 'Admin Kesekre' ? (
+                                    <Link
+                                        href={route('dashboard.overview.admin-kesekre.index')}
+                                        className="flex flex-row items-center gap-2"
+                                    >
+                                        <Squares2X2Icon className="h-6 w-6 text-gray-500" />
+                                        Dashboard
+                                    </Link>
+                                ) : auth.is_admin === true ? (
+                                    <Link
+                                        href={route('dashboard.competition.admin-lomba.index')}
+                                        className="flex flex-row items-center gap-2"
+                                    >
+                                        <Squares2X2Icon className="h-6 w-6 text-gray-500" />
+                                        Dashboard
+                                    </Link>
+                                ) : (
+
+                                    <Link
+                                        href={route('profile.edit')}
+                                        className="flex flex-row items-center gap-2"
+                                    >
+                                        <Squares2X2Icon className="h-6 w-6 text-gray-500" />
+                                        Dashboard
+                                    </Link>
+                                )}
                                 <Link
                                     href={route('logout')}
                                     className="text-red-500 flex flex-row items-center gap-2"
