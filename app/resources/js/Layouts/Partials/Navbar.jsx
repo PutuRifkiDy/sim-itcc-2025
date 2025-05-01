@@ -92,7 +92,7 @@ export default function NavBar({ auth, competitions }) {
                             </DropdownMenuTrigger>
                             <DropdownMenuContent className="w-56 flex flex-col justify-start px-4 gap-4 py-3 outline-none mr-12" >
                                 <Link
-                                    href={route('dashboard')}
+                                    href={route('profile.edit')}
                                     className="flex flex-row items-center gap-2"
                                 >
                                     <Squares2X2Icon className="h-6 w-6 text-gray-500" />
