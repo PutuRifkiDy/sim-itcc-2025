@@ -65,7 +65,7 @@ class DashboardSemnasForKesekreController extends Controller
         ]);
 
         flashMessage('Payment has been verified.', 'success');
-        return to_route('dashboard.overview.admin-kesekre.index');
+        return back();
     }
 
     public function reject_payment($id, RejectReasonRequest $request): RedirectResponse

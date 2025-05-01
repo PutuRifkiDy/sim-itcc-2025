@@ -32,11 +32,38 @@ function DashboardKesekreSemnas({ ...props }) {
         _method: 'POST',
     });
 
+    // untuk modal identity
     const [modalIdentifyUserOpen, setModalIdentifyUserOpen] = useState(false);
     const [modalFormOpen, setModalFormOpen] = useState(false);
+
     const hasShownToast = useRef(false);
+
+    // untuk modal identity
     const [selectedUser, setSelectedUser] = useState(null);
     const [selectId, setSelectId] = useState(null);
+
+    // untuk modal verify
+    const [modalVerifOpen, setModalVerifOpen] = useState(false);
+    const [selectIdVerif, setSelectIdVerif] = useState(null);
+
+    const modalVerifOpenHandler = (id) => {
+        setModalVerifOpen(true);
+        setSelectIdVerif(id);
+    };
+
+    const closeModalVerif = () => {
+        setSelectIdVerif(null);
+        setModalVerifOpen(false);
+        clearErrors();
+        reset();
+    }
+
+    const onHandleVerif = (semnasId) => {
+        post(route('dashboard.semnas.admin-kesekre.payment', { id: semnasId }), {
+            preserveScroll: true,
+            onSuccess: () => closeModalVerif(),
+        });
+    };
 
     const modalIdentifyUserHandler = (user) => {
         setModalIdentifyUserOpen(true);
@@ -441,29 +468,37 @@ function DashboardKesekreSemnas({ ...props }) {
                                                                 </Link>
                                                             ) : (
                                                                 <div>
-                                                                    <Dialog>
-                                                                        <DialogTrigger className='flex justify-center items-center border-2 rounded-md border-[#4DE45C] p-1.5 hover:bg-[#4DE45C]/20 transition-all duration-300 ease-in-out'
-                                                                        >
-                                                                            <DocumentCheckIcon className="text-[#4DE45C] w-5 h-5" />
-                                                                        </DialogTrigger>
-                                                                        <DialogContent className="max-w-l">
-                                                                            <DialogTitle>
-                                                                                Are you sure you want verif this registration?
-                                                                            </DialogTitle>
-                                                                            <DialogDescription>
-                                                                                You will not be able to revert this action.
-                                                                            </DialogDescription>
-                                                                            <DialogFooter className="mt-4">
-                                                                                <Button aschild variant="blue">
-                                                                                    <Link
-                                                                                        href={route('dashboard.semnas.admin-kesekre.payment', { id: semnas.id })}
-                                                                                        method="post">
-                                                                                        Confirm
-                                                                                    </Link>
-                                                                                </Button>
-                                                                            </DialogFooter>
-                                                                        </DialogContent>
-                                                                    </Dialog>
+                                                                    <Button
+                                                                        variant="none"
+                                                                        className="flex justify-center items-center border-2 rounded-md border-[#4DE45C] p-1.5 hover:bg-[#4DE45C]/20 transition-all duration-300 ease-in-out"
+                                                                        onClick={() => modalVerifOpenHandler(semnas.id)}
+                                                                    >
+                                                                        <DocumentCheckIcon className="text-[#4DE45C] w-5 h-5" />
+                                                                    </Button>
+
+                                                                    <Modal show={modalVerifOpen} onClose={closeModalVerif} maxWidth="md" className="p-4">
+                                                                        <h2 className="text-lg font-semibold text-gray-900">
+                                                                            Confirmation Of Payment Verification
+                                                                        </h2>
+
+                                                                        <p className="mt-1 text-sm text-gray-600">
+                                                                            You will not be able to revert this action.
+                                                                        </p>
+
+                                                                        <div className="mt-6 flex justify-end">
+                                                                            <Button onClick={closeModalVerif} variant="red" type="button">Cancel</Button>
+
+                                                                            <Button
+                                                                                className="ms-3"
+                                                                                variant="blue"
+                                                                                type="submit"
+                                                                                disabled={processing}
+                                                                                onClick={() => onHandleVerif(selectIdVerif)}
+                                                                            >
+                                                                                Confirm
+                                                                            </Button>
+                                                                        </div>
+                                                                    </Modal>
                                                                 </div>
                                                             )}
 
