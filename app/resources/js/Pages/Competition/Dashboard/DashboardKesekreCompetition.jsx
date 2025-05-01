@@ -56,7 +56,7 @@ function DashboardKesekreCompetition({ ...props }) {
         setModalVerifOpen(false);
         clearErrors();
         reset();
-    }
+    };
 
     const onHandleVerif = (competitionId) => {
         post(route('dashboard.competition.admin-kesekre.payment', { id: competitionId }), {
