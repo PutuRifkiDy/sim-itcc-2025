@@ -64,6 +64,7 @@ class DashboardCompetitionForAdminLomba extends Controller
 
     public function show_submission(): Response
     {
+        $user = auth()->user();
         $show_competition_is_open_regis = Competitions::where('is_open_regis', true)
             ->where('is_need_submission', true)
             ->get('name');
@@ -97,6 +98,8 @@ class DashboardCompetitionForAdminLomba extends Controller
                     $q->where('name', $value);
                 });
             })
+            // untuk admin khusus lomba nanti
+            // ->where($user->hasRole('admin'), 'admin')
             ->when(request()->field && request()->direction, fn($query) => $query->orderBy(request()->field, request()->direction))
             ->paginate(request()->load ?? 10)
             ->withQueryString();
