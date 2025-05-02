@@ -28,7 +28,7 @@ class CompetitionPricesSeeder extends Seeder
                 'periode_name' => 'Ide Bisnis TIK Batch II',
                 'price' => 150000,
                 'start_date' => '2025-03-30 16:00:00.000',
-                'end_date' => '2025-04-30 15:59:59.000',
+                'end_date' => '2025-05-30 15:59:59.000',
             ],
             [
                 'competition_id' => '2',
@@ -60,7 +60,7 @@ class CompetitionPricesSeeder extends Seeder
                 'periode_name' => 'Web Design SMA/SMK Batch II',
                 'price' => 80000,
                 'start_date' => '2025-03-30 16:00:00.000',
-                'end_date' => '2025-04-30 15:59:59.000',
+                'end_date' => '2025-05-30 15:59:59.000',
             ],
             [
                 'competition_id' => '4',
@@ -92,7 +92,7 @@ class CompetitionPricesSeeder extends Seeder
                 'periode_name' => 'Pemrograman SMA/SMK Batch II',
                 'price' => 75000,
                 'start_date' => '2025-03-30 16:00:00.000',
-                'end_date' => '2025-04-30 15:59:59.000',
+                'end_date' => '2025-05-30 15:59:59.000',
             ],
             [
                 'competition_id' => '6',
@@ -132,7 +132,7 @@ class CompetitionPricesSeeder extends Seeder
                 'periode_name' => 'UI/UX Mahasiswa Batch II',
                 'price' => 115000,
                 'start_date' => '2025-03-30 16:00:00.000',
-                'end_date' => '2025-04-30 15:59:59.000',
+                'end_date' => '2025-05-30 15:59:59.000',
             ],
             [
                 'competition_id' => '9',

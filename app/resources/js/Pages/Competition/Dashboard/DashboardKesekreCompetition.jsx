@@ -489,31 +489,7 @@ function DashboardKesekreCompetition({ ...props }) {
                                                                     <DocumentCheckIcon className="text-[#4DE45C] w-5 h-5" />
                                                                 </Link>
                                                             ) : (
-                                                                // <div>
-                                                                //     <Dialog>
-                                                                //         <DialogTrigger className='flex justify-center items-center border-2 rounded-md border-[#4DE45C] p-1.5 hover:bg-[#4DE45C]/20 transition-all duration-300 ease-in-out'
-                                                                //         >
-                                                                //             <DocumentCheckIcon className="text-[#4DE45C] w-5 h-5" />
-                                                                //         </DialogTrigger>
-                                                                //         <DialogContent className="max-w-l">
-                                                                //             <DialogTitle>
-                                                                //                 Are you sure you want verif this registration?
-                                                                //             </DialogTitle>
-                                                                //             <DialogDescription>
-                                                                //                 You will not be able to revert this action.
-                                                                //             </DialogDescription>
-                                                                //             <DialogFooter className="mt-4">
-                                                                //                 <Button aschild variant="blue">
-                                                                //                     <Link
-                                                                //                         href={route('dashboard.competition.admin-kesekre.payment', { id: competition.id })}
-                                                                //                         method="post">
-                                                                //                         Confirm
-                                                                //                     </Link>
-                                                                //                 </Button>
-                                                                //             </DialogFooter>
-                                                                //         </DialogContent>
-                                                                //     </Dialog>
-                                                                // </div>
+    
                                                                 <div>
                                                                     <Button
                                                                         variant="none"
