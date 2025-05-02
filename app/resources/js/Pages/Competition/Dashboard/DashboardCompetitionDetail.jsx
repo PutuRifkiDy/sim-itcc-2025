@@ -14,6 +14,7 @@ function DashboardCompetitionDetail() {
     const payment_methods = usePage().props.payment_methods;
     const competitions = usePage().props.competitions;
     const show_reject_reason_submission = usePage().props.show_reject_reason_submission;
+    const show_members = usePage().props.show_members;
 
     const status_submission = usePage().props.status_submission;
     const [tabs, setTabs] = useState("about");
@@ -23,7 +24,7 @@ function DashboardCompetitionDetail() {
     //     if (flash_message?.message) {
     //         toast[flash_message.type || 'success'](flash_message.message);
     //     }
-    // }, [flash_message]);
+    // }, [flash_message]); 
     return (
         <>
             <div className="py-5">
@@ -50,7 +51,7 @@ function DashboardCompetitionDetail() {
                     </div>
 
                     {tabs == "about" && user_competition_registrations && (
-                        <About className="w-full mt-5" user_competition_registrations={user_competition_registrations} />
+                        <About className="w-full mt-5" user_competition_registrations={user_competition_registrations} show_members={show_members}/>
                     )}
                     {tabs == "payment" && user_competition_registrations && (
                         <Payment className="w-full mt-5" user_competition_registrations={user_competition_registrations} payment_methods={payment_methods} />
