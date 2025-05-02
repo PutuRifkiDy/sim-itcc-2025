@@ -2,15 +2,43 @@ import { LineIcon, WhatsappIcon } from "@/Components/IconAdmin";
 import Modal from "@/Components/Modal";
 import { Button } from "@/Components/ui/button";
 import DashboardLayout from "@/Layouts/DashboardLayout";
-import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/solid";
-import { Link } from "@inertiajs/react";
-import { useState } from "react";
+import { ArrowTopRightOnSquareIcon, DocumentDuplicateIcon, UserGroupIcon } from "@heroicons/react/24/solid";
+import { Link, usePage } from "@inertiajs/react";
+import { useEffect, useRef, useState } from "react";
+import { toast } from "sonner";
 
-function About({ user_competition_registrations, className }) {
+function About({ user_competition_registrations, show_members, className }) {
+    const [isCopied, setIsCopied] = useState(false);
     const [confirmingUserDeletion, setConfirmingUserDeletion] = useState(false);
+    const { flash_message } = usePage().props;
+
     const confirmUserDeletion = () => {
         setConfirmingUserDeletion(true);
     };
+
+    console.log('cek isi: ', show_members);
+
+    function handleCopy(text) {
+        navigator.clipboard.writeText(text)
+            .then(() => {
+                toast.success("Team token copied to clipboard!");
+                setIsCopied(true);
+
+                setTimeout(() => {
+                    setIsCopied(false);
+                }, 2000);
+            })
+            .catch(() => {
+                toast.error("Failed to copy team token");
+                setIsCopied(false);
+            });
+    }
+
+    useEffect(() => {
+        if (flash_message?.message) {
+            toast[flash_message.type || 'success'](flash_message.message);
+        }
+    }, [flash_message]);
 
     const closeModal = () => {
         setConfirmingUserDeletion(false);
@@ -48,19 +76,51 @@ function About({ user_competition_registrations, className }) {
                     )}
                 </div>
                 <div className="grid md:grid-cols-3 grid-cols-1 mt-8 md:gap-0 gap-4">
-                    <div className="flex flex-col gap-2">
-                        <p className="font-bold text-[14px] tracking-[0.03em] text-[#5E5E5E]">Registration Code</p>
-                        <p className="font-reguler text-[18px] tracking-[0.03em]">{user_competition_registrations.code_registration ?? ' '}</p>
-                    </div>
-                    <div className="flex flex-col gap-2">
-                        <p className="font-bold text-[14px] tracking-[0.03em] text-[#5E5E5E]">Name</p>
-                        <p className="font-reguler text-[18px] tracking-[0.03em]">{user_competition_registrations.user?.name ?? ' '}</p>
-                    </div>
-                    <div className="flex flex-col gap-2">
-                        <p className="font-bold text-[14px] tracking-[0.03em] text-[#5E5E5E]">Institution</p>
-                        <p className="font-reguler text-[18px] tracking-[0.03em]">{user_competition_registrations.user?.institution ?? ' '}</p>
-                    </div>
+                    {user_competition_registrations.competitions.is_team == false ? (
+                        <div className="flex flex-col gap-2">
+                            <p className="font-bold text-[14px] tracking-[0.03em] text-[#5E5E5E]">Code Registrations</p>
+                            <p className="font-reguler text-[18px] tracking-[0.03em]">{user_competition_registrations.code_registration ?? ' '}</p>
+                        </div>
+                    ) : (
+                        <div className="flex flex-col gap-2">
+                            <p className="font-bold text-[14px] tracking-[0.03em] text-[#5E5E5E]">Team Token</p>
+                            <div className="font-reguler text-[18px] tracking-[0.03em] flex flex-row gap-2 items-center">
+                                {user_competition_registrations.teams.token ?? ' '}
+                                {isCopied == true ? (
+                                    <div>
+                                        <p className="text-sm text-muted-foreground">Copied.</p>
+                                    </div>
+                                ) : (
+                                    <DocumentDuplicateIcon className="w-5 h-5 cursor-pointer text-gray-500" onClick={() => handleCopy(user_competition_registrations.teams.token ?? ' ')} />
+                                )}
+                            </div>
+                        </div>
+                    )}
+                    {user_competition_registrations.competitions.is_team == true ? (
+                        <div className="flex flex-col gap-2">
+                            <p className="font-bold text-[14px] tracking-[0.03em] text-[#5E5E5E]">Team Name</p>
+                            <p className="font-reguler text-[18px] tracking-[0.03em]">{user_competition_registrations.teams?.team_name ?? ' '}</p>
+                        </div>
+                    ) : (
 
+                        <div className="flex flex-col gap-2">
+                            <p className="font-bold text-[14px] tracking-[0.03em] text-[#5E5E5E]">Name</p>
+                            <p className="font-reguler text-[18px] tracking-[0.03em]">{user_competition_registrations.user?.name ?? ' '}</p>
+                        </div>
+                    )}
+
+                    {user_competition_registrations.competitions.is_team == false ? (
+                        <div className="flex flex-col gap-2">
+                            <p className="font-bold text-[14px] tracking-[0.03em] text-[#5E5E5E]">Institution</p>
+                            <p className="font-reguler text-[18px] tracking-[0.03em]">{user_competition_registrations.user?.institution ?? ' '}</p>
+                        </div>
+                    ) : (
+
+                        <div className="flex flex-col gap-2">
+                            <p className="font-bold text-[14px] tracking-[0.03em] text-[#5E5E5E]">Competition Category</p>
+                            <p className="font-reguler text-[18px] tracking-[0.03em]">{user_competition_registrations.competitions.competition_category.category_name ?? ' '}</p>
+                        </div>
+                    )}
                 </div>
                 {user_competition_registrations.competitions.competition_content.map((competition_content, index) => (
                     <div key={index} className="grid md:grid-cols-3 grid-cols-1 w-full mt-8 md:gap-0 gap-4">
@@ -98,15 +158,51 @@ function About({ user_competition_registrations, className }) {
 
                     </div>
                 ))}
+                {user_competition_registrations.competitions.is_team == true && (
+                    <div className="flex flex-col gap-2 mt-10">
+                        <div className="flex flex-row gap-2">
+                            <div className="font-bold flex flex-row items-center gap-2 text-[18px] tracking-[0.03em] text-[#3A3A3A]">
+                                <UserGroupIcon className="w-6 h-6 text-[#3A3A3A]" />
+                                Our Team
+                                <div className="flex flex-row items-center">
+                                    <p>{show_members.length}{" "}/{" "}3</p>
+                                </div>
+                            </div>
+                        </div>
 
-                <div className="flex justify-start w-full">
+                        <div className="grid md:grid-cols-3 grid-cols-1 items-center gap-12">
+                            {show_members.map((member, index) => (
+
+                                <div className="flex flex-col gap-5 border-2 border-gray-200 rounded-xl p-5" key={index}>
+                                    <div className="flex justify-center items-center">
+                                        <img src={`${window.location.origin}/assets/images/image_for_our_team.png`} className="w-[161px] h-[173px]" alt="" />
+                                    </div>
+                                    <div className="flex flex-col gap-3 items-start">
+                                        <p className="font-bold text-[18px] text-[#000000] line-clamp-1">
+                                            {member.competition_registrations.user.name}
+                                        </p>
+                                        <div className="bg-[#00658F] rounded-md p-1 px-6 max-w-fit text-white text-[14px] font-medium">
+                                            {member.teams.leader_id === member.competition_registrations.user.id ? "Leader" : "Member"}
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+
+                    </div>
+                )}
+
+                <div className="flex flex-col justify-start w-full">
                     <Button
                         variant='red'
-                        className="mt-8"
+                        className="mt-8 max-w-fit"
                         onClick={confirmUserDeletion}
                     >
                         Cancel Registration
                     </Button>
+                    <p className="mt-3 text-sm text-gray-600">
+                        Once you cancel your registration, you will not be able to revert this action.
+                    </p>
 
                     <Modal show={confirmingUserDeletion} onClose={closeModal} className="px-5 py-5" maxWidth="md">
                         <h2 className="text-lg font-medium text-gray-900">Are you sure you want cancel your registration?</h2>

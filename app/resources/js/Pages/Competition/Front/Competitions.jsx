@@ -45,18 +45,12 @@ function Competitions({ ...props }) {
                 <p>{competitions.competition_content[0]?.guidebook_link}</p>
                 {competitions.is_team == false ? (
                     <Button type="submit" onClick={onHandleSubmit}>
-                        {/* <Link
-                            href={route('register.competition.store', competitions.slug)}
-                            method="post"
-                        >
-                            Register
-                        </Link> */}
                         Register
                     </Button>
                 ) : (
                     <Button asChild>
                         <Link
-                            href={route('register.competition.show')}
+                            href={route('register.competition.show', competitions.slug)}
                         >
                             Register
                         </Link>

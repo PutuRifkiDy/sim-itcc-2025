@@ -70,7 +70,7 @@ class User extends Authenticatable
 
     public function teams(): HasMany
     {
-        return $this->hasMany(Teams::class);
+        return $this->hasMany(Teams::class, 'leader_id', 'id');
     }
 
     public function event_registrations(): HasMany

@@ -29,6 +29,7 @@ class CompetitionRegistrationResource extends JsonResource
             'reject_reason' => $this->reject_reason,
             'competitions' => new CompetitionResource($this->competitions),
             'user' => new UserSingleResource($this->user),
+            'teams' => new TeamResource($this->teams),
         ];
     }
 }
