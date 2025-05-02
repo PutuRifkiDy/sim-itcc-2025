@@ -1,4 +1,4 @@
-import { Link } from "@inertiajs/react";
+import { Link, usePage } from "@inertiajs/react";
 import DarkMode from "@/Components/DarkMode";
 import { ChevronDownIcon, UserCircleIcon, Bars3Icon, XMarkIcon, ArrowRightStartOnRectangleIcon, Squares2X2Icon, Bars3BottomLeftIcon, SunIcon } from "@heroicons/react/24/solid";
 import { useState, useEffect } from "react";
@@ -11,11 +11,18 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import { toast } from "sonner";
 
 export default function NavBar({ auth, competitions }) {
     const [openNav, setOpenNav] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+    const { flash_message } = usePage().props;
 
+    useEffect(() => {
+        if (flash_message?.message) {
+            toast[flash_message.type || 'success'](flash_message.message);
+        }
+    }, [flash_message]);
     useEffect(() => {
         window.addEventListener("scroll", () => {
             scroll = window.scrollY;
