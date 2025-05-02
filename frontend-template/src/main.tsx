@@ -1,11 +1,12 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { Landing } from './pages/landing';
-import { Competition } from './pages/competition';
-import { Merch } from './pages/merch';
-import { Semnas } from './pages/semnas';
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { Landing } from "./pages/landing";
+import { Competition } from "./pages/competition";
+import { Merch } from "./pages/merch";
+import { Semnas } from "./pages/semnas";
+import "keen-slider/keen-slider.min.css";
 
 const router = createBrowserRouter([
   {
@@ -26,8 +27,8 @@ const router = createBrowserRouter([
   },
 ]);
 
-createRoot(document.getElementById('root')!).render(
+createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <RouterProvider router={router} />
-  </StrictMode>,
-)
+  </StrictMode>
+);
