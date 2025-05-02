@@ -3,10 +3,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CompetitionRegistrationRequest;
 use App\Http\Requests\SemnasRegistrationRequest;
+use App\Http\Requests\TeamJoinRegisterRequest;
+use App\Http\Requests\TeamRegisterRequest;
 use App\Http\Resources\CompetitionResource;
 use App\Http\Resources\EventResource;
 use App\Http\Resources\MerchandiseResource;
-use App\Models\CompetitionCategory;
 use App\Models\CompetitionPrices;
 use App\Models\CompetitionRegistrations;
 use App\Models\Competitions;
@@ -14,9 +15,12 @@ use App\Models\EventPrices;
 use App\Models\EventRegistrations;
 use App\Models\Events;
 use App\Models\Merchandise;
+use App\Models\TeamMembers;
+use App\Models\Teams;
 use Illuminate\Http\RedirectResponse;
 use Inertia\Inertia;
 use Inertia\Response;
+use Str;
 
 class FrontController extends Controller
 {
@@ -46,8 +50,8 @@ class FrontController extends Controller
         }
 
         return inertia('Competition/Front/Competitions', [
-            'competition' => fn() => new CompetitionResource($competition),
-            'current_batch' => $current_batch
+            'competition'   => fn()   => new CompetitionResource($competition),
+            'current_batch' => $current_batch,
         ]);
     }
 
@@ -139,7 +143,159 @@ class FrontController extends Controller
 
     }
 
-    // store register competition
+    // tampilin form register kalo lombanya berteam
+    public function show_register_competition(Competitions $competition): Response
+    {
+        $slug = Competitions::where('slug', $competition->slug)->value('slug');
+
+        return inertia(component: 'Competition/Front/Register', props: [
+            'slug' => $slug,
+        ]);
+    }
+
+    // tampilin form input register create team
+    public function show_register_competition_team(Competitions $competition): Response
+    {
+        return inertia(component: 'Competition/Front/RegisterTeam', props: [
+            'slug' => $competition,
+        ]);
+    }
+
+    // tampilin form input untuk join team
+    public function show_register_competition_join_team(Competitions $competition): Response
+    {
+        return inertia(component: 'Competition/Front/RegisterJoinTeam', props: [
+            'slug' => $competition,
+        ]);
+    }
+
+    // store register create team
+    public function store_register_competition_team(TeamRegisterRequest $request, Competitions $competition): RedirectResponse
+    {
+        $user = $request->user();
+
+        $already_registered = CompetitionRegistrations::where('user_id', $request->user()->id)
+            ->where('competition_id', $competition->id)
+            ->exists();
+        $total_payment = CompetitionPrices::where('competition_id', $competition->id)
+            ->where('start_date', '<=', now())
+            ->where('end_date', '>=', now())
+            ->value('price');
+        $in_periode_registration = CompetitionPrices::where('competition_id', $competition->id)
+            ->where('start_date', '<=', now())
+            ->where('end_date', '>=', now())
+            ->exists();
+
+        $get_competition = Competitions::where('id', $competition->id)->with('competition_category')->first();
+
+        do {
+            $token = Str::random(6);
+        } while (Teams::where('token', $token)->exists());
+
+        if ($already_registered) {
+            flashMessage('You have already registered for this competition.', 'error');
+            return back();
+        } else if ($in_periode_registration == false) {
+            flashMessage('The registration period for this competition has ended.', 'error');
+            return back();
+        } else if ($request->user()->already_filled == false) {
+            flashMessage('Please fill your profile first.', 'error');
+            return back();
+        } else if ($request->user()->status->value != $get_competition->competition_category->category_name) {
+            flashMessage('You are not allowed to register for this competition.', 'error');
+            return back();
+        } else if ($request->user()->already_filled == true && $request->user()->status->value == $get_competition->competition_category->category_name) {
+            $team = $user->teams()->create([
+                'leader_id'      => $user->id,
+                'competition_id' => $competition->id,
+                'team_name'      => $request->team_name,
+                'token'          => $token,
+            ]);
+
+            // Create competition registration
+            $competition_registration = $user->competition_registrations()->create([
+                'team_id'           => $team->id,
+                'competition_id'    => $competition->id,
+                'user_id'           => $user->id,
+                'code_registration' => $competition->kode . '-' . '00' . $request->user()->id,
+                'total_payment'     => $total_payment ?? 0,
+            ]);
+
+            // Create team member
+            $team->team_members()->create([
+                'team_id'                     => $team->id,
+                'competition_registration_id' => $competition_registration->id,
+            ]);
+        }
+
+        flashMessage('Your registration has been successful.');
+
+        return to_route('dashboard.competition.index');
+    }
+
+    // store register join team
+    public function store_register_competition_join_team(TeamJoinRegisterRequest $request, Competitions $competition): RedirectResponse
+    {
+        $user = $request->user();
+
+        $already_registered = CompetitionRegistrations::where('user_id', $request->user()->id)
+            ->where('competition_id', $competition->id)
+            ->exists();
+        $total_payment = CompetitionPrices::where('competition_id', $competition->id)
+            ->where('start_date', '<=', now())
+            ->where('end_date', '>=', now())
+            ->value('price');
+        $in_periode_registration = CompetitionPrices::where('competition_id', $competition->id)
+            ->where('start_date', '<=', now())
+            ->where('end_date', '>=', now())
+            ->exists();
+        $get_competition = Competitions::where('id', $competition->id)
+            ->with('competition_category')
+            ->first();
+        $get_token_exist = Teams::where('token', $request->token)->exists();
+
+        if ($get_token_exist) {
+            $get_data_team = Teams::where('token', $request->token)->first();
+            $get_leader_registration = CompetitionRegistrations::where('team_id', $get_data_team->id)
+                ->where('user_id', $get_data_team->leader_id)
+                ->first();  
+        }
+
+        if ($already_registered) {
+            flashMessage('You have already registered for this competition.', 'error');
+            return back();
+        } else if ($in_periode_registration == false) {
+            flashMessage('The registration period for this competition has ended.', 'error');
+            return back();
+        } else if ($request->user()->already_filled == false) {
+            flashMessage('Please fill your profile first.', 'error');
+            return back();
+        } else if ($request->user()->status->value != $get_competition->competition_category->category_name) {
+            flashMessage('You are not allowed to register for this competition.', 'error');
+            return back();
+        } else if ($request->user()->already_filled == true && $request->user()->status->value == $get_competition->competition_category->category_name && $get_token_exist == true) {
+            $competition_registration = $user->competition_registrations()->create([
+                'user_id'           => $user->id,
+                'competition_id'    => $competition->id,
+                'team_id'           => $get_data_team->id,
+                'code_registration' => $competition->kode . '-' . '00' . $request->user()->id,
+                'total_payment' => $total_payment ?? 0,
+                'payment_status' => $get_leader_registration->payment_status,
+                'payment_proof' => $get_leader_registration->payment_proof_path,
+            ]);
+
+            $team_member = TeamMembers::create([
+                'team_id' => $get_data_team->id,
+                'competition_registration_id' => $competition_registration->id,
+            ]);
+        }
+
+        flashMessage('Your registration has been successful.');
+
+        return to_route('dashboard.competition.index');
+    }
+
+    // store register competition kalo ga team
     public function store_register_competition(CompetitionRegistrationRequest $request, Competitions $competition): RedirectResponse
     {
         $already_registered = CompetitionRegistrations::where('user_id', $request->user()->id)
@@ -155,7 +311,6 @@ class FrontController extends Controller
             ->exists();
 
         $get_competition = Competitions::where('id', $competition->id)->with('competition_category')->first();
-
 
         if ($already_registered) {
             flashMessage('You have already registered for this competition.', 'error');
@@ -174,7 +329,7 @@ class FrontController extends Controller
                 'competition_id'    => $competition->id,
                 'user_id'           => auth()->user()->user_id,
                 'code_registration' => $competition->kode . '-' . '00' . $request->user()->id,
-                'total_payment'     => $total_payment ?? 0
+                'total_payment'     => $total_payment ?? 0,
             ]);
         }
 

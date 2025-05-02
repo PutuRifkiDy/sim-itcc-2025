@@ -32,11 +32,18 @@ Route::get('/dashboard', function () {
 Route::controller(FrontController::class)->group(function(){
     // competition
     Route::get('competitions/{competition:slug}', 'show_competitions')->name('competition.front.show');
-    // competition is_team tampilin form register dulu kalo user klik register maka data store ke register competition, kalo user klik join team maka diminta input token teamnya
-    Route::get('register/competition', 'show_register_competition')->name('register.competition.show');
-
     // competition bukan team, langsung aja store data ke competition registration
     Route::post('register/competition/{competition:slug}', 'store_register_competition')->name('register.competition.store')->middleware('auth');
+
+    // competition is_team tampilin form register dulu kalo user klik register maka data store ke register competition, kalo user klik join team maka diminta input token teamnya
+    Route::get('register/competition/{competition:slug}', 'show_register_competition')->name('register.competition.show');
+    // create team
+    Route::get('register/competition/{competition:slug}/team', 'show_register_competition_team')->name('register.competition.team.show');
+    Route::post('register/competition/{competition:slug}/team/store', 'store_register_competition_team')->name('register.competition.team.store')->middleware('auth');
+    //  join team
+    Route::get('register/competition/{competition:slug}/join-team', 'show_register_competition_join_team')->name('register.competition.join-team.show');
+    Route::post('register/competition/{competition:slug}/join-team/store', 'store_register_competition_join_team')->name('register.competition.join-team.store')->middleware('auth');
+
 
     // semnas
     Route::get('events/{event:slug}', 'show_events')->name('event.front.show');
