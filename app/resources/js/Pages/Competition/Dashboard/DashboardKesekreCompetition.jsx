@@ -40,6 +40,8 @@ function DashboardKesekreCompetition({ ...props }) {
 
     const hasShownToast = useRef(false);
 
+    console.log('ce isi var', admin_competition_registrations);
+
 
     const { data, setData, post, put, patch, errors, processing, recentlySuccessful, formData, clearErrors, reset } = useForm({
         reject_reason: admin_competition_registrations.reject_reason ?? '',
@@ -372,7 +374,8 @@ function DashboardKesekreCompetition({ ...props }) {
                                                             {index + 1}
                                                         </td>
                                                         <td className="whitespace-nowrap px-6 py-8 text-sm font-normal text-foreground">
-                                                            {competition.user.name}
+                                                            {/* {competition.user.name} */}
+                                                            {competition.competitions.is_team ? competition.teams.team_name : competition.user.name}
                                                         </td>
                                                         <td className="whitespace-nowrap px-6 py-8 text-sm font-normal text-foreground">
                                                             {competition.competitions.name}
@@ -489,7 +492,7 @@ function DashboardKesekreCompetition({ ...props }) {
                                                                     <DocumentCheckIcon className="text-[#4DE45C] w-5 h-5" />
                                                                 </Link>
                                                             ) : (
-    
+
                                                                 <div>
                                                                     <Button
                                                                         variant="none"
