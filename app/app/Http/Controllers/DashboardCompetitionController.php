@@ -45,16 +45,13 @@ class DashboardCompetitionController extends Controller
         }
         $id_user = auth()->user()->id;
 
-        $show_registration_competition = CompetitionRegistrations::with('user')
+        $show_registration_competition = CompetitionRegistrations::with('user', 'teams.team_members')
             ->where('user_id', $id_user)
             ->where('id', $id)
             ->first();
 
         $show_reject_reason_submission = Submissions::where('competition_registration_id', $show_registration_competition->id)
             ->value('reject_reason');
-
-        $show_members = TeamMembers::where('team_id', $show_registration_competition->team_id)
-            ->get();
 
         if ($show_registration_competition) {
             $show_status_submission = Submissions::where('competition_registration_id', $show_registration_competition->id)
@@ -68,7 +65,6 @@ class DashboardCompetitionController extends Controller
             'payment_methods'                => new PaymentMethodsResource($payment_methods),
             'status_submission'              => $show_status_submission ?? null,
             'show_reject_reason_submission'  => $show_reject_reason_submission ?? null,
-            'show_members'                   => TeamMembersResource::collection($show_members),
         ]);
     }
 

@@ -19,7 +19,7 @@ class TeamMembers extends Model
 
     public function teams(): BelongsTo
     {
-        return $this->belongsTo(Teams::class, 'team_id');
+        return $this->belongsTo(Teams::class, 'team_id', 'id');
     }
 
     public function competition_registrations(): BelongsTo

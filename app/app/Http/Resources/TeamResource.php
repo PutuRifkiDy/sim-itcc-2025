@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Request;
+use App\Http\Resources\TeamMembersResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class TeamResource extends JsonResource
@@ -19,6 +20,7 @@ class TeamResource extends JsonResource
             'leader_id' => $this->leader_id,
             'team_name' => $this->team_name,
             'token' => $this->token,
+            'team_members' => TeamMembersResource::collection($this->whenLoaded('team_members')),
         ];
     }
 }
