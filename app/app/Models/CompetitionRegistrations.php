@@ -53,7 +53,7 @@ class CompetitionRegistrations extends Model
 
     public function team_members(): HasMany
     {
-        return $this->hasMany(TeamMembers::class);
+        return $this->hasMany(TeamMembers::class, 'competition_registration_id', 'id');
     }
 
     public function submissions(): HasMany

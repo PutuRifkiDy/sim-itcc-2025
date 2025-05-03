@@ -14,7 +14,6 @@ function DashboardCompetitionDetail() {
     const payment_methods = usePage().props.payment_methods;
     const competitions = usePage().props.competitions;
     const show_reject_reason_submission = usePage().props.show_reject_reason_submission;
-    const show_members = usePage().props.show_members;
 
     const status_submission = usePage().props.status_submission;
     const [tabs, setTabs] = useState("about");
@@ -24,7 +23,7 @@ function DashboardCompetitionDetail() {
     //     if (flash_message?.message) {
     //         toast[flash_message.type || 'success'](flash_message.message);
     //     }
-    // }, [flash_message]); 
+    // }, [flash_message]);
     return (
         <>
             <div className="py-5">
@@ -32,9 +31,7 @@ function DashboardCompetitionDetail() {
                     href={route('dashboard.competition.index')}
                     className="flex flex-row gap-2 items-center text-[#5E5E5E] hover:text-[#000000] hover:transition-all duration-500 ease-in-out mb-5 font-bold w-fit"
                 >
-                    {/* <div className="flex flex-row justify-center items-center bg-gray-200 rounded-full p-2"> */}
                         <ChevronLeftIcon className="w-5 h-5" />
-                    {/* </div> */}
                     Back
                 </Link>
                 <div className="bg-white p-4 shadow rounded-lg sm:p-8">
@@ -51,7 +48,7 @@ function DashboardCompetitionDetail() {
                     </div>
 
                     {tabs == "about" && user_competition_registrations && (
-                        <About className="w-full mt-5" user_competition_registrations={user_competition_registrations} show_members={show_members}/>
+                        <About className="w-full mt-5" user_competition_registrations={user_competition_registrations} />
                     )}
                     {tabs == "payment" && user_competition_registrations && (
                         <Payment className="w-full mt-5" user_competition_registrations={user_competition_registrations} payment_methods={payment_methods} />

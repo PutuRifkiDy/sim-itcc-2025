@@ -256,9 +256,21 @@ class FrontController extends Controller
 
         if ($get_token_exist) {
             $get_data_team = Teams::where('token', $request->token)->first();
+
             $get_leader_registration = CompetitionRegistrations::where('team_id', $get_data_team->id)
                 ->where('user_id', $get_data_team->leader_id)
-                ->first();  
+                ->first();
+        } else {
+            flashMessage('Team with this token does not exist.', 'error');
+            return back();
+        }
+
+        // buat kondisi maximal 3 orang di 1 team
+        $get_team_member = TeamMembers::where('team_id', $get_data_team->id)
+            ->count();
+        if ($get_team_member >= 3) {
+            flashMessage('The maximum number of team members has been reached.', 'error');
+            return back();
         }
 
         if ($already_registered) {

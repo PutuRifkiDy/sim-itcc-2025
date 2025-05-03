@@ -13,7 +13,7 @@ class DashboardCompetitionForKesekreController extends Controller
 {
     public function index(): Response
     {
-        $competition_registrations = CompetitionRegistrations::with('competitions', 'user')
+        $competition_registrations = CompetitionRegistrations::with('competitions', 'user', 'teams.team_members')
             ->when(request()->search, function ($query, $value) {
                 $query->where(function ($q) use ($value) {
                     $q->whereHas('user', function ($q2) use ($value) {
@@ -83,7 +83,7 @@ class DashboardCompetitionForKesekreController extends Controller
             ->whereNull('team_id')
             ->count();
         $count_rejected  = $count_individual_rejected + $count_team_rejected;
-        
+
         return inertia(component: 'Competition/Dashboard/DashboardKesekreCompetition', props: [
             'admin_competition_registrations' => CompetitionRegistrationResource::collection($competition_registrations)->additional([
                 'meta' => [

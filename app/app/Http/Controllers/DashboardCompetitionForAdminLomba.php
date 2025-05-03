@@ -17,7 +17,7 @@ class DashboardCompetitionForAdminLomba extends Controller
     public function show_participant(): Response
     {
         $show_competition_is_open_regis = Competitions::where('is_open_regis', true)->get('name');
-        $show_all_participant = CompetitionRegistrations::with('competitions', 'user')
+        $show_all_participant = CompetitionRegistrations::with('competitions', 'user', 'teams.team_members')
             ->when(request()->search, function ($query, $value) {
                 $query->where(function ($q) use ($value) {
                     $q->whereHas('user', function ($q2) use ($value) {
@@ -35,6 +35,15 @@ class DashboardCompetitionForAdminLomba extends Controller
             ->when(request()->competition_name, function ($query, $value) {
                 $query->whereHas('competitions', function ($q) use ($value) {
                     $q->where('name', $value);
+                });
+            })
+            ->when(true, function($query) {
+                $query->where(function ($subQuery) {
+                    $subQuery
+                        ->whereNull('team_id')
+                        ->orWhereHas('teams', function($q) {
+                            $q->whereColumn('leader_id', 'competition_registrations.user_id');
+                        });
                 });
             })
             ->when(request()->field && request()->direction, fn($query) => $query->orderBy(request()->field, request()->direction))
@@ -57,7 +66,7 @@ class DashboardCompetitionForAdminLomba extends Controller
                 'page'   => request()->page ?? 1,
                 'search' => request()->search ?? '',
                 'load'   => 10,
-                'competition_name' => request()->competition_name ?? 'Pemrograman',
+                'competition_name' => request()->competition_name ?? ' ',
             ],
         ]);
     }
