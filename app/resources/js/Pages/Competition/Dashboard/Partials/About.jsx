@@ -7,7 +7,7 @@ import { Link, usePage } from "@inertiajs/react";
 import { useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
 
-function About({ user_competition_registrations, show_members, className }) {
+function About({ user_competition_registrations, className }) {
     const [isCopied, setIsCopied] = useState(false);
     const [confirmingUserDeletion, setConfirmingUserDeletion] = useState(false);
     const { flash_message } = usePage().props;
@@ -16,8 +16,7 @@ function About({ user_competition_registrations, show_members, className }) {
         setConfirmingUserDeletion(true);
     };
 
-    console.log('cek isi: ', show_members);
-
+    console.log("cek isi", user_competition_registrations);
     function handleCopy(text) {
         navigator.clipboard.writeText(text)
             .then(() => {
@@ -165,13 +164,13 @@ function About({ user_competition_registrations, show_members, className }) {
                                 <UserGroupIcon className="w-6 h-6 text-[#3A3A3A]" />
                                 Our Team
                                 <div className="flex flex-row items-center">
-                                    <p>{show_members.length}{" "}/{" "}3</p>
+                                    <p>{user_competition_registrations.teams.team_members.length}{" "}/{" "}3</p>
                                 </div>
                             </div>
                         </div>
 
                         <div className="grid md:grid-cols-3 grid-cols-1 items-center gap-12">
-                            {show_members.map((member, index) => (
+                            {user_competition_registrations.teams.team_members.map((member, index) => (
 
                                 <div className="flex flex-col gap-5 border-2 border-gray-200 rounded-xl p-5" key={index}>
                                     <div className="flex justify-center items-center">
