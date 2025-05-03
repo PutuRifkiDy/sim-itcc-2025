@@ -8,15 +8,6 @@ import { toast } from "sonner";
 
 function RegisterJoinTeam() {
     const slug = usePage().props.slug;
-    const { flash_message } = usePage().props;
-
-    console.log('cek slug', slug);
-
-    useEffect(() => {
-        if (flash_message?.message) {
-            toast[flash_message.type || 'success'](flash_message.message);
-        }
-    }, [flash_message]);
 
     const { data, setData, post, put, patch, errors, processing, recentlySuccessful, formData, clearErrors, reset } = useForm({
         token: '',
@@ -42,7 +33,6 @@ function RegisterJoinTeam() {
         <>
             <form onSubmit={(e) => onHandleSubmit(e)}>
 
-
                 <div className="mt-6">
 
                     <TextInput
@@ -58,7 +48,6 @@ function RegisterJoinTeam() {
                     />
 
                 </div>
-
 
                 <Button className="ms-3" variant="red" type="submit" disabled={processing}>
                     Submit
