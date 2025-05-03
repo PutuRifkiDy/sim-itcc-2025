@@ -31,7 +31,7 @@ const OurSponsor: React.FC = () => {
   useEffect(() => {
     if (!slider) return;
     const interval = setInterval(() => {
-      slider.next();
+      slider.current?.next();
     }, 1000);
 
     return () => clearInterval(interval);
