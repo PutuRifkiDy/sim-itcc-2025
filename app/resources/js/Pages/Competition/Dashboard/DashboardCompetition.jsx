@@ -8,13 +8,13 @@ import { toast } from "sonner";
 function DashboardCompetition() {
     const show_registration_competitions = usePage().props.show_registration_competitions;
     const competitions = usePage().props.competitions;
-    const { flash_message } = usePage().props;
+    // const { flash_message } = usePage().props;
 
-    useEffect(() => {
-        if (flash_message?.message) {
-            toast[flash_message.type || 'success'](flash_message.message);
-        }
-    }, [flash_message]);
+    // useEffect(() => {
+    //     if (flash_message?.message) {
+    //         toast[flash_message.type || 'success'](flash_message.message);
+    //     }
+    // }, [flash_message]);
     console.log("cek isi", show_registration_competitions);
     return (
         <>

@@ -46,6 +46,11 @@ function Payment({ user_competition_registrations, payment_methods, className })
         }
 
         post(route('dashboard.competition.payment', { id: user_competition_registrations.id }), {
+
+            onSuccess: (success) => {
+                const flash = flashMessage(success);
+                if (flash) toast[flash.type](flash.message);
+            },
             forceFormData: true,
             preserveScroll: true,
             preserveState: true,

@@ -17,13 +17,6 @@ function DashboardCompetitionDetail() {
 
     const status_submission = usePage().props.status_submission;
     const [tabs, setTabs] = useState("about");
-    // const { flash_message } = usePage().props;
-
-    // useEffect(() => {
-    //     if (flash_message?.message) {
-    //         toast[flash_message.type || 'success'](flash_message.message);
-    //     }
-    // }, [flash_message]);
     return (
         <>
             <div className="py-5">

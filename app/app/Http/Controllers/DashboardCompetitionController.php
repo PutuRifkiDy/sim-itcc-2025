@@ -7,13 +7,11 @@ use App\Http\Requests\PaymentStoreRequest;
 use App\Http\Requests\SubmissionStoreRequest;
 use App\Http\Resources\CompetitionRegistrationResource;
 use App\Http\Resources\PaymentMethodsResource;
-use App\Http\Resources\TeamMembersResource;
 use App\Models\CompetitionPrices;
 use App\Models\CompetitionRegistrations;
 use App\Models\Competitions;
 use App\Models\PaymentMethods;
 use App\Models\Submissions;
-use App\Models\TeamMembers;
 use App\Models\Teams;
 use App\Traits\HasFile;
 use Illuminate\Http\RedirectResponse;
@@ -43,20 +41,30 @@ class DashboardCompetitionController extends Controller
         if (! auth()->check()) {
             return to_route('login');
         }
-        $id_user = auth()->user()->id;
+        $user = auth()->user();
 
-        $show_registration_competition = CompetitionRegistrations::with('user', 'teams.team_members')
-            ->where('user_id', $id_user)
+        $show_registration_competition = CompetitionRegistrations::with('user', 'teams.team_members', 'teams')
+            ->where('user_id', $user->id)
             ->where('id', $id)
             ->first();
 
-        $show_reject_reason_submission = Submissions::where('competition_registration_id', $show_registration_competition->id)
+        if (! $show_registration_competition) {
+            abort(404);
+        }
+
+        $leaderRegistration = $show_registration_competition;
+
+        if ($show_registration_competition->team_id && $show_registration_competition->teams && $show_registration_competition->teams->leader_id !== $user->id) {
+            $leaderRegistration = CompetitionRegistrations::where('team_id', $show_registration_competition->team_id)
+                ->where('user_id', $show_registration_competition->teams->leader_id)
+                ->first();
+        }
+
+        $show_reject_reason_submission = Submissions::where('competition_registration_id', $leaderRegistration->id)
             ->value('reject_reason');
 
-        if ($show_registration_competition) {
-            $show_status_submission = Submissions::where('competition_registration_id', $show_registration_competition->id)
-                ->value('submission_status');
-        }
+        $show_status_submission = Submissions::where('competition_registration_id', $leaderRegistration->id)
+            ->value('submission_status');
 
         $payment_methods = PaymentMethods::where('id', '1')->first();
 
@@ -135,22 +143,19 @@ class DashboardCompetitionController extends Controller
 
     public function submission_store(SubmissionStoreRequest $request): RedirectResponse
     {
-        $submission = Submissions::where('competition_registration_id', $request->competition_registration_id)->first();
+        $user         = auth()->user();
+        $registration = CompetitionRegistrations::findOrFail($request->competition_registration_id);
+        $competition  = Competitions::findOrFail($registration->competition_id);
+        $team         = Teams::where('id', $registration->team_id)->first();
 
-        $payment_status = CompetitionRegistrations::where('id', $request->competition_registration_id)
+        $submission = Submissions::where('competition_registration_id', $registration->id)->first();
+
+        $payment_status = CompetitionRegistrations::where('id', $registration->id)
             ->value('payment_status');
 
-        $find_competition_id = CompetitionRegistrations::where('id', $request->competition_registration_id)
-            ->value('competition_id');
-
-        $is_need_submission = Competitions::where('id', $find_competition_id)
-            ->value('is_need_submission');
-
-        $in_periode_submission = Competitions::where('id', $find_competition_id)
+        $in_periode_submission = Competitions::where('id', $competition->id)
             ->where('end_submission', '>=', now())
             ->exists();
-
-        $is_leader = Teams::where('leader_id', $request->user()->id)->exists();
 
         if (in_array($payment_status->value, [
             PaymentStatus::PENDING->value,
@@ -161,47 +166,46 @@ class DashboardCompetitionController extends Controller
             return to_route('dashboard.competition.index');
         }
 
+        if($competition->is_team) {
+            if ($user->id !== $team->leader_id) {
+                flashMessage('Only the team leader can upload submission', 'error');
+                return to_route('dashboard.competition.index');
+            }
+        }
+
         if ($payment_status->value === PaymentStatus::VERIFIED->value) {
-            if (! $submission && $is_need_submission && $in_periode_submission && $is_leader) {
+            if (! $submission && $competition->is_need_submission && $in_periode_submission) {
                 Submissions::create([
                     'competition_registration_id' => $request->competition_registration_id,
                     'submission_link'             => $request->submission_link,
                     'submission_status'           => $request->submission_status,
                 ]);
                 flashMessage('Your submission has been uploaded.');
-                return back();
-            } else if (! $is_need_submission) {
+                return to_route('dashboard.competition.index');
+            } else if (! $competition->is_need_submission) {
                 flashMessage('This competition does not need submission.', 'error');
-                return back();
+                return to_route('dashboard.competition.index');
             } else if (! $in_periode_submission) {
                 flashMessage('Submission period has ended.', 'error');
-                return back();
-            } else if (! $is_leader) {
-                flashMessage('You are not leader.', 'error');
-                return back();
+                return to_route('dashboard.competition.index');
             }
 
             if (in_array($submission->submission_status->value, [
                 SubmissionStatus::REJECTED->value,
                 SubmissionStatus::VERIFIED->value,
             ])) {
-                if ($is_leader) {
-                    $submission->update([
-                        'competition_registration_id' => $request->competition_registration_id,
-                        'submission_link'             => $request->submission_link,
-                        'submission_status'           => $request->submission_status,
-                    ]);
-                    flashMessage('Your submission has been uploaded.');
-                    return back();
-                } else {
-                    flashMessage('You are not leader.', 'error');
-                    return back();
-                }
+                $submission->update([
+                    'competition_registration_id' => $request->competition_registration_id,
+                    'submission_link'             => $request->submission_link,
+                    'submission_status'           => $request->submission_status,
+                ]);
+                flashMessage('Your submission has been uploaded.');
+                return to_route('dashboard.competition.index');
             }
 
             if ($submission->submission_status->value === SubmissionStatus::PENDING->value) {
                 flashMessage('Please wait until verification is done if you want to submit your submission again', 'error');
-                return back();
+                return to_route('dashboard.competition.index');
             }
         }
 
@@ -211,13 +215,12 @@ class DashboardCompetitionController extends Controller
 
     public function destroy($id): RedirectResponse
     {
-        $user = auth()->user();
+        $user         = auth()->user();
         $registration = CompetitionRegistrations::with('teams')->findOrFail($id);
-        $competition = Competitions::findOrFail($registration->competition_id);
+        $competition  = Competitions::findOrFail($registration->competition_id);
 
         if ($competition->is_team) {
             $team = Teams::where('id', $registration->team_id)->first();
-
 
             if ($user->id !== $team->leader_id) {
                 flashMessage('Only the team leader can cancel the registration.', 'error');

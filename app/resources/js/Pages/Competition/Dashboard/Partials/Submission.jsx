@@ -30,10 +30,10 @@ function Submission({ className, user_competition_registrations, competitions, s
         }
 
         post(route('dashboard.competition.submission'), {
-            // onSuccess: (success) => {
-            //     const flash = flashMessage(success);
-            //     if (flash) toast[flash.type](flash.message);
-            // },
+            onSuccess: (success) => {
+                const flash = flashMessage(success);
+                if (flash) toast[flash.type](flash.message);
+            },
             preserveScroll: true,
             preserveState: true,
         });
