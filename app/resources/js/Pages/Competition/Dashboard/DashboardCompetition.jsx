@@ -33,7 +33,7 @@ function DashboardCompetition() {
                                     </div>
                                     <div className="flex flex-col">
                                         <p className="text-[#5E5E5E] font-normal text-[14px] tracking-[0.03em] text-start">Competition</p>
-                                        <p className="font-bold text-[20px] text-[#000000]">{competition_registration.competitions.name}</p>
+                                        <p className="font-bold text-[20px] text-[#000000] line-clamp-1">{competition_registration.competitions.name}</p>
                                     </div>
                                     {competition_registration.payment_status == "Requested" && (
                                         <div className="flex flex-row gap-2 items-center bg-[#4880FF]/20 py-1 px-2 rounded-lg text-[#4880FF] w-fit">

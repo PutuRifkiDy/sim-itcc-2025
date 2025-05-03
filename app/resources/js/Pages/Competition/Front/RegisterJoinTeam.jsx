@@ -54,9 +54,9 @@ function RegisterJoinTeam() {
                         className="mt-1 block w-3/4"
                         isFocused
                         placeholder="Token"
+                        onErrors={errors.token && <InputError message={errors.token} className='mt-2' />}
                     />
 
-                    <InputError message={errors.token} className="mt-2" />
                 </div>
 
 

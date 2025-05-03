@@ -53,9 +53,9 @@ function RegisterTeam() {
                         className="mt-1 block w-3/4"
                         isFocused
                         placeholder="Team Name"
+                        onErrors={errors.team_name && <InputError message={errors.team_name} className='mt-2' />}
                     />
 
-                    <InputError message={errors.team_name} className="mt-2" />
                 </div>
 
 
