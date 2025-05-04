@@ -11,7 +11,7 @@ export function Landing() {
       <AboutSection />
       <OurSponsor />
       <Competition />
-      {/* <Merch />   */}
+      <Merch />  
     </>
   );
 }
