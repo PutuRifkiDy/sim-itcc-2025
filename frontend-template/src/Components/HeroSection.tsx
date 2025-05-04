@@ -1,50 +1,78 @@
+
+import { 
+  SideLeftArrowLeftIcon, 
+  SideLeftCrookedCrossIcon, 
+  SideRightCircleIcon, 
+  SideRightCrossIcon, 
+  SideRightDotIcon, 
+  SideRightSquareIndexOne, 
+  SideRightSquareIndexThree, 
+  SideRightSquareIndexTwo 
+} from "./Icons/HeroIcons";
+
 export default function HeroSection() {
-  return <section className="w-full h-full">
-    <div className="md:flex-row flex-col flex items-center justify-center container md:pt-32 pt-10 gap-10 pb-20 mx-auto">
-      <div className="flex flex-row md:translate-y-[-50px]">
-        <div className="h-0">
-          <img src="/image/hero/ITCCMascot.png" alt="ITCC 2025 Mascot" className="w-32 md:w-72 lg:translate-y-[-120px] translate-y-[-10px]" />
-        </div>
-        <div>
-          <h2 className=" text-indigo-950 lg:text-7xl text-4xl font-extrabold font-['Rubik'] uppercase  tracking-[4px] [text-shadow:_6px_4px_9px_rgb(0_0_0_/_0.54)]">ITCC</h2>
-          <div className="flex flex-row lg:items-start items-center">
-            <div className="lg:w-16 lg:h-32 w-8 h-20 md:px-7 md:py-1 bg-gradient-to-l from-indigo-950 to-sky-800 rounded-[10px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] inline-flex justify-center items-center">
-              <div className="-rotate-90 text-center justify-center text-white lg:text-4xl text-xl font-extrabold font-['Rubik'] uppercase leading-[57.60px] tracking-widest">2025</div>
+  return (
+    <section className="px-12 mt-24">
+      <div className="flex flex-row justify-center md:justify-between">
+
+        {/* side left */}
+        <div className="w-full flex flex-col">
+          <SideLeftCrookedCrossIcon />
+
+          <div className="relative flex md:flex-row flex-col items-center md:gap-0 gap-2 md:items-start">
+            <div className="flex justify-center items-center md:block">
+              <img src="/image/hero/ITCCMascot.png" className="w-[156.09px] h-[151.77px]" alt="" />
             </div>
-            <p className="text-neutral-700 font-rubik lg:text-xl text-sm font-semibold ml-4 md:w-60 w-30">Innovation of Technology to Build the Digital Capabilities of Indonesia's Generation </p>
+            <h1 className="font-extrabold text-[80px] tracking-[0.05em] leading-[1.2em] text-[#0F114C] [text-shadow:_6px_4px_9px_rgb(0_0_0_/_0.54)] md:absolute flex justify-center items-center top-8 left-40">
+              ITCC
+            </h1>
+            <div className="flex flex-row justify-center items-center bg-gradient-to-l from-indigo-950 to-sky-800 px-4 md:w-16 md:h-40 w-40 h-20 m md:absolute left-40 top-32 rounded-[10px]">
+              <h1 className="md:-rotate-90 rotate-0 font-extrabold text-[48px] tracking-[0.05em] leading-[1.2em] text-white ">
+                2025
+              </h1>
+            </div>
+            <p className="font-semibold text-[21px] leading-[35px] text-[#3A3A3A] md:absolute md:text-start text-center top-32 left-60 w-[273px] h-[140px]">
+              Innovation of Technology to Build the Digital Capabilities of Indonesia's Generation
+            </p>
+            <div className="md:absolute flex top-72 left-60">
+              <SideLeftArrowLeftIcon />
+            </div>
           </div>
-          <div className="flex flex-row gap-x-3 mt-2 ml-auto">
-              <div className="w-0 h-0 border-t-[10px] border-b-[10px] border-l-[20px] border-t-transparent border-b-transparent border-l-[#0F114C]"></div>
-              <div className="w-0 h-0 border-t-[10px] border-b-[10px] border-l-[20px] border-t-transparent border-b-transparent border-l-[#0F114C]"></div>
-              <div className="w-0 h-0 border-t-[10px] border-b-[10px] border-l-[20px] border-t-transparent border-b-transparent border-l-[#0F114C]"></div>
-              <div className="w-0 h-0 border-t-[10px] border-b-[10px] border-l-[20px] border-t-transparent border-b-transparent border-l-[#0F114C]"></div>
+        </div>
+
+        {/* side right */}
+        <div className="w-full md:block hidden">
+          <div className="relative">
+            <div className="flex flex-row justify-end">
+              <SideRightCrossIcon />
+            </div>
+            <div className="absolute top-0 right-32 z-30">
+              <SideRightSquareIndexThree />
+            </div>
+            <div className="absolute top-36 right-60 z-20">
+              <SideRightSquareIndexTwo />
+            </div>
+            <div className="absolute top-48 right-16 z-10">
+              <SideRightSquareIndexOne />
+            </div>
+            <div className="absolute top-40 right-56 z-40">
+              <SideRightDotIcon />
+            </div>
+            <div className="absolute top-12 right-0 z-40">
+              <img src="/image/hero/right-side-index-3.png" className="w-[254px] h-[284px]" alt="" />
+            </div>
+            <div className="absolute top-12 right-64 z-40">
+              <img src="/image/hero/right-side-index-2.png" className="w-[235px] h-[132px]" alt="" />
+            </div>
+            <div className="absolute top-48 right-64 z-40">
+              <img src="/image/hero/right-side-index-1.png" className="w-[169px] h-[230px]" alt="" />
+            </div>
+            <div className="absolute top-96 right-16 z-40">
+              <SideRightCircleIcon />
+            </div>
           </div>
         </div>
       </div>
-      <div>
-        <div className="relative ml-4">
-          <div className="absolute top-4 right-[-10px] flex flex-row gap-2 w-18 ml-4">
-            <div className="lg:w-6 w-2 -rotate-[150deg]">
-              <img src="/image/about/bluePlus.png" alt="" />
-            </div>
-            <div className="lg:w-6 w-2 -rotate-[150deg]">
-              <img src="/image/about/bluePlus.png" alt="" />
-            </div>
-            <div className="lg:w-6 w-2 -rotate-[150deg]">
-              <img src="/image/about/bluePlus.png" alt="" />
-            </div>
-            <div className="lg:w-6 w-2 -rotate-[150deg]">
-              <img src="/image/about/bluePlus.png" alt="" />
-            </div>
-          </div>
-          <img src="/image/hero/heroPictures.png" className="lg:w-[450px] w-[300px]" alt="ITCC" />
-        </div>
-        <div className="flex justify-end mt-4">
-          <div className="lg:w-10 lg:h-10 w-5 h-5 bg-[#0F114C] rounded-full flex items-center justify-center">
-            <div className="lg:w-8 lg:h-8 w-4 h-4 bg-[#0F114C] rounded-full border-2 border-white"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>;
+    </section>
+  );
 }

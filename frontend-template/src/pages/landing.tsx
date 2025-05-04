@@ -8,10 +8,10 @@ export function Landing() {
   return (
     <>
       <HeroSection />
-      <AboutSection />
+      {/* <AboutSection />
       <OurSponsor />
       <Competition />
-      <Merch />
+      <Merch /> */}
     </>
   );
 }
