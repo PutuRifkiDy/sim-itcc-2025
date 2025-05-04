@@ -74,7 +74,7 @@ const Competition = () => {
 
   return (
     <div className="w-full max-w-[1440px] min-h-screen bg-white mx-auto px-4 py-12">
-      <h1 className="text-center text-[#0F114C] font-rubik font-bold uppercase tracking-[0.36em] text-3xl md:text-4xl">
+      <h1 className="text-center text-[#0F114C] font-rubik font-bold uppercase tracking-[0.36em] text-2xl md:text-4xl">
         OUR COMPETITIONS
       </h1>
       <p className="text-[#5E5E5E] text-center font-rubik text-base leading-[180%] max-w-[653px] mt-6 mx-auto">

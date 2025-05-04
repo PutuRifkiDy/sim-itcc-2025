@@ -11,7 +11,7 @@ export default function HeroSection() {
             <div className="lg:w-16 lg:h-32 w-8 h-20 md:px-7 md:py-1 bg-gradient-to-l from-indigo-950 to-sky-800 rounded-[10px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] inline-flex justify-center items-center">
               <div className="-rotate-90 text-center justify-center text-white lg:text-4xl text-xl font-extrabold font-['Rubik'] uppercase leading-[57.60px] tracking-widest">2025</div>
             </div>
-            <p className="text-neutral-700 font-rubik lg:text-xl text-base font-semibold ml-4 md:w-60 w-30">Innovation of Technology to Build the Digital Capabilities of Indonesia's Generation </p>
+            <p className="text-neutral-700 font-rubik lg:text-xl text-sm font-semibold ml-4 md:w-60 w-30">Innovation of Technology to Build the Digital Capabilities of Indonesia's Generation </p>
           </div>
           <div className="flex flex-row gap-x-3 mt-2 ml-auto">
               <div className="w-0 h-0 border-t-[10px] border-b-[10px] border-l-[20px] border-t-transparent border-b-transparent border-l-[#0F114C]"></div>
