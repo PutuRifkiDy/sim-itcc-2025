@@ -1,14 +1,14 @@
 export default function AboutSection() {
   return (
-    <section className="w-full min-h-[500px] relative bg-gradient-to-r from-indigo-950 to-sky-800 overflow-hidden pt-16">
-        <img className="md:w-80 w-40 top-0 left-0 absolute" src="/image/about/leftEdge.png" />
+    <section className="w-full min-h-[500px] relative bg-gradient-to-r from-indigo-950 to-sky-800 overflow-hidden md:mt-96 mt-24">
+      <img className="md:w-80 w-40 top-0 left-0 absolute" src="/image/about/leftEdge.png" />
       <div className="absolute top-0 right-0 flex flex-col items-end w-full">
         <div className="md:w-96 w-20 h-[2px] bg-white mt-2"></div>
         <div className="md:w-96 w-20 h-[2px] bg-[#00658C]"></div>
         <div className="md:w-48 w-10 h-[2px] mt-4 bg-[#00658C]"></div>
         <div className="md:w-48 w-10 h-[6px] bg-white"></div>
       </div>
-      <div className="md:flex-row flex-col flex items-center justify-center container mx-auto px-4 md:pt-32 pt-10 gap-8 pb-24">
+      <div className="md:flex-row flex-col flex items-center md:justify-evenly justify-center container mx-auto px-4 md:pt-32 pt-10 gap-8 pb-24">
         <img className="md:w-96 w-60" src="/image/about/ITCCLogo.png" alt="ITCC 2025 Logo" />
         <div className="md:w-[600px] relative">
           <h2 className="text-[#A5CBD0] text-xl md:text-2xl font-rubik font-bold tracking-[5px] uppercase">What is ITCC?</h2>
