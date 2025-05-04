@@ -89,49 +89,50 @@ const Competition = () => {
         {svgRight}
       </div>
 
-      {/* Stacked Card Section (Responsive) */}
+      {/* Stacked Card Section */}
       <div className="flex flex-col gap-8 mt-[120px]">
         {competitions.map((item, idx) => (
           <div
             key={idx}
-            className="relative w-full max-w-[900px] mx-auto h-[450px] rounded-[30px] overflow-hidden bg-gradient-to-r from-[#0F114C] to-[#006693] transition-transform transform hover:scale-105"
+            className="relative w-full max-w-[1024px] mx-auto h-[450px] rounded-[30px] overflow-hidden 
+             bg-gradient-to-r from-[#0F114C] to-[#006693] 
+             transition-transform transform 
+             hover:scale-105 active:scale-105 focus:scale-105"
           >
-            <div className="relative w-full h-[450px]">
+            <div className="relative w-full h-full">
               <img
-                className="absolute h-[450px] top-0 left-0 object-cover w-full"
+                className="absolute h-full w-full object-cover"
                 src={item.image}
                 alt={item.title}
               />
 
-              <div className="absolute w-full h-[450px] top-0 left-0 bg-gradient-to-l from-[#00658F1A] via-[#00658FE6] to-[#0F114C]" />
+              <div className="absolute w-full h-full top-0 left-0 bg-gradient-to-l from-[#00658F1A] via-[#00658FE6] to-[#0F114C]" />
 
-              <h2 className="absolute top-[40px] left-[60px] font-bold text-white text-3xl tracking-[4.5px] leading-[36px]">
-                {item.title}
-              </h2>
+              {/* Text content */}
+              <div className="absolute top-10 left-10 right-10 md:left-[60px] md:right-[400px]">
+                <h2 className="font-bold text-white text-2xl md:text-3xl tracking-wider mb-4">
+                  {item.title}
+                </h2>
+                <p className="text-white text-sm md:text-base lg:text-xl leading-relaxed max-w-xl mt-10">
+                  A community of Influencers and Tech Personalities forging a
+                  stage where the continent’s brightest minds meet new partners,
+                  and the sharpest innovators share their visions.
+                </p>
+              </div>
 
-              <p className="absolute w-[400px] top-[100px] left-[60px] text-white text-xl leading-[32px]">
-                A community of Influencers and Tech Personalities forging a
-                stage where the continent’s brightest minds meet new partners,
-                and the sharpest innovators share their visions.
-              </p>
-
-              {/* Join Button with Arrow */}
+              {/* Join button */}
               <a
                 href="#"
-                className="inline-flex items-center gap-[15px] absolute top-[340px] left-[730px] bg-transparent py-2 px-4 rounded-full"
+                className="inline-flex items-center gap-3 absolute bottom-10 right-10 bg-transparent py-2 px-4 rounded-full"
               >
-                <span className="font-bold text-white text-[22px] leading-[24px]">
+                <span className="font-bold text-white text-lg md:text-xl">
                   Join
                 </span>
-                <img
-                  src="/image/arrow.png"
-                  className="w-[25px] h-[18px]"
-                  alt="arrow"
-                />
+                <img src="/image/arrow.png" className="w-5 h-4" alt="arrow" />
               </a>
 
-              {/* Logos and Decorations */}
-              <div className="absolute top-8 left-[800px]">
+              {/* Logo */}
+              <div className="absolute top-8 right-10">
                 <img
                   src={item.logo}
                   className="w-[60px] h-[36px] object-cover"
@@ -139,7 +140,7 @@ const Competition = () => {
                 />
               </div>
 
-              {/* Decorative Element 1 */}
+              {/* Decorative Elements */}
               <div className="absolute w-[100px] h-[300px] top-[260px] left-0 rotate-[-180deg]">
                 <img
                   src="/image/Element1.png"
@@ -148,7 +149,6 @@ const Competition = () => {
                 />
               </div>
 
-              {/* Decorative Element 2 */}
               <div className="absolute w-64 h-[22px] top-[87px] left-[20px] rotate-180">
                 <img
                   src="/image/Element2.png"
