@@ -236,7 +236,51 @@ function DashboardAdminLombaData({ ...props }) {
                                                             {competition.competitions.name}
                                                         </td>
                                                         <td className="whitespace-nowrap px-6 py-8 text-sm font-normal text-foreground">
-                                                            {competition.code_registration}
+                                                            {competition.competitions.is_team ? (
+                                                                <div>
+                                                                    <Dialog>
+                                                                        <DialogTrigger className='flex flex-row gap-3 justify-center items-center text-foreground font-normal'>
+                                                                            Teams
+                                                                            <IconPreviewImageProfile />
+                                                                        </DialogTrigger>
+                                                                        <DialogContent className="max-w-3xl">
+                                                                            <DialogTitle className="mb-4">
+                                                                                Code Registraions
+                                                                            </DialogTitle>
+                                                                            <Table>
+                                                                                <TableHeader>
+                                                                                    <TableRow>
+                                                                                        <TableHead className="font-medium text-[#000000]">
+                                                                                            No
+                                                                                        </TableHead>
+                                                                                        <TableHead className="font-medium text-[#000000]">
+                                                                                            Name
+                                                                                        </TableHead>
+                                                                                        <TableHead className="font-medium text-[#000000]">
+                                                                                            Code Registration
+                                                                                        </TableHead>
+                                                                                    </TableRow>
+                                                                                </TableHeader>
+                                                                                <TableBody>
+                                                                                    {competition.teams.team_members.map((team_member, index) => (
+                                                                                        <TableRow key={index}>
+                                                                                            <TableCell className="font-normal">
+                                                                                                {index + 1}
+                                                                                            </TableCell>
+                                                                                            <TableCell className="font-normal">
+                                                                                                {team_member.competition_registrations.user.name}
+                                                                                            </TableCell>
+                                                                                            <TableCell className="font-normal">
+                                                                                                {team_member.competition_registrations.code_registration}
+                                                                                            </TableCell>
+                                                                                        </TableRow>
+                                                                                    ))}
+                                                                                </TableBody>
+                                                                            </Table>
+                                                                        </DialogContent>
+                                                                    </Dialog>
+                                                                </div>
+                                                            ) : competition.code_registration}
                                                         </td>
                                                         <td className="whitespace-nowrap px-6 py-8 text-sm font-normal text-foreground">
                                                             {competition.competitions.competition_content[0].location}
@@ -488,4 +532,4 @@ function DashboardAdminLombaData({ ...props }) {
 }
 
 export default DashboardAdminLombaData;
-DashboardAdminLombaData.layout = (page) => <DashboardLayout children={page} title="Admin Competition Data Participant" header="Admin Competition Participant Data" />
+DashboardAdminLombaData.layout = (page) => <DashboardLayout children={page} title="Admin Competition Participant" header="Admin Competition Participant" />

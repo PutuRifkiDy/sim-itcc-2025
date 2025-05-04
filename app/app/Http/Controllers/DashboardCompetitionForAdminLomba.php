@@ -17,7 +17,7 @@ class DashboardCompetitionForAdminLomba extends Controller
     public function show_participant(): Response
     {
         $show_competition_is_open_regis = Competitions::where('is_open_regis', true)->get('name');
-        $show_all_participant = CompetitionRegistrations::with('competitions', 'user', 'teams.team_members')
+        $show_all_participant           = CompetitionRegistrations::with('competitions', 'user', 'teams.team_members')
             ->when(request()->search, function ($query, $value) {
                 $query->where(function ($q) use ($value) {
                     $q->whereHas('user', function ($q2) use ($value) {
@@ -37,11 +37,11 @@ class DashboardCompetitionForAdminLomba extends Controller
                     $q->where('name', $value);
                 });
             })
-            ->when(true, function($query) {
+            ->when(true, function ($query) {
                 $query->where(function ($subQuery) {
                     $subQuery
                         ->whereNull('team_id')
-                        ->orWhereHas('teams', function($q) {
+                        ->orWhereHas('teams', function ($q) {
                             $q->whereColumn('leader_id', 'competition_registrations.user_id');
                         });
                 });
@@ -56,16 +56,16 @@ class DashboardCompetitionForAdminLomba extends Controller
         // return dd($show_competition_is_open_regis);
 
         return inertia(component: 'Competition/Dashboard/DashboardAdminLombaData', props: [
-            'competition_registrations' => CompetitionRegistrationResource::collection($show_all_participant)->additional([
+            'competition_registrations'      => CompetitionRegistrationResource::collection($show_all_participant)->additional([
                 'meta' => [
                     'has_page' => $show_all_participant->hasPages(),
                 ],
             ]),
             'show_competition_is_open_regis' => $show_competition_is_open_regis,
-            'state'                     => [
-                'page'   => request()->page ?? 1,
-                'search' => request()->search ?? '',
-                'load'   => 10,
+            'state'                          => [
+                'page'             => request()->page ?? 1,
+                'search'           => request()->search ?? '',
+                'load'             => 10,
                 'competition_name' => request()->competition_name ?? ' ',
             ],
         ]);
@@ -73,11 +73,11 @@ class DashboardCompetitionForAdminLomba extends Controller
 
     public function show_submission(): Response
     {
-        $user = auth()->user();
+        $user                           = auth()->user();
         $show_competition_is_open_regis = Competitions::where('is_open_regis', true)
             ->where('is_need_submission', true)
             ->get('name');
-        $show_all_submission = Submissions::with('competition_registrations.user', 'competition_registrations.competitions', 'competition_registrations')
+        $show_all_submission = Submissions::with('competition_registrations.user', 'competition_registrations.competitions', 'competition_registrations', 'competition_registrations.teams.team_members')
             ->when(request()->search, function ($query, $value) {
                 $query->where(function ($q) use ($value) {
                     $q->whereHas('competition_registrations.user', function ($q2) use ($value) {
@@ -86,10 +86,10 @@ class DashboardCompetitionForAdminLomba extends Controller
                     $q->orWhereHas('competition_registrations.competitions.competition_content', function ($q3) use ($value) {
                         $q3->where('location', 'REGEXP', $value);
                     });
-                    $q->orWhereHas('competition_registrations.competitions', function($q4) use ($value) {
+                    $q->orWhereHas('competition_registrations.competitions', function ($q4) use ($value) {
                         $q4->where('name', 'REGEXP', $value);
                     });
-                    $q->orWhereHas('competition_registrations', function($q5) use ($value) {
+                    $q->orWhereHas('competition_registrations', function ($q5) use ($value) {
                         $q5->where('code_registration', 'REGEXP', $value);
                     });
 
@@ -107,33 +107,31 @@ class DashboardCompetitionForAdminLomba extends Controller
                     $q->where('name', $value);
                 });
             })
-            // untuk admin khusus lomba nanti
-            // ->where($user->hasRole('admin'), 'admin')
             ->when(request()->field && request()->direction, fn($query) => $query->orderBy(request()->field, request()->direction))
             ->paginate(request()->load ?? 10)
             ->withQueryString();
 
-            $count_pending   = Submissions::where('submission_status', 'Pending')->count();
-            $count_verified  = Submissions::where('submission_status', 'Verified')->count();
-            $count_rejected  = Submissions::where('submission_status', 'Rejected')->count();
+        $count_pending  = Submissions::where('submission_status', 'Pending')->count();
+        $count_verified = Submissions::where('submission_status', 'Verified')->count();
+        $count_rejected = Submissions::where('submission_status', 'Rejected')->count();
 
         return inertia(component: 'Competition/Dashboard/DashboardAdminLombaSubmission', props: [
-            'submissions' => SubmissionResource::collection($show_all_submission)->additional([
+            'submissions'                    => SubmissionResource::collection($show_all_submission)->additional([
                 'meta' => [
                     'has_page' => $show_all_submission->hasPages(),
                 ],
             ]),
             'show_competition_is_open_regis' => $show_competition_is_open_regis,
-            'state'                      => [
-                'page'  => request()->page ?? 1,
-                'search' => request()->search ?? '',
-                'load'  => 10,
+            'state'                          => [
+                'page'             => request()->page ?? 1,
+                'search'           => request()->search ?? '',
+                'load'             => 10,
                 'competition_name' => request()->competition_name ?? '',
             ],
 
-            'count_pending'   => $count_pending,
-            'count_verified'  => $count_verified,
-            'count_rejected'  => $count_rejected,
+            'count_pending'                  => $count_pending,
+            'count_verified'                 => $count_verified,
+            'count_rejected'                 => $count_rejected,
 
         ]);
     }
@@ -152,7 +150,7 @@ class DashboardCompetitionForAdminLomba extends Controller
     {
         Submissions::find($id)->update([
             'submission_status' => SubmissionStatus::REJECTED->value,
-            'reject_reason'  => $request->reject_reason,
+            'reject_reason'     => $request->reject_reason,
         ]);
 
         flashMessage('Submission has been rejected.', 'success');

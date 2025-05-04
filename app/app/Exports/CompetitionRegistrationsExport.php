@@ -22,7 +22,7 @@ class CompetitionRegistrationsExport implements FromCollection, WithHeadings, Wi
 
     public function collection()
     {
-        return CompetitionRegistrations::with('user', 'competitions.competition_content')
+        return CompetitionRegistrations::with('user', 'competitions.competition_content', 'teams', 'competitions', 'teams.team_members')
         ->when($this->filters['search'] ?? null, function ($query, $value) {
             $query->where(function ($q) use ($value) {
                 $q->whereHas('user', function ($q2) use ($value) {
@@ -34,6 +34,15 @@ class CompetitionRegistrationsExport implements FromCollection, WithHeadings, Wi
                 $q->orWhere('payment_status', 'REGEXP', $value)
                   ->orWhere('total_payment', 'REGEXP', $value)
                   ->orWhere('code_registration', 'REGEXP', $value);
+            });
+        })
+        ->when(true, function($query) {
+            $query->where(function ($subQuery) {
+                $subQuery
+                    ->whereNull('team_id')
+                    ->orWhereHas('teams', function($q) {
+                        $q->whereColumn('leader_id', 'competition_registrations.user_id');
+                    });
             });
         })
         ->get();
@@ -56,13 +65,46 @@ class CompetitionRegistrationsExport implements FromCollection, WithHeadings, Wi
 
     public function map($competitionRegistrations): array
     {
+        // untuk data code registrations
+        if ($competitionRegistrations->competitions->is_team) {
+            $codeRegistration = [];
+            foreach($competitionRegistrations->teams->team_members as $team_member) {
+                $code = $team_member->competition_registrations->code_registration;
+
+                if ($code) {
+                    $codeRegistration[] = $code;
+                }
+            }
+            $codeRegistration = implode(', ', $codeRegistration);
+        } else {
+            $codeRegistration = $competitionRegistrations->code_registration;
+        }
+
+        // untuk data teams
+        if ($competitionRegistrations->competitions->is_team) {
+            $institutions = [];
+
+            foreach($competitionRegistrations->teams->team_members as $team_member) {
+                $institution = $team_member->competition_registrations->user->institution;
+
+                if ($institution) {
+                    $institutions[] = $institution;
+                }
+            }
+
+            $institutions = implode(', ', $institutions);
+        } else {
+            $institutions = $competitionRegistrations->user->institution;
+        }
+
+
         return [
             $competitionRegistrations->id,
-            $competitionRegistrations->user->name ?? '-',
-            $competitionRegistrations->user->institution ?? '-',
+            $competitionRegistrations->competitions->is_team ? $competitionRegistrations->teams->team_name : $competitionRegistrations->user->name,
+            $institutions,
             $competitionRegistrations->competitions->name ?? '-',
             optional($competitionRegistrations->competitions->competition_content->first())->location ?? '-',
-            $competitionRegistrations->code_registration,
+            $codeRegistration,
             $competitionRegistrations->payment_status->value,
             $competitionRegistrations->total_payment,
             $competitionRegistrations->created_at->format('Y-m-d H:i'),

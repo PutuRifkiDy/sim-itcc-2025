@@ -21,7 +21,7 @@ class SubmissionExport implements FromCollection, WithHeadings, WithMapping
 
     public function collection()
     {
-        return Submissions::with('competition_registrations.user', 'competition_registrations.competitions', 'competition_registrations')
+        return Submissions::with('competition_registrations.user', 'competition_registrations.competitions', 'competition_registrations', 'competition_registrations.teams', 'competition_registrations.teams.team_members')
         ->when($this->filters['search'] ?? null, function ($query, $value) {
             $query->where(function ($q) use ($value) {
                 $q->whereHas('competition_registrations.user', function ($q2) use ($value) {
@@ -59,11 +59,27 @@ class SubmissionExport implements FromCollection, WithHeadings, WithMapping
 
     public function map($submission): array
     {
+        if ($submission->competition_registrations->competitions->is_team) {
+            $codeRegistrations = [];
+
+            foreach ($submission->competition_registrations->teams->team_members as $team_member) {
+                $code = $team_member->competition_registrations->code_registration;
+
+                if ($code) {
+                    $codeRegistrations[] = $code;
+                }
+            }
+
+            $codeRegistrations = implode(', ', $codeRegistrations);
+        } else {
+            $codeRegistrations = $submission->competition_registrations->code_registration;
+        }
+
         return [
             $submission->id,
-            $submission->competition_registrations->user->name ?? '-',
+            $submission->competition_registrations->competitions->is_team ? $submission->competition_registrations->teams->team_name : $submission->competition_registrations->user->name,
             $submission->competition_registrations->competitions->name ?? '-',
-            $submission->competition_registrations->code_registration,
+            $codeRegistrations,
             $submission->submission_link,
             $submission->submission_status->value,
             $submission->created_at->format('Y-m-d H:i'),
