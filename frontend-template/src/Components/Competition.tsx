@@ -96,8 +96,8 @@ const Competition = () => {
             key={idx}
             className="relative w-full max-w-[1024px] mx-auto h-[450px] rounded-[30px] overflow-hidden 
              bg-gradient-to-r from-[#0F114C] to-[#006693] 
-             transition-transform transform 
-             hover:scale-105 active:scale-105 focus:scale-105"
+             transition duration-300 ease-in-out
+             hover:scale-105"
           >
             <div className="relative w-full h-full">
               <img
@@ -132,7 +132,14 @@ const Competition = () => {
               </a>
 
               {/* Logo */}
-              <div className="absolute top-8 right-10">
+              <div className="md:absolute block top-8 right-10">
+                <img
+                  src={item.logo}
+                  className="w-[60px] h-[36px] object-cover"
+                  alt="Logo"
+                />
+              </div>
+              <div className="absolute bottom-12 md:left-16 left-11">
                 <img
                   src={item.logo}
                   className="w-[60px] h-[36px] object-cover"
@@ -149,10 +156,10 @@ const Competition = () => {
                 />
               </div>
 
-              <div className="absolute w-64 h-[22px] top-[87px] left-[20px] rotate-180">
+              <div className="absolute w-64 h-[22px] top-[87px] left-0 rotate-180">
                 <img
                   src="/image/Element2.png"
-                  className="absolute w-[270px] h-[22px] top-0 left-0 -rotate-180 object-cover"
+                  className="w-[270px] h-[22px] object-cover"
                   alt="Element2"
                 />
               </div>

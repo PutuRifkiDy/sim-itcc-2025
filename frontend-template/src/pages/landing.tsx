@@ -9,9 +9,9 @@ export function Landing() {
     <>
       <HeroSection />
       <AboutSection />
-      {/* <OurSponsor />
+      <OurSponsor />
       <Competition />
-      <Merch />  */}
+      {/* <Merch />   */}
     </>
   );
 }

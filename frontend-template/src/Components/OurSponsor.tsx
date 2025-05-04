@@ -38,7 +38,7 @@ const OurSponsor: React.FC = () => {
   }, [slider]);
 
   return (
-    <section className="flex flex-col items-center gap-6 w-full max-w-[1440px] py-16 sm:py-20 md:py-24 bg-white text-center px-4 sm:px-6 md:px-12">
+    <section className="flex flex-col justify-center items-center gap-6 w-full py-16 sm:py-20 md:py-24 bg-white text-center px-4 sm:px-6 md:px-12">
       <h2 className="text-[24px] sm:text-[28px] md:text-[36px] text-[#0F114C] font-rubik font-bold leading-[120%] tracking-[0.36em] uppercase">
         Our Sponsors
       </h2>
