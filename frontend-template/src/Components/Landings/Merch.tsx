@@ -14,7 +14,7 @@ export default function Merch() {
         </p>
       </div>
 
-      <div className="flex md:flex-row flex-col-reverse justify-between md:mt-24 mt-4">
+      <div className="flex md:flex-row flex-col-reverse justify-between md:mt-24 mt-4 px-12">
         <div className="relative flex flex-col justify-center gap-8 w-full">
           <h1 className="font-bold text-[33px] leading-[1.2em] tracking-[0.16em] text-[#000000] uppercase md:text-start text-center">
             ITCC 2025 Merchandise
@@ -37,7 +37,7 @@ export default function Merch() {
             alt=""
           />
           {/* <img src="/image/rightArrow.svg" className="inline ml-4" alt="" /> */}
-          <div className="absolute bottom-0 left-48">
+          <div className="md:absolute flex bottom-24 left-48">
             <ArrowRightIcon />
           </div>
         </div>
