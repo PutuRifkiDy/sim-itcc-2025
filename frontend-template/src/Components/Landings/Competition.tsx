@@ -125,24 +125,24 @@ const Competition = () => {
                 href="#"
                 className="inline-flex items-center gap-3 absolute bottom-10 right-10 bg-transparent py-2 px-4 rounded-full"
               >
-                <span className="font-bold text-white text-lg md:text-xl">
+                <span className="font-bold text-white text-lg md:text-[54px]">
                   Join
                 </span>
-                <img src="/image/arrow.png" className="w-5 h-4" alt="arrow" />
+                <img src="/image/arrow.png" className="w-8 h-8" alt="arrow" />
               </a>
 
               {/* Logo */}
               <div className="md:absolute block top-8 right-10">
                 <img
                   src={item.logo}
-                  className="w-[60px] h-[36px] object-cover"
+                  className="w-[78px] h-[46px] object-cover"
                   alt="Logo"
                 />
               </div>
               <div className="absolute bottom-12 md:left-16 left-11">
                 <img
                   src={item.logo}
-                  className="w-[60px] h-[36px] object-cover"
+                  className="w-[78px] h-[46px] object-cover"
                   alt="Logo"
                 />
               </div>

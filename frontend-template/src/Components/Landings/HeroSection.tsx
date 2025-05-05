@@ -8,7 +8,7 @@ import {
   SideRightSquareIndexOne, 
   SideRightSquareIndexThree, 
   SideRightSquareIndexTwo 
-} from "./Icons/HeroIcons";
+} from "../Icons/HeroIcons";
 
 export default function HeroSection() {
   return (
