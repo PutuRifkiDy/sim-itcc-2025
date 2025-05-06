@@ -54,7 +54,7 @@ export default function Footer({ ...props }) {
             </footer>
 
             {/* untuk responsive footernya */}
-            <footer className="md:hidden bg-[#328AC9] w-full px-5 py-5 pb-12">
+            <footer className="md:hidden bg-[#0F114C] w-full px-5 py-5 pb-12">
                 <div className="flex flex-col gap-10 mb-10">
 
                     <div className="flex flex-col gap-5">
