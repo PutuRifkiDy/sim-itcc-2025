@@ -2,7 +2,7 @@ import { SideLeftArrowLeftIcon, SideLeftCrookedCrossIcon, SideRightCircleIcon, S
 
 export default function Home() {
   return (
-    <section className="px-12">
+    <section className="px-24">
       <div className="flex flex-row justify-center md:justify-between">
 
         {/* side left */}

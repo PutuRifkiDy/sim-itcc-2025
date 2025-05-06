@@ -7,7 +7,7 @@ export default function Footer({ ...props }) {
     const competitions = usePage().props.competitions;
     return (
         <>
-            <footer className="bg-[#0F114C] w-full px-12 py-12 pb-14 md:block hidden">
+            <footer className="bg-[#0F114C] w-full px-24 py-12 pb-14 md:block hidden">
                 <div className="flex flex-row justify-between mb-10">
 
                     <div className="flex flex-col gap-5">
