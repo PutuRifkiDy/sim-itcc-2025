@@ -18,6 +18,7 @@ class NavbarResource extends JsonResource
             'name' => $this->name,
             'is_open_regis' => $this->is_open_regis,
             'slug' => $this->slug,
+            'description' => $this->description
         ];
     }
 }

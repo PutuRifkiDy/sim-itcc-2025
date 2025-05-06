@@ -38,9 +38,7 @@ export default function NavBar({ auth, competitions }) {
         <>
             <nav className="md:flex hidden flex-row justify-between py-5 px-12 border-b-[1px] fixed top-0 left-0 w-full z-50 shadow bg-white">
                 <div>
-                    <h1 className="text-4xl">
-                        Logo
-                    </h1>
+                    <img src={`${window.location.origin}/assets/images/image_for_icon_logo_itcc.png`} alt="" className="w-[82px] h-[49px]"/>
                 </div>
 
                 {/* link untuk ngarah ke page lain */}
