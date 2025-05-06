@@ -1,8 +1,23 @@
-import { usePage } from "@inertiajs/react";
+import { Link, usePage } from "@inertiajs/react";
+import * as AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from "react";
 
 const Competition = () => {
+    useEffect(() => {
+        AOS.init({
+            duration: 800,
+            once: false,
+            easing: 'ease-out-cubic',
+            offset: 100,
+            delay: 0,
+            mirror: false,
+            anchorPlacement: 'top-bottom',
+            disable: 'mobile'
+        });
+    }, []);
+
     const competitions = usePage().props.competitions;
-    console.log("cek competitions", competitions);
     const svgLeft = (
         <div className="absolute -top-10 left-0 pl-[28px] flex flex-col gap-4 z-10">
             {[...Array(3)].map((_, index) => (
@@ -105,26 +120,25 @@ const Competition = () => {
         .filter(item => item.is_open_regis == true)
         .map((item, index) => ({
             ...item,
-            image: additionalCompetitions[index]?.image || "default.jpg", // fallback jika index tidak ada
+            image: additionalCompetitions[index]?.image || "default.jpg",
             logo: additionalCompetitions[index]?.logo || "default-logo.png"
         }))
         .concat(additionalCompetitions.slice(competitions.length));
 
-    console.log("combinedCompetitionsWithAdditionalContent", combinedCompetitionsWithAdditionalContent);
 
     return (
         <div className="w-full max-w-[1440px] min-h-screen bg-white mx-auto px-4 py-12">
-            <h1 className="text-center text-[#0F114C] font-rubik font-bold uppercase tracking-[0.36em] text-2xl md:text-4xl">
+            <h1 className="text-center text-[#0F114C] font-rubik font-bold uppercase tracking-[0.36em] text-2xl md:text-4xl" data-aos="fade-up">
                 OUR COMPETITIONS
             </h1>
-            <p className="text-[#5E5E5E] text-center font-rubik text-base leading-[180%] max-w-[653px] mt-6 mx-auto">
+            <p className="text-[#5E5E5E] text-center font-rubik text-base leading-[180%] max-w-[653px] mt-6 mx-auto" data-aos="fade-up" data-aos-delay="100">
                 Join our exciting competitions and showcase your skills! A perfect
                 opportunity to challenge yourself, connect with others, and win amazing
                 prizes.
             </p>
 
             {/* SVG kiri dan kanan */}
-            <div className="relative flex justify-between items-center mt-16">
+            <div className="hidden relative md:flex justify-between items-center mt-16">
                 {svgLeft}
                 {svgRight}
             </div>
@@ -139,6 +153,7 @@ const Competition = () => {
                            bg-gradient-to-r from-[#0F114C] to-[#006693]
                            transition duration-300 ease-in-out
                            hover:scale-105"
+                        data-aos="fade-up" data-aos-delay="200"
                     >
                         <div className="relative w-full h-full">
                             <img
@@ -160,15 +175,15 @@ const Competition = () => {
                             </div>
 
                             {/* Join button */}
-                            <a
-                                href="#"
+                            <Link
+                                href={route('competition.front.show', [item.slug])}
                                 className="inline-flex items-center gap-3 absolute bottom-10 right-10 bg-transparent py-2 px-4 rounded-full"
                             >
                                 <span className="font-bold text-white text-lg md:text-[54px]">
                                     Join
                                 </span>
                                 <img src="assets/images/landing/arrow.png" className="w-8 h-8" alt="arrow" />
-                            </a>
+                            </Link>
 
                             {/* Logo */}
                             <div className="md:absolute block top-8 right-10">

@@ -1,13 +1,28 @@
 import { ArrowRightIcon } from "@/Components/IconGuest";
+import * as AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from "react";
 
 export default function Merch() {
+    useEffect(() => {
+        AOS.init({
+            duration: 800,
+            once: false,
+            easing: 'ease-out-cubic',
+            offset: 100,
+            delay: 0,
+            mirror: false,
+            anchorPlacement: 'top-bottom',
+            disable: 'mobile'
+        });
+    }, []);
   return (
     <section className="flex flex-col items-center md:pl-12 py-10 mt-24">
       <div className="text-center md:mb-0 mb-10 md:w-[600px] w-full">
-        <h2 className="uppercase md:text-4xl text-2xl font-bold text-[#0F114C] md:tracking-[10px] tracking-[5px]">
+        <h2 className="uppercase md:text-4xl text-2xl font-bold text-[#0F114C] md:tracking-[10px] tracking-[5px]" data-aos="fade-up">
           Our Merchandise
         </h2>
-        <p className="mt-4 text-[#5E5E5E] font-rubik text-sm sm:text-base md:text-lg font-normal tracking-[0.02em]">
+        <p className="mt-4 text-[#5E5E5E] font-rubik text-sm sm:text-base md:text-lg font-normal tracking-[0.02em]" data-aos="fade-up" data-aos-delay="100">
           Support us and show your pride by getting our official merchandise.
           High-quality, stylish, and made just for you — wear it and be part of
           the community!
@@ -16,13 +31,13 @@ export default function Merch() {
 
       <div className="flex md:flex-row flex-col-reverse justify-between md:mt-24 mt-4 px-12">
         <div className="relative flex flex-col justify-center gap-8 w-full">
-          <h1 className="font-bold text-[33px] leading-[1.2em] tracking-[0.16em] text-[#000000] uppercase md:text-start text-center">
+          <h1 className="font-bold text-[33px] leading-[1.2em] tracking-[0.16em] text-[#000000] uppercase md:text-start text-center" data-aos="fade-left">
             ITCC 2025 Merchandise
           </h1>
-          <p className="font-reguler text-[17px] tracking-[0.04em] leading-[1.5em] text-[#121212] md:w-[427px] max-w-[700px] md:text-start text-center">
+          <p className="font-reguler text-[17px] tracking-[0.04em] leading-[1.5em] text-[#121212] md:w-[427px] max-w-[700px] md:text-start text-center" data-aos="fade-left" data-aos-delay="100">
             Lorem ipsum dolor sit amet consectetur. Enim sagittis ac quam nunc viverra maecenas semper ullamcorper quis. Facilisi diam tortor bibendum porta.
           </p>
-          <div className="flex md:flex-row flex-col md:gap-7 gap-5 justify-center md:justify-start">
+          <div className="flex md:flex-row flex-col md:gap-7 gap-5 justify-center md:justify-start" data-aos="fade-left" data-aos-delay="100">
             <button className="bg-[#0F114C] text-white px-6 py-2 rounded-[10px] font-semibold">
               Buy Now{" "}
               <img src="assets/images/landingArrow.svg" className="inline ml-4" alt="" />
@@ -48,6 +63,7 @@ export default function Merch() {
               src="assets/images/landing/ITCCmerch.png"
               className="relative md:w-[556px] w-48 md:ml-32 md:mr-16 ml-6"
               alt="ITCC 2025 Merch"
+              data-aos="fade-right" data-aos-delay="100"
             />
           </div>
         </div>
