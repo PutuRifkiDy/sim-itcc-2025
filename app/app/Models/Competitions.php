@@ -1,16 +1,15 @@
 <?php
-
 namespace App\Models;
 
-use App\Models\Teams;
-use App\Models\CompetitionPrices;
-use App\Models\CompetitionContent;
 use App\Models\CompetitionCategory;
-use Illuminate\Database\Eloquent\Model;
+use App\Models\CompetitionContent;
+use App\Models\CompetitionPrices;
 use App\Models\CompetitionRegistrations;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use App\Models\Teams;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Competitions extends Model
 {
@@ -52,5 +51,10 @@ class Competitions extends Model
     public function teams(): HasMany
     {
         return $this->hasMany(Teams::class, 'competition_id', 'id');
+    }
+
+    public function admins()
+    {
+        return $this->belongsToMany(User::class, 'admin_competition');
     }
 }
