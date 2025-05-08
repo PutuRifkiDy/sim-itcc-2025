@@ -3,15 +3,26 @@ import { ArchiveBoxXMarkIcon, BanknotesIcon, BuildingLibraryIcon, CheckBadgeIcon
 import { usePage } from "@inertiajs/react";
 import { useEffect } from "react";
 import { toast } from "sonner";
+import { BarElement, CategoryScale, Chart as ChartJS, Legend, LinearScale, LineElement, PointElement, Title, Tooltip } from 'chart.js';
+import { Line, Bar } from 'react-chartjs-2';
 
 function Overview() {
+    ChartJS.register(CategoryScale, LinearScale, LineElement, PointElement, Title, Tooltip, Legend, BarElement);
+
     const count_participant_semnas = usePage().props.count_participant_semnas;
     const count_participant_competition = usePage().props.count_participant_competition;
     const sum_total_payment_semnas = usePage().props.sum_total_payment_semnas;
     const sum_total_payment_competition = usePage().props.sum_total_payment_competition;
     const count_institution = usePage().props.count_institution;
+    const monthly_sales_chart = usePage().props.monthly_sales_chart;
 
     const { flash_message } = usePage().props;
+
+    const data = {
+        labels: monthly_sales_chart.labels,
+        datasets: monthly_sales_chart.datasets,
+    };
+
 
     useEffect(() => {
         if (flash_message?.message) {
@@ -23,7 +34,6 @@ function Overview() {
         <div className="py-5">
             <div className="bg-white p-4 shadow rounded-lg sm:p-8 gap-5">
                 <div className="gap-5 grid md:grid-cols-3 grid-cols-1">
-                    {/* ada 3 div untuk count requested, pending, sama rejected*/}
                     <div className="border-2 border-[#E4F0F8] flex items-center flex-row gap-10 py-5 px-5 rounded-xl">
                         {/* start icon */}
                         <div className="flex justify-center items-center p-4 rounded-2xl bg-[#718EBF]/40">
@@ -77,6 +87,10 @@ function Overview() {
                             <p className="font-bold text-[24px] text-[#232323]">{sum_total_payment_competition}</p>
                         </div>
                     </div>
+                </div>
+
+                <div className='px-4 pt-5 pb-6 mt-8 bg-white border rounded-lg sm:px-6 sm:pt-6'>
+                    <Line data={data} />
                 </div>
             </div>
         </div>

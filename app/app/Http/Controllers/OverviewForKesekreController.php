@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\CompetitionRegistrations;
 use App\Models\EventRegistrations;
 use App\Models\User;
+use Carbon\Carbon;
 use Inertia\Response;
 
 class OverviewForKesekreController extends Controller
@@ -50,6 +51,70 @@ class OverviewForKesekreController extends Controller
             'sum_total_payment_semnas'      => $sum_total_payment_semnas,
             'sum_total_payment_competition' => $sum_total_payment_competition,
             'count_institution'             => $count_institution,
+            'monthly_sales_chart'           => $this->monthlySalesChart(),
         ]);
+    }
+
+    public function monthlySalesChart(): array
+    {
+        $currentDate  = Carbon::now();
+        $sixMonthsAgo = $currentDate->copy()->subMonths(5);
+
+        $labels          = [];
+        $semnasData      = [];
+        $competitionData = [];
+
+        for ($i = 0; $i < 6; $i++) {
+            $monthLabel = $sixMonthsAgo->format('F');
+            $labels[]   = $monthLabel;
+
+            // Jumlah Semnas
+            $semnasTotal = EventRegistrations::where('payment_status', 'Verified')
+                ->whereMonth('created_at', $sixMonthsAgo->month)
+                ->whereYear('created_at', $sixMonthsAgo->year)
+                ->sum('total_payment');
+
+            // Jumlah Competition Individual
+            $individualTotal = CompetitionRegistrations::where('payment_status', 'Verified')
+                ->whereNull('team_id')
+                ->whereMonth('created_at', $sixMonthsAgo->month)
+                ->whereYear('created_at', $sixMonthsAgo->year)
+                ->sum('total_payment');
+
+            // Jumlah Competition Team (by team, per team)
+            $teamTotal = CompetitionRegistrations::where('payment_status', 'Verified')
+                ->whereNotNull('team_id')
+                ->whereMonth('created_at', $sixMonthsAgo->month)
+                ->whereYear('created_at', $sixMonthsAgo->year)
+                ->groupBy('team_id')
+                ->selectRaw('MIN(total_payment) as total_payment')
+                ->get()
+                ->sum('total_payment');
+
+            $semnasData[]      = $semnasTotal;
+            $competitionData[] = $individualTotal + $teamTotal;
+
+            $sixMonthsAgo->addMonth();
+        }
+
+        return [
+            'labels'   => $labels,
+            'datasets' => [
+                [
+                    'label'           => 'Semnas',
+                    'data'            => $semnasData,
+                    'backgroundColor' => '#3b82f6',
+                    'tension'         => 0,
+                    'borderColor'     => '#3b82f6',
+                ],
+                [
+                    'label'           => 'Competition',
+                    'data'            => $competitionData,
+                    'backgroundColor' => '#a8323a',
+                    'tension'         => 0,
+                    'borderColor'     => '#a8323a',
+                ],
+            ],
+        ];
     }
 }
