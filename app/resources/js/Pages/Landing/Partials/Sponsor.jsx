@@ -22,7 +22,6 @@ const Sponsor = () => {
             delay: 0,
             mirror: false,
             anchorPlacement: 'top-bottom',
-            disable: 'mobile'
         });
     }, []);
     const [sliderRef, slider] = useKeenSlider({

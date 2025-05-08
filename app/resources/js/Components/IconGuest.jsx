@@ -99,16 +99,16 @@ export const SideRightCrossIcon = () => {
 
 export const SideRightSquareIndexThree = () => {
     return (
-        <svg width="255" height="164" viewBox="0 0 255 164" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
-            <rect x="3.05176e-05" width="255" height="164" rx="5" fill="#495190" />
-            <rect width="130.909" height="9" transform="matrix(-1 0 0 1 130.909 13)" fill="url(#pattern0_776_46623)" />
-            <circle cx="241" cy="14" r="8" fill="#0F114C" />
-            <circle cx="241" cy="14" r="4.53846" fill="#0F114C" stroke="white" strokeWidth="2" />
+        <svg width="292" height="188" viewBox="0 0 292 188" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+            <rect x="0.133041" width="291.342" height="187.373" rx="5" fill="#495190" />
+            <rect width="149.566" height="10.2827" transform="matrix(-1 0 0 1 149.566 17)" fill="url(#pattern0_613_46203)" />
+            <circle cx="275.48" cy="15.9952" r="9.14014" fill="#0F114C" />
+            <circle cx="275.48" cy="15.9952" r="5.32779" fill="#0F114C" stroke="white" stroke-width="2" />
             <defs>
-                <pattern id="pattern0_776_46623" patternContentUnits="objectBoundingBox" width="1" height="1">
-                    <use xlinkHref="#image0_776_46623" transform="scale(0.003125 0.0454545)" />
+                <pattern id="pattern0_613_46203" patternContentUnits="objectBoundingBox" width="1" height="1">
+                    <use xlinkHref="#image0_613_46203" transform="scale(0.003125 0.0454545)" />
                 </pattern>
-                <image id="image0_776_46623" width="320" height="22" preserveAspectRatio="none" xlinkHref="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAUAAAAAWCAMAAACG7rXGAAAAG1BMVEVMaXH////////////////////////////////liRbkAAAACHRSTlMAQIDAECCQYFDuIeYAAAAJcEhZcwAALEoAACxKAXd6dE0AAABYSURBVFiF7deLCcAgDAbhaOtj/4nbHU74Ee6bIDkIaJWAudITXO7p6QkuZ0DIgJABIQNCBoQMCP0B2xbQ620CRvoGJEmSVIl3YHrnoxI/kfTORxkQigT8AA3qFsRi6RKyAAAAAElFTkSuQmCC" />
+                <image id="image0_613_46203" width="320" height="22" preserveAspectRatio="none" xlinkHref="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAUAAAAAWCAMAAACG7rXGAAAAG1BMVEVMaXH////////////////////////////////liRbkAAAACHRSTlMAQIDAECCQYFDuIeYAAAAJcEhZcwAALEoAACxKAXd6dE0AAABYSURBVFiF7deLCcAgDAbhaOtj/4nbHU74Ee6bIDkIaJWAudITXO7p6QkuZ0DIgJABIQNCBoQMCP0B2xbQ620CRvoGJEmSVIl3YHrnoxI/kfTORxkQigT8AA3qFsRi6RKyAAAAAElFTkSuQmCC" />
             </defs>
         </svg>
     );
@@ -116,16 +116,16 @@ export const SideRightSquareIndexThree = () => {
 
 export const SideRightSquareIndexTwo = () => {
     return (
-        <svg width="309" height="165" viewBox="0 0 309 165" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+        <svg width="353" height="188" viewBox="0 0 353 188" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
             <g filter="url(#filter0_d_613_46203)">
-                <rect x="4" width="301" height="157" rx="5" fill="#00658F" />
+                <rect x="4.61523" y="0.090271" width="343.898" height="179.375" rx="5" fill="#00658F" />
             </g>
-            <rect width="130.909" height="9" transform="matrix(-1 0 0 1 130.909 103)" fill="url(#pattern0_613_46203)" />
-            <circle cx="25" cy="87" r="8" fill="#0F114C" />
-            <circle cx="25" cy="87" r="4.53846" fill="#0F114C" stroke="white" strokeWidth="2" />
+            <rect width="149.566" height="10.2827" transform="matrix(-1 0 0 1 149.611 117.77)" fill="url(#pattern0_613_46203)" />
+            <circle cx="28.6081" cy="99.4893" r="9.14014" fill="#0F114C" />
+            <circle cx="28.6081" cy="99.4893" r="5.32779" fill="#0F114C" stroke="white" strokeWidth="2" />
             <defs>
-                <filter id="filter0_d_613_46203" x="0" y="0" width="309" height="165" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-                    <feFlood floodOpacity="0" result="BackgroundImageFix" />
+                <filter id="filter0_d_613_46203" x="0.615234" y="0.090271" width="351.898" height="187.375" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
                     <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
                     <feOffset dy="4" />
                     <feGaussianBlur stdDeviation="2" />
@@ -145,14 +145,14 @@ export const SideRightSquareIndexTwo = () => {
 
 export const SideRightSquareIndexOne = () => {
     return (
-        <svg width="263" height="176" viewBox="0 0 263 176" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+        <svg width="300" height="201" viewBox="0 0 300 201" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
             <g filter="url(#filter0_d_613_46203)">
-                <rect x="4" width="255" height="168" rx="5" fill="#0F114C" />
+                <rect x="4.54636" y="0.50119" width="291.342" height="191.943" rx="5" fill="#0F114C" />
             </g>
-            <rect x="128" y="144" width="130.909" height="9" fill="url(#pattern0_613_46203)" />
+            <rect x="146.219" y="165.024" width="149.566" height="10.2827" fill="url(#pattern0_613_46203)" />
             <defs>
-                <filter id="filter0_d_613_46203" x="0" y="0" width="263" height="176" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-                    <feFlood floodOpacity="0" result="BackgroundImageFix" />
+                <filter id="filter0_d_613_46203" x="0.546356" y="0.50119" width="299.342" height="199.943" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
                     <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
                     <feOffset dy="4" />
                     <feGaussianBlur stdDeviation="2" />
@@ -162,7 +162,7 @@ export const SideRightSquareIndexOne = () => {
                     <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_613_46203" result="shape" />
                 </filter>
                 <pattern id="pattern0_613_46203" patternContentUnits="objectBoundingBox" width="1" height="1">
-                    <use xlinkHref="#image0_613_46203" transform="scale(0.003125 0.0454545)" />
+                    <use xlink:href="#image0_613_46203" transform="scale(0.003125 0.0454545)" />
                 </pattern>
                 <image id="image0_613_46203" width="320" height="22" preserveAspectRatio="none" xlinkHref="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAUAAAAAWCAMAAACG7rXGAAAAG1BMVEVMaXH////////////////////////////////liRbkAAAACHRSTlMAQIDAECCQYFDuIeYAAAAJcEhZcwAALEoAACxKAXd6dE0AAABYSURBVFiF7deLCcAgDAbhaOtj/4nbHU74Ee6bIDkIaJWAudITXO7p6QkuZ0DIgJABIQNCBoQMCP0B2xbQ620CRvoGJEmSVIl3YHrnoxI/kfTORxkQigT8AA3qFsRi6RKyAAAAAElFTkSuQmCC" />
             </defs>

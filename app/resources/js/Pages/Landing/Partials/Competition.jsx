@@ -13,7 +13,6 @@ const Competition = () => {
             delay: 0,
             mirror: false,
             anchorPlacement: 'top-bottom',
-            disable: 'mobile'
         });
     }, []);
 
@@ -127,7 +126,7 @@ const Competition = () => {
 
 
     return (
-        <div className="w-full max-w-[1440px] min-h-screen bg-white mx-auto px-4 py-12">
+        <div className="w-full max-w-[1440px] min-h-screen bg-white mx-auto px-4 py-12" id="competition">
             <h1 className="text-center text-[#0F114C] font-rubik font-bold uppercase tracking-[0.36em] text-2xl md:text-4xl" data-aos="fade-up">
                 OUR COMPETITIONS
             </h1>
@@ -182,7 +181,7 @@ const Competition = () => {
                                 <span className="font-bold text-white text-lg md:text-[54px]">
                                     Join
                                 </span>
-                                <img src="assets/images/landing/arrow.png" className="w-8 h-8" alt="arrow" />
+                                <img src="assets/images/landing/arrow.png" className="md:w-8 md:h-8 w-4 h-4" alt="arrow" />
                             </Link>
 
                             {/* Logo */}

@@ -11,7 +11,6 @@ export default function About() {
             delay: 0,
             mirror: false,
             anchorPlacement: 'top-bottom',
-            disable: 'mobile'
         });
     }, []);
     return (

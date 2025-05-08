@@ -31,7 +31,7 @@ export default function Login({ status, canResetPassword }) {
             <div className="flex flex-row items-center justify-center">
                 <div className="min-h-full min-w-full">
                     <div className="flex flex-row rounded-[28px] p-5 border-[1px] shadow md:mx-36">
-                        <div className="hidden gap-5 rounded-[28px] bg-[#4880FF] px-10 py-10 md:flex md:flex-col">
+                        <div className="hidden gap-5 rounded-[28px] bg-[#0F114C] px-10 py-10 md:flex md:flex-col">
                             <p className="w-[500px] text-[32px] font-bold text-[#FFFFFF]">
                                 Very good events are waiting for you Login Now
                             </p>

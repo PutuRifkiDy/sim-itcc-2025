@@ -12,17 +12,23 @@ import {
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { toast } from "sonner";
+import { check } from "prettier";
 
 export default function NavBar({ auth, competitions }) {
     const [openNav, setOpenNav] = useState(false);
+    const [openDropdown, setOpenDropdown] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const { flash_message } = usePage().props;
+
+    console.log('cek open dropdown', openDropdown);
 
     useEffect(() => {
         if (flash_message?.message) {
             toast[flash_message.type || 'success'](flash_message.message);
         }
     }, [flash_message]);
+
+
     useEffect(() => {
         window.addEventListener("scroll", () => {
             scroll = window.scrollY;
@@ -38,21 +44,24 @@ export default function NavBar({ auth, competitions }) {
         <>
             <nav className="md:flex hidden flex-row justify-between py-5 px-24 border-b-[1px] fixed top-0 left-0 w-full z-50 shadow bg-white">
                 <div>
-                    <img src={`${window.location.origin}/assets/images/image_for_icon_logo_itcc.png`} alt="" className="w-[82px] h-[49px]"/>
+                    <img src={`${window.location.origin}/assets/images/image_for_icon_logo_itcc.png`} alt="" className="w-[82px] h-[49px]" />
                 </div>
-
-                {/* link untuk ngarah ke page lain */}
                 <div className="flex flex-row gap-10 justify-center items-center">
                     <Link
                         href={route('welcome')}
+                        className="relative transition-all duration-300 overflow-hidden hover:text-[#0F114C]  group"
                     >
                         Home
+                        <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-[#0F114C]/90 to-[#0F114C]
+                                        transform origin-left transition-all duration-300 ease-out
+                                        translate-x-[-100%] group-hover:translate-x-0`}>
+                        </span>
                     </Link>
                     <DropdownMenu>
-                        <DropdownMenuTrigger asChild>
-                            <p className='cursor-pointer flex flex-row gap-2 justify-center items-center'>
+                        <DropdownMenuTrigger asChild >
+                            <p className='cursor-pointer flex flex-row gap-2 justify-center items-center' onClick={() => setOpenDropdown(true)} >
                                 Competitions
-                                <ChevronDownIcon className="font-bold h-4 w-4" />
+                                <ChevronDownIcon className={`font-bold h-4 w-4 transition-transform transform  ${openDropdown ? 'rotate-180' : ''}`} />
                             </p>
                         </DropdownMenuTrigger>
                         <DropdownMenuContent className="w-56 flex flex-col justify-start px-4 gap-3 py-3 outline-none" >
@@ -72,15 +81,26 @@ export default function NavBar({ auth, competitions }) {
 
                     <Link
                         href={route('event.front.show', ['seminar-nasional-teknologi-informasi-of'])}
-                        className="truncate"
+                        className="relative transition-all duration-300 overflow-hidden hover:text-[#0F114C]  group"
                     >
                         Semnas
+                        <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-[#0F114C]/90 to-[#0F114C]
+                                        transform origin-left transition-all duration-300 ease-out
+                                        translate-x-[-100%] group-hover:translate-x-0`}>
+
+                        </span>
                     </Link>
 
                     <Link
                         href={route('merchandise.front.show')}
+                        className="relative transition-all duration-300 overflow-hidden hover:text-[#0F114C]  group"
                     >
                         Merchandise
+                        <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-[#0F114C]/90 to-[#0F114C]
+                                        transform origin-left transition-all duration-300 ease-out
+                                        translate-x-[-100%] group-hover:translate-x-0`}>
+
+                        </span>
                     </Link>
                 </div>
 
