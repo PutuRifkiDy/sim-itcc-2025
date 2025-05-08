@@ -112,7 +112,7 @@ function Overview() {
                         <h1 className="text-xl font-medium">
                             Monthly Sales Chart
                         </h1>
-                        <p className="text-gray-500 text-[14px]">
+                        <p className="text-gray-500 text-[14px] mb-5">
                             Monthly sales over previous 6 months
                         </p>
                         <Line data={data} />
@@ -121,7 +121,7 @@ function Overview() {
                         <h1 className="text-xl font-medium">
                             Monthly Registrations Chart
                         </h1>
-                        <p className="text-gray-500 text-[14px]">
+                        <p className="text-gray-500 text-[14px] mb-5">
                             Monthly registrations over previous 6 months
                         </p>
                         <Bar data={dataRegistrations} />

@@ -163,18 +163,18 @@ class OverviewForKesekreController extends Controller
             'labels'   => $labels,
             'datasets' => [
                 [
-                    'label'           => 'Semnas',
+                    'label'           => 'Semnas Sales',
                     'data'            => $semnasData,
                     'backgroundColor' => '#3b82f6',
                     'tension'         => 0,
                     'borderColor'     => '#3b82f6',
                 ],
                 [
-                    'label'           => 'Competition',
+                    'label'           => 'Competition Sales',
                     'data'            => $competitionData,
-                    'backgroundColor' => '#a8323a',
+                    'backgroundColor' => '#6CB9AD',
                     'tension'         => 0,
-                    'borderColor'     => '#a8323a',
+                    'borderColor'     => '#6CB9AD',
                 ],
             ],
         ];
