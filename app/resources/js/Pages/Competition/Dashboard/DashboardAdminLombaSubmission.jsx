@@ -727,4 +727,4 @@ function DashboardAdminLombaSubmission({ ...props }) {
 }
 
 export default DashboardAdminLombaSubmission;
-DashboardAdminLombaSubmission.layout = (page) => <DashboardLayout children={page} title="Admin Competition Submission" header="Admin Competition Submission" />
+DashboardAdminLombaSubmission.layout = (page) => <DashboardLayout children={page} title="Admin Competition Submission" header="Admin Competition Submission" description="Manage your competition submissions in this page" />

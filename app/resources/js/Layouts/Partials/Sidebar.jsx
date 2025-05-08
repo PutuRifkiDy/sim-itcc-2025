@@ -14,7 +14,7 @@ import { ArrowRightStartOnRectangleIcon, Squares2X2Icon, SunIcon, UserCircleIcon
 import { UserIcon } from '@heroicons/react/24/outline';
 import { User } from 'lucide-react';
 
-export default function Sidebar({ navigations, children, header }) {
+export default function Sidebar({ navigations, children, header, description }) {
     const [isSidebarOpen, setIsSidebarOpen] = useState(window.innerWidth >= 768);
     const auth = usePage().props.auth.user;
 
@@ -212,6 +212,9 @@ export default function Sidebar({ navigations, children, header }) {
                     <div className="flex min-h-screen flex-col gap-1 bg-[#F5F6FA] px-4 py-2 dark:bg-[#1d232a] md:px-10 md:py-5 md:mt-0 pt-10">
                         <p className='text-3xl font-semibold leading-tight text-gray-800'>
                             {header}
+                        </p>
+                        <p className='text-[17px] text-gray-500'>
+                            {description}
                         </p>
                         {children}
                     </div>

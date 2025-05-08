@@ -5,7 +5,7 @@ import { Toaster } from '@/Components/ui/sonner';
 import { DocumentTextIcon } from "@heroicons/react/24/outline";
 
 
-export default function DashboardLayout({ children, title, header }) {
+export default function DashboardLayout({ children, title, header, description }) {
     const auth = usePage().props.auth.user;
     console.log('cek isi', auth);
     const route_sidebar = [
@@ -65,7 +65,7 @@ export default function DashboardLayout({ children, title, header }) {
         <>
             <Head title={title} />
             <Toaster position="top-center" richColors />
-            <Sidebar navigations={route_sidebar} header={header}>
+            <Sidebar navigations={route_sidebar} header={header} description={description}>
                 {children}
             </Sidebar>
         </>

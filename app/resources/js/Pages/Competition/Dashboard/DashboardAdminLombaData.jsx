@@ -532,4 +532,4 @@ function DashboardAdminLombaData({ ...props }) {
 }
 
 export default DashboardAdminLombaData;
-DashboardAdminLombaData.layout = (page) => <DashboardLayout children={page} title="Admin Competition Participant" header="Admin Competition Participant" />
+DashboardAdminLombaData.layout = (page) => <DashboardLayout children={page} title="Admin Competition Participant" header="Admin Competition Participant" description="Manage your competition participants in this page" />

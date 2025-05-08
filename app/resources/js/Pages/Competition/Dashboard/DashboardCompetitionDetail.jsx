@@ -56,4 +56,4 @@ function DashboardCompetitionDetail() {
 }
 
 export default DashboardCompetitionDetail;
-DashboardCompetitionDetail.layout = (page) => <DashboardLayout children={page} title="Competition Detail" />;
+DashboardCompetitionDetail.layout = (page) => <DashboardLayout children={page} title="Competition Detail" header="Competition Detail" description="Manage your payment and submission in this page"/>;

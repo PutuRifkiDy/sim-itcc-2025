@@ -27,7 +27,6 @@ function Overview() {
             tension: 0,
             pointRadius: 4,
             borderWidth: 2,
-
         })),
     };
 
@@ -107,8 +106,8 @@ function Overview() {
                     </div>
                 </div>
 
-                <div className='px-4 pt-5 pb-6 mt-8 bg-white border rounded-lg sm:px-6 sm:pt-6 flex gap-10'>
-                    <div className="w-1/2">
+                <div className='px-4 pt-5 pb-6 mt-8 bg-white border rounded-lg sm:px-6 sm:pt-6 flex md:flex-row flex-col gap-5'>
+                    <div className="md:w-1/2 w-full">
                         <h1 className="text-xl font-medium">
                             Monthly Sales Chart
                         </h1>
@@ -117,7 +116,7 @@ function Overview() {
                         </p>
                         <Line data={data} />
                     </div>
-                    <div className="w-1/2">
+                    <div className="md:w-1/2 w-full">
                         <h1 className="text-xl font-medium">
                             Monthly Registrations Chart
                         </h1>
@@ -133,4 +132,4 @@ function Overview() {
 }
 
 export default Overview;
-Overview.layout = (page) => <DashboardLayout children={page} title="Overview" header="Overview" />;
+Overview.layout = (page) => <DashboardLayout children={page} title="Overview" header="Overview" description="All reports of progress in this page"/>;
