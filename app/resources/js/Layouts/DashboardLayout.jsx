@@ -39,14 +39,14 @@ export default function DashboardLayout({ children, title, header, description }
             }
         ] : [
             {
-                icon: <IconProfileSideBar />,
-                text: 'Profile',
-                link: route('profile.edit'),
-            },
-            {
                 icon: <IconBerandaSideBar />,
                 text: 'Dashboard',
                 link: route('dashboard'),
+            },
+            {
+                icon: <IconProfileSideBar />,
+                text: 'Profile',
+                link: route('profile.edit'),
             },
             {
                 icon: <IconSidebarSemnas />,
