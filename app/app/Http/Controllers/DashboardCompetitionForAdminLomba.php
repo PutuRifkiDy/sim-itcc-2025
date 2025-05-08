@@ -16,8 +16,11 @@ class DashboardCompetitionForAdminLomba extends Controller
 {
     public function show_participant(): Response
     {
+        $user                           = auth()->user();
+        $adminCompetitionIds            = $user->managed_competitions()->pluck('competitions.id');
         $show_competition_is_open_regis = Competitions::where('is_open_regis', true)->get('name');
         $show_all_participant           = CompetitionRegistrations::with('competitions', 'user', 'teams.team_members')
+            ->whereIn('competition_id', $adminCompetitionIds)
             ->when(request()->search, function ($query, $value) {
                 $query->where(function ($q) use ($value) {
                     $q->whereHas('user', function ($q2) use ($value) {
@@ -74,10 +77,14 @@ class DashboardCompetitionForAdminLomba extends Controller
     public function show_submission(): Response
     {
         $user                           = auth()->user();
+        $adminCompetitionIds            = $user->managed_competitions()->pluck('competitions.id');
         $show_competition_is_open_regis = Competitions::where('is_open_regis', true)
             ->where('is_need_submission', true)
             ->get('name');
         $show_all_submission = Submissions::with('competition_registrations.user', 'competition_registrations.competitions', 'competition_registrations', 'competition_registrations.teams.team_members')
+            ->whereHas('competition_registrations', function ($query) use ($adminCompetitionIds) {
+                $query->whereIn('competition_id', $adminCompetitionIds);
+            })
             ->when(request()->search, function ($query, $value) {
                 $query->where(function ($q) use ($value) {
                     $q->whereHas('competition_registrations.user', function ($q2) use ($value) {

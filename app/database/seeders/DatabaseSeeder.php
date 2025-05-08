@@ -1,6 +1,7 @@
 <?php
 namespace Database\Seeders;
 
+use App\Models\Competitions;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Database\Seeders\CompetitionCategoriesSeeder;
@@ -42,65 +43,115 @@ class DatabaseSeeder extends Seeder
             'password'          => bcrypt('adminKesekreITCC2025YesWeCan1'),
             'email_verified_at' => now(),
         ])->assignRole('admin');
-        User::create([
+        $adminIdeBisnis = User::create([
             'email'             => 'adminIdeBisnis@gmail.com',
             'name'              => 'Admin Ide Bisnis',
             'password'          => bcrypt('adminIdeBisnisITCC2025YesWeCan1'),
             'email_verified_at' => now(),
         ])->assignRole('admin');
-        User::create([
+        $adminMobileDevelopment = User::create([
+            'email'             => 'adminMobileDevelopment@gmail.com',
+            'name'              => 'Admin Mobile Development',
+            'password'          => bcrypt('adminMobileDevelopmentITCC2025YesWeCan1'),
+            'email_verified_at' => now(),
+        ])->assignRole('admin');
+        $adminWebDesignSMASMK = User::create([
             'email'             => 'adminWebDesignSMASMK@gmail.com',
             'name'              => 'Admin Web Design SMASMK',
             'password'          => bcrypt('adminWebDesignSMASMKITCC2025YesWeCan1'),
             'email_verified_at' => now(),
         ])->assignRole('admin');
-        User::create([
+        $adminWebDesignMahasiswa = User::create([
             'email'             => 'adminWebDesignMahasiswa@gmail.com',
             'name'              => 'Admin Web Design Mahasiswa',
             'password'          => bcrypt('adminWebDesignMahasiswaITCC2025YesWeCan1'),
             'email_verified_at' => now(),
         ])->assignRole('admin');
-        User::create([
+        $adminPemrograman = User::create([
             'email'             => 'adminPemrograman@gmail.com',
             'name'              => 'Admin Pemrograman',
             'password'          => bcrypt('adminPemrogramanITCC2025YesWeCan1'),
             'email_verified_at' => now(),
         ])->assignRole('admin');
-        User::create([
+        $adminKidsGameProgramming = User::create([
             'email'             => 'adminKidsGameProgramming@gmail.com',
-            'name'              => 'Admin KidsGameProgramming',
+            'name'              => 'Admin Kids Game Programming',
             'password'          => bcrypt('adminKidsGameProgrammingITCC2025YesWeCan1'),
             'email_verified_at' => now(),
         ])->assignRole('admin');
-        User::create([
+        $adminCerdasCermat = User::create([
             'email'             => 'adminCerdasCermat@gmail.com',
-            'name'              => 'Admin CerdasCermat',
+            'name'              => 'Admin Cerdas Cermat',
             'password'          => bcrypt('adminCerdasCermatITCC2025YesWeCan1'),
             'email_verified_at' => now(),
         ])->assignRole('admin');
-        User::create([
+        $adminUIUXMahasiswa = User::create([
             'email'             => 'adminUIUXMahasiswa@gmail.com',
-            'name'              => 'Admin UIUXMahasiswa',
+            'name'              => 'Admin UIUX Mahasiswa',
             'password'          => bcrypt('adminUIUXMahasiswaITCC2025YesWeCan1'),
             'email_verified_at' => now(),
         ])->assignRole('admin');
-        User::create([
+        $adminUIUXSMASMK = User::create([
             'email'             => 'adminUIUXSMASMK@gmail.com',
-            'name'              => 'Admin UIUXSMASMK',
+            'name'              => 'Admin UIUX SMASMK',
             'password'          => bcrypt('adminUIUXSMASMKITCC2025YesWeCan1'),
             'email_verified_at' => now(),
         ])->assignRole('admin');
-        User::create([
+        $adminKidsGameProgrammingBeginner = User::create([
             'email'             => 'adminKidsGameProgrammingBeginner@gmail.com',
-            'name'              => 'Admin KidsGameProgrammingBeginner',
+            'name'              => 'Admin Kids Game Programming Beginner',
             'password'          => bcrypt('adminKidsGameProgrammingBeginnerITCC2025YesWeCan1'),
             'email_verified_at' => now(),
         ])->assignRole('admin');
-        User::create([
+        $adminKidsGameProgrammingIntermediate = User::create([
             'email'             => 'adminKidsGameProgrammingIntermediate@gmail.com',
-            'name'              => 'Admin KidsGameProgrammingIntermediate',
+            'name'              => 'Admin Kids Game Programming Intermediate',
             'password'          => bcrypt('adminKidsGameProgrammingIntermediateITCC2025YesWeCan1'),
             'email_verified_at' => now(),
         ])->assignRole('admin');
+
+        $adminIdeBisnis->managed_competitions()->attach(
+            Competitions::where('name', 'LIKE', '%Ide Bisnis%')->pluck('id')->toArray(),
+        );
+
+        $adminMobileDevelopment->managed_competitions()->attach(
+            Competitions::where('name', 'LIKE', '%Mobile Apps Development%')->pluck('id')->toArray(),
+        );
+
+        $adminWebDesignSMASMK->managed_competitions()->attach(
+            Competitions::where('name', 'LIKE', '%Web Design SMA/SMK%')->pluck('id')->toArray(),
+        );
+
+        $adminWebDesignMahasiswa->managed_competitions()->attach(
+            Competitions::where('name', 'LIKE', '%Web Design Mahasiswa%')->pluck('id')->toArray(),
+        );
+
+        $adminPemrograman->managed_competitions()->attach(
+            Competitions::where('name', 'LIKE', '%Pemrograman%')->pluck('id')->toArray(),
+        );
+
+        $adminKidsGameProgramming->managed_competitions()->attach(
+            Competitions::where('name', 'LIKE', '%Kids Game Programming%')->pluck('id')->toArray(),
+        );
+
+        $adminCerdasCermat->managed_competitions()->attach(
+            Competitions::where('name', 'LIKE', '%Cerdas Cermat%')->pluck('id')->toArray(),
+        );
+
+        $adminUIUXMahasiswa->managed_competitions()->attach(
+            Competitions::where('name', 'LIKE', '%UI/UX Mahasiswa%')->pluck('id')->toArray(),
+        );
+
+        $adminUIUXSMASMK->managed_competitions()->attach(
+            Competitions::where('name', 'LIKE', '%UI/UX SMA/SMK%')->pluck('id')->toArray(),
+        );
+
+        $adminKidsGameProgrammingBeginner->managed_competitions()->attach(
+            Competitions::where('name', 'LIKE', '%Kids Game Programming Beginner%')->pluck('id')->toArray(),
+        );
+
+        $adminKidsGameProgrammingIntermediate->managed_competitions()->attach(
+            Competitions::where('name', 'LIKE', '%Kids Game Programming Intermediate%')->pluck('id')->toArray(),
+        );
     }
 }

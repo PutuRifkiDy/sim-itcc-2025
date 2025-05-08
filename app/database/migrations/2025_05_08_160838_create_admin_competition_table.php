@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('admin_competition', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->foreignId('competition_id')->constrained('competitions')->onDelete('cascade');
+            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
+            $table->foreignId('competition_id')->constrained('competitions')->cascadeOnDelete();
             $table->timestamps();
         });
     }

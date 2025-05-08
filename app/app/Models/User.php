@@ -80,6 +80,6 @@ class User extends Authenticatable
 
     public function managed_competitions()
 {
-    return $this->belongsToMany(Competitions::class, 'admin_competition');
+    return $this->belongsToMany(Competitions::class, 'admin_competition', 'user_id', 'competition_id');
 }
 }
