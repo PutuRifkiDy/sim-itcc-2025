@@ -30,7 +30,7 @@ function Overview() {
                             <UserGroupIcon className="text-[#718EBF] w-6 h-6" />
                         </div>
                         <div className="flex flex-col gap-1">
-                            <p className="text-[#3A3A3A]/90 text-[14px] font-medium">Participant Semnas</p>
+                            <p className="text-[#3A3A3A]/90 text-[16px] font-medium">Participant Semnas</p>
                             <p className="font-bold text-[24px] text-[#232323]">{count_participant_semnas}</p>
                         </div>
 
@@ -41,7 +41,7 @@ function Overview() {
                             <UserGroupIcon className="text-[#FFC300] w-6 h-6" />
                         </div>
                         <div className="flex flex-col gap-1">
-                            <p className="text-[#3A3A3A]/90 text-[14px] font-medium">Participant Competition</p>
+                            <p className="text-[#3A3A3A]/90 text-[16px] font-medium">Participant Competition</p>
                             <p className="font-bold text-[24px] text-[#232323]">{count_participant_competition}</p>
                         </div>
 
@@ -52,7 +52,7 @@ function Overview() {
                             <BuildingLibraryIcon className="text-[#396AFF] w-6 h-6" />
                         </div>
                         <div className="flex flex-col gap-1">
-                            <p className="text-[#3A3A3A]/90 text-[14px] font-medium">Total Institution</p>
+                            <p className="text-[#3A3A3A]/90 text-[16px] font-medium">Total Institution</p>
                             <p className="font-bold text-[24px] text-[#232323]">{count_institution}</p>
                         </div>
                     </div>
@@ -62,7 +62,7 @@ function Overview() {
                             <BanknotesIcon className="text-[#4DE45C] w-6 h-6" />
                         </div>
                         <div className="flex flex-col gap-1">
-                            <p className="text-[#3A3A3A]/90 text-[14px] font-medium">Total Semnas Income</p>
+                            <p className="text-[#3A3A3A]/90 text-[16px] font-medium">Total Semnas Income</p>
                             <p className="font-bold text-[24px] text-[#232323]">{sum_total_payment_semnas}</p>
                         </div>
 
@@ -73,7 +73,7 @@ function Overview() {
                             <BanknotesIcon className="text-[#4DE45C] w-6 h-6" />
                         </div>
                         <div className="flex flex-col gap-1">
-                            <p className="text-[#3A3A3A]/90 text-[14px] font-medium">Total Competition Income</p>
+                            <p className="text-[#3A3A3A]/90 text-[16px] font-medium">Total Competition Income</p>
                             <p className="font-bold text-[24px] text-[#232323]">{sum_total_payment_competition}</p>
                         </div>
                     </div>

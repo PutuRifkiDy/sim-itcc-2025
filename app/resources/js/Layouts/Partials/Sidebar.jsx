@@ -10,7 +10,7 @@ import {
     IconSilangResponsiveWeb,
 } from '../../Components/IconAdmin';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from '@/Components/ui/dropdown-menu';
-import { ArrowRightStartOnRectangleIcon, Squares2X2Icon, SunIcon, UserCircleIcon, Bars3BottomRightIcon } from '@heroicons/react/24/solid';
+import { ArrowRightStartOnRectangleIcon, Squares2X2Icon, SunIcon, UserCircleIcon, Bars3BottomRightIcon, XMarkIcon } from '@heroicons/react/24/solid';
 import { UserIcon } from '@heroicons/react/24/outline';
 import { User } from 'lucide-react';
 
@@ -35,13 +35,13 @@ export default function Sidebar({ navigations, children, header }) {
             <div className="flex flex-col justify-between md:flex-row">
                 {/* Sidebar */}
                 <aside
-                    className={`hidden flex-col items-center justify-start gap-6 overflow-hidden border-r-[1px] border-r-slate-200 transition-all duration-200 ease-in-out dark:border-r-slate-600 md:flex ${isSidebarOpen ? 'w-16 md:w-[300px]' : 'w-0 md:w-16'} fixed max-h-screen`}
+                    className={`hidden flex-col items-center justify-start gap-6 overflow-hidden border-r-[1px] border-r-slate-200 transition-all duration-200 ease-in-out dark:border-r-slate-600 md:flex ${isSidebarOpen ? 'w-16 md:w-[300px]' : 'w-0 md:w-24'} fixed max-h-screen`}
                 >
                     <Link
                         href={route('welcome')}
-                        className="flex w-full flex-row items-center justify-center gap-1 border-b-[1px] border-slate-200 py-6 text-[24px] font-semibold text-[#4880FF] dark:border-slate-600"
+                        className="flex w-full flex-row items-center justify-center gap-1 border-b-[1px] border-slate-200 py-6 text-[24px] font-semibold text-[#0F114C] dark:border-slate-600"
                     >
-                        ITCC<span className={`${isSidebarOpen ? 'flex flex-row text-[#6D98F9]' : 'hidden'}`}>2025</span>
+                        ITCC<span className={`${isSidebarOpen ? 'flex flex-row text-[#264A9D]' : 'hidden'}`}>2025</span>
                     </Link>
                     <img
                         src={`${window.location.origin}/assets/images/image_for_sidebar.png`}
@@ -61,10 +61,10 @@ export default function Sidebar({ navigations, children, header }) {
                                 return (
                                     <li
                                         key={i}
-                                        className={`py-4 ${isSidebarOpen ? 'relative rounded-[6px] px-8' : 'items-center'} flex flex-col justify-center ${isActive ? 'bg-[#6D98F9] stroke-white text-white' : 'transition-all duration-200 ease-in-out hover:bg-[#4880FF]/20'}`}
+                                        className={`py-4 ${isSidebarOpen ? 'relative rounded-[6px] px-8' : 'items-center'} flex flex-col justify-center ${isActive ? 'bg-[#0F114C] stroke-white text-white' : 'transition-all duration-200 ease-in-out hover:bg-[#0F114C]/20'}`}
                                     >
                                         {isActive && isSidebarOpen && (
-                                            <div className="absolute left-0 top-0 h-full w-[8px] rounded-r-md bg-[#4880FF]"></div>
+                                            <div className="absolute left-0 top-0 h-full w-[8px] rounded-r-md bg-[#264A9D]"></div>
                                         )}
                                         <Link
                                             href={navigation.link}
@@ -104,8 +104,8 @@ export default function Sidebar({ navigations, children, header }) {
                     className={`fixed left-0 top-0 z-50 h-full w-full transform bg-white transition-transform ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'} md:hidden`}
                 >
                     <div className="flex items-center justify-between border-b p-5">
-                        <span className="text-xl font-bold text-[#4880FF]">
-                            ITCC{" "}<span className="text-[#6D98F9]">2025</span>
+                        <span className="text-xl font-bold text-[#0F114C]">
+                            ITCC{" "}<span className="text-[#264A9D]">2025</span>
                         </span>
                         <button onClick={() => setIsSidebarOpen(false)} className="">
                             <Bars3BottomRightIcon className="h-6 w-6 text-gray-600" />
@@ -124,11 +124,11 @@ export default function Sidebar({ navigations, children, header }) {
                                 return (
                                     <li
                                         key={i}
-                                        className={`py-4 ${isSidebarOpen ? 'relative rounded-[6px] px-8' : 'items-center'} flex flex-col justify-center ${isActive ? 'bg-[#6D98F9] stroke-white text-white' : 'transition-all duration-200 ease-in-out hover:bg-[#4880FF]/20'}`}
+                                        className={`py-4 ${isSidebarOpen ? 'relative rounded-[6px] px-8' : 'items-center'} flex flex-col justify-center ${isActive ? 'bg-[#0F114C] stroke-white text-white' : 'transition-all duration-200 ease-in-out hover:bg-[#0F114C]/20'}`}
                                     >
                                         {/* Garis warna di samping */}
                                         {isActive && isSidebarOpen && (
-                                            <div className="absolute left-0 top-0 h-full w-[8px] rounded-r-md bg-[#4880FF]"></div>
+                                            <div className="absolute left-0 top-0 h-full w-[8px] rounded-r-md bg-[#264A9D]"></div>
                                         )}
                                         <Link
                                             href={navigation.link}
@@ -158,12 +158,12 @@ export default function Sidebar({ navigations, children, header }) {
 
                 {/* Main Content */}
                 <div
-                    className={`flex-1 ${isSidebarOpen ? 'ml-0 md:ml-[300px] lg:w-[75%] xl:w-[80%] 2xl:w-[85%]' : 'ml-0 md:ml-16 lg:w-[75%] xl:w-[80%] 2xl:w-[85%]'} overflow-x-auto transition-all`}
+                    className={`flex-1 ${isSidebarOpen ? 'ml-0 md:ml-[300px] lg:w-[75%] xl:w-[80%] 2xl:w-[85%]' : 'ml-0 md:ml-24 lg:w-[75%] xl:w-[80%] 2xl:w-[85%]'} overflow-x-auto transition-all`}
                 >
                     <header className="flex w-full items-center justify-center border-b-[1px] border-b-slate-200 px-0 py-[1.62rem] dark:border-b-slate-600 md:justify-between md:px-5">
                         {/* Untuk Tampilan Laptop */}
                         <button onClick={() => setIsSidebarOpen(!isSidebarOpen)} className="hidden text-xl md:block">
-                            <IconSideBar />
+                            {!isSidebarOpen ? <Bars3BottomRightIcon className="w-6 h-6 text-[#000000]" /> : <IconSideBar />}
                         </button>
 
                         <div className="flex flex-col items-center justify-center gap-5 md:flex-row">
@@ -186,7 +186,7 @@ export default function Sidebar({ navigations, children, header }) {
                                         <IconDropdown />
                                     </p>
                                 </DropdownMenuTrigger>
-                                <DropdownMenuContent className="w-56 flex flex-col justify-start px-4 gap-4 py-3 outline-none mr-12" >
+                                <DropdownMenuContent className="w-56 flex flex-col justify-start px-4 gap-4 py-3 outline-none md:mr-12 mr-0" >
                                     <Link
                                         href={route('welcome')}
                                         className="flex flex-row items-center gap-2"

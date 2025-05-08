@@ -148,9 +148,9 @@ function DashboardKesekreCompetition({ ...props }) {
                 <div className="bg-white p-4 shadow rounded-lg sm:p-8 flex flex-col gap-5 justify-between">
                     {/* start searching */}
 
-                    <div className="flex md:flex-row flex-col gap-5 justify-between">
+                    <div className="gap-5 grid md:grid-cols-4 grid-cols-1">
                         {/* ada 3 div untuk count requested, pending, sama rejected*/}
-                        <div className="border-2 border-[#E4F0F8] flex justify-center items-center flex-row gap-5 py-4 px-10 rounded-xl">
+                        <div className="border-2 border-[#E4F0F8] flex items-center flex-row gap-10 py-5 px-5 rounded-xl">
                             {/* start icon */}
                             <div className="flex justify-center items-center p-4 rounded-2xl bg-[#718EBF]/40">
                                 <PaperAirplaneIcon className="text-[#718EBF] w-6 h-6" />
@@ -161,7 +161,7 @@ function DashboardKesekreCompetition({ ...props }) {
                             </div>
 
                         </div>
-                        <div className="border-2 border-[#E4F0F8] flex justify-center items-center flex-row gap-5 py-4 px-10 rounded-xl">
+                        <div className="border-2 border-[#E4F0F8] flex items-center flex-row gap-10 py-5 px-5 rounded-xl">
                             {/* start icon */}
                             <div className="flex justify-center items-center p-4 rounded-2xl bg-[#FFC300]/20">
                                 <ClockIcon className="text-[#FFC300] w-6 h-6" />
@@ -172,7 +172,7 @@ function DashboardKesekreCompetition({ ...props }) {
                             </div>
 
                         </div>
-                        <div className="border-2 border-[#E4F0F8] flex justify-center items-center flex-row gap-5 py-4 px-10 rounded-xl">
+                        <div className="border-2 border-[#E4F0F8] flex items-center flex-row gap-10 py-5 px-5 rounded-xl">
                             {/* start icon */}
                             <div className="flex justify-center items-center p-4 rounded-2xl bg-[#4DE45C]/20">
                                 <CheckBadgeIcon className="text-[#4DE45C] w-6 h-6" />
@@ -183,7 +183,7 @@ function DashboardKesekreCompetition({ ...props }) {
                             </div>
 
                         </div>
-                        <div className="border-2 border-[#E4F0F8] flex justify-center items-center flex-row gap-5 py-4 px-10 rounded-xl">
+                        <div className="border-2 border-[#E4F0F8] flex items-center flex-row gap-10 py-5 px-5 rounded-xl">
                             {/* start icon */}
                             <div className="flex justify-center items-center p-4 rounded-2xl bg-[#E82323]/20">
                                 <ArchiveBoxXMarkIcon className="text-[#E82323] w-6 h-6" />
@@ -195,7 +195,7 @@ function DashboardKesekreCompetition({ ...props }) {
                         </div>
                     </div>
 
-                    <div className="flex w-full md:flex-row flex-col justify-between mt-4">
+                    <div className="flex w-full md:flex-row flex-col justify-between mt-4 md:gap-0 gap-4">
                         <div className="flex md:flex-row flex-col gap-4 w-full">
                             <Input
                                 className="w-full sm:w-1/4 outline-none ring-0 focus-visible:ring-0"
