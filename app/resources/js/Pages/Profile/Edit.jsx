@@ -40,4 +40,4 @@ export default function Edit({ mustVerifyEmail, status, status_students }) {
     );
 }
 
-Edit.layout = (page) => <DashboardLayout children={page} title="Profile" header="Profile" />;
+Edit.layout = (page) => <DashboardLayout children={page} title="Profile" header="Profile" description="Manage your profile in this page"/>;

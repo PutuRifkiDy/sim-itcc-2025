@@ -184,6 +184,48 @@ export const SideRightDotIcon = () => {
     );
 }
 
+export const SideRightBlueDotIcon = () => {
+    return (
+        <svg width="99" height="202" viewBox="0 0 99 202" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_868_47674)">
+                <rect width="6" height="6" fill="#0F114C" />
+                <rect y="31" width="6" height="6" fill="#0F114C" />
+                <rect y="62" width="6" height="6" fill="#0F114C" />
+                <rect y="93" width="6" height="6" fill="#0F114C" />
+                <rect y="124" width="6" height="6" fill="#0F114C" />
+                <rect x="31" width="6" height="6" fill="#0F114C" />
+                <rect x="31" y="31" width="6" height="6" fill="#0F114C" />
+                <rect x="31" y="62" width="6" height="6" fill="#0F114C" />
+                <rect x="31" y="93" width="6" height="6" fill="#0F114C" />
+                <rect x="31" y="124" width="6" height="6" fill="#0F114C" />
+                <rect x="62" width="6" height="6" fill="#0F114C" />
+                <rect x="62" y="31" width="6" height="6" fill="#0F114C" />
+                <rect x="62" y="62" width="6" height="6" fill="#0F114C" />
+                <rect x="62" y="93" width="6" height="6" fill="#0F114C" />
+                <rect x="62" y="124" width="6" height="6" fill="#0F114C" />
+                <rect x="93" width="6" height="6" fill="#0F114C" />
+                <rect x="93" y="31" width="6" height="6" fill="#0F114C" />
+                <rect x="93" y="62" width="6" height="6" fill="#0F114C" />
+                <rect x="93" y="93" width="6" height="6" fill="#0F114C" />
+                <rect x="93" y="124" width="6" height="6" fill="#0F114C" />
+                <rect y="155" width="6" height="6" fill="#0F114C" />
+                <rect y="186" width="6" height="6" fill="#0F114C" />
+                <rect x="31" y="155" width="6" height="6" fill="#0F114C" />
+                <rect x="31" y="186" width="6" height="6" fill="#0F114C" />
+                <rect x="62" y="155" width="6" height="6" fill="#0F114C" />
+                <rect x="62" y="186" width="6" height="6" fill="#0F114C" />
+                <rect x="93" y="155" width="6" height="6" fill="#0F114C" />
+                <rect x="93" y="186" width="6" height="6" fill="#0F114C" />
+            </g>
+            <defs>
+                <clipPath id="clip0_868_47674">
+                    <rect width="99" height="202" fill="white" />
+                </clipPath>
+            </defs>
+        </svg>
+    );
+}
+
 export const SideRightCircleIcon = () => {
     return (
         <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">

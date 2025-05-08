@@ -130,4 +130,4 @@ function DashboardCompetition() {
 }
 
 export default DashboardCompetition;
-DashboardCompetition.layout = (page) => <DashboardLayout children={page} title="Competition" header="Competition" description="Join now to compete, showcase your talents, and win exciting prizes!" />
+DashboardCompetition.layout = (page) => <DashboardLayout children={page} title="Competition" header="Competition" description="Manage your competitions in this page" />
