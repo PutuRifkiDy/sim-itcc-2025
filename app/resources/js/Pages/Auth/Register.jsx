@@ -1,3 +1,4 @@
+import { LineOrnamenIcon, SideRightCrossIcon, SideRightDotIcon } from '@/Components/IconGuest';
 import InputError from '@/Components/InputError';
 import InputLabel from '@/Components/InputLabel';
 import TextInput from '@/Components/TextInput';
@@ -167,10 +168,19 @@ export default function Register() {
                             </Card>
                         </div>
 
-                        <div className="hidden gap-5 rounded-[28px] bg-[#4880FF] px-10 py-10 md:flex md:flex-col">
-                            <p className="w-[500px] text-[32px] font-bold text-[#FFFFFF]">
-                                Very good events are waiting for you Register Now
+                        <div className="relative hidden gap-5 rounded-[28px] bg-gradient-to-r from-[#0F114C] to-[#00658F] px-10 py-10 md:flex md:flex-col w-full">
+                            <p className="md:w-[330px] text-[32px] font-bold text-[#FFFFFF]">
+                                Very good events are waiting for you Signup Now
                             </p>
+                            <div className='absolute top-24'>
+                                <SideRightDotIcon />
+                            </div>
+                            <div className='absolute rotate-90 right-0 top-24'>
+                                <SideRightCrossIcon />
+                            </div>
+                            <div className='absolute bottom-10 right-0'>
+                                <LineOrnamenIcon />
+                            </div>
                             <img src="/assets/images/image_for_auth.png" alt="" className="h-[379px] w-[354px]" />
                         </div>
                     </div>
