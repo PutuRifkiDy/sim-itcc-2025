@@ -203,3 +203,17 @@ export const ArrowRightIcon = () => {
         </svg>
     );
 }
+
+export const LineOrnamenIcon = () => {
+    return (
+        <svg width="320" height="22" viewBox="0 0 320 22" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+            <rect width="320" height="22" fill="url(#pattern0_828_46596)" />
+            <defs>
+                <pattern id="pattern0_828_46596" patternContentUnits="objectBoundingBox" width="1" height="1">
+                    <use xlinkHref="#image0_828_46596" transform="scale(0.003125 0.0454545)" />
+                </pattern>
+                <image id="image0_828_46596" width="320" height="22" preserveAspectRatio="none" xlinkHref="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAUAAAAAWCAMAAACG7rXGAAAAG1BMVEVMaXH////////////////////////////////liRbkAAAACHRSTlMAQIDAECCQYFDuIeYAAAAJcEhZcwAALEoAACxKAXd6dE0AAABYSURBVFiF7deLCcAgDAbhaOtj/4nbHU74Ee6bIDkIaJWAudITXO7p6QkuZ0DIgJABIQNCBoQMCP0B2xbQ620CRvoGJEmSVIl3YHrnoxI/kfTORxkQigT8AA3qFsRi6RKyAAAAAElFTkSuQmCC" />
+            </defs>
+        </svg>
+    );
+}

@@ -1,4 +1,5 @@
 import Checkbox from '@/Components/Checkbox';
+import { LineOrnamenIcon, SideRightCrossIcon, SideRightDotIcon } from '@/Components/IconGuest';
 import InputError from '@/Components/InputError';
 import InputLabel from '@/Components/InputLabel';
 import TextInput from '@/Components/TextInput';
@@ -31,10 +32,19 @@ export default function Login({ status, canResetPassword }) {
             <div className="flex flex-row items-center justify-center">
                 <div className="min-h-full min-w-full">
                     <div className="flex flex-row rounded-[28px] p-5 border-[1px] shadow md:mx-36">
-                        <div className="hidden gap-5 rounded-[28px] bg-[#0F114C] px-10 py-10 md:flex md:flex-col">
-                            <p className="w-[500px] text-[32px] font-bold text-[#FFFFFF]">
+                        <div className="relative hidden gap-5 rounded-[28px] bg-gradient-to-r from-[#0F114C] to-[#00658F] px-10 py-10 md:flex md:flex-col w-full">
+                            <p className="md:w-[330px] text-[32px] font-bold text-[#FFFFFF]">
                                 Very good events are waiting for you Login Now
                             </p>
+                            <div className='absolute top-24'>
+                                <SideRightDotIcon />
+                            </div>
+                            <div className='absolute rotate-90 right-0 top-24'>
+                                <SideRightCrossIcon />
+                            </div>
+                            <div className='absolute bottom-10 right-0'>
+                                <LineOrnamenIcon />
+                            </div>
                             <img src="/assets/images/image_for_auth.png" alt="" className="h-[379px] w-[354px]" />
                         </div>
 
