@@ -15,14 +15,32 @@ function Overview() {
     const sum_total_payment_competition = usePage().props.sum_total_payment_competition;
     const count_institution = usePage().props.count_institution;
     const monthly_sales_chart = usePage().props.monthly_sales_chart;
+    const monthly_registrations_chart = usePage().props.monthly_registrations_chart;
 
     const { flash_message } = usePage().props;
 
     const data = {
         labels: monthly_sales_chart.labels,
-        datasets: monthly_sales_chart.datasets,
+        datasets: monthly_sales_chart.datasets.map(ds => ({
+            ...ds,
+            fill: false,
+            tension: 0,
+            pointRadius: 4,
+            borderWidth: 2,
+
+        })),
     };
 
+    const dataRegistrations = {
+        labels: monthly_registrations_chart.labels,
+        datasets: monthly_registrations_chart.datasets.map(ds => ({
+            ...ds,
+            fill: false,
+            tension: 0,
+            pointRadius: 4,
+            borderWidth: 2,
+        }))
+    }
 
     useEffect(() => {
         if (flash_message?.message) {
@@ -37,7 +55,7 @@ function Overview() {
                     <div className="border-2 border-[#E4F0F8] flex items-center flex-row gap-10 py-5 px-5 rounded-xl">
                         {/* start icon */}
                         <div className="flex justify-center items-center p-4 rounded-2xl bg-[#718EBF]/40">
-                            <UserGroupIcon className="text-[#718EBF] w-6 h-6" />
+                            <UserGroupIcon className="text-[#718EBF] w-8 h-8" />
                         </div>
                         <div className="flex flex-col gap-1">
                             <p className="text-[#3A3A3A]/90 text-[16px] font-medium">Participant Semnas</p>
@@ -48,7 +66,7 @@ function Overview() {
                     <div className="border-2 border-[#E4F0F8] flex items-center flex-row gap-10 py-5 px-5 rounded-xl">
                         {/* start icon */}
                         <div className="flex justify-center items-center p-4 rounded-2xl bg-[#FFC300]/20">
-                            <UserGroupIcon className="text-[#FFC300] w-6 h-6" />
+                            <UserGroupIcon className="text-[#FFC300] w-8 h-8" />
                         </div>
                         <div className="flex flex-col gap-1">
                             <p className="text-[#3A3A3A]/90 text-[16px] font-medium">Participant Competition</p>
@@ -59,7 +77,7 @@ function Overview() {
                     <div className="border-2 border-[#E4F0F8] flex items-center flex-row gap-10 py-5 px-5 rounded-xl">
                         {/* start icon */}
                         <div className="flex justify-center items-center p-4 rounded-2xl bg-[#396AFF]/20">
-                            <BuildingLibraryIcon className="text-[#396AFF] w-6 h-6" />
+                            <BuildingLibraryIcon className="text-[#396AFF] w-8 h-8" />
                         </div>
                         <div className="flex flex-col gap-1">
                             <p className="text-[#3A3A3A]/90 text-[16px] font-medium">Total Institution</p>
@@ -69,7 +87,7 @@ function Overview() {
                     <div className="border-2 border-[#E4F0F8] flex items-center flex-row gap-10 py-5 px-5 rounded-xl">
                         {/* start icon */}
                         <div className="flex justify-center items-center p-4 rounded-2xl bg-[#4DE45C]/20">
-                            <BanknotesIcon className="text-[#4DE45C] w-6 h-6" />
+                            <BanknotesIcon className="text-[#4DE45C] w-8 h-8" />
                         </div>
                         <div className="flex flex-col gap-1">
                             <p className="text-[#3A3A3A]/90 text-[16px] font-medium">Total Semnas Income</p>
@@ -80,7 +98,7 @@ function Overview() {
                     <div className="border-2 border-[#E4F0F8] flex items-center flex-row gap-10 py-5 px-5 rounded-xl">
                         {/* start icon */}
                         <div className="flex justify-center items-center p-4 rounded-2xl bg-[#4DE45C]/20">
-                            <BanknotesIcon className="text-[#4DE45C] w-6 h-6" />
+                            <BanknotesIcon className="text-[#4DE45C] w-8 h-8" />
                         </div>
                         <div className="flex flex-col gap-1">
                             <p className="text-[#3A3A3A]/90 text-[16px] font-medium">Total Competition Income</p>
@@ -89,8 +107,25 @@ function Overview() {
                     </div>
                 </div>
 
-                <div className='px-4 pt-5 pb-6 mt-8 bg-white border rounded-lg sm:px-6 sm:pt-6'>
-                    <Line data={data} />
+                <div className='px-4 pt-5 pb-6 mt-8 bg-white border rounded-lg sm:px-6 sm:pt-6 flex gap-10'>
+                    <div className="w-1/2">
+                        <h1 className="text-xl font-medium">
+                            Monthly Sales Chart
+                        </h1>
+                        <p className="text-gray-500 text-[14px]">
+                            Monthly sales over previous 6 months
+                        </p>
+                        <Line data={data} />
+                    </div>
+                    <div className="w-1/2">
+                        <h1 className="text-xl font-medium">
+                            Monthly Registrations Chart
+                        </h1>
+                        <p className="text-gray-500 text-[14px]">
+                            Monthly registrations over previous 6 months
+                        </p>
+                        <Bar data={dataRegistrations} />
+                    </div>
                 </div>
             </div>
         </div>

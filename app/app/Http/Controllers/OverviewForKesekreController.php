@@ -52,7 +52,69 @@ class OverviewForKesekreController extends Controller
             'sum_total_payment_competition' => $sum_total_payment_competition,
             'count_institution'             => $count_institution,
             'monthly_sales_chart'           => $this->monthlySalesChart(),
+            'monthly_registrations_chart'  => $this->monthlyRegistrationsChart(),
         ]);
+    }
+
+    public function monthlyRegistrationsChart(): array
+    {
+        $currentDate  = Carbon::now();
+        $sixMonthsAgo = $currentDate->copy()->subMonths(5);
+
+        $labels          = [];
+        $semnasData      = [];
+        $competitionData = [];
+
+        for($i = 0; $i < 6; $i++) {
+            $monthLabel = $sixMonthsAgo->format('F');
+            $labels[]   = $monthLabel;
+
+            // Banyak registrations semnas
+            $semnasTotal = EventRegistrations::where('payment_status', 'Verified')
+                ->whereMonth('created_at', $sixMonthsAgo->month)
+                ->whereYear('created_at', $sixMonthsAgo->year)
+                ->count();
+
+            // Banyak registrations competition individual
+            $individualTotal = CompetitionRegistrations::where('payment_status', 'Verified')
+                ->whereNull('team_id')
+                ->whereMonth('created_at', $sixMonthsAgo->month)
+                ->whereYear('created_at', $sixMonthsAgo->year)
+                ->count();
+
+            // Banyak registrations competition team (by team, per team)
+            $teamTotal = CompetitionRegistrations::where('payment_status', 'Verified')
+                ->whereNotNull('team_id')
+                ->whereMonth('created_at', $sixMonthsAgo->month)
+                ->whereYear('created_at', $sixMonthsAgo->year)
+                ->groupBy('team_id')
+                ->selectRaw('MIN(total_payment) as total_payment')
+                ->get()
+                ->count();
+
+            $semnasData[]      = $semnasTotal;
+            $competitionData[] = $individualTotal + $teamTotal;
+
+            $sixMonthsAgo->addMonth();
+        }
+
+        return [
+            'labels'   => $labels,
+            'datasets' => [
+                [
+                    'label'           => 'Semnas Registrations',
+                    'data'            => $semnasData,
+                    'backgroundColor' => '#3b82f6',
+                    'borderColor'     => '#3b82f6',
+                ],
+                [
+                    'label'           => 'Competition Registrations',
+                    'data'            => $competitionData,
+                    'backgroundColor' => '#6CB9AD',
+                    'borderColor'     => '#6CB9AD',
+                ],
+            ],
+        ];
     }
 
     public function monthlySalesChart(): array
