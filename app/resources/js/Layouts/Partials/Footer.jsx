@@ -46,6 +46,13 @@ export default function Footer({ ...props }) {
                         >
                             Seminar Nasional <ChevronRightIcon className="w-5 h-5" />
                         </Link>
+
+                        <Link
+                            href={route('merchandise.front.show')}
+                            className="text-white flex flex-row justify-start items-center gap-2"
+                        >
+                            Merchandise <ChevronRightIcon className="w-5 h-5" />
+                        </Link>
                     </div>
 
                 </div>
@@ -100,6 +107,12 @@ export default function Footer({ ...props }) {
                             className="text-white flex flex-row justify-start items-center gap-2"
                         >
                             Seminar Nasional <ChevronRightIcon className="w-5 h-5" />
+                        </Link>
+                        <Link
+                            href={route('merchandise.front.show')}
+                            className="text-white flex flex-row justify-start items-center gap-2"
+                        >
+                            Merchandise <ChevronRightIcon className="w-5 h-5" />
                         </Link>
                     </div>
 

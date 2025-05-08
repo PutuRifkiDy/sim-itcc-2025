@@ -44,7 +44,11 @@ export default function NavBar({ auth, competitions }) {
         <>
             <nav className="md:flex hidden flex-row justify-between py-5 px-24 border-b-[1px] fixed top-0 left-0 w-full z-50 shadow bg-white">
                 <div>
-                    <img src={`${window.location.origin}/assets/images/image_for_icon_logo_itcc.png`} alt="" className="w-[82px] h-[49px]" />
+                    <Link
+                        href={route('welcome')}
+                    >
+                        <img src={`${window.location.origin}/assets/images/image_for_icon_logo_itcc.png`} alt="" className="w-[82px] h-[49px]" />
+                    </Link>
                 </div>
                 <div className="flex flex-row gap-10 justify-center items-center">
                     <Link
@@ -57,9 +61,9 @@ export default function NavBar({ auth, competitions }) {
                                         translate-x-[-100%] group-hover:translate-x-0`}>
                         </span>
                     </Link>
-                    <DropdownMenu>
-                        <DropdownMenuTrigger asChild >
-                            <p className='cursor-pointer flex flex-row gap-2 justify-center items-center' onClick={() => setOpenDropdown(true)} >
+                    <DropdownMenu onOpenChange={(open) => setOpenDropdown(open)}>
+                        <DropdownMenuTrigger asChild  >
+                            <p className='cursor-pointer flex flex-row gap-2 justify-center items-center'>
                                 Competitions
                                 <ChevronDownIcon className={`font-bold h-4 w-4 transition-transform transform  ${openDropdown ? 'rotate-180' : ''}`} />
                             </p>
@@ -167,7 +171,8 @@ export default function NavBar({ auth, competitions }) {
 
             <nav className="md:hidden flex flex-col justify-between py-5 border-b-[1px] fixed top-0 left-0 w-full z-50 shadow bg-white">
                 <div className="flex flex-row justify-between">
-                    <Bars3BottomLeftIcon className="w-6 h-6 text-gray-600 mx-5 cursor-pointer" onClick={() => setOpenNav(!openNav)} />
+                    <Bars3BottomLeftIcon className={`w-6 h-6 text-gray-600 mx-5 cursor-pointer ${openNav ? 'hidden' : 'flex'}`} onClick={() => setOpenNav(!openNav)} />
+                    <XMarkIcon className={`w-6 h-6 text-gray-600 mx-5 cursor-pointer transition-transform transform ${openNav ? 'flex rotate-180' : 'hidden'}`} onClick={() => setOpenNav(!openNav)} />
                     <SunIcon className="w-6 h-6 text-yellow-200 mx-5" />
                 </div>
                 {openNav == true && (
@@ -240,7 +245,7 @@ export default function NavBar({ auth, competitions }) {
                                     </DropdownMenuContent>
                                 </DropdownMenu>
                             ) : (
-                                <Button asChild variant="blue" size="lg" className='mx-5'>
+                                <Button asChild variant="blue" size="lg" className='mx-5 shadow'>
                                     <Link
                                         href={route('login')}
                                     >

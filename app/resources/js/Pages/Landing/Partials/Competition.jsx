@@ -178,7 +178,7 @@ const Competition = () => {
                                 href={route('competition.front.show', [item.slug])}
                                 className="inline-flex items-center gap-3 absolute bottom-10 right-10 bg-transparent py-2 px-4 rounded-full"
                             >
-                                <span className="font-bold text-white text-lg md:text-[54px]">
+                                <span className="font-bold text-white text-3xl md:text-[54px]">
                                     Join
                                 </span>
                                 <img src="assets/images/landing/arrow.png" className="md:w-8 md:h-8 w-4 h-4" alt="arrow" />
