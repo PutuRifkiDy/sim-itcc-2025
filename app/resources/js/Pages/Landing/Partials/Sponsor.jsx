@@ -63,9 +63,10 @@ const Sponsor = () => {
             </p>
 
             <a
-                href="#contact"
+                href="https://wa.me/6281938215645"
                 className="inline-block text-[#0F114C] font-rubik text-sm sm:text-base md:text-lg font-normal leading-[120%] tracking-[0.02em] underline decoration-solid decoration-[#0F114C] decoration-1 underline-offset-[2px]"
                 data-aos="fade-up" data-aos-delay="200"
+                target="_blank"
             >
                 Contact us to become a sponsor →
             </a>

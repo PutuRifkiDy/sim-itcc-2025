@@ -41,9 +41,10 @@ export default function Merch() {
                             Buy Now
                             <img src="assets/images/landing/arrow.png" className="inline ml-4 w-3 h-3" alt="" />
                         </button>
-                        <button className="border border-[#0F114C] px-6 py-2 rounded-[10px] text-[#0F114C] font-semibold">
+                        <a className="border border-[#0F114C] px-6 py-2 rounded-[10px] text-[#0F114C] font-semibold"
+                        href="/merchandise">
                             Get to know
-                        </button>
+                        </a>
                     </div>
                     <img
                         src="assets/images/about/bluePlus.png"
