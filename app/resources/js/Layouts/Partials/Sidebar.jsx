@@ -181,7 +181,7 @@ export default function Sidebar({ navigations, children, header, description }) 
                             <DropdownMenu>
                                 <DropdownMenuTrigger asChild>
                                     <p className='cursor-pointer flex flex-row gap-2 justify-center items-center'>
-                                        <img src="assets/images/image_for_icon_logo_itcc.png" className="md:w-[40px] w-[80px] h-auto md:h-auto" alt="" />
+                                        <img src="assets/images/image_for_auth.png" className="md:w-[30px] w-[50px] h-auto md:h-auto" alt="" />
                                         {auth.name}
                                         <IconDropdown />
                                     </p>
