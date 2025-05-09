@@ -28,6 +28,11 @@ export default function DashboardLayout({ children, title, header, description }
             },
         ] : auth.is_admin === true ? [
             {
+                icon: <IconBerandaSideBar />,
+                text: 'Overview',
+                link: route('dashboard.overview.admin-lomba.index'),
+            },
+            {
                 icon: <IconCompetitionSidebar />,
                 text: 'Competition',
                 link: route('dashboard.competition.admin-lomba.index'),

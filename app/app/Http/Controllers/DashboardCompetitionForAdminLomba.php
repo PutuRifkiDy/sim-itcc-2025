@@ -14,9 +14,12 @@ use Inertia\Response;
 
 class DashboardCompetitionForAdminLomba extends Controller
 {
-    public function show_participant(): Response
+    public function show_participant(): Response | RedirectResponse
     {
-        $user                           = auth()->user();
+        $user = auth()->user();
+        if (! $user) {
+            return to_route('login');
+        }
         $adminCompetitionIds            = $user->managed_competitions()->pluck('competitions.id');
         $show_competition_is_open_regis = Competitions::where('is_open_regis', true)->get('name');
         $show_all_participant           = CompetitionRegistrations::with('competitions', 'user', 'teams.team_members')
@@ -52,11 +55,6 @@ class DashboardCompetitionForAdminLomba extends Controller
             ->when(request()->field && request()->direction, fn($query) => $query->orderBy(request()->field, request()->direction))
             ->paginate(request()->load ?? 10)
             ->withQueryString();
-
-        // tampilin data berdasarkan admin apa
-        //code
-
-        // return dd($show_competition_is_open_regis);
 
         return inertia(component: 'Competition/Dashboard/DashboardAdminLombaData', props: [
             'competition_registrations'      => CompetitionRegistrationResource::collection($show_all_participant)->additional([
@@ -104,23 +102,28 @@ class DashboardCompetitionForAdminLomba extends Controller
                         ->orWhere('submission_status', 'REGEXP', $value);
                 });
             })
-            ->when(request()->competition_name, function ($query, $value) {
-                $query->whereHas('competition_registrations.competitions', function ($q) use ($value) {
-                    $q->where('name', $value);
-                });
-            })
-            ->when(request()->competition_name, function ($query, $value) {
-                $query->whereHas('competition_registrations.competitions', function ($q) use ($value) {
-                    $q->where('name', $value);
-                });
+            ->when(request()->submission_status, function ($query, $value) {
+                $query->where('submission_status', $value);
             })
             ->when(request()->field && request()->direction, fn($query) => $query->orderBy(request()->field, request()->direction))
             ->paginate(request()->load ?? 10)
             ->withQueryString();
 
-        $count_pending  = Submissions::where('submission_status', 'Pending')->count();
-        $count_verified = Submissions::where('submission_status', 'Verified')->count();
-        $count_rejected = Submissions::where('submission_status', 'Rejected')->count();
+        $count_pending = Submissions::where('submission_status', 'Pending')
+            ->whereHas('competition_registrations', function ($query) use ($adminCompetitionIds) {
+                $query->whereIn('competition_id', $adminCompetitionIds);
+            })
+            ->count();
+        $count_verified = Submissions::where('submission_status', 'Verified')
+            ->whereHas('competition_registrations', function ($query) use ($adminCompetitionIds) {
+                $query->whereIn('competition_id', $adminCompetitionIds);
+            })
+            ->count();
+        $count_rejected = Submissions::where('submission_status', 'Rejected')
+            ->whereHas('competition_registrations', function ($query) use ($adminCompetitionIds) {
+                $query->whereIn('competition_id', $adminCompetitionIds);
+            })
+            ->count();
 
         return inertia(component: 'Competition/Dashboard/DashboardAdminLombaSubmission', props: [
             'submissions'                    => SubmissionResource::collection($show_all_submission)->additional([
@@ -133,7 +136,7 @@ class DashboardCompetitionForAdminLomba extends Controller
                 'page'             => request()->page ?? 1,
                 'search'           => request()->search ?? '',
                 'load'             => 10,
-                'competition_name' => request()->competition_name ?? '',
+                'submission_status' => request()->submission_status ?? '',
             ],
 
             'count_pending'                  => $count_pending,

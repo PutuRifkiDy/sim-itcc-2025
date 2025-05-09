@@ -144,9 +144,9 @@ function DashboardAdminLombaSubmission({ ...props }) {
                 <div className="bg-white p-4 shadow rounded-lg sm:p-8 flex flex-col gap-5 justify-between">
                     {/* start searching */}
 
-                    <div className="flex md:grid-cols-4 grid-cols-1 gap-10">
+                    <div className="gap-5 grid md:grid-cols-4 grid-cols-1">
                         {/* ada 3 div untuk count requested, pending, sama rejected*/}
-                        <div className="border-2 border-[#E4F0F8] flex justify-center items-center flex-row gap-5 py-4 px-10 rounded-xl">
+                        <div className="border-2 border-[#E4F0F8] flex items-center flex-row gap-5 py-4 px-10 rounded-xl">
                             {/* start icon */}
                             <div className="flex justify-center items-center p-4 rounded-2xl bg-[#FFC300]/20">
                                 <ClockIcon className="text-[#FFC300] w-6 h-6" />
@@ -157,7 +157,7 @@ function DashboardAdminLombaSubmission({ ...props }) {
                             </div>
 
                         </div>
-                        <div className="border-2 border-[#E4F0F8] flex justify-center items-center flex-row gap-5 py-4 px-10 rounded-xl">
+                        <div className="border-2 border-[#E4F0F8] flex items-center flex-row gap-5 py-4 px-10 rounded-xl">
                             {/* start icon */}
                             <div className="flex justify-center items-center p-4 rounded-2xl bg-[#4DE45C]/20">
                                 <CheckBadgeIcon className="text-[#4DE45C] w-6 h-6" />
@@ -168,7 +168,7 @@ function DashboardAdminLombaSubmission({ ...props }) {
                             </div>
 
                         </div>
-                        <div className="border-2 border-[#E4F0F8] flex justify-center items-center flex-row gap-5 py-4 px-10 rounded-xl">
+                        <div className="border-2 border-[#E4F0F8] flex items-center flex-row gap-5 py-4 px-10 rounded-xl">
                             {/* start icon */}
                             <div className="flex justify-center items-center p-4 rounded-2xl bg-[#E82323]/20">
                                 <ArchiveBoxXMarkIcon className="text-[#E82323] w-6 h-6" />
@@ -196,6 +196,21 @@ function DashboardAdminLombaSubmission({ ...props }) {
                                     {[10, 25, 50, 75, 100].map((number, index) => (
                                         <SelectItem key={index} value={number}>
                                             {number}
+                                        </SelectItem>
+                                    ))}
+                                </SelectContent>
+                            </Select>
+                            <Select
+                                value={params?.submission_status}
+                                onValueChange={(e) => setParams({ ...params, submission_status: e })}
+                            >
+                                <SelectTrigger className="w-full h-9 sm:w-40">
+                                    <SelectValue placeholder="Filter by Status" />
+                                </SelectTrigger>
+                                <SelectContent>
+                                    {['Verified', 'Pending', 'Requested', 'Rejected'].map((submission_status, index) => (
+                                        <SelectItem key={index} value={submission_status}>
+                                            {submission_status}
                                         </SelectItem>
                                     ))}
                                 </SelectContent>
@@ -712,4 +727,4 @@ function DashboardAdminLombaSubmission({ ...props }) {
 }
 
 export default DashboardAdminLombaSubmission;
-DashboardAdminLombaSubmission.layout = (page) => <DashboardLayout children={page} title="Admin Competition Submission" header="Admin Competition Submission" description="Manage your competition submissions in this page" />
+DashboardAdminLombaSubmission.layout = (page) => <DashboardLayout children={page} title="Admin Competition Submission" header="Admin Competition Submission" description="Manage competition submissions in this page" />
