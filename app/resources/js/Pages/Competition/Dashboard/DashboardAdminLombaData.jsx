@@ -81,21 +81,6 @@ function DashboardAdminLombaData({ ...props }) {
                                     ))}
                                 </SelectContent>
                             </Select>
-                            <Select
-                                value={params?.competition_name}
-                                onValueChange={(e) => setParams({ ...params, competition_name: e })}
-                            >
-                                <SelectTrigger className="w-full h-9 sm:w-40">
-                                    <SelectValue placeholder="Filter by Competition" />
-                                </SelectTrigger>
-                                <SelectContent>
-                                    {show_competition_is_open_regis.map((competition, index) => (
-                                        <SelectItem key={index} value={competition.name}>
-                                            {competition.name}
-                                        </SelectItem>
-                                    ))}
-                                </SelectContent>
-                            </Select>
                             <Button variant="outline" onClick={() => setParams(props.state)}>
                                 <PiArrowsClockwise className="mr-2 h-5 w-5" />
                                 Clear Filter
@@ -532,4 +517,4 @@ function DashboardAdminLombaData({ ...props }) {
 }
 
 export default DashboardAdminLombaData;
-DashboardAdminLombaData.layout = (page) => <DashboardLayout children={page} title="Admin Competition Participant" header="Admin Competition Participant" />
+DashboardAdminLombaData.layout = (page) => <DashboardLayout children={page} title="Admin Competition Participant" header="Admin Competition Participant" description="Manage competition participants in this page" />

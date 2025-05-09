@@ -9,6 +9,7 @@ use App\Http\Controllers\DashboardSemnasController;
 use App\Http\Controllers\DashboardSemnasForKesekreController;
 use App\Http\Controllers\ExportController;
 use App\Http\Controllers\FrontController;
+use App\Http\Controllers\OverviewForAdminLomba;
 use App\Http\Controllers\OverviewForKesekreController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
@@ -64,6 +65,10 @@ Route::controller(DashboardSemnasController::class)->group(function() {
 Route::controller(OverviewForKesekreController::class)->group(function() {
     Route::get('dashboard/overview/admin-kesekre', 'index')->name('dashboard.overview.admin-kesekre.index');
 })->middleware(['auth', 'role:admin']);
+
+Route::controller(OverviewForAdminLomba::class)->group(function() {
+    Route::get('dashboard/overview/admin-lomba', 'index')->name('dashboard.overview.admin-lomba.index');
+});
 
 Route::controller(DashboardSemnasForKesekreController::class)->group(function() {
     Route::get('dashboard/semnas/admin-kesekre', 'index')->name('dashboard.semnas.admin-kesekre.index');

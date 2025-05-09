@@ -77,4 +77,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(EventRegistrations::class);
     }
+
+    public function managed_competitions()
+{
+    return $this->belongsToMany(Competitions::class, 'admin_competition', 'user_id', 'competition_id');
+}
 }

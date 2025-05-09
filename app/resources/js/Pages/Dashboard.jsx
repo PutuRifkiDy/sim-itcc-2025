@@ -15,4 +15,4 @@ export default function Dashboard() {
     );
 }
 
-Dashboard.layout = (page) => <DashboardLayout children={page} title="Dashboard" header="Dashboard" />;
+Dashboard.layout = (page) => <DashboardLayout children={page} title="Dashboard" header="Dashboard" description="Join now to compete, showcase your talents, and win exciting prizes!" />;

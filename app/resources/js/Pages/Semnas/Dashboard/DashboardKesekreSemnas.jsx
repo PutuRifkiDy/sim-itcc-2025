@@ -606,4 +606,4 @@ function DashboardKesekreSemnas({ ...props }) {
 
 export default DashboardKesekreSemnas;
 
-DashboardKesekreSemnas.layout = (page) => <DashboardLayout children={page} title="Seminar Confirmation Payment" header="Seminar Confirmation Payment" />;
+DashboardKesekreSemnas.layout = (page) => <DashboardLayout children={page} title="Seminar Confirmation Payment" header="Seminar Confirmation Payment" description="Manage your seminar payments in this page"/>;

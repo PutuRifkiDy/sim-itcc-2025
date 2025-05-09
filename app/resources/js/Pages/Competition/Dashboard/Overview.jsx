@@ -1,5 +1,5 @@
 import DashboardLayout from "@/Layouts/DashboardLayout";
-import { ArchiveBoxXMarkIcon, BanknotesIcon, BuildingLibraryIcon, CheckBadgeIcon, ClockIcon, PaperAirplaneIcon, UserCircleIcon, UserGroupIcon } from "@heroicons/react/24/solid";
+import { BanknotesIcon, UserGroupIcon } from "@heroicons/react/24/solid";
 import { usePage } from "@inertiajs/react";
 import { useEffect } from "react";
 import { toast } from "sonner";
@@ -8,16 +8,10 @@ import { Line, Bar } from 'react-chartjs-2';
 
 function Overview() {
     ChartJS.register(CategoryScale, LinearScale, LineElement, PointElement, Title, Tooltip, Legend, BarElement);
-
-    const count_participant_semnas = usePage().props.count_participant_semnas;
-    const count_participant_competition = usePage().props.count_participant_competition;
-    const sum_total_payment_semnas = usePage().props.sum_total_payment_semnas;
+    const count_competition = usePage().props.count_competition;
     const sum_total_payment_competition = usePage().props.sum_total_payment_competition;
-    const count_institution = usePage().props.count_institution;
     const monthly_sales_chart = usePage().props.monthly_sales_chart;
     const monthly_registrations_chart = usePage().props.monthly_registrations_chart;
-
-    const { flash_message } = usePage().props;
 
     const data = {
         labels: monthly_sales_chart.labels,
@@ -41,12 +35,12 @@ function Overview() {
         }))
     }
 
+    const { flash_message } = usePage().props;
     useEffect(() => {
         if (flash_message?.message) {
             toast[flash_message.type || 'success'](flash_message.message);
         }
     }, [flash_message]);
-
     return (
         <div className="py-5">
             <div className="bg-white p-4 shadow rounded-lg sm:p-8 gap-5">
@@ -57,50 +51,17 @@ function Overview() {
                             <UserGroupIcon className="text-[#718EBF] w-8 h-8" />
                         </div>
                         <div className="flex flex-col gap-1">
-                            <p className="text-[#3A3A3A]/90 text-[16px] font-medium">Participant Semnas</p>
-                            <p className="font-bold text-[24px] text-[#232323]">{count_participant_semnas}</p>
-                        </div>
-
-                    </div>
-                    <div className="border-2 border-[#E4F0F8] flex items-center flex-row gap-10 py-5 px-5 rounded-xl">
-                        {/* start icon */}
-                        <div className="flex justify-center items-center p-4 rounded-2xl bg-[#FFC300]/20">
-                            <UserGroupIcon className="text-[#FFC300] w-8 h-8" />
-                        </div>
-                        <div className="flex flex-col gap-1">
                             <p className="text-[#3A3A3A]/90 text-[16px] font-medium">Participant Competition</p>
-                            <p className="font-bold text-[24px] text-[#232323]">{count_participant_competition}</p>
+                            <p className="font-bold text-[24px] text-[#232323]">{count_competition}</p>
                         </div>
 
                     </div>
                     <div className="border-2 border-[#E4F0F8] flex items-center flex-row gap-10 py-5 px-5 rounded-xl">
-                        {/* start icon */}
-                        <div className="flex justify-center items-center p-4 rounded-2xl bg-[#396AFF]/20">
-                            <BuildingLibraryIcon className="text-[#396AFF] w-8 h-8" />
-                        </div>
-                        <div className="flex flex-col gap-1">
-                            <p className="text-[#3A3A3A]/90 text-[16px] font-medium">Total Institution</p>
-                            <p className="font-bold text-[24px] text-[#232323]">{count_institution}</p>
-                        </div>
-                    </div>
-                    <div className="border-2 border-[#E4F0F8] flex items-center flex-row gap-10 py-5 px-5 rounded-xl">
-                        {/* start icon */}
                         <div className="flex justify-center items-center p-4 rounded-2xl bg-[#4DE45C]/20">
                             <BanknotesIcon className="text-[#4DE45C] w-8 h-8" />
                         </div>
                         <div className="flex flex-col gap-1">
-                            <p className="text-[#3A3A3A]/90 text-[16px] font-medium">Total Semnas Income</p>
-                            <p className="font-bold text-[24px] text-[#232323]">{sum_total_payment_semnas}</p>
-                        </div>
-
-                    </div>
-                    <div className="border-2 border-[#E4F0F8] flex items-center flex-row gap-10 py-5 px-5 rounded-xl">
-                        {/* start icon */}
-                        <div className="flex justify-center items-center p-4 rounded-2xl bg-[#4DE45C]/20">
-                            <BanknotesIcon className="text-[#4DE45C] w-8 h-8" />
-                        </div>
-                        <div className="flex flex-col gap-1">
-                            <p className="text-[#3A3A3A]/90 text-[16px] font-medium">Total Competition Income</p>
+                            <p className="text-[#3A3A3A]/90 text-[16px] font-medium">Sales Competition</p>
                             <p className="font-bold text-[24px] text-[#232323]">{sum_total_payment_competition}</p>
                         </div>
                     </div>
@@ -128,8 +89,8 @@ function Overview() {
                 </div>
             </div>
         </div>
-    );
+    )
 }
 
 export default Overview;
-Overview.layout = (page) => <DashboardLayout children={page} title="Overview" header="Overview" description="All reports of progress in this page"/>;
+Overview.layout = (page) => <DashboardLayout children={page} title="Overview" header="Overview" description="All reports of progress in this page" />;

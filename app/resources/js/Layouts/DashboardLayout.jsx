@@ -5,7 +5,7 @@ import { Toaster } from '@/Components/ui/sonner';
 import { DocumentTextIcon } from "@heroicons/react/24/outline";
 
 
-export default function DashboardLayout({ children, title, header }) {
+export default function DashboardLayout({ children, title, header, description }) {
     const auth = usePage().props.auth.user;
     console.log('cek isi', auth);
     const route_sidebar = [
@@ -28,6 +28,11 @@ export default function DashboardLayout({ children, title, header }) {
             },
         ] : auth.is_admin === true ? [
             {
+                icon: <IconBerandaSideBar />,
+                text: 'Overview',
+                link: route('dashboard.overview.admin-lomba.index'),
+            },
+            {
                 icon: <IconCompetitionSidebar />,
                 text: 'Competition',
                 link: route('dashboard.competition.admin-lomba.index'),
@@ -39,14 +44,14 @@ export default function DashboardLayout({ children, title, header }) {
             }
         ] : [
             {
-                icon: <IconProfileSideBar />,
-                text: 'Profile',
-                link: route('profile.edit'),
-            },
-            {
                 icon: <IconBerandaSideBar />,
                 text: 'Dashboard',
                 link: route('dashboard'),
+            },
+            {
+                icon: <IconProfileSideBar />,
+                text: 'Profile',
+                link: route('profile.edit'),
             },
             {
                 icon: <IconSidebarSemnas />,
@@ -65,7 +70,7 @@ export default function DashboardLayout({ children, title, header }) {
         <>
             <Head title={title} />
             <Toaster position="top-center" richColors />
-            <Sidebar navigations={route_sidebar} header={header}>
+            <Sidebar navigations={route_sidebar} header={header} description={description}>
                 {children}
             </Sidebar>
         </>

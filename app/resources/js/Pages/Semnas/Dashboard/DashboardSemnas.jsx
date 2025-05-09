@@ -67,4 +67,4 @@ function DashboardSemnas() {
 }
 
 export default DashboardSemnas;
-DashboardSemnas.layout = (page) => <DashboardLayout children={page} title="Semnas" header="Seminar Nasional" />;
+DashboardSemnas.layout = (page) => <DashboardLayout children={page} title="Semnas" header="Seminar Nasional" description="Manage your payment ad get your ticket in this page" />;

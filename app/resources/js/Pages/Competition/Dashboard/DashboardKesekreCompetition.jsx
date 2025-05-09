@@ -772,4 +772,4 @@ function DashboardKesekreCompetition({ ...props }) {
 }
 
 export default DashboardKesekreCompetition;
-DashboardKesekreCompetition.layout = (page) => <DashboardLayout children={page} title="Competition Confirmation Payment" header="Competition Confirmation Payment" />;
+DashboardKesekreCompetition.layout = (page) => <DashboardLayout children={page} title="Competition Confirmation Payment" header="Competition Confirmation Payment" description="Manage your competition payments in this page" />;

@@ -14,7 +14,7 @@ import { ArrowRightStartOnRectangleIcon, Squares2X2Icon, SunIcon, UserCircleIcon
 import { UserIcon } from '@heroicons/react/24/outline';
 import { User } from 'lucide-react';
 
-export default function Sidebar({ navigations, children, header }) {
+export default function Sidebar({ navigations, children, header, description }) {
     const [isSidebarOpen, setIsSidebarOpen] = useState(window.innerWidth >= 768);
     const auth = usePage().props.auth.user;
 
@@ -39,7 +39,7 @@ export default function Sidebar({ navigations, children, header }) {
                 >
                     <Link
                         href={route('welcome')}
-                        className="flex w-full flex-row items-center justify-center gap-1 border-b-[1px] border-slate-200 py-6 text-[24px] font-semibold text-[#0F114C] dark:border-slate-600"
+                        className="flex w-full flex-row items-center justify-center gap-1 border-b-[1px] border-slate-200 py-6 text-[24px] font-extrabold text-[#0F114C] dark:border-slate-600"
                     >
                         ITCC<span className={`${isSidebarOpen ? 'flex flex-row text-[#264A9D]' : 'hidden'}`}>2025</span>
                     </Link>
@@ -209,9 +209,12 @@ export default function Sidebar({ navigations, children, header }) {
                         </div>
                     </header>
 
-                    <div className="flex min-h-screen flex-col gap-1 bg-[#F5F6FA] px-4 py-2 dark:bg-[#1d232a] md:px-10 md:py-5 md:mt-0 pt-10">
+                    <div className="flex min-h-screen flex-col gap-1 bg-[#E6EFF5] px-4 py-2 dark:bg-[#1d232a] md:px-10 md:py-5 md:mt-0 pt-10">
                         <p className='text-3xl font-semibold leading-tight text-gray-800'>
                             {header}
+                        </p>
+                        <p className='text-[17px] text-gray-500'>
+                            {description}
                         </p>
                         {children}
                     </div>
