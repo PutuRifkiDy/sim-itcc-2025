@@ -25,15 +25,15 @@ function DashboardCompetition() {
                             {show_registration_competitions.map((competition_registration, index) => (
                                 <Link
                                     href={route('dashboard.competition.show', { id: competition_registration.id })}
-                                    className="rounded-xl shadow-[#0190DC]/50 shadow-xl flex flex-col p-5 gap-3 transition ease-in-out duration-200 hover:shadow-[#0190DC]/90 hover:shadow-2xl"
+                                    className="rounded-[15px] shadow-[#0190DC]/50 shadow-xl flex flex-col p-5 gap-3 transition ease-in-out duration-200 hover:shadow-[#0190DC]/90 hover:shadow-2xl border-[2px] border-[#E6E6E6] cursor-pointer"
                                     key={index}
                                 >
-                                    <div className="flex justify-center items-center">
+                                    <div className="flex justify-center items-center ">
                                         <img src={`${window.location.origin}/assets/images/image_temporary_competition.png`} className="w-[200px] h-[195px]" alt="" />
                                     </div>
                                     <div className="flex flex-col">
                                         <p className="text-[#5E5E5E] font-normal text-[14px] tracking-[0.03em] text-start">Competition</p>
-                                        <p className="font-bold text-[20px] text-[#000000] line-clamp-1">{competition_registration.competitions.name}</p>
+                                        <p className="font-bold text-[20px] text-[#000000] line-clamp-1 uppercase">{competition_registration.competitions.name}</p>
                                     </div>
                                     {competition_registration.payment_status == "Requested" && (
                                         <div className="flex flex-row gap-2 items-center bg-[#4880FF]/20 py-1 px-2 rounded-lg text-[#4880FF] w-fit">
@@ -65,7 +65,7 @@ function DashboardCompetition() {
                         <div className="grid md:grid-cols-4 grid-cols-1 gap-5">
                             <DropdownMenu>
                                 <DropdownMenuTrigger asChild>
-                                    <div className="rounded-xl shadow-[#0190DC]/50 shadow-lg flex flex-col p-5 gap-10 transition ease-in-out duration-200 hover:shadow-[#0190DC]/50 hover:shadow-xl justify-center items-center cursor-pointer">
+                                    <div className="rounded-[15px] shadow-[#0190DC]/50 shadow-xl flex flex-col p-5 gap-10 transition ease-in-out duration-200 hover:shadow-[#0190DC]/90 hover:shadow-2xl justify-center items-center cursor-pointer border-[2px] border-[#E6E6E6]">
                                         <div className="flex justify-center items-center">
                                             <img src={`${window.location.origin}/assets/images/image_for_join_another_in_dashboard.png`} alt="" className="w-[150px] h-[150px]" />
                                         </div>
