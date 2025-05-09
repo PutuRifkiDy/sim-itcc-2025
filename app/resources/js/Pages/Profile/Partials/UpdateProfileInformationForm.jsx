@@ -78,7 +78,7 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, stat
                     </Button>
                 )}
                 {updateProfileInformation == true && (
-                    <Button className='flex justify-center items-center gap-3 bg-white border-[#0F114C] border-2 text-[#0F114C]' variant="blue" onClick={() => setUpdateProfileInformation(false)}>
+                    <Button className='flex justify-center items-center gap-3 bg-white border-[#0F114C] border-2 text-[#0F114C]' variant="none" onClick={() => setUpdateProfileInformation(false)}>
                         <CancelUpdateProfile />
                         Cancel
                     </Button>
