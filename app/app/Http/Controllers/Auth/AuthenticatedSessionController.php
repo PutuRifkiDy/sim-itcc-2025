@@ -42,7 +42,7 @@ class AuthenticatedSessionController extends Controller
             return redirect()->route('dashboard.overview.admin-lomba.index');
         }
 
-        return redirect()->route('profile.edit');
+        return redirect()->route('dashboard');
     }
 
     /**
