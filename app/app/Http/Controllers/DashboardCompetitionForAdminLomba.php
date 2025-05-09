@@ -32,6 +32,12 @@ class DashboardCompetitionForAdminLomba extends Controller
                     $q->orWhereHas('competitions.competition_content', function ($q3) use ($value) {
                         $q3->where('location', 'REGEXP', $value);
                     });
+                    $q->orWhereHas('teams', function ($q4) use ($value) {
+                        $q4->where('team_name', 'REGEXP', $value);
+                    });
+                    $q->orWhereHas('competitions', function ($q5) use ($value) {
+                        $q5->where('name', 'REGEXP', $value);
+                    });
 
                     $q->orWhere('payment_status', 'REGEXP', $value)
                         ->orWhere('total_payment', 'REGEXP', $value)
@@ -96,6 +102,9 @@ class DashboardCompetitionForAdminLomba extends Controller
                     });
                     $q->orWhereHas('competition_registrations', function ($q5) use ($value) {
                         $q5->where('code_registration', 'REGEXP', $value);
+                    });
+                    $q->orWhereHas('competition_registrations.teams', function ($q6) use ($value) {
+                        $q6->where('team_name', 'REGEXP', $value);
                     });
 
                     $q->orWhere('submission_link', 'REGEXP', $value)
