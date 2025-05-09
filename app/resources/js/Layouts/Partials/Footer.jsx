@@ -16,10 +16,18 @@ export default function Footer({ ...props }) {
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ornare cursus sed nunc eget dictum  Sed ornare cursus sed nunc eget dictumd nunc eget dictum  Sed ornare cursus sed nunc eget dictum
                         </p>
                         <div className="flex flex-row gap-5">
-                            <IconInstagram />
-                            <IconTiktok />
-                            <IconFacebook />
-                            <IconYoutube />
+                            <a href="https://www.instagram.com/itcc_udayana/" target="_blank">
+                                <IconInstagram />
+                            </a>
+                            <a href="https://www.tiktok.com/@itccudayana?_t=ZS-8wChNNcVxgo&_r=1" target="_blank">
+                                <IconTiktok />
+                            </a>
+                            <a href="https://www.facebook.com/ITCC.Udayana/?locale=id_ID" target="_blank">
+                                <IconFacebook />
+                            </a>
+                            <a href="https://www.youtube.com/channel/UCv949bv5-KQMECAPVfxuGTw" target="_blank">
+                                <IconYoutube />
+                            </a>
                         </div>
                     </div>
 
