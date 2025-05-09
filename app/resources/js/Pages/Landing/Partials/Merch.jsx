@@ -2,6 +2,7 @@ import { ArrowRightIcon } from "@/Components/IconGuest";
 import * as AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from "react";
+import { Link } from "@inertiajs/react";
 
 export default function Merch() {
     useEffect(() => {
@@ -41,10 +42,10 @@ export default function Merch() {
                             Buy Now
                             <img src="assets/images/landing/arrow.png" className="inline ml-4 w-3 h-3" alt="" />
                         </button>
-                        <a className="border border-[#0F114C] px-6 py-2 rounded-[10px] text-[#0F114C] font-semibold"
+                        <Link className="border border-[#0F114C] px-6 py-2 rounded-[10px] text-[#0F114C] font-semibold"
                         href="/merchandise">
                             Get to know
-                        </a>
+                        </Link>
                     </div>
                     <img
                         src="assets/images/about/bluePlus.png"

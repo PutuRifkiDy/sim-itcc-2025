@@ -20,12 +20,12 @@ function DashboardCompetition() {
         <>
             <div className="py-5">
                 {show_registration_competitions != '' ? (
-                    <div className="bg-white p-4 shadow rounded-lg sm:p-8 ">
+                    <div className="bg-white p-4 shadow rounded-lg sm:p-8">
                         <div className="grid md:grid-cols-4 grid-cols-1 gap-5 mb-10">
                             {show_registration_competitions.map((competition_registration, index) => (
                                 <Link
                                     href={route('dashboard.competition.show', { id: competition_registration.id })}
-                                    className="rounded-xl shadow-[#0190DC]/50 shadow-lg flex flex-col p-5 gap-3 transition ease-in-out duration-200 hover:shadow-[#0190DC]/50 hover:shadow-xl"
+                                    className="rounded-xl shadow-[#0190DC]/50 shadow-xl flex flex-col p-5 gap-3 transition ease-in-out duration-200 hover:shadow-[#0190DC]/90 hover:shadow-2xl"
                                     key={index}
                                 >
                                     <div className="flex justify-center items-center">
