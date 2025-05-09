@@ -23,7 +23,7 @@ class CompetitionRegistrationResource extends JsonResource
             'team_id'            => $this->team_id,
             'code_registration'  => $this->code_registration,
             'payment_proof_path' => Storage::url($this->payment_proof_path),
-            'total_payment'      => $this->total_payment,
+            'total_payment'      => number_format($this->total_payment),
             'payment_status'     => $this->payment_status,
             'reject_reason'      => $this->reject_reason,
             'competitions'       => new CompetitionResource($this->competitions),

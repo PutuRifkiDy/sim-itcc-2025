@@ -39,7 +39,7 @@ class AuthenticatedSessionController extends Controller
         if ($user->hasRole('admin') && $user->name === 'Admin Kesekre') {
             return redirect()->route('dashboard.overview.admin-kesekre.index');
         } else if ($user->hasRole('admin')) {
-            return redirect()->route('dashboard.competition.admin-lomba.index');
+            return redirect()->route('dashboard.overview.admin-lomba.index');
         }
 
         return redirect()->route('profile.edit');

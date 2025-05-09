@@ -48,8 +48,8 @@ class OverviewForKesekreController extends Controller
         return inertia(component: 'Overview', props: [
             'count_participant_semnas'      => $count_participant_semnas,
             'count_participant_competition' => $count_participant_competition,
-            'sum_total_payment_semnas'      => $sum_total_payment_semnas,
-            'sum_total_payment_competition' => $sum_total_payment_competition,
+            'sum_total_payment_semnas'      => number_format($sum_total_payment_semnas),
+            'sum_total_payment_competition' => number_format($sum_total_payment_competition),
             'count_institution'             => $count_institution,
             'monthly_sales_chart'           => $this->monthlySalesChart(),
             'monthly_registrations_chart'  => $this->monthlyRegistrationsChart(),
