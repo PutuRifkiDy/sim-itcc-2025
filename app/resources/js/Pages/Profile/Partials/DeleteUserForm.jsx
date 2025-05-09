@@ -85,9 +85,10 @@ export default function DeleteUserForm({ className = '' }) {
                             className="mt-1 block w-3/4"
                             isFocused
                             placeholder="Password"
+                            onErrors={errors.password && <InputError message={errors.password} className="mt-2" />}
                         />
 
-                        <InputError message={errors.password} className="mt-2" />
+
                     </div>
 
                     <div className="mt-6 flex justify-end">
