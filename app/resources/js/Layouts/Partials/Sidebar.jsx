@@ -39,7 +39,7 @@ export default function Sidebar({ navigations, children, header, description }) 
                 >
                     <Link
                         href={route('welcome')}
-                        className="flex w-full flex-row items-center justify-center gap-1 border-b-[1px] border-slate-200 py-6 text-[24px] font-extrabold text-[#0F114C] dark:border-slate-600"
+                        className="flex w-full flex-row items-center justify-center gap-1 border-b-[1px] border-slate-200 py-6 text-[24px] font-bold text-[#0F114C] dark:border-slate-600 tracking-[0.03em]"
                     >
                         ITCC<span className={`${isSidebarOpen ? 'flex flex-row text-[#264A9D]' : 'hidden'}`}>2025</span>
                     </Link>

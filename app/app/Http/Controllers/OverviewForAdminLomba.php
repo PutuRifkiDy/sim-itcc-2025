@@ -30,7 +30,7 @@ class OverviewForAdminLomba extends Controller
 
         return inertia(component: 'Competition/Dashboard/Overview', props: [
             'count_competition'             => $count_competition,
-            'sum_total_payment_competition' => $sum_total_payment_competition,
+            'sum_total_payment_competition' => number_format($sum_total_payment_competition),
             'monthly_sales_chart'           => $this->monthlySalesChart(),
             'monthly_registrations_chart'  => $this->monthlyRegistrationsChart(),
         ]);
