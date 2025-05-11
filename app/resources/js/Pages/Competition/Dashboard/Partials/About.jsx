@@ -54,8 +54,8 @@ function About({ user_competition_registrations, className }) {
                         {user_competition_registrations?.competitions?.name}
                     </p>
                     {user_competition_registrations.payment_status == "Requested" && (
-                        <div className="bg-[#4880FF]/20 rounded-md flex justify-center items-center py-2 px-5">
-                            <p className="text-[#4880FF] font-bold text-[12px]">{user_competition_registrations.payment_status ?? ' '}</p>
+                        <div className="bg-[#0F114C]/20 rounded-md flex justify-center items-center py-2 px-5">
+                            <p className="text-[#0F114C] font-bold text-[12px]">{user_competition_registrations.payment_status ?? ' '}</p>
                         </div>
                     )}
                     {user_competition_registrations.payment_status == "Pending" && (

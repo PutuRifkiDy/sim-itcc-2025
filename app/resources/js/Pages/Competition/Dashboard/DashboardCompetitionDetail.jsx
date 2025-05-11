@@ -8,6 +8,9 @@ import { Button } from "@/Components/ui/button";
 import { toast } from "sonner";
 import Payment from "./Partials/Payment";
 import Submission from "./Partials/Submission";
+import InputLabel from "@/Components/InputLabel";
+import { Input } from "@/Components/ui/input";
+import Modal from "@/Components/Modal";
 
 function DashboardCompetitionDetail() {
     const user_competition_registrations = usePage().props.user_competition_registrations;
@@ -17,6 +20,49 @@ function DashboardCompetitionDetail() {
 
     const status_submission = usePage().props.status_submission;
     const [tabs, setTabs] = useState("about");
+    const [paymentValue, setPaymentValue] = useState(1);
+
+    const [showModal, setShowModal] = useState(false);
+    const [pendingPaymentValue, setPendingPaymentValue] = useState(null);
+    const [prevPaymentValue, setPrevPaymentValue] = useState(paymentValue);
+
+    const closeModal = () => {
+        setShowModal(false);
+        setPendingPaymentValue(null);
+        setPrevPaymentValue(paymentValue);
+    }
+
+    const additionalPaymentMethods = [
+        {
+            image: "assets/images/dashboard/BNI_logo.png",
+            className: "w-[122px] h-[86px]",
+        },
+        {
+            image: "assets/images/dashboard/DANA_logo.png",
+            className: "w-[134px] h-[38px]",
+        },
+        {
+            image: "assets/images/dashboard/SHOPEE_PAY_logo.png",
+            className: "w-[129px] h-[57px]",
+        },
+        {
+            image: "assets/images/dashboard/GOPAY_logo.png",
+            className: "w-[143px] h-[52px]",
+        },
+        {
+            image: "assets/images/dashboard/OVO_logo.png",
+            className: "w-[130px] h-[40px]",
+        },
+    ];
+
+    const combinedPaymentMethodsWithAdditionalContent = payment_methods
+        .map((item, index) => ({
+            ...item,
+            image: additionalPaymentMethods[index]?.image || "assets/images/dashboard/BNI_logo.png",
+            className: additionalPaymentMethods[index]?.className || "w-[122px] h-[86px]",
+        }))
+        .concat(additionalPaymentMethods.slice(payment_methods.length));
+
     return (
         <>
             <div className="py-5">
@@ -24,30 +70,125 @@ function DashboardCompetitionDetail() {
                     href={route('dashboard.competition.index')}
                     className="flex flex-row gap-2 items-center text-[#000000] hover:text-[#0f114c] hover:transition-all duration-500 ease-in-out mb-5 font-bold w-fit"
                 >
-                        <ChevronLeftIcon className="w-5 h-5" />
+                    <ChevronLeftIcon className="w-5 h-5" />
                     Back
                 </Link>
-                <div className="bg-white p-4 shadow rounded-lg sm:p-8">
-                    <div className="flex flex-row md:gap-10 gap-5">
-                        <Button variant="none" asChild onClick={() => setTabs("about")}>
-                            <p className={`cursor-pointer ${tabs == "about" ? "text-[#0F114C] font-bold border-[#264A9D] border-b-[4px] rounded-[2px] transition-all ease-in-out duration-400 text-[16px]" : "text-[#5E5E5E] text-[16px]"}`}>About</p>
-                        </Button>
-                        <Button variant="none" asChild onClick={() => setTabs("payment")}>
-                            <p className={`cursor-pointer ${tabs == "payment" ? "text-[#0F114C] font-bold border-[#264A9D] border-b-[4px] rounded-[2px] transition-all ease-in-out duration-400 text-[16px]" : "text-[#5E5E5E] text-[16px]"}`} >Payment</p>
-                        </Button>
-                        <Button variant="none" asChild onClick={() => setTabs("submission")}>
-                            <p className={`cursor-pointer ${tabs == "submission" ? "text-[#0F114C] font-bold border-[#264A9D] border-b-[4px] rounded-[2px] transition-all ease-in-out duration-400 text-[16px]" : "text-[#5E5E5E] text-[16px]"}`} >Submission</p>
-                        </Button>
+                <div className={`${tabs == "payment" ? "flex flex-row gap-5" : ""}`}>
+                    <div className={`bg-white p-4 shadow rounded-lg sm:p-8 ${tabs == "payment" && ["Requested", "Rejected"].includes(user_competition_registrations.payment_status) && user_competition_registrations ? "w-[70%]" : "w-full"}`}>
+                        <div className="flex flex-row md:gap-10 gap-5">
+                            <Button variant="none" asChild onClick={() => setTabs("about")}>
+                                <p className={`cursor-pointer ${tabs == "about" ? "text-[#0F114C] font-bold border-[#264A9D] border-b-[4px] rounded-[2px] transition-all ease-in-out duration-400 text-[16px]" : "text-[#5E5E5E] text-[16px]"}`}>About</p>
+                            </Button>
+                            <Button variant="none" asChild onClick={() => setTabs("payment")}>
+                                <p className={`cursor-pointer ${tabs == "payment" ? "text-[#0F114C] font-bold border-[#264A9D] border-b-[4px] rounded-[2px] transition-all ease-in-out duration-400 text-[16px]" : "text-[#5E5E5E] text-[16px]"}`} >Payment</p>
+                            </Button>
+                            <Button variant="none" asChild onClick={() => setTabs("submission")}>
+                                <p className={`cursor-pointer ${tabs == "submission" ? "text-[#0F114C] font-bold border-[#264A9D] border-b-[4px] rounded-[2px] transition-all ease-in-out duration-400 text-[16px]" : "text-[#5E5E5E] text-[16px]"}`} >Submission</p>
+                            </Button>
+                        </div>
+
+                        {tabs == "about" && user_competition_registrations && (
+                            <About className="w-full mt-5" user_competition_registrations={user_competition_registrations} />
+                        )}
+                        {tabs == "payment" && user_competition_registrations && (
+                            <Payment className="w-full mt-5" user_competition_registrations={user_competition_registrations} payment_methods={payment_methods} payment_value={paymentValue} />
+                        )}
+                        {tabs == "submission" && user_competition_registrations && (
+                            <Submission className="w-full mt-5" user_competition_registrations={user_competition_registrations} competitions={competitions} status_submission={status_submission} show_reject_reason_submission={show_reject_reason_submission} />
+                        )}
                     </div>
 
-                    {tabs == "about" && user_competition_registrations && (
-                        <About className="w-full mt-5" user_competition_registrations={user_competition_registrations} />
-                    )}
-                    {tabs == "payment" && user_competition_registrations && (
-                        <Payment className="w-full mt-5" user_competition_registrations={user_competition_registrations} payment_methods={payment_methods} />
-                    )}
-                    {tabs == "submission" && user_competition_registrations && (
-                        <Submission className="w-full mt-5" user_competition_registrations={user_competition_registrations} competitions={competitions} status_submission={status_submission} show_reject_reason_submission={show_reject_reason_submission} />
+                    {tabs == "payment" && user_competition_registrations && ["Requested", "Rejected"].includes(user_competition_registrations.payment_status) && (
+                        <div className="bg-white p-4 shadow rounded-lg sm:p-8 flex flex-col gap-10 w-[30%]">
+                            <div className="flex flex-col gap-5">
+                                <p className="font-bold text-[18px] leading-[16px] text-[#3A3A3A]">Bank Transfer</p>
+                                {combinedPaymentMethodsWithAdditionalContent
+                                    .filter((payment_method) => payment_method.payment_type == "Bank Transfer")
+                                    .map((payment_method, index) => (
+                                        <label
+                                            key={index}
+                                            className={`flex cursor-pointer flex-row gap-5 justify-evenly items-center border-2 px-3 py-5 rounded-[10px] w-full transition-all duration-200
+    ${paymentValue == payment_method.id ? 'border-[#0f114c]' : 'border-[#E6E6E6]'}`}
+                                            onClick={(e) => {
+                                                e.preventDefault();
+                                                if (paymentValue !== payment_method.id) {
+                                                    setPendingPaymentValue(payment_method.id);
+                                                    setShowModal(true);
+                                                }
+                                            }}
+                                        >
+                                            <Input
+                                                type="radio"
+                                                name="payment_method"
+                                                value={payment_method.id}
+                                                checked={paymentValue == payment_method.id}
+                                                onChange={(e) => setPaymentValue(e.target.value)}
+                                                className="w-5 h-5 accent-[#0f114c]"
+                                            />
+                                            <img src={`${window.location.origin}/${payment_method.image}`} alt="" className={payment_method.className} />
+                                        </label>
+                                    ))}
+                            </div>
+                            <div className="flex flex-col gap-5">
+                                <p className="font-bold text-[18px] leading-[16px] text-[#3A3A3A]">E-Wallet</p>
+                                {combinedPaymentMethodsWithAdditionalContent
+                                    .filter((payment_method) => payment_method.payment_type == "E-Wallet")
+                                    .map((payment_method, index) => (
+                                        <label
+                                            key={index}
+                                            className={`flex cursor-pointer flex-row gap-5 justify-evenly items-center border-2 px-3 py-5 rounded-[10px] w-full transition-all duration-200
+    ${paymentValue == payment_method.id ? 'border-[#0f114c]' : 'border-[#E6E6E6]'}`}
+                                            onClick={(e) => {
+                                                e.preventDefault();
+                                                if (paymentValue !== payment_method.id) {
+                                                    setPendingPaymentValue(payment_method.id);
+                                                    setShowModal(true);
+                                                }
+                                            }}
+                                        >
+                                            <Input
+                                                type="radio"
+                                                name="payment_method"
+                                                value={payment_method.id}
+                                                checked={paymentValue == payment_method.id}
+                                                onChange={(e) => setPaymentValue(e.target.value)}
+                                                className="w-5 h-5 accent-[#0f114c]"
+                                            />
+                                            <img src={`${window.location.origin}/${payment_method.image}`} alt="" className={payment_method.className} />
+                                        </label>
+                                    ))}
+                                {/* <InputLabel className="" >
+                                    <div className={cn("flex flex-col gap-5 justify-center items-center border-[#6D98F9] border-2 border-dashed p-16 cursor-pointer rounded-xl", classNameForBG)}>
+                                        <UploadFileForDashboardIcon />
+                                        <Input type="file" accept="image/*" onChange={handleChange} name={name} className={cn("hidden", classNameForInput)} />
+                                        <div className="flex flex-col gap-1 justify-center items-center">
+                                            <p className="font-bold text-[14px] text-[#5E5E5E]">Choose a file or drag & drop it here</p>
+                                            <p className="text-[14px] font-medium text-[#ACACAC]">JPG, PNG, max 2MB </p>
+                                        </div>
+                                    </div>
+                                </InputLabel> */}
+                                <Modal show={showModal} onClose={closeModal} className="px-5 py-5" maxWidth="md">
+                                    <h2 className="text-lg font-medium text-gray-900">Are you sure you want to change your payment method?</h2>
+                                    <p className="mt-1 text-sm text-gray-600 mb-10">
+                                        Once you cancel your registration, you will not be able to revert this action.
+                                    </p>
+                                    <div className="mt-6 flex justify-end gap-5" >
+                                        <Button onClick={closeModal} variant="red" type="button">Cancel</Button>
+
+                                        <Button
+                                            variant="blue"
+                                            onClick={() => {
+                                                setPrevPaymentValue(paymentValue); // simpan nilai sebelumnya
+                                                setPaymentValue(pendingPaymentValue);
+                                                setPendingPaymentValue(null);
+                                                setShowModal(false);
+                                            }}>
+                                            Confirm
+                                        </Button>
+                                    </div>
+                                </Modal>
+                            </div>
+                        </div>
                     )}
                 </div>
             </div>
@@ -56,4 +197,4 @@ function DashboardCompetitionDetail() {
 }
 
 export default DashboardCompetitionDetail;
-DashboardCompetitionDetail.layout = (page) => <DashboardLayout children={page} title="Competition Detail" header="Competition Detail" description="Manage your payment and submission in this page"/>;
+DashboardCompetitionDetail.layout = (page) => <DashboardLayout children={page} title="Competition Detail" header="Competition Detail" description="Manage your payment and submission in this page" />;

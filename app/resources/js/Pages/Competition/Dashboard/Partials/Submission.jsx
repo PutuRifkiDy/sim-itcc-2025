@@ -45,9 +45,9 @@ function Submission({ className, user_competition_registrations, competitions, s
                 {user_competition_registrations.competitions.is_need_submission ? (
                     <div>
                         {user_competition_registrations.payment_status == 'Requested' && (
-                            <div className="flex flex-row gap-2 px-4 py-2 border-l-4 border-l-[#4880FF] bg-[#4880FF]/20 w-full items-center mb-5">
-                                <ClockIcon className="h-5 w-5 text-[#4880FF]" />
-                                <p className='text-[#4880FF] font-medium text-[12px] leading-[16px]'>Complete your payment before the deadline</p>
+                            <div className="flex flex-row gap-2 px-4 py-2 border-l-4 border-l-[#0F114C] bg-[#0F114C]/20 w-full items-center mb-5">
+                                <ClockIcon className="h-5 w-5 text-[#0F114C]" />
+                                <p className='text-[#0F114C] font-medium text-[12px] leading-[16px]'>Complete your payment before the deadline</p>
                             </div>
                         )}
                         {user_competition_registrations.payment_status == 'Pending' && (

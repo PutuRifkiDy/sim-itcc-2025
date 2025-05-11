@@ -18,11 +18,31 @@ class PaymentMethodsSeeder extends Seeder
                 'account_number' => '1755426067',
                 'bank_name' => 'BNI',
                 'recipient_name' => 'Luh Dewita Cahyani Ardiningsih',
+                'payment_type' => 'Bank Transfer'
             ],
             [
-                'account_number' => '1452491360',
-                'bank_name' => 'BNI',
-                'recipient_name' => 'Ida Ayu Putri Widiasuari',
+                'account_number' => '1452491361',
+                'bank_name' => 'Dana',
+                'recipient_name' => 'Luh Dewita Cahyani Ardiningsih',
+                'payment_type' => 'E-Wallet'
+            ],
+            [
+                'account_number' => '1452491362',
+                'bank_name' => 'Shopee Pay',
+                'recipient_name' => 'Luh Dewita Cahyani Ardiningsih',
+                'payment_type' => 'E-Wallet'
+            ],
+            [
+                'account_number' => '1452491363',
+                'bank_name' => 'Gopay',
+                'recipient_name' => 'Luh Dewita Cahyani Ardiningsih',
+                'payment_type' => 'E-Wallet'
+            ],
+            [
+                'account_number' => '1452491364',
+                'bank_name' => 'OVO',
+                'recipient_name' => 'Luh Dewita Cahyani Ardiningsih',
+                'payment_type' => 'E-Wallet'
             ],
         ];
 

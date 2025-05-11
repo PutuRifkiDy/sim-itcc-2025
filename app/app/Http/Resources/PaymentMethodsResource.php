@@ -15,9 +15,11 @@ class PaymentMethodsResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
+            'id' => $this->id,
             'account_number' => $this->account_number,
             'bank_name' => $this->bank_name,
-            'recipient_name' => $this->recipient_name
+            'recipient_name' => $this->recipient_name,
+            'payment_type' => $this->payment_type
         ];
     }
 }

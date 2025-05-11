@@ -28,8 +28,8 @@ function About({ event_registrations, className }) {
                         {event_registrations.events?.name}
                     </p>
                     {event_registrations.payment_status == "Requested" && (
-                        <div className="bg-[#4880FF]/20 rounded-md flex justify-center items-center py-2 px-5">
-                            <p className="text-[#4880FF] font-bold text-[12px]">{event_registrations.payment_status ?? ' '}</p>
+                        <div className="bg-[#0F114C]/20 rounded-md flex justify-center items-center py-2 px-5">
+                            <p className="text-[#0F114C] font-bold text-[12px]">{event_registrations.payment_status ?? ' '}</p>
                         </div>
                     )}
                     {event_registrations.payment_status == "Pending" && (

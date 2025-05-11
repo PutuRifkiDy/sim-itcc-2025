@@ -36,9 +36,9 @@ function DashboardCompetition() {
                                         <p className="font-bold text-[20px] text-[#000000] line-clamp-1 uppercase">{competition_registration.competitions.name}</p>
                                     </div>
                                     {competition_registration.payment_status == "Requested" && (
-                                        <div className="flex flex-row gap-2 items-center bg-[#4880FF]/20 py-1 px-2 rounded-lg text-[#4880FF] w-fit">
-                                            <div className="bg-[#4880FF] rounded-full w-[10px] h-[10px]"></div>
-                                            <p className="text-[14px] font-semibold text-[#4880FF]">{competition_registration.payment_status}</p>
+                                        <div className="flex flex-row gap-2 items-center bg-[#0F114C]/20 py-1 px-2 rounded-lg text-[#0F114C] w-fit">
+                                            <div className="bg-[#0F114C] rounded-full w-[10px] h-[10px]"></div>
+                                            <p className="text-[14px] font-semibold text-[#0F114C]">{competition_registration.payment_status}</p>
                                         </div>
                                     )}
                                     {competition_registration.payment_status == "Pending" && (
@@ -65,7 +65,7 @@ function DashboardCompetition() {
                         <div className="grid md:grid-cols-4 grid-cols-1 gap-5">
                             <DropdownMenu>
                                 <DropdownMenuTrigger asChild>
-                                    <div className="rounded-[15px] shadow-[#0f114c]/50 shadow-xl flex flex-col p-5 gap-10 transition ease-in-out duration-200 hover:shadow-[#0f114c]/90 hover:shadow-2xl justify-center items-center cursor-pointer border-[2px] border-[#E6E6E6]">
+                                    <div className="rounded-[15px] shadow-[0_0_5px_#4880ff] flex flex-col p-5 gap-10 transition ease-in-out duration-200 hover:shadow-[0_0_10px_#4880ff] justify-center items-center cursor-pointer border-[2px] border-[#E6E6E6]">
                                         <div className="flex justify-center items-center">
                                             <img src={`${window.location.origin}/assets/images/image_for_join_another_in_dashboard.png`} alt="" className="w-[150px] h-[150px]" />
                                         </div>

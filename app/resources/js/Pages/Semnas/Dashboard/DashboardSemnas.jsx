@@ -26,13 +26,13 @@ function DashboardSemnas() {
                     <div className="bg-white p-4 shadow rounded-lg sm:p-8">
                         <div className="flex flex-row md:gap-10 gap-5">
                             <Button variant="none" asChild onClick={() => setTabs("about")}>
-                                <p className={`cursor-pointer ${tabs == "about" ? "text-[#4880FF] font-bold border-[#4880FF] border-b-[4px] rounded-[2px] transition-all ease-in-out duration-400 text-[16px]" : "text-[#5E5E5E] text-[16px]"}`}>About</p>
+                                <p className={`cursor-pointer ${tabs == "about" ? "text-[#0F114C] font-bold border-[#0F114C] border-b-[4px] rounded-[2px] transition-all ease-in-out duration-400 text-[16px]" : "text-[#5E5E5E] text-[16px]"}`}>About</p>
                             </Button>
                             <Button variant="none" asChild onClick={() => setTabs("payment")}>
-                                <p className={`cursor-pointer ${tabs == "payment" ? "text-[#4880FF] font-bold border-[#4880FF] border-b-[4px] rounded-[2px] transition-all ease-in-out duration-400 text-[16px]" : "text-[#5E5E5E] text-[16px]"}`} >Payment</p>
+                                <p className={`cursor-pointer ${tabs == "payment" ? "text-[#0F114C] font-bold border-[#0F114C] border-b-[4px] rounded-[2px] transition-all ease-in-out duration-400 text-[16px]" : "text-[#5E5E5E] text-[16px]"}`} >Payment</p>
                             </Button>
                             <Button variant="none" asChild onClick={() => setTabs("ticket")}>
-                                <p className={`cursor-pointer ${tabs == "ticket" ? "text-[#4880FF] font-bold border-[#4880FF] border-b-[4px] rounded-[2px] transition-all ease-in-out duration-400 text-[16px]" : "text-[#5E5E5E] text-[16px]"}`} >Ticket</p>
+                                <p className={`cursor-pointer ${tabs == "ticket" ? "text-[#0F114C] font-bold border-[#0F114C] border-b-[4px] rounded-[2px] transition-all ease-in-out duration-400 text-[16px]" : "text-[#5E5E5E] text-[16px]"}`} >Ticket</p>
                             </Button>
                         </div>
 

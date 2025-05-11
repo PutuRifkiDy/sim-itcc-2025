@@ -76,7 +76,7 @@ class CompetitionPricesSeeder extends Seeder
                 'periode_name' => 'Web Design Mahasiswa Batch II',
                 'price' => '95000',
                 'start_date' => '2025-03-30 16:00:00.000',
-                'end_date' => '2025-04-30 15:59:59.000',
+                'end_date' => '2025-05-30 15:59:59.000',
             ],
             [
                 'competition_id' => '5',

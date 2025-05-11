@@ -8,7 +8,7 @@ import { useForm } from "@inertiajs/react";
 import { useState } from "react";
 import { toast } from "sonner";
 
-function Payment({ user_competition_registrations, payment_methods, className }) {
+function Payment({ user_competition_registrations, payment_methods, payment_value, className }) {
     const [isCopied, setIsCopied] = useState(false);
     const { data, setData, post, put, patch, errors, processing, recentlySuccessful, formData } = useForm({
         payment_status: 'Pending',
@@ -20,6 +20,7 @@ function Payment({ user_competition_registrations, payment_methods, className })
         reject_reason: user_competition_registrations.reject_reason,
         _method: 'POST',
     });
+
 
     function handleCopy(text) {
         navigator.clipboard.writeText(text)
@@ -57,13 +58,46 @@ function Payment({ user_competition_registrations, payment_methods, className })
         });
     };
 
+    const additionalPaymentMethods = [
+        {
+            image: "assets/images/dashboard/BNI_logo.png",
+            className: "w-[45px] h-[32px]",
+        },
+        {
+            image: "assets/images/dashboard/DANA_logo.png",
+            className: "w-[72px] h-[21px]",
+        },
+        {
+            image: "assets/images/dashboard/SHOPEE_PAY_logo.png",
+            className: "w-[57px] h-[25px]",
+        },
+        {
+            image: "assets/images/dashboard/GOPAY_logo.png",
+            className: "w-[75px] h-[27px]",
+        },
+        {
+            image: "assets/images/dashboard/OVO_logo.png",
+            className: "w-[75px] h-[23px]",
+        },
+    ];
+
+    const combinedPaymentMethodsWithAdditionalContent = payment_methods
+    .map((item, index) => ({
+        ...item,
+        image: additionalPaymentMethods[index]?.image || "assets/images/dashboard/BNI_logo.png",
+        className: additionalPaymentMethods[index]?.className || "w-[122px] h-[86px]",
+    }))
+    .concat(additionalPaymentMethods.slice(payment_methods.length));
+    const payment_method = combinedPaymentMethodsWithAdditionalContent.find((method) => method.id == payment_value);
+    console.log('cek payment method', payment_method);
+
     return (
         <>
             <section className={className}>
                 {user_competition_registrations.payment_status == 'Requested' && (
-                    <div className="flex flex-row gap-2 px-4 py-2 border-l-4 border-l-[#4880FF] bg-[#4880FF]/20 w-full items-center mb-5">
-                        <ClockIcon className="h-5 w-5 text-[#4880FF]" />
-                        <p className='text-[#4880FF] font-medium text-[12px] leading-[16px]'>Complete your payment before the deadline</p>
+                    <div className="flex flex-row gap-2 px-4 py-2 border-l-4 border-l-[#0F114C] bg-[#0F114C]/20 w-full items-center mb-5">
+                        <ClockIcon className="h-5 w-5 text-[#0F114C]" />
+                        <p className='text-[#0F114C] font-medium text-[12px] leading-[16px]'>Complete your payment before the deadline</p>
                     </div>
                 )}
                 {user_competition_registrations.payment_status == 'Pending' && (
@@ -85,7 +119,7 @@ function Payment({ user_competition_registrations, payment_methods, className })
                     </div>
                 )}
 
-                <div className="grid md:grid-cols-3 grid-cols-1 md:gap-0 gap-4">
+                <div className="grid md:grid-cols-2 grid-cols-1 md:gap-5 gap-4">
                     <div className="flex flex-col gap-2">
                         <p className="font-bold text-[14px] tracking-[0.03em] text-[#5E5E5E]">Total Payment</p>
                         <p className="font-bold text-[20px] tracking-[0.03em] text-[#000000]">Rp. {user_competition_registrations.total_payment}</p>
@@ -93,20 +127,20 @@ function Payment({ user_competition_registrations, payment_methods, className })
                     <div className="flex flex-col gap-2">
                         <p className="font-bold text-[14px] tracking-[0.03em] text-[#5E5E5E]">Account Number</p>
                         <div className="font-bold text-[20px] tracking-[0.03em] text-[#000000] flex flex-row gap-2 items-center">
-                            <BniIcon />
-                            {payment_methods.account_number}
+                            <img src={`${window.location.origin}/${payment_method.image}`} className={payment_method.className} alt="" />
+                            {payment_method.account_number}
                             {isCopied == true ? (
                                 <div>
                                     <p className="text-sm text-muted-foreground">Copied.</p>
                                 </div>
                             ) : (
-                                <DocumentDuplicateIcon className="w-5 h-5 cursor-pointer text-gray-500" onClick={() => handleCopy(payment_methods.account_number)} />
+                                <DocumentDuplicateIcon className="w-5 h-5 cursor-pointer text-gray-500" onClick={() => handleCopy(payment_method.account_number)} />
                             )}
                         </div>
                     </div>
                     <div className="flex flex-col gap-2">
                         <p className="font-bold text-[14px] tracking-[0.03em] text-[#5E5E5E]">Recipient Name</p>
-                        <p className="font-bold text-[20px] tracking-[0.03em] text-[#000000]">{payment_methods.recipient_name}</p>
+                        <p className="font-bold text-[20px] tracking-[0.03em] text-[#000000]">{payment_method.recipient_name}</p>
                     </div>
                 </div>
 
@@ -144,7 +178,7 @@ function Payment({ user_competition_registrations, payment_methods, className })
                         )}
                     </div>
                 </form>
-            </section >
+            </section>
         </>
     );
 }

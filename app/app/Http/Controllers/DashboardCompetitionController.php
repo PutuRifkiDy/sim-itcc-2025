@@ -66,11 +66,11 @@ class DashboardCompetitionController extends Controller
         $show_status_submission = Submissions::where('competition_registration_id', $leaderRegistration->id)
             ->value('submission_status');
 
-        $payment_methods = PaymentMethods::where('id', '1')->first();
+        $payment_methods = PaymentMethods::get();
 
         return inertia(component: 'Competition/Dashboard/DashboardCompetitionDetail', props: [
             'user_competition_registrations' => fn() => $show_registration_competition ? new CompetitionRegistrationResource($show_registration_competition) : null,
-            'payment_methods'                => new PaymentMethodsResource($payment_methods),
+            'payment_methods'                => PaymentMethodsResource::collection($payment_methods),
             'status_submission'              => $show_status_submission ?? null,
             'show_reject_reason_submission'  => $show_reject_reason_submission ?? null,
         ]);
@@ -166,7 +166,7 @@ class DashboardCompetitionController extends Controller
             return to_route('dashboard.competition.index');
         }
 
-        if($competition->is_team) {
+        if ($competition->is_team) {
             if ($user->id !== $team->leader_id) {
                 flashMessage('Only the team leader can upload submission', 'error');
                 return to_route('dashboard.competition.index');

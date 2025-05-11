@@ -27,7 +27,7 @@ function ImageUploadDashboard({ imagePath, onChangeImage, errorMessage, name, cl
         <>
             <div className="flex flex-col gap-5">
                 <InputLabel className="" >
-                    <div className={cn("flex flex-col gap-5 justify-center items-center border-[#6D98F9] border-2 border-dashed p-16 cursor-pointer rounded-xl", classNameForBG)}>
+                    <div className={cn("flex flex-col gap-5 justify-center items-center border-[#495190] border-2 border-dashed p-16 cursor-pointer rounded-xl", classNameForBG)}>
                         <UploadFileForDashboardIcon />
                         <Input type="file" accept="image/*" onChange={handleChange}  name={name} className={cn("hidden", classNameForInput )} />
                         <div className="flex flex-col gap-1 justify-center items-center">
