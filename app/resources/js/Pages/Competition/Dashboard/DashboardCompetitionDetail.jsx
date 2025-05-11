@@ -29,7 +29,7 @@ function DashboardCompetitionDetail() {
     const closeModal = () => {
         setShowModal(false);
         setPendingPaymentValue(null);
-        setPrevPaymentValue(paymentValue);
+        // setPrevPaymentValue(paymentValue);
     }
 
     const additionalPaymentMethods = [
@@ -122,7 +122,7 @@ function DashboardCompetitionDetail() {
                                                 name="payment_method"
                                                 value={payment_method.id}
                                                 checked={paymentValue == payment_method.id}
-                                                onChange={(e) => setPaymentValue(e.target.value)}
+                                                onChange={(e) => setPaymentValue(Number(e.target.value))}
                                                 className="w-5 h-5 accent-[#0f114c]"
                                             />
                                             <img src={`${window.location.origin}/${payment_method.image}`} alt="" className={payment_method.className} />
@@ -151,7 +151,7 @@ function DashboardCompetitionDetail() {
                                                 name="payment_method"
                                                 value={payment_method.id}
                                                 checked={paymentValue == payment_method.id}
-                                                onChange={(e) => setPaymentValue(e.target.value)}
+                                                onChange={(e) => setPaymentValue(Number(e.target.value))}
                                                 className="w-5 h-5 accent-[#0f114c]"
                                             />
                                             <img src={`${window.location.origin}/${payment_method.image}`} alt="" className={payment_method.className} />
