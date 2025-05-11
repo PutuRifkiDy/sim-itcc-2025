@@ -22,7 +22,7 @@ function DashboardCompetitionDetail() {
             <div className="py-5">
                 <Link
                     href={route('dashboard.competition.index')}
-                    className="flex flex-row gap-2 items-center text-[#5E5E5E] hover:text-[#000000] hover:transition-all duration-500 ease-in-out mb-5 font-bold w-fit"
+                    className="flex flex-row gap-2 items-center text-[#000000] hover:text-[#0f114c] hover:transition-all duration-500 ease-in-out mb-5 font-bold w-fit"
                 >
                         <ChevronLeftIcon className="w-5 h-5" />
                     Back

@@ -25,7 +25,7 @@ function DashboardCompetition() {
                             {show_registration_competitions.map((competition_registration, index) => (
                                 <Link
                                     href={route('dashboard.competition.show', { id: competition_registration.id })}
-                                    className="rounded-[15px] shadow-[#0190DC]/50 shadow-xl flex flex-col p-5 gap-3 transition ease-in-out duration-200 hover:shadow-[#0190DC]/90 hover:shadow-2xl border-[2px] border-[#E6E6E6] cursor-pointer"
+                                    className="rounded-[15px] shadow-[0_0_5px_#4880ff] flex flex-col p-5 gap-3 transition ease-in-out duration-200 hover:shadow-[0_0_10px_#4880ff] cursor-pointer"
                                     key={index}
                                 >
                                     <div className="flex justify-center items-center ">
@@ -65,7 +65,7 @@ function DashboardCompetition() {
                         <div className="grid md:grid-cols-4 grid-cols-1 gap-5">
                             <DropdownMenu>
                                 <DropdownMenuTrigger asChild>
-                                    <div className="rounded-[15px] shadow-[#0190DC]/50 shadow-xl flex flex-col p-5 gap-10 transition ease-in-out duration-200 hover:shadow-[#0190DC]/90 hover:shadow-2xl justify-center items-center cursor-pointer border-[2px] border-[#E6E6E6]">
+                                    <div className="rounded-[15px] shadow-[#0f114c]/50 shadow-xl flex flex-col p-5 gap-10 transition ease-in-out duration-200 hover:shadow-[#0f114c]/90 hover:shadow-2xl justify-center items-center cursor-pointer border-[2px] border-[#E6E6E6]">
                                         <div className="flex justify-center items-center">
                                             <img src={`${window.location.origin}/assets/images/image_for_join_another_in_dashboard.png`} alt="" className="w-[150px] h-[150px]" />
                                         </div>
