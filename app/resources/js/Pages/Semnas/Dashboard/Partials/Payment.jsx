@@ -74,7 +74,7 @@ function Payment({ event_registrations, payment_methods, className, payment_valu
         },
         {
             image: "assets/images/dashboard/OVO_logo.png",
-            className: "w-[75px] h-[23px]",
+            className: "w-[63px] h-[20px]",
         },
     ];
 
