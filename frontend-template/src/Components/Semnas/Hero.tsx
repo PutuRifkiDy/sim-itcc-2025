@@ -17,7 +17,7 @@ export default function HeroSection() {
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
   return (
-    <section className="px-4 md:px-12 mt-12 md:mt-24">
+    <section className="px-4 md:px-12 mt-12 md:mt-20 pb-1 md:pb-1">
       <div className="flex flex-col md:flex-row justify-center md:justify-between gap-10">
         <div className="w-full flex flex-col">
           <div className="flex flex-col items-start relative">
