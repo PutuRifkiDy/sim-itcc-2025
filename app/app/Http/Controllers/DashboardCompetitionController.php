@@ -125,6 +125,7 @@ class DashboardCompetitionController extends Controller
                     'reject_reason'      => $registration->reject_reason,
                 ]);
             }
+            flashMessage('Your payment proof has been uploaded.', 'success');
         } else {
             $competitionRegistrations->update([
                 'payment_proof_path' => $paymentProofPath,

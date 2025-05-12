@@ -23,7 +23,6 @@ function RegisterJoinTeam() {
             return;
         }
 
-
         post(route('register.competition.join-team.store', slug.slug), {
             preserveScroll: true,
             preserveState: true,

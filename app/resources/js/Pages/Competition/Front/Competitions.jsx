@@ -22,10 +22,6 @@ function Competitions({ ...props }) {
 
         post(route('register.competition.store', data.slug), {
 
-            onSuccess: (success) => {
-                const flash = flashMessage(success);
-                if (flash) toast[flash.type](flash.message);
-            },
             preserveScroll: true,
             preserveState: true,
         });

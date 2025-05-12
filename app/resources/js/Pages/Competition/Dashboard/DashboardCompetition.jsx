@@ -15,7 +15,6 @@ function DashboardCompetition() {
             toast[flash_message.type || 'success'](flash_message.message);
         }
     }, [flash_message]);
-    console.log("cek isi", show_registration_competitions);
     return (
         <>
             <div className="py-5">
@@ -65,7 +64,7 @@ function DashboardCompetition() {
                         <div className="grid md:grid-cols-4 grid-cols-1 gap-5">
                             <DropdownMenu>
                                 <DropdownMenuTrigger asChild>
-                                    <div className="rounded-[15px] shadow-[0_0_5px_#4880ff] flex flex-col p-5 gap-10 transition ease-in-out duration-200 hover:shadow-[0_0_10px_#4880ff] justify-center items-center cursor-pointer border-[2px] border-[#E6E6E6]">
+                                    <div className="rounded-[15px] shadow-[0_0_5px_#4880ff] flex flex-col p-5 gap-10 transition ease-in-out duration-200 hover:shadow-[0_0_10px_#4880ff] justify-center items-center cursor-pointer">
                                         <div className="flex justify-center items-center">
                                             <img src={`${window.location.origin}/assets/images/image_for_join_another_in_dashboard.png`} alt="" className="w-[150px] h-[150px]" />
                                         </div>

@@ -10,12 +10,6 @@ function RegisterTeam() {
     const slug = usePage().props.slug;
     const { flash_message } = usePage().props;
 
-    useEffect(() => {
-        if (flash_message?.message) {
-            toast[flash_message.type || 'success'](flash_message.message);
-        }
-    }, [flash_message]);
-
     const { data, setData, post, put, patch, errors, processing, recentlySuccessful, formData, clearErrors, reset } = useForm({
         team_name: '',
         _method: 'POST',

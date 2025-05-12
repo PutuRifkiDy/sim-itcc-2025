@@ -34,11 +34,11 @@ class DashboardSemnasController extends Controller
             ->where('user_id', $id_user)
             ->first();
 
-        $payment_methods = PaymentMethods::where('id', '1')->first();
+        $payment_methods = PaymentMethods::get();
 
         return inertia(component: 'Semnas/Dashboard/DashboardSemnas', props: [
             'event_registrations' => fn() => $show_registration_semnas ? new EventRegistrationResource($show_registration_semnas) : null,
-            'payment_methods' => new PaymentMethodsResource($payment_methods),
+            'payment_methods' => PaymentMethodsResource::collection($payment_methods),
         ]);
     }
 

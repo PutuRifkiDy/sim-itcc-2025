@@ -10,7 +10,7 @@ import { useForm } from "@inertiajs/react";
 import { useState } from "react";
 import { toast } from "sonner";
 
-function Payment({ event_registrations, payment_methods, className }) {
+function Payment({ event_registrations, payment_methods, className, payment_value }) {
     const [isCopied, setIsCopied] = useState(false);
     const { data, setData, post, put, patch, errors, processing, recentlySuccessful, formData } = useForm({
         payment_status: 'Pending',
@@ -53,6 +53,40 @@ function Payment({ event_registrations, payment_methods, className }) {
             preserveState: true,
         });
     };
+
+
+    const additionalPaymentMethods = [
+        {
+            image: "assets/images/dashboard/BNI_logo.png",
+            className: "w-[45px] h-[32px]",
+        },
+        {
+            image: "assets/images/dashboard/DANA_logo.png",
+            className: "w-[72px] h-[21px]",
+        },
+        {
+            image: "assets/images/dashboard/SHOPEE_PAY_logo.png",
+            className: "w-[57px] h-[25px]",
+        },
+        {
+            image: "assets/images/dashboard/GOPAY_logo.png",
+            className: "w-[75px] h-[27px]",
+        },
+        {
+            image: "assets/images/dashboard/OVO_logo.png",
+            className: "w-[75px] h-[23px]",
+        },
+    ];
+
+    const combinedPaymentMethodsWithAdditionalContent = payment_methods
+        .map((item, index) => ({
+            ...item,
+            image: additionalPaymentMethods[index]?.image || "assets/images/dashboard/BNI_logo.png",
+            className: additionalPaymentMethods[index]?.className || "w-[122px] h-[86px]",
+        }))
+        .concat(additionalPaymentMethods.slice(payment_methods.length));
+    const payment_method = combinedPaymentMethodsWithAdditionalContent.find((method) => method.id == payment_value);
+    console.log('cek payment method', payment_method);
     return (
         <>
             <section className={className}>
@@ -81,7 +115,7 @@ function Payment({ event_registrations, payment_methods, className }) {
                     </div>
                 )}
 
-                <div className="grid md:grid-cols-3 grid-cols-1 md:gap-0 gap-4">
+                <div className={`grid ${["Verified", "Pending"].includes(event_registrations.payment_status) ? 'md:grid-cols-3' : 'md:grid-cols-2'} ${event_registrations.payment_status} grid-cols-1 md:gap-5 gap-4`}>
                     <div className="flex flex-col gap-2">
                         <p className="font-bold text-[14px] tracking-[0.03em] text-[#5E5E5E]">Total Payment</p>
                         <p className="font-bold text-[20px] tracking-[0.03em] text-[#000000]">Rp. {event_registrations.total_payment}</p>
@@ -89,8 +123,8 @@ function Payment({ event_registrations, payment_methods, className }) {
                     <div className="flex flex-col gap-2">
                         <p className="font-bold text-[14px] tracking-[0.03em] text-[#5E5E5E]">Account Number</p>
                         <div className="font-bold text-[20px] tracking-[0.03em] text-[#000000] flex flex-row gap-2 items-center">
-                            <BniIcon />
-                            {payment_methods.account_number}
+                            <img src={`${window.location.origin}/${payment_method.image}`} className={payment_method.className} alt="" />
+                            {payment_method.account_number}
                             {isCopied == true ? (
                                 <div>
                                     <p className="text-sm text-muted-foreground">Copied.</p>
@@ -102,7 +136,7 @@ function Payment({ event_registrations, payment_methods, className }) {
                     </div>
                     <div className="flex flex-col gap-2">
                         <p className="font-bold text-[14px] tracking-[0.03em] text-[#5E5E5E]">Recipient Name</p>
-                        <p className="font-bold text-[20px] tracking-[0.03em] text-[#000000]">{payment_methods.recipient_name}</p>
+                        <p className="font-bold text-[20px] tracking-[0.03em] text-[#000000]">{payment_method.recipient_name}</p>
                     </div>
                 </div>
 

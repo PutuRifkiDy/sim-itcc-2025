@@ -128,11 +128,11 @@ function About({ user_competition_registrations, className }) {
                                 <p className="font-bold text-[14px] tracking-[0.03em] text-[#5E5E5E]">Contact Person {idx + 1}</p>
                                 <div className="flex flex-row items-center gap-2">
                                     <WhatsappIcon />
-                                    <p className="text-[#6D98F9] text-[13px] tracking-[0.03em]">{content_contact.wa_number}</p>
+                                    <p className="text-[#0f114c] text-[13px] tracking-[0.03em]">{content_contact.wa_number}</p>
                                 </div>
                                 <div className="flex flex-row items-center gap-2">
                                     <LineIcon />
-                                    <p className="text-[#6D98F9] text-[13px] tracking-[0.03em]">{content_contact.id_line}</p>
+                                    <p className="text-[#0f114c] text-[13px] tracking-[0.03em]">{content_contact.id_line}</p>
                                 </div>
                             </div>
                         ))}
@@ -142,16 +142,16 @@ function About({ user_competition_registrations, className }) {
                     <div key={index} className="grid md:grid-cols-3 grid-cols-1 w-full mt-8 md:gap-0 gap-4">
                         <div className="flex flex-col gap-1">
                             <p className="font-bold text-[14px] tracking-[0.03em] text-[#5E5E5E]">{competition_content.guidebook_link && "Guidebook"}</p>
-                            <a href={competition_content.guidebook_link ?? '#'} target="_blank" className="flex flex-row gap-2 items-center text-[#6D98F9]">
+                            <a href={competition_content.guidebook_link ?? '#'} target="_blank" className="flex flex-row gap-2 items-center text-[#0f114c]">
                                 Open Guidebook
-                                <ArrowTopRightOnSquareIcon className="w-4 h-4 text-[#6D98F9] font-semibold" />
+                                <ArrowTopRightOnSquareIcon className="w-4 h-4 text-[#0f114c] font-semibold" />
                             </a>
                         </div>
                         <div className="flex flex-col gap-1">
                             <p className="font-bold text-[14px] tracking-[0.03em] text-[#5E5E5E]">{competition_content.how_to_join_link && "How to Join"}</p>
-                            <a href={competition_content.how_to_join_link ?? '#'} target="_blank" className="flex flex-row gap-2 items-center text-[#6D98F9]">
+                            <a href={competition_content.how_to_join_link ?? '#'} target="_blank" className="flex flex-row gap-2 items-center text-[#0f114c]">
                                 Play Video
-                                <ArrowTopRightOnSquareIcon className="w-4 h-4 text-[#6D98F9] font-semibold" />
+                                <ArrowTopRightOnSquareIcon className="w-4 h-4 text-[#0f114c] font-semibold" />
                             </a>
                         </div>
 
@@ -172,7 +172,7 @@ function About({ user_competition_registrations, className }) {
                         <div className="grid md:grid-cols-3 grid-cols-1 items-center gap-12">
                             {user_competition_registrations.teams.team_members.map((member, index) => (
 
-                                <div className="flex flex-col gap-5 border-2 border-gray-200 rounded-xl p-5" key={index}>
+                                <div className="flex flex-col gap-5 border-2 border-gray-200 rounded-xl p-5 hover:scale-[102%] transition-all duration-200 ease-in-out" key={index}>
                                     <div className="flex justify-center items-center">
                                         <img src={`${window.location.origin}/assets/images/image_for_our_team.png`} className="w-[161px] h-[173px]" alt="" />
                                     </div>
@@ -180,7 +180,7 @@ function About({ user_competition_registrations, className }) {
                                         <p className="font-bold text-[18px] text-[#000000] line-clamp-1">
                                             {member.competition_registrations.user.name}
                                         </p>
-                                        <div className="bg-[#00658F] rounded-md p-1 px-6 max-w-fit text-white text-[14px] font-medium">
+                                        <div className="bg-[#0f114c] rounded-md p-1 px-6 max-w-fit text-white text-[14px] font-medium">
                                             {member.teams.leader_id === member.competition_registrations.user.id ? "Leader" : "Member"}
                                         </div>
                                     </div>
