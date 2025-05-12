@@ -14,11 +14,13 @@ import { ArrowRightStartOnRectangleIcon, Squares2X2Icon, SunIcon, UserCircleIcon
 import { UserIcon } from '@heroicons/react/24/outline';
 import { User } from 'lucide-react';
 
+
 export default function Sidebar({ navigations, children, header, description }) {
     const [isSidebarOpen, setIsSidebarOpen] = useState(window.innerWidth >= 768);
     const auth = usePage().props.auth.user;
+    const { url } = usePage();
 
-    if(!auth) {
+    if (!auth) {
         window.location.href = route('login');
     }
 
@@ -51,12 +53,22 @@ export default function Sidebar({ navigations, children, header, description }) 
                     <nav className={`mt-1 w-full ${isSidebarOpen ? 'px-5' : ' '} text-center`}>
                         <ul className="font-bold">
                             {navigations.map((navigation, i) => {
-                                let routePath = window.location.pathname;
-                                const routeName = navigation.link.startsWith('http')
+                                const routePath = window.location.pathname;
+                                const routeName = navigation.link.startsWith("http")
                                     ? new URL(navigation.link).pathname
                                     : navigation.link;
 
-                                const isActive = routePath === routeName;
+                                const normalizedRouteName = routeName.replace(/\/$/, '');
+                                const isActive =
+                                    normalizedRouteName === '/dashboard'
+                                        ? routePath === normalizedRouteName
+                                        : routePath.startsWith(normalizedRouteName);
+
+                                // console.log("ini adalah routepath", routePath);
+                                console.log("ini adalah routename", routeName);
+                                // console.log("ini adalah normalizedroutename", normalizedRouteName);
+                                // console.log("ini adalah isactive", isActive);
+
 
                                 return (
                                     <li
