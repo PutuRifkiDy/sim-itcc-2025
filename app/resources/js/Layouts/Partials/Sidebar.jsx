@@ -178,7 +178,7 @@ export default function Sidebar({ navigations, children, header, description }) 
                             {!isSidebarOpen ? <Bars3BottomRightIcon className="w-6 h-6 text-[#000000]" /> : <IconSideBar />}
                         </button>
 
-                        <div className="flex flex-col items-center justify-center gap-5 md:flex-row">
+                        <div className="flex flex-col items-center justify-center gap-10 md:flex-row">
                             {/* Untuk Tampilan Responsive */}
                             <div className="flex w-screen flex-row justify-between px-5 md:hidden md:w-full md:px-0">
                                 <button onClick={() => setIsSidebarOpen(!isSidebarOpen)} className="text-xl">
@@ -192,7 +192,7 @@ export default function Sidebar({ navigations, children, header, description }) 
                             <SunIcon className="w-8 h-8 text-yellow-200 md:flex hidden" />
                             <DropdownMenu>
                                 <DropdownMenuTrigger asChild>
-                                    <p className='cursor-pointer flex flex-row gap-2 justify-center items-center'>
+                                    <p className='cursor-pointer flex flex-row gap-2 justify-center items-center text-gray-800'>
                                         <img src={`${window.location.origin}/assets/images/image_for_auth.png`} className="md:w-[30px] w-[50px] h-auto md:h-auto" alt="" />
                                         {auth.name}
                                         <IconDropdown />
