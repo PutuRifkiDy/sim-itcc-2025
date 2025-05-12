@@ -77,13 +77,13 @@ function DashboardCompetitionDetail() {
                     <div className={`bg-white p-4 shadow rounded-lg sm:p-8 ${tabs == "payment" && ["Requested", "Rejected"].includes(user_competition_registrations.payment_status) && user_competition_registrations ? "w-[70%]" : "w-full"}`}>
                         <div className="flex flex-row md:gap-10 gap-5">
                             <Button variant="none" asChild onClick={() => setTabs("about")}>
-                                <p className={`cursor-pointer ${tabs == "about" ? "text-[#0F114C] font-bold border-[#264A9D] border-b-[4px] rounded-[2px] transition-all ease-in-out duration-400 text-[16px]" : "text-[#5E5E5E] text-[16px]"}`}>About</p>
+                                <p className={`cursor-pointer ${tabs == "about" ? "text-[#0F114C] font-bold border-[#264A9D] border-b-[4px] rounded-[5px] transition-all ease-in-out duration-400 text-[16px]" : "text-[#5E5E5E] text-[16px]"}`}>About</p>
                             </Button>
                             <Button variant="none" asChild onClick={() => setTabs("payment")}>
-                                <p className={`cursor-pointer ${tabs == "payment" ? "text-[#0F114C] font-bold border-[#264A9D] border-b-[4px] rounded-[2px] transition-all ease-in-out duration-400 text-[16px]" : "text-[#5E5E5E] text-[16px]"}`} >Payment</p>
+                                <p className={`cursor-pointer ${tabs == "payment" ? "text-[#0F114C] font-bold border-[#264A9D] border-b-[4px] rounded-[5px] transition-all ease-in-out duration-400 text-[16px]" : "text-[#5E5E5E] text-[16px]"}`} >Payment</p>
                             </Button>
                             <Button variant="none" asChild onClick={() => setTabs("submission")}>
-                                <p className={`cursor-pointer ${tabs == "submission" ? "text-[#0F114C] font-bold border-[#264A9D] border-b-[4px] rounded-[2px] transition-all ease-in-out duration-400 text-[16px]" : "text-[#5E5E5E] text-[16px]"}`} >Submission</p>
+                                <p className={`cursor-pointer ${tabs == "submission" ? "text-[#0F114C] font-bold border-[#264A9D] border-b-[4px] rounded-[5px] transition-all ease-in-out duration-400 text-[16px]" : "text-[#5E5E5E] text-[16px]"}`} >Submission</p>
                             </Button>
                         </div>
 
@@ -107,8 +107,7 @@ function DashboardCompetitionDetail() {
                                     .map((payment_method, index) => (
                                         <label
                                             key={index}
-                                            className={`flex cursor-pointer flex-row gap-5 justify-evenly items-center border-2 px-3 py-5 rounded-[10px] w-full transition-all duration-200
-    ${paymentValue == payment_method.id ? 'border-[#0f114c]' : 'border-[#E6E6E6]'}`}
+                                            className={`flex cursor-pointer flex-row gap-5 justify-evenly items-center border-2 px-3 py-5 rounded-[10px] w-full transition-all duration-200 hover:border-[#0f114c]/50 ${paymentValue == payment_method.id ? 'border-[#0f114c]' : 'border-[#E6E6E6]'}`}
                                             onClick={(e) => {
                                                 e.preventDefault();
                                                 if (paymentValue !== payment_method.id) {
@@ -136,7 +135,7 @@ function DashboardCompetitionDetail() {
                                     .map((payment_method, index) => (
                                         <label
                                             key={index}
-                                            className={`flex cursor-pointer flex-row gap-5 justify-evenly items-center border-2 px-3 py-5 rounded-[10px] w-full transition-all duration-200
+                                            className={`flex cursor-pointer flex-row gap-5 justify-evenly items-center border-2 px-3 py-5 rounded-[10px] w-full transition-all duration-200 hover:border-[#0f114c]/50
     ${paymentValue == payment_method.id ? 'border-[#0f114c]' : 'border-[#E6E6E6]'}`}
                                             onClick={(e) => {
                                                 e.preventDefault();
@@ -157,20 +156,11 @@ function DashboardCompetitionDetail() {
                                             <img src={`${window.location.origin}/${payment_method.image}`} alt="" className={payment_method.className} />
                                         </label>
                                     ))}
-                                {/* <InputLabel className="" >
-                                    <div className={cn("flex flex-col gap-5 justify-center items-center border-[#6D98F9] border-2 border-dashed p-16 cursor-pointer rounded-xl", classNameForBG)}>
-                                        <UploadFileForDashboardIcon />
-                                        <Input type="file" accept="image/*" onChange={handleChange} name={name} className={cn("hidden", classNameForInput)} />
-                                        <div className="flex flex-col gap-1 justify-center items-center">
-                                            <p className="font-bold text-[14px] text-[#5E5E5E]">Choose a file or drag & drop it here</p>
-                                            <p className="text-[14px] font-medium text-[#ACACAC]">JPG, PNG, max 2MB </p>
-                                        </div>
-                                    </div>
-                                </InputLabel> */}
+
                                 <Modal show={showModal} onClose={closeModal} className="px-5 py-5" maxWidth="md">
-                                    <h2 className="text-lg font-medium text-gray-900">Are you sure you want to change your payment method?</h2>
+                                    <h2 className="text-lg font-medium text-gray-900">Are you sure you want to change the payment method?</h2>
                                     <p className="mt-1 text-sm text-gray-600 mb-10">
-                                        Once you cancel your registration, you will not be able to revert this action.
+                                        Once you confirm, you will not be able to revert this action.
                                     </p>
                                     <div className="mt-6 flex justify-end gap-5" >
                                         <Button onClick={closeModal} variant="red" type="button">Cancel</Button>

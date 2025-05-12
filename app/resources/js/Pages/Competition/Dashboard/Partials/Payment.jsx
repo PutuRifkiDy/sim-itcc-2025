@@ -47,11 +47,6 @@ function Payment({ user_competition_registrations, payment_methods, payment_valu
         }
 
         post(route('dashboard.competition.payment', { id: user_competition_registrations.id }), {
-
-            onSuccess: (success) => {
-                const flash = flashMessage(success);
-                if (flash) toast[flash.type](flash.message);
-            },
             forceFormData: true,
             preserveScroll: true,
             preserveState: true,
@@ -119,7 +114,7 @@ function Payment({ user_competition_registrations, payment_methods, payment_valu
                     </div>
                 )}
 
-                <div className="grid md:grid-cols-2 grid-cols-1 md:gap-5 gap-4">
+                <div className={`grid ${["Verified", "Pending"].includes(user_competition_registrations.payment_status) ? 'md:grid-cols-3' : 'md:grid-cols-2'} ${user_competition_registrations.payment_status} grid-cols-1 md:gap-5 gap-4`}>
                     <div className="flex flex-col gap-2">
                         <p className="font-bold text-[14px] tracking-[0.03em] text-[#5E5E5E]">Total Payment</p>
                         <p className="font-bold text-[20px] tracking-[0.03em] text-[#000000]">Rp. {user_competition_registrations.total_payment}</p>
