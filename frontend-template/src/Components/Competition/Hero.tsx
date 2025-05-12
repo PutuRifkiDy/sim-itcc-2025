@@ -207,7 +207,7 @@ export default function HeroSection() {
             </div>
 
             <div className="relative flex md:flex-row flex-col items-center gap-2 md:items-start">
-              <div className="md:absolute top-40 left-160 inline-flex items-center gap-3">
+              <div className="hidden md:inline-flex md:absolute top-40 left-160 items-center gap-3">
                 <SideLeftArrowLeftIcon />
               </div>
             </div>
