@@ -6,7 +6,9 @@ import { Landing } from "./pages/landing";
 import { Competition } from "./pages/competition";
 import { Merch } from "./pages/merch";
 import { Semnas } from "./pages/semnas";
+import { SemnasRegistration } from "./pages/semnas-regisration";
 import "keen-slider/keen-slider.min.css";
+
 
 const router = createBrowserRouter([
   {
@@ -24,6 +26,10 @@ const router = createBrowserRouter([
   {
     path: "/semnas",
     element: <Semnas />,
+  },
+  {
+    path: "/semnas/registration",
+    element: <SemnasRegistration />
   },
 ]);
 

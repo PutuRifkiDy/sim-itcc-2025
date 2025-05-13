@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 import {
   SideLeftArrowLeftIcon,
@@ -84,9 +85,9 @@ export default function HeroSection() {
               </div>
             </div>
             <div className="h-6" />
-
             <div className="flex flex-col md:flex-row items-center gap-4 md:gap-10">
-              <button
+              <Link
+                to="/semnas/registration"
                 className="flex justify-center items-center w-full max-w-[149px] py-[12px] px-[20px] rounded-[10px]"
                 style={{
                   background: "#0F114C",
@@ -95,7 +96,7 @@ export default function HeroSection() {
                 <span className="text-white font-[Rubik] font-bold text-base">
                   Register
                 </span>
-              </button>
+              </Link>
 
               <div className="flex items-center gap-2">
                 <button

@@ -153,3 +153,12 @@ export const SideRightCircleIcon = () => {
 
     );
 }
+
+export const SideRightSmallCircle = () => {
+    return (
+        <svg height="26" width="26" fill="none" viewBox="0 0 26 26" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="13" cy="13" fill="#0F114C" r="13" />
+            <circle cx="13" cy="13" fill="#0F114C" r="8" stroke="white" strokeWidth="4" />
+        </svg>
+    );
+}
