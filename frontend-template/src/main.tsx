@@ -7,6 +7,9 @@ import { Competition } from "./pages/competition";
 import { Merch } from "./pages/merch";
 import { Semnas } from "./pages/semnas";
 import { SemnasRegistration } from "./pages/semnas-regisration";
+import { CompetitionRegistration } from "./pages/competition-registration";
+import { CompetitionRegistrationCreateTeam } from "./pages/competition-registration-create-team";
+import { CompetitionRegistrationJoinTeam } from "./pages/competition-registration-join-team";
 import "keen-slider/keen-slider.min.css";
 
 
@@ -31,6 +34,18 @@ const router = createBrowserRouter([
     path: "/semnas/registration",
     element: <SemnasRegistration />
   },
+  {
+    path: "/competition/registration",
+    element: <CompetitionRegistration />
+  },
+  {
+    path:"/competition/registration/join-team",
+    element: <CompetitionRegistrationJoinTeam/>
+  },
+  {
+    path:"/competition/registration/create-team",
+    element: <CompetitionRegistrationCreateTeam />
+  }
 ]);
 
 createRoot(document.getElementById("root")!).render(
