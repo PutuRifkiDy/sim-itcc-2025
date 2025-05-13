@@ -4,6 +4,7 @@ import { ArrowDownIcon } from "@heroicons/react/24/solid";
 import * as AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from "react";
+import { motion } from 'framer-motion';
 
 export default function Home() {
     useEffect(() => {
@@ -25,7 +26,19 @@ export default function Home() {
 
                     <div className="relative flex md:flex-row flex-col items-center md:gap-0 gap-2 md:items-start">
                         <div className="absolute left-0 md:-top-50 -top-10" data-aos="fade-up" data-aos-delay="50">
-                            <SideLeftCrookedCrossIcon />
+                            <motion.div
+                                animate={{
+                                    rotate: [0, 360],
+                                }}
+                                transition={{
+                                    duration: 10,
+                                    repeat: Infinity,
+                                    ease: "linear"
+                                }}
+                                className="w-full h-full"
+                            >
+                                <SideLeftCrookedCrossIcon />
+                            </motion.div>
                         </div>
                         <div className="flex justify-center items-center md:block" data-aos="fade-up">
                             <img src="assets/images/landing/ITCCMascot.png" className="md:w-[156.09px] w-full h-auto md:h-[151.77px]" alt="" />
