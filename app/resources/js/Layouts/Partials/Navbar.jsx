@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { toast } from "sonner";
 import { check } from "prettier";
+import { ThemeSwitcher } from "@/Components/ThemeSwitcher";
 
 export default function NavBar({ auth, competitions }) {
     const [openNav, setOpenNav] = useState(false);
@@ -110,8 +111,10 @@ export default function NavBar({ auth, competitions }) {
 
                 <div className="flex flex-row gap-5 justify-center items-center">
                     <div>
-                        <SunIcon className="w-8 h-8 text-yellow-200" />
+                        {/* <SunIcon className="w-8 h-8 text-yellow-200" /> */}
+                        <ThemeSwitcher />
                     </div>
+
                     {auth ? (
                         <DropdownMenu>
                             <DropdownMenuTrigger asChild>

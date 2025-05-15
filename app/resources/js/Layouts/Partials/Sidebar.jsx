@@ -13,6 +13,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from '@/Compon
 import { ArrowRightStartOnRectangleIcon, Squares2X2Icon, SunIcon, UserCircleIcon, Bars3BottomRightIcon, XMarkIcon } from '@heroicons/react/24/solid';
 import { UserIcon } from '@heroicons/react/24/outline';
 import { User } from 'lucide-react';
+import { ThemeSwitcher } from '@/Components/ThemeSwitcher';
 
 
 export default function Sidebar({ navigations, children, header, description }) {
@@ -172,7 +173,7 @@ export default function Sidebar({ navigations, children, header, description }) 
                 <div
                     className={`flex-1 ${isSidebarOpen ? 'ml-0 md:ml-[300px] lg:w-[75%] xl:w-[80%] 2xl:w-[85%]' : 'ml-0 md:ml-24 lg:w-[75%] xl:w-[80%] 2xl:w-[85%]'} overflow-x-auto transition-all`}
                 >
-                    <header className="flex w-full items-center justify-center border-b-[1px] border-b-slate-200 px-0 py-[1.62rem] dark:border-b-slate-600 md:justify-between md:px-5">
+                    <header className="flex w-full items-center justify-center border-b-[1px] border-b-slate-200 px-0 py-[1.5rem] dark:border-b-slate-600 md:justify-between md:px-5">
                         {/* Untuk Tampilan Laptop */}
                         <button onClick={() => setIsSidebarOpen(!isSidebarOpen)} className="hidden text-xl md:block">
                             {!isSidebarOpen ? <Bars3BottomRightIcon className="w-6 h-6 text-[#000000]" /> : <IconSideBar />}
@@ -184,12 +185,12 @@ export default function Sidebar({ navigations, children, header, description }) 
                                 <button onClick={() => setIsSidebarOpen(!isSidebarOpen)} className="text-xl">
                                     <IconSideBar />
                                 </button>
-                                <SunIcon className="w-8 h-8 text-yellow-200" />
+                                {/* <SunIcon className="w-8 h-8 text-yellow-200" /> */}
+                                <ThemeSwitcher />
                             </div>
 
                             <div className="divider flex h-[2px] w-auto bg-slate-200 dark:bg-slate-600 md:hidden md:w-full"></div>
-
-                            <SunIcon className="w-8 h-8 text-yellow-200 md:flex hidden" />
+                            <ThemeSwitcher />
                             <DropdownMenu>
                                 <DropdownMenuTrigger asChild>
                                     <p className='cursor-pointer flex flex-row gap-2 justify-center items-center text-gray-800'>
