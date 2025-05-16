@@ -58,7 +58,7 @@ const Sponsor = () => {
                 Our Sponsors
             </h2>
 
-            <p className="text-[#5E5E5E] font-rubik text-sm sm:text-base md:text-lg font-normal leading-[160%] tracking-[0.02em] w-[90%] sm:w-[80%] md:w-[653px] max-w-full" data-aos="fade-up" data-aos-delay="100">
+            <p className="text-[#5E5E5E] font-rubik text-sm sm:text-base md:text-lg font-normal leading-[160%] tracking-[0.02em] w-[90%] sm:w-[80%] md:w-[653px] max-w-full dark:text-white" data-aos="fade-up" data-aos-delay="100">
                 As a sponsor, we’re promising reach to thousands of people who are
                 interested in your brand. What better way to get your brand in front of
                 people.

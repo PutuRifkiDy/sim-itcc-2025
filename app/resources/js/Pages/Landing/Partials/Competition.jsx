@@ -130,7 +130,7 @@ const Competition = () => {
             <h1 className="text-center text-[#0F114C] font-rubik font-bold uppercase tracking-[0.36em] text-2xl md:text-4xl" data-aos="fade-up">
                 OUR COMPETITIONS
             </h1>
-            <p className="text-[#5E5E5E] text-center font-rubik text-base leading-[180%] max-w-[653px] mt-6 mx-auto" data-aos="fade-up" data-aos-delay="100">
+            <p className="text-[#5E5E5E] text-center font-rubik text-base leading-[180%] max-w-[653px] mt-6 mx-auto dark:text-white" data-aos="fade-up" data-aos-delay="100">
                 Join our exciting competitions and showcase your skills! A perfect
                 opportunity to challenge yourself, connect with others, and win amazing
                 prizes.

@@ -22,7 +22,7 @@ export default function Merch() {
                 <h2 className="uppercase md:text-4xl text-2xl font-bold text-[#0F114C] md:tracking-[10px] tracking-[5px]" data-aos="fade-up">
                     Our Merchandise
                 </h2>
-                <p className="mt-4 text-[#5E5E5E] font-rubik text-sm sm:text-base md:text-lg font-normal tracking-[0.02em]" data-aos="fade-up" data-aos-delay="100">
+                <p className="mt-4 text-[#5E5E5E] font-rubik text-sm sm:text-base md:text-lg font-normal tracking-[0.02em] dark:text-white" data-aos="fade-up" data-aos-delay="100">
                     Support us and show your pride by getting our official merchandise.
                     High-quality, stylish, and made just for you — wear it and be part of
                     the community!
@@ -34,7 +34,7 @@ export default function Merch() {
                     <h1 className="font-bold text-[33px] leading-[1.2em] tracking-[0.16em] text-[#000000] uppercase md:text-start text-center dark:text-white" data-aos="fade-up">
                         ITCC 2025 Merchandise
                     </h1>
-                    <p className="font-reguler text-[17px] tracking-[0.04em] leading-[1.5em] text-[#121212] md:w-[427px] max-w-[700px] md:text-start text-center dark:text-gray-400" data-aos="fade-up" data-aos-delay="100">
+                    <p className="font-reguler text-[17px] tracking-[0.04em] leading-[1.5em] text-[#121212] md:w-[427px] max-w-[700px] md:text-start text-center dark:text-white" data-aos="fade-up" data-aos-delay="100">
                         Lorem ipsum dolor sit amet consectetur. Enim sagittis ac quam nunc viverra maecenas semper ullamcorper quis. Facilisi diam tortor bibendum porta.
                     </p>
                     <div className="flex md:flex-row flex-col md:gap-7 gap-5 justify-center md:justify-start" data-aos="fade-up" data-aos-delay="100">

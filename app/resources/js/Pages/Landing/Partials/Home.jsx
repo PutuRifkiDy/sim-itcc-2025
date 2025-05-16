@@ -51,7 +51,7 @@ export default function Home() {
                                 2025
                             </h1>
                         </div>
-                        <p className="font-semibold text-[21px] leading-[35px] text-[#3A3A3A] md:absolute md:text-start text-center top-32 left-60 flex md:w-[273px] w-full h-[140px]" data-aos="fade-up" data-aos-delay="300">
+                        <p className="font-semibold text-[21px] leading-[35px] text-[#3A3A3A] md:absolute md:text-start text-center top-32 left-60 flex md:w-[273px] w-full h-[140px] dark:text-white" data-aos="fade-up" data-aos-delay="300">
                             Innovation of Technology to Build the Digital Capabilities of Indonesia's Generation
                         </p>
                         <div className="md:absolute flex top-72 left-60" data-aos="fade-up" data-aos-delay="400">
@@ -62,7 +62,7 @@ export default function Home() {
                         </div>
 
                         <div className="md:absolute -bottom-72 left-60 flex justify-center items-center md:mt-0 pt-12" data-aos="fade-up" data-aos-delay="500">
-                            <a href="#competition" className="flex flex-row gap-2 items-center text-gray-600">
+                            <a href="#competition" className="flex flex-row gap-2 items-center text-gray-600 dark:text-white">
                                 Scroll down to Explore more
                                 <ArrowDownIcon className="w-6 h-6 animate-bounce" />
                             </a>
