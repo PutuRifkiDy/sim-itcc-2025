@@ -39,9 +39,9 @@ export default function Footer({ ...props }) {
                                 <Link
                                     key={competition.id}
                                     href={route('competition.front.show', [competition.slug])}
-                                    className="text-white flex flex-row justify-start items-center gap-2"
+                                    className="text-white flex flex-row justify-start items-center gap-2 group"
                                 >
-                                    {competition.name} <ChevronRightIcon className="w-5 h-5" />
+                                    {competition.name} <ChevronRightIcon className="w-5 h-5 transform transition-transform duration-300 group-hover:translate-x-3" />
                                 </Link>
                             ))}
                     </div>
@@ -50,16 +50,16 @@ export default function Footer({ ...props }) {
 
                         <Link
                             href={route('event.front.show', ['seminar-nasional-teknologi-informasi-of'])}
-                            className="text-white flex flex-row justify-start items-center gap-2"
+                            className="text-white flex flex-row justify-start items-center gap-2 group"
                         >
-                            Seminar Nasional <ChevronRightIcon className="w-5 h-5" />
+                            Seminar Nasional <ChevronRightIcon className="w-5 h-5 transform transition-transform duration-300 group-hover:translate-x-3" />
                         </Link>
 
                         <Link
                             href={route('merchandise.front.show')}
-                            className="text-white flex flex-row justify-start items-center gap-2"
+                            className="text-white flex flex-row justify-start items-center gap-2 group"
                         >
-                            Merchandise <ChevronRightIcon className="w-5 h-5" />
+                            Merchandise <ChevronRightIcon className="w-5 h-5 transform transition-transform duration-300 group-hover:translate-x-3" />
                         </Link>
                     </div>
 
