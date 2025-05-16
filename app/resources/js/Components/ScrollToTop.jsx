@@ -65,7 +65,7 @@ const ScrollToTop = () => {
                                 onClick={scrollToTop}
                                 className={`bg-[#2A3374] transition-all duration-100 ease-in-out text-white rounded-full p-3 group `}
                             >
-                                <ChevronUpIcon className="h-6 w-6 text-white" />
+                                <ChevronUpIcon className="h-6 w-6 text-white transform transition-transform duration-300 group-hover:-translate-y-1" />
                             </button>
                         </TooltipTrigger>
                         <TooltipContent>
@@ -74,16 +74,26 @@ const ScrollToTop = () => {
                     </Tooltip>
                 </TooltipProvider>
             ) : (
-                <button
-                    onMouseEnter={() => setIsHovered(true)}
-                    onMouseLeave={() => setIsHovered(false)}
-                    onClick={scrollToBottom}
-                    className={`bg-[#2A3374] transition-all duration-100 ease-in-out text-white rounded-full p-3 ${isHovered ? "tooltip tooltip-open tooltip-left" : ""
-                        }`}
-                    {...(isHovered ? { "data-tip": "Click to go to the bottom" } : {})}
-                >
-                    <ChevronDownIcon className="h-6 w-6 text-white" />
-                </button>
+
+                <TooltipProvider>
+                    <Tooltip>
+                        <TooltipTrigger asChild>
+                            <button
+                                onMouseEnter={() => setIsHovered(true)}
+                                onMouseLeave={() => setIsHovered(false)}
+                                onClick={scrollToBottom}
+                                className={`bg-[#2A3374] transition-all duration-100 ease-in-out text-white rounded-full p-3 ${isHovered ? "tooltip tooltip-open tooltip-left group" : ""
+                                    }`}
+                                {...(isHovered ? { "data-tip": "Click to go to the bottom" } : {})}
+                            >
+                                <ChevronDownIcon className="h-6 w-6 text-white transform transition-transform duration-300 group-hover:translate-y-1" />
+                            </button>
+                        </TooltipTrigger>
+                        <TooltipContent>
+                            <p>Click to go to the bottom</p>
+                        </TooltipContent>
+                    </Tooltip>
+                </TooltipProvider>
             )
             }
             <div className="h-1 w-full bg-slate-300 rounded-2xl relative">

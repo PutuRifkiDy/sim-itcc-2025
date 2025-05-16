@@ -48,7 +48,8 @@ export default function NavBar({ auth, competitions }) {
                     <Link
                         href={route('welcome')}
                     >
-                        <img src={`${window.location.origin}/assets/images/image_for_icon_logo_itcc.png`} alt="" className="w-[82px] h-[49px] " />
+                        <img src={`${window.location.origin}/assets/images/image_for_icon_logo_itcc.png`} alt="" className="w-[82px] h-[49px] dark:hidden" />
+                        <img src={`${window.location.origin}/assets/images/landing/ITCC_ICON.svg`} alt="" className="w-[82px] h-[49px] hidden dark:block" />
                     </Link>
                 </div>
                 <div className="flex flex-row gap-10 justify-center items-center">
