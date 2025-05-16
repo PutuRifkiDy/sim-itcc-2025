@@ -31,8 +31,8 @@ export default function Login({ status, canResetPassword }) {
         <>
             <div className="flex flex-row items-center justify-center">
                 <div className="min-h-full min-w-full">
-                    <div className="flex flex-row rounded-[28px] p-5 border-[1px] shadow md:mx-36">
-                        <div className="relative hidden gap-5 rounded-[28px] bg-gradient-to-r from-[#0F114C] to-[#00658F] px-10 py-10 md:flex md:flex-col w-full">
+                    <div className="flex flex-row rounded-[28px] p-5 border-[1px] shadow md:mx-36 min-h-[650px]">
+                        <div className="relative hidden gap-5 rounded-l-[28px] bg-gradient-to-r from-[#0F114C] to-[#00658F] px-10 py-10 md:flex md:flex-col w-full dark:border-r-[1px] border-gray-100 dark:bg-none">
                             <p className="md:w-[330px] text-[32px] font-bold text-[#FFFFFF]">
                                 Very good events are waiting for you Login Now
                             </p>
@@ -49,7 +49,7 @@ export default function Login({ status, canResetPassword }) {
                         </div>
 
                         <div className="w-full">
-                            <Card className="border-none shadow-none">
+                            <Card className="shadow-none border-none rounded-r-[28px] dark:bg-[#040529] min-h-[650px] flex flex-col justify-center">
                                 <CardHeader className="flex flex-col items-center justify-center">
                                     <Link href="/" className="text-[25px] font-bold leading-relaxed tracking-tighter">
                                         Login
@@ -69,14 +69,14 @@ export default function Login({ status, canResetPassword }) {
                                                 <InputLabel
                                                     htmlFor="email"
                                                     value="Email"
-                                                    className="text-[16px] font-medium leading-[1.2em] text-[#121212]"
+                                                    className="text-[16px] font-medium leading-[1.2em] text-[#121212] dark:text-white"
                                                 />
                                                 <TextInput
                                                     id="email"
                                                     type="email"
                                                     name="email"
                                                     value={data.email}
-                                                    className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F]"
+                                                    className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F] dark:text-white dark:bg-[#040529]"
                                                     placeholder="Insert your email address"
                                                     autoComplete="email"
                                                     isFocused={true}
@@ -92,7 +92,7 @@ export default function Login({ status, canResetPassword }) {
                                                 <InputLabel
                                                     htmlFor="password"
                                                     value="Password"
-                                                    className="text-[16px] font-medium leading-[1.2em] text-[#121212]"
+                                                    className="text-[16px] font-medium leading-[1.2em] text-[#121212] dark:text-white"
                                                 />
 
                                                 <div>
@@ -101,7 +101,7 @@ export default function Login({ status, canResetPassword }) {
                                                         type="password"
                                                         name="password"
                                                         value={data.password}
-                                                        className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F]"
+                                                        className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F] dark:bg-[#040529]"
                                                         placeholder="Insert your password"
                                                         autoComplete="password"
                                                         onChange={(e) => setData('password', e.target.value)}
