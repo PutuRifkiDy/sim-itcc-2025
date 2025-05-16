@@ -38,7 +38,7 @@ export default function Sidebar({ navigations, children, header, description }) 
             <div className="flex flex-col justify-between md:flex-row">
                 {/* Sidebar */}
                 <aside
-                    className={`hidden flex-col items-center justify-start gap-6 overflow-hidden border-r-[1px] border-r-slate-200 transition-all duration-200 ease-in-out dark:border-r-slate-600 md:flex ${isSidebarOpen ? 'w-16 md:w-[300px]' : 'w-0 md:w-24'} fixed max-h-screen`}
+                    className={`hidden flex-col items-center justify-start gap-6 overflow-hidden border-r-[1px] border-r-slate-200 transition-all duration-200 ease-in-out dark:border-r-slate-600 md:flex ${isSidebarOpen ? 'w-16 md:w-[300px]' : 'w-0 md:w-24'} fixed min-h-screen`}
                 >
                     <Link
                         href={route('welcome')}
@@ -193,7 +193,7 @@ export default function Sidebar({ navigations, children, header, description }) 
                             <ThemeSwitcher />
                             <DropdownMenu>
                                 <DropdownMenuTrigger asChild>
-                                    <p className='cursor-pointer flex flex-row gap-2 justify-center items-center text-gray-800'>
+                                    <p className='cursor-pointer flex flex-row gap-2 justify-center items-center text-gray-800 dark:text-gray-200'>
                                         <img src={`${window.location.origin}/assets/images/image_for_auth.png`} className="md:w-[30px] w-[50px] h-auto md:h-auto" alt="" />
                                         {auth.name}
                                         <IconDropdown />
@@ -222,7 +222,7 @@ export default function Sidebar({ navigations, children, header, description }) 
                         </div>
                     </header>
 
-                    <div className="flex min-h-screen flex-col gap-1 bg-[#E6EFF5] px-4 py-2 dark:bg-[#1d232a] md:px-10 md:py-5 md:mt-0 pt-10">
+                    <div className="flex min-h-screen flex-col gap-1 bg-[#E6EFF5] px-4 py-2 dark:bg-gray-900 md:px-10 md:py-5 md:mt-0 pt-10">
                         <p className='text-3xl font-semibold leading-tight text-gray-800'>
                             {header}
                         </p>

@@ -126,7 +126,7 @@ const Competition = () => {
 
 
     return (
-        <div className="w-full max-w-[1440px] min-h-screen bg-white mx-auto px-4 py-12" id="competition">
+        <div className="w-full max-w-[1440px] min-h-screen mx-auto px-4 py-12" id="competition">
             <h1 className="text-center text-[#0F114C] font-rubik font-bold uppercase tracking-[0.36em] text-2xl md:text-4xl" data-aos="fade-up">
                 OUR COMPETITIONS
             </h1>
@@ -176,23 +176,23 @@ const Competition = () => {
                             {/* Join button */}
                             <Link
                                 href={route('competition.front.show', [item.slug])}
-                                className="inline-flex items-center gap-3 absolute bottom-10 right-10 bg-transparent py-2 px-4 rounded-full"
+                                className="inline-flex items-center gap-3 absolute bottom-10 right-10 bg-transparent py-2 px-4 rounded-full group "
                             >
                                 <span className="font-bold text-white text-3xl md:text-[54px]">
                                     Join
                                 </span>
-                                <img src="assets/images/landing/arrow.png" className="md:w-8 md:h-8 w-4 h-4" alt="arrow" />
+                                <img src="assets/images/landing/arrow.png" className="md:w-8 md:h-8 w-4 h-4 transform transition-transform duration-300 group-hover:translate-x-3" alt="arrow" />
                             </Link>
 
                             {/* Logo */}
                             <div className="md:absolute block top-8 right-10">
                                 <img
                                     src={item.logo}
-                                    className="w-[78px] h-[46px] object-cover"
+                                    className="w-[78px] h-[46px] object-cover hover:transform hover:rotate-[360deg] transition duration-500 ease-in-out"
                                     alt="Logo"
                                 />
                             </div>
-                            <div className="absolute bottom-12 md:left-16 left-11">
+                            <div className="absolute bottom-12 md:left-16 left-11 hover:transform hover:rotate-[360deg] transition duration-500 ease-in-out">
                                 <img
                                     src={item.logo}
                                     className="w-[78px] h-[46px] object-cover"

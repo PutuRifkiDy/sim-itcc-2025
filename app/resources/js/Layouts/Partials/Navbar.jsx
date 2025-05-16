@@ -43,12 +43,12 @@ export default function NavBar({ auth, competitions }) {
 
     return (
         <>
-            <nav className="md:flex hidden flex-row justify-between py-5 px-24 border-b-[1px] fixed top-0 left-0 w-full z-50 shadow bg-white">
+            <nav className="md:flex hidden flex-row justify-between py-5 px-24 border-b-[1px] fixed top-0 left-0 w-full z-50 shadow bg-white dark:bg-gray-900">
                 <div>
                     <Link
                         href={route('welcome')}
                     >
-                        <img src={`${window.location.origin}/assets/images/image_for_icon_logo_itcc.png`} alt="" className="w-[82px] h-[49px]" />
+                        <img src={`${window.location.origin}/assets/images/image_for_icon_logo_itcc.png`} alt="" className="w-[82px] h-[49px] " />
                     </Link>
                 </div>
                 <div className="flex flex-row gap-10 justify-center items-center">
@@ -111,7 +111,6 @@ export default function NavBar({ auth, competitions }) {
 
                 <div className="flex flex-row gap-5 justify-center items-center">
                     <div>
-                        {/* <SunIcon className="w-8 h-8 text-yellow-200" /> */}
                         <ThemeSwitcher />
                     </div>
 

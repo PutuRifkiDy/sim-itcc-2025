@@ -65,7 +65,7 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, stat
         <section className={className}>
             <div className='flex flex-row justify-between w-full'>
                 <header>
-                    <h2 className="text-lg font-medium text-gray-900">Profile Information</h2>
+                    <h2 className="text-lg font-medium text-gray-900 dark:text-gray-200">Profile Information</h2>
 
                     <p className="mt-1 text-sm text-gray-600">
                         Update your account's profile information.

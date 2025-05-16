@@ -31,18 +31,18 @@ export default function Merch() {
 
             <div className="flex md:flex-row flex-col-reverse justify-between md:mt-24 mt-4 md:px-12 px-6">
                 <div className="relative flex flex-col justify-center gap-8 w-full">
-                    <h1 className="font-bold text-[33px] leading-[1.2em] tracking-[0.16em] text-[#000000] uppercase md:text-start text-center" data-aos="fade-up">
+                    <h1 className="font-bold text-[33px] leading-[1.2em] tracking-[0.16em] text-[#000000] uppercase md:text-start text-center dark:text-white" data-aos="fade-up">
                         ITCC 2025 Merchandise
                     </h1>
-                    <p className="font-reguler text-[17px] tracking-[0.04em] leading-[1.5em] text-[#121212] md:w-[427px] max-w-[700px] md:text-start text-center" data-aos="fade-up" data-aos-delay="100">
+                    <p className="font-reguler text-[17px] tracking-[0.04em] leading-[1.5em] text-[#121212] md:w-[427px] max-w-[700px] md:text-start text-center dark:text-gray-400" data-aos="fade-up" data-aos-delay="100">
                         Lorem ipsum dolor sit amet consectetur. Enim sagittis ac quam nunc viverra maecenas semper ullamcorper quis. Facilisi diam tortor bibendum porta.
                     </p>
                     <div className="flex md:flex-row flex-col md:gap-7 gap-5 justify-center md:justify-start" data-aos="fade-up" data-aos-delay="100">
-                        <button className="bg-[#0F114C] text-white px-6 py-2 rounded-[10px] font-semibold flex justify-center items-center">
+                        <button className="bg-[#0F114C] text-white px-6 py-2 rounded-[10px] font-semibold flex items-center group">
                             Buy Now
-                            <img src="assets/images/landing/arrow.png" className="inline ml-4 w-3 h-3" alt="" />
+                            <img src="assets/images/landing/arrow.png" className="inline ml-1 w-3 h-3 transform transition-transform duration-300 group-hover:translate-x-1" alt="" />
                         </button>
-                        <Link className="border border-[#0F114C] px-6 py-2 rounded-[10px] text-[#0F114C] font-semibold"
+                        <Link className="border border-[#0F114C] px-6 py-2 rounded-[10px] text-[#0F114C] font-semibold dark:text-white"
                         href="/merchandise">
                             Get to know
                         </Link>

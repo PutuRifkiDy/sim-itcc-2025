@@ -53,7 +53,7 @@ const Sponsor = () => {
     }, [slider]);
 
     return (
-        <section className="flex flex-col justify-center items-center gap-6 w-full py-16 sm:py-20 md:py-24 bg-white text-center px-4 sm:px-6 md:px-12">
+        <section className="flex flex-col justify-center items-center gap-6 w-full py-16 sm:py-20 md:py-24 text-center px-4 sm:px-6 md:px-12">
             <h2 className="text-[24px] sm:text-[28px] md:text-[36px] text-[#0F114C] font-rubik font-bold leading-[120%] tracking-[0.36em] uppercase" data-aos="fade-up">
                 Our Sponsors
             </h2>
@@ -78,7 +78,7 @@ const Sponsor = () => {
                 {sponsors.map((sponsor, index) => (
                     <div
                         key={index}
-                        className="keen-slider__slide border rounded-lg p-4 sm:p-6 md:p-8 flex items-center justify-center bg-white shadow-sm hover:shadow-md transition"
+                        className="keen-slider__slide border rounded-lg p-4 sm:p-6 md:p-8 flex items-center justify-center dark:bg-gray-800/50 shadow-sm hover:shadow-md transition"
                     >
                         <img
                             src={sponsor.src}
