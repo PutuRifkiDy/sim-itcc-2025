@@ -7,7 +7,7 @@ export default function Dashboard() {
     return (
         <div className="py-12">
             <div className="mx-auto w-full">
-                <div className="overflow-hidden bg-white dark:bg-[#0F114C]/50 shadow-sm sm:rounded-lg">
+                <div className="overflow-hidden bg-white dark:bg-[#0F114C] shadow-sm sm:rounded-lg">
                     <div className="p-6 text-gray-900 dark:text-white">You're logged in!</div>
                 </div>
             </div>

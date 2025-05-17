@@ -224,11 +224,11 @@ export default function Sidebar({ navigations, children, header, description }) 
                         </div>
                     </header>
 
-                    <div className="flex min-h-screen flex-col gap-1 bg-[#E6EFF5] px-4 py-2 dark:bg-gray-900 md:px-10 md:py-5 md:mt-0 pt-10">
-                        <p className='text-3xl font-semibold leading-tight text-gray-800'>
+                    <div className="flex min-h-screen flex-col gap-1 bg-[#E6EFF5] px-4 py-2 dark:bg-[#0e0f32] md:px-10 md:py-5 md:mt-0 pt-10">
+                        <p className='text-3xl font-semibold leading-tight text-gray-800 dark:text-white'>
                             {header}
                         </p>
-                        <p className='text-[17px] text-gray-500'>
+                        <p className='text-[17px] text-gray-500 dark:text-white'>
                             {description}
                         </p>
                         {children}
