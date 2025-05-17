@@ -16,7 +16,7 @@ function Merchandise({ ...props }) {
                 className="absolute z-0 w-auto object-center rounded-none h-screen object-cover hidden md:block top-0 opacity-70 dark:opacity-0"
             />
             <div className="isolate min-h-screen md:mt-24">
-                <div className="relative px-24">
+                <div className="relative md:px-24 px-10">
                     <div
                         className="absolute inset-x-0 overflow-hidden -top-40 -z-10 transform-gpu blur-3xl sm:-top-80"
                         aria-hidden="true"
@@ -30,7 +30,7 @@ function Merchandise({ ...props }) {
                         />
                     </div>
 
-                    <div className="w-24 h-24 pointer-events-none">
+                    <div className="w-24 h-24 md:mt-0 mt-12 pointer-events-none">
                         <motion.div
                             animate={{
                                 rotate: [0, 360],
@@ -46,22 +46,22 @@ function Merchandise({ ...props }) {
                         </motion.div>
                     </div>
 
-                    <div className="absolute top-0 right-48">
+                    <div className="absolute top-0 right-48 md:block hidden">
                         <SideRightCrossIcon />
 
                     </div>
 
-                    <div className="absolute bottom-0 left-24">
+                    <div className="absolute md:bottom-0 -bottom-12 left-24">
                         <SideLeftArrowLeftIcon />
                     </div>
 
-                    <div className="flex flex-row justify-around">
-                        <img src="assets/images/merch_bundle.png" alt="" className="w-[446px] h-[468px] object-contain" />
+                    <div className="flex md:flex-row flex-col justify-around">
+                        <img src="assets/images/merch_bundle.png" alt="" className="md:w-[446px] md:h-[468px] w-full h-auto object-contain" />
                         <div className="flex flex-col items-center justify-center">
-                            <p className="text-[#0F114C] dark:text-[#0886BB] leading-[1.2em] text-[50px] tracking-[0.016em] uppercase font-bold">
+                            <p className="text-[#0F114C] dark:text-[#0886BB] leading-[1.2em] text-[50px] tracking-[0.016em] uppercase font-bold text-center">
                                 MERCHANDISE bundle
                             </p>
-                            <p className="text-[18px] tracking-[0.02em] leading-[1.8em] max-w-[380px] text-center mt-5 text-[#000000] font-light dark:text-white">
+                            <p className="text-[18px] tracking-[0.02em] leading-[1.8em] md:w-[380px] w-full text-center mt-5 text-[#000000] font-light dark:text-white">
                                 Get your Exclusive Merchandise Bundle at a special price — limited time only!
                             </p>
                             <p className="text-[23px] font-medium text-center mt-10 text-[#0886BB] line-through decoration-2">

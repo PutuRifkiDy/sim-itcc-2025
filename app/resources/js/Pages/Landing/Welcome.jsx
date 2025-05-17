@@ -63,7 +63,7 @@ export default function Welcome() {
                     <p className="text-[18px] tracking-[0.02em] leading-[1.8em] max-w-[380px] text-center mt-5 text-white font-light">
                         Get your Exclusive Merchandise Bundle at a special price — limited time only!
                     </p>
-                    <p className="text-[23px] font-medium text-center mt-10 text-[#0F114C] line-through decoration-2">
+                    <p className="text-[23px] font-medium text-center mt-24 text-[#0F114C] line-through decoration-2">
                         Rp. 199.000
                     </p>
                     <p className="text-[29px] font-medium text-center text-white">
