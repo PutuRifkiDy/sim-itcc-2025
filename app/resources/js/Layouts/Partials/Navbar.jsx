@@ -172,11 +172,14 @@ export default function NavBar({ auth, competitions }) {
                 </div>
             </nav>
 
-            <nav className="md:hidden flex flex-col justify-between py-5 border-b-[1px] fixed top-0 left-0 w-full z-50 shadow bg-white">
+            <nav className="md:hidden flex flex-col justify-between py-5 border-b-[1px] fixed top-0 left-0 w-full z-50 shadow bg-white dark:bg-[#040529]">
                 <div className="flex flex-row justify-between">
                     <Bars3BottomLeftIcon className={`w-6 h-6 text-gray-600 mx-5 cursor-pointer ${openNav ? 'hidden' : 'flex'}`} onClick={() => setOpenNav(!openNav)} />
                     <XMarkIcon className={`w-6 h-6 text-gray-600 mx-5 cursor-pointer transition-transform transform ${openNav ? 'flex rotate-180' : 'hidden'}`} onClick={() => setOpenNav(!openNav)} />
-                    <SunIcon className="w-6 h-6 text-yellow-200 mx-5" />
+                    {/* <SunIcon className="w-6 h-6 text-yellow-200 mx-5" /> */}
+                    <div>
+                        <ThemeSwitcher />
+                    </div>
                 </div>
                 {openNav == true && (
                     <div className="mt-10">
