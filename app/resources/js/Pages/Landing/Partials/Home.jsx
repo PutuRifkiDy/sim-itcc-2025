@@ -26,7 +26,7 @@ export default function Home() {
                 alt="banner"
                 className="absolute z-0 w-auto object-center rounded-none h-[800px] object-cover hidden md:block top-0 opacity-50 dark:opacity-0"
             />
-            <section className="px-12 md:px-24 md:pb-24 mb-18">
+            <section className="px-12 md:px-24 md:pb-24 mb-18 md:mt-44 mt-24">
                 <div className="flex flex-row justify-center md:justify-between">
                     {/* side left */}
                     <div className="w-full flex flex-col">

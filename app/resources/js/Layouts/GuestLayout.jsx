@@ -13,7 +13,7 @@ export default function GuestLayout({ children, title }) {
             <Head title={title} />
             <Toaster position="top-center" richColors />
             <Navbar auth={auth} competitions={competitions} events={events} />
-            <div className='flex flex-col md:py-44 py-24'>
+            <div className='flex flex-col'>
                 {children}
             </div>
             <Footer />

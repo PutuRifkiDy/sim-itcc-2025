@@ -31,7 +31,7 @@ function Competitions({ ...props }) {
 
     return (
         <>
-            <div className="">
+            <div className="md:mt-44 mt-24">
                 <p>{competitions.competition_content[0]?.location}</p>
                 <p>{current_batch?.periode_name}</p>
                 <p>{current_batch?.start_date}</p>

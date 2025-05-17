@@ -8,7 +8,7 @@ function Semnas({ ...props }) {
 
     return (
         <>
-            <div className="mt-24">
+            <div className="md:mt-44 mt-24">
                 <p>Hibrid</p>
                 <p>{current_batch.periode_name}</p>
                 <p>{current_batch.start_date}</p>

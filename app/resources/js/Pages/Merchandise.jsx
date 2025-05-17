@@ -10,14 +10,19 @@ function Merchandise({ ...props }) {
     console.log('cek isi var', merchandise);
     return (
         <>
-            <div className="isolate min-h-screen">
+            <img
+                src="assets/images/bg_ornament.png"
+                alt="banner"
+                className="absolute z-0 w-auto object-center rounded-none h-screen object-cover hidden md:block top-0 opacity-70 dark:opacity-0"
+            />
+            <div className="isolate min-h-screen md:mt-24">
                 <div className="relative px-24">
                     <div
                         className="absolute inset-x-0 overflow-hidden -top-40 -z-10 transform-gpu blur-3xl sm:-top-80"
                         aria-hidden="true"
                     >
                         <div
-                            className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#0F114C]/80 to-[#0F114C] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
+                            className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#0F114C] to-[#0F114C]/50 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
                             style={{
                                 clipPath:
                                     'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
@@ -46,30 +51,28 @@ function Merchandise({ ...props }) {
 
                     </div>
 
-                    <div className="absolute top-96 bottom-0 right-24 transform rotate-90">
-                        <SideRightBlueDotIcon />
-                    </div>
-
                     <div className="absolute bottom-0 left-24">
                         <SideLeftArrowLeftIcon />
                     </div>
 
-                    <div className="md:py-12 py-5">
-                        <div className="px-6 mx-auto max-w-7xl lg:px-8">
-                            <div className="max-w-3xl mx-auto text-center flex flex-col justify-center items-center">
-                                <h1 className="text-4xl font-bold leading-relaxed tracking-tighter text-foreground sm:text-6xl">
-                                    Get your Merchandise Now!
-                                </h1>
-                                <p className="mt-6 text-lg leading-8 text-muted-foreground max-w-2xl">
-                                    Don't miss out — grab our exclusive merchandise today! Limited edition items designed to show your support and style. Shop now before it’s gone!
-                                </p>
-                                <div className="flex flex-row gap-2 items-center justify-center mt-10 gap-x-6">
-                                    <a href="#card-merch" className="flex flex-row gap-2 items-center text-gray-600">
-                                        Scroll down to Explore more
-                                        <ArrowDownIcon className="w-6 h-6 animate-bounce" />
-                                    </a>
-                                </div>
-                            </div>
+                    <div className="flex flex-row justify-around">
+                        <img src="assets/images/merch_bundle.png" alt="" className="w-[446px] h-[468px] object-contain" />
+                        <div className="flex flex-col items-center justify-center">
+                            <p className="text-[#0F114C] dark:text-[#0886BB] leading-[1.2em] text-[50px] tracking-[0.016em] uppercase font-bold">
+                                MERCHANDISE bundle
+                            </p>
+                            <p className="text-[18px] tracking-[0.02em] leading-[1.8em] max-w-[380px] text-center mt-5 text-[#000000] font-light dark:text-white">
+                                Get your Exclusive Merchandise Bundle at a special price — limited time only!
+                            </p>
+                            <p className="text-[23px] font-medium text-center mt-10 text-[#0886BB] line-through decoration-2">
+                                Rp. 199.000
+                            </p>
+                            <p className="text-[29px] font-medium text-center text-[#495190]">
+                                Only Rp. 100.000
+                            </p>
+                            <Button variant="blue" asChild size="lg" className="mt-5">
+                                <a href="#">Buy Bundle</a>
+                            </Button>
                         </div>
                     </div>
                     <div
@@ -77,7 +80,7 @@ function Merchandise({ ...props }) {
                         aria-hidden="true"
                     >
                         <div
-                            className="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#0F114C]/80 to-[#0F114C] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
+                            className="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#0F114C]/80 to-[#0F114C]/50 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
                             style={{
                                 clipPath:
                                     'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
