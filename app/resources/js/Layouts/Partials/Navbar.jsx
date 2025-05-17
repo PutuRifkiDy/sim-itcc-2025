@@ -43,7 +43,7 @@ export default function NavBar({ auth, competitions }) {
 
     return (
         <>
-            <nav className="md:flex hidden flex-row justify-between py-5 px-24 border-b-[1px] fixed top-0 left-0 w-full z-50 shadow bg-white dark:bg-gray-900">
+            <nav className="md:flex hidden flex-row justify-between py-5 px-24 border-b-[1px] fixed top-0 left-0 w-full z-50 shadow bg-white dark:bg-[#040529]">
                 <div>
                     <Link
                         href={route('welcome')}

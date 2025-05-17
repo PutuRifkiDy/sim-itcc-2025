@@ -78,7 +78,7 @@ const Sponsor = () => {
                 {sponsors.map((sponsor, index) => (
                     <div
                         key={index}
-                        className="keen-slider__slide border rounded-lg p-4 sm:p-6 md:p-8 flex items-center justify-center dark:bg-gray-800/50 shadow-sm hover:shadow-md transition"
+                        className="keen-slider__slide border rounded-lg p-4 sm:p-6 md:p-8 flex items-center justify-center dark:bg-[#100961]/50 shadow-sm hover:shadow-md transition"
                     >
                         <img
                             src={sponsor.src}

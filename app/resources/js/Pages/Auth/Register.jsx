@@ -29,7 +29,7 @@ export default function Register() {
                 <div className="min-h-full min-w-full">
                     <div className="flex flex-row rounded-[28px] border-[1px] shadow p-5 md:mx-36">
                         <div className="w-full">
-                            <Card className="border-none shadow-none">
+                            <Card className="border-none shadow-none dark:bg-[#040529]">
                                 <CardHeader className="flex flex-col items-center justify-center">
                                     <Link href="/" className="text-[25px] font-bold leading-relaxed tracking-tighter">
                                         Register
@@ -46,7 +46,7 @@ export default function Register() {
                                                 <InputLabel
                                                     htmlFor="name"
                                                     value="Name"
-                                                    className="text-[16px] font-medium leading-[1.2em] text-[#121212]"
+                                                    className="text-[16px] font-medium leading-[1.2em] text-[#121212] dark:text-white"
                                                 />
 
                                                 <TextInput
@@ -54,7 +54,7 @@ export default function Register() {
                                                     type="text"
                                                     name="name"
                                                     value={data.name}
-                                                    className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F]"
+                                                    className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F] dark:bg-[#040529]"
                                                     placeholder="Insert your name"
                                                     autoComplete="name"
                                                     isFocused={true}
@@ -71,14 +71,14 @@ export default function Register() {
                                                 <InputLabel
                                                     htmlFor="email"
                                                     value="Email"
-                                                    className="text-[16px] font-medium leading-[1.2em] text-[#121212]"
+                                                    className="text-[16px] font-medium leading-[1.2em] text-[#121212] dark:text-white"
                                                 />
                                                 <TextInput
                                                     id="email"
                                                     type="email"
                                                     name="email"
                                                     value={data.email}
-                                                    className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F]"
+                                                    className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F] dark:bg-[#040529]"
                                                     placeholder="Insert your email address"
                                                     autoComplete="email"
                                                     isFocused={true}
@@ -95,7 +95,7 @@ export default function Register() {
                                                 <InputLabel
                                                     htmlFor="password"
                                                     value="Password"
-                                                    className="text-[16px] font-medium leading-[1.2em] text-[#121212]"
+                                                    className="text-[16px] font-medium leading-[1.2em] text-[#121212] dark:text-white"
                                                 />
 
                                                 <div>
@@ -104,7 +104,7 @@ export default function Register() {
                                                         type="password"
                                                         name="password"
                                                         value={data.password}
-                                                        className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F]"
+                                                        className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F] dark:bg-[#040529]"
                                                         placeholder="Insert your password"
                                                         autoComplete="new-password"
                                                         onChange={(e) => setData('password', e.target.value)}
@@ -127,7 +127,7 @@ export default function Register() {
                                                     type="password"
                                                     name="password_confirmation"
                                                     value={data.password_confirmation}
-                                                    className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F]"
+                                                    className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F] dark:bg-[#040529]"
                                                     placeholder="Confirm your password"
                                                     autoComplete="new-password"
                                                     onChange={(e) => setData('password_confirmation', e.target.value)}
@@ -168,7 +168,7 @@ export default function Register() {
                             </Card>
                         </div>
 
-                        <div className="relative hidden gap-5 rounded-[28px] bg-gradient-to-r from-[#0F114C] to-[#00658F] px-10 py-10 md:flex md:flex-col w-full">
+                        <div className="relative hidden gap-5 rounded-[28px] bg-gradient-to-r from-[#0F114C] to-[#00658F] px-10 py-10 md:flex md:flex-col w-full dark:border-l-[2px] dark:rounded-none dark:bg-none">
                             <p className="md:w-[330px] text-[32px] font-bold text-[#FFFFFF]">
                                 Very good events are waiting for you Signup Now
                             </p>
@@ -178,7 +178,7 @@ export default function Register() {
                             <div className='absolute rotate-90 right-0 top-24'>
                                 <SideRightCrossIcon />
                             </div>
-                            <div className='absolute bottom-10 right-0'>
+                            <div className='absolute bottom-10 left-0 tranform rotate-180'>
                                 <LineOrnamenIcon />
                             </div>
                             <img src="/assets/images/image_for_auth.png" alt="" className="h-[379px] w-[354px]" />

@@ -66,18 +66,18 @@ export const SideLeftArrowLeftIcon = () => {
 
 export const SideRightCrossIcon = () => {
     return (
-        <svg width="111" height="29" viewBox="0 0 111 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="111" height="29" viewBox="0 0 111 29" fill="#040529" xmlns="http://www.w3.org/2000/svg" className="dark:fill-white">
             <g clipPath="url(#clip0_613_46428)">
-                <path d="M20.3097 17.969L16.4206 14.0799L20.3097 10.1908C20.7869 9.71354 20.7869 8.9395 20.3097 8.46227L19.4455 7.59803C18.9682 7.1208 18.1942 7.1208 17.717 7.59803L13.8279 11.4871L9.93878 7.59803C9.46155 7.1208 8.68751 7.1208 8.21029 7.59803L7.34604 8.46227C6.86882 8.9395 6.86882 9.71354 7.34604 10.1908L11.2351 14.0799L7.34604 17.969C6.86882 18.4462 6.86882 19.2202 7.34604 19.6975L8.21029 20.5617C8.68751 21.0389 9.46155 21.0389 9.93878 20.5617L13.8279 16.6726L17.717 20.5617C18.1942 21.0389 18.9682 21.0389 19.4455 20.5617L20.3097 19.6975C20.7869 19.2202 20.7869 18.4462 20.3097 17.969Z" fill="#0F114C" />
+                <path d="M20.3097 17.969L16.4206 14.0799L20.3097 10.1908C20.7869 9.71354 20.7869 8.9395 20.3097 8.46227L19.4455 7.59803C18.9682 7.1208 18.1942 7.1208 17.717 7.59803L13.8279 11.4871L9.93878 7.59803C9.46155 7.1208 8.68751 7.1208 8.21029 7.59803L7.34604 8.46227C6.86882 8.9395 6.86882 9.71354 7.34604 10.1908L11.2351 14.0799L7.34604 17.969C6.86882 18.4462 6.86882 19.2202 7.34604 19.6975L8.21029 20.5617C8.68751 21.0389 9.46155 21.0389 9.93878 20.5617L13.8279 16.6726L17.717 20.5617C18.1942 21.0389 18.9682 21.0389 19.4455 20.5617L20.3097 19.6975C20.7869 19.2202 20.7869 18.4462 20.3097 17.969Z" fill="currentColor" />
             </g>
             <g clipPath="url(#clip1_613_46428)">
-                <path d="M47.8266 17.717L43.9375 13.8279L47.8266 9.93881C48.3038 9.46159 48.3038 8.68755 47.8266 8.21032L46.9623 7.34608C46.4851 6.86885 45.7111 6.86885 45.2338 7.34608L41.3447 11.2352L37.4556 7.34608C36.9784 6.86885 36.2044 6.86885 35.7271 7.34608L34.8629 8.21032C34.3857 8.68755 34.3857 9.46159 34.8629 9.93881L38.752 13.8279L34.8629 17.717C34.3857 18.1942 34.3857 18.9683 34.8629 19.4455L35.7271 20.3097C36.2044 20.787 36.9784 20.787 37.4556 20.3098L41.3447 16.4206L45.2338 20.3098C45.7111 20.787 46.4851 20.787 46.9623 20.3097L47.8266 19.4455C48.3038 18.9683 48.3038 18.1942 47.8266 17.717Z" fill="#0F114C" />
+                <path d="M47.8266 17.717L43.9375 13.8279L47.8266 9.93881C48.3038 9.46159 48.3038 8.68755 47.8266 8.21032L46.9623 7.34608C46.4851 6.86885 45.7111 6.86885 45.2338 7.34608L41.3447 11.2352L37.4556 7.34608C36.9784 6.86885 36.2044 6.86885 35.7271 7.34608L34.8629 8.21032C34.3857 8.68755 34.3857 9.46159 34.8629 9.93881L38.752 13.8279L34.8629 17.717C34.3857 18.1942 34.3857 18.9683 34.8629 19.4455L35.7271 20.3097C36.2044 20.787 36.9784 20.787 37.4556 20.3098L41.3447 16.4206L45.2338 20.3098C45.7111 20.787 46.4851 20.787 46.9623 20.3097L47.8266 19.4455C48.3038 18.9683 48.3038 18.1942 47.8266 17.717Z" fill="currentColor" />
             </g>
             <g clipPath="url(#clip2_613_46428)">
-                <path d="M75.5956 18.1076L71.7065 14.2185L75.5956 10.3294C76.0728 9.85221 76.0728 9.07817 75.5956 8.60095L74.7314 7.7367C74.2541 7.25948 73.4801 7.25948 73.0029 7.7367L69.1138 11.6258L65.2247 7.7367C64.7474 7.25948 63.9734 7.25948 63.4962 7.7367L62.6319 8.60095C62.1547 9.07817 62.1547 9.85221 62.6319 10.3294L66.521 14.2185L62.6319 18.1076C62.1547 18.5849 62.1547 19.3589 62.6319 19.8361L63.4962 20.7004C63.9734 21.1776 64.7474 21.1776 65.2247 20.7004L69.1138 16.8113L73.0029 20.7004C73.4801 21.1776 74.2541 21.1776 74.7314 20.7004L75.5956 19.8361C76.0728 19.3589 76.0728 18.5849 75.5956 18.1076Z" fill="#0F114C" />
+                <path d="M75.5956 18.1076L71.7065 14.2185L75.5956 10.3294C76.0728 9.85221 76.0728 9.07817 75.5956 8.60095L74.7314 7.7367C74.2541 7.25948 73.4801 7.25948 73.0029 7.7367L69.1138 11.6258L65.2247 7.7367C64.7474 7.25948 63.9734 7.25948 63.4962 7.7367L62.6319 8.60095C62.1547 9.07817 62.1547 9.85221 62.6319 10.3294L66.521 14.2185L62.6319 18.1076C62.1547 18.5849 62.1547 19.3589 62.6319 19.8361L63.4962 20.7004C63.9734 21.1776 64.7474 21.1776 65.2247 20.7004L69.1138 16.8113L73.0029 20.7004C73.4801 21.1776 74.2541 21.1776 74.7314 20.7004L75.5956 19.8361C76.0728 19.3589 76.0728 18.5849 75.5956 18.1076Z" fill="currentColor" />
             </g>
             <g clipPath="url(#clip3_613_46428)">
-                <path d="M103.365 18.1076L99.4755 14.2185L103.365 10.3294C103.842 9.85221 103.842 9.07817 103.365 8.60095L102.5 7.7367C102.023 7.25948 101.249 7.25948 100.772 7.7367L96.8828 11.6258L92.9937 7.7367C92.5165 7.25948 91.7424 7.25948 91.2652 7.7367L90.401 8.60095C89.9238 9.07817 89.9238 9.85221 90.401 10.3294L94.2901 14.2185L90.401 18.1076C89.9237 18.5849 89.9238 19.3589 90.401 19.8361L91.2652 20.7004C91.7424 21.1776 92.5165 21.1776 92.9937 20.7004L96.8828 16.8113L100.772 20.7004C101.249 21.1776 102.023 21.1776 102.5 20.7004L103.365 19.8361C103.842 19.3589 103.842 18.5849 103.365 18.1076Z" fill="#0F114C" />
+                <path d="M103.365 18.1076L99.4755 14.2185L103.365 10.3294C103.842 9.85221 103.842 9.07817 103.365 8.60095L102.5 7.7367C102.023 7.25948 101.249 7.25948 100.772 7.7367L96.8828 11.6258L92.9937 7.7367C92.5165 7.25948 91.7424 7.25948 91.2652 7.7367L90.401 8.60095C89.9238 9.07817 89.9238 9.85221 90.401 10.3294L94.2901 14.2185L90.401 18.1076C89.9237 18.5849 89.9238 19.3589 90.401 19.8361L91.2652 20.7004C91.7424 21.1776 92.5165 21.1776 92.9937 20.7004L96.8828 16.8113L100.772 20.7004C101.249 21.1776 102.023 21.1776 102.5 20.7004L103.365 19.8361C103.842 19.3589 103.842 18.5849 103.365 18.1076Z" fill="currentColor" />
             </g>
             <defs>
                 <clipPath id="clip0_613_46428">
@@ -186,40 +186,40 @@ export const SideRightDotIcon = () => {
 
 export const SideRightBlueDotIcon = () => {
     return (
-        <svg width="99" height="202" viewBox="0 0 99 202" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="99" height="202" viewBox="0 0 99 202" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
             <g clip-path="url(#clip0_868_47674)">
-                <rect width="6" height="6" fill="#0F114C" />
-                <rect y="31" width="6" height="6" fill="#0F114C" />
-                <rect y="62" width="6" height="6" fill="#0F114C" />
-                <rect y="93" width="6" height="6" fill="#0F114C" />
-                <rect y="124" width="6" height="6" fill="#0F114C" />
-                <rect x="31" width="6" height="6" fill="#0F114C" />
-                <rect x="31" y="31" width="6" height="6" fill="#0F114C" />
-                <rect x="31" y="62" width="6" height="6" fill="#0F114C" />
-                <rect x="31" y="93" width="6" height="6" fill="#0F114C" />
-                <rect x="31" y="124" width="6" height="6" fill="#0F114C" />
-                <rect x="62" width="6" height="6" fill="#0F114C" />
-                <rect x="62" y="31" width="6" height="6" fill="#0F114C" />
-                <rect x="62" y="62" width="6" height="6" fill="#0F114C" />
-                <rect x="62" y="93" width="6" height="6" fill="#0F114C" />
-                <rect x="62" y="124" width="6" height="6" fill="#0F114C" />
-                <rect x="93" width="6" height="6" fill="#0F114C" />
-                <rect x="93" y="31" width="6" height="6" fill="#0F114C" />
-                <rect x="93" y="62" width="6" height="6" fill="#0F114C" />
-                <rect x="93" y="93" width="6" height="6" fill="#0F114C" />
-                <rect x="93" y="124" width="6" height="6" fill="#0F114C" />
-                <rect y="155" width="6" height="6" fill="#0F114C" />
-                <rect y="186" width="6" height="6" fill="#0F114C" />
-                <rect x="31" y="155" width="6" height="6" fill="#0F114C" />
-                <rect x="31" y="186" width="6" height="6" fill="#0F114C" />
-                <rect x="62" y="155" width="6" height="6" fill="#0F114C" />
-                <rect x="62" y="186" width="6" height="6" fill="#0F114C" />
-                <rect x="93" y="155" width="6" height="6" fill="#0F114C" />
-                <rect x="93" y="186" width="6" height="6" fill="#0F114C" />
+                <rect width="6" height="6" fill="currentColor" />
+                <rect y="31" width="6" height="6" fill="currentColor" />
+                <rect y="62" width="6" height="6" fill="currentColor" />
+                <rect y="93" width="6" height="6" fill="currentColor" />
+                <rect y="124" width="6" height="6" fill="currentColor" />
+                <rect x="31" width="6" height="6" fill="currentColor" />
+                <rect x="31" y="31" width="6" height="6" fill="currentColor" />
+                <rect x="31" y="62" width="6" height="6" fill="currentColor" />
+                <rect x="31" y="93" width="6" height="6" fill="currentColor" />
+                <rect x="31" y="124" width="6" height="6" fill="currentColor" />
+                <rect x="62" width="6" height="6" fill="currentColor" />
+                <rect x="62" y="31" width="6" height="6" fill="currentColor" />
+                <rect x="62" y="62" width="6" height="6" fill="currentColor" />
+                <rect x="62" y="93" width="6" height="6" fill="currentColor" />
+                <rect x="62" y="124" width="6" height="6" fill="currentColor" />
+                <rect x="93" width="6" height="6" fill="currentColor" />
+                <rect x="93" y="31" width="6" height="6" fill="currentColor" />
+                <rect x="93" y="62" width="6" height="6" fill="currentColor" />
+                <rect x="93" y="93" width="6" height="6" fill="currentColor" />
+                <rect x="93" y="124" width="6" height="6" fill="currentColor" />
+                <rect y="155" width="6" height="6" fill="currentColor" />
+                <rect y="186" width="6" height="6" fill="currentColor" />
+                <rect x="31" y="155" width="6" height="6" fill="currentColor" />
+                <rect x="31" y="186" width="6" height="6" fill="currentColor" />
+                <rect x="62" y="155" width="6" height="6" fill="currentColor" />
+                <rect x="62" y="186" width="6" height="6" fill="currentColor" />
+                <rect x="93" y="155" width="6" height="6" fill="currentColor" />
+                <rect x="93" y="186" width="6" height="6" fill="currentColor" />
             </g>
             <defs>
                 <clipPath id="clip0_868_47674">
-                    <rect width="99" height="202" fill="white" />
+                    <rect width="99" height="202" fill="currentColor" />
                 </clipPath>
             </defs>
         </svg>
@@ -256,6 +256,53 @@ export const LineOrnamenIcon = () => {
                 </pattern>
                 <image id="image0_828_46596" width="320" height="22" preserveAspectRatio="none" xlinkHref="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAUAAAAAWCAMAAACG7rXGAAAAG1BMVEVMaXH////////////////////////////////liRbkAAAACHRSTlMAQIDAECCQYFDuIeYAAAAJcEhZcwAALEoAACxKAXd6dE0AAABYSURBVFiF7deLCcAgDAbhaOtj/4nbHU74Ee6bIDkIaJWAudITXO7p6QkuZ0DIgJABIQNCBoQMCP0B2xbQ620CRvoGJEmSVIl3YHrnoxI/kfTORxkQigT8AA3qFsRi6RKyAAAAAElFTkSuQmCC" />
             </defs>
+        </svg>
+    );
+}
+
+export const WhiteBlueDotMerchIcon = () => {
+    return (
+        <svg width="53" height="153" viewBox="0 0 53 153" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="3.21212" height="3.22105" transform="matrix(-1 0 0 1 53 0)" fill="white" />
+            <rect width="3.21212" height="3.22105" transform="matrix(-1 0 0 1 53 16.6421)" fill="white" />
+            <rect width="3.21212" height="3.22105" transform="matrix(-1 0 0 1 53 33.2842)" fill="white" />
+            <rect width="3.21212" height="3.22105" transform="matrix(-1 0 0 1 53 49.9263)" fill="white" />
+            <rect width="3.21212" height="3.22105" transform="matrix(-1 0 0 1 53 66.5684)" fill="white" />
+            <rect width="3.21212" height="3.22105" transform="matrix(-1 0 0 1 36.4041 0)" fill="white" />
+            <rect width="3.21212" height="3.22105" transform="matrix(-1 0 0 1 36.4041 16.6421)" fill="white" />
+            <rect width="3.21212" height="3.22105" transform="matrix(-1 0 0 1 36.4041 33.2842)" fill="white" />
+            <rect width="3.21212" height="3.22105" transform="matrix(-1 0 0 1 36.4041 49.9263)" fill="white" />
+            <rect width="3.21212" height="3.22105" transform="matrix(-1 0 0 1 36.4041 66.5684)" fill="white" />
+            <rect width="3.21212" height="3.22105" transform="matrix(-1 0 0 1 19.8081 0)" fill="white" />
+            <rect width="3.21212" height="3.22105" transform="matrix(-1 0 0 1 19.8081 16.6421)" fill="white" />
+            <rect width="3.21212" height="3.22105" transform="matrix(-1 0 0 1 19.8081 33.2842)" fill="white" />
+            <rect width="3.21212" height="3.22105" transform="matrix(-1 0 0 1 19.8081 49.9263)" fill="white" />
+            <rect width="3.21212" height="3.22105" transform="matrix(-1 0 0 1 19.8081 66.5684)" fill="white" />
+            <rect width="3.21212" height="3.22105" transform="matrix(-1 0 0 1 3.2121 0)" fill="white" />
+            <rect width="3.21212" height="3.22105" transform="matrix(-1 0 0 1 3.2121 16.6421)" fill="white" />
+            <rect width="3.21212" height="3.22105" transform="matrix(-1 0 0 1 3.2121 33.2842)" fill="white" />
+            <rect width="3.21212" height="3.22105" transform="matrix(-1 0 0 1 3.2121 49.9263)" fill="white" />
+            <rect width="3.21212" height="3.22105" transform="matrix(-1 0 0 1 3.2121 66.5684)" fill="white" />
+            <rect width="3.21212" height="3.22105" transform="matrix(-1 0 0 1 53 83.2105)" fill="white" />
+            <rect width="3.21212" height="3.22105" transform="matrix(-1 0 0 1 53 99.8527)" fill="white" />
+            <rect width="3.21212" height="3.22105" transform="matrix(-1 0 0 1 53 116.495)" fill="white" />
+            <rect width="3.21212" height="3.22105" transform="matrix(-1 0 0 1 53 133.137)" fill="white" />
+            <rect width="3.21212" height="3.22105" transform="matrix(-1 0 0 1 53 149.779)" fill="white" />
+            <rect width="3.21212" height="3.22105" transform="matrix(-1 0 0 1 36.4041 83.2105)" fill="white" />
+            <rect width="3.21212" height="3.22105" transform="matrix(-1 0 0 1 36.4041 99.8527)" fill="white" />
+            <rect width="3.21212" height="3.22105" transform="matrix(-1 0 0 1 36.4041 116.495)" fill="white" />
+            <rect width="3.21212" height="3.22105" transform="matrix(-1 0 0 1 36.4041 133.137)" fill="white" />
+            <rect width="3.21212" height="3.22105" transform="matrix(-1 0 0 1 36.4041 149.779)" fill="white" />
+            <rect width="3.21212" height="3.22105" transform="matrix(-1 0 0 1 19.8081 83.2105)" fill="white" />
+            <rect width="3.21212" height="3.22105" transform="matrix(-1 0 0 1 19.8081 99.8527)" fill="white" />
+            <rect width="3.21212" height="3.22105" transform="matrix(-1 0 0 1 19.8081 116.495)" fill="white" />
+            <rect width="3.21212" height="3.22105" transform="matrix(-1 0 0 1 19.8081 133.137)" fill="white" />
+            <rect width="3.21212" height="3.22105" transform="matrix(-1 0 0 1 19.8081 149.779)" fill="white" />
+            <rect width="3.21212" height="3.22105" transform="matrix(-1 0 0 1 3.2121 83.2105)" fill="white" />
+            <rect width="3.21212" height="3.22105" transform="matrix(-1 0 0 1 3.2121 99.8527)" fill="white" />
+            <rect width="3.21212" height="3.22105" transform="matrix(-1 0 0 1 3.2121 116.495)" fill="white" />
+            <rect width="3.21212" height="3.22105" transform="matrix(-1 0 0 1 3.2121 133.137)" fill="white" />
+            <rect width="3.21212" height="3.22105" transform="matrix(-1 0 0 1 3.2121 149.779)" fill="white" />
         </svg>
     );
 }

@@ -154,14 +154,14 @@ const Competition = () => {
                            hover:scale-105"
                         data-aos="fade-up" data-aos-delay="200"
                     >
-                        <div className="relative w-full h-full">
+                        <div className="relative w-full h-full group">
                             <img
-                                className="absolute h-full w-full object-cover"
+                                className="absolute h-full w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-125"
                                 src={item.image}
                                 alt={item.name}
                             />
 
-                            <div className="absolute w-full h-full top-0 left-0 bg-gradient-to-l from-[#00658F1A] via-[#00658FE6] to-[#0F114C]" />
+                            <div className="absolute w-full h-full top-0 left-0 bg-gradient-to-l from-[#00658F1A] via-[#00658FE6]/70 to-[#0F114C] dark:from-[#00658F1A] dark:via-[#100961]/70 dark:to-[#0F114C]" />
 
                             {/* Text content */}
                             <div className="absolute top-10 left-10 right-10 md:left-[60px] md:right-[400px]">
