@@ -173,10 +173,10 @@ export default function Sidebar({ navigations, children, header, description }) 
                 <div
                     className={`flex-1 ${isSidebarOpen ? 'ml-0 md:ml-[300px] lg:w-[75%] xl:w-[80%] 2xl:w-[85%]' : 'ml-0 md:ml-24 lg:w-[75%] xl:w-[80%] 2xl:w-[85%]'} overflow-x-auto transition-all`}
                 >
-                    <header className="flex w-full items-center justify-center border-b-[1px] border-b-slate-200 px-0 py-[1.5rem] dark:border-b-slate-600 md:justify-between md:px-5">
+                    <header className="flex w-full items-center justify-center border-b-[1px] border-b-slate-200 px-0 py-[1.42rem] dark:border-b-slate-600 md:justify-between md:px-5">
                         {/* Untuk Tampilan Laptop */}
                         <button onClick={() => setIsSidebarOpen(!isSidebarOpen)} className="hidden text-xl md:block">
-                            {!isSidebarOpen ? <Bars3BottomRightIcon className="w-6 h-6 text-[#000000]" /> : <IconSideBar />}
+                            {!isSidebarOpen ? <Bars3BottomRightIcon className="w-6 h-6 text-[#000000] dark:text-white" /> : <IconSideBar />}
                         </button>
 
                         <div className="flex flex-col items-center justify-center gap-10 md:flex-row">
@@ -201,7 +201,7 @@ export default function Sidebar({ navigations, children, header, description }) 
                                         <IconDropdown />
                                     </p>
                                 </DropdownMenuTrigger>
-                                <DropdownMenuContent className="w-56 flex flex-col justify-start px-4 gap-4 py-3 outline-none md:mr-12 mr-0" >
+                                <DropdownMenuContent className="w-56 flex flex-col justify-start px-4 gap-4 py-3 outline-none md:mr-12 mr-0 dark:bg-[#040529]" >
                                     <Link
                                         href={route('welcome')}
                                         className="flex flex-row items-center gap-2"
