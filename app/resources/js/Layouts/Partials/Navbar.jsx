@@ -70,7 +70,7 @@ export default function NavBar({ auth, competitions }) {
                                 <ChevronDownIcon className={`font-bold h-4 w-4 transition-transform transform  ${openDropdown ? 'rotate-180' : ''}`} />
                             </p>
                         </DropdownMenuTrigger>
-                        <DropdownMenuContent className="w-56 flex flex-col justify-start px-4 gap-3 py-3 outline-none dark:bg-gray-800">
+                        <DropdownMenuContent className="w-56 flex flex-col justify-start px-4 gap-3 py-3 outline-none dark:bg-[#040529]">
                             {competitions
                                 .filter((competition) => competition.is_open_regis == true)
                                 .map((competition) => (
@@ -122,7 +122,7 @@ export default function NavBar({ auth, competitions }) {
                                     <UserCircleIcon className="h-8 w-8 text-gray-500" />
                                 </p>
                             </DropdownMenuTrigger>
-                            <DropdownMenuContent className="w-56 flex flex-col justify-start px-4 gap-4 py-3 outline-none mr-12 dark:bg-gray-800" >
+                            <DropdownMenuContent className="w-56 flex flex-col justify-start px-4 gap-4 py-3 outline-none mr-12 dark:bg-[#040529]" >
                                 {auth.is_admin === true && auth.name == 'Admin Kesekre' ? (
                                     <Link
                                         href={route('dashboard.overview.admin-kesekre.index')}
@@ -196,7 +196,7 @@ export default function NavBar({ auth, competitions }) {
                                         <ChevronDownIcon className="font-bold h-4 w-4" />
                                     </p>
                                 </DropdownMenuTrigger>
-                                <DropdownMenuContent className="w-56 flex flex-col justify-start px-4 gap-3 py-3 outline-none" >
+                                <DropdownMenuContent className="w-56 flex flex-col justify-start px-4 gap-3 py-3 outline-none dark:bg-[#040529]" >
                                     {competitions
                                         .filter((competition) => competition.is_open_regis == true)
                                         .map((competition) => (
@@ -233,7 +233,7 @@ export default function NavBar({ auth, competitions }) {
                                             <UserCircleIcon className="h-8 w-8 text-gray-500" />
                                         </p>
                                     </DropdownMenuTrigger>
-                                    <DropdownMenuContent className="w-56 flex flex-col justify-center px-4 gap-4 py-3 outline-none ml-5" >
+                                    <DropdownMenuContent className="w-56 flex flex-col justify-center px-4 gap-4 py-3 outline-none ml-5 dark:bg-[#040529]" >
                                         <Link
                                             href={route('dashboard')}
                                             className="flex flex-row items-center gap-2"
