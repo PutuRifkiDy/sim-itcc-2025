@@ -66,11 +66,11 @@ const Sponsor = () => {
 
             <a
                 href="https://wa.me/6281938215645"
-                className="flex flex-row items-center gap-2 text-[#0F114C] font-rubik text-sm sm:text-base md:text-lg font-normal leading-[120%] tracking-[0.02em] underline decoration-solid decoration-[#0F114C] decoration-1 underline-offset-[2px]"
+                className="flex flex-row items-center gap-2 text-[#0F114C] font-rubik text-sm sm:text-base md:text-lg font-normal leading-[120%] tracking-[0.02em] underline decoration-solid decoration-[#0F114C] decoration-1 underline-offset-[2px] dark:text-gray-500"
                 data-aos="fade-up" data-aos-delay="200"
                 target="_blank"
             >
-                Contact us to become a sponsor <ArrowRightIcon className="w-6 h-6" />
+                Contact us to become a sponsor <ArrowRightIcon className="w-6 h-6 dark:text-gray-500" />
             </a>
 
             {/* Sponsor Slider */}

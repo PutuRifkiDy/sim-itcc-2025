@@ -190,7 +190,7 @@ export default function Sidebar({ navigations, children, header, description }) 
                             </div>
 
                             <div className="divider flex h-[2px] w-auto bg-slate-200 dark:bg-slate-600 md:hidden md:w-full"></div>
-                            <ThemeSwitcher />
+                            {/* <ThemeSwitcher /> */}
                             <DropdownMenu>
                                 <DropdownMenuTrigger asChild>
                                     <p className='cursor-pointer flex flex-row gap-2 justify-center items-center text-gray-800 dark:text-gray-200'>

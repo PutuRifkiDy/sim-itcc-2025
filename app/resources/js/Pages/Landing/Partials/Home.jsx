@@ -24,7 +24,17 @@ export default function Home() {
             <img
                 src="assets/images/bg_ornament.png"
                 alt="banner"
-                className="absolute z-0 w-auto object-center rounded-none h-[800px] object-cover hidden md:block top-0 opacity-50 dark:opacity-0"
+                className="absolute z-0 w-auto object-center rounded-none h-[800px] object-cover hidden md:block top-0"
+            />
+            <img
+                src="assets/images/bg_circle_ornament.png"
+                alt="banner"
+                className="absolute z-0 rounded-none w-screen h-[800px] object-cover dark:hidden md:block top-0"
+            />
+            <img
+                src="assets/images/bg_circle_ornamen_white.png"
+                alt="banner"
+                className="absolute z-0 rounded-none w-screen h-[800px] object-cover hidden md:block top-0 opacity-40"
             />
             <section className="px-12 md:px-24 md:pb-24 mb-18 md:mt-44 mt-24">
                 <div className="flex flex-row justify-center md:justify-between">
@@ -77,7 +87,7 @@ export default function Home() {
                     {/* side right */}
                     <div className="w-full md:block hidden">
                         <div className="relative">
-                            <div className="flex flex-row justify-end" data-aos="fade-up" data-aos-delay="100">
+                            <div className="flex flex-row justify-end text-[#0F114C]" data-aos="fade-up" data-aos-delay="100">
                                 <SideRightCrossIcon />
                             </div>
                             <div className="absolute top-0 right-32 z-30">

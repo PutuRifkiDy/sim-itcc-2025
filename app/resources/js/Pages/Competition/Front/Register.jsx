@@ -8,7 +8,7 @@ function Register() {
     console.log('cek slug', slug);
     return (
         <>
-            <Button variant="blue" asChild>
+            <Button variant="blue" asChild className="mt-24">
                 <Link
                     href={route('register.competition.team.show', { competition: slug })}
                 >

@@ -40,7 +40,7 @@ export default function Merch() {
                         <p className="font-reguler text-[17px] tracking-[0.04em] leading-[1.5em] text-[#121212] md:w-[427px] max-w-[700px] md:text-start text-center dark:text-white" data-aos="fade-up" data-aos-delay="100">
                             Lorem ipsum dolor sit amet consectetur. Enim sagittis ac quam nunc viverra maecenas semper ullamcorper quis. Facilisi diam tortor bibendum porta.
                         </p>
-                        <div className="flex md:flex-row flex-col md:gap-7 gap-5 justify-center md:justify-start" data-aos="fade-up" data-aos-delay="100">
+                        <div className="flex md:flex-row flex-col md:gap-7 gap-5 justify-center md:justify-start mt-10" data-aos="fade-up" data-aos-delay="100">
                             <Button className="bg-[#0F114C] text-white px-6 py-2 rounded-[10px] font-semibold flex items-center group focus:ring-2 focus:ring-[#0F114C]/80 hover:bg-[#0F114C]/80 focus:transition-all focus:duration-400 focus:ease-in-out" size="lg">
                                 Buy Now
                                 <img src="assets/images/landing/arrow.png" className="inline ml-1 w-3 h-3 transform transition-transform duration-300 group-hover:translate-x-1" alt="" />
@@ -65,6 +65,7 @@ export default function Merch() {
                     <div className="relative">
                         <img src="assets/images/landing/merchBackground.png" alt="" className="w-full h-auto dark:hidden" />
                         <img src="assets/images/landing/merchBackgroundDarkmode.png" alt="" className="w-full h-auto hidden dark:block" />
+
                         <div className="absolute inset-0 flex items-center justify-center">
                             <img
                                 src="assets/images/landing/ITCCmerch.png"

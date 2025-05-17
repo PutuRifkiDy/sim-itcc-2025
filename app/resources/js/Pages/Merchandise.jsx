@@ -30,6 +30,16 @@ function Merchandise({ ...props }) {
                 alt="banner"
                 className="absolute z-0 w-auto object-center rounded-none h-screen object-cover hidden md:block top-0 opacity-60 dark:opacity-0"
             />
+            <img
+                src="assets/images/bg_circle_ornament.png"
+                alt="banner"
+                className="absolute z-0 rounded-none w-screen h-[800px] object-cover dark:hidden md:block top-0"
+            />
+            <img
+                src="assets/images/bg_circle_ornamen_white.png"
+                alt="banner"
+                className="absolute z-0 rounded-none w-screen h-[800px] object-cover hidden md:block top-0 opacity-60"
+            />
             <div className="isolate min-h-screen md:mt-24">
                 <div className="relative md:px-24 px-10">
                     <div

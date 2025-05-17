@@ -183,7 +183,7 @@ export default function NavBar({ auth, competitions }) {
                 </div>
                 {openNav == true && (
                     <div className="mt-10">
-                        <div className="flex flex-col bg-white gap-5 justify-start px-5">
+                        <div className="flex flex-col gap-5 justify-start px-5">
                             <Link
                                 href={route('welcome')}
                             >
@@ -225,7 +225,7 @@ export default function NavBar({ auth, competitions }) {
                             </Link>
                         </div>
 
-                        <div className="flex flex-row gap-5 pt-5 justify-start bg-white">
+                        <div className="flex flex-row gap-5 pt-5 justify-start">
                             {auth ? (
                                 <DropdownMenu>
                                     <DropdownMenuTrigger asChild>

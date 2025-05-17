@@ -33,7 +33,7 @@ function RegisterTeam() {
 
     return (
         <>
-            <form onSubmit={(e) => onHandleSubmit(e)}>
+            <form onSubmit={(e) => onHandleSubmit(e)} className="mt-24">
 
 
                 <div className="mt-6">
