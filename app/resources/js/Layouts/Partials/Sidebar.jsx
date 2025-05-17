@@ -114,7 +114,7 @@ export default function Sidebar({ navigations, children, header, description }) 
                     ></div>
                 )}
                 <aside
-                    className={`fixed left-0 top-0 z-50 h-full w-full transform bg-white transition-transform ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'} md:hidden`}
+                    className={`fixed left-0 top-0 z-50 h-full w-full transform bg-white dark:bg-[#040529] transition-transform ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'} md:hidden`}
                 >
                     <div className="flex items-center justify-between border-b p-5">
                         <span className="text-xl font-bold text-[#0F114C]">
@@ -190,7 +190,9 @@ export default function Sidebar({ navigations, children, header, description }) 
                             </div>
 
                             <div className="divider flex h-[2px] w-auto bg-slate-200 dark:bg-slate-600 md:hidden md:w-full"></div>
-                            {/* <ThemeSwitcher /> */}
+                            <div className='hidden md:block'>
+                                <ThemeSwitcher />
+                            </div>
                             <DropdownMenu>
                                 <DropdownMenuTrigger asChild>
                                     <p className='cursor-pointer flex flex-row gap-2 justify-center items-center text-gray-800 dark:text-gray-200'>
