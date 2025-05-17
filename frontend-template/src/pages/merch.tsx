@@ -1,8 +1,9 @@
-export function Merch()
-{
-    return (
-        <>
-            <h1 className="text-2xl">Ini adalah Page Merch</h1>
-        </>
-    );
+import Card from "../Components/Merch/Card";
+
+export function Merch() {
+  return (
+    <>
+      <Card />
+    </>
+  );
 }
