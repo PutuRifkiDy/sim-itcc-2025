@@ -73,13 +73,13 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, stat
                     </p>
                 </header>
                 {updateProfileInformation == false && (
-                    <Button className='flex justify-center items-center gap-3' variant="blue" onClick={() => setUpdateProfileInformation(true)}>
+                    <Button className='flex justify-center items-center gap-3 dark:bg-[#2b48a6]' variant="blue" onClick={() => setUpdateProfileInformation(true)}>
                         <IconEditForDashboard />
                         Edit
                     </Button>
                 )}
                 {updateProfileInformation == true && (
-                    <Button className='flex justify-center items-center gap-3 border-[#0F114C] border-2 text-[#0F114C] dark:text-white p-3' variant="none" onClick={() => setUpdateProfileInformation(false)}>
+                    <Button className='flex justify-center items-center gap-3 border-[#0F114C] border-2 text-[#0F114C] dark:border-[#2b48a6] dark:text-white p-3' variant="none" onClick={() => setUpdateProfileInformation(false)}>
                         <CancelUpdateProfile />
                         Cancel
                     </Button>

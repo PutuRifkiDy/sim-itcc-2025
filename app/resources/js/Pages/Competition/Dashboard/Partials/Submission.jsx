@@ -45,9 +45,9 @@ function Submission({ className, user_competition_registrations, competitions, s
                 {user_competition_registrations.competitions.is_need_submission ? (
                     <div>
                         {user_competition_registrations.payment_status == 'Requested' && (
-                            <div className="flex flex-row gap-2 px-4 py-2 border-l-4 border-l-[#0F114C] bg-[#0F114C]/20 w-full items-center mb-5">
-                                <ClockIcon className="h-5 w-5 text-[#0F114C]" />
-                                <p className='text-[#0F114C] font-medium text-[12px] leading-[16px]'>Complete your payment before the deadline</p>
+                            <div className="flex flex-row gap-2 px-4 py-2 border-l-4 border-l-[#0F114C] bg-[#0F114C]/20 w-full items-center mb-5 dark:bg-[#55b1d7]/20 dark:border-l-[#55b1d7]">
+                                <ClockIcon className="h-5 w-5 text-[#0F114C] dark:text-white" />
+                                <p className='text-[#0F114C] font-medium text-[12px] leading-[16px] dark:text-white'>Complete your payment before the deadline</p>
                             </div>
                         )}
                         {user_competition_registrations.payment_status == 'Pending' && (
@@ -65,9 +65,9 @@ function Submission({ className, user_competition_registrations, competitions, s
 
 
                         {status_submission == null && user_competition_registrations.payment_status == 'Verified' ? (
-                            <div className="flex flex-row gap-2 px-4 py-2 border-l-4 border-l-[#0F114C] bg-[#0F114C]/20 w-full items-center mb-5">
-                                <ClockIcon className="h-5 w-5 text-[#0F114C]" />
-                                <p className='text-[#0F114C] font-medium text-[12px] leading-[16px]'>
+                            <div className="flex flex-row gap-2 px-4 py-2 border-l-4 border-l-[#0F114C] bg-[#0F114C]/20 w-full items-center mb-5 dark:bg-[#55b1d7]/20 dark:border-l-[#55b1d7]">
+                                <ClockIcon className="h-5 w-5 text-[#0F114C] dark:text-white" />
+                                <p className='text-[#0F114C] font-medium text-[12px] leading-[16px] dark:text-white'>
                                     Upload your submission before the deadline
                                 </p>
                             </div>
@@ -105,13 +105,13 @@ function Submission({ className, user_competition_registrations, competitions, s
 
                 <form onSubmit={onHandleSubmit}>
                     <div className="mt-10 mb-5">
-                        <InputLabel htmlFor="submission_link" value="Submission Link" className='text-[12px] text-[#676767] font-medium' />
+                        <InputLabel htmlFor="submission_link" value="Submission Link" className='text-[12px] text-[#676767] font-medium dark:text-gray-400' />
 
                         <TextInput
                             id="submission_link"
                             name="submission_link"
                             type="text"
-                            className="mt-1 block md:w-[500px] w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F]"
+                            className="mt-1 block md:w-[500px] w-full rounded-[10px] border-[1px] border-[#818181] dark:border-white px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F] dark:bg-[#0F114C]"
                             value={data.submission_link}
                             onChange={onHandleChange}
                             isFocused
@@ -120,7 +120,7 @@ function Submission({ className, user_competition_registrations, competitions, s
                             onErrors={errors.submission_link && <InputError message={errors.submission_link} className='mt-2' />}
                         />
                     </div>
-                    <Button variant="blue" className="px-12 shadow-lg">
+                    <Button variant="blue" className="px-12 shadow-lg dark:bg-[#2b48a6]">
                         Submit
                     </Button>
                     <p className="text-[14px] font-normal text-[#5E5E5E] mt-3">

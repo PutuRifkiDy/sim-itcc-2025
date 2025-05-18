@@ -171,18 +171,18 @@ function DashboardSemnas() {
                     </div>
 
                 ) : (
-                    <div className="bg-white p-4 shadow sm:rounded-lg sm:p-8 flex flex-col gap-2 justify-center items-center">
+                    <div className="bg-white dark:bg-[#0F114C] p-4 shadow sm:rounded-lg sm:p-8 flex flex-col gap-2 justify-center items-center">
                         {/* {`${window.location.origin} */}
                         <img src={`${window.location.origin}/assets/images/image_for_dashboard_semnas.png`} alt="waw" className="w-[344px] h-[312px]" />
                         <div className="flex flex-col gap-2 justify-center items-center">
-                            <p className="font-semibold text-[22px] text-[#5E5E5E]">
+                            <p className="font-semibold text-[22px] text-[#5E5E5E] dark:text-white">
                                 Not Registered for Seminar National
                             </p>
-                            <p className="font-regular text-[16px] text-[#5E5E5E]">
+                            <p className="font-regular text-[16px] text-[#5E5E5E] dark:text-gray-400">
                                 Get your ticket now to witness the awesomeness of our national seminar!
                             </p>
                         </div>
-                        <Button asChild variant="blue" className="px-10 py-3">
+                        <Button asChild variant="blue" className="px-10 py-3 dark:bg-[#2b48a6]">
                             <Link
                                 href={route('register.semnas.show')}
                             >

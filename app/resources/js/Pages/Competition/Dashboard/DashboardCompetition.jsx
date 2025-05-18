@@ -19,7 +19,7 @@ function DashboardCompetition() {
         <>
             <div className="py-5">
                 {show_registration_competitions != '' ? (
-                    <div className="bg-white p-4 shadow rounded-lg sm:p-8">
+                    <div className="bg-white p-4 shadow rounded-lg sm:p-8 dark:bg-[#0F114C]">
                         <div className="grid md:grid-cols-4 grid-cols-1 gap-5 mb-10">
                             {show_registration_competitions.map((competition_registration, index) => (
                                 <Link
@@ -32,12 +32,12 @@ function DashboardCompetition() {
                                     </div>
                                     <div className="flex flex-col">
                                         <p className="text-[#5E5E5E] font-normal text-[14px] tracking-[0.03em] text-start">Competition</p>
-                                        <p className="font-bold text-[20px] text-[#000000] line-clamp-1 uppercase">{competition_registration.competitions.name}</p>
+                                        <p className="font-bold text-[20px] text-[#000000] line-clamp-1 uppercase dark:text-white">{competition_registration.competitions.name}</p>
                                     </div>
                                     {competition_registration.payment_status == "Requested" && (
-                                        <div className="flex flex-row gap-2 items-center bg-[#0F114C]/20 py-1 px-2 rounded-lg text-[#0F114C] w-fit">
+                                        <div className="flex flex-row gap-2 items-center bg-[#0F114C]/20 dark:bg-[#2b48a6]/20 py-1 px-2 rounded-lg text-[#0F114C] w-fit">
                                             <div className="bg-[#0F114C] rounded-full w-[10px] h-[10px]"></div>
-                                            <p className="text-[14px] font-semibold text-[#0F114C]">{competition_registration.payment_status}</p>
+                                            <p className="text-[14px] font-semibold text-[#0F114C] dark:text-white">{competition_registration.payment_status}</p>
                                         </div>
                                     )}
                                     {competition_registration.payment_status == "Pending" && (
@@ -68,10 +68,10 @@ function DashboardCompetition() {
                                         <div className="flex justify-center items-center">
                                             <img src={`${window.location.origin}/assets/images/image_for_join_another_in_dashboard.png`} alt="" className="w-[150px] h-[150px]" />
                                         </div>
-                                        <p className="font-bold text-[#000000] text-[20px] tracking-[0.03em]">Join Another</p>
+                                        <p className="font-bold text-[#000000] text-[20px] tracking-[0.03em] dark:text-white">Join Another</p>
                                     </div>
                                 </DropdownMenuTrigger>
-                                <DropdownMenuContent className="w-56 flex flex-col px-4 gap-3 py-2 outline-none">
+                                <DropdownMenuContent className="w-56 flex flex-col px-4 gap-3 py-2 outline-none dark:bg-[#0F114C] dark:border-white">
                                     {competitions
                                         .filter((competition) => competition.is_open_regis == true)
                                         .map((competition) => (
@@ -88,26 +88,26 @@ function DashboardCompetition() {
                         </div>
                     </div>
                 ) : (
-                    <div className="bg-white p-4 shadow sm:rounded-lg sm:p-8 flex flex-col gap-2 justify-center items-center">
+                    <div className="bg-white dark:bg-[#0F114C] p-4 shadow sm:rounded-lg sm:p-8 flex flex-col gap-2 justify-center items-center">
                         {/* {`${window.location.origin} */}
                         <img src={`${window.location.origin}/assets/images/image_for_dashboard_semnas.png`} alt="waw" className="w-[344px] h-[312px]" />
                         <div className="flex flex-col gap-2 justify-center items-center mb-5">
-                            <p className="font-semibold text-[22px] text-[#5E5E5E]">
+                            <p className="font-semibold text-[22px] text-[#5E5E5E] dark:text-white">
                                 Not Registered for Any Competitions
                             </p>
-                            <p className="font-regular text-[16px] text-[#5E5E5E] w-[400px] text-center">
+                            <p className="font-regular text-[16px] text-[#5E5E5E] w-[400px] text-center dark:text-gray-400">
                                 Join now to compete, showcase your talents, and win exciting prizes!
                             </p>
                         </div>
                         <DropdownMenu>
                             <DropdownMenuTrigger asChild>
                                 <p className='cursor-pointer flex flex-row gap-2 justify-center items-center'>
-                                    <Button variant="blue" className="px-14 shadow-xl">
+                                    <Button variant="blue" className="px-14 shadow-xl dark:bg-[#2b48a6]">
                                         Register
                                     </Button>
                                 </p>
                             </DropdownMenuTrigger>
-                            <DropdownMenuContent className="w-56 flex flex-col justify-start px-4 gap-3 py-3 outline-none" >
+                            <DropdownMenuContent className="dark:bg-[#0F114C] dark:border-white w-56 flex flex-col justify-start px-4 gap-3 py-3 outline-none" >
                                 {competitions
                                     .filter((competition) => competition.is_open_regis == true)
                                     .map((competition) => (

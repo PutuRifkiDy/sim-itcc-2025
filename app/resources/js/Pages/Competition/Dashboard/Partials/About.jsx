@@ -50,12 +50,12 @@ function About({ user_competition_registrations, className }) {
         <>
             <section className={className}>
                 <div className="flex md:flex-row flex-col gap-5">
-                    <p className="text-[#000000] font-semibold text-[22px]">
+                    <p className="text-[#000000] font-semibold text-[22px] dark:text-white">
                         {user_competition_registrations?.competitions?.name}
                     </p>
                     {user_competition_registrations.payment_status == "Requested" && (
-                        <div className="bg-[#0F114C]/20 rounded-md flex justify-center items-center py-2 px-5">
-                            <p className="text-[#0F114C] font-bold text-[12px]">{user_competition_registrations.payment_status ?? ' '}</p>
+                        <div className="bg-[#0F114C]/20 dark:bg-[#55b1d7]/20 rounded-md flex justify-center items-center py-2 px-5">
+                            <p className="text-[#0F114C] font-bold text-[12px] dark:text-[#55b1d7]">{user_competition_registrations.payment_status ?? ' '}</p>
                         </div>
                     )}
                     {user_competition_registrations.payment_status == "Pending" && (
@@ -77,12 +77,12 @@ function About({ user_competition_registrations, className }) {
                 <div className="grid md:grid-cols-3 grid-cols-1 mt-8 md:gap-0 gap-4">
                     {user_competition_registrations.competitions.is_team == false ? (
                         <div className="flex flex-col gap-2">
-                            <p className="font-bold text-[14px] tracking-[0.03em] text-[#5E5E5E]">Code Registrations</p>
+                            <p className="font-bold text-[14px] tracking-[0.03em] text-[#5E5E5E] dark:text-gray-400">Code Registrations</p>
                             <p className="font-reguler text-[18px] tracking-[0.03em]">{user_competition_registrations.code_registration ?? ' '}</p>
                         </div>
                     ) : (
                         <div className="flex flex-col gap-2">
-                            <p className="font-bold text-[14px] tracking-[0.03em] text-[#5E5E5E]">Team Token</p>
+                            <p className="font-bold text-[14px] tracking-[0.03em] text-[#5E5E5E] dark:text-gray-400">Team Token</p>
                             <div className="font-reguler text-[18px] tracking-[0.03em] flex flex-row gap-2 items-center">
                                 {user_competition_registrations.teams.token ?? ' '}
                                 {isCopied == true ? (
@@ -97,13 +97,13 @@ function About({ user_competition_registrations, className }) {
                     )}
                     {user_competition_registrations.competitions.is_team == true ? (
                         <div className="flex flex-col gap-2">
-                            <p className="font-bold text-[14px] tracking-[0.03em] text-[#5E5E5E]">Team Name</p>
+                            <p className="font-bold text-[14px] tracking-[0.03em] text-[#5E5E5E] dark:text-gray-400">Team Name</p>
                             <p className="font-reguler text-[18px] tracking-[0.03em]">{user_competition_registrations.teams?.team_name ?? ' '}</p>
                         </div>
                     ) : (
 
                         <div className="flex flex-col gap-2">
-                            <p className="font-bold text-[14px] tracking-[0.03em] text-[#5E5E5E]">Name</p>
+                            <p className="font-bold text-[14px] tracking-[0.03em] text-[#5E5E5E] dark:text-gray-400">Name</p>
                             <p className="font-reguler text-[18px] tracking-[0.03em]">{user_competition_registrations.user?.name ?? ' '}</p>
                         </div>
                     )}
@@ -116,7 +116,7 @@ function About({ user_competition_registrations, className }) {
                     ) : (
 
                         <div className="flex flex-col gap-2">
-                            <p className="font-bold text-[14px] tracking-[0.03em] text-[#5E5E5E]">Competition Category</p>
+                            <p className="font-bold text-[14px] tracking-[0.03em] text-[#5E5E5E] dark:text-gray-400">Competition Category</p>
                             <p className="font-reguler text-[18px] tracking-[0.03em]">{user_competition_registrations.competitions.competition_category.category_name ?? ' '}</p>
                         </div>
                     )}
@@ -125,14 +125,14 @@ function About({ user_competition_registrations, className }) {
                     <div key={index} className="grid md:grid-cols-3 grid-cols-1 w-full mt-8 md:gap-0 gap-4">
                         {competition_content.competition_content_contact.map((content_contact, idx) => (
                             <div className="flex flex-col gap-2" key={idx}>
-                                <p className="font-bold text-[14px] tracking-[0.03em] text-[#5E5E5E]">Contact Person {idx + 1}</p>
+                                <p className="font-bold text-[14px] tracking-[0.03em] text-[#5E5E5E] dark:text-gray-400">Contact Person {idx + 1}</p>
                                 <div className="flex flex-row items-center gap-2">
                                     <WhatsappIcon />
-                                    <p className="text-[#0f114c] text-[13px] tracking-[0.03em]">{content_contact.wa_number}</p>
+                                    <p className="text-[#0f114c] text-[13px] tracking-[0.03em] dark:text-white">{content_contact.wa_number}</p>
                                 </div>
                                 <div className="flex flex-row items-center gap-2">
                                     <LineIcon />
-                                    <p className="text-[#0f114c] text-[13px] tracking-[0.03em]">{content_contact.id_line}</p>
+                                    <p className="text-[#0f114c] text-[13px] tracking-[0.03em] dark:text-white">{content_contact.id_line}</p>
                                 </div>
                             </div>
                         ))}
@@ -141,15 +141,15 @@ function About({ user_competition_registrations, className }) {
                 {user_competition_registrations.competitions.competition_content.map((competition_content, index) => (
                     <div key={index} className="grid md:grid-cols-3 grid-cols-1 w-full mt-8 md:gap-0 gap-4">
                         <div className="flex flex-col gap-1">
-                            <p className="font-bold text-[14px] tracking-[0.03em] text-[#5E5E5E]">{competition_content.guidebook_link && "Guidebook"}</p>
-                            <a href={competition_content.guidebook_link ?? '#'} target="_blank" className="flex flex-row gap-2 items-center text-[#0f114c]">
+                            <p className="font-bold text-[14px] tracking-[0.03em] text-[#5E5E5E] dark:text-gray-400">{competition_content.guidebook_link && "Guidebook"}</p>
+                            <a href={competition_content.guidebook_link ?? '#'} target="_blank" className="flex flex-row gap-2 items-center text-[#0f114c] dark:text-white">
                                 Open Guidebook
                                 <ArrowTopRightOnSquareIcon className="w-4 h-4 text-[#0f114c] font-semibold" />
                             </a>
                         </div>
                         <div className="flex flex-col gap-1">
-                            <p className="font-bold text-[14px] tracking-[0.03em] text-[#5E5E5E]">{competition_content.how_to_join_link && "How to Join"}</p>
-                            <a href={competition_content.how_to_join_link ?? '#'} target="_blank" className="flex flex-row gap-2 items-center text-[#0f114c]">
+                            <p className="font-bold text-[14px] tracking-[0.03em] text-[#5E5E5E] dark:text-gray-400">{competition_content.how_to_join_link && "How to Join"}</p>
+                            <a href={competition_content.how_to_join_link ?? '#'} target="_blank" className="flex flex-row gap-2 items-center text-[#0f114c] dark:text-white">
                                 Play Video
                                 <ArrowTopRightOnSquareIcon className="w-4 h-4 text-[#0f114c] font-semibold" />
                             </a>
@@ -160,8 +160,8 @@ function About({ user_competition_registrations, className }) {
                 {user_competition_registrations.competitions.is_team == true && (
                     <div className="flex flex-col gap-2 mt-10">
                         <div className="flex flex-row gap-2">
-                            <div className="font-bold flex flex-row items-center gap-2 text-[18px] tracking-[0.03em] text-[#3A3A3A]">
-                                <UserGroupIcon className="w-6 h-6 text-[#3A3A3A]" />
+                            <div className="font-bold flex flex-row items-center gap-2 text-[18px] tracking-[0.03em] text-[#3A3A3A] dark:text-white">
+                                <UserGroupIcon className="w-6 h-6 text-[#3A3A3A] dark:text-white" />
                                 Our Team
                                 <div className="flex flex-row items-center">
                                     <p>{user_competition_registrations.teams.team_members.length}{" "}/{" "}3</p>
@@ -177,10 +177,10 @@ function About({ user_competition_registrations, className }) {
                                         <img src={`${window.location.origin}/assets/images/image_for_our_team.png`} className="w-[161px] h-[173px]" alt="" />
                                     </div>
                                     <div className="flex flex-col gap-3 items-start">
-                                        <p className="font-bold text-[18px] text-[#000000] line-clamp-1">
+                                        <p className="font-bold text-[18px] text-[#000000] line-clamp-1 dark:text-white">
                                             {member.competition_registrations.user.name}
                                         </p>
-                                        <div className="bg-[#0f114c] rounded-md p-1 px-6 max-w-fit text-white text-[14px] font-medium">
+                                        <div className="bg-[#0f114c] dark:bg-[#55b1d7]/20 rounded-md p-1 px-6 max-w-fit text-white text-[14px] font-medium">
                                             {member.teams.leader_id === member.competition_registrations.user.id ? "Leader" : "Member"}
                                         </div>
                                     </div>
@@ -203,8 +203,8 @@ function About({ user_competition_registrations, className }) {
                         Once you cancel your registration, you will not be able to revert this action.
                     </p>
 
-                    <Modal show={confirmingUserDeletion} onClose={closeModal} className="px-5 py-5" maxWidth="md">
-                        <h2 className="text-lg font-medium text-gray-900">Are you sure you want cancel your registration?</h2>
+                    <Modal show={confirmingUserDeletion} onClose={closeModal} className="px-5 py-5 dark:bg-[#040529]" maxWidth="md">
+                        <h2 className="text-lg font-medium text-gray-900 dark:text-white">Are you sure you want cancel your registration?</h2>
                         <p className="mt-1 text-sm text-gray-600 mb-10">
                             Once you cancel your registration, you will not be able to revert this action.
                         </p>
