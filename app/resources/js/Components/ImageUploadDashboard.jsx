@@ -37,11 +37,11 @@ function ImageUploadDashboard({ imagePath, onChangeImage, errorMessage, name, cl
                     </div>
                 </InputLabel>
                 {imagePath?.name && (
-                    <div className="flex flex-row gap-4 items-center bg-[#ECF1FC] px-3 py-2">
+                    <div className="flex flex-row gap-4 items-center bg-[#ECF1FC] px-3 py-2 dark:bg-[#2b48a6] rounded-sm">
                         <IconPreviewUploadImage />
                         <div className="flex flex-col gap-2">
-                            <p className="text-[14px] font-medium text-[#ACACAC]">{imagePath?.name}</p>
-                            <p className="text-[14px] text-[#ACACAC]">{fileSize} MB</p>
+                            <p className="text-[14px] font-medium text-[#ACACAC] dark:text-gray-400">{imagePath?.name}</p>
+                            <p className="text-[14px] text-[#ACACAC] dark:text-white">{fileSize} MB</p>
                         </div>
                     </div>
                 )}
