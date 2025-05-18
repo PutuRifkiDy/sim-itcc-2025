@@ -20,8 +20,8 @@ export default function NavBar({ auth, competitions }) {
     const [openDropdown, setOpenDropdown] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const { flash_message } = usePage().props;
-
-    console.log('cek open dropdown', openDropdown);
+    const { url } = usePage();
+    const urlName = window.location.pathname;
 
     useEffect(() => {
         if (flash_message?.message) {
@@ -55,12 +55,13 @@ export default function NavBar({ auth, competitions }) {
                 <div className="flex flex-row gap-10 justify-center items-center">
                     <Link
                         href={route('welcome')}
-                        className="relative transition-all duration-300 overflow-hidden hover:text-[#0F114C]  group"
+                        className={`relative transition-all duration-300 overflow-hidden hover:text-[#0F114C] dark:hover:text-[#55b1d7] group ${route().current('welcome') ? 'text-[#0F114C] dark:text-[#55b1d7]' : ''}`}
                     >
                         Home
                         <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-[#0F114C]/90 to-[#0F114C]
-                                        transform origin-left transition-all duration-300 ease-out
-                                        translate-x-[-100%] group-hover:translate-x-0`}>
+                            transform origin-left transition-all duration-300 ease-out
+                            ${route().current('welcome') ? 'translate-x-0' : '-translate-x-full'}
+                            group-hover:translate-x-0 dark:from-[#55b1d7]/90 dark:to-[#55b1d7]`}>
                         </span>
                     </Link>
                     <DropdownMenu onOpenChange={(open) => setOpenDropdown(open)}>
@@ -87,25 +88,25 @@ export default function NavBar({ auth, competitions }) {
 
                     <Link
                         href={route('event.front.show', ['seminar-nasional-teknologi-informasi-of'])}
-                        className="relative transition-all duration-300 overflow-hidden hover:text-[#0F114C]  group"
+                        className={`relative transition-all duration-300 overflow-hidden hover:text-[#0F114C] dark:hover:text-[#55b1d7] group ${route().current('event.front.show') ? 'text-[#0F114C] dark:text-[#55b1d7]' : ''}`}
                     >
                         Semnas
                         <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-[#0F114C]/90 to-[#0F114C]
-                                        transform origin-left transition-all duration-300 ease-out
-                                        translate-x-[-100%] group-hover:translate-x-0`}>
-
+                            transform origin-left transition-all duration-300 ease-out
+                            ${route().current('event.front.show') ? 'translate-x-0' : '-translate-x-full'}
+                            group-hover:translate-x-0 dark:from-[#55b1d7]/90 dark:to-[#55b1d7]`}>
                         </span>
                     </Link>
 
                     <Link
                         href={route('merchandise.front.show')}
-                        className="relative transition-all duration-300 overflow-hidden hover:text-[#0F114C]  group"
+                        className={`relative transition-all duration-300 overflow-hidden hover:text-[#0F114C] dark:hover:text-[#55b1d7] group ${route().current('merchandise.front.show') ? 'text-[#0F114C] dark:text-[#55b1d7]' : ''}`}
                     >
                         Merchandise
                         <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-[#0F114C]/90 to-[#0F114C]
-                                        transform origin-left transition-all duration-300 ease-out
-                                        translate-x-[-100%] group-hover:translate-x-0`}>
-
+                            transform origin-left transition-all duration-300 ease-out
+                            ${route().current('merchandise.front.show') ? 'translate-x-0' : '-translate-x-full'}
+                            group-hover:translate-x-0 dark:from-[#55b1d7]/90 dark:to-[#55b1d7]`}>
                         </span>
                     </Link>
                 </div>
@@ -174,8 +175,8 @@ export default function NavBar({ auth, competitions }) {
 
             <nav className="md:hidden flex flex-col justify-between py-5 border-b-[1px] fixed top-0 left-0 w-full z-50 shadow bg-white dark:bg-[#040529]">
                 <div className="flex flex-row justify-between">
-                    <Bars3BottomLeftIcon className={`w-6 h-6 text-gray-600 mx-5 cursor-pointer ${openNav ? 'hidden' : 'flex'}`} onClick={() => setOpenNav(!openNav)} />
-                    <XMarkIcon className={`w-6 h-6 text-gray-600 mx-5 cursor-pointer transition-transform transform ${openNav ? 'flex rotate-180' : 'hidden'}`} onClick={() => setOpenNav(!openNav)} />
+                    <Bars3BottomLeftIcon className={`w-6 h-6 text-gray-600 mx-5 cursor-pointer dark:text-white ${openNav ? 'hidden' : 'flex'}`} onClick={() => setOpenNav(!openNav)} />
+                    <XMarkIcon className={`w-6 h-6 text-gray-600 mx-5 cursor-pointer transition-transform transform dark:text-white ${openNav ? 'flex rotate-180' : 'hidden'}`} onClick={() => setOpenNav(!openNav)} />
                     {/* <SunIcon className="w-6 h-6 text-yellow-200 mx-5" /> */}
                     <div>
                         <ThemeSwitcher />
