@@ -63,7 +63,7 @@ export default function DeleteUserForm({ className = '' }) {
 
             <Button variant="red" onClick={confirmUserDeletion}>Delete Account</Button>
 
-            <Modal show={confirmingUserDeletion} onClose={closeModal} className='dark:bg-[#0F114C]'>
+            <Modal show={confirmingUserDeletion} onClose={closeModal} className='dark:bg-[#040529]'>
                 <form onSubmit={deleteUser} className="p-6">
                     <h2 className="text-lg font-medium text-gray-900 dark:text-white">Are you sure you want to delete your account?</h2>
 
@@ -92,7 +92,7 @@ export default function DeleteUserForm({ className = '' }) {
                     </div>
 
                     <div className="mt-6 flex justify-end">
-                        <Button onClick={closeModal} variant="blue" type="button" className="dark:bg-[#040529]">Cancel</Button>
+                        <Button onClick={closeModal} variant="blue" type="button">Cancel</Button>
 
                         <Button className="ms-3" variant="red" type="submit" disabled={processing}>
                             Delete Account

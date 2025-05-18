@@ -12,7 +12,7 @@ export default function Edit({ mustVerifyEmail, status, status_students }) {
         <>
             <div className="py-5">
                 <div className="mx-auto w-full space-y-6">
-                    <div className="bg-white dark:bg-[#0F114C]/50 p-4 shadow sm:rounded-lg sm:p-8">
+                    <div className="bg-white dark:bg-[#0F114C] p-4 shadow sm:rounded-lg sm:p-8">
                         {user.already_filled == false && (
                             <div className="flex flex-row gap-2 px-4 py-2 border-2 border-l-[#4880FF] bg-[#4880FF]/20 w-full items-center mb-5">
                                 <ClockIcon className="h-5 w-5 text-[#4880FF]" />
@@ -27,7 +27,7 @@ export default function Edit({ mustVerifyEmail, status, status_students }) {
                         />
                     </div>
 
-                    <div className="bg-white dark:bg-[#0F114C]/50 p-4 shadow sm:rounded-lg sm:p-8">
+                    <div className="bg-white dark:bg-[#0F114C] p-4 shadow sm:rounded-lg sm:p-8">
                         <UpdatePasswordForm className="w-full" />
                     </div>
 

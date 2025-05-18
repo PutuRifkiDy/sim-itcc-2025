@@ -91,9 +91,9 @@ function Payment({ event_registrations, payment_methods, className, payment_valu
         <>
             <section className={className}>
                 {event_registrations.payment_status == 'Requested' && (
-                    <div className="flex flex-row gap-2 px-4 py-2 border-l-4 border-l-[#0F114C] bg-[#0F114C]/20 w-full items-center mb-5">
-                        <ClockIcon className="h-5 w-5 text-[#0F114C]" />
-                        <p className='text-[#0F114C] font-medium text-[12px] leading-[16px]'>Complete your payment before the deadline</p>
+                    <div className="flex flex-row gap-2 px-4 py-2 border-l-4 border-l-[#0F114C] dark:border-l-[#55b1d7] bg-[#0F114C]/20 dark:bg-[#55b1d7]/20 w-full items-center mb-5">
+                        <ClockIcon className="h-5 w-5 text-[#0F114C] dark:text-white" />
+                        <p className='text-[#0F114C] font-medium text-[12px] leading-[16px] dark:text-white'>Complete your payment before the deadline</p>
                     </div>
                 )}
                 {event_registrations.payment_status == 'Pending' && (
@@ -117,12 +117,12 @@ function Payment({ event_registrations, payment_methods, className, payment_valu
 
                 <div className={`grid ${["Verified", "Pending"].includes(event_registrations.payment_status) ? 'md:grid-cols-3' : 'md:grid-cols-2'} ${event_registrations.payment_status} grid-cols-1 md:gap-5 gap-4`}>
                     <div className="flex flex-col gap-2">
-                        <p className="font-bold text-[14px] tracking-[0.03em] text-[#5E5E5E]">Total Payment</p>
-                        <p className="font-bold text-[20px] tracking-[0.03em] text-[#000000]">Rp. {event_registrations.total_payment}</p>
+                        <p className="font-bold text-[14px] tracking-[0.03em] text-[#5E5E5E] dark:text-gray-400">Total Payment</p>
+                        <p className="font-reguler text-[20px] tracking-[0.03em] text-[#000000] dark:text-white">Rp. {event_registrations.total_payment}</p>
                     </div>
                     <div className="flex flex-col gap-2">
-                        <p className="font-bold text-[14px] tracking-[0.03em] text-[#5E5E5E]">Account Number</p>
-                        <div className="font-bold text-[20px] tracking-[0.03em] text-[#000000] flex flex-row gap-2 items-center">
+                        <p className="font-bold text-[14px] tracking-[0.03em] text-[#5E5E5E] dark:text-gray-400">Account Number</p>
+                        <div className="font-reguler text-[20px] tracking-[0.03em] text-[#000000] dark:text-white flex flex-row gap-2 items-center">
                             <img src={`${window.location.origin}/${payment_method.image}`} className={payment_method.className} alt="" />
                             {payment_method.account_number}
                             {isCopied == true ? (
@@ -135,8 +135,8 @@ function Payment({ event_registrations, payment_methods, className, payment_valu
                         </div>
                     </div>
                     <div className="flex flex-col gap-2">
-                        <p className="font-bold text-[14px] tracking-[0.03em] text-[#5E5E5E]">Recipient Name</p>
-                        <p className="font-bold text-[20px] tracking-[0.03em] text-[#000000]">{payment_method.recipient_name}</p>
+                        <p className="font-bold text-[14px] tracking-[0.03em] text-[#5E5E5E] dark:text-gray-400">Recipient Name</p>
+                        <p className="font-reguler text-[20px] tracking-[0.03em] text-[#000000] dark:text-white">{payment_method.recipient_name}</p>
                     </div>
                 </div>
 
@@ -165,11 +165,11 @@ function Payment({ event_registrations, payment_methods, className, payment_valu
                         )}
 
                         {['Requested', 'Rejected'].includes(event_registrations.payment_status) ? (
-                            <Button variant="blue" type="submit" className="px-10 rounded-[8px] shadow-xl">
+                            <Button variant="blue" type="submit" className="px-10 rounded-[8px] shadow-xl dark:bg-[#4880FF]/50">
                                 Submit
                             </Button>
                         ) : event_registrations.payment_status === "Pending" && (
-                            <Button variant="blue" type="submit" className="px-10 rounded-[8px] shadow-xl cursor-not-allowed" disabled>
+                            <Button variant="blue" type="submit" className="px-10 rounded-[8px] shadow-xl cursor-not-allowed dark:bg-[#4880FF]/50" disabled>
                                 Submit
                             </Button>
                         )}

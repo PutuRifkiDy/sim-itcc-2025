@@ -31,7 +31,7 @@ function ImageUploadDashboard({ imagePath, onChangeImage, errorMessage, name, cl
                         <UploadFileForDashboardIcon />
                         <Input type="file" accept="image/*" onChange={handleChange}  name={name} className={cn("hidden", classNameForInput )} />
                         <div className="flex flex-col gap-1 justify-center items-center">
-                            <p className="font-bold text-[14px] text-[#5E5E5E]">Choose a file or drag & drop it here</p>
+                            <p className="font-bold text-[14px] text-[#5E5E5E] dark:text-white">Choose a file or drag & drop it here</p>
                             <p className="text-[14px] font-medium text-[#ACACAC]">JPG, PNG, max 2MB </p>
                         </div>
                     </div>

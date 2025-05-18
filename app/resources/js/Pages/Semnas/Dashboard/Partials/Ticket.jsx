@@ -6,9 +6,9 @@ function Ticket({ event_registrations, className }) {
         <>
             <section className={className}>
                 {event_registrations.payment_status == 'Requested' && (
-                    <div className="flex flex-row gap-2 px-4 py-2 border-l-4 border-l-[#0F114C] bg-[#0F114C]/20 w-full items-center mb-5">
-                        <ClockIcon className="h-5 w-5 text-[#0F114C]" />
-                        <p className='text-[#0F114C] font-medium text-[12px] leading-[16px]'>Complete your payment before the deadline</p>
+                    <div className="flex flex-row gap-2 px-4 py-2 border-l-4 border-l-[#0F114C] bg-[#0F114C]/20 dark:bg-[#55b1d7]/20 dark:border-l-[#55b1d7] w-full items-center mb-5">
+                        <ClockIcon className="h-5 w-5 text-[#0F114C] dark:text-white" />
+                        <p className='text-[#0F114C] font-medium text-[12px] leading-[16px] dark:text-white'>Complete your payment before the deadline</p>
                     </div>
                 )}
                 {event_registrations.payment_status == 'Pending' && (
@@ -34,7 +34,7 @@ function Ticket({ event_registrations, className }) {
                 {['Pending', 'Requested', 'Rejected'].includes(event_registrations.payment_status) ? (
                     <div className="flex flex-col gap-2 items-center justify-center mt-10">
                         <img src={`${window.location.origin}/assets/images/image_for_ticket_no_available.png`} className="w-[246px] h-[246px]" alt="" />
-                        <p className="font-bold text-[26px] text-[#5E5E5E]">No Ticket Available</p>
+                        <p className="font-bold text-[26px] text-[#5E5E5E] dark:text-white">No Ticket Available</p>
                     </div>
                 ) : (
                     <div className="flex flex-col gap-2 items-center justify-center mt-10 w-full">

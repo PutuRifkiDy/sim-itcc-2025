@@ -24,12 +24,12 @@ function About({ event_registrations, className }) {
         <>
             <section className={className}>
                 <div className="flex md:flex-row flex-col gap-5">
-                    <p className="text-[#000000] font-semibold text-[22px]">
+                    <p className="text-[#000000] font-semibold text-[22px] dark:text-white">
                         {event_registrations.events?.name}
                     </p>
                     {event_registrations.payment_status == "Requested" && (
-                        <div className="bg-[#0F114C]/20 rounded-md flex justify-center items-center py-2 px-5">
-                            <p className="text-[#0F114C] font-bold text-[12px]">{event_registrations.payment_status ?? ' '}</p>
+                        <div className="bg-[#0F114C]/20 dark:bg-[#55b1d7]/20 rounded-md flex justify-center items-center py-2 px-5">
+                            <p className="text-[#0F114C] font-bold text-[12px] dark:text-[#55b1d7]">{event_registrations.payment_status ?? ' '}</p>
                         </div>
                     )}
                     {event_registrations.payment_status == "Pending" && (
@@ -50,15 +50,15 @@ function About({ event_registrations, className }) {
                 </div>
                 <div className="grid md:grid-cols-3 grid-cols-1 mt-8 md:gap-0 gap-4">
                     <div className="flex flex-col gap-2">
-                        <p className="font-bold text-[12px] tracking-[0.03em] text-[#5E5E5E]">Registration Code</p>
+                        <p className="font-bold text-[12px] tracking-[0.03em] text-[#5E5E5E] dark:text-gray-400">Registration Code</p>
                         <p className="font-reguler text-[18px] tracking-[0.03em]">{event_registrations.code_registration ?? ' '}</p>
                     </div>
                     <div className="flex flex-col gap-2">
-                        <p className="font-bold text-[12px] tracking-[0.03em] text-[#5E5E5E]">Name</p>
+                        <p className="font-bold text-[12px] tracking-[0.03em] text-[#5E5E5E] dark:text-gray-400">Name</p>
                         <p className="font-reguler text-[18px] tracking-[0.03em]">{event_registrations.user?.name ?? ' '}</p>
                     </div>
                     <div className="flex flex-col gap-2">
-                        <p className="font-bold text-[12px] tracking-[0.03em] text-[#5E5E5E]">Institution</p>
+                        <p className="font-bold text-[12px] tracking-[0.03em] text-[#5E5E5E] dark:text-gray-400">Institution</p>
                         <p className="font-reguler text-[18px] tracking-[0.03em]">{event_registrations.user?.institution ?? ' '}</p>
                     </div>
 
@@ -67,14 +67,14 @@ function About({ event_registrations, className }) {
                     <div key={index} className="grid md:grid-cols-3 grid-cols-1 w-full mt-8 md:gap-0 gap-4">
                         {event_content.event_content_contact.map((content_contact, idx) => (
                             <div className="flex flex-col gap-2" key={idx}>
-                                <p className="font-bold text-[12px] tracking-[0.03em] text-[#5E5E5E]">Contact Person {idx + 1}</p>
-                                <div className="flex flex-row items-center">
+                                <p className="font-bold text-[12px] tracking-[0.03em] text-[#5E5E5E] dark:text-gray-400">Contact Person {idx + 1}</p>
+                                <div className="flex flex-row items-center text-[#0f114c] dark:text-white">
                                     <WhatsappIcon />
-                                    <p className="text-[#0f114c] text-[13px] tracking-[0.03em]">{content_contact.wa_number}</p>
+                                    <p className="text-[#0f114c] text-[13px] tracking-[0.03em] dark:text-[#55b1d7]">{content_contact.wa_number}</p>
                                 </div>
-                                <div className="flex flex-row items-center">
+                                <div className="flex flex-row items-center text-[#0f114c] dark:text-white">
                                     <LineIcon />
-                                    <p className="text-[#0f114c] text-[13px] tracking-[0.03em]">{content_contact.id_line}</p>
+                                    <p className="text-[#0f114c] text-[13px] tracking-[0.03em] dark:text-[#55b1d7]">{content_contact.id_line}</p>
                                 </div>
                             </div>
                         ))}
@@ -83,15 +83,15 @@ function About({ event_registrations, className }) {
                 {event_registrations.events.event_content.map((event_content, index) => (
                     <div key={index} className="grid md:grid-cols-3 grid-cols-1 w-full mt-8 md:gap-0 gap-4">
                         <div className="flex flex-col gap-1">
-                            <p className="font-bold text-[12px] tracking-[0.03em] text-[#5E5E5E]">{event_content.guidebook_link && "Guidebook"}</p>
-                            <a href={event_content.guidebook_link ?? '#'} target="_blank" className="flex flex-row gap-2 items-center text-[#0f114c]">
+                            <p className="font-bold text-[12px] tracking-[0.03em] text-[#5E5E5E] dark:text-gray-400">{event_content.guidebook_link && "Guidebook"}</p>
+                            <a href={event_content.guidebook_link ?? '#'} target="_blank" className="flex flex-row gap-2 items-center text-[#0f114c] dark:text-[#55b1d7]">
                                 Open Guidebook
                                 <ArrowTopRightOnSquareIcon className="w-4 h-4 text-[#0f114c] font-semibold" />
                             </a>
                         </div>
                         <div className="flex flex-col gap-1">
-                            <p className="font-bold text-[12px] tracking-[0.03em] text-[#5E5E5E]">{event_content.how_to_join_link && "How to Join"}</p>
-                            <a href={event_content.how_to_join_link ?? '#'} target="_blank" className="flex flex-row gap-2 items-center text-[#0f114c]">
+                            <p className="font-bold text-[12px] tracking-[0.03em] text-[#5E5E5E] dark:text-gray-400">{event_content.how_to_join_link && "How to Join"}</p>
+                            <a href={event_content.how_to_join_link ?? '#'} target="_blank" className="flex flex-row gap-2 items-center text-[#0f114c] dark:text-[#55b1d7]">
                                 Play Video
                                 <ArrowTopRightOnSquareIcon className="w-4 h-4 text-[#0f114c] font-semibold" />
                             </a>
@@ -109,9 +109,9 @@ function About({ event_registrations, className }) {
                         Cancel Registration
                     </Button>
 
-                    <Modal show={confirmingUserDeletion} onClose={closeModal} className="px-5 py-5" maxWidth="md">
-                        <h2 className="text-lg font-medium text-gray-900">Are you sure you want cancel your registration?</h2>
-                        <p className="mt-1 text-sm text-gray-600 mb-10">
+                    <Modal show={confirmingUserDeletion} onClose={closeModal} className="px-5 py-5 dark:bg-[#040529]" maxWidth="md">
+                        <h2 className="text-lg font-medium text-gray-900 dark:text-white">Are you sure you want cancel your registration?</h2>
+                        <p className="mt-1 text-sm text-gray-600 mb-10 dark:text-gray-500">
                             Once you cancel your registration, you will not be able to revert this action.
                         </p>
                         <div className="mt-6 flex justify-end">
