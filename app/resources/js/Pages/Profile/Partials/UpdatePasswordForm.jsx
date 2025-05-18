@@ -6,6 +6,7 @@ import { Transition } from '@headlessui/react';
 import { useForm, usePage } from '@inertiajs/react';
 import { use, useRef } from 'react';
 import DeleteUserForm from './DeleteUserForm';
+import { CheckBadgeIcon } from '@heroicons/react/24/solid';
 
 export default function UpdatePasswordForm({ className = '' }) {
     const passwordInput = useRef();
@@ -58,7 +59,7 @@ export default function UpdatePasswordForm({ className = '' }) {
 
                     <div className='w-full flex flex-col gap-5'>
                         <div>
-                            <InputLabel htmlFor="current_password" value="Current Password" className='text-[12px] text-[#676767] font-normal' />
+                            <InputLabel htmlFor="current_password" value="Current Password" className='text-[12px] text-[#676767] font-normal dark:text-white' />
 
                             <TextInput
                                 id="current_password"
@@ -66,7 +67,7 @@ export default function UpdatePasswordForm({ className = '' }) {
                                 value={data.current_password}
                                 onChange={(e) => setData('current_password', e.target.value)}
                                 type="password"
-                                className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F]"
+                                className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F] dark:bg-[#040529]"
                                 isFocused
                                 autoComplete="current-password"
                                 onErrors={errors.current_password && <InputError message={errors.current_password} className='mt-2' />}
@@ -75,7 +76,7 @@ export default function UpdatePasswordForm({ className = '' }) {
                         </div>
 
                         <div>
-                            <InputLabel htmlFor="password" value="New Password" className='text-[12px] text-[#676767] font-normal' />
+                            <InputLabel htmlFor="password" value="New Password" className='text-[12px] text-[#676767] font-normal dark:text-white' />
 
                             <TextInput
                                 id="password"
@@ -83,7 +84,7 @@ export default function UpdatePasswordForm({ className = '' }) {
                                 value={data.password}
                                 onChange={(e) => setData('password', e.target.value)}
                                 type="password"
-                                className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F]"
+                                className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F] dark:bg-[#040529]"
                                 isFocused
                                 autoComplete="new-password"
                                 onErrors={errors.password && <InputError message={errors.password} className='mt-2' />}
@@ -92,14 +93,14 @@ export default function UpdatePasswordForm({ className = '' }) {
                         </div>
 
                         <div>
-                            <InputLabel htmlFor="password_confirmation" value="Confirm Password" className='text-[12px] text-[#676767] font-normal' />
+                            <InputLabel htmlFor="password_confirmation" value="Confirm Password" className='text-[12px] text-[#676767] font-normal dark:text-white' />
 
                             <TextInput
                                 id="password_confirmation"
                                 value={data.password_confirmation}
                                 onChange={(e) => setData('password_confirmation', e.target.value)}
                                 type="password"
-                                className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F]"
+                                className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F] dark:bg-[#040529]"
                                 isFocused
                                 autoComplete="new-password"
                                 onErrors={errors.password_confirmation && <InputError message={errors.password_confirmation} className='mt-2' />}
@@ -107,7 +108,10 @@ export default function UpdatePasswordForm({ className = '' }) {
 
                         </div>
                         <div className="flex items-center gap-4">
-                            <Button variant="blue" disabled={processing}>Save</Button>
+                            <Button variant="blue" disabled={processing} className="flex flex-row gap-2 justify-center items-center">
+                                Save
+                                <CheckBadgeIcon className='w-6 h-6 text-white' />
+                            </Button>
 
                             <Transition
                                 show={recentlySuccessful}

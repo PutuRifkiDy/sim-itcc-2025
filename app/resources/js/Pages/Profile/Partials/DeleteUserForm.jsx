@@ -54,7 +54,7 @@ export default function DeleteUserForm({ className = '' }) {
     return (
         <section className={`space-y-6 ${className}`}>
             <header className='flex flex-col gap-2 mt-4'>
-                <h2 className="text-lg font-medium text-gray-900">Delete Account</h2>
+                <h2 className="text-lg font-medium text-gray-900 dark:text-white">Delete Account</h2>
 
                 <p className="mt-1 text-sm text-gray-600 md:w-[350px] w-full">
                     Once your account is deleted, all of its resources and data will be permanently deleted.
@@ -63,11 +63,11 @@ export default function DeleteUserForm({ className = '' }) {
 
             <Button variant="red" onClick={confirmUserDeletion}>Delete Account</Button>
 
-            <Modal show={confirmingUserDeletion} onClose={closeModal}>
+            <Modal show={confirmingUserDeletion} onClose={closeModal} className='dark:bg-[#0F114C]'>
                 <form onSubmit={deleteUser} className="p-6">
-                    <h2 className="text-lg font-medium text-gray-900">Are you sure you want to delete your account?</h2>
+                    <h2 className="text-lg font-medium text-gray-900 dark:text-white">Are you sure you want to delete your account?</h2>
 
-                    <p className="mt-1 text-sm text-gray-600">
+                    <p className="mt-1 text-sm text-gray-600 dark:text-gray-500">
                         Once your account is deleted, all of its resources and data will be permanently deleted. Please
                         enter your password to confirm you would like to permanently delete your account.
                     </p>
@@ -82,7 +82,7 @@ export default function DeleteUserForm({ className = '' }) {
                             ref={passwordInput}
                             value={data.password}
                             onChange={(e) => setData('password', e.target.value)}
-                            className="mt-1 block w-3/4"
+                            className="mt-1 block w-3/4 dark:bg-[#040529]"
                             isFocused
                             placeholder="Password"
                             onErrors={errors.password && <InputError message={errors.password} className="mt-2" />}
@@ -92,7 +92,7 @@ export default function DeleteUserForm({ className = '' }) {
                     </div>
 
                     <div className="mt-6 flex justify-end">
-                        <Button onClick={closeModal} variant="blue" type="button">Cancel</Button>
+                        <Button onClick={closeModal} variant="blue" type="button" className="dark:bg-[#040529]">Cancel</Button>
 
                         <Button className="ms-3" variant="red" type="submit" disabled={processing}>
                             Delete Account

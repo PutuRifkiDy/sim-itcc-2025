@@ -18,6 +18,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { flashMessage } from '@/lib/utils';
 import { toast } from 'sonner';
 import { ImageUpload } from '@/Components/ImageUpload';
+import { CheckBadgeIcon } from '@heroicons/react/24/solid';
 
 export default function UpdateProfileInformation({ mustVerifyEmail, status, status_students, className = '' }) {
     const user = usePage().props.auth.user;
@@ -78,7 +79,7 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, stat
                     </Button>
                 )}
                 {updateProfileInformation == true && (
-                    <Button className='flex justify-center items-center gap-3 bg-white border-[#0F114C] border-2 text-[#0F114C]' variant="none" onClick={() => setUpdateProfileInformation(false)}>
+                    <Button className='flex justify-center items-center gap-3 border-[#0F114C] border-2 text-[#0F114C] dark:text-white p-3' variant="none" onClick={() => setUpdateProfileInformation(false)}>
                         <CancelUpdateProfile />
                         Cancel
                     </Button>
@@ -89,12 +90,12 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, stat
                 <form onSubmit={onHandleSubmit} className="">
                     <div className='mt-10 grid md:grid-cols-2 grid-cols-1 gap-5'>
                         <div>
-                            <InputLabel htmlFor="name" value="Name" className='text-[12px] text-[#676767] font-normal' />
+                            <InputLabel htmlFor="name" value="Name" className='text-[12px] text-[#676767] font-normal dark:text-white' />
 
                             <TextInput
                                 id="name"
                                 type="text"
-                                className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F]"
+                                className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F] dark:bg-[#040529]"
                                 name="name"
                                 value={data.name}
                                 onChange={onHandleChange}
@@ -106,13 +107,13 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, stat
 
                         </div>
                         <div>
-                            <InputLabel htmlFor="email" value="Email" className='text-[12px] text-[#676767] font-normal' />
+                            <InputLabel htmlFor="email" value="Email" className='text-[12px] text-[#676767] font-normal dark:text-white' />
 
                             <TextInput
                                 id="email"
                                 name="email"
                                 type="email"
-                                className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F]"
+                                className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F] dark:bg-[#040529]"
                                 value={data.email}
                                 onChange={onHandleChange}
                                 required
@@ -123,13 +124,13 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, stat
                         </div>
 
                         <div>
-                            <InputLabel htmlFor="nim" value="Identification Number" className='text-[12px] text-[#676767] font-normal' />
+                            <InputLabel htmlFor="nim" value="Identification Number" className='text-[12px] text-[#676767] font-normal dark:text-white' />
 
                             <TextInput
                                 id="nim"
                                 name="nim"
                                 type="text"
-                                className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F]"
+                                className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F] dark:bg-[#040529]"
                                 value={data.nim}
                                 onChange={onHandleChange}
                                 required
@@ -141,13 +142,13 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, stat
 
                         </div>
                         <div>
-                            <InputLabel htmlFor="phone_number" value="Phone Number" className='text-[12px] text-[#676767] font-normal' />
+                            <InputLabel htmlFor="phone_number" value="Phone Number" className='text-[12px] text-[#676767] font-normal dark:text-white' />
 
                             <TextInput
                                 id="phone_number"
                                 name="phone_number"
                                 type='text'
-                                className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F]"
+                                className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F] dark:bg-[#040529]"
                                 value={data.phone_number}
                                 onChange={onHandleChange}
                                 isFocused
@@ -159,13 +160,13 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, stat
                         </div>
 
                         <div>
-                            <InputLabel htmlFor="address" value="Address" className='text-[12px] text-[#676767] font-normal' />
+                            <InputLabel htmlFor="address" value="Address" className='text-[12px] text-[#676767] font-normal dark:text-white' />
 
                             <TextInput
                                 id="address"
                                 name="address"
                                 type='text'
-                                className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F]"
+                                className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F] dark:bg-[#040529]"
                                 value={data.address}
                                 onChange={onHandleChange}
                                 isFocused
@@ -177,13 +178,13 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, stat
                         </div>
 
                         <div>
-                            <InputLabel htmlFor="line_id" value="Line Account" className='text-[12px] text-[#676767] font-normal' />
+                            <InputLabel htmlFor="line_id" value="Line Account" className='text-[12px] text-[#676767] font-normal dark:text-white' />
 
                             <TextInput
                                 id="line_id"
                                 name="line_id"
                                 type='text'
-                                className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F]"
+                                className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F] dark:bg-[#040529]"
                                 value={data.line_id}
                                 onChange={onHandleChange}
                                 isFocused
@@ -195,13 +196,13 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, stat
                         </div>
 
                         <div>
-                            <InputLabel htmlFor="institution" value="Institution" className='text-[12px] text-[#676767] font-normal' />
+                            <InputLabel htmlFor="institution" value="Institution" className='text-[12px] text-[#676767] font-normal dark:text-white' />
 
                             <TextInput
                                 id="institution"
                                 name="institution"
                                 type="text"
-                                className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F]"
+                                className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F] dark:bg-[#040529]"
                                 value={data.institution}
                                 onChange={onHandleChange}
                                 isFocused
@@ -214,20 +215,20 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, stat
 
 
                         <div className='flex flex-col gap-2'>
-                            <InputLabel htmlFor="status" value="Status" className='text-[12px] text-[#676767] font-normal' />
+                            <InputLabel htmlFor="status" value="Status" className='text-[12px] text-[#676767] font-normal dark:text-white' />
 
                             <Select
                                 defaultValue={data.status}
                                 onValueChange={(value) => setData('status', value)}
-                                className='mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F]'
+                                className='mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F] dark:bg-[#040529]'
                             >
                                 <SelectTrigger>
-                                    <SelectValue>
+                                    <SelectValue className='dark:bg-[#040529] bg-white'>
                                         {status_students.find((status_student) => status_student.value == data.status)
                                             ?.label ?? 'Select a priority'}
                                     </SelectValue>
                                 </SelectTrigger>
-                                <SelectContent>
+                                <SelectContent className="dark:bg-[#040529]">
                                     {status_students.map((status_student, index) => (
                                         <SelectItem key={index} value={status_student.value}>
                                             {status_student.label}
@@ -238,7 +239,7 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, stat
 
                         </div>
                         <div className='flex flex-col gap-2'>
-                            <InputLabel htmlFor="institution_path" value="Institution Card" className='text-[12px] text-[#676767] font-normal' />
+                            <InputLabel htmlFor="institution_path" value="Institution Card" className='text-[12px] text-[#676767] font-normal dark:text-white ' />
 
                             <ImageUpload
                                 imagePath={user.institution_path}
@@ -254,7 +255,10 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, stat
                         </div>
                     </div>
                     <div className="flex items-center gap-4 mt-10">
-                        <Button variant="blue" disabled={processing}>Save</Button>
+                        <Button variant="blue" disabled={processing} className="flex flex-row gap-2 justify-center items-center">
+                            Save
+                            <CheckBadgeIcon className='w-6 h-6 text-white' />
+                        </Button>
 
                         <Transition
                             show={recentlySuccessful}
@@ -272,41 +276,41 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, stat
             {updateProfileInformation == false && (
                 <div className='mt-10 grid md:grid-cols-2 grid-cols-1 gap-5'>
                     <div>
-                        <InputLabel htmlFor="name" value="Name" className='text-[12px] text-[#676767] font-normal' />
+                        <InputLabel htmlFor="name" value="Name" className='text-[12px] text-[#676767] font-normal dark:text-gray-400' />
                         <p>{data.name}</p>
                     </div>
                     <div>
-                        <InputLabel htmlFor="email" value="Email" className='text-[12px] text-[#676767] font-normal' />
+                        <InputLabel htmlFor="email" value="Email" className='text-[12px] text-[#676767] font-normal dark:text-gray-400' />
                         <p>{data.email}</p>
                     </div>
                     <div>
-                        <InputLabel htmlFor="phone_number" value="Phone Number" className='text-[12px] text-[#676767] font-normal' />
+                        <InputLabel htmlFor="phone_number" value="Phone Number" className='text-[12px] text-[#676767] font-normal dark:text-gray-400' />
                         <p>{data.phone_number ? data.phone_number : '-'}</p>
                     </div>
                     <div>
-                        <InputLabel htmlFor="address" value="Address" className='text-[12px] text-[#676767] font-normal' />
+                        <InputLabel htmlFor="address" value="Address" className='text-[12px] text-[#676767] font-normal dark:text-gray-400' />
                         <p>{data.address ? data.address : '-'}</p>
                     </div>
                     <div>
-                        <InputLabel htmlFor="line_id" value="Line ID" className='text-[12px] text-[#676767] font-normal' />
+                        <InputLabel htmlFor="line_id" value="Line ID" className='text-[12px] text-[#676767] font-normal dark:text-gray-400' />
                         <p>{data.line_id ? data.line_id : '-'}</p>
                     </div>
                     <div>
-                        <InputLabel htmlFor="nim" value="Identification Number" className='text-[12px] text-[#676767] font-normal' />
+                        <InputLabel htmlFor="nim" value="Identification Number" className='text-[12px] text-[#676767] font-normal dark:text-gray-400' />
                         <p>{data.nim ? data.nim : '-'}</p>
                     </div>
                     <div>
-                        <InputLabel htmlFor="institution" value="Institution" className='text-[12px] text-[#676767] font-normal' />
+                        <InputLabel htmlFor="institution" value="Institution" className='text-[12px] text-[#676767] font-normal dark:text-gray-400' />
                         <p>{data.institution ? data.institution : '-'}</p>
                     </div>
                     <div>
-                        <InputLabel htmlFor="status" value="Status" className='text-[12px] text-[#676767] font-normal' />
+                        <InputLabel htmlFor="status" value="Status" className='text-[12px] text-[#676767] font-normal dark:text-gray-400' />
                         <p>{data.status ? data.status : '-'}</p>
                     </div>
                     <div>
                         <Dialog>
                             <DialogTrigger className='flex flex-row gap-3 justify-center items-center '>
-                                <p className='text-[#676767] text-[14px]'>Institution Card</p>
+                                <p className='text-[#676767] text-[14px] dark:text-gray-400'>Institution Card</p>
                                 <IconPreviewImageProfile />
                             </DialogTrigger>
                             <DialogContent>
