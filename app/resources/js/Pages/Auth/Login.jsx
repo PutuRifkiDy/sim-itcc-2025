@@ -29,7 +29,7 @@ export default function Login({ status, canResetPassword }) {
 
     return (
         <>
-            <div className="flex flex-row items-center justify-center">
+            <div className="flex flex-row items-center justify-center md:mt-32 mt-12 mb-12">
                 <div className="min-h-full min-w-full">
                     <div className="flex flex-row rounded-[28px] p-5 border-[1px] shadow md:mx-36 min-h-[650px]">
                         <div className="relative hidden gap-5 rounded-l-[28px] bg-gradient-to-r from-[#0F114C] to-[#00658F] px-10 py-10 md:flex md:flex-col w-full dark:border-r-[1px] border-gray-100 dark:bg-none">
