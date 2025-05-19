@@ -173,7 +173,7 @@ export default function Sidebar({ navigations, children, header, description }) 
                 <div
                     className={`flex-1 ${isSidebarOpen ? 'ml-0 md:ml-[300px] lg:w-[75%] xl:w-[80%] 2xl:w-[85%]' : 'ml-0 md:ml-24 lg:w-[75%] xl:w-[80%] 2xl:w-[85%]'} overflow-x-auto transition-all`}
                 >
-                    <header className="flex w-full items-center justify-center border-b-[1px] border-b-slate-200 px-0 py-[1.42rem] dark:border-b-slate-600 md:justify-between md:px-5">
+                    <header className="flex w-full items-center justify-center border-b-[1px] border-b-slate-200 px-0 py-[1.14rem] dark:border-b-slate-600 md:justify-between md:px-5">
                         {/* Untuk Tampilan Laptop */}
                         <button onClick={() => setIsSidebarOpen(!isSidebarOpen)} className="hidden text-xl md:block">
                             {!isSidebarOpen ? <Bars3BottomRightIcon className="w-6 h-6 text-[#000000] dark:text-white" /> : <IconSideBar />}
@@ -195,9 +195,15 @@ export default function Sidebar({ navigations, children, header, description }) 
                             </div>
                             <DropdownMenu>
                                 <DropdownMenuTrigger asChild>
-                                    <p className='cursor-pointer flex flex-row gap-2 justify-center items-center text-gray-800 dark:text-gray-200'>
-                                        <img src={`${window.location.origin}/assets/images/image_for_auth.png`} className="md:w-[30px] w-[50px] h-auto md:h-auto" alt="" />
-                                        {auth.name}
+                                    <p className='cursor-pointer flex flex-row gap-4 justify-center items-center text-gray-800 dark:text-gray-200'>
+                                        <img src={`${window.location.origin}/assets/images/image_for_auth.png`} className="md:w-[40px] w-[50px] h-auto md:h-auto" alt="" />
+                                        <div className='flex flex-col items-start'>
+                                            {auth.name}
+                                            <div className='flex flex-row gap-1 items-center'>
+                                                <div className='w-2 h-2 bg-green-700 rounded-full'></div>
+                                                <p className='text-green-500'>Online</p>
+                                            </div>
+                                        </div>
                                         <IconDropdown />
                                     </p>
                                 </DropdownMenuTrigger>
