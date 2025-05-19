@@ -135,7 +135,7 @@ function DashboardCompetitionDetail() {
                                     .map((payment_method, index) => (
                                         <label
                                             key={index}
-                                            className={`flex cursor-pointer flex-row gap-5 justify-evenly items-center border-2 px-3 py-5 rounded-[10px] w-full transition-all duration-200 hover:border-[#0f114c]/50
+                                            className={`flex cursor-pointer flex-row gap-5 justify-evenly items-center border-2 px-3 py-5 rounded-[10px] w-full transition-all duration-200 hover:border-[#0f114c]/50 dark:hover:border-[#55b1d7]/50
     ${paymentValue == payment_method.id ? 'border-[#0f114c] dark:border-4 dark:border-[#55b1d7]' : 'border-[#E6E6E6]'}`}
                                             onClick={(e) => {
                                                 e.preventDefault();
@@ -157,8 +157,8 @@ function DashboardCompetitionDetail() {
                                         </label>
                                     ))}
 
-                                <Modal show={showModal} onClose={closeModal} className="px-5 py-5" maxWidth="md">
-                                    <h2 className="text-lg font-medium text-gray-900">Are you sure you want to change the payment method?</h2>
+                                <Modal show={showModal} onClose={closeModal} className="px-5 py-5 dark:bg-[#040529]" maxWidth="md">
+                                    <h2 className="text-lg font-medium text-gray-900 dark:text-white">Are you sure you want to change the payment method?</h2>
                                     <p className="mt-1 text-sm text-gray-600 mb-10">
                                         Once you confirm, you will not be able to revert this action.
                                     </p>

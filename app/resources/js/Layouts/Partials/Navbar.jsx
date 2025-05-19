@@ -143,7 +143,7 @@ export default function NavBar({ auth, competitions }) {
                                 ) : (
 
                                     <Link
-                                        href={route('profile.edit')}
+                                        href={route('dashboard')}
                                         className="flex flex-row items-center gap-2"
                                     >
                                         <Squares2X2Icon className="h-6 w-6 text-gray-500" />
