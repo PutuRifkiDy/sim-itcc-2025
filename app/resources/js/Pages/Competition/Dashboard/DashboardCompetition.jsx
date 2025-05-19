@@ -24,7 +24,7 @@ function DashboardCompetition() {
                             {show_registration_competitions.map((competition_registration, index) => (
                                 <Link
                                     href={route('dashboard.competition.show', { id: competition_registration.id })}
-                                    className="rounded-[15px] shadow-[0_0_5px_#4880ff] flex flex-col p-5 gap-3 transition ease-in-out duration-200 hover:shadow-[0_0_10px_#4880ff] cursor-pointer"
+                                    className="rounded-[15px] flex flex-col p-5 gap-3 transition ease-in-out duration-200 hover:shadow-[0_0_10px_#4880ff] cursor-pointer border-2 border-gray-400"
                                     key={index}
                                 >
                                     <div className="flex justify-center items-center ">
