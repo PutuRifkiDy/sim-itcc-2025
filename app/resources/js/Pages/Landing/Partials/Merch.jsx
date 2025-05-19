@@ -63,7 +63,7 @@ export default function Merch() {
                     </div>
 
                     <div className="relative">
-                        <img src="assets/images/landing/merchBackground.png" alt="" className="w-full h-auto dark:hidden" />
+                        <img src="assets/images/landing/merchBackground.png" alt="" className="w-full h-auto dark:hidden block" />
                         <img src="assets/images/landing/merchBackgroundDarkmode.png" alt="" className="w-full h-auto hidden dark:block" />
 
                         <div className="absolute inset-0 flex items-center justify-center">

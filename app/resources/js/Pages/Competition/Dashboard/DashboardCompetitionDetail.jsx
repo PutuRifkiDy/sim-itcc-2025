@@ -35,7 +35,7 @@ function DashboardCompetitionDetail() {
     const additionalPaymentMethods = [
         {
             image: "assets/images/dashboard/BNI_logo.png",
-            className: "w-[122px] h-[86px]",
+            className: "w-[150px] h-auto",
         },
         {
             image: "assets/images/dashboard/DANA_logo.png",

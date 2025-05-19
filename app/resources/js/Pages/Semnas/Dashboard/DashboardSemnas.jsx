@@ -29,7 +29,7 @@ function DashboardSemnas() {
     const additionalPaymentMethods = [
         {
             image: "assets/images/dashboard/BNI_logo.png",
-            className: "w-[122px] h-[86px]",
+            className: "w-[150px] h-auto",
         },
         {
             image: "assets/images/dashboard/DANA_logo.png",
@@ -145,8 +145,8 @@ function DashboardSemnas() {
                                             </label>
                                         ))}
 
-                                    <Modal show={showModal} onClose={closeModal} className="px-5 py-5" maxWidth="md">
-                                        <h2 className="text-lg font-medium text-gray-900">Are you sure you want to change the payment method?</h2>
+                                    <Modal show={showModal} onClose={closeModal} className="px-5 py-5 dark:bg-[#040529]" maxWidth="md">
+                                        <h2 className="text-lg font-medium text-gray-900 dark:text-white">Are you sure you want to change the payment method?</h2>
                                         <p className="mt-1 text-sm text-gray-600 mb-10">
                                             Once you confirm, you will not be able to revert this action.
                                         </p>

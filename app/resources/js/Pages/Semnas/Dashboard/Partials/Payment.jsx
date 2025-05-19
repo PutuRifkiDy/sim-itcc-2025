@@ -58,7 +58,7 @@ function Payment({ event_registrations, payment_methods, className, payment_valu
     const additionalPaymentMethods = [
         {
             image: "assets/images/dashboard/BNI_logo.png",
-            className: "w-[45px] h-[32px]",
+            className: "w-[60px] h-auto",
         },
         {
             image: "assets/images/dashboard/DANA_logo.png",
