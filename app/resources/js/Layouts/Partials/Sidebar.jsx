@@ -185,7 +185,6 @@ export default function Sidebar({ navigations, children, header, description }) 
                                 <button onClick={() => setIsSidebarOpen(!isSidebarOpen)} className="text-xl">
                                     <IconSideBar />
                                 </button>
-                                {/* <SunIcon className="w-8 h-8 text-yellow-200" /> */}
                                 <ThemeSwitcher />
                             </div>
 
