@@ -7,7 +7,6 @@ import { ClockIcon } from '@heroicons/react/24/solid';
 
 export default function Edit({ mustVerifyEmail, status, status_students }) {
     const user = usePage().props.auth.user;
-    console.log("cek isi", user)
     return (
         <>
             <div className="py-5">

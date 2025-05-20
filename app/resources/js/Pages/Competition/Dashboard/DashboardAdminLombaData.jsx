@@ -19,7 +19,6 @@ function DashboardAdminLombaData({ ...props }) {
     const show_competition_is_open_regis = usePage().props.show_competition_is_open_regis;
     const [params, setParams] = useState(props.state);
 
-    console.log('cek isi', competition_registrations);
     const [modalIdentifyUserOpen, setModalIdentifyUserOpen] = useState(false);
     const [selectedUser, setSelectedUser] = useState(null);
 

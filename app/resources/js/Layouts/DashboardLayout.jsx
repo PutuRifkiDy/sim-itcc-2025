@@ -7,7 +7,6 @@ import { DocumentTextIcon } from "@heroicons/react/24/outline";
 
 export default function DashboardLayout({ children, title, header, description }) {
     const auth = usePage().props.auth.user;
-    console.log('cek isi', auth);
     const route_sidebar = [
 
         ...(auth.is_admin === true && auth.name == 'Admin Kesekre' ? [

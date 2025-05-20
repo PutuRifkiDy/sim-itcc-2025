@@ -26,7 +26,6 @@ export default function Sidebar({ navigations, children, header, description }) 
     }
 
     const currentRoute = route().current();
-    console.log(currentRoute);
 
     useEffect(() => {
         if (window.innerWidth < 768) {
@@ -64,13 +63,6 @@ export default function Sidebar({ navigations, children, header, description }) 
                                     normalizedRouteName === '/dashboard'
                                         ? routePath === normalizedRouteName
                                         : routePath.startsWith(normalizedRouteName);
-
-                                // console.log("ini adalah routepath", routePath);
-                                console.log("ini adalah routename", routeName);
-                                // console.log("ini adalah normalizedroutename", normalizedRouteName);
-                                // console.log("ini adalah isactive", isActive);
-
-
                                 return (
                                     <li
                                         key={i}

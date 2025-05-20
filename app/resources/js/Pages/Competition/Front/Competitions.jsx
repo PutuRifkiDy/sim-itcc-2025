@@ -14,9 +14,6 @@ function Competitions({ ...props }) {
         _method: 'POST',
     });
 
-    console.log('cek isi var competition', competitions);
-
-
     const onHandleSubmit = (e) => {
         e.preventDefault();
 
