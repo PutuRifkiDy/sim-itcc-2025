@@ -74,43 +74,43 @@ const Competition = () => {
 
     const additionalCompetitions = [
         {
-            image: "assets/images/landing/Programing.jpg",
+            image: "assets/images/landing/Backdrop IdeBisnis.png",
             logo: "assets/images/landing/ITCC.png",
         },
         {
-            image: "assets/images/landing/UIUX.jpg",
+            image: "assets/images/landing/Backdrop Webdesign SMA.png",
             logo: "assets/images/landing/ITCC.png",
         },
         {
-            image: "assets/images/landing/LCC.jpg",
+            image: "assets/images/landing/Backdrop Webdesign MHS.png",
             logo: "assets/images/landing/ITCC.png",
         },
         {
-            image: "assets/images/landing/LCC.jpg",
+            image: "assets/images/landing/Backdrop Pemrograman.png",
             logo: "assets/images/landing/ITCC.png",
         },
         {
-            image: "assets/images/landing/LCC.jpg",
+            image: "assets/images/landing/LCC.jpg", // KGP nanti di hapus
             logo: "assets/images/landing/ITCC.png",
         },
         {
-            image: "assets/images/landing/LCC.jpg",
+            image: "assets/images/landing/LCC 1.png",
             logo: "assets/images/landing/ITCC.png",
         },
         {
-            image: "assets/images/landing/LCC.jpg",
+            image: "assets/images/landing/Backdrop UIUX MHS.png",
             logo: "assets/images/landing/ITCC.png",
         },
         {
-            image: "assets/images/landing/LCC.jpg",
+            image: "assets/images/landing/Backdrop UIUX SMA.png",
             logo: "assets/images/landing/ITCC.png",
         },
         {
-            image: "assets/images/landing/LCC.jpg",
+            image: "assets/images/landing/LCC.jpg", // KGP Beginner
             logo: "assets/images/landing/ITCC.png",
         },
         {
-            image: "assets/images/landing/LCC.jpg",
+            image: "assets/images/landing/LCC.jpg", // KGP Intermediate
             logo: "assets/images/landing/ITCC.png",
         },
     ];
