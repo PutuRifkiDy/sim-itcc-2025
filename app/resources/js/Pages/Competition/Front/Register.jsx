@@ -5,7 +5,6 @@ import { Link, usePage } from "@inertiajs/react";
 
 function Register() {
     const slug = usePage().props.slug;
-    console.log('cek slug', slug);
     return (
         <>
             <Button variant="blue" asChild className="mt-24">

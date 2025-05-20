@@ -41,9 +41,6 @@ function DashboardKesekreCompetition({ ...props }) {
 
     const hasShownToast = useRef(false);
 
-    console.log('ce isi var kesekre registration', admin_competition_registrations);
-
-
     const { data, setData, post, put, patch, errors, processing, recentlySuccessful, formData, clearErrors, reset } = useForm({
         reject_reason: admin_competition_registrations.reject_reason ?? '',
         _method: 'POST',

@@ -26,7 +26,6 @@ export default function Sidebar({ navigations, children, header, description }) 
     }
 
     const currentRoute = route().current();
-    console.log(currentRoute);
 
     useEffect(() => {
         if (window.innerWidth < 768) {
@@ -42,9 +41,10 @@ export default function Sidebar({ navigations, children, header, description }) 
                 >
                     <Link
                         href={route('welcome')}
-                        className="flex w-full flex-row items-center justify-center gap-1 border-b-[1px] border-slate-200 py-6 text-[24px] font-bold text-[#0F114C] dark:border-slate-600 tracking-[0.03em]"
+                        className="flex w-full flex-row items-center justify-center gap-1 border-b-[1px] border-slate-200 py-6 text-[24px] font-bold text-[#0F114C] dark:border-slate-600 tracking-[0.03em] truncate"
                     >
-                        ITCC<span className={`${isSidebarOpen ? 'flex flex-row text-[#264A9D]' : 'hidden'}`}>2025</span>
+                        <img src={`${window.location.origin}/assets/images/image_for_icon_logo_itcc.png`} alt="" className="w-[61.5px] h-auto dark:hidden block" />
+                        <img src={`${window.location.origin}/assets/images/landing/ITCC.png`} alt="" className="w-[61.5px] h-auto dark:block hidden" />
                     </Link>
                     <img
                         src={`${window.location.origin}/assets/images/image_for_sidebar.png`}
@@ -64,13 +64,6 @@ export default function Sidebar({ navigations, children, header, description }) 
                                     normalizedRouteName === '/dashboard'
                                         ? routePath === normalizedRouteName
                                         : routePath.startsWith(normalizedRouteName);
-
-                                // console.log("ini adalah routepath", routePath);
-                                console.log("ini adalah routename", routeName);
-                                // console.log("ini adalah normalizedroutename", normalizedRouteName);
-                                // console.log("ini adalah isactive", isActive);
-
-
                                 return (
                                     <li
                                         key={i}

@@ -26,7 +26,6 @@ function DashboardAdminLombaSubmission({ ...props }) {
     const count_rejected = usePage().props.count_rejected;
     const [params, setParams] = useState(props.state);
     const show_competition_is_open_regis = usePage().props.show_competition_is_open_regis;
-    console.log('cek isi submission', submissions);
 
 
     // untuk modal identity

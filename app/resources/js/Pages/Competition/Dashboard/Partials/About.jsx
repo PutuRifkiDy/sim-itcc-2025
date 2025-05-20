@@ -16,7 +16,6 @@ function About({ user_competition_registrations, className }) {
         setConfirmingUserDeletion(true);
     };
 
-    console.log("cek isi", user_competition_registrations);
     function handleCopy(text) {
         navigator.clipboard.writeText(text)
             .then(() => {
