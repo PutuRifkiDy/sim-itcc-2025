@@ -9,6 +9,7 @@ import { LineIcon, WhatsappIcon } from "@/Components/IconAdmin";
 import { Accordion } from "@/Components/Accordion";
 import * as AOS from 'aos';
 import 'aos/dist/aos.css';
+import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "@/Components/ui/dialog";
 
 function Competitions({ ...props }) {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -145,70 +146,41 @@ function Competitions({ ...props }) {
                                     Register
                                 </Button>
 
-                                <div className="flex items-center gap-2">
-                                    <button
-                                        className="flex justify-center items-center cursor-pointer w-[60px] h-[60px] rounded-[500px] bg-[#00658F] shadow-[0_10px_10px_#C8DBFF] dark:shadow-none shrink-0 border-none"
+                                <Dialog>
+                                    <DialogTrigger className="flex items-center gap-2">
+                                        <button
+                                            className="flex justify-center items-center cursor-pointer w-[60px] h-[60px] rounded-[500px] bg-[#00658F] shadow-[0_10px_10px_#C8DBFF] dark:shadow-none shrink-0 border-none"
 
-                                        onClick={openModal}
-                                    >
-                                        <svg
-                                            width="20"
-                                            height="20"
-                                            viewBox="0 0 20 20"
-                                            fill="white"
-                                            xmlns="http://www.w3.org/2000/svg"
+                                            onClick={openModal}
                                         >
-                                            <path d="M6 4L15 10L6 16V4Z" />
-                                        </svg>
-                                    </button>
-                                    <span className="text-[16px] font-semibold tracking-wide flex-grow flex-shrink-0 text-[#3A3A3A] dark:text-white">
-                                        How to Join
-                                    </span>
-                                </div>
-                                {isModalOpen && (
-                                    <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-                                        <div className="bg-white rounded-lg w-[90%] md:w-[700px] h-[80%] md:h-[450px] flex-shrink-0 relative shadow-xl overflow-hidden">
-                                            {/* Close Button */}
-                                            <button
-                                                className="absolute top-4 right-4 p-2 bg-gray-100 rounded-full hover:bg-gray-200 transition duration-300 z-50"
-                                                onClick={closeModal}
+                                            <svg
+                                                width="20"
+                                                height="20"
+                                                viewBox="0 0 20 20"
+                                                fill="white"
+                                                xmlns="http://www.w3.org/2000/svg"
                                             >
-                                                <svg
-                                                    width="20"
-                                                    height="20"
-                                                    viewBox="0 0 20 20"
-                                                    fill="none"
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                >
-                                                    <path
-                                                        d="M4 4L16 16M16 4L4 16"
-                                                        stroke="#000"
-                                                        strokeWidth="2"
-                                                        strokeLinecap="round"
-                                                    />
-                                                </svg>
-                                            </button>
-
-                                            <div className="absolute top-4 left-1/2 transform -translate-x-1/2 text-black text-2xl font-bold uppercase tracking-wider z-40 dark:text-white">
-                                                How to Join
-                                            </div>
-
-                                            {/* YouTube Video Embed */}
-                                            <div className="mt-16 h-[calc(100%-60px)]">
-                                                <iframe
-                                                    width="100%"
-                                                    height="100%"
-                                                    src="https://www.youtube.com/embed/xvFZjo5PgG0?si=Uq1_-POS0iBEixB2"
-                                                    title="How to Join Video"
-                                                    frameBorder="0"
-                                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                                    allowFullScreen
-                                                    className="rounded-lg shadow-lg"
-                                                ></iframe>
-                                            </div>
-                                        </div>
-                                    </div>
-                                )}
+                                                <path d="M6 4L15 10L6 16V4Z" />
+                                            </svg>
+                                        </button>
+                                        <span className="text-[16px] font-semibold tracking-wide flex-grow flex-shrink-0 text-[#3A3A3A] dark:text-white">
+                                            How to Join
+                                        </span>
+                                    </DialogTrigger>
+                                    <DialogContent className="max-w-3xl">
+                                        <DialogTitle>
+                                            How to Join
+                                        </DialogTitle>
+                                            <iframe
+                                                src="https://www.youtube.com/embed/xvFZjo5PgG0?si=Uq1_-POS0iBEixB2"
+                                                title="How to Join Video"
+                                                frameBorder="0"
+                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                allowFullScreen
+                                                className="rounded-lg shadow-lg w-full h-96"
+                                            ></iframe>
+                                    </DialogContent>
+                                </Dialog>
                             </div>
 
                             <div className="flex items-center gap-2 mt-10" data-aos="fade-up" data-aos-delay="400">
