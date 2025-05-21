@@ -70,17 +70,18 @@ function Competitions({ ...props }) {
                                         height="30"
                                         viewBox="0 0 30 30"
                                         fill="none"
+                                        className="dark:text-white text-[#0F114C]"
                                     >
                                         <path
                                             d="M7.0451 22.9569C6.00042 21.9122 5.17174 20.672 4.60637 19.3071C4.04099 17.9422 3.75 16.4793 3.75 15.0019C3.75 13.5245 4.04099 12.0616 4.60637 10.6967C5.17174 9.33173 6.00042 8.09154 7.0451 7.04688M22.9551 7.04688C23.9998 8.09154 24.8285 9.33173 25.3938 10.6967C25.9592 12.0616 26.2502 13.5245 26.2502 15.0019C26.2502 16.4793 25.9592 17.9422 25.3938 19.3071C24.8285 20.672 23.9998 21.9122 22.9551 22.9569M10.5801 19.4206C9.4084 18.2486 8.75018 16.6592 8.75018 15.0019C8.75018 13.3446 9.4084 11.7552 10.5801 10.5831M19.4201 10.5831C20.5918 11.7552 21.25 13.3446 21.25 15.0019C21.25 16.6592 20.5918 18.2486 19.4201 19.4206M16.2501 15.0019C16.2501 15.3334 16.1184 15.6513 15.884 15.8858C15.6496 16.1202 15.3316 16.2519 15.0001 16.2519C14.6686 16.2519 14.3506 16.1202 14.1162 15.8858C13.8818 15.6513 13.7501 15.3334 13.7501 15.0019C13.7501 14.6704 13.8818 14.3524 14.1162 14.118C14.3506 13.8836 14.6686 13.7519 15.0001 13.7519C15.3316 13.7519 15.6496 13.8836 15.884 14.118C16.1184 14.3524 16.2501 14.6704 16.2501 15.0019Z"
-                                            stroke="black"
+                                            stroke="currentColor"
                                             strokeWidth="2.5"
                                             strokeLinecap="round"
                                             strokeLinejoin="round"
                                         />
                                     </svg>
                                 </div>
-                                <span className="text-black text-[16px] font-regular tracking-[0.03em] uppercase">
+                                <span className="text-black dark:text-white text-[16px] font-regular tracking-[0.03em] uppercase">
                                     {competitions.competition_content[0].location}
                                 </span>
                                 <div className="absolute right-0 top-1 -translate-y-1/2 md:block hidden">
@@ -90,7 +91,7 @@ function Competitions({ ...props }) {
 
                             <div className="h-2" />
 
-                            <span className="text-[#0F114C] text-2xl md:text-[36px] font-bold leading-[120%] tracking-[3px] md:tracking-[5.76px] uppercase font-[Rubik]">
+                            <span className="text-[#0F114C] text-2xl md:text-[36px] font-bold leading-[120%] tracking-[3px] md:tracking-[5.76px] uppercase dark:text-gray-300">
                                 {competitions.name}
                             </span>
                             <div className="h-4" />
@@ -131,16 +132,8 @@ function Competitions({ ...props }) {
 
                                 <div className="flex items-center gap-2">
                                     <button
-                                        className="flex justify-center items-center cursor-pointer"
-                                        style={{
-                                            width: "60px",
-                                            height: "60px",
-                                            borderRadius: "500px",
-                                            background: "#00658F",
-                                            boxShadow: "0px 10px 15px 0px #C8DBFF",
-                                            flexShrink: 0,
-                                            border: "none",
-                                        }}
+                                        className="flex justify-center items-center cursor-pointer w-[60px] h-[60px] rounded-[500px] bg-[#00658F] shadow-[0_10px_10px_#C8DBFF] dark:shadow-none shrink-0 border-none"
+
                                         onClick={openModal}
                                     >
                                         <svg
@@ -153,7 +146,7 @@ function Competitions({ ...props }) {
                                             <path d="M6 4L15 10L6 16V4Z" />
                                         </svg>
                                     </button>
-                                    <span className="text-[16px] font-semibold tracking-wide flex-grow flex-shrink-0 text-[#3A3A3A]">
+                                    <span className="text-[16px] font-semibold tracking-wide flex-grow flex-shrink-0 text-[#3A3A3A] dark:text-white">
                                         How to Join
                                     </span>
                                 </div>
@@ -181,7 +174,7 @@ function Competitions({ ...props }) {
                                                 </svg>
                                             </button>
 
-                                            <div className="absolute top-4 left-1/2 transform -translate-x-1/2 text-black text-2xl font-bold uppercase tracking-wider z-40">
+                                            <div className="absolute top-4 left-1/2 transform -translate-x-1/2 text-black text-2xl font-bold uppercase tracking-wider z-40 dark:text-white">
                                                 How to Join
                                             </div>
 
@@ -208,7 +201,7 @@ function Competitions({ ...props }) {
                                     href={competitions.competition_content[0].guidebook_link}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="flex items-center gap-2 text-[23px] text-[#0F114C]"
+                                    className="flex items-center gap-2 text-[23px] text-[#0F114C] dark:text-white"
                                 >
                                     Guidebook
                                     <svg
@@ -217,10 +210,11 @@ function Competitions({ ...props }) {
                                         height="20"
                                         viewBox="0 0 20 20"
                                         fill="none"
+                                        className="dark:text-white text-[#0F114C]"
                                     >
                                         <path
                                             d="M8.33325 3.33334H4.99992C4.55789 3.33334 4.13397 3.50893 3.82141 3.82149C3.50885 4.13405 3.33325 4.55798 3.33325 5V15C3.33325 15.442 3.50885 15.866 3.82141 16.1785C4.13397 16.4911 4.55789 16.6667 4.99992 16.6667H14.9999C15.4419 16.6667 15.8659 16.4911 16.1784 16.1785C16.491 15.866 16.6666 15.442 16.6666 15V11.6667M9.99992 10L16.6666 3.33334M16.6666 3.33334V7.5M16.6666 3.33334H12.4999"
-                                            stroke="#0F114C"
+                                            stroke="currentColor"
                                             strokeWidth="2"
                                             strokeLinecap="round"
                                             strokeLinejoin="round"
@@ -312,10 +306,10 @@ function Competitions({ ...props }) {
                 <div className="absolute md:left-12 left-[-70px] top-32 rotate-90 md:w-0 w-1/2 md:block hidden">
                     <SideRightCrossIcon />
                 </div>
-                <h2 className="uppercase lg:text-4xl text-2xl font-bold text-[#0F114C] lg:tracking-[10px] tracking-[5px]">
+                <h2 className="uppercase lg:text-4xl text-2xl font-bold text-[#0F114C] dark:text-white lg:tracking-[10px] tracking-[5px]">
                     PRIZE CATEGORY
                 </h2>
-                <p className="mt-4 text-[#5E5E5E] font-rubik text-sm sm:text-base lg:text-lg font-normal tracking-[0.02em] text-center mx-4 lg:w-2/5 w-3/4 mb-10">
+                <p className="mt-4 text-[#5E5E5E] dark:text-gray-500 font-rubik text-sm sm:text-base lg:text-lg font-normal tracking-[0.02em] text-center mx-4 lg:w-2/5 w-3/4 mb-10">
                     We’ve prepared exciting rewards for the best! Explore the prize categories and see what’s waiting for the winners of each competition track.
                 </p>
                 <div className="absolute md:right-20 right-10 top-4 md:top-52 -translate-y-1/2 text-[#0F114C] md:block hidden">
@@ -354,10 +348,10 @@ function Competitions({ ...props }) {
 
             {/* start timeline */}
             <section className="w-full max-w-[1200px] flex-shrink-0 mx-auto px-4 sm:px-8 md:mt-36 mt-20">
-                <h1 className="text-center text-[var(--Blue-Primary,#0F114C)] font-rubik text-3xl sm:text-4xl font-bold leading-[120%] tracking-[5.76px] uppercase">
+                <h1 className="text-center text-[var(--Blue-Primary,#0F114C)] font-rubik text-3xl sm:text-4xl font-bold leading-[120%] tracking-[5.76px] uppercase dark:text-white">
                     TIMELINE
                 </h1>
-                <p className="mx-auto mt-4 text-center text-[#5E5E5E] font-rubik text-base font-normal leading-[180%] tracking-[0.32px] max-w-[653px]">
+                <p className="mx-auto mt-4 text-center text-[#5E5E5E] font-rubik text-base font-normal leading-[180%] tracking-[0.32px] max-w-[653px] dark:text-gray-500">
                     Stay on track with our event schedule. From registration to the final
                     announcement, here’s everything you need to know about important dates.
                 </p>
@@ -379,7 +373,7 @@ function Competitions({ ...props }) {
                                 className="relative z-10 flex items-center w-full max-w-[900px]"
                                 key={i}
                             >
-                                <div className="relative flex-1 h-max rounded-[10px] border border-[var(--Blue-Primary,#0F114C)] bg-white flex-shrink-0 py-4">
+                                <div className="relative flex-1 h-max rounded-[10px] border border-[var(--Blue-Primary,#0F114C)] bg-white dark:bg-[#0F114C] flex-shrink-0 py-4">
                                     {/* Status Label */}
                                     <div
                                         className="absolute top-3 right-3 flex items-center gap-2 px-3 py-1 rounded-md shadow-sm bg-green-100 text-green-700"
@@ -393,7 +387,7 @@ function Competitions({ ...props }) {
                                     </div>
 
                                     {/* Title */}
-                                    <p className="text-[var(--Blue-Primary,#0F114C)] text-center font-rubik font-semibold leading-[120%] md:tracking-[4.48px] tracking-[1px] capitalize text-sm sm:text-lg md:text-xl lg:text-2xl pt-10 sm:pt-6 px-6 sm:px-4 xs:text-sm">
+                                    <p className="text-[var(--Blue-Primary,#0F114C)] dark:text-white text-center font-rubik font-semibold leading-[120%] md:tracking-[4.48px] tracking-[1px] capitalize text-sm sm:text-lg md:text-xl lg:text-2xl pt-10 sm:pt-6 px-6 sm:px-4 xs:text-sm">
                                         {timeline.title}
                                     </p>
 
@@ -401,11 +395,11 @@ function Competitions({ ...props }) {
                                     <div className="mt-6 sm:mt-10 xs:mt-[300px]" />
 
                                     {/* Description */}
-                                    <p className="text-[#000000] text-center font-rubik font-normal leading-[150%] tracking-[0.32px] text-sm sm:text-sm md:text-base lg:text-lg px-6 sm:px-4 mt-4 sm:mt-4 xs:text-sm pt-6 sm:pt-2">
+                                    <p className="text-[#000000] dark:text-white text-center font-rubik font-normal leading-[150%] tracking-[0.32px] text-sm sm:text-sm md:text-base lg:text-lg px-6 sm:px-4 mt-4 sm:mt-4 xs:text-sm pt-6 sm:pt-2">
                                         {`Timeline dimulai pada tanggal ${formatDateInTimeLine(timeline.start_date)} hingga ${formatDateInTimeLine(timeline.end_date)}`}
                                     </p>
-                                    <p className="text-[#5E5E5E] text-center font-rubik font-normal leading-[150%] tracking-[0.32px] text-md">
-                                        Melalui website resmi <span className="text-[#0F114C]">https://itcc.hmtiudayana.id/</span>
+                                    <p className="text-[#5E5E5E] dark:text-gray-500 text-center font-rubik font-normal leading-[150%] tracking-[0.32px] text-md">
+                                        Melalui website resmi <span className="text-[#0F114C] dark:text-[#00658F]">https://itcc.hmtiudayana.id/</span>
                                     </p>
                                 </div>
 
@@ -478,15 +472,15 @@ function Competitions({ ...props }) {
             {/* end timeline */}
 
             {/* start faq */}
-            <section className="relative max-w-[1440px] w-full flex-shrink-0 bg-white mx-auto px-4 sm:px-8 md:mt-36 mt-20">
+            <section className="relative max-w-[1440px] w-full flex-shrink-0 bg-white dark:bg-[#040529] mx-auto px-4 sm:px-8 md:mt-36 mt-20">
                 <div className="absolute top-4 left-4 sm:top-10 sm:left-10 hidden lg:block">
                     <SideLeftCrookedCrossIcon />
                 </div>
 
-                <h1 className="text-[24px] sm:text-[36px] leading-[120%] font-bold font-rubik text-center uppercase tracking-[3px] sm:tracking-[5.76px] text-[color:var(--Blue-Primary,#0F114C)] mt-4 sm:mt-8">
+                <h1 className="text-[24px] sm:text-[36px] leading-[120%] font-bold font-rubik text-center uppercase tracking-[3px] sm:tracking-[5.76px] text-[color:var(--Blue-Primary,#0F114C)] mt-4 sm:mt-8 dark:text-white">
                     FAQ
                 </h1>
-                <p className="text-[#5E5E5E] text-center font-rubik text-[14px] sm:text-[16px] font-normal leading-[180%] tracking-[0.32px] mt-2 sm:mt-4 px-2 mx-auto max-w-[653px] w-full">
+                <p className="text-[#5E5E5E] text-center font-rubik text-[14px] sm:text-[16px] font-normal leading-[180%] tracking-[0.32px] mt-2 sm:mt-4 px-2 mx-auto max-w-[653px] w-full dark:text-gray-500">
                     Got questions? We’ve got answers. Browse through our frequently asked
                     questions to find quick solutions and helpful information.
                 </p>
@@ -525,10 +519,10 @@ function Competitions({ ...props }) {
                 <div className="absolute left-24 top-12 text-[#0F114C] transform md:block hidden">
                     <SideRightCircleIcon />
                 </div>
-                <h2 className="uppercase lg:text-4xl text-2xl font-bold text-[#0F114C] lg:tracking-[10px] tracking-[5px]">
+                <h2 className="uppercase lg:text-4xl text-2xl font-bold text-[#0F114C] lg:tracking-[10px] tracking-[5px] dark:text-white">
                     CONTACT PERSON
                 </h2>
-                <p className="mt-4 text-[#5E5E5E] font-rubik text-sm sm:text-base lg:text-lg font-normal tracking-[0.02em] text-center max-w-[700px]">
+                <p className="mt-4 text-[#5E5E5E] font-rubik text-sm sm:text-base lg:text-lg font-normal tracking-[0.02em] text-center max-w-[700px] dark:text-gray-500">
                     Need more help or want to reach out directly? Connect with our contact person for personalized support and assistance.
                 </p>
                 {competitions.competition_content.map((content, idx) => (
@@ -537,13 +531,13 @@ function Competitions({ ...props }) {
                             <div className="border-[1px] border-[#ACACAC] flex flex-row gap-10 rounded-[10px] items-center px-10 py-5" key={i}>
                                 <IconContactInCompetition />
                                 <div className="flex flex-col gap-3">
-                                    <p className="font-bold text-[18px] leading-[180%] text-[#000000]">{contact.name ?? ''}</p>
+                                    <p className="font-bold text-[18px] leading-[180%] text-[#000000] dark:text-white">{contact.name ?? ''}</p>
                                     <div className="flex flex-col gap-2">
-                                        <div className="flex flex-row items-center gap-2 text-[#0F114C] text-[16px]">
+                                        <div className="flex flex-row items-center gap-2 text-[#0F114C] text-[16px] dark:text-gray-400">
                                             <LineIcon />
                                             {contact.id_line ?? ''}
                                         </div>
-                                        <div className="flex flex-row items-center gap-2 text-[#0F114C] text-[16px]">
+                                        <div className="flex flex-row items-center gap-2 text-[#0F114C] text-[16px] dark:text-gray-400">
                                             <WhatsappIcon />
                                             {contact.wa_number ?? ''}
                                         </div>

@@ -1,12 +1,12 @@
 export const Accordion = ({ heading, description, isOpen, onClick }) => {
     return (
-        <div className="w-full md:w-[636px] border border-primary rounded-[10px] m-2 p-2 shadow-lg">
+        <div className="w-full md:w-[636px] border border-gray-200 rounded-[10px] m-2 p-2 shadow">
             <button
                 className="w-full px-4 py-2 text-left focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75"
                 onClick={onClick}
             >
                 <div className="flex items-center justify-between">
-                    <span className="text-[15px] md:text-lg font-semibold text-gray-900">{heading}</span>
+                    <span className="text-[15px] md:text-lg font-semibold text-gray-900 dark:text-[#D9D9D9]">{heading}</span>
                     {/* icon arrow */}
                     <svg
                         className={`w-6 h-6 transition-transform ${isOpen ? 'transition-transform rotate-180' : ''
@@ -26,7 +26,7 @@ export const Accordion = ({ heading, description, isOpen, onClick }) => {
                 </div>
             </button>
             {isOpen && (
-                <div className="px-4 py-2 text-gray-700">
+                <div className="px-4 py-2 text-gray-700 dark:text-gray-400">
                     {description}
                 </div>
             )}
