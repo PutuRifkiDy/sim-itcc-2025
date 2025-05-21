@@ -7,6 +7,8 @@ import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { LineIcon, WhatsappIcon } from "@/Components/IconAdmin";
 import { Accordion } from "@/Components/Accordion";
+import * as AOS from 'aos';
+import 'aos/dist/aos.css';
 
 function Competitions({ ...props }) {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -55,6 +57,18 @@ function Competitions({ ...props }) {
         }).format(new Number(nominal));
     }
 
+    useEffect(() => {
+        AOS.init({
+            duration: 800,
+            once: false,
+            easing: 'ease-out-cubic',
+            offset: 100,
+            delay: 0,
+            mirror: false,
+            anchorPlacement: 'top-bottom',
+        });
+    }, []);
+
     return (
         <>
             {/* start home */}
@@ -62,8 +76,8 @@ function Competitions({ ...props }) {
                 <div className="flex flex-col md:flex-row justify-center md:justify-between gap-6">
                     <div className="w-full flex flex-col">
                         <div className="flex flex-col items-start relative">
-                            <div className="flex items-center gap-2">
-                                <div className="w-[30px] h-[30px] flex-shrink-0">
+                            <div className="flex items-center gap-2" data-aos="fade-up">
+                                <div className="w-[30px] h-[30px] flex-shrink-0" >
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
                                         width="30"
@@ -84,20 +98,21 @@ function Competitions({ ...props }) {
                                 <span className="text-black dark:text-white text-[16px] font-regular tracking-[0.03em] uppercase">
                                     {competitions.competition_content[0].location}
                                 </span>
-                                <div className="absolute right-0 top-1 -translate-y-1/2 md:block hidden">
+                                <div className="absolute left-96 top-0 -translate-y-1/2 md:block hidden">
                                     <SideLeftCrookedCrossIcon />
                                 </div>
                             </div>
 
                             <div className="h-2" />
 
-                            <span className="text-[#0F114C] text-2xl md:text-[36px] font-bold leading-[120%] tracking-[3px] md:tracking-[5.76px] uppercase dark:text-gray-300">
+                            <span className="text-[#0F114C] text-2xl md:text-[36px] font-bold leading-[120%] tracking-[3px] md:tracking-[5.76px] uppercase dark:text-gray-300" data-aos="fade-up" data-aos-delay="100">
                                 {competitions.name}
                             </span>
                             <div className="h-4" />
 
                             <div
                                 className="py-2 px-4 md:w-[400px] w-full rounded-[10px] flex justify-between items-center bg-gradient-to-r from-[#0F114C] to-[#00658F]"
+                                data-aos="fade-up" data-aos-delay="200"
                             >
                                 <div className="flex flex-col items-start">
                                     <span className="text-white uppercase text-[13px] font-bold tracking-[16%]">
@@ -124,7 +139,7 @@ function Competitions({ ...props }) {
                             </div>
                             <div className="h-10" />
 
-                            <div className="flex flex-col md:flex-row items-center gap-4 md:gap-10">
+                            <div className="flex flex-col md:flex-row items-center gap-4 md:gap-10" data-aos="fade-up" data-aos-delay="300">
 
                                 <Button variant="blue" className="text-[20px] font-medium md:px-7 px-12 py-6 rounded-[10px]" size="lg">
                                     Register
@@ -196,7 +211,7 @@ function Competitions({ ...props }) {
                                 )}
                             </div>
 
-                            <div className="flex items-center gap-2 mt-10">
+                            <div className="flex items-center gap-2 mt-10" data-aos="fade-up" data-aos-delay="400">
                                 <a
                                     href={competitions.competition_content[0].guidebook_link}
                                     target="_blank"
@@ -306,10 +321,10 @@ function Competitions({ ...props }) {
                 <div className="absolute md:left-12 left-[-70px] top-32 rotate-90 md:w-0 w-1/2 md:block hidden">
                     <SideRightCrossIcon />
                 </div>
-                <h2 className="uppercase lg:text-4xl text-2xl font-bold text-[#0F114C] dark:text-white lg:tracking-[10px] tracking-[5px]">
+                <h2 className="uppercase lg:text-4xl text-2xl font-bold text-[#0F114C] dark:text-white lg:tracking-[10px] tracking-[5px]" data-aos="fade-up">
                     PRIZE CATEGORY
                 </h2>
-                <p className="mt-4 text-[#5E5E5E] dark:text-gray-500 font-rubik text-sm sm:text-base lg:text-lg font-normal tracking-[0.02em] text-center mx-4 lg:w-2/5 w-3/4 mb-10">
+                <p className="mt-4 text-[#5E5E5E] dark:text-gray-500 font-rubik text-sm sm:text-base lg:text-lg font-normal tracking-[0.02em] text-center mx-4 lg:w-2/5 w-3/4 mb-10" data-aos="fade-up" data-aos-delay="100">
                     We’ve prepared exciting rewards for the best! Explore the prize categories and see what’s waiting for the winners of each competition track.
                 </p>
                 <div className="absolute md:right-20 right-10 top-4 md:top-52 -translate-y-1/2 text-[#0F114C] md:block hidden">
@@ -319,7 +334,7 @@ function Competitions({ ...props }) {
                     <div className="grid grid-cols-1 md:grid-cols-3 md:gap-12 gap-4 w-full">
                         {competitions.competition_content.map((content, i) => (
                             content.competition_content_prizes.map((prize, i) => (
-                                <div className="flex flex-col items-center mt-auto" key={i}>
+                                <div className="flex flex-col items-center mt-auto" key={i} data-aos="fade-up" data-aos-delay="200">
                                     {prize.rank == 1 ?
                                         <img src={`${window.location.origin}/assets/images/competition/goldTrophy.png`} alt="First Place Trophy" className="md:w-[189px] md:h-[189px] w-24 h-24 mb-4" />
                                         : prize.rank == 2 ?
@@ -348,10 +363,10 @@ function Competitions({ ...props }) {
 
             {/* start timeline */}
             <section className="w-full max-w-[1200px] flex-shrink-0 mx-auto px-4 sm:px-8 md:mt-36 mt-20">
-                <h1 className="text-center text-[var(--Blue-Primary,#0F114C)] font-rubik text-3xl sm:text-4xl font-bold leading-[120%] tracking-[5.76px] uppercase dark:text-white">
+                <h1 className="text-center text-[var(--Blue-Primary,#0F114C)] font-rubik text-3xl sm:text-4xl font-bold leading-[120%] tracking-[5.76px] uppercase dark:text-white" data-aos="fade-up">
                     TIMELINE
                 </h1>
-                <p className="mx-auto mt-4 text-center text-[#5E5E5E] font-rubik text-base font-normal leading-[180%] tracking-[0.32px] max-w-[653px] dark:text-gray-500">
+                <p className="mx-auto mt-4 text-center text-[#5E5E5E] font-rubik text-base font-normal leading-[180%] tracking-[0.32px] max-w-[653px] dark:text-gray-500" data-aos="fade-up" data-aos-delay="100">
                     Stay on track with our event schedule. From registration to the final
                     announcement, here’s everything you need to know about important dates.
                 </p>
@@ -372,6 +387,7 @@ function Competitions({ ...props }) {
                             <div
                                 className="relative z-10 flex items-center w-full max-w-[900px]"
                                 key={i}
+                                data-aos="fade-up" data-aos-delay={idx * 100}
                             >
                                 <div className="relative flex-1 h-max rounded-[10px] border border-[var(--Blue-Primary,#0F114C)] bg-white dark:bg-[#0F114C] flex-shrink-0 py-4">
                                     {/* Status Label */}
@@ -477,14 +493,14 @@ function Competitions({ ...props }) {
                     <SideLeftCrookedCrossIcon />
                 </div>
 
-                <h1 className="text-[24px] sm:text-[36px] leading-[120%] font-bold font-rubik text-center uppercase tracking-[3px] sm:tracking-[5.76px] text-[color:var(--Blue-Primary,#0F114C)] mt-4 sm:mt-8 dark:text-white">
+                <h1 className="text-[24px] sm:text-[36px] leading-[120%] font-bold font-rubik text-center uppercase tracking-[3px] sm:tracking-[5.76px] text-[color:var(--Blue-Primary,#0F114C)] mt-4 sm:mt-8 dark:text-white" data-aos="fade-up">
                     FAQ
                 </h1>
-                <p className="text-[#5E5E5E] text-center font-rubik text-[14px] sm:text-[16px] font-normal leading-[180%] tracking-[0.32px] mt-2 sm:mt-4 px-2 mx-auto max-w-[653px] w-full dark:text-gray-500">
+                <p className="text-[#5E5E5E] text-center font-rubik text-[14px] sm:text-[16px] font-normal leading-[180%] tracking-[0.32px] mt-2 sm:mt-4 px-2 mx-auto max-w-[653px] w-full dark:text-gray-500" data-aos="fade-up" data-aos-delay="100">
                     Got questions? We’ve got answers. Browse through our frequently asked
                     questions to find quick solutions and helpful information.
                 </p>
-                <div className="flex flex-col lg:flex-row mt-6 mx-auto max-w-[1200px] items-center lg:items-start relative lg:justify-between">
+                <div className="flex flex-col lg:flex-row mt-6 mx-auto max-w-[1200px] items-center lg:items-start relative lg:justify-between" data-aos="fade-up" data-aos-delay="200">
                     <img src={`${window.location.origin}/assets/images/competition/bannerFaq.png`} className="md:w-[450px] w-full" alt="" />
                     <div className="flex flex-col gap-4 lg:ml-8 mt-6 lg:mt-8 w-full lg:w-auto">
                         {competitions.competition_content.map((content, idx) => (
@@ -519,16 +535,16 @@ function Competitions({ ...props }) {
                 <div className="absolute left-24 top-12 text-[#0F114C] transform md:block hidden">
                     <SideRightCircleIcon />
                 </div>
-                <h2 className="uppercase lg:text-4xl text-2xl font-bold text-[#0F114C] lg:tracking-[10px] tracking-[5px] dark:text-white">
+                <h2 className="uppercase lg:text-4xl text-2xl font-bold text-[#0F114C] lg:tracking-[10px] tracking-[5px] dark:text-white" data-aos="fade-up">
                     CONTACT PERSON
                 </h2>
-                <p className="mt-4 text-[#5E5E5E] font-rubik text-sm sm:text-base lg:text-lg font-normal tracking-[0.02em] text-center max-w-[700px] dark:text-gray-500">
+                <p className="mt-4 text-[#5E5E5E] font-rubik text-sm sm:text-base lg:text-lg font-normal tracking-[0.02em] text-center max-w-[700px] dark:text-gray-500" data-aos="fade-up" data-aos-delay="100">
                     Need more help or want to reach out directly? Connect with our contact person for personalized support and assistance.
                 </p>
                 {competitions.competition_content.map((content, idx) => (
                     <div key={idx} className="mt-10 grid md:grid-cols-3 grid-cols-1 justify-center items-center gap-12">
                         {content.competition_content_contact.map((contact, i) => (
-                            <div className="border-[1px] border-[#ACACAC] flex flex-row gap-10 rounded-[10px] items-center px-10 py-5" key={i}>
+                            <div className="border-[1px] border-[#ACACAC] flex flex-row gap-10 rounded-[10px] items-center px-10 py-5" key={i} data-aos="fade-up" data-aos-delay={200 + i * 100}>
                                 <IconContactInCompetition />
                                 <div className="flex flex-col gap-3">
                                     <p className="font-bold text-[18px] leading-[180%] text-[#000000] dark:text-white">{contact.name ?? ''}</p>
@@ -547,7 +563,7 @@ function Competitions({ ...props }) {
                         ))}
                     </div>
                 ))}
-                <img src={`${window.location.origin}/assets/images/competition/bannerContact.png`} className="md:w-[471px] md:h-[471px] mt-10 w-full h-auto" alt="" />
+                <img src={`${window.location.origin}/assets/images/competition/bannerContact.png`} className="md:w-[471px] md:h-[471px] mt-10 w-full h-auto" alt="" data-aos="fade-up" />
             </section>
             {/* end contact */}
         </>
