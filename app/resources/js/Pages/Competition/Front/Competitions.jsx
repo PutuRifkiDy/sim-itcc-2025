@@ -375,7 +375,7 @@ function Competitions({ ...props }) {
                                     </div>
 
                                     {/* Title */}
-                                    <p className="text-[var(--Blue-Primary,#0F114C)] dark:text-white text-center font-rubik font-semibold leading-[120%] md:tracking-[4.48px] tracking-[1px] capitalize text-sm sm:text-lg md:text-xl lg:text-2xl pt-10 sm:pt-6 px-6 sm:px-4 xs:text-sm">
+                                    <p className="text-[var(--Blue-Primary,#0F114C)] dark:text-white text-center font-rubik font-semibold leading-[120%] md:tracking-[2px] tracking-[1px] capitalize text-sm sm:text-lg md:text-xl lg:text-2xl pt-10 sm:pt-6 px-6 sm:px-4 xs:text-sm">
                                         {timeline.title}
                                     </p>
 
