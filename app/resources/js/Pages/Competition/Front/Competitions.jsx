@@ -171,14 +171,14 @@ function Competitions({ ...props }) {
                                         <DialogTitle>
                                             How to Join
                                         </DialogTitle>
-                                            <iframe
-                                                src="https://www.youtube.com/embed/xvFZjo5PgG0?si=Uq1_-POS0iBEixB2"
-                                                title="How to Join Video"
-                                                frameBorder="0"
-                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                                allowFullScreen
-                                                className="rounded-lg shadow-lg w-full h-96"
-                                            ></iframe>
+                                        <iframe
+                                            src="https://www.youtube.com/embed/xvFZjo5PgG0?si=Uq1_-POS0iBEixB2"
+                                            title="How to Join Video"
+                                            frameBorder="0"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            allowFullScreen
+                                            className="rounded-lg shadow-lg w-full h-96"
+                                        ></iframe>
                                     </DialogContent>
                                 </Dialog>
                             </div>
@@ -392,31 +392,8 @@ function Competitions({ ...props }) {
                                 </div>
 
                                 {/* Icon lingkaran biru*/}
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 92 92"
-                                    fill="none"
-                                    className="absolute -top-6 left-20 sm:left-24 w-12 h-12 sm:w-16 sm:h-16"
-                                >
-                                    <circle
-                                        cx="46"
-                                        cy="46"
-                                        r="46"
-                                        fill="url(#paint0_linear_784_48881)"
-                                    />
-                                    <defs>
-                                        <linearGradient
-                                            id="paint0_linear_784_48881"
-                                            x1="46"
-                                            y1="0"
-                                            x2="46"
-                                            y2="92"
-                                            gradientUnits="userSpaceOnUse"
-                                        >
-                                            <stop stopColor="#0F114C" />
-                                            <stop offset="1" stopColor="#00658F" />
-                                        </linearGradient>
-                                    </defs>
+                                <div className="bg-gradient-to-b from-[#0F114C] to-[#00658F] rounded-[500px] p-4 absolute -top-6 left-20 sm:left-24">
+                                    <div className="absolute inset-0 bg-primary rounded-full animate-ping z-0 w-full h-full"></div>
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
                                         width="39"
@@ -431,7 +408,7 @@ function Competitions({ ...props }) {
                                             fill="white"
                                         />
                                     </svg>
-                                </svg>
+                                </div>
 
                                 {/* Icon kalender */}
                                 <div className="absolute left-18 sm:absolute left-24 top-[55%] -translate-y-1/2 hidden sm:block">
