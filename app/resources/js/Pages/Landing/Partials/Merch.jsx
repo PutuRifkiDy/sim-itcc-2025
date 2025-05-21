@@ -22,10 +22,10 @@ export default function Merch() {
 
             <section className="flex flex-col items-center md:pl-12 pl-0 md:py-10 py-5 mt-24">
                 <div className="text-center md:mb-0 mb-10 md:w-[600px] w-full">
-                    <h2 className="uppercase md:text-4xl text-2xl font-bold text-[#0F114C] md:tracking-[10px] tracking-[5px]" data-aos="fade-up">
+                    <h2 className="uppercase md:text-4xl text-2xl font-bold text-[#0F114C] md:tracking-[10px] tracking-[5px] dark:text-white" data-aos="fade-up">
                         Our Merchandise
                     </h2>
-                    <p className="mt-4 text-[#5E5E5E] font-rubik text-sm sm:text-base md:text-lg font-normal tracking-[0.02em] dark:text-white" data-aos="fade-up" data-aos-delay="100">
+                    <p className="mt-4 text-[#5E5E5E] font-rubik text-sm sm:text-base md:text-lg font-normal tracking-[0.02em] dark:text-gray-400" data-aos="fade-up" data-aos-delay="100">
                         Support us and show your pride by getting our official merchandise.
                         High-quality, stylish, and made just for you — wear it and be part of
                         the community!
