@@ -58,7 +58,7 @@ function Competitions({ ...props }) {
     return (
         <>
             {/* start home */}
-            <section className="px-12 md:px-24 md:pb-24 mb-18 md:mt-44 mt-24">
+            <section className="px-5 md:px-24 md:pb-24 mb-18 md:mt-44 mt-28">
                 <div className="flex flex-col md:flex-row justify-center md:justify-between gap-6">
                     <div className="w-full flex flex-col">
                         <div className="flex flex-col items-start relative">
@@ -83,7 +83,7 @@ function Competitions({ ...props }) {
                                 <span className="text-black text-[16px] font-regular tracking-[0.03em] uppercase">
                                     {competitions.competition_content[0].location}
                                 </span>
-                                <div className="absolute right-0 top-1 -translate-y-1/2">
+                                <div className="absolute right-0 top-1 -translate-y-1/2 md:block hidden">
                                     <SideLeftCrookedCrossIcon />
                                 </div>
                             </div>
@@ -125,7 +125,7 @@ function Competitions({ ...props }) {
 
                             <div className="flex flex-col md:flex-row items-center gap-4 md:gap-10">
 
-                                <Button variant="blue" className="text-[20px] font-medium px-7 py-6 rounded-[10px]" size="lg">
+                                <Button variant="blue" className="text-[20px] font-medium md:px-7 px-12 py-6 rounded-[10px]" size="lg">
                                     Register
                                 </Button>
 
@@ -285,9 +285,9 @@ function Competitions({ ...props }) {
                 <div className="md:flex-row flex-col flex items-center md:justify-evenly justify-center container mx-auto px-4 md:pt-32 pt-10 gap-8 pb-24">
                     <img className="md:w-96 w-60" src={`${window.location.origin}/assets/images/about/ITCCLogo.png`} alt="ITCC 2025 Logo" data-aos="fade-up" />
                     <div className="md:w-[600px] relative">
-                        <h2 className="text-[#A5CBD0] text-xl md:text-2xl font-rubik font-bold tracking-[5px] uppercase" data-aos="fade-up" data-aos-delay="100">What is ITCC?</h2>
-                        <img className="absolute top-0 right-0 md:w-10 w-6" src={`${window.location.origin}/assets/images/about/bluePlus.png`} alt="" data-aos="fade-up" data-aos-delay="100" />
-                        <p className="font-rubik text-white font-light my-6 md:text-lg text-base line-clamp-5" data-aos="fade-up" data-aos-delay="200">
+                        <h2 className="text-[#A5CBD0] text-xl md:text-2xl font-rubik font-bold tracking-[5px] uppercase" data-aos="fade-up" data-aos-delay="100">What is <span className="">{competitions.name}</span>?</h2>
+                        <img className="absolute top-0 -right-10 md:w-10 w-6" src={`${window.location.origin}/assets/images/about/bluePlus.png`} alt="" data-aos="fade-up" data-aos-delay="100" />
+                        <p className="font-rubik text-white font-light my-6 md:text-lg text-base text-justify" data-aos="fade-up" data-aos-delay="200">
                             {competitions.description}
                         </p>
                         <div className="flex flex-row gap-x-3" data-aos="fade-up" data-aos-delay="300">
@@ -301,15 +301,15 @@ function Competitions({ ...props }) {
                 <img className="lg:w-52 xl:w-60 w-40 bottom-0 right-0 absolute" src={`${window.location.origin}/assets/images/about/rightEdge.png`} />
                 <img className="bottom-0 left-0 md:w-80 w-40 absolute md:translate-y-10 translate-y-5 z-10" src={`${window.location.origin}/assets/images/about/leftLine.png`} alt="" />
                 <img className="bottom-0 left-0 md:w-20 w-10 absolute" src={`${window.location.origin}/image/about/leftDots.png`} alt="" />
-                <div className="md:absolute bottom-0 left-5 z-20 text-white" data-aos="fade-up" data-aos-delay="400">
+                <div className="absolute md:block hidden bottom-0 left-5 z-20 text-white" data-aos="fade-up" data-aos-delay="400">
                     <SideRightBlueDotIcon />
                 </div>
             </section>
             {/* end about */}
 
             {/* start prize */}
-            <section className="flex flex-col items-center py-20 mb-10 relative mt-4 min-h-[500px]">
-                <div className="absolute md:left-12 left-[-70px] top-32 rotate-90 md:w-0 w-1/2">
+            <section className="flex flex-col items-center py-20 md:mt-36 mt-20 relative min-h-[500px]">
+                <div className="absolute md:left-12 left-[-70px] top-32 rotate-90 md:w-0 w-1/2 md:block hidden">
                     <SideRightCrossIcon />
                 </div>
                 <h2 className="uppercase lg:text-4xl text-2xl font-bold text-[#0F114C] lg:tracking-[10px] tracking-[5px]">
@@ -318,7 +318,7 @@ function Competitions({ ...props }) {
                 <p className="mt-4 text-[#5E5E5E] font-rubik text-sm sm:text-base lg:text-lg font-normal tracking-[0.02em] text-center mx-4 lg:w-2/5 w-3/4 mb-10">
                     We’ve prepared exciting rewards for the best! Explore the prize categories and see what’s waiting for the winners of each competition track.
                 </p>
-                <div className="absolute md:right-20 right-10 top-4 md:top-52 -translate-y-1/2">
+                <div className="absolute md:right-20 right-10 top-4 md:top-52 -translate-y-1/2 text-[#0F114C] md:block hidden">
                     <SideLeftCrookedCrossIcon />
                 </div>
                 <div className="h-full w-full px-4 flex items-end pb-10">
@@ -333,11 +333,10 @@ function Competitions({ ...props }) {
                                             : prize.rank == 3 ?
                                                 <img src={`${window.location.origin}/assets/images/competition/bronzeTrophy.png`} alt="Third Place Trophy" className="md:w-[189px] md:h-[189px] w-24 h-24 mb-4" />
                                                 : <img src={`${window.location.origin}/assets/images/competition/bronzeTrophy.png`} alt="Third Place Trophy" className="md:w-[189px] md:h-[189px] w-24 h-24 mb-4" />}
-
-                                    <p className="md:text-[32px] text-base font-bold mb-2 leading-[120%] tracking-[16%]">
+                                    <p className="md:text-[32px] text-[24px] font-bold mb-2 leading-[120%] tracking-[16%]">
                                         {formatMoney(prize.money)}
                                     </p>
-                                    <div className={`${prize.rank == 1 ? "md:h-[500px] h-96" : prize.rank == 2 ? "md:h-[400px] h-48" : prize.rank == 3 ? "md:h-[300px] h-24" : "md:h-[200px] h-12"} px-12 bg-gradient-to-b from-[#0F114C] to-[#00658F] rounded-t-[25px] border-b-2 border-gray-400 relative`}>
+                                    <div className={`${prize.rank == 1 ? "md:h-[500px] h-96" : prize.rank == 2 ? "md:h-[400px] h-48" : prize.rank == 3 ? "md:h-[300px] h-24" : "md:h-[200px] h-12"} md:px-12 px-24 bg-gradient-to-b from-[#0F114C] to-[#00658F] rounded-t-[25px] border-b-2 border-gray-400 relative`}>
                                         <div className={`px-2 md:px-12 py-1 rounded-[10px] md:text-sm text-[18px] font-medium w-fit mx-auto mt-8 ${prize.rank == 1 ? "bg-[#FFC300]/30 text-[#FFC300]" : prize.rank == 2 ? "bg-white text-[#0F114C]" : prize.rank == 3 ? "text-[#CB3B28] bg-[#FF9377]" : "bg-white text-[#0F114C]"}`}>
                                             Juara{" "}{prize.rank == 4 ? "Favorit" : prize.rank}
                                         </div>
@@ -354,7 +353,7 @@ function Competitions({ ...props }) {
             {/* end prize */}
 
             {/* start timeline */}
-            <section className="w-full max-w-[1200px] flex-shrink-0 mx-auto px-4 sm:px-8">
+            <section className="w-full max-w-[1200px] flex-shrink-0 mx-auto px-4 sm:px-8 md:mt-36 mt-20">
                 <h1 className="text-center text-[var(--Blue-Primary,#0F114C)] font-rubik text-3xl sm:text-4xl font-bold leading-[120%] tracking-[5.76px] uppercase">
                     TIMELINE
                 </h1>
@@ -394,7 +393,7 @@ function Competitions({ ...props }) {
                                     </div>
 
                                     {/* Title */}
-                                    <p className="text-[var(--Blue-Primary,#0F114C)] text-center font-rubik font-semibold leading-[120%] tracking-[4.48px] capitalize text-sm sm:text-lg md:text-xl lg:text-2xl pt-10 sm:pt-6 px-6 sm:px-4 xs:text-sm">
+                                    <p className="text-[var(--Blue-Primary,#0F114C)] text-center font-rubik font-semibold leading-[120%] md:tracking-[4.48px] tracking-[1px] capitalize text-sm sm:text-lg md:text-xl lg:text-2xl pt-10 sm:pt-6 px-6 sm:px-4 xs:text-sm">
                                         {timeline.title}
                                     </p>
 
@@ -403,7 +402,7 @@ function Competitions({ ...props }) {
 
                                     {/* Description */}
                                     <p className="text-[#000000] text-center font-rubik font-normal leading-[150%] tracking-[0.32px] text-sm sm:text-sm md:text-base lg:text-lg px-6 sm:px-4 mt-4 sm:mt-4 xs:text-sm pt-6 sm:pt-2">
-                                        {`Pendaftaran dimulai pada tanggal ${formatDateInTimeLine(timeline.start_date)} hingga ${formatDateInTimeLine(timeline.end_date)}`}
+                                        {`Timeline dimulai pada tanggal ${formatDateInTimeLine(timeline.start_date)} hingga ${formatDateInTimeLine(timeline.end_date)}`}
                                     </p>
                                     <p className="text-[#5E5E5E] text-center font-rubik font-normal leading-[150%] tracking-[0.32px] text-md">
                                         Melalui website resmi <span className="text-[#0F114C]">https://itcc.hmtiudayana.id/</span>
@@ -479,7 +478,7 @@ function Competitions({ ...props }) {
             {/* end timeline */}
 
             {/* start faq */}
-            <section className="relative max-w-[1440px] w-full flex-shrink-0 bg-white mx-auto px-4 sm:px-8 mt-6">
+            <section className="relative max-w-[1440px] w-full flex-shrink-0 bg-white mx-auto px-4 sm:px-8 md:mt-36 mt-20">
                 <div className="absolute top-4 left-4 sm:top-10 sm:left-10 hidden lg:block">
                     <SideLeftCrookedCrossIcon />
                 </div>
@@ -514,16 +513,16 @@ function Competitions({ ...props }) {
 
             {/* start contact */}
             <section className="md:mt-36 md:mb-10 mb-5 mt-20 md:px-24 px-5 flex flex-col items-center relative">
-                <div className="absolute right-24 bottom-0 text-[#0F114C]">
+                <div className="absolute right-24 bottom-0 text-[#0F114C] md:block hidden">
                     <SideRightBlueDotIcon />
                 </div>
-                <div className="absolute left-24 bottom-12 text-[#0F114C] transform rotate-90">
+                <div className="absolute left-24 bottom-12 text-[#0F114C] transform rotate-90 md:block hidden">
                     <SideRightCrossIcon />
                 </div>
-                <div className="absolute right-24 top-24 text-[#0F114C] transform">
+                <div className="absolute right-24 top-24 text-[#0F114C] transform md:block hidden">
                     <SideLeftArrowLeftIcon />
                 </div>
-                <div className="absolute left-24 top-12 text-[#0F114C] transform">
+                <div className="absolute left-24 top-12 text-[#0F114C] transform md:block hidden">
                     <SideRightCircleIcon />
                 </div>
                 <h2 className="uppercase lg:text-4xl text-2xl font-bold text-[#0F114C] lg:tracking-[10px] tracking-[5px]">
