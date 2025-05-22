@@ -49,16 +49,16 @@ function Overview() {
 
     return (
         <div className="py-5">
-            <div className="bg-white p-4 shadow rounded-lg sm:p-8 gap-5">
-                <div className="gap-5 grid md:grid-cols-3 grid-cols-1">
+            <div className="bg-white dark:bg-[#0F114C] p-4 shadow rounded-lg sm:p-8 gap-5">
+                <div className="gap-5 grid md:grid-cols-3 grid-cols-1 bg-white dark:bg-[#0F114C]">
                     <div className="border-2 border-[#E4F0F8] flex items-center flex-row gap-10 py-5 px-5 rounded-xl">
                         {/* start icon */}
                         <div className="flex justify-center items-center p-4 rounded-2xl bg-[#718EBF]/40">
                             <UserGroupIcon className="text-[#718EBF] w-8 h-8" />
                         </div>
                         <div className="flex flex-col gap-1">
-                            <p className="text-[#3A3A3A]/90 text-[16px] font-medium">Participant Semnas</p>
-                            <p className="font-bold text-[24px] text-[#232323]">{count_participant_semnas}</p>
+                            <p className="text-[#3A3A3A]/90 text-[16px] font-medium dark:text-white">Participant Semnas</p>
+                            <p className="font-bold text-[24px] text-[#232323] dark:text-white">{count_participant_semnas}</p>
                         </div>
 
                     </div>
@@ -68,8 +68,8 @@ function Overview() {
                             <UserGroupIcon className="text-[#FFC300] w-8 h-8" />
                         </div>
                         <div className="flex flex-col gap-1">
-                            <p className="text-[#3A3A3A]/90 text-[16px] font-medium">Participant Competition</p>
-                            <p className="font-bold text-[24px] text-[#232323]">{count_participant_competition}</p>
+                            <p className="text-[#3A3A3A]/90 text-[16px] font-medium dark:text-white">Participant Competition</p>
+                            <p className="font-bold text-[24px] text-[#232323] dark:text-white">{count_participant_competition}</p>
                         </div>
 
                     </div>
@@ -79,8 +79,8 @@ function Overview() {
                             <BuildingLibraryIcon className="text-[#396AFF] w-8 h-8" />
                         </div>
                         <div className="flex flex-col gap-1">
-                            <p className="text-[#3A3A3A]/90 text-[16px] font-medium">Total Institution</p>
-                            <p className="font-bold text-[24px] text-[#232323]">{count_institution}</p>
+                            <p className="text-[#3A3A3A]/90 text-[16px] font-medium dark:text-white">Total Institution</p>
+                            <p className="font-bold text-[24px] text-[#232323] dark:text-white">{count_institution}</p>
                         </div>
                     </div>
                     <div className="border-2 border-[#E4F0F8] flex items-center flex-row gap-10 py-5 px-5 rounded-xl">
@@ -89,8 +89,8 @@ function Overview() {
                             <BanknotesIcon className="text-[#4DE45C] w-8 h-8" />
                         </div>
                         <div className="flex flex-col gap-1">
-                            <p className="text-[#3A3A3A]/90 text-[16px] font-medium">Total Semnas Income</p>
-                            <p className="font-bold text-[24px] text-[#232323]">{sum_total_payment_semnas}</p>
+                            <p className="text-[#3A3A3A]/90 text-[16px] font-medium dark:text-white">Total Semnas Income</p>
+                            <p className="font-bold text-[24px] text-[#232323] dark:text-white">{sum_total_payment_semnas}</p>
                         </div>
 
                     </div>
@@ -100,14 +100,14 @@ function Overview() {
                             <BanknotesIcon className="text-[#4DE45C] w-8 h-8" />
                         </div>
                         <div className="flex flex-col gap-1">
-                            <p className="text-[#3A3A3A]/90 text-[16px] font-medium">Total Competition Income</p>
-                            <p className="font-bold text-[24px] text-[#232323]">{sum_total_payment_competition}</p>
+                            <p className="text-[#3A3A3A]/90 text-[16px] font-medium dark:text-white">Total Competition Income</p>
+                            <p className="font-bold text-[24px] text-[#232323] dark:text-white">{sum_total_payment_competition}</p>
                         </div>
                     </div>
                 </div>
 
-                <div className='px-4 pt-5 pb-6 mt-8 bg-white border rounded-lg sm:px-6 sm:pt-6 flex md:flex-row flex-col gap-5'>
-                    <div className="md:w-1/2 w-full">
+                <div className='px-4 pt-5 pb-6 mt-8 bg-white border-2 rounded-lg sm:px-6 sm:pt-6 flex md:flex-row flex-col gap-5 dark:bg-[#0F114C] dark:border-[#E4F0F8]'>
+                    <div className="md:w-1/2 w-full ">
                         <h1 className="text-xl font-medium">
                             Monthly Sales Chart
                         </h1>
