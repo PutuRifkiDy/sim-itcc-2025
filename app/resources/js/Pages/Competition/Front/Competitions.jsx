@@ -152,11 +152,11 @@ function Competitions({ ...props }) {
                                 data-aos-delay="300"
                             >
                                 {competitions.is_team == false ? (
-                                    <Button type="submit" variant="blue" size="lg" onClick={onHandleSubmit}>
+                                    <Button type="submit" variant="blue" size="lg" className="rounded-lg text-[18px]" onClick={onHandleSubmit}>
                                         Register
                                     </Button>
                                 ) : (
-                                    <Button asChild variant="blue" size="lg"> 
+                                    <Button asChild variant="blue" size="lg" className="rounded-lg text-[18px]">
                                         <Link href={route('register.competition.show', competitions.slug)}>
                                             Register
                                         </Link>
