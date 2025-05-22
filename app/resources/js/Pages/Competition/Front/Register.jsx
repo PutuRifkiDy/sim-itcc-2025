@@ -27,10 +27,10 @@ function Register() {
                             <p className="text-black font-medium leading-[120%]">Registration</p>
 
                             <div className="flex flex-col items-center gap-4 w-full mt-6">
-                                <Button variant="blue" asChild className="w-full rounded-lg py-6" size="lg">
+                                <Button variant="blue" asChild className="w-full rounded-lg py-6 text-[16px]" size="lg">
                                     <Link
                                         href={route('register.competition.team.show', { competition: slug })}
-                                        className="text-white text-[18px]"
+                                        className="text-white"
                                     >
                                         Create Team
                                     </Link>
@@ -38,10 +38,10 @@ function Register() {
                                 <div className="w-full flex flex-col items-center">
                                     <p className="text-[13px] text-[#121212] text-start leading-[120%]">Or</p>
                                 </div>
-                                <Button variant="none" asChild className="w-full rounded-lg py-6 bg-white hover:bg-[#0F114C] border-2 border-[#0F114C] transition-all duration-300 ease-in-out" size="lg">
+                                <Button variant="none" asChild className="w-full rounded-lg py-6 bg-white hover:bg-[#0F114C] border-2 border-[#0F114C] transition-all duration-300 ease-in-out text-[16px]" size="lg">
                                     <Link
                                         href={route('register.competition.join-team.show', { competition: slug })}
-                                        className="hover:text-white text-[#0F114C] text-[18px]"
+                                        className="hover:text-white text-[#0F114C]"
                                     >
                                         Join a Team
                                     </Link>
