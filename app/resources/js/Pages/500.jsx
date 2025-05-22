@@ -1,0 +1,13 @@
+import {Icon500} from "@/Components/IconGuest";
+import { Link } from '@inertiajs/react';
+export default function Error500() {
+    return (
+            <div className="flex flex-col items-center justify-center py-20">
+                <Icon500/>
+                <h1 className="font-bold text-[35px] text-[#0F114C]">Server Error</h1>
+                <p className="text-[#3A3A3A] text-xl">Sorry, Something went wrong.</p>
+                <Link href="/" className="text-white bg-[#0F114C] px-6 py-3 font-medium my-[73px] rounded-[5px] text-xl">Back To Home Page</Link>
+                <p className="text-[#A4A3A3] text-xl">© 2025 ITCC 2025. All rights reserved.</p>
+            </div>
+    );
+}
