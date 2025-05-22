@@ -11,6 +11,7 @@ import { CompetitionRegistration } from "./pages/competition-registration";
 import { CompetitionRegistrationCreateTeam } from "./pages/competition-registration-create-team";
 import { CompetitionRegistrationJoinTeam } from "./pages/competition-registration-join-team";
 import "keen-slider/keen-slider.min.css";
+import { MerchDetailPage } from "./pages/merch-detail";
 
 
 const router = createBrowserRouter([
@@ -39,12 +40,16 @@ const router = createBrowserRouter([
     element: <CompetitionRegistration />
   },
   {
-    path:"/competition/registration/join-team",
-    element: <CompetitionRegistrationJoinTeam/>
+    path: "/competition/registration/join-team",
+    element: <CompetitionRegistrationJoinTeam />
   },
   {
-    path:"/competition/registration/create-team",
+    path: "/competition/registration/create-team",
     element: <CompetitionRegistrationCreateTeam />
+  },
+  {
+    path:"/merch/detail",
+    element: <MerchDetailPage />
   }
 ]);
 

@@ -1,24 +1,24 @@
 import { Link } from "react-router-dom"
-import { SideLeftArrowLeftIcon, SideRightSmallCircle, SideRightCircleIcon, SideRightCrossIcon } from "../Icons/HeroIcons"
+import { SideLeftArrowLeftIcon, SideRightSmallCircle } from "../Icons/HeroIcons"
 
 export default function RegistrationForm() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center relative w-full">
       <div className="w-full max-w-[600px] h-700px relative items-center">
-        <div className="hidden md:flex md:absolute md:-top-20 md:right-10 lg:-top-14 lg:-right-96 md:z-30">
+        <div className="mr-96 absolute">
           <SideRightSmallCircle />
         </div>
         <img
           src="/image/blueDots.svg"
-          className="hidden md:flex md:absolute md:top-[-40] lg:-top-44 md:-left-20 md:z-10 md:lg:w-32 md:flex-shrink-0 md:rotate-90"
+          className="absolute -top-44 -left-20 z-10 w-32 flex-shrink-0 rotate-90"
           alt=""
         />
-        <div className="bg-white drop-shadow-xl outline outline-[3px] outline-[#E6E6E6] rounded-lg shadow-lg p-8 w-[90%] lg:w-[600px] z-20 relative mx-auto">
+        <div className="bg-white drop-shadow-xl outline outline-[3px] outline-[#E6E6E6] rounded-lg shadow-lg p-8 w-[90%] md:w-[600px] z-20 relative mx-auto">
           <div className="flex flex-col items-center gap-4">
             <img
               src="/image/ideBisnisLogo.png"
               alt="Seminar Nasional"
-              className="w-32 h-32 lg:w-44 lg:h-44"
+              className="w-32 h-32 md:w-44 md:h-44"
             />
             <h2 className="text-[#0066FF] text-2xl font-bold">Seminar Nasional</h2>
             <p className="text-black font-medium">Registration</p>
@@ -54,21 +54,12 @@ export default function RegistrationForm() {
         </div>
         <img
           src="/image/blueDots.svg"
-          className="hidden md:flex md:absolute md:right-10 md:-bottom-20 md:z-10 md:w-32 md:flex-shrink-0"
+          className="absolute -bottom-20 -right-20 z-10 w-32 flex-shrink-0"
           alt=""
         />
-        <div className="hidden md:flex md:w-full md:mt-10">
+        <div className="w-full mt-10">
           <SideLeftArrowLeftIcon />
         </div>
-      </div>
-      <div className="hidden md:flex flex-col absolute -bottom-32 left-20 z-3">
-        <SideRightCircleIcon />
-        <SideRightCircleIcon />
-        <SideRightCircleIcon />
-        <SideRightCircleIcon />
-      </div>
-      <div className="hidden md:flex flex-col absolute md:-bottom-32 md:right-20 z-3">
-        <SideRightCrossIcon />
       </div>
     </div>
   )
