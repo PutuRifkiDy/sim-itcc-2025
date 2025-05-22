@@ -70,7 +70,7 @@ function Register() {
                                 </Button>
                             </div>
                             <div className="w-full">
-                                <p className="text-xs text-black mt-4 text-start">*Only the team leader creates the team.</p>
+                                <p className="md:text-lg text-xl text-[#4E4E4E] mt-4 text-start">*Only the team leader creates the team.</p>
                             </div>
                         </div>
                     </div>
