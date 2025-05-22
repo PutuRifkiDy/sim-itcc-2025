@@ -151,7 +151,7 @@ class FrontController extends Controller
 
         return inertia(component: 'Competition/Front/Register', props: [
             'slug' => $slug,
-            'name_competition' => $name_competition
+            'name_competition' => $name_competition,
         ]);
     }
 

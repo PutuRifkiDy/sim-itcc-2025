@@ -43,6 +43,91 @@ function RegisterJoinTeam() {
             preserveState: true,
         });
     };
+
+    const iconLomba = () => {
+        switch (slug.slug) {
+            case "ide-bisnis":
+                return (
+                    <img
+                        src={`${window.location.origin}/assets/images/competition/ideBisnisLogo.png`}
+                        alt="Seminar Nasional"
+                        className="w-32 h-32 lg:w-44 lg:h-44"
+                    />
+                );
+            case "web-design-smasmk":
+                return (
+                    <img
+                        src={`${window.location.origin}/assets/images/competition/webDesignLogo.png`}
+                        alt="Seminar Nasional"
+                        className="w-32 h-32 lg:w-44 lg:h-44"
+                    />
+                );
+            case "web-design-mahasiswa":
+                return (
+                    <img
+                        src={`${window.location.origin}/assets/images/competition/webDesignLogo.png`}
+                        alt="Seminar Nasional"
+                        className="w-32 h-32 lg:w-44 lg:h-44"
+                    />
+                );
+            case "pemrograman":
+                return (
+                    <img
+                        src={`${window.location.origin}/assets/images/competition/pemrogramanLogo.png`}
+                        alt="Seminar Nasional"
+                        className="w-32 h-32 lg:w-44 lg:h-44"
+                    />
+                );
+            case "kids-game-programming":
+                return (
+                    <img
+                        src={`${window.location.origin}/assets/images/competition/kgpLogo.png`}
+                        alt="Seminar Nasional"
+                        className="w-32 h-32 lg:w-44 lg:h-44"
+                    />
+                );
+            case "cerdas-cermat":
+                return (
+                    <img
+                        src={`${window.location.origin}/assets/images/competition/lccLogo.png`}
+                        alt="Seminar Nasional"
+                        className="w-32 h-32 lg:w-44 lg:h-44"
+                    />
+                );
+            case "uiux-mahasiswa":
+                return (
+                    <img
+                        src={`${window.location.origin}/assets/images/competition/UIUXLogo.png`}
+                        alt="Seminar Nasional"
+                        className="w-32 h-32 lg:w-44 lg:h-44"
+                    />
+                );
+            case "uiux-smasmk":
+                return (
+                    <img
+                        src={`${window.location.origin}/assets/images/competition/UIUXLogo.png`}
+                        alt="Seminar Nasional"
+                        className="w-32 h-32 lg:w-44 lg:h-44"
+                    />
+                );
+            case "kids-game-programming-beginner":
+                return (
+                    <img
+                        src={`${window.location.origin}/assets/images/competition/kgpLogo.png`}
+                        alt="Seminar Nasional"
+                        className="w-32 h-32 lg:w-44 lg:h-44"
+                    />
+                );
+            case "kids-game-programming-intermediate":
+                return (
+                    <img
+                        src={`${window.location.origin}/assets/images/competition/kgpLogo.png`}
+                        alt="Seminar Nasional"
+                        className="w-32 h-32 lg:w-44 lg:h-44"
+                    />
+                );
+        }
+    }
     return (
         <>
 
@@ -61,14 +146,10 @@ function RegisterJoinTeam() {
                         <div className="hidden md:flex flex-col absolute md:-bottom-28 md:left-0 z-3">
                             <SideLeftCrookedCrossIcon />
                         </div>
-                        <img src={`${window.location.origin}/assets/images/competition/bannerRegisCompeLeft.png`} className="absolute -left-11 -top-11 z-0 w-[301px] h-[157px]" alt="" />
+                        <img src={`${window.location.origin}/assets/images/competition/bannerRegisCompeLeft.png`} className="absolute -left-11 -top-11 z-0 w-[301px] h-[157px] md:block hidden" alt="" />
                         <div className="bg-white dark:bg-[#040529] outline outline-[3px] outline-[#E6E6E6] rounded-lg shadow-lg p-8 w-[90%] lg:w-[600px] z-20 relative mx-auto" data-aos="zoom-in">
                             <div className="flex flex-col items-center gap-4">
-                                <img
-                                    src={`${window.location.origin}/assets/images/competition/ideBisnisLogo.png`}
-                                    alt="Seminar Nasional"
-                                    className="w-32 h-32 lg:w-44 lg:h-44"
-                                />
+                                {iconLomba()}
                                 <h2 className="text-[#0F114C] text-2xl font-bold dark:text-white">{slug.name}</h2>
                                 <p className="text-black font-medium dark:text-gray-500">Insert Team Token</p>
                                 <form onSubmit={(e) => onHandleSubmit(e)} className="w-full">
@@ -108,7 +189,7 @@ function RegisterJoinTeam() {
                                 </div>
                             </div>
                         </div>
-                        <img src={`${window.location.origin}/assets/images/competition/bannerRegisCompeRight.png`} className="absolute -right-11 -bottom-11 z-0 w-[301px] h-[157px]" alt="" />
+                        <img src={`${window.location.origin}/assets/images/competition/bannerRegisCompeRight.png`} className="absolute -right-11 -bottom-11 z-0 w-[301px] h-[157px] md:block hidden" alt="" />
                         <div className="hidden md:flex flex-col absolute md:-top-20 md:right-0 z-3">
                             <SideLeftCrookedCrossIcon />
                         </div>
