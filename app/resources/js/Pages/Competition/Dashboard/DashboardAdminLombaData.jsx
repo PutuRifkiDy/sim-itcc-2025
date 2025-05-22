@@ -13,6 +13,9 @@ import DashboardLayout from "@/Layouts/DashboardLayout";
 import { Link, usePage } from "@inertiajs/react";
 import { useState } from "react";
 import { PiArrowLeft, PiArrowRight, PiArrowsClockwise, PiArrowsDownUp } from "react-icons/pi";
+import { useEffect, useRef } from "react";
+import * as AOS from 'aos';
+import 'aos/dist/aos.css';
 
 function DashboardAdminLombaData({ ...props }) {
     const { data: competition_registrations, meta, links } = props.competition_registrations;
@@ -26,6 +29,19 @@ function DashboardAdminLombaData({ ...props }) {
         setModalIdentifyUserOpen(true);
         setSelectedUser(user);
     };
+
+
+    useEffect(() => {
+        AOS.init({
+            duration: 800,
+            once: false,
+            easing: 'ease-out-cubic',
+            offset: 100,
+            delay: 0,
+            mirror: false,
+            anchorPlacement: 'top-bottom',
+        });
+    }, []);
 
     const closeModal = () => {
         setSelectedUser(null);
@@ -67,9 +83,10 @@ function DashboardAdminLombaData({ ...props }) {
                                 placeholder="Search"
                                 value={params?.search}
                                 onChange={(e) => setParams((prev) => ({ ...prev, search: e.target.value }))}
+                                data-aos="fade-up" data-aos-delay="100"
                             />
                             <Select value={params?.load} onValueChange={(e) => setParams({ ...params, load: e })}>
-                                <SelectTrigger className="w-full h-9 sm:w-24 dark:bg-[#0F114C] dark:border-white dark:text-white">
+                                <SelectTrigger className="w-full h-9 sm:w-24 dark:bg-[#0F114C] dark:border-white dark:text-white" data-aos="fade-up" data-aos-delay="200">
                                     <SelectValue placeholder="Load" />
                                 </SelectTrigger>
                                 <SelectContent>
@@ -80,17 +97,17 @@ function DashboardAdminLombaData({ ...props }) {
                                     ))}
                                 </SelectContent>
                             </Select>
-                            <Button variant="outline" onClick={() => setParams(props.state)} className="dark:bg-[#0F114C] dark:border-white" >
+                            <Button variant="outline" onClick={() => setParams(props.state)} className="dark:bg-[#0F114C] dark:border-white" data-aos="fade-up" data-aos-delay="300">
                                 <PiArrowsClockwise className="mr-2 h-5 w-5" />
                                 Clear Filter
                             </Button>
                         </div>
-                        <Button variant="blue" type="button" onClick={handleExportCSV} className="dark:bg-[#0F114C] dark:border-white dark:border">
+                        <Button variant="blue" type="button" onClick={handleExportCSV} className="dark:bg-[#0F114C] dark:border-white dark:border" data-aos="fade-up" data-aos-delay="400">
                             Export CSV
                         </Button>
                     </div>
 
-                    <Card className="dark:bg-[#0F114C] dark:border dark:border-white rounded-xl">
+                    <Card className="dark:bg-[#0F114C] dark:border dark:border-white rounded-xl" data-aos="fade-up" data-aos-delay="500">
                         <CardContent className="overflow-hidden">
                             <div className="my-8">
                                 <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-5 lg:-mx-8">

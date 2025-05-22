@@ -5,6 +5,8 @@ import { useEffect } from "react";
 import { toast } from "sonner";
 import { BarElement, CategoryScale, Chart as ChartJS, Legend, LinearScale, LineElement, PointElement, Title, Tooltip } from 'chart.js';
 import { Line, Bar } from 'react-chartjs-2';
+import * as AOS from 'aos';
+import 'aos/dist/aos.css';
 
 function Overview() {
     ChartJS.register(CategoryScale, LinearScale, LineElement, PointElement, Title, Tooltip, Legend, BarElement);
@@ -35,6 +37,18 @@ function Overview() {
         }))
     }
 
+    useEffect(() => {
+        AOS.init({
+            duration: 800,
+            once: false,
+            easing: 'ease-out-cubic',
+            offset: 100,
+            delay: 0,
+            mirror: false,
+            anchorPlacement: 'top-bottom',
+        });
+    }, []);
+
     const { flash_message } = usePage().props;
     useEffect(() => {
         if (flash_message?.message) {
@@ -45,7 +59,7 @@ function Overview() {
         <div className="py-5">
             <div className="bg-white dark:bg-[#0F114C] p-4 shadow rounded-lg sm:p-8 gap-5">
                 <div className="gap-5 grid md:grid-cols-3 grid-cols-1">
-                    <div className="border-2 border-[#E4F0F8] flex items-center flex-row gap-10 py-5 px-5 rounded-xl">
+                    <div className="border-2 border-[#E4F0F8] flex items-center flex-row gap-10 py-5 px-5 rounded-xl" data-aos="fade-up" data-aos-delay="100">
                         {/* start icon */}
                         <div className="flex justify-center items-center p-4 rounded-2xl bg-[#718EBF]/40">
                             <UserGroupIcon className="text-[#718EBF] w-8 h-8" />
@@ -56,7 +70,7 @@ function Overview() {
                         </div>
 
                     </div>
-                    <div className="border-2 border-[#E4F0F8] flex items-center flex-row gap-10 py-5 px-5 rounded-xl">
+                    <div className="border-2 border-[#E4F0F8] flex items-center flex-row gap-10 py-5 px-5 rounded-xl" data-aos="fade-up" data-aos-delay="200">
                         <div className="flex justify-center items-center p-4 rounded-2xl bg-[#4DE45C]/20">
                             <BanknotesIcon className="text-[#4DE45C] w-8 h-8" />
                         </div>
@@ -67,7 +81,7 @@ function Overview() {
                     </div>
                 </div>
 
-                <div className='px-4 pt-5 pb-6 mt-8 bg-white border rounded-lg sm:px-6 sm:pt-6 flex md:flex-row flex-col gap-5 dark:bg-[#0F114C] dark:border-white'>
+                <div className='px-4 pt-5 pb-6 mt-8 bg-white border rounded-lg sm:px-6 sm:pt-6 flex md:flex-row flex-col gap-5 dark:bg-[#0F114C] dark:border-white' data-aos="fade-up" data-aos-delay="300">
                     <div className="md:w-1/2 w-full">
                         <h1 className="text-xl font-medium">
                             Monthly Sales Chart
