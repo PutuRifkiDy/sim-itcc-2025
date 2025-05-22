@@ -8,7 +8,7 @@ function Register() {
     const name_competition = usePage().props.name_competition;
     return (
         <>
-            <div className="min-h-screen flex flex-col items-center justify-center relative w-full md:mt-36 mt-20">
+            <div className="min-h-screen flex flex-col items-center justify-center relative w-full md:mt-32 mt-20">
                 <div className="w-full max-w-[600px] h-[700px] relative items-center">
                     <div className="hidden md:flex md:absolute md:-top-20 md:right-10 lg:-top-14 lg:-right-96 md:z-30">
                         {/* <SideRightSmallCircle /> */}
