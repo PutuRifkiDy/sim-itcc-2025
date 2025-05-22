@@ -2,10 +2,25 @@ import { SideLeftArrowLeftIcon, SideLeftCrookedCrossIcon, SideRightBlueDotIcon, 
 import { Button } from "@/Components/ui/button";
 import GuestLayout from "@/Layouts/GuestLayout";
 import { Link, usePage } from "@inertiajs/react";
+import * as AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from "react";
 
 function Register() {
     const slug = usePage().props.slug;
     const name_competition = usePage().props.name_competition;
+
+    useEffect(() => {
+        AOS.init({
+            duration: 800,
+            once: false,
+            easing: 'ease-out-cubic',
+            offset: 100,
+            delay: 0,
+            mirror: false,
+            anchorPlacement: 'top-bottom',
+        });
+    }, []);
     return (
         <>
             <div className="min-h-screen flex flex-col items-center justify-center relative w-full md:mt-40 mt-20">
@@ -15,7 +30,7 @@ function Register() {
                             <SideLeftCrookedCrossIcon />
                         </div>
                         <img src={`${window.location.origin}/assets/images/competition/bannerRegisCompeLeft.png`} className="absolute -left-11 -top-11 z-0 w-[301px] h-[157px]" alt="" />
-                        <div className="bg-white border-2 border-[E6E6E6] rounded-[20px] p-8 w-[90%] lg:w-[600px] z-20 relative mx-auto">
+                        <div className="bg-white border-2 border-[E6E6E6] rounded-[20px] p-8 w-[90%] lg:w-[600px] z-20 relative mx-auto" data-aos="zoom-in">
                             <div className="flex flex-col items-center gap-2">
                                 <img
                                     src={`${window.location.origin}/assets/images/competition/ideBisnisLogo.png`}
