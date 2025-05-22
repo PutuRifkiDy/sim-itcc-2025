@@ -566,7 +566,7 @@ function DashboardKesekreSemnas({ ...props }) {
                             </div>
                         </CardContent>
                         <CardFooter className="justify-between border-t pt-6 text-sm text-muted-foreground">
-                            <p className="text-sm text-muted-foreground">
+                            <p className="text-sm text-muted-foreground dark:text-white">
                                 Showing <span className="font-normal text-[#4880FF]">{meta.from}</span> of {meta.total}
                             </p>
                             {meta.has_page && (

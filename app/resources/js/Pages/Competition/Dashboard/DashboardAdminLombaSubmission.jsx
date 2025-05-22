@@ -140,7 +140,7 @@ function DashboardAdminLombaSubmission({ ...props }) {
     return (
         <>
             <div className="py-5">
-                <div className="bg-white p-4 shadow rounded-lg sm:p-8 flex flex-col gap-5 justify-between">
+                <div className="bg-white dark:bg-[#0F114C] p-4 shadow rounded-lg sm:p-8 flex flex-col gap-5 justify-between">
                     {/* start searching */}
 
                     <div className="gap-5 grid md:grid-cols-4 grid-cols-1">
@@ -151,8 +151,8 @@ function DashboardAdminLombaSubmission({ ...props }) {
                                 <ClockIcon className="text-[#FFC300] w-6 h-6" />
                             </div>
                             <div className="flex flex-col gap-1">
-                                <p className="text-[#718EBF] text-[14px] font-normal">Pending</p>
-                                <p className="font-semibold text-[24px] text-[#232323]">{count_pending}</p>
+                                <p className="text-[#718EBF] text-[14px] font-normal dark:text-white">Pending</p>
+                                <p className="font-semibold text-[24px] text-[#232323] dark:text-white">{count_pending}</p>
                             </div>
 
                         </div>
@@ -162,8 +162,8 @@ function DashboardAdminLombaSubmission({ ...props }) {
                                 <CheckBadgeIcon className="text-[#4DE45C] w-6 h-6" />
                             </div>
                             <div className="flex flex-col gap-1">
-                                <p className="text-[#718EBF] text-[14px] font-normal">Verified</p>
-                                <p className="font-semibold text-[24px] text-[#232323]">{count_verified}</p>
+                                <p className="text-[#718EBF] text-[14px] font-normal dark:text-white">Verified</p>
+                                <p className="font-semibold text-[24px] text-[#232323] dark:text-white">{count_verified}</p>
                             </div>
 
                         </div>
@@ -173,8 +173,8 @@ function DashboardAdminLombaSubmission({ ...props }) {
                                 <ArchiveBoxXMarkIcon className="text-[#E82323] w-6 h-6" />
                             </div>
                             <div className="flex flex-col gap-1">
-                                <p className="text-[#718EBF] text-[14px] font-normal">Rejected</p>
-                                <p className="font-semibold text-[24px] text-[#232323]">{count_rejected}</p>
+                                <p className="text-[#718EBF] text-[14px] font-normal dark:text-white">Rejected</p>
+                                <p className="font-semibold text-[24px] text-[#232323] dark:text-white">{count_rejected}</p>
                             </div>
                         </div>
                     </div>
@@ -182,13 +182,13 @@ function DashboardAdminLombaSubmission({ ...props }) {
                     <div className="flex w-full md:flex-row flex-col justify-between mt-4">
                         <div className="flex md:flex-row flex-col gap-4 w-full">
                             <Input
-                                className="w-full sm:w-1/4 outline-none ring-0 focus-visible:ring-0"
+                                className="w-full sm:w-1/4 outline-none ring-0 focus-visible:ring-0 dark:border-white placeholder:dark:text-white"
                                 placeholder="Search"
                                 value={params?.search}
                                 onChange={(e) => setParams((prev) => ({ ...prev, search: e.target.value }))}
                             />
                             <Select value={params?.load} onValueChange={(e) => setParams({ ...params, load: e })}>
-                                <SelectTrigger className="w-full h-9 sm:w-24">
+                                <SelectTrigger className="w-full h-9 sm:w-24 dark:bg-[#0F114C] dark:border-white dark:text-white">
                                     <SelectValue placeholder="Load" />
                                 </SelectTrigger>
                                 <SelectContent>
@@ -203,7 +203,7 @@ function DashboardAdminLombaSubmission({ ...props }) {
                                 value={params?.submission_status}
                                 onValueChange={(e) => setParams({ ...params, submission_status: e })}
                             >
-                                <SelectTrigger className="w-full h-9 sm:w-40">
+                                <SelectTrigger className="w-full h-9 sm:w-40 dark:bg-[#0F114C] dark:border-white dark:text-white">
                                     <SelectValue placeholder="Filter by Status" />
                                 </SelectTrigger>
                                 <SelectContent>
@@ -214,24 +214,24 @@ function DashboardAdminLombaSubmission({ ...props }) {
                                     ))}
                                 </SelectContent>
                             </Select>
-                            <Button variant="outline" onClick={() => setParams(props.state)}>
+                            <Button variant="outline" onClick={() => setParams(props.state)} className="dark:bg-[#0F114C] dark:border-white">
                                 <PiArrowsClockwise className="mr-2 h-5 w-5" />
                                 Clear Filter
                             </Button>
                         </div>
-                        <Button variant="blue" type="button" onClick={handleExportCSV}>
+                        <Button variant="blue" type="button" onClick={handleExportCSV} className="dark:bg-[#0F114C] dark:border-white dark:border">
                             Export CSV
                         </Button>
                     </div>
 
-                    <Card>
+                    <Card className="dark:bg-[#0F114C] dark:border dark:border-white rounded-xl">
                         <CardContent className="overflow-hidden">
                             <div className="my-8">
                                 <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-5 lg:-mx-8">
                                     <div className="inline-block w-full py-2 align-middle sm:px-2">
-                                        <table className="w-full text-left">
+                                        <table className="w-full text-left border border-white">
                                             <thead>
-                                                <tr className="bg-gray-50">
+                                                <tr className="bg-gray-50 dark:bg-[#3237c4]">
                                                     <th
                                                         className="5 font-semibold px-2 py-3 text-left text-sm text-foreground"
                                                         scope="col"
@@ -683,7 +683,7 @@ function DashboardAdminLombaSubmission({ ...props }) {
                             </div>
                         </CardContent>
                         <CardFooter className="justify-between border-t pt-6 text-sm text-muted-foreground">
-                            <p className="text-sm text-muted-foreground">
+                            <p className="text-sm text-muted-foreground dark:text-white">
                                 Showing <span className="font-normal text-[#4880FF]">{meta.from}</span> of {meta.total}
                             </p>
                             {meta.has_page && (
@@ -716,7 +716,7 @@ function DashboardAdminLombaSubmission({ ...props }) {
                         </CardFooter>
                     </Card>
 
-                    <p className="text-[14px] font-normal text-[#5E5E5E] mt-3">
+                    <p className="text-[14px] font-normal text-[#5E5E5E] mt-3 dark:text-white">
                         *Make sure to download the current submission file before verification, as it will be replaced if the user uploads a new one.
                     </p>
                 </div>
