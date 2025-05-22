@@ -147,9 +147,11 @@ class FrontController extends Controller
     public function show_register_competition(Competitions $competition): Response
     {
         $slug = Competitions::where('slug', $competition->slug)->value('slug');
+        $name_competition = Competitions::where('slug', $competition->slug)->value('name');
 
         return inertia(component: 'Competition/Front/Register', props: [
             'slug' => $slug,
+            'name_competition' => $name_competition
         ]);
     }
 
