@@ -255,7 +255,7 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, stat
                         </div>
                     </div>
                     <div className="flex items-center gap-4 mt-10">
-                        <Button variant="blue" disabled={processing} className="flex flex-row gap-2 justify-center items-center">
+                        <Button variant="blue" disabled={processing} className="flex flex-row gap-2 justify-center items-center dark:bg-[#040529]">
                             Save
                             <CheckBadgeIcon className='w-6 h-6 text-white' />
                         </Button>
