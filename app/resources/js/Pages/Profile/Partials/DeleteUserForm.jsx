@@ -56,7 +56,7 @@ export default function DeleteUserForm({ className = '' }) {
             <header className='flex flex-col gap-2 mt-4'>
                 <h2 className="text-lg font-medium text-gray-900 dark:text-white">Delete Account</h2>
 
-                <p className="mt-1 text-sm text-gray-600 md:w-[350px] w-full">
+                <p className="mt-1 text-sm text-gray-600 md:w-[350px] w-full dark:text-gray-400">
                     Once your account is deleted, all of its resources and data will be permanently deleted.
                 </p>
             </header>

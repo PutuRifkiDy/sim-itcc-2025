@@ -4,11 +4,25 @@ import DashboardLayout from "@/Layouts/DashboardLayout";
 import { Link, usePage } from "@inertiajs/react";
 import { useEffect } from "react";
 import { toast } from "sonner";
+import * as AOS from 'aos';
+import 'aos/dist/aos.css';
 
 function DashboardCompetition() {
     const show_registration_competitions = usePage().props.show_registration_competitions;
     const competitions = usePage().props.competitions;
     const { flash_message } = usePage().props;
+
+    useEffect(() => {
+        AOS.init({
+            duration: 800,
+            once: false,
+            easing: 'ease-out-cubic',
+            offset: 100,
+            delay: 0,
+            mirror: false,
+            anchorPlacement: 'top-bottom',
+        });
+    }, []);
 
     useEffect(() => {
         if (flash_message?.message) {
@@ -19,7 +33,7 @@ function DashboardCompetition() {
         <>
             <div className="py-5">
                 {show_registration_competitions != '' ? (
-                    <div className="bg-white p-4 shadow rounded-lg sm:p-8 dark:bg-[#0F114C]">
+                    <div className="bg-white p-4 shadow rounded-lg sm:p-8 dark:bg-[#0F114C]" data-aos="zoom-in">
                         <div className="grid md:grid-cols-4 grid-cols-1 gap-5 mb-10">
                             {show_registration_competitions.map((competition_registration, index) => (
                                 <Link
@@ -31,7 +45,7 @@ function DashboardCompetition() {
                                         <img src={`${window.location.origin}/assets/images/image_temporary_competition.png`} className="w-[200px] h-[195px]" alt="" />
                                     </div>
                                     <div className="flex flex-col">
-                                        <p className="text-[#5E5E5E] font-normal text-[14px] tracking-[0.03em] text-start">Competition</p>
+                                        <p className="text-[#5E5E5E] font-normal text-[14px] tracking-[0.03em] text-start dark:text-gray-400">Competition</p>
                                         <p className="font-bold text-[20px] text-[#000000] line-clamp-1 uppercase dark:text-white">{competition_registration.competitions.name}</p>
                                     </div>
                                     {competition_registration.payment_status == "Requested" && (
