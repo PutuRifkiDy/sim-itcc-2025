@@ -30,15 +30,15 @@ function Register() {
                             <SideLeftCrookedCrossIcon />
                         </div>
                         <img src={`${window.location.origin}/assets/images/competition/bannerRegisCompeLeft.png`} className="absolute -left-11 -top-11 z-0 w-[301px] h-[157px]" alt="" />
-                        <div className="bg-white border-2 border-[E6E6E6] rounded-[20px] p-8 w-[90%] lg:w-[600px] z-20 relative mx-auto" data-aos="zoom-in">
+                        <div className="bg-white dark:bg-[#040529] border-2 border-[E6E6E6] dark:border-white rounded-[20px] p-8 w-[90%] lg:w-[600px] z-20 relative mx-auto" data-aos="zoom-in">
                             <div className="flex flex-col items-center gap-2">
                                 <img
                                     src={`${window.location.origin}/assets/images/competition/ideBisnisLogo.png`}
                                     alt="Seminar Nasional"
                                     className="w-32 h-32 lg:w-44 lg:h-44"
                                 />
-                                <h2 className="text-[#0F114C] text-[25px] font-bold">{name_competition}</h2>
-                                <p className="text-black font-medium leading-[120%]">Registration</p>
+                                <h2 className="text-[#0F114C] text-[25px] font-bold dark:text-white">{name_competition}</h2>
+                                <p className="text-black font-medium leading-[120%] dark:text-gray-500">Registration</p>
 
                                 <div className="flex flex-col items-center gap-3 w-full mt-3">
                                     <Button variant="blue" asChild className="w-full rounded-lg py-6 text-[16px]" size="lg">
@@ -50,19 +50,19 @@ function Register() {
                                         </Link>
                                     </Button>
                                     <div className="w-full flex flex-col items-center">
-                                        <p className="text-[13px] text-[#121212] text-start leading-[120%]">Or</p>
+                                        <p className="text-[13px] text-[#121212] text-start leading-[120%] dark:text-white">Or</p>
                                     </div>
-                                    <Button variant="none" asChild className="w-full rounded-lg py-6 bg-white hover:bg-[#0F114C] border-2 border-[#0F114C] transition-all duration-300 ease-in-out text-[16px]" size="lg">
+                                    <Button variant="none" asChild className="w-full rounded-lg py-6 bg-white hover:bg-[#0F114C] border-2 border-[#0F114C] transition-all duration-300 ease-in-out text-[16px] dark:bg-[#040529]" size="lg">
                                         <Link
                                             href={route('register.competition.join-team.show', { competition: slug })}
-                                            className="hover:text-white text-[#0F114C]"
+                                            className="hover:text-white text-[#0F114C] dark:text-white"
                                         >
                                             Join a Team
                                         </Link>
                                     </Button>
                                 </div>
                                 <div className="w-full">
-                                    <p className="md:text-[14px] text-[10px] text-[#4E4E4E] mt-4 text-start">*Only the team leader creates the team.</p>
+                                    <p className="md:text-[14px] text-[10px] text-[#4E4E4E] mt-4 text-start dark:text-white">*Only the team leader creates the team.</p>
                                 </div>
                             </div>
                         </div>

@@ -63,15 +63,15 @@ function RegisterTeam() {
                             <SideLeftCrookedCrossIcon />
                         </div>
                         <img src={`${window.location.origin}/assets/images/competition/bannerRegisCompeLeft.png`} className="absolute -left-11 -top-11 z-0 w-[301px] h-[157px]" alt="" />
-                        <div className="bg-white outline outline-[3px] outline-[#E6E6E6] rounded-lg shadow-lg p-8 w-[90%] lg:w-[600px] z-20 relative mx-auto" data-aos="zoom-in">
+                        <div className="bg-white dark:bg-[#040529] outline outline-[3px] outline-[#E6E6E6] dark:border-white rounded-lg shadow-lg p-8 w-[90%] lg:w-[600px] z-20 relative mx-auto" data-aos="zoom-in">
                             <div className="flex flex-col items-center gap-4">
                                 <img
                                     src={`${window.location.origin}/assets/images/competition/ideBisnisLogo.png`}
                                     alt="Seminar Nasional"
                                     className="w-32 h-32 lg:w-44 lg:h-44"
                                 />
-                                <h2 className="text-[#0F114C] text-2xl font-bold">{slug.name}</h2>
-                                <p className="text-black font-medium">Insert Team Name</p>
+                                <h2 className="text-[#0F114C] text-2xl font-bold dark:text-white">{slug.name}</h2>
+                                <p className="text-black font-medium dark:text-gray-500">Insert Team Name</p>
                                 <form onSubmit={(e) => onHandleSubmit(e)} className="w-full">
                                     <div className="">
 
@@ -81,7 +81,7 @@ function RegisterTeam() {
                                             name="team_name"
                                             value={data.team_name}
                                             onChange={(e) => setData('team_name', e.target.value)}
-                                            className="mt-1 block w-3/4"
+                                            className="mt-1 block w-3/4 dark:bg-[#040529]"
                                             isFocused
                                             placeholder="Insert Team Name"
                                             onErrors={errors.team_name && <InputError message={errors.team_name} className='mt-2' />}
@@ -93,10 +93,10 @@ function RegisterTeam() {
                                         <Button className="w-1/2 py-3 text-[16px]" variant="blue" size="lg" type="submit" disabled={processing}>
                                             Create
                                         </Button>
-                                        <Button variant="none" asChild className="w-1/2 rounded-lg py-3 bg-white hover:bg-[#0F114C] border-2 border-[#0F114C] transition-all duration-300 ease-in-out text-[16px]" size="lg">
+                                        <Button variant="none" asChild className="w-1/2 rounded-lg py-3 bg-white hover:bg-[#0F114C] border-2 border-[#0F114C] transition-all duration-300 ease-in-out text-[16px] dark:bg-[#040529]" size="lg">
                                             <Link
                                                 href={route('register.competition.show', slug)}
-                                                className="hover:text-white text-[#0F114C] text-[18px]"
+                                                className="hover:text-white text-[#0F114C] text-[18px] dark:text-white"
                                             >
                                                 Back
                                             </Link>
@@ -104,7 +104,7 @@ function RegisterTeam() {
                                     </div>
                                 </form>
                                 <div className="w-full">
-                                    <p className="md:text-[14px] text-[10px] text-black mt-4 text-start">*Only the team leader creates the team.</p>
+                                    <p className="md:text-[14px] text-[10px] text-black mt-4 text-start dark:text-white">*Only the team leader creates the team.</p>
                                 </div>
                             </div>
                         </div>
