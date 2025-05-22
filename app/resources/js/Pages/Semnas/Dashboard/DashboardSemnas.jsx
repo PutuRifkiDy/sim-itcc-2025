@@ -8,6 +8,8 @@ import Ticket from "./Partials/Ticket";
 import { toast } from "sonner";
 import { Input } from "@/Components/ui/input";
 import Modal from "@/Components/Modal";
+import * as AOS from 'aos';
+import 'aos/dist/aos.css';
 
 function DashboardSemnas() {
     const event_registrations = usePage().props.event_registrations;
@@ -19,6 +21,18 @@ function DashboardSemnas() {
     const [showModal, setShowModal] = useState(false);
     const [pendingPaymentValue, setPendingPaymentValue] = useState(null);
     const [prevPaymentValue, setPrevPaymentValue] = useState(paymentValue);
+
+    useEffect(() => {
+        AOS.init({
+            duration: 800,
+            once: false,
+            easing: 'ease-out-cubic',
+            offset: 100,
+            delay: 0,
+            mirror: false,
+            anchorPlacement: 'top-bottom',
+        });
+    }, []);
 
     const closeModal = () => {
         setShowModal(false);
@@ -62,13 +76,12 @@ function DashboardSemnas() {
             toast[flash_message.type || 'success'](flash_message.message);
         }
     }, [flash_message]);
-    console.log("combinepayment", combinedPaymentMethodsWithAdditionalContent);
     return (
         <>
             <div className="py-5">
                 {event_registrations != null ? (
                     <div className={`${tabs == "payment" ? "flex flex-row gap-5" : ""}`}>
-                        <div className={`bg-white p-4 shadow rounded-lg sm:p-8 dark:bg-[#0F114C] ${tabs == "payment" && ["Requested", "Rejected"].includes(event_registrations.payment_status) && event_registrations ? "w-[70%]" : "w-full"}`}>
+                        <div className={`bg-white p-4 shadow rounded-lg sm:p-8 dark:bg-[#0F114C] ${tabs == "payment" && ["Requested", "Rejected"].includes(event_registrations.payment_status) && event_registrations ? "w-[70%]" : "w-full"}`} data-aos="zoom-in">
                             <div className="flex flex-row md:gap-10 gap-5">
                                 <Button variant="none" asChild onClick={() => setTabs("about")}>
                                     <p className={`cursor-pointer ${tabs == "about" ? "text-[#0F114C] font-bold border-[#0F114C]  border-b-[4px] rounded-[2px] transition-all ease-in-out duration-400 text-[16px] dark:text-[#55b1d7] dark:border-[#55b1d7]" : "text-[#5E5E5E] text-[16px] dark:text-white"}`}>About</p>
