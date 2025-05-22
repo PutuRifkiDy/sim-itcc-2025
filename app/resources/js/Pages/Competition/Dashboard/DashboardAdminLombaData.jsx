@@ -227,20 +227,20 @@ function DashboardAdminLombaData({ ...props }) {
                                                                             Teams
                                                                             <IconPreviewImageProfile />
                                                                         </DialogTrigger>
-                                                                        <DialogContent className="max-w-3xl">
+                                                                        <DialogContent className="max-w-3xl dark:bg-[#0F114C]">
                                                                             <DialogTitle className="mb-4">
                                                                                 Code Registraions
                                                                             </DialogTitle>
                                                                             <Table>
                                                                                 <TableHeader>
                                                                                     <TableRow>
-                                                                                        <TableHead className="font-medium text-[#000000]">
+                                                                                        <TableHead className="font-medium text-[#000000] dark:text-white">
                                                                                             No
                                                                                         </TableHead>
-                                                                                        <TableHead className="font-medium text-[#000000]">
+                                                                                        <TableHead className="font-medium text-[#000000] dark:text-white">
                                                                                             Name
                                                                                         </TableHead>
-                                                                                        <TableHead className="font-medium text-[#000000]">
+                                                                                        <TableHead className="font-medium text-[#000000] dark:text-white">
                                                                                             Code Registration
                                                                                         </TableHead>
                                                                                     </TableRow>
@@ -275,7 +275,7 @@ function DashboardAdminLombaData({ ...props }) {
                                                                     Open
                                                                     <IconPreviewImageProfile />
                                                                 </DialogTrigger>
-                                                                <DialogContent>
+                                                                <DialogContent className="dark:bg-[#0F114C]">
                                                                     <DialogTitle>
                                                                         Proof Payment
                                                                     </DialogTitle>
@@ -292,41 +292,41 @@ function DashboardAdminLombaData({ ...props }) {
                                                                             Members
                                                                             <IconPreviewImageProfile />
                                                                         </DialogTrigger>
-                                                                        <DialogContent className="max-w-3xl">
+                                                                        <DialogContent className="max-w-3xl dark:bg-[#0F114C]">
                                                                             <DialogTitle className="mb-4">
                                                                                 Team Members
                                                                             </DialogTitle>
                                                                             <Table>
                                                                                 <TableHeader>
                                                                                     <TableRow>
-                                                                                        <TableHead className="font-medium text-[#000000]">
+                                                                                        <TableHead className="font-medium text-[#000000] dark:text-white">
                                                                                             No
                                                                                         </TableHead>
-                                                                                        <TableHead className="font-medium text-[#000000]">
+                                                                                        <TableHead className="font-medium text-[#000000] dark:text-white">
                                                                                             Name
                                                                                         </TableHead>
-                                                                                        <TableHead className="font-medium text-[#000000]">
+                                                                                        <TableHead className="font-medium text-[#000000] dark:text-white">
                                                                                             NIM
                                                                                         </TableHead>
-                                                                                        <TableHead className="font-medium text-[#000000]">
+                                                                                        <TableHead className="font-medium text-[#000000] dark:text-white">
                                                                                             Address
                                                                                         </TableHead>
-                                                                                        <TableHead className="font-medium text-[#000000]">
+                                                                                        <TableHead className="font-medium text-[#000000] dark:text-white">
                                                                                             Institution
                                                                                         </TableHead>
-                                                                                        <TableHead className="font-medium text-[#000000]">
+                                                                                        <TableHead className="font-medium text-[#000000] dark:text-white">
                                                                                             Status
                                                                                         </TableHead>
-                                                                                        <TableHead className="font-medium text-[#000000]">
+                                                                                        <TableHead className="font-medium text-[#000000] dark:text-white">
                                                                                             Email
                                                                                         </TableHead>
-                                                                                        <TableHead className="font-medium text-[#000000]">
+                                                                                        <TableHead className="font-medium text-[#000000] dark:text-white">
                                                                                             Phone number
                                                                                         </TableHead>
-                                                                                        <TableHead className="font-medium text-[#000000]">
+                                                                                        <TableHead className="font-medium text-[#000000] dark:text-white">
                                                                                             Line ID
                                                                                         </TableHead>
-                                                                                        <TableHead className="font-medium text-[#000000]">
+                                                                                        <TableHead className="font-medium text-[#000000] dark:text-white">
                                                                                             Institution Card
                                                                                         </TableHead>
                                                                                     </TableRow>
@@ -367,7 +367,7 @@ function DashboardAdminLombaData({ ...props }) {
                                                                                                         Institution Card
                                                                                                         <IconPreviewImageProfile />
                                                                                                     </DialogTrigger>
-                                                                                                    <DialogContent>
+                                                                                                    <DialogContent className="dark:bg-[#0F114C]">
                                                                                                         <DialogTitle>
                                                                                                             Institution Card
                                                                                                         </DialogTitle>
@@ -394,7 +394,7 @@ function DashboardAdminLombaData({ ...props }) {
                                                                         Open
                                                                         <IconPreviewImageProfile />
                                                                     </Button>
-                                                                    <Modal show={modalIdentifyUserOpen} onClose={closeModal} className="px-5 py-5">
+                                                                    <Modal show={modalIdentifyUserOpen} onClose={closeModal} className="px-5 py-5 ">
                                                                         <h2 className="text-lg font-bold text-gray-900">Identity User</h2>
                                                                         <div className='mt-10 grid md:grid-cols-2 grid-cols-1 gap-5'>
                                                                             <div>

@@ -238,7 +238,7 @@ function DashboardAdminLombaSubmission({ ...props }) {
                                                     >
                                                         <Button
                                                             variant="ghost"
-                                                            className="group inline-flex"
+                                                            className="group inline-flex hover:dark:bg-[#0F114C]"
                                                         >
                                                             No
                                                         </Button>
@@ -249,7 +249,7 @@ function DashboardAdminLombaSubmission({ ...props }) {
                                                     >
                                                         <Button
                                                             variant="ghost"
-                                                            className="group inline-flex"
+                                                            className="group inline-flex hover:dark:bg-[#0F114C]"
                                                         >
                                                             Name
                                                         </Button>
@@ -260,7 +260,7 @@ function DashboardAdminLombaSubmission({ ...props }) {
                                                     >
                                                         <Button
                                                             variant="ghost"
-                                                            className="group inline-flex"
+                                                            className="group inline-flex hover:dark:bg-[#0F114C]"
                                                         >
                                                             Competition Name
                                                         </Button>
@@ -271,7 +271,7 @@ function DashboardAdminLombaSubmission({ ...props }) {
                                                     >
                                                         <Button
                                                             variant="ghost"
-                                                            className="group inline-flex"
+                                                            className="group inline-flex hover:dark:bg-[#0F114C]"
                                                         >
                                                             Code Registration
                                                         </Button>
@@ -282,7 +282,7 @@ function DashboardAdminLombaSubmission({ ...props }) {
                                                     >
                                                         <Button
                                                             variant="ghost"
-                                                            className="group inline-flex"
+                                                            className="group inline-flex hover:dark:bg-[#0F114C]"
                                                         >
                                                             Type
                                                         </Button>
@@ -293,7 +293,7 @@ function DashboardAdminLombaSubmission({ ...props }) {
                                                     >
                                                         <Button
                                                             variant="ghost"
-                                                            className="group inline-flex"
+                                                            className="group inline-flex hover:dark:bg-[#0F114C]"
                                                         >
                                                             Identity
                                                         </Button>
@@ -304,7 +304,7 @@ function DashboardAdminLombaSubmission({ ...props }) {
                                                     >
                                                         <Button
                                                             variant="ghost"
-                                                            className="group inline-flex"
+                                                            className="group inline-flex hover:dark:bg-[#0F114C]"
                                                         >
                                                             Submission Link
                                                         </Button>
@@ -315,7 +315,7 @@ function DashboardAdminLombaSubmission({ ...props }) {
                                                     >
                                                         <Button
                                                             variant="ghost"
-                                                            className="group inline-flex"
+                                                            className="group inline-flex hover:dark:bg-[#0F114C]"
                                                             onClick={() => onSortable('submission_status')}
                                                         >
                                                             Status
@@ -330,7 +330,7 @@ function DashboardAdminLombaSubmission({ ...props }) {
                                                     >
                                                         <Button
                                                             variant="ghost"
-                                                            className="group inline-flex"
+                                                            className="group inline-flex hover:dark:bg-[#0F114C]"
                                                         >
                                                             Action
                                                         </Button>
@@ -358,20 +358,20 @@ function DashboardAdminLombaSubmission({ ...props }) {
                                                                             Teams
                                                                             <IconPreviewImageProfile />
                                                                         </DialogTrigger>
-                                                                        <DialogContent className="max-w-3xl">
+                                                                        <DialogContent className="max-w-3xl dark:bg-[#0F114C]">
                                                                             <DialogTitle className="mb-4">
                                                                                 Code Registraions
                                                                             </DialogTitle>
                                                                             <Table>
                                                                                 <TableHeader>
                                                                                     <TableRow>
-                                                                                        <TableHead className="font-medium text-[#000000]">
+                                                                                        <TableHead className="font-medium text-[#000000] dark:text-white">
                                                                                             No
                                                                                         </TableHead>
-                                                                                        <TableHead className="font-medium text-[#000000]">
+                                                                                        <TableHead className="font-medium text-[#000000] dark:text-white">
                                                                                             Name
                                                                                         </TableHead>
-                                                                                        <TableHead className="font-medium text-[#000000]">
+                                                                                        <TableHead className="font-medium text-[#000000] dark:text-white">
                                                                                             Code Registration
                                                                                         </TableHead>
                                                                                     </TableRow>
@@ -408,41 +408,41 @@ function DashboardAdminLombaSubmission({ ...props }) {
                                                                             Members
                                                                             <IconPreviewImageProfile />
                                                                         </DialogTrigger>
-                                                                        <DialogContent className="max-w-3xl">
+                                                                        <DialogContent className="max-w-3xl dark:bg-[#0F114C]">
                                                                             <DialogTitle className="mb-4">
                                                                                 Team Members
                                                                             </DialogTitle>
                                                                             <Table>
                                                                                 <TableHeader>
                                                                                     <TableRow>
-                                                                                        <TableHead className="font-medium text-[#000000]">
+                                                                                        <TableHead className="font-medium text-[#000000] dark:text-white">
                                                                                             No
                                                                                         </TableHead>
-                                                                                        <TableHead className="font-medium text-[#000000]">
+                                                                                        <TableHead className="font-medium text-[#000000] dark:text-white">
                                                                                             Name
                                                                                         </TableHead>
-                                                                                        <TableHead className="font-medium text-[#000000]">
+                                                                                        <TableHead className="font-medium text-[#000000] dark:text-white">
                                                                                             NIM
                                                                                         </TableHead>
-                                                                                        <TableHead className="font-medium text-[#000000]">
+                                                                                        <TableHead className="font-medium text-[#000000] dark:text-white">
                                                                                             Address
                                                                                         </TableHead>
-                                                                                        <TableHead className="font-medium text-[#000000]">
+                                                                                        <TableHead className="font-medium text-[#000000] dark:text-white">
                                                                                             Institution
                                                                                         </TableHead>
-                                                                                        <TableHead className="font-medium text-[#000000]">
+                                                                                        <TableHead className="font-medium text-[#000000] dark:text-white">
                                                                                             Status
                                                                                         </TableHead>
-                                                                                        <TableHead className="font-medium text-[#000000]">
+                                                                                        <TableHead className="font-medium text-[#000000] dark:text-white">
                                                                                             Email
                                                                                         </TableHead>
-                                                                                        <TableHead className="font-medium text-[#000000]">
+                                                                                        <TableHead className="font-medium text-[#000000] dark:text-white">
                                                                                             Phone number
                                                                                         </TableHead>
-                                                                                        <TableHead className="font-medium text-[#000000]">
+                                                                                        <TableHead className="font-medium text-[#000000] dark:text-white">
                                                                                             Line ID
                                                                                         </TableHead>
-                                                                                        <TableHead className="font-medium text-[#000000]">
+                                                                                        <TableHead className="font-medium text-[#000000] dark:text-white">
                                                                                             Institution Card
                                                                                         </TableHead>
                                                                                     </TableRow>
@@ -483,7 +483,7 @@ function DashboardAdminLombaSubmission({ ...props }) {
                                                                                                         Institution Card
                                                                                                         <IconPreviewImageProfile />
                                                                                                     </DialogTrigger>
-                                                                                                    <DialogContent>
+                                                                                                    <DialogContent className="dark:bg-[#0F114C] ">
                                                                                                         <DialogTitle>
                                                                                                             Institution Card
                                                                                                         </DialogTitle>
@@ -607,12 +607,12 @@ function DashboardAdminLombaSubmission({ ...props }) {
                                                                         <DocumentCheckIcon className="text-[#4DE45C] w-5 h-5" />
                                                                     </Button>
 
-                                                                    <Modal show={modalVerifOpen} onClose={closeModalVerif} maxWidth="md" className="p-4">
-                                                                        <h2 className="text-lg font-semibold text-gray-900">
+                                                                    <Modal show={modalVerifOpen} onClose={closeModalVerif} maxWidth="md" className="p-4 dark:bg-[#0F172A]">
+                                                                        <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
                                                                             Confirmation Of Payment Verification
                                                                         </h2>
 
-                                                                        <p className="mt-1 text-sm text-gray-600">
+                                                                        <p className="mt-1 text-sm text-gray-600 dark:text-white">
                                                                             You will not be able to revert this action.
                                                                         </p>
 
@@ -640,11 +640,11 @@ function DashboardAdminLombaSubmission({ ...props }) {
                                                                 <XCircleIcon className="text-[#E82323] w-5 h-5" />
                                                             </Button>
 
-                                                            <Modal show={modalFormOpen} onClose={closeModalForm} maxWidth="md" className="p-4">
+                                                            <Modal show={modalFormOpen} onClose={closeModalForm} maxWidth="md" className="p-4 dark:bg-[#0F172A]">
                                                                 <form onSubmit={(e) => onHandleSubmit(e, selectId)}>
-                                                                    <h2 className="text-lg font-semibold text-gray-900">Please input a reject reason</h2>
+                                                                    <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Please input a reject reason</h2>
 
-                                                                    <p className="mt-1 text-sm text-gray-600">
+                                                                    <p className="mt-1 text-sm text-gray-600 dark:text-white">
                                                                         You will not be able to revert this action.
                                                                     </p>
 

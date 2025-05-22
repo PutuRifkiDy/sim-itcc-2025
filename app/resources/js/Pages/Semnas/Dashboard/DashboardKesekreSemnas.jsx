@@ -254,7 +254,7 @@ function DashboardKesekreSemnas({ ...props }) {
                                                     >
                                                         <Button
                                                             variant="ghost"
-                                                            className="group inline-flex"
+                                                            className="group inline-flex hover:dark:bg-[#0F114C]"
                                                         >
                                                             No
                                                         </Button>
@@ -265,7 +265,7 @@ function DashboardKesekreSemnas({ ...props }) {
                                                     >
                                                         <Button
                                                             variant="ghost"
-                                                            className="group inline-flex"
+                                                            className="group inline-flex hover:dark:bg-[#0F114C]"
                                                         >
                                                             Name
                                                         </Button>
@@ -276,7 +276,7 @@ function DashboardKesekreSemnas({ ...props }) {
                                                     >
                                                         <Button
                                                             variant="ghost"
-                                                            className="group inline-flex"
+                                                            className="group inline-flex hover:dark:bg-[#0F114C]"
                                                         >
                                                             Code Registration
                                                         </Button>
@@ -287,7 +287,7 @@ function DashboardKesekreSemnas({ ...props }) {
                                                     >
                                                         <Button
                                                             variant="ghost"
-                                                            className="group inline-flex"
+                                                            className="group inline-flex hover:dark:bg-[#0F114C]"
                                                         >
                                                             Type
                                                         </Button>
@@ -298,7 +298,7 @@ function DashboardKesekreSemnas({ ...props }) {
                                                     >
                                                         <Button
                                                             variant="ghost"
-                                                            className="group inline-flex"
+                                                            className="group inline-flex hover:dark:bg-[#0F114C]"
                                                         >
                                                             Proof Payment
                                                         </Button>
@@ -309,7 +309,7 @@ function DashboardKesekreSemnas({ ...props }) {
                                                     >
                                                         <Button
                                                             variant="ghost"
-                                                            className="group inline-flex"
+                                                            className="group inline-flex hover:dark:bg-[#0F114C]"
                                                         >
                                                             Identity
                                                         </Button>
@@ -320,7 +320,7 @@ function DashboardKesekreSemnas({ ...props }) {
                                                     >
                                                         <Button
                                                             variant="ghost"
-                                                            className="group inline-flex"
+                                                            className="group inline-flex hover:dark:bg-[#0F114C]"
                                                             onClick={() => onSortable('payment_status')}
                                                         >
                                                             Status
@@ -335,7 +335,7 @@ function DashboardKesekreSemnas({ ...props }) {
                                                     >
                                                         <Button
                                                             variant="ghost"
-                                                            className="group inline-flex"
+                                                            className="group inline-flex hover:dark:bg-[#0F114C]"
                                                             onClick={() => onSortable('total_payment')}
                                                         >
                                                             Total
@@ -350,7 +350,7 @@ function DashboardKesekreSemnas({ ...props }) {
                                                     >
                                                         <Button
                                                             variant="ghost"
-                                                            className="group inline-flex"
+                                                            className="group inline-flex hover:dark:bg-[#0F114C]"
                                                         >
                                                             Action
                                                         </Button>
@@ -382,7 +382,7 @@ function DashboardKesekreSemnas({ ...props }) {
                                                                     Open
                                                                     <IconPreviewImageProfile />
                                                                 </DialogTrigger>
-                                                                <DialogContent>
+                                                                <DialogContent className="dark:bg-[#0F114C]">
                                                                     <DialogTitle>
                                                                         Proof Payment
                                                                     </DialogTitle>
@@ -400,35 +400,35 @@ function DashboardKesekreSemnas({ ...props }) {
                                                                 Open
                                                                 <IconPreviewImageProfile />
                                                             </Button>
-                                                            <Modal show={modalIdentifyUserOpen} onClose={closeModal} className="px-5 py-5">
-                                                                <h2 className="text-lg font-normal text-gray-900">Identity User</h2>
+                                                            <Modal show={modalIdentifyUserOpen} onClose={closeModal} className="px-5 py-5 dark:bg-[#0F114C]">
+                                                                <h2 className="text-lg font-normal text-gray-900 dark:text-white">Identity User</h2>
                                                                 <div className='mt-10 grid md:grid-cols-2 grid-cols-1 gap-5'>
                                                                     <div>
-                                                                        <InputLabel htmlFor="name" value="Name" className='text-[12px] text-[#676767] font-normal' />
+                                                                        <InputLabel htmlFor="name" value="Name" className='text-[12px] text-[#676767] font-normal dark:text-white' />
                                                                         <p>{selectedUser?.name}</p>
                                                                     </div>
                                                                     <div>
-                                                                        <InputLabel htmlFor="email" value="Email" className='text-[12px] text-[#676767] font-normal' />
+                                                                        <InputLabel htmlFor="email" value="Email" className='text-[12px] text-[#676767] font-normal dark:text-white' />
                                                                         <p>{selectedUser?.email}</p>
                                                                     </div>
                                                                     <div>
-                                                                        <InputLabel htmlFor="nim" value="NIM" className='text-[12px] text-[#676767] font-normal' />
+                                                                        <InputLabel htmlFor="nim" value="NIM" className='text-[12px] text-[#676767] font-normal dark:text-white' />
                                                                         <p>{selectedUser?.nim ?? '-'}</p>
                                                                     </div>
                                                                     <div>
-                                                                        <InputLabel htmlFor="phone_number" value="Phone Number" className='text-[12px] text-[#676767] font-normal' />
+                                                                        <InputLabel htmlFor="phone_number" value="Phone Number" className='text-[12px] text-[#676767] font-normal dark:text-white' />
                                                                         <p>{selectedUser?.phone_number ? selectedUser?.phone_number : '-'}</p>
                                                                     </div>
                                                                     <div>
-                                                                        <InputLabel htmlFor="address" value="Address" className='text-[12px] text-[#676767] font-normal' />
+                                                                        <InputLabel htmlFor="address" value="Address" className='text-[12px] text-[#676767] font-normal dark:text-white' />
                                                                         <p>{selectedUser?.address ? selectedUser?.address : '-'}</p>
                                                                     </div>
                                                                     <div>
-                                                                        <InputLabel htmlFor="line_id" value="Line ID" className='text-[12px] text-[#676767] font-normal' />
+                                                                        <InputLabel htmlFor="line_id" value="Line ID" className='text-[12px] text-[#676767] font-normal dark:text-white' />
                                                                         <p>{selectedUser?.line_id ? selectedUser?.line_id : '-'}</p>
                                                                     </div>
                                                                     <div>
-                                                                        <InputLabel htmlFor="institution" value="Institution" className='text-[12px] text-[#676767] font-normal' />
+                                                                        <InputLabel htmlFor="institution" value="Institution" className='text-[12px] text-[#676767] font-normal dark:text-white' />
                                                                         <p>{selectedUser?.institution ? selectedUser?.institution : '-'}</p>
                                                                     </div>
                                                                     <div>
@@ -437,7 +437,7 @@ function DashboardKesekreSemnas({ ...props }) {
                                                                                 Institution Card
                                                                                 <IconPreviewImageProfile />
                                                                             </DialogTrigger>
-                                                                            <DialogContent>
+                                                                            <DialogContent className="dark:bg-[#0F114C]">
                                                                                 <DialogTitle>
                                                                                     Institution Card
                                                                                 </DialogTitle>
@@ -447,7 +447,7 @@ function DashboardKesekreSemnas({ ...props }) {
                                                                         </Dialog>
                                                                     </div>
                                                                     <div>
-                                                                        <InputLabel htmlFor="status" value="Status" className='text-[12px] text-[#676767] font-normal' />
+                                                                        <InputLabel htmlFor="status" value="Status" className='text-[12px] text-[#676767] font-normal dark:text-white' />
                                                                         <p>{selectedUser?.status ? selectedUser?.status : '-'}</p>
                                                                     </div>
                                                                 </div>
@@ -491,12 +491,12 @@ function DashboardKesekreSemnas({ ...props }) {
                                                                         <DocumentCheckIcon className="text-[#4DE45C] w-5 h-5" />
                                                                     </Button>
 
-                                                                    <Modal show={modalVerifOpen} onClose={closeModalVerif} maxWidth="md" className="p-4">
-                                                                        <h2 className="text-lg font-semibold text-gray-900">
+                                                                    <Modal show={modalVerifOpen} onClose={closeModalVerif} maxWidth="md" className="p-4 dark:bg-[#0F172A]">
+                                                                        <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
                                                                             Confirmation Of Payment Verification
                                                                         </h2>
 
-                                                                        <p className="mt-1 text-sm text-gray-600">
+                                                                        <p className="mt-1 text-sm text-gray-600 dark:text-white">
                                                                             You will not be able to revert this action.
                                                                         </p>
 
@@ -524,10 +524,10 @@ function DashboardKesekreSemnas({ ...props }) {
                                                                 <XCircleIcon className="text-[#E82323] w-5 h-5" />
                                                             </Button>
 
-                                                            <Modal show={modalFormOpen} onClose={closeModalForm} maxWidth="md" className="p-4">
+                                                            <Modal show={modalFormOpen} onClose={closeModalForm} maxWidth="md" className="p-4 dark:bg-[#0F172A]">
                                                                 <form onSubmit={(e) => onHandleSubmit(e, selectId)}>
-                                                                    <h2 className="text-lg font-bold text-gray-900">Please input a reject reason</h2>
-                                                                    <p className="mt-1 text-sm text-gray-600">
+                                                                    <h2 className="text-lg font-bold text-gray-900 dark:text-white">Please input a reject reason</h2>
+                                                                    <p className="mt-1 text-sm text-gray-600 dark:text-white">
                                                                         You will not be able to revert this action.
                                                                     </p>
 
@@ -539,7 +539,7 @@ function DashboardKesekreSemnas({ ...props }) {
                                                                             name="reject_reason"
                                                                             value={data.reject_reason}
                                                                             onChange={(e) => setData('reject_reason', e.target.value)}
-                                                                            className="mt-1 block w-3/4"
+                                                                            className="mt-1 block w-3/4 dark:text-white"
                                                                             isFocused
                                                                             placeholder="Reject Reason"
                                                                         />
