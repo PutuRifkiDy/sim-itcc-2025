@@ -60,7 +60,7 @@ export default function Home() {
                             <div className="flex justify-center items-center md:block" data-aos="fade-up">
                                 <img src="assets/images/landing/ITCCMascot.png" className="md:w-[156.09px] w-full h-auto md:h-[151.77px]" alt="" />
                             </div>
-                            <h1 className="font-extrabold text-[80px] tracking-[0.05em] leading-[1.2em] text-[#0F114C] [text-shadow:_6px_4px_9px_rgb(0_0_0_/_0.54)] md:absolute flex justify-center items-center top-8 left-40" data-aos="fade-up" data-aos-delay="100">
+                            <h1 className="font-extrabold text-[80px] tracking-[0.05em] leading-[1.2em] text-[#0F114C] [text-shadow:_6px_4px_9px_rgb(0_0_0_/_0.54)] md:absolute flex justify-center items-center top-8 left-40 dark:text-white" data-aos="fade-up" data-aos-delay="100">
                                 ITCC
                             </h1>
                             <div className="flex flex-row justify-center items-center bg-gradient-to-l from-indigo-950 to-sky-800 px-4 md:w-16 md:h-40 w-full h-20 m md:absolute left-40 top-32 rounded-[10px] z-40" data-aos="fade-up" data-aos-delay="200">

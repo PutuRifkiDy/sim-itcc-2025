@@ -54,11 +54,11 @@ const Sponsor = () => {
 
     return (
         <section className="flex flex-col justify-center items-center gap-6 w-full py-16 sm:py-20 md:py-24 text-center px-4 sm:px-6 md:px-12">
-            <h2 className="text-[24px] sm:text-[28px] md:text-[36px] text-[#0F114C] font-rubik font-bold leading-[120%] tracking-[0.36em] uppercase" data-aos="fade-up">
+            <h2 className="text-[24px] sm:text-[28px] md:text-[36px] text-[#0F114C] font-rubik font-bold leading-[120%] tracking-[0.36em] uppercase dark:text-white" data-aos="fade-up">
                 Our Sponsors
             </h2>
 
-            <p className="text-[#5E5E5E] font-rubik text-sm sm:text-base md:text-lg font-normal leading-[160%] tracking-[0.02em] w-[90%] sm:w-[80%] md:w-[653px] max-w-full dark:text-white" data-aos="fade-up" data-aos-delay="100">
+            <p className="text-[#5E5E5E] font-rubik text-sm sm:text-base md:text-lg font-normal leading-[160%] tracking-[0.02em] w-[90%] sm:w-[80%] md:w-[653px] max-w-full dark:text-gray-500" data-aos="fade-up" data-aos-delay="100">
                 As a sponsor, we’re promising reach to thousands of people who are
                 interested in your brand. What better way to get your brand in front of
                 people.
@@ -66,7 +66,7 @@ const Sponsor = () => {
 
             <a
                 href="https://wa.me/6281938215645"
-                className="flex flex-row items-center gap-2 text-[#0F114C] font-rubik text-sm sm:text-base md:text-lg font-normal leading-[120%] tracking-[0.02em] underline decoration-solid decoration-[#0F114C] decoration-1 underline-offset-[2px] dark:text-gray-500"
+                className="flex flex-row items-center gap-2 text-[#0F114C] font-rubik text-sm sm:text-base md:text-lg font-normal leading-[120%] tracking-[0.02em] underline decoration-solid decoration-[#0F114C] decoration-1 underline-offset-[2px] dark:text-gray-400"
                 data-aos="fade-up" data-aos-delay="200"
                 target="_blank"
             >
