@@ -17,8 +17,6 @@ import { Link, useForm, usePage } from "@inertiajs/react";
 import { useEffect, useRef, useState } from "react";
 import { PiArrowLeft, PiArrowsClockwise, PiArrowsDownUp } from "react-icons/pi";
 import { toast } from "sonner";
-import * as AOS from 'aos';
-import 'aos/dist/aos.css';
 
 function DashboardAdminLombaSubmission({ ...props }) {
     const { flash_message } = usePage().props;
@@ -140,19 +138,6 @@ function DashboardAdminLombaSubmission({ ...props }) {
         });
     };
 
-
-    useEffect(() => {
-        AOS.init({
-            duration: 800,
-            once: false,
-            easing: 'ease-out-cubic',
-            offset: 100,
-            delay: 0,
-            mirror: false,
-            anchorPlacement: 'top-bottom',
-        });
-    }, []);
-
     return (
         <>
             <div className="py-5">
@@ -161,7 +146,7 @@ function DashboardAdminLombaSubmission({ ...props }) {
 
                     <div className="gap-5 grid md:grid-cols-4 grid-cols-1">
                         {/* ada 3 div untuk count requested, pending, sama rejected*/}
-                        <div className="border-2 border-[#E4F0F8] flex items-center flex-row gap-5 py-4 px-10 rounded-xl" data-aos="fade-up" data-aos-delay="100">
+                        <div className="border-2 border-[#E4F0F8] flex items-center flex-row gap-5 py-4 px-10 rounded-xl"  >
                             {/* start icon */}
                             <div className="flex justify-center items-center p-4 rounded-2xl bg-[#FFC300]/20">
                                 <ClockIcon className="text-[#FFC300] w-6 h-6" />
@@ -172,7 +157,7 @@ function DashboardAdminLombaSubmission({ ...props }) {
                             </div>
 
                         </div>
-                        <div className="border-2 border-[#E4F0F8] flex items-center flex-row gap-5 py-4 px-10 rounded-xl" data-aos="fade-up" data-aos-delay="200">
+                        <div className="border-2 border-[#E4F0F8] flex items-center flex-row gap-5 py-4 px-10 rounded-xl"  >
                             {/* start icon */}
                             <div className="flex justify-center items-center p-4 rounded-2xl bg-[#4DE45C]/20">
                                 <CheckBadgeIcon className="text-[#4DE45C] w-6 h-6" />
@@ -183,7 +168,7 @@ function DashboardAdminLombaSubmission({ ...props }) {
                             </div>
 
                         </div>
-                        <div className="border-2 border-[#E4F0F8] flex items-center flex-row gap-5 py-4 px-10 rounded-xl" data-aos="fade-up" data-aos-delay="300">
+                        <div className="border-2 border-[#E4F0F8] flex items-center flex-row gap-5 py-4 px-10 rounded-xl"  >
                             {/* start icon */}
                             <div className="flex justify-center items-center p-4 rounded-2xl bg-[#E82323]/20">
                                 <ArchiveBoxXMarkIcon className="text-[#E82323] w-6 h-6" />
@@ -202,10 +187,10 @@ function DashboardAdminLombaSubmission({ ...props }) {
                                 placeholder="Search"
                                 value={params?.search}
                                 onChange={(e) => setParams((prev) => ({ ...prev, search: e.target.value }))}
-                                data-aos="fade-up" data-aos-delay="100"
+                                 
                             />
                             <Select value={params?.load} onValueChange={(e) => setParams({ ...params, load: e })}>
-                                <SelectTrigger className="w-full h-9 sm:w-24 dark:bg-[#0F114C] dark:border-white dark:text-white" data-aos="fade-up" data-aos-delay="200">
+                                <SelectTrigger className="w-full h-9 sm:w-24 dark:bg-[#0F114C] dark:border-white dark:text-white"  >
                                     <SelectValue placeholder="Load" />
                                 </SelectTrigger>
                                 <SelectContent>
@@ -220,7 +205,7 @@ function DashboardAdminLombaSubmission({ ...props }) {
                                 value={params?.submission_status}
                                 onValueChange={(e) => setParams({ ...params, submission_status: e })}
                             >
-                                <SelectTrigger className="w-full h-9 sm:w-40 dark:bg-[#0F114C] dark:border-white dark:text-white" data-aos="fade-up" data-aos-delay="300">
+                                <SelectTrigger className="w-full h-9 sm:w-40 dark:bg-[#0F114C] dark:border-white dark:text-white"  >
                                     <SelectValue placeholder="Filter by Status" />
                                 </SelectTrigger>
                                 <SelectContent>
@@ -231,17 +216,17 @@ function DashboardAdminLombaSubmission({ ...props }) {
                                     ))}
                                 </SelectContent>
                             </Select>
-                            <Button variant="outline" onClick={() => setParams(props.state)} className="dark:bg-[#0F114C] dark:border-white" data-aos="fade-up" data-aos-delay="400">
+                            <Button variant="outline" onClick={() => setParams(props.state)} className="dark:bg-[#0F114C] dark:border-white"  >
                                 <PiArrowsClockwise className="mr-2 h-5 w-5" />
                                 Clear Filter
                             </Button>
                         </div>
-                        <Button variant="blue" type="button" onClick={handleExportCSV} className="dark:bg-[#0F114C] dark:border-white dark:border" data-aos="fade-up" data-aos-delay="500">
+                        <Button variant="blue" type="button" onClick={handleExportCSV} className="dark:bg-[#0F114C] dark:border-white dark:border"  >
                             Export CSV
                         </Button>
                     </div>
 
-                    <Card className="dark:bg-[#0F114C] dark:border dark:border-white rounded-xl" data-aos="fade-up" data-aos-delay="600">
+                    <Card className="dark:bg-[#0F114C] dark:border dark:border-white rounded-xl"  >
                         <CardContent className="overflow-hidden">
                             <div className="my-8">
                                 <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-5 lg:-mx-8">

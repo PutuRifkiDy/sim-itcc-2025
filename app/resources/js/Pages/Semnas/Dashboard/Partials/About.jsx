@@ -19,7 +19,6 @@ function About({ event_registrations, className }) {
         reset();
     };
 
-    console.log('cek isi', event_registrations)
     return (
         <>
             <section className={className}>
