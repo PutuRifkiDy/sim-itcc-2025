@@ -157,7 +157,7 @@ function Competitions({ ...props }) {
                                     </Button>
                                 ) : (
                                     <Button asChild variant="blue" size="lg" className="rounded-lg text-[18px]">
-                                        <Link href={route('register.competition.show', competitions.slug)}>
+                                        <Link href={route('register.competition.show', competitions.slug)} className="py-6 px-5">
                                             Register
                                         </Link>
                                     </Button>

@@ -5,7 +5,9 @@ import { Button } from "@/Components/ui/button";
 import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "@/Components/ui/dialog";
 import GuestLayout from "@/Layouts/GuestLayout";
 import { Link, usePage } from "@inertiajs/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import * as AOS from 'aos';
+import 'aos/dist/aos.css';
 
 function Semnas({ ...props }) {
     const events = usePage().props.event;
@@ -31,64 +33,22 @@ function Semnas({ ...props }) {
         }).format(new Number(nominal));
     };
 
+    useEffect(() => {
+        AOS.init({
+            duration: 800,
+            once: false,
+            easing: 'ease-out-cubic',
+            offset: 100,
+            delay: 0,
+            mirror: false,
+            anchorPlacement: 'top-bottom',
+        });
+    }, []);
+
     console.log("cek isi events", events);
 
     return (
         <>
-            {/* <div className="md:mt-44 mt-24">
-                <p>Hibrid</p>
-                <p>{current_batch.periode_name}</p>
-                <p>{current_batch.start_date}</p>
-                <p>{current_batch.end_date}</p>
-                <p>{current_batch.price}</p>
-                <p>{events.event_content[0]?.how_to_join_link}</p>
-                <p>{events.event_content[0]?.guidebook_link}</p>
-
-                <Button asChild>
-                    <Link
-                        href={route('register.semnas.show')}
-                    >
-                        Register
-                    </Link>
-                </Button>
-
-                <p className="mt-10">{events.description}</p>
-
-                {events.event_content.map((content, idx) => (
-                    <div key={idx} className="mt-10 flex flex-col w-full justify-center items-center gap-24">
-                        {content.event_content_faq.map((faq, i) => (
-                            <div className="flex flex-col bg-grewn-500" key={i}>
-                                <p>{faq.question ?? ''}</p>
-                                <p>{faq.answer ?? ''}</p>
-                            </div>
-                        ))}
-                    </div>
-                ))}
-
-                {events.event_content.map((content, idx) => (
-                    <div key={idx} className="mt-10 flex flex-col w-full justify-center items-center gap-24">
-                        {content.event_content_timeline.map((timeline, i) => (
-                            <div className="flex flex-col bg-indigo-500" key={i}>
-                                <p>{timeline.title ?? ''}</p>
-                                <p>{timeline.date_range ?? ''}</p>
-                            </div>
-                        ))}
-                    </div>
-                ))}
-
-                {events.event_content.map((content, idx) => (
-                    <div key={idx} className="mt-10 grid md:grid-cols-3 grid-cols-1 w-full justify-center items-center gap-24">
-                        {content.event_content_contact.map((contact, i) => (
-                            <div key={i}>
-                                {contact.name ?? ''}
-                                {contact.id_line ?? ''}
-                                {contact.wa_number ?? ''}
-                            </div>
-                        ))}
-                    </div>
-                ))}
-            </div> */}
-
             {/* start home */}
             <section className="mb-18 mt-28 px-5 md:mt-44 md:px-24 md:pb-24">
                 <div className="flex flex-col justify-center gap-6 md:flex-row md:justify-between">
@@ -166,7 +126,7 @@ function Semnas({ ...props }) {
                                 <Button asChild className="rounded-lg text-[18px]" variant="blue">
                                     <Link
                                         href={route('register.semnas.show')}
-                                        className="py-5"
+                                        className="py-6 px-5"
                                     >
                                         Register
                                     </Link>
@@ -369,10 +329,12 @@ function Semnas({ ...props }) {
             {/* start card speaker */}
             <section className="w-full min-h-[722px] flex-shrink-0 mx-auto max-w-[1440px] px-4 md:px-8 lg:px-16 md:mt-24 mt-8">
                 <div className="h-full flex flex-col justify-center items-center text-center py-10">
-                    <h1 className="text-[36px] leading-[43.2px] font-bold tracking-[5.76px] uppercase text-center font-[Rubik] text-[#0F114C] dark:text-white">
+                    <h1 className="text-[36px] leading-[43.2px] font-bold tracking-[5.76px] uppercase text-center font-[Rubik] text-[#0F114C] dark:text-white" data-aos="fade-up">
                         OUR SPEAKER
                     </h1>
-                    <p className="mt-6 max-w-[653px] text-[#5E5E5E] text-center font-[Rubik] text-[16px] font-normal leading-[28.8px] tracking-[0.32px] dark:text-gray-500">
+                    <p className="mt-6 max-w-[653px] text-[#5E5E5E] text-center font-[Rubik] text-[16px] font-normal leading-[28.8px] tracking-[0.32px] dark:text-gray-500"
+                    data-aos="fade-up"
+                    data-aos-delay="100">
                         Get inspired by our amazing speakers! Learn from experts, leaders, and
                         changemakers as they share insights, stories, and experiences to spark
                         your growth.
@@ -382,6 +344,8 @@ function Semnas({ ...props }) {
                     <div className="mt-12 flex flex-col sm:flex-row sm:flex-wrap sm:justify-center gap-10">
                         <div
                             className="relative rounded-[10px] border border-[#0F114C] bg-white w-[280px] h-[360px] flex-shrink-0 p-4 overflow-hidden dark:bg-[#0F114C]"
+                            data-aos="fade-up"
+                            data-aos-delay="200"
                         >
                             <div className="absolute bottom-0 right-0 flex flex-col justify-end items-end z-0 pointer-events-none pr-4 pb-4">
                                 <p className="text-[48px] text-[#A0A0A0] font-bold opacity-10 select-none rotate-[-42.783deg] whitespace-nowrap text-right">
@@ -418,6 +382,8 @@ function Semnas({ ...props }) {
                         </div>
                         <div
                             className="relative rounded-[10px] border border-[#0F114C] bg-white w-[280px] h-[360px] flex-shrink-0 p-4 overflow-hidden dark:bg-[#0F114C]"
+                            data-aos="fade-up"
+                            data-aos-delay="300"
                         >
                             <div className="absolute bottom-0 right-0 flex flex-col justify-end items-end z-0 pointer-events-none pr-4 pb-4">
                                 <p className="text-[48px] text-[#A0A0A0] font-bold opacity-10 select-none rotate-[-42.783deg] whitespace-nowrap text-right">
@@ -454,6 +420,8 @@ function Semnas({ ...props }) {
                         </div>
                         <div
                             className="relative rounded-[10px] border border-[#0F114C] bg-white w-[280px] h-[360px] flex-shrink-0 p-4 overflow-hidden dark:bg-[#0F114C]"
+                            data-aos="fade-up"
+                            data-aos-delay="400"
                         >
                             <div className="absolute bottom-0 right-0 flex flex-col justify-end items-end z-0 pointer-events-none pr-4 pb-4">
                                 <p className="text-[48px] text-[#A0A0A0] font-bold opacity-10 select-none rotate-[-42.783deg] whitespace-nowrap text-right">
