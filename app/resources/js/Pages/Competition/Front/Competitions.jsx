@@ -152,7 +152,7 @@ function Competitions({ ...props }) {
                                 data-aos-delay="300"
                             >
                                 {competitions.is_team == false ? (
-                                    <Button type="submit" variant="blue" size="lg" className="rounded-lg text-[18px]" onClick={onHandleSubmit}>
+                                    <Button type="submit" variant="blue" size="lg" className="rounded-lg text-[18px] py-6 px-5" onClick={onHandleSubmit}>
                                         Register
                                     </Button>
                                 ) : (
