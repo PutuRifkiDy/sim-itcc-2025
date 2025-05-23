@@ -638,14 +638,14 @@ function Competitions({ ...props }) {
                                         {contact.name ?? ''}
                                     </p>
                                     <div className="flex flex-col gap-2">
-                                        <div className="flex flex-row items-center gap-2 text-[16px] text-[#0F114C] dark:text-gray-400">
+                                        <a href={`https://line.me/ti/p/${contact.id_line}`} className="flex flex-row items-center gap-2 text-[16px] text-[#0F114C] dark:text-gray-400" target='_blank'>
                                             <LineIcon />
                                             {contact.id_line ?? ''}
-                                        </div>
-                                        <div className="flex flex-row items-center gap-2 text-[16px] text-[#0F114C] dark:text-gray-400">
+                                        </a>
+                                        <a href={`https://wa.me/${contact.wa_number}`} className="flex flex-row items-center gap-2 text-[16px] text-[#0F114C] dark:text-gray-400" target='_blank'>
                                             <WhatsappIcon />
-                                            {contact.wa_number ?? ''}
-                                        </div>
+                                            +{contact.wa_number ?? ''}
+                                        </a>
                                     </div>
                                 </div>
                             </div>
