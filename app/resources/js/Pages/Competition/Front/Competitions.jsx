@@ -575,8 +575,8 @@ function Competitions({ ...props }) {
                         {competitions.competition_content.map((content, idx) =>
                             content.competition_content_faq.map((item, i) => (
                                 <Accordion
-                                    heading={item.answer}
-                                    description={item.question}
+                                    heading={item.question}
+                                    description={item.answer}
                                     isOpen={openIndex === i}
                                     onClick={() => handleAccordionClick(i)}
                                 />
