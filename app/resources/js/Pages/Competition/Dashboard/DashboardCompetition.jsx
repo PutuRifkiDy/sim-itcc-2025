@@ -12,6 +12,8 @@ function DashboardCompetition() {
     const competitions = usePage().props.competitions;
     const { flash_message } = usePage().props;
 
+    console.log(show_registration_competitions);
+
     useEffect(() => {
         AOS.init({
             duration: 800,
@@ -29,6 +31,7 @@ function DashboardCompetition() {
             toast[flash_message.type || 'success'](flash_message.message);
         }
     }, [flash_message]);
+
     return (
         <>
             <div className="py-5">
@@ -42,7 +45,7 @@ function DashboardCompetition() {
                                     key={index}
                                 >
                                     <div className="flex justify-center items-center ">
-                                        <img src={`${window.location.origin}/assets/images/image_temporary_competition.png`} className="w-[200px] h-[195px]" alt="" />
+                                        <img src={`${window.location.origin}/${competition_registration.competitions.icon_path}`} className="w-[200px] h-[195px]" alt="" />
                                     </div>
                                     <div className="flex flex-col">
                                         <p className="text-[#5E5E5E] font-normal text-[14px] tracking-[0.03em] text-start dark:text-gray-400">Competition</p>

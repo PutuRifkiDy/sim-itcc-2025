@@ -152,12 +152,12 @@ function Competitions({ ...props }) {
                                 data-aos-delay="300"
                             >
                                 {competitions.is_team == false ? (
-                                    <Button type="submit" variant="blue" size="lg" className="rounded-lg text-[18px]" onClick={onHandleSubmit}>
+                                    <Button type="submit" variant="blue" size="lg" className="rounded-lg text-[18px] py-6 px-5" onClick={onHandleSubmit}>
                                         Register
                                     </Button>
                                 ) : (
                                     <Button asChild variant="blue" size="lg" className="rounded-lg text-[18px]">
-                                        <Link href={route('register.competition.show', competitions.slug)}>
+                                        <Link href={route('register.competition.show', competitions.slug)} className="py-6 px-5">
                                             Register
                                         </Link>
                                     </Button>
@@ -575,8 +575,8 @@ function Competitions({ ...props }) {
                         {competitions.competition_content.map((content, idx) =>
                             content.competition_content_faq.map((item, i) => (
                                 <Accordion
-                                    heading={item.answer}
-                                    description={item.question}
+                                    heading={item.question}
+                                    description={item.answer}
                                     isOpen={openIndex === i}
                                     onClick={() => handleAccordionClick(i)}
                                 />
