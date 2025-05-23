@@ -8,8 +8,6 @@ import Ticket from "./Partials/Ticket";
 import { toast } from "sonner";
 import { Input } from "@/Components/ui/input";
 import Modal from "@/Components/Modal";
-import * as AOS from 'aos';
-import 'aos/dist/aos.css';
 
 function DashboardSemnas() {
     const event_registrations = usePage().props.event_registrations;
@@ -22,17 +20,6 @@ function DashboardSemnas() {
     const [pendingPaymentValue, setPendingPaymentValue] = useState(null);
     const [prevPaymentValue, setPrevPaymentValue] = useState(paymentValue);
 
-    useEffect(() => {
-        AOS.init({
-            duration: 800,
-            once: false,
-            easing: 'ease-out-cubic',
-            offset: 100,
-            delay: 0,
-            mirror: false,
-            anchorPlacement: 'top-bottom',
-        });
-    }, []);
 
     const closeModal = () => {
         setShowModal(false);

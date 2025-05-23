@@ -1,31 +1,13 @@
 import { Card } from '@/Components/ui/card';
 import DashboardLayout from '@/Layouts/DashboardLayout';
 import { Link, usePage } from '@inertiajs/react';
-import { useEffect, useRef } from "react";
-import { toast } from "sonner";
-import * as AOS from 'aos';
-import 'aos/dist/aos.css';
-
 
 export default function Dashboard() {
     const competitions = usePage().props.competitions;
-
-    useEffect(() => {
-        AOS.init({
-            duration: 800,
-            once: false,
-            easing: 'ease-out-cubic',
-            offset: 100,
-            delay: 0,
-            mirror: false,
-            anchorPlacement: 'top-bottom',
-        });
-    }, []);
-
     return (
         <div className="py-12">
             <div className="mx-auto w-full flex flex-col gap-8">
-                <div className="flex flex-row items-center gap-7" data-aos="fade-up">
+                <div className="flex flex-row items-center gap-7">
                     <img src={`${window.location.origin}/assets/images/image_for_auth.png`} className="md:w-[46px] w-[50px] h-auto md:h-auto" alt="" />
                     <div className='border-2 border-gray-300 dark:border-gray-100 dark:border-[1px] px-5 py-3 w-full rounded-[5px] bg-white dark:bg-[#0F114C]'>
                         <p className='text-[17px]'>
@@ -42,7 +24,7 @@ export default function Dashboard() {
                     </div>
                 </div>
 
-                <div className="flex flex-row items-center gap-7" data-aos="fade-up"    data-aos-delay="100">
+                <div className="flex flex-row items-center gap-7"    >
                     <img src={`${window.location.origin}/assets/images/image_for_auth.png`} className="md:w-[46px] w-[50px] h-auto md:h-auto" alt="" />
                     <div className='border-2 border-gray-300 dark:border-gray-100 dark:border-[1px] px-5 py-3 w-full rounded-[5px] bg-white dark:bg-[#0F114C]'>
                         <p className='text-[17px]'>
@@ -60,7 +42,7 @@ export default function Dashboard() {
                     </div>
                 </div>
 
-                <div className="flex flex-row items-center gap-7" data-aos="fade-up" data-aos-delay="200">
+                <div className="flex flex-row items-center gap-7" >
                     <img src={`${window.location.origin}/assets/images/image_for_auth.png`} className="md:w-[46px] w-[50px] h-auto md:h-auto" alt="" />
                     <div className='border-2 border-gray-300 dark:border-gray-100 dark:border-[1px] px-5 py-3 w-full rounded-[5px] bg-white dark:bg-[#0F114C]'>
                         <p className='text-[17px]'>
@@ -81,7 +63,7 @@ export default function Dashboard() {
                     </div>
                 </div>
 
-                <div className="flex flex-row items-center gap-7" data-aos="fade-up" data-aos-delay="300">
+                <div className="flex flex-row items-center gap-7" >
                     <img src={`${window.location.origin}/assets/images/image_for_auth.png`} className="md:w-[46px] w-[50px] h-auto md:h-auto" alt="" />
                     <div className='border-2 border-gray-300 dark:border-gray-100 dark:border-[1px] px-5 py-3 w-full rounded-[5px] bg-white dark:bg-[#0F114C]'>
                         <p className='text-[17px]'>
@@ -102,7 +84,7 @@ export default function Dashboard() {
                     </div>
                 </div>
 
-                <div className="flex flex-row items-center gap-7" data-aos="fade-up" data-aos-delay="400">
+                <div className="flex flex-row items-center gap-7" >
                     <img src={`${window.location.origin}/assets/images/image_for_auth.png`} className="md:w-[46px] w-[50px] h-auto md:h-auto" alt="" />
                     <div className='border-2 border-gray-300 dark:border-gray-100 dark:border-[1px] px-5 py-3 w-full rounded-[5px] bg-white dark:bg-[#0F114C]'>
                         <p className='text-[17px]'>
@@ -118,7 +100,7 @@ export default function Dashboard() {
                     </div>
                 </div>
 
-                <div className="flex flex-row items-center gap-7" data-aos="fade-up" data-aos-delay="500">
+                <div className="flex flex-row items-center gap-7" >
                     <img src={`${window.location.origin}/assets/images/image_for_auth.png`} className="md:w-[46px] w-[50px] h-auto md:h-auto" alt="" />
                     <div className='border-2 border-gray-300 dark:border-gray-100 dark:border-[1px] px-5 py-3 w-full rounded-[5px] bg-white dark:bg-[#0F114C]'>
                         <p className='text-[17px]'>

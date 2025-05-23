@@ -86,7 +86,6 @@ function Payment({ event_registrations, payment_methods, className, payment_valu
         }))
         .concat(additionalPaymentMethods.slice(payment_methods.length));
     const payment_method = combinedPaymentMethodsWithAdditionalContent.find((method) => method.id == payment_value);
-    console.log('cek payment method', payment_method);
     return (
         <>
             <section className={className}>

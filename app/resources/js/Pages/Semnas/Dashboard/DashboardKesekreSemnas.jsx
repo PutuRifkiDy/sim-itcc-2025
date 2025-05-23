@@ -17,8 +17,6 @@ import { Link, useForm, usePage } from "@inertiajs/react";
 import { use, useEffect, useRef, useState } from "react";
 import { PiArrowLeft, PiArrowRight, PiArrowsClockwise, PiArrowsDownUp } from "react-icons/pi";
 import { toast } from "sonner";
-import * as AOS from 'aos';
-import 'aos/dist/aos.css';
 
 function DashboardKesekreSemnas({ ...props }) {
     const count_verified = usePage().props.count_verified;
@@ -142,17 +140,6 @@ function DashboardKesekreSemnas({ ...props }) {
         });
     };
 
-    useEffect(() => {
-        AOS.init({
-            duration: 800,
-            once: false,
-            easing: 'ease-out-cubic',
-            offset: 100,
-            delay: 0,
-            mirror: false,
-            anchorPlacement: 'top-bottom',
-        });
-    }, []);
 
     return (
         <>
@@ -162,7 +149,7 @@ function DashboardKesekreSemnas({ ...props }) {
 
                     <div className="gap-5 grid md:grid-cols-4 grid-cols-1">
                         {/* ada 3 div untuk count requested, pending, sama rejected*/}
-                        <div className="border-2 border-[#E4F0F8] flex items-center flex-row gap-10 py-5 px-5 rounded-xl" data-aos="fade-up">
+                        <div className="border-2 border-[#E4F0F8] flex items-center flex-row gap-10 py-5 px-5 rounded-xl">
                             {/* start icon */}
                             <div className="flex justify-center items-center p-4 rounded-2xl bg-[#718EBF]/40">
                                 <PaperAirplaneIcon className="text-[#718EBF] w-6 h-6" />
@@ -173,7 +160,7 @@ function DashboardKesekreSemnas({ ...props }) {
                             </div>
 
                         </div>
-                        <div className="border-2 border-[#E4F0F8] flex items-center flex-row gap-10 py-5 px-5 rounded-xl" data-aos="fade-up" data-aos-delay="100">
+                        <div className="border-2 border-[#E4F0F8] flex items-center flex-row gap-10 py-5 px-5 rounded-xl" >
                             {/* start icon */}
                             <div className="flex justify-center items-center p-4 rounded-2xl bg-[#FFC300]/20">
                                 <ClockIcon className="text-[#FFC300] w-6 h-6" />
@@ -184,7 +171,7 @@ function DashboardKesekreSemnas({ ...props }) {
                             </div>
 
                         </div>
-                        <div className="border-2 border-[#E4F0F8] flex items-center flex-row gap-10 py-5 px-5 rounded-xl" data-aos="fade-up" data-aos-delay="200">
+                        <div className="border-2 border-[#E4F0F8] flex items-center flex-row gap-10 py-5 px-5 rounded-xl" >
                             {/* start icon */}
                             <div className="flex justify-center items-center p-4 rounded-2xl bg-[#4DE45C]/20">
                                 <CheckBadgeIcon className="text-[#4DE45C] w-6 h-6" />
@@ -195,7 +182,7 @@ function DashboardKesekreSemnas({ ...props }) {
                             </div>
 
                         </div>
-                        <div className="border-2 border-[#E4F0F8] flex items-center flex-row gap-10 py-5 px-5 rounded-xl" data-aos="fade-up" data-aos-delay="300">
+                        <div className="border-2 border-[#E4F0F8] flex items-center flex-row gap-10 py-5 px-5 rounded-xl" >
                             {/* start icon */}
                             <div className="flex justify-center items-center p-4 rounded-2xl bg-[#E82323]/20">
                                 <ArchiveBoxXMarkIcon className="text-[#E82323] w-6 h-6" />
@@ -214,10 +201,10 @@ function DashboardKesekreSemnas({ ...props }) {
                                 placeholder="Search"
                                 value={params?.search}
                                 onChange={(e) => setParams((prev) => ({ ...prev, search: e.target.value }))}
-                                data-aos="fade-up"
+                            
                             />
                             <Select value={params?.load} onValueChange={(e) => setParams({ ...params, load: e })}>
-                                <SelectTrigger className="w-full h-9 sm:w-24 dark:bg-[#0F114C] dark:border-white dark:text-white" data-aos="fade-up" data-aos-delay="100">
+                                <SelectTrigger className="w-full h-9 sm:w-24 dark:bg-[#0F114C] dark:border-white dark:text-white" >
                                     <SelectValue placeholder="Load" />
                                 </SelectTrigger>
                                 <SelectContent>
@@ -232,7 +219,7 @@ function DashboardKesekreSemnas({ ...props }) {
                                 value={params?.payment_status}
                                 onValueChange={(e) => setParams({ ...params, payment_status: e })}
                             >
-                                <SelectTrigger className="w-full h-9 sm:w-40 dark:bg-[#0F114C] dark:border-white dark:text-white" data-aos="fade-up" data-aos-delay="200">
+                                <SelectTrigger className="w-full h-9 sm:w-40 dark:bg-[#0F114C] dark:border-white dark:text-white" >
                                     <SelectValue placeholder="Filter by Status" />
                                 </SelectTrigger>
                                 <SelectContent>
@@ -243,19 +230,19 @@ function DashboardKesekreSemnas({ ...props }) {
                                     ))}
                                 </SelectContent>
                             </Select>
-                            <Button className="dark:bg-[#0F114C] dark:border-white" variant="outline" onClick={() => setParams(props.state)} data-aos="fade-up" data-aos-delay="300">
+                            <Button className="dark:bg-[#0F114C] dark:border-white" variant="outline" onClick={() => setParams(props.state)} >
                                 <PiArrowsClockwise className="mr-2 h-5 w-5" />
                                 Clear Filter
                             </Button>
                         </div>
-                        <Button variant="blue" type="button" onClick={handleExportCSV} className="dark:bg-[#0F114C] dark:border-white dark:border" data-aos="fade-up" data-aos-delay="400">
+                        <Button variant="blue" type="button" onClick={handleExportCSV} className="dark:bg-[#0F114C] dark:border-white dark:border" >
                             Export CSV
                         </Button>
                     </div>
 
 
 
-                    <Card className="dark:bg-[#0F114C] dark:border dark:border-white rounded-xl" data-aos="fade-up" data-aos-delay="500">
+                    <Card className="dark:bg-[#0F114C] dark:border dark:border-white rounded-xl" data-aos="fade-up" >
                         <CardContent className="overflow-hidden">
                             <div className="my-8">
                                 <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-5 lg:-mx-8">
