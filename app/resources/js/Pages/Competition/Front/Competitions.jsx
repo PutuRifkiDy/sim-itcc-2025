@@ -644,7 +644,7 @@ function Competitions({ ...props }) {
                                         </a>
                                         <a href={`https://wa.me/${contact.wa_number}`} className="flex flex-row items-center gap-2 text-[16px] text-[#0F114C] dark:text-gray-400" target='_blank'>
                                             <WhatsappIcon />
-                                            +{contact.wa_number ?? ''}
+                                            {contact.wa_number ?? ''}
                                         </a>
                                     </div>
                                 </div>
