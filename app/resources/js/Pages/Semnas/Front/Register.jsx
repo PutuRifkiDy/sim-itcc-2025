@@ -101,7 +101,7 @@ function Register({ ...props }) {
                                         </div>
                                     </div>
                                     <div className="flex flex-col items-center w-full gap-y-4 py-2 mt-5">
-                                        <Button className="w-full rounded-lg py-6 bg-white hover:bg-[#0F114C] border-2 border-[#0F114C] transition-all duration-300 ease-in-out text-[16px] dark:bg-[#040529]" asChild size="lg">
+                                        <Button className="w-full rounded-lg py-6 bg-white hover:bg-[#0F114C] border-2 border-[#0F114C] transition-all duration-300 ease-in-out text-[16px] dark:bg-[#040529] text-[#0F114C]" asChild size="lg">
                                             <Link href={route('event.front.show', ['seminar-nasional-teknologi-informasi-of'])} className="hover:text-white text-[#0F114C] dark:text-white">
                                                 Back
                                             </Link>
