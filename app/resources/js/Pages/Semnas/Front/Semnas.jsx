@@ -121,8 +121,6 @@ function Semnas({ ...props }) {
                                 data-aos="fade-up"
                                 data-aos-delay="300"
                             >
-
-
                                 <Button asChild className="rounded-lg text-[18px]" variant="blue">
                                     <Link
                                         href={route('register.semnas.show')}
