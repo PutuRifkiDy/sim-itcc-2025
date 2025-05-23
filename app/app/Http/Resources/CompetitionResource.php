@@ -26,6 +26,7 @@ class CompetitionResource extends JsonResource
             'is_team' => $this->is_team,
             'is_need_submission' => $this->is_need_submission,
             'is_open_regis' => $this->is_open_regis,
+            'icon_path' => $this->icon_path,
             'competition_content' => CompetitionContentResource::collection($this->competition_content),
             'competition_category' => new CompetitionCategoryResource($this->competition_category),
             'competition_prices' => CompetitionPriceResource::collection($this->competition_prices),

@@ -21,7 +21,7 @@ class CompetitionsSeeder extends Seeder
                 'is_team' => true,
                 'is_need_submission' => true,
                 'is_open_regis' => true,
-                'icon_path' => null,
+                'icon_path' => "assets/images/competition/ideBisnisLogo.png",
                 'end_submission' => '2025-04-30 15:59:59.000'
             ],
             [
@@ -33,7 +33,7 @@ class CompetitionsSeeder extends Seeder
                 'is_team' => false,
                 'is_need_submission' => false,
                 'is_open_regis' => false,
-                'icon_path' => null,
+                'icon_path' => "assets/images/competition/mobileAppsLogo.png",
                 'end_submission' => '2025-04-30 15:59:59.000'
             ],
             [
@@ -45,7 +45,7 @@ class CompetitionsSeeder extends Seeder
                 'is_team' => false,
                 'is_need_submission' => true,
                 'is_open_regis' => true,
-                'icon_path' => null,
+                'icon_path' => "assets/images/competition/webDesignLogo.png",
                 'end_submission' => '2025-04-30 15:59:59.000'
             ],
             [
@@ -57,7 +57,7 @@ class CompetitionsSeeder extends Seeder
                 'is_team' => false,
                 'is_need_submission' => true,
                 'is_open_regis' => true,
-                'icon_path' => null,
+                'icon_path' => "assets/images/competition/webDesignLogo.png",
                 'end_submission' => '2025-04-30 15:59:59.000'
             ],
             [
@@ -69,7 +69,7 @@ class CompetitionsSeeder extends Seeder
                 'is_team' => false,
                 'is_need_submission' => false,
                 'is_open_regis' => true,
-                'icon_path' => null,
+                'icon_path' => "assets/images/competition/pemrogramanLogo.png",
                 'end_submission' => '2025-04-30 15:59:59.000'
             ],
             [
@@ -81,7 +81,7 @@ class CompetitionsSeeder extends Seeder
                 'is_team' => false,
                 'is_need_submission' => false,
                 'is_open_regis' => true,
-                'icon_path' => null,
+                'icon_path' => "assets/images/competition/kgpLogo.png",
                 'end_submission' => '2025-04-30 15:59:59.000'
             ],
             [
@@ -93,7 +93,7 @@ class CompetitionsSeeder extends Seeder
                 'is_team' => true,
                 'is_need_submission' => false,
                 'is_open_regis' => true,
-                'icon_path' => null,
+                'icon_path' => "assets/images/competition/lccLogo.png",
                 'end_submission' => '2025-04-30 15:59:59.000'
             ],
             [
@@ -105,7 +105,7 @@ class CompetitionsSeeder extends Seeder
                 'is_team' => true,
                 'is_need_submission' => true,
                 'is_open_regis' => true,
-                'icon_path' => null,
+                'icon_path' => "assets/images/competition/UIUXLogo.png",
                 'end_submission' => '2025-04-30 15:59:59.000'
             ],
             [
@@ -117,7 +117,7 @@ class CompetitionsSeeder extends Seeder
                 'is_team' => true,
                 'is_need_submission' => true,
                 'is_open_regis' => true,
-                'icon_path' => null,
+                'icon_path' => "assets/images/competition/UIUXLogo.png",
                 'end_submission' => '2025-04-30 15:59:59.000'
             ],
             [
@@ -129,7 +129,7 @@ class CompetitionsSeeder extends Seeder
                 'is_team' => false,
                 'is_need_submission' => false,
                 'is_open_regis' => true,
-                'icon_path' => null,
+                'icon_path' => "assets/images/competition/kgpLogo.png",
                 'end_submission' => '2025-04-30 15:59:59.000'
             ],
             [
@@ -141,7 +141,7 @@ class CompetitionsSeeder extends Seeder
                 'is_team' => false,
                 'is_need_submission' => false,
                 'is_open_regis' => true,
-                'icon_path' => null,
+                'icon_path' => "assets/images/competition/kgpLogo.png",
                 'end_submission' => '2025-04-30 15:59:59.000'
             ],
         ];
