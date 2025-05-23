@@ -127,7 +127,7 @@ function About({ user_competition_registrations, className }) {
                                 <p className="font-bold text-[14px] tracking-[0.03em] text-[#5E5E5E] dark:text-gray-400">Contact Person {idx + 1}</p>
                                 <div className="text-[#0f114c] dark:text-white flex flex-row items-center gap-2">
                                     <WhatsappIcon />
-                                    <a href={`https://wa.me/${content_contact.wa_number}`} className="text-[13px] tracking-[0.03em] dark:text-[#55b1d7]">+{content_contact.wa_number}</a>
+                                    <a href={`https://wa.me/${content_contact.wa_number}`} className="text-[13px] tracking-[0.03em] dark:text-[#55b1d7]">{content_contact.wa_number}</a>
                                 </div>
                                 <div className="text-[#0f114c] dark:text-white flex flex-row items-center gap-2">
                                     <LineIcon />
