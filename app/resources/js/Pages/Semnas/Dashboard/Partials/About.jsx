@@ -68,13 +68,13 @@ function About({ event_registrations, className }) {
                         {event_content.event_content_contact.map((content_contact, idx) => (
                             <div className="flex flex-col gap-2" key={idx}>
                                 <p className="font-bold text-[12px] tracking-[0.03em] text-[#5E5E5E] dark:text-gray-400">Contact Person {idx + 1}</p>
-                                <div className="flex flex-row items-center text-[#0f114c] dark:text-white">
+                                <div className="flex flex-row items-center text-[#0f114c] dark:text-white gap-2">
                                     <WhatsappIcon />
-                                    <p className="text-[#0f114c] text-[13px] tracking-[0.03em] dark:text-[#55b1d7]">{content_contact.wa_number}</p>
+                                    <a href={`https://wa.me/${content_contact.wa_number}`} target="_blank" className="text-[#0f114c] text-[13px] tracking-[0.03em] dark:text-[#55b1d7]">+{content_contact.wa_number}</a>
                                 </div>
-                                <div className="flex flex-row items-center text-[#0f114c] dark:text-white">
+                                <div className="flex flex-row items-center text-[#0f114c] dark:text-white gap-2">
                                     <LineIcon />
-                                    <p className="text-[#0f114c] text-[13px] tracking-[0.03em] dark:text-[#55b1d7]">{content_contact.id_line}</p>
+                                    <a href={`https://line.me/ti/p/${content_contact.id_line}`} target="_blank" className="text-[#0f114c] text-[13px] tracking-[0.03em] dark:text-[#55b1d7]">{content_contact.id_line}</a>
                                 </div>
                             </div>
                         ))}
