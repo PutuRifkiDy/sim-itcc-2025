@@ -90,6 +90,11 @@ function Semnas({ ...props }) {
                             >
                                 {events.name}
                             </span>
+                            <p className='text-[20px] mb-8'
+                                data-aos="fade-up"
+                                data-aos-delay="100">
+                                Registration Fee <span className='font-bold'>{formatMoney(current_batch != null ? current_batch.price : 0)}</span>
+                            </p>
                             <div className="h-4" />
 
                             <div
@@ -331,8 +336,8 @@ function Semnas({ ...props }) {
                         OUR SPEAKER
                     </h1>
                     <p className="mt-6 max-w-[653px] text-[#5E5E5E] text-center font-[Rubik] text-[16px] font-normal leading-[28.8px] tracking-[0.32px] dark:text-gray-500"
-                    data-aos="fade-up"
-                    data-aos-delay="100">
+                        data-aos="fade-up"
+                        data-aos-delay="100">
                         Get inspired by our amazing speakers! Learn from experts, leaders, and
                         changemakers as they share insights, stories, and experiences to spark
                         your growth.

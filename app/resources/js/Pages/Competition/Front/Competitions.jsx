@@ -120,6 +120,11 @@ function Competitions({ ...props }) {
                             >
                                 {competitions.name}
                             </span>
+                            <p className='text-[20px] mb-8'
+                                data-aos="fade-up"
+                                data-aos-delay="100">
+                                Registration Fee <span className='font-bold'>{formatMoney(current_batch != null ? current_batch.price : 0)}</span>
+                            </p>
                             <div className="h-4" />
 
                             <div
