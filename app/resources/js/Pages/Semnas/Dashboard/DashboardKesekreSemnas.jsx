@@ -242,7 +242,7 @@ function DashboardKesekreSemnas({ ...props }) {
 
 
 
-                    <Card className="dark:bg-[#0F114C] dark:border dark:border-white rounded-xl" data-aos="fade-up" >
+                    <Card className="dark:bg-[#0F114C] dark:border dark:border-white rounded-xl">
                         <CardContent className="overflow-hidden">
                             <div className="my-8">
                                 <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-5 lg:-mx-8">
