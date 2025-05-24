@@ -28,18 +28,20 @@ function ErrorHandling({ status }) {
         <>
             <Head title={errorMessages.title} />
 
-            <div className="flex flex-col items-center justify-center py-20">
-                {iconForErrorMessage(errorMessages.status)}
-                <h1 className="font-bold text-[35px] text-[#0F114C] dark:text-white">
+            <div className="flex flex-col items-center justify-center py-20 md:px-0 px-5">
+
+                    {iconForErrorMessage(errorMessages.status)}
+
+                <h1 className="font-bold text-[35px] text-[#0F114C] dark:text-white text-center">
                     {errorMessages.title}
                 </h1>
-                <p className="text-[#3A3A3A] text-xl dark:text-white">
+                <p className="text-[#3A3A3A] text-xl dark:text-white text-center">
                     {errorMessages.description}
                 </p>
                 <Link href={route('welcome')} className="text-white bg-[#0F114C] dark:bg-white dark:text-[#0F114C] px-6 py-3 font-medium my-10 rounded-[5px] text-xl">
                     Back To Home Page
                 </Link>
-                <p className="text-[#A4A3A3] text-xl">© 2025 ITCC 2025. All rights reserved.</p>
+                <p className="text-[#A4A3A3] text-xl text-center">© 2025 ITCC 2025. All rights reserved.</p>
             </div>
         </>
     )
