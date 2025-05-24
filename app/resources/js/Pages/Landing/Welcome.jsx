@@ -19,7 +19,7 @@ export default function Welcome() {
 
         const timer = setTimeout(() => {
             setIsPopupOpen(false);
-        }, 5000);
+        }, 10000);
 
     }, []);
 
