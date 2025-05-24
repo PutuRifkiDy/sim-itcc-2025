@@ -74,43 +74,43 @@ const Competition = () => {
 
     const additionalCompetitions = [
         {
-            image: "assets/images/landing/Backdrop IdeBisnis.png",
+            image: "assets/images/landing/idbis_for_our_compe.png",
             logo: "assets/images/landing/ITCC.png",
         },
         {
-            image: "assets/images/landing/Backdrop Webdesign SMA.png",
+            image: "assets/images/landing/websma_for_our_compe.png",
             logo: "assets/images/landing/ITCC.png",
         },
         {
-            image: "assets/images/landing/Backdrop Webdesign MHS.png",
+            image: "assets/images/landing/webmhs_for_our_compe.png",
             logo: "assets/images/landing/ITCC.png",
         },
         {
-            image: "assets/images/landing/Backdrop Pemrograman.png",
+            image: "assets/images/landing/cp_for_our_compe.png",
             logo: "assets/images/landing/ITCC.png",
         },
         {
-            image: "assets/images/landing/LCC.jpg", // KGP nanti di hapus
+            image: "assets/images/landing/kgpi_for_our_compe.png", // KGP nanti di hapus
             logo: "assets/images/landing/ITCC.png",
         },
         {
-            image: "assets/images/landing/LCC 1.png",
+            image: "assets/images/landing/LCC.jpg",
             logo: "assets/images/landing/ITCC.png",
         },
         {
-            image: "assets/images/landing/Backdrop UIUX MHS.png",
+            image: "assets/images/landing/uiuxmhs_for_our_compe.png",
             logo: "assets/images/landing/ITCC.png",
         },
         {
-            image: "assets/images/landing/Backdrop UIUX SMA.png",
+            image: "assets/images/landing/uiuxsma_for_our_compe.png",
             logo: "assets/images/landing/ITCC.png",
         },
         {
-            image: "assets/images/landing/LCC.jpg", // KGP Beginner
+            image: "assets/images/landing/kgpb_for_our_compe.png", // KGP Beginner
             logo: "assets/images/landing/ITCC.png",
         },
         {
-            image: "assets/images/landing/LCC.jpg", // KGP Intermediate
+            image: "assets/images/landing/kgpi_for_our_compe.png", // KGP Intermediate
             logo: "assets/images/landing/ITCC.png",
         },
     ];
