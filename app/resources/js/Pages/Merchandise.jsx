@@ -148,32 +148,37 @@ function Merchandise({ ...props }) {
                             {merchandise.map((merch, i) => (
                                 <div
                                     key={i}
-                                    className="group relative w-full max-w-md overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-500 hover:shadow-2xl border-2 border-[#0F114C]/50 hover:border-[#0F114C] p-3 h-[500px]"
+                                    className="group relative w-full max-w-md overflow-hidden rounded-2xl bg-white dark:bg-[#040529] shadow-lg transition-all duration-500 hover:shadow-2xl border-2 border-[#0F114C]/50 hover:border-[#0F114C] p-3 h-[500px]"
                                     data-aos="fade-up"
                                     data-aos-delay="100"
                                 >
 
                                     {/* Background Game Image */}
                                     <div
-                                        className="absolute inset-0 m-3 rounded-xl bg-cover bg-center transition-transform duration-500 group-hover:scale-110 bg-gradient-to-r from-[#0F114C]/100 to-[#00658F]"
+                                        className="absolute inset-0 m-3 rounded-xl bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
                                     />
 
                                     {/* Static Dark Overlay for Mobile View Only */}
                                     <div className="absolute inset-0 rounded-xl bg-black/60 block md:hidden" />
 
                                     {/* Dark Overlay (only on desktop hover) */}
-                                    <div className="absolute inset-0 rounded-xl bg-gradient-to-t from-black/90 via-black/70 to-transparent opacity-0 transition-opacity duration-500 hidden md:block group-hover:opacity-100" />
+                                    <div className="absolute inset-0 rounded-xl bg-gradient-to-t from-[#0F114C]/90 via-[#0F114C]/80 to-transparent opacity-0 transition-opacity duration-500 hidden md:block group-hover:opacity-100" />
 
                                     {/* Content Container */}
                                     <div className="relative h-full w-full flex flex-col items-center justify-center">
 
                                         {/* Game Logo */}
-                                        <div className="absolute z-20 -top-1 left-1/2 -translate-x-1/2 md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2">
-                                            <div className="flex justify-center items-center rounded-full p-8 transition-all duration-500 md:group-hover:-translate-y-[140%]">
+                                        <div className="absolute z-20 -top-1 left-1/2 -translate-x-1/2 md:top-[26rem] md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2">
+                                            <div className="flex justify-center items-center rounded-full p-8 transition-all duration-500 md:group-hover:-translate-y-[260%]">
                                                 <img
-                                                    src="assets/images/landing/ITCC.png"
-                                                    alt="text"
-                                                    className="h-42 w-auto object-contain transition-all duration-500 md:group-hover:scale-50"
+                                                    src="assets/images/about/ITCCLogo.png"
+                                                    alt="text1"
+                                                    className="h-42 w-auto object-contain transition-all duration-500 md:group-hover:scale-75  dark:block hidden"
+                                                />
+                                                <img
+                                                    src="assets/images/image_for_icon_logo_itcc.png"
+                                                    alt="text2"
+                                                    className="h-42 w-auto object-contain transition-all duration-500 md:group-hover:scale-75 dark:hidden"
                                                 />
                                             </div>
                                         </div>
