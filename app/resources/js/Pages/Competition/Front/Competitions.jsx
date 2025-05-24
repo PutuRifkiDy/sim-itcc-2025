@@ -77,6 +77,70 @@ function Competitions({ ...props }) {
         });
     }, []);
 
+    const landing_image = [
+        {
+            id: 1,
+            image1: '/assets/images/competition/idbis_landing1.png',
+            image2: '/assets/images/competition/idbis_landing2.png',
+            image3: '/assets/images/competition/idbis_landing3.png',
+        },
+        {
+            id: 3,
+            image1: '/assets/images/competition/webd_sma_landing1.png',
+            image2: '/assets/images/competition/webd_sma_landing2.png',
+            image3: '/assets/images/competition/webd_sma_landing3.png',
+        },
+        {
+            id: 4,
+            image1: '/assets/images/competition/webd_mhs_landing1.png',
+            image2: '/assets/images/competition/webd_mhs_landing2.png',
+            image3: '/assets/images/competition/webd_mhs_landing3.png',
+        },
+        {
+            id: 5,
+            image1: '/assets/images/competition/cp_landing1.png',
+            image2: '/assets/images/competition/cp_landing2.png',
+            image3: '/assets/images/competition/cp_landing3.png',
+        },
+        {
+            id: 6,
+            image1: '/assets/images/competition/cp_landing1.png',
+            image2: '/assets/images/competition/cp_landing2.png',
+            image3: '/assets/images/competition/cp_landing3.png',
+        },
+        {
+            id: 7,
+            image1: '/assets/images/competition/lcc_landing1.png',
+            image2: '/assets/images/competition/lcc_landing2.png',
+            image3: '/assets/images/competition/lcc_landing3.png',
+        },
+        {
+            id: 8,
+            image1: '/assets/images/competition/uiux_mhs_landing1.png',
+            image2: '/assets/images/competition/uiux_mhs_landing2.png',
+            image3: '/assets/images/competition/uiux_mhs_landing3.png',
+        },
+        {
+            id: 9,
+            image1: '/assets/images/competition/uiux_sma_landing1.png',
+            image2: '/assets/images/competition/uiux_sma_landing2.png',
+            image3: '/assets/images/competition/uiux_sma_landing3.png',
+        },
+        {
+            id: 10,
+            image1: '/assets/images/competition/cp_landing1.png',
+            image2: '/assets/images/competition/cp_landing2.png',
+            image3: '/assets/images/competition/cp_landing3.png',
+        }, 
+        {
+            id: 11,
+            image1: '/assets/images/competition/cp_landing1.png',
+            image2: '/assets/images/competition/cp_landing2.png',
+            image3: '/assets/images/competition/cp_landing3.png',
+        }
+    ]
+
+    const selectedImage = landing_image.find((item) => item.id === competitions.id);
     return (
         <>
             {/* start home */}
@@ -120,11 +184,20 @@ function Competitions({ ...props }) {
                             >
                                 {competitions.name}
                             </span>
-                            <p className='text-[20px] mb-8'
-                                data-aos="fade-up"
-                                data-aos-delay="100">
-                                Registration Fee <span className='font-bold'>{formatMoney(current_batch != null ? current_batch.price : 0)}</span>
-                            </p>
+                            {current_batch != null ? (
+                                <p className='text-[20px] mb-8'
+                                    data-aos="fade-up"
+                                    data-aos-delay="100">
+                                    Registration Fee <span className='font-bold'>{formatMoney(current_batch.price)}</span>
+                                </p>
+                                ) : (
+                                <p className='text-[20px] mb-8'
+                                    data-aos="fade-up"
+                                    data-aos-delay="100">
+                                    Registration has closed
+                                </p>
+
+                                )}
                             <div className="h-4" />
 
                             <div
@@ -259,26 +332,22 @@ function Competitions({ ...props }) {
                             <div className="absolute right-64 top-40 z-40">
                                 <SideRightDotIcon />
                             </div>
+                            
                             <div className="absolute right-0 top-12 z-40" data-aos="fade-up" data-aos-delay="100">
-                                <img
-                                    src={`${window.location.origin}/assets/images/landing/right-side-index-3.png`}
-                                    className="h-[324.48px] w-[290.2px]"
-                                    alt=""
-                                />
+                                <img 
+                                src={`${window.location.origin}${selectedImage.image1}`} 
+                                className="h-[324.48px] w-[290.2px]" 
+                                alt="" />
                             </div>
                             <div className="absolute right-[19rem] top-12 z-40" data-aos="fade-up" data-aos-delay="200">
-                                <img
-                                    src={`${window.location.origin}/assets/images/landing/right-side-index-2.png`}
-                                    className="h-[150.95px] w-[268.24px]"
-                                    alt=""
-                                />
+                                <img 
+                                src={`${window.location.origin}${selectedImage.image2}`} className="h-[150.95px] w-[268.24px]" 
+                                alt="" />
                             </div>
                             <div className="absolute right-[19rem] top-52 z-40" data-aos="fade-up" data-aos-delay="300">
-                                <img
-                                    src={`${window.location.origin}/assets/images/landing/right-side-index-1.png`}
-                                    className="h-[262.78px] w-[193.09px]"
-                                    alt=""
-                                />
+                                <img 
+                                src={`${window.location.origin}${selectedImage.image3}`} className="h-[262.78px] w-[193.09px]" 
+                                alt="" />
                             </div>
                             <div className="absolute right-16 top-96 z-40" data-aos="fade-up" data-aos-delay="400">
                                 <SideRightCircleIcon />
@@ -345,11 +414,6 @@ function Competitions({ ...props }) {
                 <img
                     className="absolute bottom-0 left-0 z-10 w-40 translate-y-5 md:w-80 md:translate-y-10"
                     src={`${window.location.origin}/assets/images/about/leftLine.png`}
-                    alt=""
-                />
-                <img
-                    className="absolute bottom-0 left-0 w-10 md:w-20"
-                    src={`${window.location.origin}/image/about/leftDots.png`}
                     alt=""
                 />
                 <div

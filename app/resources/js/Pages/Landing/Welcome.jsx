@@ -6,7 +6,7 @@ import Merch from "./Partials/Merch";
 import { useEffect, useState } from "react";
 import Modal from "@/Components/Modal";
 import { Button } from "@/Components/ui/button";
-import { SideLeftArrowLeftIcon, SideLeftCrookedCrossIcon, SideRightBlueDotIcon, SideRightCrossIcon, WhiteBlueDotMerchIcon } from "@/Components/IconGuest";
+import { BackGroundCircle, BackGroundCircleDarkMode, SideLeftArrowLeftIcon, SideLeftCrookedCrossIcon, SideRightBlueDotIcon, SideRightCrossIcon, WhiteBlueDotMerchIcon } from "@/Components/IconGuest";
 import { motion } from 'framer-motion';
 import { XMarkIcon } from "@heroicons/react/24/solid";
 import * as AOS from 'aos';
@@ -47,16 +47,22 @@ export default function Welcome() {
                     alt="banner"
                     className="absolute z-0 w-auto object-center rounded-none h-[800px] object-cover hidden md:block top-0"
                 />
-                <img
+                {/* <img
                     src="assets/images/bg_circle_ornamen_side_left.png"
                     alt="banner"
                     className="absolute z-0 rounded-none w-1/2 h-auto object-cover hidden md:block top-0 left-0 opacity-40"
-                />
-                <img
+                /> */}
+                <div className="absolute z-0 rounded-none w-1/2 h-auto object-cover hidden md:block top-0 left-0 opacity-40">
+                    <BackGroundCircleDarkMode/>
+                </div>
+                <div className="absolute z-0 rounded-none w-1/2 h-auto object-cover hidden md:block top-0 left-0 opacity-100 dark:hidden">
+                    <BackGroundCircle/>
+                </div>
+                {/* <img
                     src="assets/images/bg_circle_ornamen_darkmode_sideleft.png"
                     alt="banner"
                     className="absolute z-0 rounded-none w-1/2 h-auto object-cover hidden md:block top-0 left-0 opacity-100 dark:hidden"
-                />
+                /> */}
                 <Button onClick={closeModal} variant="none" className="absolute top-4 right-4 group">
                     <XMarkIcon className="dark:text-white text-[#0F114C] w-6 h-6 font-bold focus-group:font-extrabold" />
                 </Button>
