@@ -13,7 +13,7 @@ export default function Footer({ ...props }) {
                     <div className="flex flex-col gap-5">
                         <h1 className="text-white font-semibold text-[24px]">ITCC 2025</h1>
                         <p className="text-[18px] text-white md:w-[420px] w-full">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ornare cursus sed nunc eget dictum  Sed ornare cursus sed nunc eget dictumd nunc eget dictum  Sed ornare cursus sed nunc eget dictum
+                            Transcending Boundaries: Realizing a Resilent Future With Human-Centric Interlaced Innovations
                         </p>
                         <div className="flex flex-row gap-5">
                             <a href="https://www.instagram.com/itcc_udayana/" target="_blank">
