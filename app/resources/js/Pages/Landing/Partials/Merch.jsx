@@ -38,7 +38,7 @@ export default function Merch() {
                             ITCC 2025 Merchandise
                         </h1>
                         <p className="font-reguler text-[17px] tracking-[0.04em] leading-[1.5em] text-[#121212] md:w-[427px] max-w-[700px] md:text-start text-center dark:text-white" data-aos="fade-up" data-aos-delay="100">
-                            Lorem ipsum dolor sit amet consectetur. Enim sagittis ac quam nunc viverra maecenas semper ullamcorper quis. Facilisi diam tortor bibendum porta.
+                            Level up your style with our official merch! Premium quality, unique designs, and a statement of support — grab yours now and stand out.
                         </p>
                         <div className="flex md:flex-row flex-col md:gap-7 gap-5 justify-center md:justify-start mt-10" data-aos="fade-up" data-aos-delay="100">
                             <Button className="bg-[#0F114C] text-white px-6 py-2 rounded-[10px] font-semibold flex items-center group focus:ring-2 focus:ring-[#0F114C]/80 hover:bg-[#0F114C]/80 focus:transition-all focus:duration-400 focus:ease-in-out" size="lg">
