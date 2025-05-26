@@ -85,10 +85,10 @@ Route::controller(DashboardCompetitionForKesekreController::class)->group(functi
 })->middleware(['auth', 'role:admin']);
 
 Route::controller(DashboardCompetitionForAdminLomba::class)->group(function() {
-    Route::get('dashboard/competition/admin-lomba', 'show_participant')->name('dashboard.competition.admin-lomba.index');
-    Route::get('dashboard/competition/admin-lomba/submission', 'show_submission')->name('dashboard.competition.admin-lomba.submission');
-    Route::post('dashboard/competiiton/admin-lomba/{id}/verif-submission', 'verif_submission')->name('dashboard.competition.admin-lomba.verif-submission');
-    Route::post('dashboard/competition/admin-lomba/{id}/reject-submission', 'reject_submission')->name('dashboard.competition.admin-lomba.reject-submission');
+    Route::get('dashboard/participant/admin-lomba', 'show_participant')->name('dashboard.competition.admin-lomba.index');
+    Route::get('dashboard/submission/admin-lomba', 'show_submission')->name('dashboard.competition.admin-lomba.submission');
+    Route::post('dashboard/admin-lomba/{id}/verif-submission', 'verif_submission')->name('dashboard.competition.admin-lomba.verif-submission');
+    Route::post('dashboard/admin-lomba/{id}/reject-submission', 'reject_submission')->name('dashboard.competition.admin-lomba.reject-submission');
     Route::get('export/competition-submissions', [ExportController::class, 'export_competition_submission'])->name('export.competition-submissions');
     Route::get('export/competition-participants', [ExportController::class, 'export_competition_participant'])->name('export.competition-participants');
 })->middleware(['auth', 'role:admin']);
