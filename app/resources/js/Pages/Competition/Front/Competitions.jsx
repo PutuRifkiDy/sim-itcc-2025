@@ -145,8 +145,13 @@ function Competitions({ ...props }) {
     const selectedImage = landing_image.find((item) => item.id === competitions.id);
     return (
         <>
+            <img
+                src={`${window.location.origin}/assets/images/bg_ornament.png`}
+                alt="banner"
+                className="absolute z-0 w-auto object-center rounded-none h-[800px] object-cover hidden md:block top-0"
+            />
             {/* start home */}
-            <section className="mb-18 mt-28 px-5 md:mt-44 md:px-24 md:pb-24">
+            <section className="mb-18 mt-28 px-5 md:mt-44 md:px-24">
                 <div className="flex flex-col justify-center gap-6 md:flex-row md:justify-between">
                     <div className="flex w-full flex-col">
                         <div className="relative flex flex-col items-start">
@@ -305,7 +310,7 @@ function Competitions({ ...props }) {
                             </div>
 
                             <div className="relative flex flex-col items-center gap-2 md:flex-row md:items-start">
-                                <div className="left-160 top-40 hidden items-center gap-3 md:absolute md:inline-flex">
+                                <div className="left-160 md:top-20 top-40 hidden items-center gap-3 md:absolute md:inline-flex">
                                     <SideLeftArrowLeftIcon />
                                 </div>
                             </div>
@@ -549,7 +554,7 @@ function Competitions({ ...props }) {
                                     >
                                         <div className={`h-3 w-3 rounded-full ${timeline.title == current_periode?.title ? 'bg-green-500' : 'bg-red-500'}`} />
                                         <span className={`font-rubik text-xs font-medium ${timeline.title == current_periode?.title ? 'text-green-700' : 'text-red-700'}`}>
-                                            {timeline.title == current_periode?.title ? 'Available' :  'Not Available'}
+                                            {timeline.title == current_periode?.title ? 'Available' : 'Not Available'}
                                         </span>
                                     </div>
 
