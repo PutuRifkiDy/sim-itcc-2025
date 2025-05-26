@@ -2,9 +2,11 @@
 namespace App\Http\Middleware;
 
 use App\Http\Resources\EventRegistrationResource;
+use App\Http\Resources\MerchandiseResource;
 use App\Http\Resources\NavbarResource;
 use App\Http\Resources\UserSingleResource;
 use App\Models\Competitions;
+use App\Models\Merchandise;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
 use Tighten\Ziggy\Ziggy;
@@ -45,6 +47,10 @@ class HandleInertiaRequests extends Middleware
 
             'competitions'  => fn()  =>  NavbarResource::collection(
                 Competitions::get()
+            ),
+
+            'merchandise' => fn() => MerchandiseResource::collection(
+                Merchandise::select('name', 'slug', 'price', 'image_path', 'description', 'batch_name', 'start_date', 'end_date')->get()
             ),
 
             'ziggy'         => fn()         => [

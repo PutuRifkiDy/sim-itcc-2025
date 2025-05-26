@@ -11,9 +11,12 @@ import { motion } from 'framer-motion';
 import { XMarkIcon } from "@heroicons/react/24/solid";
 import * as AOS from 'aos';
 import 'aos/dist/aos.css';
+import { usePage } from "@inertiajs/react";
 
 export default function Welcome() {
     const [isPopupOpen, setIsPopupOpen] = useState(false);
+    const merchandise = usePage().props.merchandise;
+
     useEffect(() => {
         setIsPopupOpen(true);
 
@@ -119,7 +122,6 @@ export default function Welcome() {
                 </div>
                 <div className="md:flex-row flex-col flex items-center md:justify-evenly justify-center container mx-auto px-4 md:pt-32 pt-10 gap-8 pb-24 relative">
                     <img className="md:w-96 w-60" src="assets/images/about/ITCCLogo.png" alt="ITCC 2025 Logo" data-aos="fade-up" />
-                    <img className="absolute opacity-[180%] " src="assets/images/bg_ornament.png" alt="ITCC 2025 Logo" data-aos="fade-up" />
                     <div className="md:w-[600px] relative">
                         <h2 className="text-[#A5CBD0] text-xl md:text-2xl font-rubik font-bold tracking-[5px] uppercase" data-aos="fade-up" data-aos-delay="100">What is ITCC?</h2>
                         <img className="absolute top-0 right-0 md:w-10 w-6" src="assets/images/about/bluePlus.png" alt="" data-aos="fade-up" data-aos-delay="100" />

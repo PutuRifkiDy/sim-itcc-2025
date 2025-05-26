@@ -2,10 +2,45 @@ import { ArrowRightIcon } from "@/Components/IconGuest";
 import * as AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from "react";
-import { Link } from "@inertiajs/react";
+import React, { useState } from "react";
+import { Link, usePage } from "@inertiajs/react";
 import { Button } from "@/Components/ui/button";
+import { useKeenSlider } from "keen-slider/react"
+import "keen-slider/keen-slider.min.css"
+
+
+// const AdaptiveHeight = (slider) => {
+//     function updateHeight() {
+//         slider.container.style.height =
+//             slider.slides[slider.track.details.rel].offsetHeight + "px"
+//     }
+//     slider.on("created", updateHeight)
+//     slider.on("slideChanged", updateHeight)
+// }
+
+function Arrow(props) {
+    const disabled = props.disabled ? " arrow--disabled" : ""
+    return (
+        <svg
+            onClick={props.onClick}
+            className={`arrow ${props.left ? "arrow--left" : "arrow--right"
+                } ${disabled} ${props.className}`}
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+        >
+            {props.left && (
+                <path d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z" />
+            )}
+            {!props.left && (
+                <path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z" />
+            )}
+        </svg>
+    )
+}
 
 export default function Merch() {
+    const merchandise = usePage().props.merchandise;
+
     useEffect(() => {
         AOS.init({
             duration: 800,
@@ -17,6 +52,52 @@ export default function Merch() {
             anchorPlacement: 'top-bottom',
         });
     }, []);
+
+    const [currentSlide, setCurrentSlide] = React.useState(0)
+    const [loaded, setLoaded] = useState(false)
+    const [sliderRef, instanceRef] = useKeenSlider(
+        {
+            initial: 0,
+            loop: true,
+            slideChanged(s) {
+                setCurrentSlide(s.track.details.rel)
+            },
+            created() {
+                setLoaded(true)
+            },
+        },
+        [
+            (slider) => {
+                let timeout
+                let mouseOver = false
+                function clearNextTimeout() {
+                    clearTimeout(timeout)
+                }
+                function nextTimeout() {
+                    clearTimeout(timeout)
+                    if (mouseOver) return
+                    timeout = setTimeout(() => {
+                        slider.next()
+                    }, 2000)
+                }
+                slider.on("created", () => {
+                    slider.container.addEventListener("mouseover", () => {
+                        mouseOver = true
+                        clearNextTimeout()
+                    })
+                    slider.container.addEventListener("mouseout", () => {
+                        mouseOver = false
+                        nextTimeout()
+                    })
+                    nextTimeout()
+                })
+                slider.on("dragStarted", clearNextTimeout)
+                slider.on("animationEnded", nextTimeout)
+                slider.on("updated", nextTimeout)
+            },
+        ]
+    )
+
     return (
         <>
 
@@ -67,12 +148,39 @@ export default function Merch() {
                         <img src="assets/images/landing/merchBackgroundDarkmode.png" alt="" className="w-full h-auto hidden dark:block" />
 
                         <div className="absolute inset-0 flex items-center justify-center">
-                            <img
-                                src="assets/images/landing/ITCCmerch.png"
-                                className="relative md:w-[556px] w-full md:ml-32 md:mr-16 mr-0 ml-6"
-                                alt="ITCC 2025 Merch"
-                                data-aos="fade-up" data-aos-delay="100"
-                            />
+                            <div ref={sliderRef} className="keen-slider">
+                                {merchandise.map((merch, index) => (
+                                    <div key={index} className={`keen-slider__slide number-slide${index}`}>
+                                        <img
+                                            src="assets/images/landing/ITCCmerch.png" alt="ITCC 2025 Merch"
+                                            className="relative md:w-[556px] w-full md:ml-24 md:mr-16 mr-0 ml-6 z-20"
+                                        />
+                                    </div>
+                                ))}
+                            </div>
+                            {loaded && instanceRef.current && (
+                                <>
+                                    <Arrow
+                                        left
+                                        onClick={(e) =>
+                                            e.stopPropagation() || instanceRef.current?.prev()
+                                        }
+                                        disabled={currentSlide === 0}
+                                        className="w-10 h-10 absolute left-0 fill-[#0f114c]"
+                                    />
+
+                                    <Arrow
+                                        onClick={(e) =>
+                                            e.stopPropagation() || instanceRef.current?.next()
+                                        }
+                                        disabled={
+                                            currentSlide ===
+                                            instanceRef.current.track.details.slides.length - 1
+                                        }
+                                        className="w-10 h-10 fill-[#0f114c]"
+                                    />
+                                </>
+                            )}
                         </div>
                     </div>
                 </div>
