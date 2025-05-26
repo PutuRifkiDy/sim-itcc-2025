@@ -144,38 +144,35 @@ function DashboardAdminLombaSubmission({ ...props }) {
                 <div className="bg-white dark:bg-[#0F114C] p-4 shadow rounded-lg sm:p-8 flex flex-col gap-5 justify-between">
                     {/* start searching */}
 
-                    <div className="gap-5 grid md:grid-cols-4 grid-cols-1">
-                        {/* ada 3 div untuk count requested, pending, sama rejected*/}
-                        <div className="border-2 border-[#E4F0F8] flex items-center flex-row gap-5 py-4 px-10 rounded-xl"  >
+                    <div className="gap-5 grid md:grid-cols-3 grid-cols-1">
+                        <div className="border-2 border-[#E4F0F8] flex items-center flex-row gap-10 py-5 px-5 rounded-xl">
                             {/* start icon */}
-                            <div className="flex justify-center items-center p-4 rounded-2xl bg-[#FFC300]/20">
-                                <ClockIcon className="text-[#FFC300] w-6 h-6" />
+                            <div className="flex justify-center items-center p-4 rounded-2xl bg-[#718EBF]/40">
+                                <ClockIcon className="text-[#718EBF] w-8 h-8" />
                             </div>
                             <div className="flex flex-col gap-1">
-                                <p className="text-[#718EBF] text-[14px] font-normal dark:text-white">Pending</p>
-                                <p className="font-semibold text-[24px] text-[#232323] dark:text-white">{count_pending}</p>
+                                <p className="text-[#3A3A3A]/90 text-[16px] font-medium dark:text-white">Pending</p>
+                                <p className="font-bold text-[24px] text-[#232323] dark:text-white">{count_pending}</p>
                             </div>
 
                         </div>
-                        <div className="border-2 border-[#E4F0F8] flex items-center flex-row gap-5 py-4 px-10 rounded-xl"  >
-                            {/* start icon */}
+                        <div className="border-2 border-[#E4F0F8] flex items-center flex-row gap-10 py-5 px-5 rounded-xl">
                             <div className="flex justify-center items-center p-4 rounded-2xl bg-[#4DE45C]/20">
-                                <CheckBadgeIcon className="text-[#4DE45C] w-6 h-6" />
+                                <CheckBadgeIcon className="text-[#4DE45C] w-8 h-8" />
                             </div>
                             <div className="flex flex-col gap-1">
-                                <p className="text-[#718EBF] text-[14px] font-normal dark:text-white">Verified</p>
-                                <p className="font-semibold text-[24px] text-[#232323] dark:text-white">{count_verified}</p>
+                                <p className="text-[#3A3A3A]/90 text-[16px] font-medium dark:text-white">Verified</p>
+                                <p className="font-bold text-[24px] text-[#232323] dark:text-white">{count_verified}</p>
                             </div>
-
                         </div>
-                        <div className="border-2 border-[#E4F0F8] flex items-center flex-row gap-5 py-4 px-10 rounded-xl"  >
-                            {/* start icon */}
+
+                        <div className="border-2 border-[#E4F0F8] flex items-center flex-row gap-10 py-5 px-5 rounded-xl">
                             <div className="flex justify-center items-center p-4 rounded-2xl bg-[#E82323]/20">
-                                <ArchiveBoxXMarkIcon className="text-[#E82323] w-6 h-6" />
+                                <ArchiveBoxXMarkIcon className="text-[#E82323] w-8 h-8" />
                             </div>
                             <div className="flex flex-col gap-1">
-                                <p className="text-[#718EBF] text-[14px] font-normal dark:text-white">Rejected</p>
-                                <p className="font-semibold text-[24px] text-[#232323] dark:text-white">{count_rejected}</p>
+                                <p className="text-[#3A3A3A]/90 text-[16px] font-medium dark:text-white">Rejected</p>
+                                <p className="font-bold text-[24px] text-[#232323] dark:text-white">{count_rejected}</p>
                             </div>
                         </div>
                     </div>
@@ -187,7 +184,7 @@ function DashboardAdminLombaSubmission({ ...props }) {
                                 placeholder="Search"
                                 value={params?.search}
                                 onChange={(e) => setParams((prev) => ({ ...prev, search: e.target.value }))}
-                                 
+
                             />
                             <Select value={params?.load} onValueChange={(e) => setParams({ ...params, load: e })}>
                                 <SelectTrigger className="w-full h-9 sm:w-24 dark:bg-[#0F114C] dark:border-white dark:text-white"  >
