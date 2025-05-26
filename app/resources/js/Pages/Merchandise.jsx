@@ -80,7 +80,7 @@ function Merchandise({ ...props }) {
                                 repeat: Infinity,
                                 ease: "linear"
                             }}
-                            className="w-full h-full animate-pulse"
+                            className="w-full h-full"
                         >
                             <SideLeftCrookedCrossIcon />
                         </motion.div>

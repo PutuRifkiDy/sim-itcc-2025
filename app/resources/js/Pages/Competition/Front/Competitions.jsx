@@ -29,6 +29,8 @@ function Competitions({ ...props }) {
 
     const competitions = usePage().props.competition;
     const current_batch = usePage().props.current_batch;
+    const current_periode = usePage().props.current_periode;
+    const count_days = usePage().props.count_days;
 
     const handleAccordionClick = (index) => {
         setOpenIndex(openIndex === index ? null : index);
@@ -131,7 +133,7 @@ function Competitions({ ...props }) {
             image1: '/assets/images/competition/cp_landing1.png',
             image2: '/assets/images/competition/cp_landing2.png',
             image3: '/assets/images/competition/cp_landing3.png',
-        }, 
+        },
         {
             id: 11,
             image1: '/assets/images/competition/cp_landing1.png',
@@ -190,32 +192,32 @@ function Competitions({ ...props }) {
                                     data-aos-delay="100">
                                     Registration Fee <span className='font-bold'>{formatMoney(current_batch.price)}</span>
                                 </p>
-                                ) : (
+                            ) : (
                                 <p className='text-[20px] mb-8'
                                     data-aos="fade-up"
                                     data-aos-delay="100">
                                     Registration has closed
                                 </p>
 
-                                )}
-                            <div className="h-4" />
+                            )}
+                            <div className="h-2" />
 
                             <div
-                                className="flex w-full items-center justify-between rounded-[10px] bg-gradient-to-r from-[#0F114C] to-[#00658F] px-4 py-2 md:w-[400px]"
+                                className="flex w-full items-center justify-between rounded-[10px] bg-gradient-to-r from-[#0F114C] to-[#00658F] px-4 py-2 md:w-[500px] gap-5"
                                 data-aos="fade-up"
                                 data-aos-delay="200"
                             >
-                                <div className="flex flex-col items-start">
-                                    <span className="text-[13px] font-bold uppercase tracking-[16%] text-white">
-                                        CLOSING GELOMBANG 1
+                                <div className="flex flex-col gap-2 items-start">
+                                    <span className="text-[16px] font-bold uppercase tracking-[16%] text-white">
+                                        {current_periode?.title ?? 'Coming Soon'}
                                     </span>
                                     <span className="text-[11px] font-bold uppercase tracking-[16%] text-[#E6E6E6]">
-                                        01 MEI - 02 JUNI
+                                        {current_periode?.date_range ?? 'Coming Soon'}
                                     </span>
                                 </div>
 
                                 <div className="flex flex-row items-end gap-2">
-                                    <span className="text-[46px] font-extrabold text-white">10</span>
+                                    <span className="text-[46px] font-extrabold text-white">{count_days}</span>
                                     <div className="flex flex-col gap-0 py-1">
                                         <span className="font-[Roboto] text-[19px] font-semibold text-white">Days</span>
                                         <span className="font-[Roboto] text-[19px] font-semibold text-white">Left</span>
@@ -332,22 +334,22 @@ function Competitions({ ...props }) {
                             <div className="absolute right-64 top-40 z-40">
                                 <SideRightDotIcon />
                             </div>
-                            
+
                             <div className="absolute right-0 top-12 z-40" data-aos="fade-up" data-aos-delay="100">
-                                <img 
-                                src={`${window.location.origin}${selectedImage.image1}`} 
-                                className="h-[324.48px] w-[290.2px]" 
-                                alt="" />
+                                <img
+                                    src={`${window.location.origin}${selectedImage.image1}`}
+                                    className="h-[324.48px] w-[290.2px]"
+                                    alt="" />
                             </div>
                             <div className="absolute right-[19rem] top-12 z-40" data-aos="fade-up" data-aos-delay="200">
-                                <img 
-                                src={`${window.location.origin}${selectedImage.image2}`} className="h-[150.95px] w-[268.24px]" 
-                                alt="" />
+                                <img
+                                    src={`${window.location.origin}${selectedImage.image2}`} className="h-[150.95px] w-[268.24px]"
+                                    alt="" />
                             </div>
                             <div className="absolute right-[19rem] top-52 z-40" data-aos="fade-up" data-aos-delay="300">
-                                <img 
-                                src={`${window.location.origin}${selectedImage.image3}`} className="h-[262.78px] w-[193.09px]" 
-                                alt="" />
+                                <img
+                                    src={`${window.location.origin}${selectedImage.image3}`} className="h-[262.78px] w-[193.09px]"
+                                    alt="" />
                             </div>
                             <div className="absolute right-16 top-96 z-40" data-aos="fade-up" data-aos-delay="400">
                                 <SideRightCircleIcon />
@@ -539,11 +541,16 @@ function Competitions({ ...props }) {
                                 data-aos="fade-up"
                                 data-aos-delay={idx * 100}
                             >
-                                <div className="relative h-max flex-1 flex-shrink-0 rounded-[10px] border border-[var(--Blue-Primary,#0F114C)] bg-white py-4 dark:bg-[#0F114C]">
+                                <div className={`relative h-max flex-1 flex-shrink-0 rounded-[10px] border border-[var(--Blue-Primary,#0F114C)] bg-white py-4 dark:bg-[#0F114C]`}>
                                     {/* Status Label */}
-                                    <div className="absolute right-3 top-3 flex items-center gap-2 rounded-md bg-green-100 px-3 py-1 text-green-700 shadow-sm">
-                                        <div className="h-3 w-3 rounded-full bg-green-500" />
-                                        <span className="font-rubik text-xs font-medium text-gray-600">available</span>
+                                    <div className={`absolute right-3 top-3 flex items-center gap-2 rounded-md px-3 py-1 shadow-sm
+                                        ${timeline.title == current_periode?.title ? 'bg-green-100 text-green-700'
+                                            : 'bg-red-100 text-red-700'}`}
+                                    >
+                                        <div className={`h-3 w-3 rounded-full ${timeline.title == current_periode?.title ? 'bg-green-500' : 'bg-red-500'}`} />
+                                        <span className={`font-rubik text-xs font-medium ${timeline.title == current_periode?.title ? 'text-green-700' : 'text-red-700'}`}>
+                                            {timeline.title == current_periode?.title ? 'Available' :  'Not Available'}
+                                        </span>
                                     </div>
 
                                     {/* Title */}

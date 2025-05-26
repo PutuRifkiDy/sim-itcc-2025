@@ -8,6 +8,8 @@ use App\Http\Requests\TeamRegisterRequest;
 use App\Http\Resources\CompetitionResource;
 use App\Http\Resources\EventResource;
 use App\Http\Resources\MerchandiseResource;
+use App\Models\CompetitionContent;
+use App\Models\CompetitionContentTimeline;
 use App\Models\CompetitionPrices;
 use App\Models\CompetitionRegistrations;
 use App\Models\Competitions;
@@ -17,6 +19,7 @@ use App\Models\Events;
 use App\Models\Merchandise;
 use App\Models\TeamMembers;
 use App\Models\Teams;
+use Carbon\Carbon;
 use Illuminate\Http\RedirectResponse;
 use Inertia\Inertia;
 use Inertia\Response;
@@ -49,9 +52,29 @@ class FrontController extends Controller
                 ->first();
         }
 
+        $get_id_content = CompetitionContent::where('competition_id', $competition->id)
+            ->value('id');
+
+        $current_periode = CompetitionContentTimeline::where('competition_content_id', $get_id_content)
+            ->where('start_date', '<=', now())
+            ->where('end_date', '>=', now())
+            ->first();
+
+        if (! $current_periode) {
+            $current_periode = CompetitionContentTimeline::where('competition_content_id', $get_id_content)
+                ->where('start_date', '>', now())
+                ->orderBy('start_date')
+                ->first();
+        }
+
+        $count_days = (int) Carbon::now()->diffInDays(Carbon::parse( $current_periode?->end_date));
+
+
         return inertia('Competition/Front/Competitions', [
-            'competition'   => fn()   => new CompetitionResource($competition),
-            'current_batch' => $current_batch,
+            'competition'     => fn()     => new CompetitionResource($competition),
+            'current_batch'   => $current_batch,
+            'current_periode' => $current_periode,
+            'count_days'      => $count_days
         ]);
     }
 
@@ -146,11 +169,11 @@ class FrontController extends Controller
     // tampilin form register kalo lombanya berteam
     public function show_register_competition(Competitions $competition): Response
     {
-        $slug = Competitions::where('slug', $competition->slug)->value('slug');
+        $slug             = Competitions::where('slug', $competition->slug)->value('slug');
         $name_competition = Competitions::where('slug', $competition->slug)->value('name');
 
         return inertia(component: 'Competition/Front/Register', props: [
-            'slug' => $slug,
+            'slug'             => $slug,
             'name_competition' => $name_competition,
         ]);
     }
@@ -293,13 +316,13 @@ class FrontController extends Controller
                 'competition_id'    => $competition->id,
                 'team_id'           => $get_data_team->id,
                 'code_registration' => $competition->kode . '-' . '00' . $request->user()->id,
-                'total_payment' => $total_payment ?? 0,
-                'payment_status' => $get_leader_registration->payment_status,
-                'payment_proof' => $get_leader_registration->payment_proof_path,
+                'total_payment'     => $total_payment ?? 0,
+                'payment_status'    => $get_leader_registration->payment_status,
+                'payment_proof'     => $get_leader_registration->payment_proof_path,
             ]);
 
             $team_member = TeamMembers::create([
-                'team_id' => $get_data_team->id,
+                'team_id'                     => $get_data_team->id,
                 'competition_registration_id' => $competition_registration->id,
             ]);
         }
