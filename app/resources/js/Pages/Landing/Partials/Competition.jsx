@@ -156,7 +156,7 @@ const Competition = () => {
                     >
                         <div className="relative w-full h-full group">
                             <img
-                                className="absolute h-full w-full md:object-cover object-right-left transition-transform duration-500 ease-in-out group-hover:scale-125"
+                                className="absolute object-cover object-right h-full w-full transition-transform duration-500 ease-in-out group-hover:scale-125"
                                 src={item.image}
                                 alt={item.name}
                             />
