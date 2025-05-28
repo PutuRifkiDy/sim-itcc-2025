@@ -12,6 +12,39 @@ import 'aos/dist/aos.css';
 function Semnas({ ...props }) {
     const events = usePage().props.event;
     const current_batch = usePage().props.current_batch;
+    const current_periode = usePage().props.current_periode;
+    const remaining_time = usePage().props.remaining_time;
+
+    const [time, setTime] = useState(remaining_time);
+
+    useEffect(() => {
+        if (time.status !== 'active') return;
+
+        const interval = setInterval(() => {
+            setTime(prev => {
+                let totalSeconds = prev.hours * 3600 + prev.minutes * 60 + prev.seconds - 1;
+
+                if (totalSeconds <= 0) {
+                    clearInterval(interval);
+                    return {
+                        status: 'expired',
+                        hours: 0,
+                        minutes: 0,
+                        seconds: 0,
+                    };
+                }
+
+                return {
+                    status: 'active',
+                    hours: Math.floor(totalSeconds / 3600),
+                    minutes: Math.floor((totalSeconds % 3600) / 60),
+                    seconds: totalSeconds % 60,
+                };
+            });
+        }, 1000);
+
+        return () => clearInterval(interval);
+    }, [time.status]);
 
     const [openIndex, setOpenIndex] = useState(null);
     const handleAccordionClick = (index) => {
@@ -98,25 +131,40 @@ function Semnas({ ...props }) {
                             <div className="h-4" />
 
                             <div
-                                className="flex w-full items-center justify-between rounded-[10px] bg-gradient-to-r from-[#0F114C] to-[#00658F] px-4 py-2 md:w-[400px]"
+                                className="flex w-full items-center justify-between rounded-[10px] bg-gradient-to-r from-[#0F114C] to-[#00658F] px-4 py-6 md:w-[600px] gap-5"
                                 data-aos="fade-up"
                                 data-aos-delay="200"
                             >
                                 <div className="flex flex-col items-start">
-                                    <span className="text-[13px] font-bold uppercase tracking-[16%] text-white">
-                                        CLOSING GELOMBANG 1
+                                    <span className="text-[18px] font-bold uppercase tracking-[16%] text-white">
+                                        {current_periode?.title ?? 'Coming Soon'}
                                     </span>
-                                    <span className="text-[11px] font-bold uppercase tracking-[16%] text-[#E6E6E6]">
-                                        01 MEI - 02 JUNI
+                                    <span className="text-[12px] font-bold uppercase tracking-[16%] text-[#E6E6E6]">
+                                        {current_periode?.date_range ?? 'Coming Soon'}
                                     </span>
                                 </div>
 
                                 <div className="flex flex-row items-end gap-2">
-                                    <span className="text-[46px] font-extrabold text-white">10</span>
-                                    <div className="flex flex-col gap-0 py-1">
-                                        <span className="font-[Roboto] text-[19px] font-semibold text-white">Days</span>
-                                        <span className="font-[Roboto] text-[19px] font-semibold text-white">Left</span>
-                                    </div>
+                                    <span className="text-white">
+                                        {time.status === 'active' ? (
+                                            <div className='flex flex-row gap-5'>
+                                                <div className='flex flex-col'>
+                                                    <p className='font-medium text-[28px]'>{time.hours}</p>
+                                                    <p className='text-[16px] font-bold'>Hours</p>
+                                                </div>
+                                                <div className='flex flex-col'>
+                                                    <p className='font-medium text-[28px]'>{time.minutes}</p>
+                                                    <p className='text-[16px] font-medium opacity-80'>Minutes</p>
+                                                </div>
+                                                <div className='flex flex-col'>
+                                                    <p className='font-medium text-[28px]'>{time.seconds}</p>
+                                                    <p className='text-[16px] font-medium opacity-50'>Seconds</p>
+                                                </div>
+                                            </div>
+                                        ) : (
+                                            <p className="text-[24px] font-medium">Period Has Ended</p>
+                                        )}
+                                    </span>
                                 </div>
                             </div>
                             <div className="h-10" />

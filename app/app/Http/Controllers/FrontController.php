@@ -13,6 +13,8 @@ use App\Models\CompetitionContentTimeline;
 use App\Models\CompetitionPrices;
 use App\Models\CompetitionRegistrations;
 use App\Models\Competitions;
+use App\Models\EventContent;
+use App\Models\EventContentTimeline;
 use App\Models\EventPrices;
 use App\Models\EventRegistrations;
 use App\Models\Events;
@@ -117,9 +119,44 @@ class FrontController extends Controller
                 ->first();
         }
 
+        $get_id_content = EventContent::where('event_id', $event->id)
+            ->value('id');
+
+        $current_periode = EventContentTimeline::where('event_content_id', $get_id_content)
+            ->where('start_date', '<=', now())
+            ->where('end_date', '>=', now())
+            ->first();
+
+        if (! $current_periode) {
+            $current_periode = EventContentTimeline::where('event_content_id', $get_id_content)
+                ->where('start_date', '>', now())
+                ->orderBy('start_date')
+                ->first();
+        }
+
+        $diffInSeconds = Carbon::now()->diffInSeconds(Carbon::parse($current_periode?->end_date), false);
+
+        if ($diffInSeconds < 0) {
+            $remaining_time = [
+                'status'  => 'expired',
+                'hours'   => 0,
+                'minutes' => 0,
+                'seconds' => 0,
+            ];
+        } else {
+            $remaining_time = [
+                'status'  => 'active',
+                'hours'   => floor($diffInSeconds / 3600),
+                'minutes' => floor(($diffInSeconds % 3600) / 60),
+                'seconds' => $diffInSeconds % 60,
+            ];
+        }
+
         return inertia(component: 'Semnas/Front/Semnas', props: [
-            'event'         => fn()         => new EventResource($event),
-            'current_batch' => $current_batch,
+            'event'           => fn()           => new EventResource($event),
+            'current_batch'   => $current_batch,
+            'current_periode' => $current_periode,
+            'remaining_time'  => $remaining_time,
         ]);
     }
 

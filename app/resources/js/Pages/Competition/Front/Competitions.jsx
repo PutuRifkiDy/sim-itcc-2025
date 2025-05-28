@@ -272,7 +272,7 @@ function Competitions({ ...props }) {
                                                 </div>
                                             </div>
                                         ) : (
-                                            <p>Period Has Ended</p>
+                                            <p className="text-[24px] font-medium">Period Has Ended</p>
                                         )}
                                     </span>
                                 </div>
