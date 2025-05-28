@@ -26,10 +26,10 @@ function DashboardCompetition() {
                             {show_registration_competitions.map((competition_registration, index) => (
                                 <Link
                                     href={route('dashboard.competition.show', { id: competition_registration.id })}
-                                    className="rounded-[15px] flex flex-col p-5 gap-3 transition ease-in-out duration-200 hover:shadow-[0_0_10px_#4880ff] cursor-pointer border-2 border-gray-300"
+                                    className="rounded-[15px] flex flex-col p-5 gap-3 transition ease-in-out duration-200 hover:shadow-[0_0_10px_#4880ff] cursor-pointer border-2 hover:border-1 border-gray-300"
                                     key={index}
                                 >
-                                    <div className="flex justify-center items-center ">
+                                    <div className="flex justify-center items-center">
                                         <img src={`${window.location.origin}/${competition_registration.competitions.icon_path}`} className="w-[200px] h-[195px]" alt="" />
                                     </div>
                                     <div className="flex flex-col">
