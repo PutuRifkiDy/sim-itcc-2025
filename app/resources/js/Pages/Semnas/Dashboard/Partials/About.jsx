@@ -3,6 +3,7 @@ import Modal from "@/Components/Modal";
 import { Button } from "@/Components/ui/button";
 import DashboardLayout from "@/Layouts/DashboardLayout";
 import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";
+import { InformationCircleIcon } from "@heroicons/react/24/solid";
 import { Link } from "@inertiajs/react";
 import { useState } from "react";
 
@@ -108,24 +109,37 @@ function About({ event_registrations, className }) {
                         Cancel Registration
                     </Button>
 
-                    <Modal show={confirmingUserDeletion} onClose={closeModal} className="px-5 py-5 dark:bg-[#040529]" maxWidth="md">
-                        <h2 className="text-lg font-medium text-gray-900 dark:text-white">Are you sure you want cancel your registration?</h2>
-                        <p className="mt-1 text-sm text-gray-600 mb-10 dark:text-gray-500">
-                            Once you cancel your registration, you will not be able to revert this action.
-                        </p>
-                        <div className="mt-6 flex justify-end">
-                            <Button onClick={closeModal} variant="blue" type="button">Cancel</Button>
+                    <Modal show={confirmingUserDeletion} onClose={closeModal} className="dark:bg-[#040529]" maxWidth="lg">
+                        <div className="border-b-2 dark:border-none border-gray-400 px-5 py-5 dark:bg-gradient-to-r from-[#00658F] to-[#0F114C]">
+                            <h2 className="text-lg font-bold text-[#0F114C] dark:text-white flex flex-row gap-2 items-center">
+                                {/* Are you sure you want cancel your registration? */}
+                                <div className="flex justify-center items-center bg-[#FFE0E3] p-2 rounded-full">
+                                    <InformationCircleIcon className="w-6 h-6 text-[#DC3545] font-bold" />
+                                </div>
+                                Cancel Registration
+                            </h2>
+                        </div>
+                        <div className="px-5 py-5 dark:bg-[#0F114C]">
+                            <p className="text-[16px] text-[#000000] font-medium dark:text-white">
+                                Once you cancel your registration,  This action cannot be undone.
+                            </p>
+                            <ul class="list-inside list-disc mt-2 dark:text-white bg-gray-100 dark:bg-[#0F114C] rounded-[10px] px-2 py-2">
+                                <li>The payment proof you have upload cannot be retrieved</li>
+                            </ul>
+                            <div className="mt-6 flex w-full">
+                                <Button onClick={closeModal} variant="blue" className="w-1/2 bg-white border-2 border-[#0F114C] text-[#0F114C] hover:text-white dark:border-white dark:bg-[#0F114C] dark:text-white" type="button">Cancel</Button>
 
-                            <Button className="ms-3" variant="red" type="submit" asChild>
-                                <Link
-                                    className="text-white"
-                                    type="button"
-                                    method="delete"
-                                    href={route('dashboard.semnas.destroy', { id: event_registrations.id })}
-                                >
-                                    Confirm
-                                </Link>
-                            </Button>
+                                <Button className="ms-3 w-1/2 dark:bg-white dark:text-[#0F114C]" variant="blue" type="submit" asChild>
+                                    <Link
+                                        className="text-white"
+                                        type="button"
+                                        method="delete"
+                                        href={route('dashboard.semnas.destroy', { id: event_registrations.id })}
+                                    >
+                                        Confirm
+                                    </Link>
+                                </Button>
+                            </div>
                         </div>
                     </Modal>
                 </div>

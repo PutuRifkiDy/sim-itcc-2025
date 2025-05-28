@@ -68,7 +68,7 @@ function DashboardSemnas() {
             <div className="py-5">
                 {event_registrations != null ? (
                     <div className={`${tabs == "payment" ? "flex md:flex-row flex-col-reverse gap-5" : ""}`}>
-                        <div className={`bg-white p-4 shadow rounded-lg sm:p-8 dark:bg-[#0F114C] ${tabs == "payment" && ["Requested", "Rejected"].includes(event_registrations.payment_status) && event_registrations ? "md:w-[70%] w-full" : "w-full"}`}>
+                        <div className={`bg-white p-4 shadow rounded-lg sm:p-8 dark:bg-[#040529] ${tabs == "payment" && ["Requested", "Rejected"].includes(event_registrations.payment_status) && event_registrations ? "md:w-[70%] w-full" : "w-full"}`}>
                             <div className="flex flex-row md:gap-10 gap-5">
                                 <Button variant="none" asChild onClick={() => setTabs("about")}>
                                     <p className={`cursor-pointer ${tabs == "about" ? "text-[#0F114C] font-bold border-[#0F114C]  border-b-[4px] rounded-[2px] transition-all ease-in-out duration-400 text-[16px] dark:text-[#55b1d7] dark:border-[#55b1d7]" : "text-[#5E5E5E] text-[16px] dark:text-white"}`}>About</p>
@@ -87,7 +87,7 @@ function DashboardSemnas() {
                         </div>
 
                         {tabs == "payment" && event_registrations && ["Requested", "Rejected"].includes(event_registrations.payment_status) && (
-                            <div className="bg-white dark:bg-[#0F114C] p-4 shadow rounded-lg sm:p-8 flex flex-col gap-10 md:w-[30%] w-full">
+                            <div className="bg-white dark:bg-[#040529] p-4 shadow rounded-lg sm:p-8 flex flex-col gap-10 md:w-[30%] w-full">
                                 <div className="flex flex-col gap-5">
                                     <p className="font-bold text-[18px] leading-[16px] text-[#3A3A3A] dark:text-white">Bank Transfer</p>
                                     {combinedPaymentMethodsWithAdditionalContent
@@ -95,7 +95,7 @@ function DashboardSemnas() {
                                         .map((payment_method, index) => (
                                             <label
                                                 key={index}
-                                                className={`flex cursor-pointer flex-row gap-5 justify-evenly items-center border-2 px-3 py-5 rounded-[10px] w-full transition-all duration-200 dark:hover:border-[#55b1d7]/50 ${paymentValue == payment_method.id ? 'border-[#0f114c] dark:border-4 dark:border-[#55b1d7]' : 'border-[#E6E6E6]'}`}
+                                                className={`flex cursor-pointer flex-row gap-5 justify-evenly items-center border-2 px-3 py-5 rounded-[10px] w-full transition-all duration-200 dark:hover:border-[#55b1d7]/50 ${paymentValue == payment_method.id ? 'border-[#0f114c] dark:border-2 dark:border-[#55b1d7]' : 'border-[#E6E6E6]'}`}
                                                 onClick={(e) => {
                                                     e.preventDefault();
                                                     if (paymentValue !== payment_method.id) {
@@ -123,8 +123,8 @@ function DashboardSemnas() {
                                         .map((payment_method, index) => (
                                             <label
                                                 key={index}
-                                                className={`flex cursor-pointer flex-row gap-5 justify-evenly items-center border-2 px-3 py-5 rounded-[10px] w-full transition-all duration-200 hover:border-[#0f114c]/50 dark:hover:border-[#55b1d7]/50
-    ${paymentValue == payment_method.id ? 'border-[#0f114c] dark:border-4 dark:border-[#55b1d7]' : 'border-[#E6E6E6]'}`}
+                                                className={`flex cursor-pointer flex-row gap-5 justify-evenly items-center border-2 px-3 py-5 rounded-[10px] w-full transition-all duration-200 hover:border-[#55b1d7]/50 dark:hover:border-[#55b1d7]/50
+    ${paymentValue == payment_method.id ? 'border-[#55b1d7] dark:border-2 dark:border-[#55b1d7]' : 'border-[#E6E6E6]'}`}
                                                 onClick={(e) => {
                                                     e.preventDefault();
                                                     if (paymentValue !== payment_method.id) {
@@ -171,7 +171,7 @@ function DashboardSemnas() {
                     </div>
 
                 ) : (
-                    <div className="bg-white dark:bg-[#0F114C] p-4 shadow sm:rounded-lg sm:p-8 flex flex-col gap-2 justify-center items-center">
+                    <div className="bg-white dark:bg-[#040529] p-4 shadow sm:rounded-lg sm:p-8 flex flex-col gap-2 justify-center items-center">
                         {/* {`${window.location.origin} */}
                         <img src={`${window.location.origin}/assets/images/image_for_dashboard_semnas.png`} alt="waw" className="w-[344px] h-[312px]" />
                         <div className="flex flex-col gap-2 justify-center items-center">
