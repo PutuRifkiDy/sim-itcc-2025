@@ -11,6 +11,7 @@ import {
     SideRightSquareIndexOne,
     SideRightSquareIndexThree,
     SideRightSquareIndexTwo,
+    StarRightITCC,
 } from '@/Components/IconGuest';
 import { Button } from '@/Components/ui/button';
 import { Dialog, DialogContent, DialogTitle, DialogTrigger } from '@/Components/ui/dialog';
@@ -440,13 +441,16 @@ function Competitions({ ...props }) {
                         >
                             What is <span className="">{competitions.name}</span>?
                         </h2>
-                        <img
+                        {/* <img
                             className="absolute -right-10 top-0 w-6 md:w-10"
                             src={`${window.location.origin}/assets/images/about/bluePlus.png`}
                             alt=""
                             data-aos="fade-up"
                             data-aos-delay="100"
-                        />
+                        /> */}
+                        <div className="absolute -right-10 top-0 w-6 md:w-10">
+                            <StarRightITCC/>
+                        </div>
                         <p
                             className="font-rubik my-6 text-justify text-base font-light text-white md:text-lg"
                             data-aos="fade-up"

@@ -6,7 +6,7 @@ import Merch from "./Partials/Merch";
 import { useEffect, useState } from "react";
 import Modal from "@/Components/Modal";
 import { Button } from "@/Components/ui/button";
-import { BackGroundCircle, BackGroundCircleDarkMode, SideLeftArrowLeftIcon, SideLeftCrookedCrossIcon, SideRightBlueDotIcon, SideRightCrossIcon, WhiteBlueDotMerchIcon } from "@/Components/IconGuest";
+import { BackGroundCircle, BackGroundCircleDarkMode, SideLeftArrowLeftIcon, SideLeftCrookedCrossIcon, SideRightBlueDotIcon, SideRightCrossIcon, StarRightITCC, WhiteBlueDotMerchIcon } from "@/Components/IconGuest";
 import { motion } from 'framer-motion';
 import { XMarkIcon } from "@heroicons/react/24/solid";
 import * as AOS from 'aos';
@@ -121,10 +121,13 @@ export default function Welcome() {
                     <div className="md:w-48 w-10 h-[6px] bg-white"></div>
                 </div>
                 <div className="md:flex-row flex-col flex items-center md:justify-evenly justify-center container mx-auto px-4 md:pt-32 pt-10 gap-8 pb-24 relative">
-                    <img className="md:w-96 w-60" src="assets/images/about/ITCCLogo.png" alt="ITCC 2025 Logo" data-aos="fade-up" />
+                    <img className="md:w-96 w-60" src="assets/images/landing/ITCCLogo.svg" alt="ITCC 2025 Logo" data-aos="fade-up" />
                     <div className="md:w-[600px] relative">
                         <h2 className="text-[#A5CBD0] text-xl md:text-2xl font-rubik font-bold tracking-[5px] uppercase" data-aos="fade-up" data-aos-delay="100">What is ITCC?</h2>
-                        <img className="absolute top-0 right-0 md:w-10 w-6" src="assets/images/about/bluePlus.png" alt="" data-aos="fade-up" data-aos-delay="100" />
+                        {/* <img className="" src="assets/images/about/bluePlus.png" alt="" data-aos="fade-up" data-aos-delay="100" /> */}
+                        <div className="absolute top-0 right-0 md:w-10 w-6">
+                            <StarRightITCC/>
+                        </div>
                         <p className="font-rubik text-white font-light my-6 md:text-lg text-base" data-aos="fade-up" data-aos-delay="200">
                             <span className='font-bold'>Information Technology Creative Competition (ITCC)</span>{" "}
                             is the largest competition in the field of Information Technology in Bali, which is organized by the Information Technology Student Association (HMTI) of Udayana University. From year to year, ITCC always raises interesting topics in the world of technology.
