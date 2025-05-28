@@ -9,7 +9,7 @@ export default function Dashboard() {
             <div className="mx-auto w-full flex flex-col gap-8">
                 <div className="flex flex-row items-center gap-7">
                     <img src={`${window.location.origin}/assets/images/landing/icon-maskot-itcc.png`} className="md:w-[46px] w-[50px] h-auto md:h-auto" alt="" />
-                    <div className='border-2 border-gray-300 dark:border-gray-100 dark:border-[1px] px-5 py-3 w-full rounded-[5px] bg-white dark:bg-[#0F114C]'>
+                    <div className='border-2 border-gray-300 dark:border-gray-100 dark:border-[1px] px-5 py-3 w-full rounded-[5px] bg-white dark:bg-[#040529]'>
                         <p className='text-[17px]'>
                             Welcome
                             {" "}
@@ -26,7 +26,7 @@ export default function Dashboard() {
 
                 <div className="flex flex-row items-center gap-7"    >
                     <img src={`${window.location.origin}/assets/images/landing/icon-maskot-itcc.png`} className="md:w-[46px] w-[50px] h-auto md:h-auto" alt="" />
-                    <div className='border-2 border-gray-300 dark:border-gray-100 dark:border-[1px] px-5 py-3 w-full rounded-[5px] bg-white dark:bg-[#0F114C]'>
+                    <div className='border-2 border-gray-300 dark:border-gray-100 dark:border-[1px] px-5 py-3 w-full rounded-[5px] bg-white dark:bg-[#040529]'>
                         <p className='text-[17px]'>
                             First of all, let's fill in your personal data
                             {" "}
@@ -44,7 +44,7 @@ export default function Dashboard() {
 
                 <div className="flex flex-row items-center gap-7" >
                     <img src={`${window.location.origin}/assets/images/landing/icon-maskot-itcc.png`} className="md:w-[46px] w-[50px] h-auto md:h-auto" alt="" />
-                    <div className='border-2 border-gray-300 dark:border-gray-100 dark:border-[1px] px-5 py-3 w-full rounded-[5px] bg-white dark:bg-[#0F114C]'>
+                    <div className='border-2 border-gray-300 dark:border-gray-100 dark:border-[1px] px-5 py-3 w-full rounded-[5px] bg-white dark:bg-[#040529]'>
                         <p className='text-[17px]'>
                             Next, if you are interested in registering for the
                             {" "}
@@ -65,7 +65,7 @@ export default function Dashboard() {
 
                 <div className="flex flex-row items-center gap-7" >
                     <img src={`${window.location.origin}/assets/images/landing/icon-maskot-itcc.png`} className="md:w-[46px] w-[50px] h-auto md:h-auto" alt="" />
-                    <div className='border-2 border-gray-300 dark:border-gray-100 dark:border-[1px] px-5 py-3 w-full rounded-[5px] bg-white dark:bg-[#0F114C]'>
+                    <div className='border-2 border-gray-300 dark:border-gray-100 dark:border-[1px] px-5 py-3 w-full rounded-[5px] bg-white dark:bg-[#040529]'>
                         <p className='text-[17px]'>
                             Then, if you want to join our
                             {" "}
@@ -86,7 +86,7 @@ export default function Dashboard() {
 
                 <div className="flex flex-row items-center gap-7" >
                     <img src={`${window.location.origin}/assets/images/landing/icon-maskot-itcc.png`} className="md:w-[46px] w-[50px] h-auto md:h-auto" alt="" />
-                    <div className='border-2 border-gray-300 dark:border-gray-100 dark:border-[1px] px-5 py-3 w-full rounded-[5px] bg-white dark:bg-[#0F114C]'>
+                    <div className='border-2 border-gray-300 dark:border-gray-100 dark:border-[1px] px-5 py-3 w-full rounded-[5px] bg-white dark:bg-[#040529]'>
                         <p className='text-[17px]'>
                             And if you want to buy exclusive merchandise, you can check it out
                             {" "}
@@ -102,7 +102,7 @@ export default function Dashboard() {
 
                 <div className="flex flex-row items-center gap-7" >
                     <img src={`${window.location.origin}/assets/images/landing/icon-maskot-itcc.png`} className="md:w-[46px] w-[50px] h-auto md:h-auto" alt="" />
-                    <div className='border-2 border-gray-300 dark:border-gray-100 dark:border-[1px] px-5 py-3 w-full rounded-[5px] bg-white dark:bg-[#0F114C]'>
+                    <div className='border-2 border-gray-300 dark:border-gray-100 dark:border-[1px] px-5 py-3 w-full rounded-[5px] bg-white dark:bg-[#040529]'>
                         <p className='text-[17px]'>
                             Maybe that's all the information I can convey to you
                             {" "}

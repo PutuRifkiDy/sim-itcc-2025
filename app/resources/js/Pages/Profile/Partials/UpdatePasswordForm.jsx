@@ -108,7 +108,7 @@ export default function UpdatePasswordForm({ className = '' }) {
 
                         </div>
                         <div className="flex items-center gap-4">
-                            <Button variant="blue" disabled={processing} className="flex flex-row gap-2 justify-center items-center dark:bg-[#040529]">
+                            <Button variant="blue" disabled={processing} className="flex flex-row gap-2 justify-center items-center dark:bg-[#0F114C]">
                                 Save
                                 <CheckBadgeIcon className='w-6 h-6 text-white' />
                             </Button>

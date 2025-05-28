@@ -21,7 +21,7 @@ function DashboardCompetition() {
         <>
             <div className="py-5">
                 {show_registration_competitions != '' ? (
-                    <div className="bg-white p-4 shadow rounded-lg sm:p-8 dark:bg-[#0F114C]">
+                    <div className="bg-white p-4 shadow rounded-lg sm:p-8 dark:bg-[#040529]">
                         <div className="grid md:grid-cols-4 grid-cols-1 gap-5 mb-10">
                             {show_registration_competitions.map((competition_registration, index) => (
                                 <Link
@@ -73,7 +73,7 @@ function DashboardCompetition() {
                                         <p className="font-bold text-[#000000] text-[20px] tracking-[0.03em] dark:text-white">Join Another</p>
                                     </div>
                                 </DropdownMenuTrigger>
-                                <DropdownMenuContent className="w-56 flex flex-col px-4 gap-3 py-2 outline-none dark:bg-[#0F114C] dark:border-white">
+                                <DropdownMenuContent className="w-56 flex flex-col px-4 gap-3 py-2 outline-none dark:bg-[#040529] dark:border-white">
                                     {competitions
                                         .filter((competition) => competition.is_open_regis == true)
                                         .map((competition) => (
@@ -90,7 +90,7 @@ function DashboardCompetition() {
                         </div>
                     </div>
                 ) : (
-                    <div className="bg-white dark:bg-[#0F114C] p-4 shadow sm:rounded-lg sm:p-8 flex flex-col gap-2 justify-center items-center">
+                    <div className="bg-white dark:bg-[#040529] p-4 shadow sm:rounded-lg sm:p-8 flex flex-col gap-2 justify-center items-center">
                         {/* {`${window.location.origin} */}
                         <img src={`${window.location.origin}/assets/images/image_for_dashboard_semnas.png`} alt="waw" className="w-[344px] h-[312px]" />
                         <div className="flex flex-col gap-2 justify-center items-center mb-5">

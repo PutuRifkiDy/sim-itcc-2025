@@ -141,7 +141,7 @@ function DashboardAdminLombaSubmission({ ...props }) {
     return (
         <>
             <div className="py-5">
-                <div className="bg-white dark:bg-[#0F114C] p-4 shadow rounded-lg sm:p-8 flex flex-col gap-5 justify-between">
+                <div className="bg-white dark:bg-[#040529] p-4 shadow rounded-lg sm:p-8 flex flex-col gap-5 justify-between">
                     {/* start searching */}
 
                     <div className="gap-5 grid md:grid-cols-3 grid-cols-1">
@@ -223,7 +223,7 @@ function DashboardAdminLombaSubmission({ ...props }) {
                         </Button>
                     </div>
 
-                    <Card className="dark:bg-[#0F114C] dark:border dark:border-white rounded-xl"  >
+                    <Card className="dark:bg-[#040529] dark:border dark:border-white rounded-xl"  >
                         <CardContent className="overflow-hidden">
                             <div className="my-8">
                                 <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-5 lg:-mx-8">

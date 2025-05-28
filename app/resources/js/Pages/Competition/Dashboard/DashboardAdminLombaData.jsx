@@ -59,7 +59,7 @@ function DashboardAdminLombaData({ ...props }) {
         <>
             <div className="py-5">
 
-                <div className="bg-white dark:bg-[#0F114C] p-4 shadow rounded-lg sm:p-8 flex flex-col gap-5 justify-between">
+                <div className="bg-white dark:bg-[#040529] p-4 shadow rounded-lg sm:p-8 flex flex-col gap-5 justify-between">
 
                     <div className="flex w-full md:flex-row flex-col justify-between mt-4">
                         <div className="flex md:flex-row flex-col gap-4 w-full">
@@ -68,7 +68,7 @@ function DashboardAdminLombaData({ ...props }) {
                                 placeholder="Search"
                                 value={params?.search}
                                 onChange={(e) => setParams((prev) => ({ ...prev, search: e.target.value }))}
-                                 
+
                             />
                             <Select value={params?.load} onValueChange={(e) => setParams({ ...params, load: e })}>
                                 <SelectTrigger className="w-full h-9 sm:w-24 dark:bg-[#0F114C] dark:border-white dark:text-white"  >
@@ -92,7 +92,7 @@ function DashboardAdminLombaData({ ...props }) {
                         </Button>
                     </div>
 
-                    <Card className="dark:bg-[#0F114C] dark:border dark:border-white rounded-xl"  >
+                    <Card className="dark:bg-[#040529] dark:border dark:border-white rounded-xl"  >
                         <CardContent className="overflow-hidden">
                             <div className="my-8">
                                 <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-5 lg:-mx-8">
