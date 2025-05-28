@@ -86,14 +86,14 @@ function About({ event_registrations, className }) {
                             <p className="font-bold text-[12px] tracking-[0.03em] text-[#5E5E5E] dark:text-gray-400">{event_content.guidebook_link && "Guidebook"}</p>
                             <a href={event_content.guidebook_link ?? '#'} target="_blank" className="flex flex-row gap-2 items-center text-[#0f114c] dark:text-[#55b1d7]">
                                 Open Guidebook
-                                <ArrowTopRightOnSquareIcon className="w-4 h-4 text-[#0f114c] font-semibold" />
+                                <ArrowTopRightOnSquareIcon className="w-4 h-4 text-[#0f114c] dark:text-[#55b1d7] font-semibold" />
                             </a>
                         </div>
                         <div className="flex flex-col gap-1">
                             <p className="font-bold text-[12px] tracking-[0.03em] text-[#5E5E5E] dark:text-gray-400">{event_content.how_to_join_link && "How to Join"}</p>
                             <a href={event_content.how_to_join_link ?? '#'} target="_blank" className="flex flex-row gap-2 items-center text-[#0f114c] dark:text-[#55b1d7]">
                                 Play Video
-                                <ArrowTopRightOnSquareIcon className="w-4 h-4 text-[#0f114c] font-semibold" />
+                                <ArrowTopRightOnSquareIcon className="w-4 h-4 text-[#0f114c] dark:text-[#55b1d7] font-semibold" />
                             </a>
                         </div>
 
