@@ -31,6 +31,39 @@ function Competitions({ ...props }) {
     const current_batch = usePage().props.current_batch;
     const current_periode = usePage().props.current_periode;
     const count_days = usePage().props.count_days;
+    const remaining_time = usePage().props.remaining_time;
+
+    const [time, setTime] = useState(remaining_time);
+
+
+    useEffect(() => {
+        if (time.status !== 'active') return;
+
+        const interval = setInterval(() => {
+            setTime(prev => {
+                let totalSeconds = prev.hours * 3600 + prev.minutes * 60 + prev.seconds - 1;
+
+                if (totalSeconds <= 0) {
+                    clearInterval(interval);
+                    return {
+                        status: 'expired',
+                        hours: 0,
+                        minutes: 0,
+                        seconds: 0,
+                    };
+                }
+
+                return {
+                    status: 'active',
+                    hours: Math.floor(totalSeconds / 3600),
+                    minutes: Math.floor((totalSeconds % 3600) / 60),
+                    seconds: totalSeconds % 60,
+                };
+            });
+        }, 1000);
+
+        return () => clearInterval(interval);
+    }, [time.status]);
 
     const handleAccordionClick = (index) => {
         setOpenIndex(openIndex === index ? null : index);
@@ -208,25 +241,40 @@ function Competitions({ ...props }) {
                             <div className="h-2" />
 
                             <div
-                                className="flex w-full items-center justify-between rounded-[10px] bg-gradient-to-r from-[#0F114C] to-[#00658F] px-4 py-2 md:w-[500px] gap-5"
+                                className="flex w-full items-center justify-between rounded-[10px] bg-gradient-to-r from-[#0F114C] to-[#00658F] px-4 py-6 md:w-[600px] gap-5"
                                 data-aos="fade-up"
                                 data-aos-delay="200"
                             >
                                 <div className="flex flex-col gap-2 items-start">
-                                    <span className="text-[16px] font-bold uppercase tracking-[16%] text-white">
+                                    <span className="text-[18px] font-bold uppercase tracking-[16%] text-white">
                                         {current_periode?.title ?? 'Coming Soon'}
                                     </span>
-                                    <span className="text-[11px] font-bold uppercase tracking-[16%] text-[#E6E6E6]">
+                                    <span className="text-[12px] font-bold uppercase tracking-[16%] text-[#E6E6E6]">
                                         {current_periode?.date_range ?? 'Coming Soon'}
                                     </span>
                                 </div>
 
                                 <div className="flex flex-row items-end gap-2">
-                                    <span className="text-[46px] font-extrabold text-white">{count_days}</span>
-                                    <div className="flex flex-col gap-0 py-1">
-                                        <span className="font-[Roboto] text-[19px] font-semibold text-white">Days</span>
-                                        <span className="font-[Roboto] text-[19px] font-semibold text-white">Left</span>
-                                    </div>
+                                    <span className="text-white">
+                                        {time.status === 'active' ? (
+                                            <div className='flex flex-row gap-5'>
+                                                <div className='flex flex-col'>
+                                                    <p className='font-medium text-[28px]'>{time.hours}</p>
+                                                    <p className='text-[16px] font-bold'>Hours</p>
+                                                </div>
+                                                <div className='flex flex-col'>
+                                                    <p className='font-medium text-[28px]'>{time.minutes}</p>
+                                                    <p className='text-[16px] font-medium opacity-80'>Minutes</p>
+                                                </div>
+                                                <div className='flex flex-col'>
+                                                    <p className='font-medium text-[28px]'>{time.seconds}</p>
+                                                    <p className='text-[16px] font-medium opacity-50'>Seconds</p>
+                                                </div>
+                                            </div>
+                                        ) : (
+                                            <p>Period Has Ended</p>
+                                        )}
+                                    </span>
                                 </div>
                             </div>
                             <div className="h-10" />

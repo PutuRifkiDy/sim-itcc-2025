@@ -67,14 +67,30 @@ class FrontController extends Controller
                 ->first();
         }
 
-        $count_days = (int) Carbon::now()->diffInDays(Carbon::parse( $current_periode?->end_date));
+        // $count_days = (int) Carbon::now()->diffInDays(Carbon::parse( $current_periode?->end_date));
+        $diffInSeconds = Carbon::now()->diffInSeconds(Carbon::parse($current_periode?->end_date), false);
 
+        if ($diffInSeconds < 0) {
+            $remaining_time = [
+                'status'  => 'expired',
+                'hours'   => 0,
+                'minutes' => 0,
+                'seconds' => 0,
+            ];
+        } else {
+            $remaining_time = [
+                'status'  => 'active',
+                'hours'   => floor($diffInSeconds / 3600),
+                'minutes' => floor(($diffInSeconds % 3600) / 60),
+                'seconds' => $diffInSeconds % 60,
+            ];
+        }
 
         return inertia('Competition/Front/Competitions', [
             'competition'     => fn()     => new CompetitionResource($competition),
             'current_batch'   => $current_batch,
             'current_periode' => $current_periode,
-            'count_days'      => $count_days
+            'remaining_time'  => $remaining_time,
         ]);
     }
 
