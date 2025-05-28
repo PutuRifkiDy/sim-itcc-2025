@@ -144,7 +144,7 @@ function DashboardKesekreSemnas({ ...props }) {
     return (
         <>
             <div className="py-5">
-                <div className="bg-white p-4 shadow rounded-lg sm:p-8 flex flex-col gap-5 justify-between dark:bg-[#0F114C]">
+                <div className="bg-white p-4 shadow rounded-lg sm:p-8 flex flex-col gap-5 justify-between dark:bg-[#040529]">
                     {/* start searching */}
 
                     <div className="gap-5 grid md:grid-cols-4 grid-cols-1">
@@ -201,7 +201,7 @@ function DashboardKesekreSemnas({ ...props }) {
                                 placeholder="Search"
                                 value={params?.search}
                                 onChange={(e) => setParams((prev) => ({ ...prev, search: e.target.value }))}
-                            
+
                             />
                             <Select value={params?.load} onValueChange={(e) => setParams({ ...params, load: e })}>
                                 <SelectTrigger className="w-full h-9 sm:w-24 dark:bg-[#0F114C] dark:border-white dark:text-white" >
@@ -242,7 +242,7 @@ function DashboardKesekreSemnas({ ...props }) {
 
 
 
-                    <Card className="dark:bg-[#0F114C] dark:border dark:border-white rounded-xl">
+                    <Card className="dark:bg-[#040529] dark:border dark:border-white rounded-xl">
                         <CardContent className="overflow-hidden">
                             <div className="my-8">
                                 <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-5 lg:-mx-8">

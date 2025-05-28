@@ -143,7 +143,7 @@ function DashboardKesekreCompetition({ ...props }) {
     return (
         <>
             <div className="py-5">
-                <div className="bg-white dark:bg-[#0F114C] p-4 shadow rounded-lg sm:p-8 flex flex-col gap-5 justify-between">
+                <div className="bg-white dark:bg-[#040529] p-4 shadow rounded-lg sm:p-8 flex flex-col gap-5 justify-between">
                     {/* start searching */}
 
                     <div className="gap-5 grid md:grid-cols-4 grid-cols-1">
@@ -200,14 +200,14 @@ function DashboardKesekreCompetition({ ...props }) {
                                 placeholder="Search"
                                 value={params?.search}
                                 onChange={(e) => setParams((prev) => ({ ...prev, search: e.target.value }))}
-                                
-                                
+
+
                             />
                             <Select value={params?.load} onValueChange={(e) => setParams({ ...params, load: e })}
                                 >
                                 <SelectTrigger className="w-full h-9 sm:w-24 dark:bg-[#0F114C] dark:border-white dark:text-white"
-                                
-                                
+
+
                                 >
                                     <SelectValue placeholder="Load" />
                                 </SelectTrigger>
@@ -223,7 +223,7 @@ function DashboardKesekreCompetition({ ...props }) {
                                 value={params?.payment_status}
                                 onValueChange={(e) => setParams({ ...params, payment_status: e })}
                             >
-                                <SelectTrigger className="w-full h-9 sm:w-40 dark:bg-[#0F114C] dark:border-white dark:text-white" 
+                                <SelectTrigger className="w-full h-9 sm:w-40 dark:bg-[#0F114C] dark:border-white dark:text-white"
                                 >
                                     <SelectValue placeholder="Filter by Status" />
                                 </SelectTrigger>
@@ -236,20 +236,20 @@ function DashboardKesekreCompetition({ ...props }) {
                                 </SelectContent>
                             </Select>
                             <Button variant="outline" onClick={() => setParams(props.state)} className="dark:bg-[#0F114C] dark:border-white"
-                                
-                                
+
+
                                 >
                                 <PiArrowsClockwise className="mr-2 h-5 w-5" />
                                 Clear Filter
                             </Button>
                         </div>
-                        <Button variant="blue" type="button" onClick={handleExportCSV} className="dark:bg-[#0F114C] dark:border-white dark:border" 
+                        <Button variant="blue" type="button" onClick={handleExportCSV} className="dark:bg-[#0F114C] dark:border-white dark:border"
                                 >
                             Export CSV
                         </Button>
                     </div>
 
-                    <Card className="dark:bg-[#0F114C] dark:border dark:border-white rounded-xl"  >
+                    <Card className="dark:bg-[#040529] dark:border dark:border-white rounded-xl"  >
                         <CardContent className="overflow-hidden">
                             <div className="my-8">
                                 <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-5 lg:-mx-8">

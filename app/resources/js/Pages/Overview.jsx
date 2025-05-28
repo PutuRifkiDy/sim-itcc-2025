@@ -49,8 +49,8 @@ function Overview() {
 
     return (
         <div className="py-5">
-            <div className="bg-white dark:bg-[#0F114C] p-4 shadow rounded-lg sm:p-8 gap-5">
-                <div className="gap-5 grid md:grid-cols-3 grid-cols-1 bg-white dark:bg-[#0F114C]">
+            <div className="bg-white dark:bg-[#040529] p-4 shadow rounded-lg sm:p-8 gap-5">
+                <div className="gap-5 grid md:grid-cols-3 grid-cols-1">
                     <div className="border-2 border-[#E4F0F8] flex items-center flex-row gap-10 py-5 px-5 rounded-xl">
                         {/* start icon */}
                         <div className="flex justify-center items-center p-4 rounded-2xl bg-[#718EBF]/40">
@@ -106,7 +106,7 @@ function Overview() {
                     </div>
                 </div>
 
-                <div className='px-4 pt-5 pb-6 mt-8 bg-white border-2 rounded-lg sm:px-6 sm:pt-6 flex md:flex-row flex-col gap-5 dark:bg-[#0F114C] dark:border-[#E4F0F8]'>
+                <div className='px-4 pt-5 pb-6 mt-8 bg-white border-2 rounded-lg sm:px-6 sm:pt-6 flex md:flex-row flex-col gap-5 dark:bg-[#040529] dark:border-[#E4F0F8]'>
                     <div className="md:w-1/2 w-full ">
                         <h1 className="text-xl font-medium">
                             Monthly Sales Chart
