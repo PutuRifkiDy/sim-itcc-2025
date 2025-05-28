@@ -45,7 +45,7 @@ export default function Login({ status, canResetPassword }) {
                             <div className='absolute bottom-10 right-0'>
                                 <LineOrnamenIcon />
                             </div>
-                            <img src="/assets/images/image_for_auth.png" alt="" className="h-[379px] w-[354px]" />
+                            <img src="assets/images/landing/icon-maskot-itcc.png" alt="" className="absolute left-24 bottom-24 h-auto md:w-[280px]" />
                         </div>
 
                         <div className="w-full">
