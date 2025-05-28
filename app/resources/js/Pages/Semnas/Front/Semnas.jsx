@@ -1,6 +1,6 @@
 import { Accordion } from "@/Components/Accordion";
 import { LineIcon, WhatsappIcon } from "@/Components/IconAdmin";
-import { IconContactInCompetition, SideLeftArrowLeftIcon, SideLeftCrookedCrossIcon, SideRightBlueDotIcon, SideRightCircleIcon, SideRightCrossIcon, SideRightDotIcon, SideRightSquareIndexOne, SideRightSquareIndexThree, SideRightSquareIndexTwo } from "@/Components/IconGuest";
+import { IconContactInCompetition, SideLeftArrowLeftIcon, SideLeftCrookedCrossIcon, SideRightBlueDotIcon, SideRightCircleIcon, SideRightCrossIcon, SideRightDotIcon, SideRightSquareIndexOne, SideRightSquareIndexThree, SideRightSquareIndexTwo, StarRightITCC } from "@/Components/IconGuest";
 import { Button } from "@/Components/ui/button";
 import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "@/Components/ui/dialog";
 import GuestLayout from "@/Layouts/GuestLayout";
@@ -343,6 +343,9 @@ function Semnas({ ...props }) {
                             data-aos="fade-up"
                             data-aos-delay="100"
                         />
+                        <div className="absolute -right-10 top-0 w-6 md:w-10">
+                            <StarRightITCC/>
+                        </div>
                         <p
                             className="font-rubik my-6 text-justify text-base font-light text-white md:text-lg"
                             data-aos="fade-up"

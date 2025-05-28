@@ -1,4 +1,4 @@
-import { ArrowRightIcon } from "@/Components/IconGuest";
+import { ArrowRightIcon, StarRightITCC } from "@/Components/IconGuest";
 import * as AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from "react";
@@ -133,11 +133,14 @@ export default function Merch() {
                                 </Link>
                             </Button>
                         </div>
-                        <img
+                        {/* <img
                             src="assets/images/about/bluePlus.png"
                             className="absolute bottom-0 left-0 md:w-10 w-6 rotate-30 hidden md:inline"
                             alt=""
-                        />
+                        /> */}
+                        <div className="absolute bottom-0 left-0 md:w-10 w-6 rotate-30 hidden md:inline">
+                            <StarRightITCC/>
+                        </div>
                         <div className="md:absolute flex bottom-24 left-48">
                             <ArrowRightIcon />
                         </div>
