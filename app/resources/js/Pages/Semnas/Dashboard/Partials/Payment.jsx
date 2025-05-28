@@ -1,13 +1,15 @@
 import { BniIcon } from "@/Components/IconAdmin";
 import { ImageUpload } from "@/Components/ImageUpload";
 import ImageUploadDashboard from "@/Components/ImageUploadDashboard";
+import Modal from "@/Components/Modal";
 import { Button } from "@/Components/ui/button";
 import DashboardLayout from "@/Layouts/DashboardLayout";
 import { flashMessage } from "@/lib/utils";
 import { Transition } from "@headlessui/react";
 import { ClockIcon, DocumentDuplicateIcon } from "@heroicons/react/24/solid";
 import { useForm } from "@inertiajs/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { PiWarningBold } from "react-icons/pi";
 import { toast } from "sonner";
 
 function Payment({ event_registrations, payment_methods, className, payment_value }) {
@@ -22,6 +24,18 @@ function Payment({ event_registrations, payment_methods, className, payment_valu
         reject_reason: event_registrations.reject_reason,
         _method: 'POST',
     });
+
+    const [showPaymentInformationError, setShowPaymentInformationError] = useState(false);
+
+    const closeModal = () => {
+        setShowPaymentInformationError(false);
+    };
+
+    useEffect(() => {
+        if (errors.payment_proof_path) {
+            setShowPaymentInformationError(true);
+        }
+    }, [errors]);
 
     function handleCopy(text) {
         navigator.clipboard.writeText(text)
@@ -150,7 +164,7 @@ function Payment({ event_registrations, payment_methods, className, payment_valu
                                     setData("payment_proof_path", file);
                                     setPreview(previewUrl);
                                 }}
-                                errorMessage={errors.payment_proof_path}
+                                // errorMessage={errors.payment_proof_path}
                                 classNameForBG={`${event_registrations.payment_status === "Pending" && "cursor-not-allowed bg-[#4880FF]/15"}`}
                             />
                         ) : event_registrations.payment_status === "Verified" && (
@@ -174,6 +188,31 @@ function Payment({ event_registrations, payment_methods, className, payment_valu
                         )}
                     </div>
                 </form>
+                <Modal show={showPaymentInformationError} onClose={closeModal} className="dark:bg-[#040529]" maxWidth="lg">
+                    <div className="border-b-2 dark:border-none border-gray-400 px-5 py-5 dark:bg-gradient-to-r from-[#00658F] to-[#0F114C]">
+                        <h2 className="text-lg font-semibold text-[#0F114C] dark:text-white flex flex-row gap-2 items-center">
+                            {/* Are you sure you want cancel your registration? */}
+                            <div className="flex justify-center items-center bg-[#FFE0E3] p-2 rounded-full">
+                                <PiWarningBold className="w-6 h-6 text-[#DC3545] font-bold" />
+                            </div>
+                            {/* {errors.submission_link && <span>{errors.submission_link}</span>} */}
+                            File Upload Error
+                        </h2>
+                    </div>
+                    <div className="px-5 py-5 dark:bg-[#0F114C]">
+                        <p className="text-[16px] text-[#000000] font-medium dark:text-white">
+                            The file you selected exceeds the maximum allowed size 1MB
+                        </p>
+                        <ul class="list-inside list-disc mt-2 dark:text-white bg-gray-100 dark:bg-[#0F114C] rounded-[10px] px-2 py-2">
+                            <li className="text-red-700">{errors.payment_proof_path}</li>
+                            <li className="text-red-700">Make sure the file size is no more than 1MB</li>
+                            <li className="text-red-700">Compress the file if necessary</li>
+                        </ul>
+                        <div className="mt-6 flex w-full justify-end">
+                            <Button onClick={closeModal} variant="blue" className="ms-3 w-1/3 dark:bg-white dark:text-[#0F114C]" type="button">Accept</Button>
+                        </div>
+                    </div>
+                </Modal>
             </section >
         </>
     );

@@ -217,11 +217,12 @@ function About({ user_competition_registrations, className }) {
                             </p>
                             <ul class="list-inside list-disc mt-2 dark:text-white bg-gray-100 dark:bg-[#0F114C] rounded-[10px] px-2 py-2">
                                 <li className="text-red-700">The payment proof you have upload cannot be retrieved</li>
+                                <li className="text-red-700">The submission link you have upload cannot be retrieved</li>
                             </ul>
                             <div className="mt-6 flex w-full">
-                                <Button onClick={closeModal} variant="blue" className="w-1/2 bg-white border-2 border-[#0F114C] text-[#0F114C] hover:text-white dark:border-white dark:bg-[#0F114C] dark:text-white" type="button">Cancel</Button>
+                                <Button onClick={closeModal} variant="blue" className="w-1/2 dark:bg-[#040529]" type="button">Cancel</Button>
 
-                                <Button className="ms-3 w-1/2 dark:bg-white dark:text-[#0F114C]" variant="blue" type="submit" asChild>
+                                <Button className="ms-3 w-1/2 dark:text-white" variant="red" type="submit" asChild>
                                     <Link
                                         className="text-white"
                                         type="button"
