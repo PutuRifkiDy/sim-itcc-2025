@@ -47,7 +47,7 @@ export default function Sidebar({ navigations, children, header, description }) 
                         <img src={`${window.location.origin}/assets/images/landing/ITCC.png`} alt="" className="w-[61.5px] h-auto dark:block hidden" />
                     </Link>
                     <img
-                        src={`${window.location.origin}/assets/images/image_for_sidebar.png`}
+                        src={`${window.location.origin}/assets/images/landing/icon-maskot-itcc.png`}
                         alt="Profile"
                         className={`${isSidebarOpen ? 'h-[111px] w-[90px]' : 'h-[50px] w-[50px]'}`}
                     />
@@ -120,12 +120,16 @@ export default function Sidebar({ navigations, children, header, description }) 
                     <nav className="mt-5 text-center">
                         <ul className="font-bold">
                             {navigations.map((navigation, i) => {
-                                let routePath = window.location.pathname;
-                                const routeName = navigation.link.startsWith('http')
+                                const routePath = window.location.pathname;
+                                const routeName = navigation.link.startsWith("http")
                                     ? new URL(navigation.link).pathname
                                     : navigation.link;
 
-                                const isActive = routePath === routeName;
+                                const normalizedRouteName = routeName.replace(/\/$/, '');
+                                const isActive =
+                                    normalizedRouteName === '/dashboard'
+                                        ? routePath === normalizedRouteName
+                                        : routePath.startsWith(normalizedRouteName);
 
                                 return (
                                     <li
@@ -172,7 +176,7 @@ export default function Sidebar({ navigations, children, header, description }) 
                             {!isSidebarOpen ? <Bars3BottomRightIcon className="w-6 h-6 text-[#000000] dark:text-white" /> : <IconSideBar />}
                         </button>
 
-                        <div className="flex flex-col items-center justify-center gap-10 md:flex-row">
+                        <div className="flex flex-col items-center justify-center gap-5 md:flex-row">
                             {/* Untuk Tampilan Responsive */}
                             <div className="flex w-screen flex-row justify-between px-5 md:hidden md:w-full md:px-0">
                                 <button onClick={() => setIsSidebarOpen(!isSidebarOpen)} className="text-xl">
@@ -188,7 +192,7 @@ export default function Sidebar({ navigations, children, header, description }) 
                             <DropdownMenu>
                                 <DropdownMenuTrigger asChild>
                                     <p className='cursor-pointer flex flex-row gap-4 justify-center items-center text-gray-800 dark:text-gray-200'>
-                                        <img src={`${window.location.origin}/assets/images/image_for_auth.png`} className="md:w-[40px] w-[50px] h-auto md:h-auto" alt="" />
+                                        <img src={`${window.location.origin}/assets/images/landing/icon-maskot-itcc.png`} className="md:w-[40px] w-[50px] h-auto md:h-auto" alt="" />
                                         <div className='flex flex-col items-start'>
                                             {auth.name}
                                             <div className='flex flex-row gap-1 items-center'>
