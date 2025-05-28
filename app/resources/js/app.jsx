@@ -12,15 +12,20 @@ createInertiaApp({
     title: (title) => `${title} - ${appName}`,
     resolve: (name) => resolvePageComponent(`./Pages/${name}.jsx`, import.meta.glob('./Pages/**/*.jsx')),
     setup({ el, App, props }) {
+        const Root = (
+            <ThemeProvider defaultTheme="light" storageKey="current-theme">
+                <App {...props} />
+            </ThemeProvider>
+        );
 
         if (import.meta.env.DEV) {
-            createRoot(el).render(<App {...props} />);
+            createRoot(el).render(Root);
             return;
         }
 
         hydrateRoot(
             el,
-            <ThemeProvider defaultTheme='dark' storageKey='current-theme'>
+            <ThemeProvider defaultTheme='light' storageKey='current-theme'>
                 <App {...props} />
             </ThemeProvider>
         );
