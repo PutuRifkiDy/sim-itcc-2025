@@ -608,9 +608,9 @@ function Semnas({ ...props }) {
                                     </p>
                                     <p className="font-rubik text-md text-center font-normal leading-[150%] tracking-[0.32px] text-[#5E5E5E] dark:text-gray-500">
                                         Melalui website resmi{' '}
-                                        <span className="text-[#0F114C] dark:text-[#00658F]">
+                                        <a href="https://itcc.hmtiudayana.id/" className="text-[#0F114C] dark:text-[#00658F]">
                                             https://itcc.hmtiudayana.id/
-                                        </span>
+                                        </a>
                                     </p>
                                 </div>
 
