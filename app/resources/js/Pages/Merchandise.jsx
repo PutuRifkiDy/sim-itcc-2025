@@ -91,9 +91,19 @@ function Merchandise({ ...props }) {
 
                     </div>
 
-                    <div className="absolute md:bottom-0 -bottom-12 left-24">
+                    <motion.div 
+                    animate={{
+                        x: [0, 30, 0],
+                        
+                    }}
+                    transition={{
+                        duration: 5,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                    }}
+                    className="absolute md:bottom-0 -bottom-12 left-24">
                         <SideLeftArrowLeftIcon />
-                    </div>
+                    </motion.div>
 
                     <div className="flex md:flex-row flex-col justify-around">
                         <img src="assets/images/merch_bundle.png" alt="" className="md:w-[446px] md:h-[468px] w-full h-auto object-contain " data-aos="fade-up" data-aos-delay="100" />

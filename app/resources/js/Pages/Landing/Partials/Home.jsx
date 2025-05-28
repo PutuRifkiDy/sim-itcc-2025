@@ -57,9 +57,22 @@ export default function Home() {
                                     <SideLeftCrookedCrossIcon />
                                 </motion.div>
                             </div>
-                            <div className="flex justify-center items-center md:block" data-aos="fade-up">
-                                <img src="assets/images/landing/icon-maskot-itcc.png" className="md:w-[140px] md:h-auto w-full h-auto transform -rotate-12" alt="" />
-                            </div>
+                            <motion.div 
+                                
+                                animate={{
+                                    y: [0, -40, 0], 
+                                }}
+                                transition={{
+                                    duration: 5,
+                                    repeat: Infinity,
+                                    ease: "easeInOut"
+                                }}
+                            >
+                            
+                                <div className="flex justify-center items-center md:block" data-aos="fade-up">
+                                    <img src="assets/images/landing/icon-maskot-itcc.png" className="md:w-[140px] md:h-auto w-full h-auto transform -rotate-12" alt="" />
+                                </div>
+                            </motion.div>
                             <h1 className="font-extrabold text-[80px] tracking-[0.05em] leading-[1.2em] text-[#0F114C] [text-shadow:_6px_4px_9px_rgb(0_0_0_/_0.54)] md:absolute flex justify-center items-center top-8 left-40 dark:text-white" data-aos="fade-up" data-aos-delay="100">
                                 ITCC
                             </h1>
@@ -71,9 +84,22 @@ export default function Home() {
                             <p className="font-semibold text-[21px] leading-[35px] text-[#3A3A3A] md:absolute md:text-start text-center top-32 left-60 flex md:w-[280px] w-full h-[140px] dark:text-white" data-aos="fade-up" data-aos-delay="300">
                                 Transcending Boundaries: Realizing a Resilent Future With Human-Centric Interlaced Innovations
                             </p>
-                            <div className="md:absolute flex top-72 left-60" data-aos="fade-up" data-aos-delay="400">
+                            <motion.div
+                            animate={{
+                                    x: [0, 20, 0], 
+                                }}
+                                transition={{
+                                    duration: 5,
+                                    repeat: Infinity,
+                                    ease: "easeInOut"
+                                }}
+                                className="md:absolute flex top-72 left-60"
+                            >
+
+                            <div  data-aos="fade-up" data-aos-delay="400">
                                 <SideLeftArrowLeftIcon />
                             </div>
+                            </motion.div>
 
                             <div className="md:absolute -bottom-72 left-60 flex justify-center items-center md:mt-0 pt-12" data-aos="fade-up" data-aos-delay="500">
                                 <a href="#competition" className="flex flex-row gap-2 items-center text-gray-600 dark:text-white">

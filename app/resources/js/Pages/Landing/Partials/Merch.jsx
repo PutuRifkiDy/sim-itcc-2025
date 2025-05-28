@@ -7,6 +7,7 @@ import { Link, usePage } from "@inertiajs/react";
 import { Button } from "@/Components/ui/button";
 import { useKeenSlider } from "keen-slider/react"
 import "keen-slider/keen-slider.min.css"
+import { motion } from 'framer-motion';
 
 
 // const AdaptiveHeight = (slider) => {
@@ -138,12 +139,37 @@ export default function Merch() {
                             className="absolute bottom-0 left-0 md:w-10 w-6 rotate-30 hidden md:inline"
                             alt=""
                         /> */}
-                        <div className="absolute bottom-0 left-0 md:w-10 w-6 rotate-30 hidden md:inline">
+                        <motion.div 
+                                
+                            animate={{
+                                y: [0, -30, 0], 
+                            }}
+                            transition={{
+                                duration: 5,
+                                repeat: Infinity,
+                                ease: "easeInOut"
+                            }}
+                            className="absolute bottom-0 left-0 md:w-10 w-6 rotate-30 hidden md:inline"
+                        >
+                        
                             <StarRightITCC/>
-                        </div>
-                        <div className="md:absolute flex bottom-24 left-48">
+                        </motion.div>
+
+                        <motion.div 
+                                
+                                animate={{
+                                    x: [0, 20, 0], 
+                                }}
+                                transition={{
+                                    duration: 5,
+                                    repeat: Infinity,
+                                    ease: "easeInOut"
+                                }}
+                                className="md:absolute flex bottom-24 left-48"
+                            >
+                            
                             <ArrowRightIcon />
-                        </div>
+                            </motion.div>
                     </div>
 
                     <div className="relative">

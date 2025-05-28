@@ -2,6 +2,7 @@ import { Link, usePage } from "@inertiajs/react";
 import * as AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from "react";
+import { motion } from 'framer-motion';
 
 const Competition = () => {
     useEffect(() => {
@@ -138,8 +139,32 @@ const Competition = () => {
 
             {/* SVG kiri dan kanan */}
             <div className="hidden relative md:flex justify-between items-center mt-16">
-                {svgLeft}
-                {svgRight}
+                <motion.div 
+                                
+                    animate={{
+                        y: [0, -40, 0], 
+                    }}
+                    transition={{
+                        duration: 5,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                    }}
+                >
+                    {svgLeft}
+                </motion.div>
+                <motion.div 
+                                
+                    animate={{
+                        y: [0, -40, 0], 
+                    }}
+                    transition={{
+                        duration: 5,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                    }}
+                >
+                    {svgRight}
+                </motion.div>
             </div>
 
             {/* Stacked Card Section */}
