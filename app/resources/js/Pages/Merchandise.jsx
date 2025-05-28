@@ -58,7 +58,7 @@ function Merchandise({ ...props }) {
             <div className="isolate min-h-screen md:mt-24">
                 <div className="relative md:px-24 px-10">
                     <div
-                        className="absolute inset-x-0 overflow-hidden -top-40 -z-10 transform-gpu blur-3xl sm:-top-80"
+                        className="absolute inset-x-0 overflow-hidden -top-80 -z-10 transform-gpu blur-3xl sm:-top-24"
                         aria-hidden="true"
                     >
                         <div
