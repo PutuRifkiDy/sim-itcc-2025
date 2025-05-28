@@ -216,7 +216,7 @@ function About({ user_competition_registrations, className }) {
                                 Once you cancel your registration,  This action cannot be undone.
                             </p>
                             <ul class="list-inside list-disc mt-2 dark:text-white bg-gray-100 dark:bg-[#0F114C] rounded-[10px] px-2 py-2">
-                                <li>The payment proof you have upload cannot be retrieved</li>
+                                <li className="text-red-700">The payment proof you have upload cannot be retrieved</li>
                             </ul>
                             <div className="mt-6 flex w-full">
                                 <Button onClick={closeModal} variant="blue" className="w-1/2 bg-white border-2 border-[#0F114C] text-[#0F114C] hover:text-white dark:border-white dark:bg-[#0F114C] dark:text-white" type="button">Cancel</Button>
