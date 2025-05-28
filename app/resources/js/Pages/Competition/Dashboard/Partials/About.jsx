@@ -2,7 +2,7 @@ import { LineIcon, WhatsappIcon } from "@/Components/IconAdmin";
 import Modal from "@/Components/Modal";
 import { Button } from "@/Components/ui/button";
 import DashboardLayout from "@/Layouts/DashboardLayout";
-import { ArrowTopRightOnSquareIcon, DocumentDuplicateIcon, UserGroupIcon } from "@heroicons/react/24/solid";
+import { ArrowTopRightOnSquareIcon, DocumentDuplicateIcon, InformationCircleIcon, NoSymbolIcon, UserGroupIcon } from "@heroicons/react/24/solid";
 import { Link, usePage } from "@inertiajs/react";
 import { useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
@@ -202,24 +202,38 @@ function About({ user_competition_registrations, className }) {
                         Once you cancel your registration, you will not be able to revert this action.
                     </p>
 
-                    <Modal show={confirmingUserDeletion} onClose={closeModal} className="px-5 py-5 dark:bg-[#040529]" maxWidth="md">
-                        <h2 className="text-lg font-medium text-gray-900 dark:text-white">Are you sure you want cancel your registration?</h2>
-                        <p className="mt-1 text-sm text-gray-600 mb-10">
-                            Once you cancel your registration, you will not be able to revert this action.
-                        </p>
-                        <div className="mt-6 flex justify-end">
-                            <Button onClick={closeModal} variant="blue" type="button">Cancel</Button>
+                    <Modal show={confirmingUserDeletion} onClose={closeModal} className="py-5 dark:bg-[#040529]" maxWidth="lg">
+                        <div className="border-b-2 border-gray-400 px-5">
+                            <h2 className="text-lg font-medium text-[#0F114C] dark:text-white flex flex-row gap-2 items-center mb-3">
+                                {/* Are you sure you want cancel your registration? */}
+                                <div className="flex justify-center items-center bg-[#FFE0E3] p-2 rounded-full">
+                                    <InformationCircleIcon className="w-6 h-6 text-[#DC3545] font-bold" />
+                                </div>
+                                Cancel Registration
+                            </h2>
+                        </div>
+                        <div className="px-5">
+                            <p className="mt-3 text-[16px] text-[#000000] font-bold dark:text-white">
+                                Once you cancel your registration,  This action cannot be undone.
+                            </p>
+                            <ul class="list-inside list-disc mt-2 dark:text-white bg-gray-100 dark:bg-[#0F114C] rounded-[10px] px-2 py-2">
+                                <li>The payment proof you have upload cannot be retrieved</li>
+                                <li>The submission path you have upload cannot be retrieved</li>
+                            </ul>
+                            <div className="mt-6 flex w-full">
+                                <Button onClick={closeModal} variant="blue" className="w-1/2 bg-white border-2 border-[#0F114C] text-[#0F114C] hover:bg-[#0F114C] hover:text-white dark:border-white dark:bg-[#040529] dark:text-white" type="button">Cancel</Button>
 
-                            <Button className="ms-3" variant="red" type="submit" asChild>
-                                <Link
-                                    className="text-white"
-                                    type="button"
-                                    method="delete"
-                                    href={route('dashboard.competition.destroy', { id: user_competition_registrations.id })}
-                                >
-                                    Confirm
-                                </Link>
-                            </Button>
+                                <Button className="ms-3 w-1/2" variant="blue" type="submit" asChild>
+                                    <Link
+                                        className="text-white"
+                                        type="button"
+                                        method="delete"
+                                        href={route('dashboard.competition.destroy', { id: user_competition_registrations.id })}
+                                    >
+                                        Confirm
+                                    </Link>
+                                </Button>
+                            </div>
                         </div>
                     </Modal>
                 </div>
