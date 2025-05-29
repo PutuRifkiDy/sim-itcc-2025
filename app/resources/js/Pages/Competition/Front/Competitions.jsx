@@ -212,6 +212,7 @@ function Competitions({ ...props }) {
                                 <span className="font-regular text-[16px] uppercase tracking-[0.03em] text-black dark:text-white">
                                     {competitions.competition_content[0].location}
                                 </span>
+<<<<<<< HEAD
                                 <motion.div
 
                                     animate={{
@@ -222,11 +223,12 @@ function Competitions({ ...props }) {
                                         repeat: Infinity,
                                         ease: "easeInOut"
                                     }}
+=======
+                                <div 
+>>>>>>> a3432e23c9b1b1ef92b01babcc49afe2614bd874
                                     className="absolute left-[30rem] top-0 hidden -translate-y-1/2 md:block"
                                 >
                                     <SideLeftCrookedCrossIcon />
-                                </motion.div>
-                                <div className="">
                                 </div>
                             </div>
 
@@ -373,6 +375,7 @@ function Competitions({ ...props }) {
                             </div>
 
                             <div className="relative flex flex-col items-center gap-2 md:flex-row md:items-start">
+<<<<<<< HEAD
                                 <motion.div
 
                                     animate={{
@@ -383,10 +386,13 @@ function Competitions({ ...props }) {
                                         repeat: Infinity,
                                         ease: "easeInOut"
                                     }}
+=======
+                                <div 
+>>>>>>> a3432e23c9b1b1ef92b01babcc49afe2614bd874
                                     className='left-160 md:top-20 top-40 hidden items-center gap-3 md:absolute md:inline-flex'
                                 >
                                     <SideLeftArrowLeftIcon />
-                                </motion.div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -452,12 +458,26 @@ function Competitions({ ...props }) {
                     <div className="h-[6px] w-10 bg-white md:w-48"></div>
                 </div>
                 <div className="container mx-auto flex flex-col items-center justify-center gap-8 px-4 pb-24 pt-10 md:flex-row md:justify-evenly md:pt-32">
-                    <img
-                        className="w-60 md:w-96"
-                        src={`${window.location.origin}/assets/images/about/ITCCLogo.png`}
-                        alt="ITCC 2025 Logo"
-                        data-aos="fade-up"
-                    />
+                    <motion.div className=""
+                    animate={{
+                        y: [0, -40, 0],
+                        
+                    }}
+                    transition={
+                        {
+                            duration: 6,
+                            repeat: Infinity,
+                            repeatType: "reverse",
+                        }
+                    }
+                    >
+                        <img
+                            className="w-60 md:w-96"
+                            src={`${window.location.origin}/assets/images/about/ITCCLogo.png`}
+                            alt="ITCC 2025 Logo"
+                            data-aos="fade-up"
+                        />
+                    </motion.div>
                     <div className="relative md:w-[600px]">
                         <h2
                             className="font-rubik text-xl font-bold uppercase tracking-[5px] text-[#A5CBD0] md:text-2xl"
@@ -473,19 +493,11 @@ function Competitions({ ...props }) {
                             data-aos="fade-up"
                             data-aos-delay="100"
                         /> */}
-                        <motion.div
-                        animate={{
-                            y: [0, -20, 0],
-                        }}
-                        transition={{
-                            duration: 5,
-                            repeat: Infinity,
-                            ease: "linear"
-                        }}
+                        <div
                         className="absolute -right-10 top-0 w-6 md:w-10"
                         >
                             <SideLeftCrookedCrossIcon />
-                        </motion.div>
+                        </div>
                         <p
                             className="font-rubik my-6 text-justify text-base font-light text-white md:text-lg"
                             data-aos="fade-up"
@@ -494,6 +506,7 @@ function Competitions({ ...props }) {
                             {competitions.description}
                         </p>
                         <div className="flex flex-row gap-x-3" data-aos="fade-up" data-aos-delay="300">
+<<<<<<< HEAD
                             <motion.div
                             animate={{
                                     x: [0, 20, 0],
@@ -534,6 +547,16 @@ function Competitions({ ...props }) {
                                     ease: "easeInOut"
                                 }}
                             className="w-0 h-0 border-t-[10px] border-b-[10px] border-l-[20px] border-t-transparent border-b-transparent border-l-white"></motion.div>
+=======
+                            <div 
+                            className="w-0 h-0 border-t-[10px] border-b-[10px] border-l-[20px] border-t-transparent border-b-transparent border-l-white"></div>
+                            <div 
+                                className="w-0 h-0 border-t-[10px] border-b-[10px] border-l-[20px] border-t-transparent border-b-transparent border-l-white"></div>
+                            <div 
+                                className="w-0 h-0 border-t-[10px] border-b-[10px] border-l-[20px] border-t-transparent border-b-transparent border-l-white"></div>
+                            <div 
+                            className="w-0 h-0 border-t-[10px] border-b-[10px] border-l-[20px] border-t-transparent border-b-transparent border-l-white"></div>
+>>>>>>> a3432e23c9b1b1ef92b01babcc49afe2614bd874
                         </div>
                     </div>
                 </div>
@@ -576,18 +599,10 @@ function Competitions({ ...props }) {
                     We’ve prepared exciting rewards for the best! Explore the prize categories and see what’s waiting
                     for the winners of each competition track.
                 </p>
-                <motion.div
-                animate={{
-                    y: [0, -20, 0],
-                }}
-                transition={{
-                    duration: 5,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                }}
+                <div
                 className="absolute right-10 top-4 hidden -translate-y-1/2 text-[#0F114C] md:right-20 md:top-52 md:block">
                     <SideLeftCrookedCrossIcon />
-                </motion.div>
+                </div>
                 <div className="flex h-full w-full items-end px-4 pb-10">
                     <div className="grid w-full grid-cols-1 gap-4 md:grid-cols-3 md:gap-12">
                         {competitions.competition_content.map((content, i) =>
@@ -639,6 +654,7 @@ function Competitions({ ...props }) {
                             )),
                         )}
 
+<<<<<<< HEAD
                         <motion.div
                         animate={{
                             x: [0, 20, 0],
@@ -648,9 +664,12 @@ function Competitions({ ...props }) {
                             repeat: Infinity,
                             ease: "easeInOut"
                         }}
+=======
+                        <div 
+>>>>>>> a3432e23c9b1b1ef92b01babcc49afe2614bd874
                         className="mb-4 hidden md:absolute md:bottom-0 md:left-12 md:flex">
                             <SideLeftArrowLeftIcon />
-                        </motion.div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -767,6 +786,7 @@ function Competitions({ ...props }) {
 
             {/* start faq */}
             <section className="relative mx-auto mt-20 w-full max-w-[1440px] flex-shrink-0 bg-white px-4 dark:bg-[#040529] sm:px-8 md:mt-36">
+<<<<<<< HEAD
                 <motion.div
                 animate={{
                     y: [0, -20, 0],
@@ -779,9 +799,12 @@ function Competitions({ ...props }) {
                         repeatType: "easeInOut",
                     }
                 }
+=======
+                <div 
+>>>>>>> a3432e23c9b1b1ef92b01babcc49afe2614bd874
                 className="absolute left-4 top-4 hidden sm:left-10 sm:top-10 lg:block">
                     <SideLeftCrookedCrossIcon />
-                </motion.div>
+                </div>
 
                 <h1
                     className="font-rubik mt-4 text-center text-[24px] font-bold uppercase leading-[120%] tracking-[3px] text-[color:var(--Blue-Primary,#0F114C)] dark:text-white sm:mt-8 sm:text-[36px] sm:tracking-[5.76px]"
@@ -828,6 +851,7 @@ function Competitions({ ...props }) {
 
             {/* start contact */}
             <section className="relative mb-5 mt-20 flex flex-col items-center px-5 md:mb-10 md:mt-36 md:px-24">
+<<<<<<< HEAD
                 <motion.div
                 animate={{
                     y: [0, -20, 0],
@@ -840,12 +864,16 @@ function Competitions({ ...props }) {
                         repeatType: "easeInOut",
                     }
                 }
+=======
+                <div 
+>>>>>>> a3432e23c9b1b1ef92b01babcc49afe2614bd874
                 className="absolute bottom-0 right-24 hidden text-[#0F114C] md:block">
                     <SideRightBlueDotIcon />
-                </motion.div>
+                </div>
                 <div className="absolute bottom-12 left-24 hidden rotate-90 transform text-[#0F114C] md:block">
                     <SideRightCrossIcon />
                 </div>
+<<<<<<< HEAD
                 <motion.div
                 animate={{
                     x: [0, 20, 0],
@@ -873,9 +901,16 @@ function Competitions({ ...props }) {
                         repeatType: "easeInOut",
                     }
                 }
+=======
+                <div 
+                className="absolute right-24 top-24 hidden transform text-[#0F114C] md:block">
+                    <SideLeftArrowLeftIcon />
+                </div>
+                <div 
+>>>>>>> a3432e23c9b1b1ef92b01babcc49afe2614bd874
                 className="absolute left-24 top-12 hidden transform text-[#0F114C] md:block">
                     <SideRightCircleIcon />
-                </motion.div>
+                </div>
                 <h2
                     className="text-2xl font-bold uppercase tracking-[5px] text-[#0F114C] dark:text-white lg:text-4xl lg:tracking-[10px]"
                     data-aos="fade-up"

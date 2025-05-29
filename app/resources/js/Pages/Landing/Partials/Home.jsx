@@ -60,7 +60,7 @@ export default function Home() {
                             <motion.div 
                                 
                                 animate={{
-                                    y: [0, -40, 0], 
+                                    y: [0, -15, 0], 
                                 }}
                                 transition={{
                                     duration: 5,
