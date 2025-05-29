@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { toast } from "sonner";
 import { BarElement, CategoryScale, Chart as ChartJS, Legend, LinearScale, LineElement, PointElement, Title, Tooltip } from 'chart.js';
 import { Line, Bar } from 'react-chartjs-2';
+import { Progress } from "@/Components/ui/progress";
 
 function Overview() {
     ChartJS.register(CategoryScale, LinearScale, LineElement, PointElement, Title, Tooltip, Legend, BarElement);
@@ -12,6 +13,10 @@ function Overview() {
     const sum_total_payment_competition = usePage().props.sum_total_payment_competition;
     const monthly_sales_chart = usePage().props.monthly_sales_chart;
     const monthly_registrations_chart = usePage().props.monthly_registrations_chart;
+    const percentage_participant = usePage().props.percentage_participant;
+    const percentage_sales = usePage().props.percentage_sales;
+    const target_competition = usePage().props.target_competition;
+
 
     const data = {
         labels: monthly_sales_chart.labels,
@@ -45,24 +50,46 @@ function Overview() {
         <div className="py-5">
             <div className="bg-white dark:bg-[#040529] p-4 shadow rounded-lg sm:p-8 gap-5">
                 <div className="gap-5 grid md:grid-cols-3 grid-cols-1">
-                    <div className="border-2 border-[#E4F0F8] flex items-center flex-row gap-10 py-5 px-5 rounded-xl">
+                    <div className="border-2 border-[#E4F0F8] flex flex-col h-40 justify-between py-5 px-5 rounded-xl">
                         {/* start icon */}
-                        <div className="flex justify-center items-center p-4 rounded-2xl bg-[#718EBF]/40">
-                            <UserGroupIcon className="text-[#718EBF] w-8 h-8" />
+                        <div className="flex flex-row gap-5">
+                            <div className="flex justify-center items-center p-4 rounded-2xl bg-[#718EBF]/40">
+                                <UserGroupIcon className="text-[#718EBF] w-8 h-8" />
+                            </div>
+                            <div className="flex flex-col gap-1">
+                                <p className="text-[#3A3A3A]/90 text-[16px] font-medium dark:text-white">Participant Competition</p>
+                                <p className="font-bold text-[24px] text-[#232323] dark:text-white">{count_competition}</p>
+                            </div>
                         </div>
                         <div className="flex flex-col gap-1">
-                            <p className="text-[#3A3A3A]/90 text-[16px] font-medium dark:text-white">Participant Competition</p>
-                            <p className="font-bold text-[24px] text-[#232323] dark:text-white">{count_competition}</p>
+                            <Progress value={percentage_participant} className="" />
+                            <div className="flex justify-between">
+                                <p className="text-[#4DE45C] text-sm">{percentage_participant}%{" "} filled</p>
+                                <p className="text-[#718EBF] text-sm">
+                                    {count_competition}/{target_competition.target_participant}
+                                </p>
+                            </div>
                         </div>
-
                     </div>
-                    <div className="border-2 border-[#E4F0F8] flex items-center flex-row gap-10 py-5 px-5 rounded-xl">
-                        <div className="flex justify-center items-center p-4 rounded-2xl bg-[#4DE45C]/20">
-                            <BanknotesIcon className="text-[#4DE45C] w-8 h-8" />
+                    <div className="border-2 border-[#E4F0F8] flex flex-col justify-between h-40 py-5 px-5 rounded-xl">
+                        {/* start icon */}
+                        <div className="flex flex-row gap-5">
+                            <div className="flex justify-center items-center p-4 rounded-2xl bg-[#4DE45C]/40">
+                                <BanknotesIcon className="text-[#4DE45C] w-8 h-8" />
+                            </div>
+                            <div className="flex flex-col gap-1">
+                                <p className="text-[#3A3A3A]/90 text-[16px] font-medium dark:text-white">Participant Competition</p>
+                                <p className="font-bold text-[24px] text-[#232323] dark:text-white">{sum_total_payment_competition }</p>
+                            </div>
                         </div>
                         <div className="flex flex-col gap-1">
-                            <p className="text-[#3A3A3A]/90 text-[16px] font-medium dark:text-white">Sales Competition</p>
-                            <p className="font-bold text-[24px] text-[#232323] dark:text-white">{sum_total_payment_competition}</p>
+                            <Progress value={percentage_sales} className="" />
+                            <div className="flex justify-between">
+                                <p className="text-[#4DE45C] text-sm">{percentage_sales}%{" "} filled</p>
+                                <p className="text-[#718EBF] text-sm">
+                                    {sum_total_payment_competition }/{target_competition.target_sales}
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
