@@ -134,7 +134,7 @@ export default function NavBar({ auth, competitions }) {
                                     </Link>
                                 ) : auth.is_admin === true ? (
                                     <Link
-                                        href={route('dashboard.competition.admin-lomba.index')}
+                                        href={route('dashboard.overview.admin-lomba.index')}
                                         className="flex flex-row items-center gap-2"
                                     >
                                         <Squares2X2Icon className="h-6 w-6 text-gray-500" />
@@ -234,17 +234,38 @@ export default function NavBar({ auth, competitions }) {
                                             <UserCircleIcon className="h-8 w-8 text-gray-500" />
                                         </p>
                                     </DropdownMenuTrigger>
-                                    <DropdownMenuContent className="w-56 flex flex-col justify-center px-4 gap-4 py-3 outline-none ml-5 dark:bg-[#040529]" >
-                                        <Link
-                                            href={route('dashboard')}
-                                            className="flex flex-row items-center gap-2"
-                                        >
-                                            <Squares2X2Icon className="h-6 w-6 text-gray-500" />
-                                            Dashboard
-                                        </Link>
+                                    <DropdownMenuContent className="w-56 flex flex-col justify-start px-4 gap-4 py-3 outline-none mr-12 dark:bg-[#040529]" >
+                                        {auth.is_admin === true && auth.name == 'Admin Kesekre' ? (
+                                            <Link
+                                                href={route('dashboard.overview.admin-kesekre.index')}
+                                                className="flex flex-row items-center gap-2"
+                                            >
+                                                <Squares2X2Icon className="h-6 w-6 text-gray-500" />
+                                                Dashboard
+                                            </Link>
+                                        ) : auth.is_admin === true ? (
+                                            <Link
+                                                href={route('dashboard.overview.admin-lomba.index')}
+                                                className="flex flex-row items-center gap-2"
+                                            >
+                                                <Squares2X2Icon className="h-6 w-6 text-gray-500" />
+                                                Dashboard
+                                            </Link>
+                                        ) : (
+
+                                            <Link
+                                                href={route('dashboard')}
+                                                className="flex flex-row items-center gap-2"
+                                            >
+                                                <Squares2X2Icon className="h-6 w-6 text-gray-500" />
+                                                Dashboard
+                                            </Link>
+                                        )}
                                         <Link
                                             href={route('logout')}
                                             className="text-red-500 flex flex-row items-center gap-2"
+                                            type="button"
+                                            method="post"
                                         >
                                             <ArrowRightStartOnRectangleIcon className="h-6 w-6 text-red-500" />
                                             Logout
@@ -252,7 +273,7 @@ export default function NavBar({ auth, competitions }) {
                                     </DropdownMenuContent>
                                 </DropdownMenu>
                             ) : (
-                                <Button asChild variant="blue" size="lg" className='mx-5 shadow'>
+                                <Button asChild variant="blue" size="lg">
                                     <Link
                                         href={route('login')}
                                     >

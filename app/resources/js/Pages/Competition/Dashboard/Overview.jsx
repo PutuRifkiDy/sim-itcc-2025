@@ -57,8 +57,8 @@ function Overview() {
     return (
         <div className="py-5">
             <div className="bg-white dark:bg-[#040529] p-4 shadow rounded-lg sm:p-8 gap-5">
-                <div className="gap-5 grid md:grid-cols-3 grid-cols-1">
-                    <div className="border-2 border-[#E4F0F8] flex flex-col h-40 justify-between py-5 px-5 rounded-xl">
+                <div className="gap-5 grid md:grid-cols-2 grid-cols-1">
+                    <div className="border-2 border-[#E4F0F8] flex flex-col gap-5 justify-between py-5 px-5 rounded-xl">
                         {/* start icon */}
                         <div className="flex flex-row gap-5">
                             <div className="flex justify-center items-center p-4 rounded-2xl bg-[#718EBF]/40">
@@ -79,7 +79,7 @@ function Overview() {
                             </div>
                         </div>
                     </div>
-                    <div className="border-2 border-[#E4F0F8] flex flex-col justify-between h-40 py-5 px-5 rounded-xl">
+                    <div className="border-2 border-[#E4F0F8] flex flex-col justify-between gap-5 py-5 px-5 rounded-xl">
                         {/* start icon */}
                         <div className="flex flex-row gap-5">
                             <div className="flex justify-center items-center p-4 rounded-2xl bg-[#4DE45C]/40">
