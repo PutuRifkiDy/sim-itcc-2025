@@ -103,7 +103,7 @@ class OverviewForAdminLomba extends Controller
         $object_target_competition_admin_lomba = (object) $target_competition_admin_lomba;
 
         if ($count_competition > 0) {
-            $percentage_participant = ($count_competition / $object_target_competition_admin_lomba->target_participant ) * 100;
+            $percentage_participant = ($count_competition / $object_target_competition_admin_lomba->target_participant) * 100;
         } else {
             $percentage_participant = 0;
         }
