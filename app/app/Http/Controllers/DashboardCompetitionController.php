@@ -83,8 +83,8 @@ class DashboardCompetitionController extends Controller
         $competitionRegistrations = CompetitionRegistrations::where('team_id', $team->id)->first();
 
         if ($competitionRegistrations->payment_status->value === PaymentStatus::VERIFIED->value) {
-            flashMessage('Payment has already been approved. No further uploads allowed.', 'error');
-            return back();
+            flashMessage('Payment has already been approved. No changes allowed.', 'error');
+            return to_route('dashboard.competition.index');
         } else if ($competitionRegistrations->payment_status->value === PaymentStatus::PENDING->value
             || $competitionRegistrations->payment_status->value === PaymentStatus::REQUESTED->value
             || $competitionRegistrations->payment_status->value === PaymentStatus::REJECTED->value) {
