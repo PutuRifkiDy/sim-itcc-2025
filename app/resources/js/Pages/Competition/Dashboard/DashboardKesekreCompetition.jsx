@@ -148,7 +148,7 @@ function DashboardKesekreCompetition({ ...props }) {
 
                     <div className="gap-5 grid md:grid-cols-4 grid-cols-1">
                         {/* ada 3 div untuk count requested, pending, sama rejected*/}
-                        <div className="border-2 border-[#E4F0F8] flex items-center flex-row gap-10 py-5 px-5 rounded-xl"  >
+                        <div className="border-2 border-[#E4F0F8] flex items-center flex-row gap-5 py-5 px-5 rounded-xl"  >
                             {/* start icon */}
                             <div className="flex justify-center items-center p-4 rounded-2xl bg-[#718EBF]/40">
                                 <PaperAirplaneIcon className="text-[#718EBF] w-6 h-6" />
@@ -159,7 +159,7 @@ function DashboardKesekreCompetition({ ...props }) {
                             </div>
 
                         </div>
-                        <div className="border-2 border-[#E4F0F8] flex items-center flex-row gap-10 py-5 px-5 rounded-xl"  >
+                        <div className="border-2 border-[#E4F0F8] flex items-center flex-row gap-5 py-5 px-5 rounded-xl"  >
                             {/* start icon */}
                             <div className="flex justify-center items-center p-4 rounded-2xl bg-[#FFC300]/20">
                                 <ClockIcon className="text-[#FFC300] w-6 h-6" />
@@ -170,7 +170,7 @@ function DashboardKesekreCompetition({ ...props }) {
                             </div>
 
                         </div>
-                        <div className="border-2 border-[#E4F0F8] flex items-center flex-row gap-10 py-5 px-5 rounded-xl"  >
+                        <div className="border-2 border-[#E4F0F8] flex items-center flex-row gap-5 py-5 px-5 rounded-xl"  >
                             {/* start icon */}
                             <div className="flex justify-center items-center p-4 rounded-2xl bg-[#4DE45C]/20">
                                 <CheckBadgeIcon className="text-[#4DE45C] w-6 h-6" />
@@ -181,7 +181,7 @@ function DashboardKesekreCompetition({ ...props }) {
                             </div>
 
                         </div>
-                        <div className="border-2 border-[#E4F0F8] flex items-center flex-row gap-10 py-5 px-5 rounded-xl"  >
+                        <div className="border-2 border-[#E4F0F8] flex items-center flex-row gap-5 py-5 px-5 rounded-xl"  >
                             {/* start icon */}
                             <div className="flex justify-center items-center p-4 rounded-2xl bg-[#E82323]/20">
                                 <ArchiveBoxXMarkIcon className="text-[#E82323] w-6 h-6" />
@@ -698,7 +698,7 @@ function DashboardKesekreCompetition({ ...props }) {
                                                                 onClick={() => modalFormOpenHandler(competition.id)}>
                                                                 <XCircleIcon className="text-[#E82323] w-5 h-5" />
                                                             </Button>
- 
+
                                                             <Modal show={modalFormOpen} onClose={closeModalForm} maxWidth="md" className="p-4 dark:bg-[#0F172A]">
                                                                 <form onSubmit={(e) => onHandleSubmit(e, selectId)}>
                                                                     <h2 className="text-lg font-semibold text-gray-900 dark:text-white">

@@ -50,40 +50,8 @@ function Overview() {
     return (
         <div className="py-5">
             <div className="bg-white dark:bg-[#040529] p-4 shadow rounded-lg sm:p-8 gap-5">
-                <div className="gap-5 grid md:grid-cols-3 grid-cols-1">
-                    <div className="border-2 border-[#E4F0F8] flex items-center flex-row gap-10 py-5 px-5 rounded-xl">
-                        {/* start icon */}
-                        <div className="flex justify-center items-center p-4 rounded-2xl bg-[#718EBF]/40">
-                            <UserGroupIcon className="text-[#718EBF] w-8 h-8" />
-                        </div>
-                        <div className="flex flex-col gap-1">
-                            <p className="text-[#3A3A3A]/90 text-[16px] font-medium dark:text-white">Participant Semnas</p>
-                            <p className="font-bold text-[24px] text-[#232323] dark:text-white">{count_participant_semnas}</p>
-                        </div>
-
-                    </div>
-                    <div className="border-2 border-[#E4F0F8] flex items-center flex-row gap-10 py-5 px-5 rounded-xl">
-                        {/* start icon */}
-                        <div className="flex justify-center items-center p-4 rounded-2xl bg-[#FFC300]/20">
-                            <UserGroupIcon className="text-[#FFC300] w-8 h-8" />
-                        </div>
-                        <div className="flex flex-col gap-1">
-                            <p className="text-[#3A3A3A]/90 text-[16px] font-medium dark:text-white">Participant Competition</p>
-                            <p className="font-bold text-[24px] text-[#232323] dark:text-white">{count_participant_competition}</p>
-                        </div>
-
-                    </div>
-                    <div className="border-2 border-[#E4F0F8] flex items-center flex-row gap-10 py-5 px-5 rounded-xl">
-                        {/* start icon */}
-                        <div className="flex justify-center items-center p-4 rounded-2xl bg-[#396AFF]/20">
-                            <BuildingLibraryIcon className="text-[#396AFF] w-8 h-8" />
-                        </div>
-                        <div className="flex flex-col gap-1">
-                            <p className="text-[#3A3A3A]/90 text-[16px] font-medium dark:text-white">Total Institution</p>
-                            <p className="font-bold text-[24px] text-[#232323] dark:text-white">{count_institution}</p>
-                        </div>
-                    </div>
-                    <div className="border-2 border-[#E4F0F8] flex items-center flex-row gap-10 py-5 px-5 rounded-xl">
+                <div className="gap-5 grid md:grid-cols-2 grid-cols-1 mb-5">
+                    <div className="border-2 border-[#E4F0F8] flex items-center flex-row gap-5 py-5 px-5 rounded-xl">
                         {/* start icon */}
                         <div className="flex justify-center items-center p-4 rounded-2xl bg-[#4DE45C]/20">
                             <BanknotesIcon className="text-[#4DE45C] w-8 h-8" />
@@ -94,7 +62,7 @@ function Overview() {
                         </div>
 
                     </div>
-                    <div className="border-2 border-[#E4F0F8] flex items-center flex-row gap-10 py-5 px-5 rounded-xl">
+                    <div className="border-2 border-[#E4F0F8] flex items-center flex-row gap-5 py-5 px-5 rounded-xl">
                         {/* start icon */}
                         <div className="flex justify-center items-center p-4 rounded-2xl bg-[#4DE45C]/20">
                             <BanknotesIcon className="text-[#4DE45C] w-8 h-8" />
@@ -102,6 +70,40 @@ function Overview() {
                         <div className="flex flex-col gap-1">
                             <p className="text-[#3A3A3A]/90 text-[16px] font-medium dark:text-white">Total Competition Income</p>
                             <p className="font-bold text-[24px] text-[#232323] dark:text-white">{sum_total_payment_competition}</p>
+                        </div>
+                    </div>
+                </div>
+                <div className="gap-5 grid md:grid-cols-2 grid-cols-1">
+                    <div className="border-2 border-[#E4F0F8] flex items-center flex-row gap-5 py-5 px-5 rounded-xl">
+                        {/* start icon */}
+                        <div className="flex justify-center items-center p-4 rounded-2xl bg-[#718EBF]/40">
+                            <UserGroupIcon className="text-[#718EBF] w-8 h-8" />
+                        </div>
+                        <div className="flex flex-col gap-1">
+                            <p className="text-[#3A3A3A]/90 text-[16px] font-medium dark:text-white">Participant Semnas</p>
+                            <p className="font-bold text-[24px] text-[#232323] dark:text-white">{count_participant_semnas}</p>
+                        </div>
+
+                    </div>
+                    <div className="border-2 border-[#E4F0F8] flex items-center flex-row gap-5 py-5 px-5 rounded-xl">
+                        {/* start icon */}
+                        <div className="flex justify-center items-center p-4 rounded-2xl bg-[#FFC300]/20">
+                            <UserGroupIcon className="text-[#FFC300] w-8 h-8" />
+                        </div>
+                        <div className="flex flex-col gap-1">
+                            <p className="text-[#3A3A3A]/90 text-[16px] font-medium dark:text-white">Participant Competition</p>
+                            <p className="font-bold text-[24px] text-[#232323] dark:text-white">{count_participant_competition}</p>
+                        </div>
+
+                    </div>
+                    <div className="border-2 border-[#E4F0F8] flex items-center flex-row gap-5 py-5 px-5 rounded-xl">
+                        {/* start icon */}
+                        <div className="flex justify-center items-center p-4 rounded-2xl bg-[#396AFF]/20">
+                            <BuildingLibraryIcon className="text-[#396AFF] w-8 h-8" />
+                        </div>
+                        <div className="flex flex-col gap-1">
+                            <p className="text-[#3A3A3A]/90 text-[16px] font-medium dark:text-white">Total Institution</p>
+                            <p className="font-bold text-[24px] text-[#232323] dark:text-white">{count_institution}</p>
                         </div>
                     </div>
                 </div>
@@ -132,4 +134,4 @@ function Overview() {
 }
 
 export default Overview;
-Overview.layout = (page) => <DashboardLayout children={page} title="Overview" header="Overview" description="All reports of progress in this page"/>;
+Overview.layout = (page) => <DashboardLayout children={page} title="Overview" header="Overview" description="All reports of progress in this page" />;
