@@ -94,7 +94,7 @@ class DashboardCompetitionController extends Controller
             ]);
             flashMessage('Team name has been updated.', 'success');
         }
-        return back();
+        return to_route('dashboard.competition.index');
     }
 
     public function payment_store(PaymentStoreRequest $request, $id): RedirectResponse

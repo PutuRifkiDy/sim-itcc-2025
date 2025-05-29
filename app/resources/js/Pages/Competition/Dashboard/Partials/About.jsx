@@ -14,6 +14,7 @@ function About({ user_competition_registrations, className }) {
     const [confirmingUserDeletion, setConfirmingUserDeletion] = useState(false);
     const { flash_message } = usePage().props;
     const [editingTeamNameModalOpen, setEditTeamNameModalOpen] = useState(false);
+    const hasShownToast = useRef(false);
 
     const { data, setData, post, errors, processing, recentlySuccessful, formData, clearErrors, reset } = useForm({
         team_name: '',
@@ -56,10 +57,12 @@ function About({ user_competition_registrations, className }) {
     }
 
     useEffect(() => {
-        if (flash_message?.message) {
+        if (flash_message?.message && !hasShownToast.current) {
             toast[flash_message.type || 'success'](flash_message.message);
+            hasShownToast.current = true;
         }
     }, [flash_message]);
+
 
     const closeModal = () => {
         setConfirmingUserDeletion(false);
@@ -79,6 +82,7 @@ function About({ user_competition_registrations, className }) {
         post(route('dashboard.competition.team_name', { id: user_competition_registrations.teams.id }), {
             onSuccess: (success) => {
                 closeEditTeamNameModal();
+
             },
             forceFormData: true,
             preserveScroll: true,
@@ -169,7 +173,7 @@ function About({ user_competition_registrations, className }) {
                                                 placeholder="Update Team Name"
                                             />
 
-                                            <InputError message={errors.team_name} className="mt-2" />
+                                            <InputError message={errors.team_name} className="mt-2 text-red-700" />
                                         </div>
 
                                         <Button disabled={processing} className="mt-6" variant="blue">
