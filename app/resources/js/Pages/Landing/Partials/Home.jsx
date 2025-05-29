@@ -52,7 +52,7 @@ export default function Home() {
                                         repeat: Infinity,
                                         ease: "linear"
                                     }}
-                                    className="w-full h-full"
+                                    className="w-full h-full md:block hidden"
                                 >
                                     <SideLeftCrookedCrossIcon />
                                 </motion.div>
@@ -70,7 +70,7 @@ export default function Home() {
                             >
 
                                 <div className="flex justify-center items-center md:block" data-aos="fade-up">
-                                    <img src="assets/images/landing/icon-maskot-itcc.png" className="md:w-[140px] md:h-auto w-full h-auto transform -rotate-12" alt="" />
+                                    <img src="assets/images/landing/icon-maskot-itcc.png" className="md:w-[140px] md:h-auto w-[140px] h-auto transform -rotate-12" alt="" />
                                 </div>
                             </motion.div>
                             <h1 className="font-extrabold text-[80px] tracking-[0.05em] leading-[1.2em] text-[#0F114C] [text-shadow:_6px_4px_9px_rgb(0_0_0_/_0.54)] md:absolute flex justify-center items-center top-8 left-40 dark:text-white" data-aos="fade-up" data-aos-delay="100">

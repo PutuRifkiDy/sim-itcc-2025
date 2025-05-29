@@ -232,7 +232,7 @@ function RegisterTeam() {
                             <div className="flex justify-center items-center bg-[#FFE0E3] p-2 rounded-full">
                                 <PiWarningBold className="w-6 h-6 text-[#DC3545] font-bold" />
                             </div>
-                            Register Team Error
+                            Register Team Information
                         </h2>
                     </div>
                     <div className="px-5 py-5 dark:bg-[#0F114C]">
@@ -240,7 +240,6 @@ function RegisterTeam() {
                             {errors.team_name}
                         </p>
                         <ul class="list-inside list-disc mt-2 dark:text-white bg-gray-100 dark:bg-[#0F114C] rounded-[10px] px-2 py-2">
-                            <li className="text-red-700">Your status is not eligible to register this competition</li>
                             <li className="text-red-700">Please enter a different team name, if it is already taken.</li>
                         </ul>
                         <div className="mt-6 flex w-full justify-end">

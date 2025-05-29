@@ -107,7 +107,7 @@ export default function Merch() {
                     <h2 className="uppercase md:text-4xl text-2xl font-bold text-[#0F114C] md:tracking-[10px] tracking-[5px] dark:text-white" data-aos="fade-up">
                         Our Merchandise
                     </h2>
-                    <p className="mt-4 text-[#5E5E5E] font-rubik text-sm sm:text-base md:text-lg font-normal tracking-[0.02em] dark:text-gray-400" data-aos="fade-up" data-aos-delay="100">
+                    <p className="mt-4 text-[#5E5E5E] font-rubik text-sm sm:text-base md:text-lg font-normal tracking-[0.02em] dark:text-gray-400 px-5" data-aos="fade-up" data-aos-delay="100">
                         Support us and show your pride by getting our official merchandise.
                         High-quality, stylish, and made just for you — wear it and be part of
                         the community!
@@ -139,7 +139,7 @@ export default function Merch() {
                             className="absolute bottom-0 left-0 md:w-10 w-6 rotate-30 hidden md:inline"
                             alt=""
                         /> */}
-                        <div 
+                        <div
                             className="absolute bottom-0 left-0 md:w-10 w-6 rotate-30 hidden md:inline">
                             <StarRightITCC/>
                         </div>

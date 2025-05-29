@@ -91,7 +91,7 @@ function Merchandise({ ...props }) {
 
                     </div>
 
-                    <div 
+                    <div
                     className="absolute md:bottom-0 -bottom-12 left-24">
                         <SideLeftArrowLeftIcon />
                     </div>
@@ -136,7 +136,7 @@ function Merchandise({ ...props }) {
                         <h2 className="uppercase md:text-4xl text-2xl font-bold text-[#0F114C] md:tracking-[10px] tracking-[5px] dark:text-white" data-aos="fade-up">
                             Our Merchandise
                         </h2>
-                        <p className="mt-4 text-[#5E5E5E] font-rubik text-sm sm:text-base md:text-lg font-normal tracking-[0.02em] dark:text-gray-400 md:w-[600px] w-full" data-aos="fade-up" data-aos-delay="100">
+                        <p className="mt-4 text-[#5E5E5E] font-rubik text-sm sm:text-base md:text-lg font-normal tracking-[0.02em] dark:text-gray-400 md:w-[600px] w-full md:px-0 px-5" data-aos="fade-up" data-aos-delay="100">
                             Support us and show your pride by getting our official merchandise.
                             High-quality, stylish, and made just for you — wear it and be part of
                             the community!
@@ -174,12 +174,12 @@ function Merchandise({ ...props }) {
                                                 <img
                                                     src="assets/images/about/ITCCLogo.png"
                                                     alt="text1"
-                                                    className="h-42 w-auto object-contain transition-all duration-500 md:group-hover:scale-75  dark:block hidden"
+                                                    className="h-42 w-auto object-contain transition-all duration-500 md:group-hover:scale-75 dark:block hidden"
                                                 />
                                                 <img
                                                     src="assets/images/image_for_icon_logo_itcc.png"
                                                     alt="text2"
-                                                    className="h-42 w-auto object-contain transition-all duration-500 md:group-hover:scale-75 dark:hidden"
+                                                    className="h-42 w-auto object-contain transition-all duration-500 md:group-hover:scale-75 dark:hidden md:block hidden"
                                                 />
                                             </div>
                                         </div>
@@ -197,14 +197,14 @@ function Merchandise({ ...props }) {
 
                                         {/* Content (shown on mobile and on hover in desktop) */}
                                         <div className="absolute bottom-0 left-0 right-0 flex flex-col items-center p-5 my-5 opacity-100 translate-y-0 md:opacity-0 md:translate-y-4 transition-all duration-500 md:group-hover:opacity-100 md:group-hover:translate-y-0 z-30">
-                                            <h3 className="text-center text-2xl font-bold mb-4 text-white">
+                                            <h3 className="text-center text-2xl font-bold mb-4 text-white md:block hidden">
                                                 {merch.name}
                                                 <div className="w-64 h-0.5 mt-2 bg-[#0F114C] mx-auto rounded-full"></div>
                                             </h3>
                                             <div className="flex flex-col gap-5 mb-2 items-center">
                                                 <div className="flex flex-col gap-1 items-center mb-10">
-                                                    <p className="text-[16px] font-medium text-white">{merch.batch_name}</p>
-                                                    <p className="text-[12px] font-normal text-white">{formatDateInTimeLine(merch.start_date)} - {formatDateInTimeLine(merch.end_date)}</p>
+                                                    <p className="text-[16px] font-medium text-white md:block hidden">{merch.batch_name}</p>
+                                                    <p className="text-[12px] font-normal text-white md:block hidden">{formatDateInTimeLine(merch.start_date)} - {formatDateInTimeLine(merch.end_date)}</p>
                                                 </div>
                                                 <div className="flex flex-col gap-1 items-center max-w-[300px] text-center">
                                                     <p className="text-[16px] font-medium text-white">Pick-up Offline</p>

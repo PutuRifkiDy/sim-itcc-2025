@@ -280,7 +280,10 @@ class FrontController extends Controller
             flashMessage('Please fill your profile first.', 'error');
             return back();
         } else if ($request->user()->status->value != $get_competition->competition_category->category_name) {
-            flashMessage('You are not allowed to register for this competition.', 'error');
+            flashMessage(
+                'You are not allowed to register for this competition.
+                            Your education status is not ' . $get_competition->competition_category->category_name
+                        , 'error');
             return back();
         } else if ($request->user()->already_filled == true && $request->user()->status->value == $get_competition->competition_category->category_name) {
             $team = $user->teams()->create([

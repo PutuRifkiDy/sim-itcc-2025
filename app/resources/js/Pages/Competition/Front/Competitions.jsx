@@ -279,19 +279,19 @@ function Competitions({ ...props }) {
                                     </span>
                                 </div>
                             </div>
-                            <div className="h-10" />
+                            <div className="h-12" />
 
                             <div
-                                className="flex flex-col items-center gap-4 md:flex-row md:gap-10"
+                                className="flex flex-col items-center gap-4 md:flex-row md:gap-10 w-full"
                                 data-aos="fade-up"
                                 data-aos-delay="300"
                             >
                                 {competitions.is_team == false ? (
-                                    <Button type="submit" variant="blue" size="lg" className="rounded-lg text-[18px] py-6 px-5" onClick={onHandleSubmit}>
+                                    <Button type="submit" variant="blue" size="lg" className="rounded-lg text-[18px] py-6 px-5 md:w-1/3 w-full" onClick={onHandleSubmit}>
                                         Register
                                     </Button>
                                 ) : (
-                                    <Button asChild variant="blue" size="lg" className="rounded-lg text-[18px]">
+                                    <Button asChild variant="blue" size="lg" className="rounded-lg text-[18px] md:w-1/3 w-full">
                                         <Link href={route('register.competition.show', competitions.slug)} className="py-6 px-5">
                                             Register
                                         </Link>
@@ -332,13 +332,13 @@ function Competitions({ ...props }) {
                                 </Dialog>
                             </div>
 
-                            <div className="mt-7 gap-2" >
-                                <Button variant="blue" size="lg" className="w-full rounded-lg" asChild data-aos="fade-up" data-aos-delay="400">
+                            <div className="mt-7 gap-2 w-full">
+                                <Button variant="blue" size="lg" className="md:w-1/2 w-full rounded-lg py-6 px-5 text-[18px]" asChild data-aos="fade-up" data-aos-delay="400">
                                     <a
                                         href={competitions.competition_content[0].guidebook_link}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="flex items-center gap-2 text-[23px] text-[#0F114C] dark:text-white"
+                                        className="flex items-center gap-2 text-[#0F114C] dark:text-white"
                                     >
                                         Guidebook
                                         <svg

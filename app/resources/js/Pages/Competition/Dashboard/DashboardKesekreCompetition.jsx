@@ -204,7 +204,7 @@ function DashboardKesekreCompetition({ ...props }) {
 
                             />
                             <Select value={params?.load} onValueChange={(e) => setParams({ ...params, load: e })}
-                                >
+                            >
                                 <SelectTrigger className="w-full h-9 sm:w-24 dark:bg-[#0F114C] dark:border-white dark:text-white"
 
 
@@ -238,13 +238,13 @@ function DashboardKesekreCompetition({ ...props }) {
                             <Button variant="outline" onClick={() => setParams(props.state)} className="dark:bg-[#0F114C] dark:border-white"
 
 
-                                >
+                            >
                                 <PiArrowsClockwise className="mr-2 h-5 w-5" />
                                 Clear Filter
                             </Button>
                         </div>
                         <Button variant="blue" type="button" onClick={handleExportCSV} className="dark:bg-[#0F114C] dark:border-white dark:border"
-                                >
+                        >
                             Export CSV
                         </Button>
                     </div>
@@ -698,10 +698,12 @@ function DashboardKesekreCompetition({ ...props }) {
                                                                 onClick={() => modalFormOpenHandler(competition.id)}>
                                                                 <XCircleIcon className="text-[#E82323] w-5 h-5" />
                                                             </Button>
-
+ 
                                                             <Modal show={modalFormOpen} onClose={closeModalForm} maxWidth="md" className="p-4 dark:bg-[#0F172A]">
                                                                 <form onSubmit={(e) => onHandleSubmit(e, selectId)}>
-                                                                    <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Please input a reject reason</h2>
+                                                                    <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
+                                                                        Please input a reject reason
+                                                                    </h2>
 
                                                                     <p className="mt-1 text-sm text-gray-600 dark:text-white">
                                                                         You will not be able to revert this action.
@@ -724,7 +726,9 @@ function DashboardKesekreCompetition({ ...props }) {
                                                                     </div>
 
                                                                     <div className="mt-6 flex justify-end">
-                                                                        <Button onClick={closeModalForm} variant="blue" type="button">Cancel</Button>
+                                                                        <Button onClick={closeModalForm} variant="blue" type="button">
+                                                                            Cancel
+                                                                        </Button>
 
                                                                         <Button className="ms-3" variant="red" type="submit" disabled={processing}>
                                                                             Reject
