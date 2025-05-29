@@ -243,7 +243,7 @@ function Competitions({ ...props }) {
                             )}
 
                             <div
-                                className="flex md:flex-row flex-col w-full items-center justify-between rounded-[10px] bg-gradient-to-r from-[#0F114C] to-[#00658F] px-4 py-6 md:w-10/12 gap-5"
+                                className="flex md:flex-row flex-col w-full items-center justify-between rounded-[10px] bg-gradient-to-r from-[#0F114C] to-[#00658F] md:px-4 px-0 py-6 md:w-10/12 gap-5"
                                 data-aos="fade-up"
                                 data-aos-delay="200"
                             >
