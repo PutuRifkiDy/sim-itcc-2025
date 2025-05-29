@@ -212,20 +212,7 @@ function Competitions({ ...props }) {
                                 <span className="font-regular text-[16px] uppercase tracking-[0.03em] text-black dark:text-white">
                                     {competitions.competition_content[0].location}
                                 </span>
-<<<<<<< HEAD
-                                <motion.div
-
-                                    animate={{
-                                        y: [0, -20, 0],
-                                    }}
-                                    transition={{
-                                        duration: 5,
-                                        repeat: Infinity,
-                                        ease: "easeInOut"
-                                    }}
-=======
-                                <div 
->>>>>>> a3432e23c9b1b1ef92b01babcc49afe2614bd874
+                                <div
                                     className="absolute left-[30rem] top-0 hidden -translate-y-1/2 md:block"
                                 >
                                     <SideLeftCrookedCrossIcon />
@@ -375,30 +362,17 @@ function Competitions({ ...props }) {
                             </div>
 
                             <div className="relative flex flex-col items-center gap-2 md:flex-row md:items-start">
-<<<<<<< HEAD
-                                <motion.div
-
-                                    animate={{
-                                        x: [0, 20, 0],
-                                    }}
-                                    transition={{
-                                        duration: 5,
-                                        repeat: Infinity,
-                                        ease: "easeInOut"
-                                    }}
-=======
-                                <div 
->>>>>>> a3432e23c9b1b1ef92b01babcc49afe2614bd874
+                                <div
                                     className='left-160 md:top-20 top-40 hidden items-center gap-3 md:absolute md:inline-flex'
                                 >
                                     <SideLeftArrowLeftIcon />
                                 </div>
-                            </div>
-                        </div>
-                    </div>
+                            </div >
+                        </div >
+                    </div >
 
                     {/* side right */}
-                    <div className="hidden w-full md:block">
+                    < div className="hidden w-full md:block" >
                         <div className="relative">
                             <div
                                 className="flex flex-row justify-end text-[#0F114C]"
@@ -440,9 +414,9 @@ function Competitions({ ...props }) {
                                 <SideRightCircleIcon />
                             </div>
                         </div>
-                    </div>
-                </div>
-            </section>
+                    </div >
+                </div >
+            </section >
             {/* end home */}
 
             {/* start about */}
@@ -459,17 +433,17 @@ function Competitions({ ...props }) {
                 </div>
                 <div className="container mx-auto flex flex-col items-center justify-center gap-8 px-4 pb-24 pt-10 md:flex-row md:justify-evenly md:pt-32">
                     <motion.div className=""
-                    animate={{
-                        y: [0, -40, 0],
-                        
-                    }}
-                    transition={
-                        {
-                            duration: 6,
-                            repeat: Infinity,
-                            repeatType: "reverse",
+                        animate={{
+                            y: [0, -40, 0],
+
+                        }}
+                        transition={
+                            {
+                                duration: 6,
+                                repeat: Infinity,
+                                repeatType: "reverse",
+                            }
                         }
-                    }
                     >
                         <img
                             className="w-60 md:w-96"
@@ -494,7 +468,7 @@ function Competitions({ ...props }) {
                             data-aos-delay="100"
                         /> */}
                         <div
-                        className="absolute -right-10 top-0 w-6 md:w-10"
+                            className="absolute -right-10 top-0 w-6 md:w-10"
                         >
                             <SideLeftCrookedCrossIcon />
                         </div>
@@ -506,60 +480,17 @@ function Competitions({ ...props }) {
                             {competitions.description}
                         </p>
                         <div className="flex flex-row gap-x-3" data-aos="fade-up" data-aos-delay="300">
-<<<<<<< HEAD
-                            <motion.div
-                            animate={{
-                                    x: [0, 20, 0],
-                                }}
-                                transition={{
-                                    duration: 5,
-                                    repeat: Infinity,
-                                    ease: "easeInOut"
-                                }}
-                            className="w-0 h-0 border-t-[10px] border-b-[10px] border-l-[20px] border-t-transparent border-b-transparent border-l-white"></motion.div>
-                            <motion.div
-                            animate={{
-                                    x: [0, 20, 0],
-                                }}
-                                transition={{
-                                    duration: 5,
-                                    repeat: Infinity,
-                                    ease: "easeInOut"
-                                }}
-                                className="w-0 h-0 border-t-[10px] border-b-[10px] border-l-[20px] border-t-transparent border-b-transparent border-l-white"></motion.div>
-                            <motion.div
-                            animate={{
-                                    x: [0, 20, 0],
-                                }}
-                                transition={{
-                                    duration: 5,
-                                    repeat: Infinity,
-                                    ease: "easeInOut"
-                                }}
-                                className="w-0 h-0 border-t-[10px] border-b-[10px] border-l-[20px] border-t-transparent border-b-transparent border-l-white"></motion.div>
-                            <motion.div
-                            animate={{
-                                    x: [0, 20, 0],
-                                }}
-                                transition={{
-                                    duration: 5,
-                                    repeat: Infinity,
-                                    ease: "easeInOut"
-                                }}
-                            className="w-0 h-0 border-t-[10px] border-b-[10px] border-l-[20px] border-t-transparent border-b-transparent border-l-white"></motion.div>
-=======
-                            <div 
-                            className="w-0 h-0 border-t-[10px] border-b-[10px] border-l-[20px] border-t-transparent border-b-transparent border-l-white"></div>
-                            <div 
+                            <div
                                 className="w-0 h-0 border-t-[10px] border-b-[10px] border-l-[20px] border-t-transparent border-b-transparent border-l-white"></div>
-                            <div 
+                            <div
                                 className="w-0 h-0 border-t-[10px] border-b-[10px] border-l-[20px] border-t-transparent border-b-transparent border-l-white"></div>
-                            <div 
-                            className="w-0 h-0 border-t-[10px] border-b-[10px] border-l-[20px] border-t-transparent border-b-transparent border-l-white"></div>
->>>>>>> a3432e23c9b1b1ef92b01babcc49afe2614bd874
-                        </div>
-                    </div>
-                </div>
+                            <div
+                                className="w-0 h-0 border-t-[10px] border-b-[10px] border-l-[20px] border-t-transparent border-b-transparent border-l-white"></div>
+                            <div
+                                className="w-0 h-0 border-t-[10px] border-b-[10px] border-l-[20px] border-t-transparent border-b-transparent border-l-white"></div>
+                        </div >
+                    </div >
+                </div >
                 <img
                     className="absolute bottom-0 right-0 w-40 lg:w-52 xl:w-60"
                     src={`${window.location.origin}/assets/images/about/rightEdge.png`}
@@ -576,7 +507,7 @@ function Competitions({ ...props }) {
                 >
                     <SideRightBlueDotIcon />
                 </div>
-            </section>
+            </section >
             {/* end about */}
 
             {/* start prize */}
@@ -600,7 +531,7 @@ function Competitions({ ...props }) {
                     for the winners of each competition track.
                 </p>
                 <div
-                className="absolute right-10 top-4 hidden -translate-y-1/2 text-[#0F114C] md:right-20 md:top-52 md:block">
+                    className="absolute right-10 top-4 hidden -translate-y-1/2 text-[#0F114C] md:right-20 md:top-52 md:block">
                     <SideLeftCrookedCrossIcon />
                 </div>
                 <div className="flex h-full w-full items-end px-4 pb-10">
@@ -654,25 +585,13 @@ function Competitions({ ...props }) {
                             )),
                         )}
 
-<<<<<<< HEAD
-                        <motion.div
-                        animate={{
-                            x: [0, 20, 0],
-                        }}
-                        transition={{
-                            duration: 5,
-                            repeat: Infinity,
-                            ease: "easeInOut"
-                        }}
-=======
-                        <div 
->>>>>>> a3432e23c9b1b1ef92b01babcc49afe2614bd874
-                        className="mb-4 hidden md:absolute md:bottom-0 md:left-12 md:flex">
+                        <div
+                            className="mb-4 hidden md:absolute md:bottom-0 md:left-12 md:flex">
                             <SideLeftArrowLeftIcon />
                         </div>
-                    </div>
-                </div>
-            </section>
+                    </div >
+                </div >
+            </section >
             {/* end prize */}
 
             {/* start timeline */}
@@ -786,23 +705,8 @@ function Competitions({ ...props }) {
 
             {/* start faq */}
             <section className="relative mx-auto mt-20 w-full max-w-[1440px] flex-shrink-0 bg-white px-4 dark:bg-[#040529] sm:px-8 md:mt-36">
-<<<<<<< HEAD
-                <motion.div
-                animate={{
-                    y: [0, -20, 0],
-
-                }}
-                transition={
-                    {
-                        duration: 2,
-                        repeat: Infinity,
-                        repeatType: "easeInOut",
-                    }
-                }
-=======
-                <div 
->>>>>>> a3432e23c9b1b1ef92b01babcc49afe2614bd874
-                className="absolute left-4 top-4 hidden sm:left-10 sm:top-10 lg:block">
+                <div
+                    className="absolute left-4 top-4 hidden sm:left-10 sm:top-10 lg:block">
                     <SideLeftCrookedCrossIcon />
                 </div>
 
@@ -846,69 +750,24 @@ function Competitions({ ...props }) {
                         <SideRightCrossIcon />
                     </div>
                 </div>
-            </section>
+            </section >
             {/* end faq */}
 
             {/* start contact */}
             <section className="relative mb-5 mt-20 flex flex-col items-center px-5 md:mb-10 md:mt-36 md:px-24">
-<<<<<<< HEAD
-                <motion.div
-                animate={{
-                    y: [0, -20, 0],
-
-                }}
-                transition={
-                    {
-                        duration: 5,
-                        repeat: Infinity,
-                        repeatType: "easeInOut",
-                    }
-                }
-=======
-                <div 
->>>>>>> a3432e23c9b1b1ef92b01babcc49afe2614bd874
-                className="absolute bottom-0 right-24 hidden text-[#0F114C] md:block">
+                <div
+                    className="absolute bottom-0 right-24 hidden text-[#0F114C] md:block">
                     <SideRightBlueDotIcon />
                 </div>
                 <div className="absolute bottom-12 left-24 hidden rotate-90 transform text-[#0F114C] md:block">
                     <SideRightCrossIcon />
                 </div>
-<<<<<<< HEAD
-                <motion.div
-                animate={{
-                    x: [0, 20, 0],
-
-                }}
-                transition={
-                    {
-                        duration: 5,
-                        repeat: Infinity,
-                        repeatType: "easeInOut",
-                    }
-                }
-                className="absolute right-24 top-24 hidden transform text-[#0F114C] md:block">
-                    <SideLeftArrowLeftIcon />
-                </motion.div>
-                <motion.div
-                animate={{
-                    y: [0, -20, 0],
-
-                }}
-                transition={
-                    {
-                        duration: 5,
-                        repeat: Infinity,
-                        repeatType: "easeInOut",
-                    }
-                }
-=======
-                <div 
-                className="absolute right-24 top-24 hidden transform text-[#0F114C] md:block">
+                <div
+                    className="absolute right-24 top-24 hidden transform text-[#0F114C] md:block">
                     <SideLeftArrowLeftIcon />
                 </div>
-                <div 
->>>>>>> a3432e23c9b1b1ef92b01babcc49afe2614bd874
-                className="absolute left-24 top-12 hidden transform text-[#0F114C] md:block">
+                <div
+                    className="absolute left-24 top-12 hidden transform text-[#0F114C] md:block">
                     <SideRightCircleIcon />
                 </div>
                 <h2
@@ -925,42 +784,44 @@ function Competitions({ ...props }) {
                     Need more help or want to reach out directly? Connect with our contact person for personalized
                     support and assistance.
                 </p>
-                {competitions.competition_content.map((content, idx) => (
-                    <div key={idx} className="mt-10 grid grid-cols-1 items-center justify-center gap-12 md:grid-cols-3">
-                        {content.competition_content_contact.map((contact, i) => (
-                            <div
-                                className="flex flex-row items-center gap-10 rounded-[10px] border-[1px] border-[#ACACAC] px-10 py-5"
-                                key={i}
-                                data-aos="fade-up"
-                                data-aos-delay={200 + i * 100}
-                            >
-                                <IconContactInCompetition />
-                                <div className="flex flex-col gap-3">
-                                    <p className="text-[18px] font-bold leading-[180%] text-[#000000] dark:text-white">
-                                        {contact.name ?? ''}
-                                    </p>
-                                    <div className="flex flex-col gap-2">
-                                        <a href={`https://line.me/ti/p/${contact.id_line}`} className="flex flex-row items-center gap-2 text-[16px] text-[#0F114C] dark:text-gray-400" target='_blank'>
-                                            <LineIcon />
-                                            {contact.id_line ?? ''}
-                                        </a>
-                                        <a href={`https://wa.me/${contact.wa_number}`} className="flex flex-row items-center gap-2 text-[16px] text-[#0F114C] dark:text-gray-400" target='_blank'>
-                                            <WhatsappIcon />
-                                            {contact.wa_number ?? ''}
-                                        </a>
+                {
+                    competitions.competition_content.map((content, idx) => (
+                        <div key={idx} className="mt-10 grid grid-cols-1 items-center justify-center gap-12 md:grid-cols-3">
+                            {content.competition_content_contact.map((contact, i) => (
+                                <div
+                                    className="flex flex-row items-center gap-10 rounded-[10px] border-[1px] border-[#ACACAC] px-10 py-5"
+                                    key={i}
+                                    data-aos="fade-up"
+                                    data-aos-delay={200 + i * 100}
+                                >
+                                    <IconContactInCompetition />
+                                    <div className="flex flex-col gap-3">
+                                        <p className="text-[18px] font-bold leading-[180%] text-[#000000] dark:text-white">
+                                            {contact.name ?? ''}
+                                        </p>
+                                        <div className="flex flex-col gap-2">
+                                            <a href={`https://line.me/ti/p/${contact.id_line}`} className="flex flex-row items-center gap-2 text-[16px] text-[#0F114C] dark:text-gray-400" target='_blank'>
+                                                <LineIcon />
+                                                {contact.id_line ?? ''}
+                                            </a>
+                                            <a href={`https://wa.me/${contact.wa_number}`} className="flex flex-row items-center gap-2 text-[16px] text-[#0F114C] dark:text-gray-400" target='_blank'>
+                                                <WhatsappIcon />
+                                                {contact.wa_number ?? ''}
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        ))}
-                    </div>
-                ))}
+                            ))}
+                        </div>
+                    ))
+                }
                 <img
                     src={`${window.location.origin}/assets/images/competition/bannerContact.png`}
                     className="mt-10 h-auto w-full md:h-[471px] md:w-[471px]"
                     alt=""
                     data-aos="fade-up"
                 />
-            </section>
+            </section >
             {/* end contact */}
         </>
     );

@@ -115,23 +115,8 @@ function Semnas({ ...props }) {
                                 <span className="font-regular text-[16px] uppercase tracking-[0.03em] text-black dark:text-white">
                                     HYBRID
                                 </span>
-<<<<<<< HEAD
-                                <motion.div
-                                animate={{
-                                    y: [0, -20, 0],
-
-                                }}
-                                transition={
-                                    {
-                                        duration: 5,
-                                        repeat: Infinity,
-                                        repeatType: "easeInOut",
-                                    }
-                                }
-=======
-                                <div 
->>>>>>> a3432e23c9b1b1ef92b01babcc49afe2614bd874
-                                className="absolute left-[30rem] -top-4 hidden -translate-y-1/2 md:block">
+                                <div
+                                    className="absolute left-[30rem] -top-4 hidden -translate-y-1/2 md:block">
                                     <SideLeftCrookedCrossIcon />
                                 </div>
                             </div>
@@ -267,20 +252,7 @@ function Semnas({ ...props }) {
                             </div>
 
                             <div className="relative flex flex-col items-center gap-2 md:flex-row md:items-start">
-<<<<<<< HEAD
-                                <motion.div
-
-                                    animate={{
-                                        x: [0, 20, 0],
-                                    }}
-                                    transition={{
-                                        duration: 5,
-                                        repeat: Infinity,
-                                        ease: "easeInOut"
-                                    }}
-=======
-                                <div 
->>>>>>> a3432e23c9b1b1ef92b01babcc49afe2614bd874
+                                <div
                                     className='left-160 md:top-20 top-40 hidden items-center gap-3 md:absolute md:inline-flex'
                                 >
                                     <SideLeftArrowLeftIcon />
@@ -355,17 +327,17 @@ function Semnas({ ...props }) {
                 </div>
                 <div className="container mx-auto flex flex-col items-center justify-center gap-8 px-4 pb-24 pt-10 md:flex-row md:justify-evenly md:pt-32">
                     <motion.div className=""
-                    animate={{
-                        y: [0, -40, 0],
-                        
-                    }}
-                    transition={
-                        {
-                            duration: 6,
-                            repeat: Infinity,
-                            repeatType: "reverse",
+                        animate={{
+                            y: [0, -40, 0],
+
+                        }}
+                        transition={
+                            {
+                                duration: 6,
+                                repeat: Infinity,
+                                repeatType: "reverse",
+                            }
                         }
-                    }
                     >
                         <img
                             className="w-60 md:w-96"
@@ -390,7 +362,7 @@ function Semnas({ ...props }) {
                             data-aos-delay="100"
                         /> */}
                         <div
-                        className="absolute -right-10 top-0 w-6 md:w-10"
+                            className="absolute -right-10 top-0 w-6 md:w-10"
                         >
                             <StarRightITCC />
                         </div>
@@ -457,7 +429,7 @@ function Semnas({ ...props }) {
                             data-aos="fade-up"
                             data-aos-delay="200"
                         > */}
-                            {/* <div className="absolute bottom-0 right-0 flex flex-col justify-end items-end z-0 pointer-events-none pr-4 pb-4">
+                        {/* <div className="absolute bottom-0 right-0 flex flex-col justify-end items-end z-0 pointer-events-none pr-4 pb-4">
                                 <p className="text-[48px] text-[#A0A0A0] font-bold opacity-10 select-none rotate-[-42.783deg] whitespace-nowrap text-right">
                                     SPEAKER
                                 </p>
@@ -475,7 +447,7 @@ function Semnas({ ...props }) {
                                 <p className="text-sm text-gray-700">Community Specialist at Pintu</p>
                             </div> */}
 
-                            {/* <div className="absolute bottom-0 left-0 w-[180px] h-auto z-10">
+                        {/* <div className="absolute bottom-0 left-0 w-[180px] h-auto z-10">
                                 <img
                                     src={`${window.location.origin}/assets/images/semnas/person.png`}
                                     alt="Speaker 1"
@@ -484,7 +456,7 @@ function Semnas({ ...props }) {
                                 <div className="absolute inset-0 rounded-full bg-[#0F114C] opacity-20 blur-lg z-0"></div>
                             </div> */}
 
-                            {/* <div className="absolute bottom-0 left-0 w-[180px] h-[180px] flex items-center justify-center z-20">
+                        {/* <div className="absolute bottom-0 left-0 w-[180px] h-[180px] flex items-center justify-center z-20">
                                 <div className="w-10 h-10 rounded-full flex items-center justify-center shadow-md">
                                     <span className="text-white text-xl font-bold">?</span>
                                 </div>
@@ -603,18 +575,18 @@ function Semnas({ ...props }) {
             {/* start faq */}
             <section className="relative mx-auto mt-20 w-full max-w-[1440px] flex-shrink-0 bg-white px-4 dark:bg-[#040529] sm:px-8 md:mt-36">
                 <motion.div
-                animate={{
-                    y: [0, -20, 0],
+                    animate={{
+                        y: [0, -20, 0],
 
-                }}
-                transition={
-                    {
-                        duration: 2,
-                        repeat: Infinity,
-                        repeatType: "easeInOut",
+                    }}
+                    transition={
+                        {
+                            duration: 2,
+                            repeat: Infinity,
+                            repeatType: "easeInOut",
+                        }
                     }
-                }
-                className="absolute left-4 top-4 hidden sm:left-10 sm:top-10 lg:block">
+                    className="absolute left-4 top-4 hidden sm:left-10 sm:top-10 lg:block">
                     <SideLeftCrookedCrossIcon />
                 </motion.div>
 
@@ -663,64 +635,19 @@ function Semnas({ ...props }) {
 
             {/* start contact */}
             <section className="relative mb-5 mt-20 flex flex-col items-center px-5 md:mb-10 md:mt-36 md:px-24">
-<<<<<<< HEAD
-                <motion.div
-                animate={{
-                    y: [0, -20, 0],
-
-                }}
-                transition={
-                    {
-                        duration: 5,
-                        repeat: Infinity,
-                        repeatType: "easeInOut",
-                    }
-                }
-=======
-                <div 
->>>>>>> a3432e23c9b1b1ef92b01babcc49afe2614bd874
-                className="absolute bottom-0 right-24 hidden text-[#0F114C] md:block">
+                <div
+                    className="absolute bottom-0 right-24 hidden text-[#0F114C] md:block">
                     <SideRightBlueDotIcon />
                 </div>
                 <div className="absolute bottom-12 left-24 hidden rotate-90 transform text-[#0F114C] md:block">
                     <SideRightCrossIcon />
                 </div>
-<<<<<<< HEAD
-                <motion.div
-                animate={{
-                    x: [0, 20, 0],
-
-                }}
-                transition={
-                    {
-                        duration: 5,
-                        repeat: Infinity,
-                        repeatType: "easeInOut",
-                    }
-                }
-                className="absolute right-24 top-24 hidden transform text-[#0F114C] md:block">
-                    <SideLeftArrowLeftIcon />
-                </motion.div>
-                <motion.div
-                animate={{
-                    y: [0, -20, 0],
-
-                }}
-                transition={
-                    {
-                        duration: 5,
-                        repeat: Infinity,
-                        repeatType: "easeInOut",
-                    }
-                }
-=======
-                <div 
-                className="absolute right-24 top-24 hidden transform text-[#0F114C] md:block">
+                <div
+                    className="absolute right-24 top-24 hidden transform text-[#0F114C] md:block">
                     <SideLeftArrowLeftIcon />
                 </div>
-                <div 
->>>>>>> a3432e23c9b1b1ef92b01babcc49afe2614bd874
-                className="absolute left-24 top-12 hidden transform text-[#0F114C] md:block">
+                <div
+                    className="absolute left-24 top-12 hidden transform text-[#0F114C] md:block">
                     <SideRightCircleIcon />
                 </div>
                 <h2
@@ -737,42 +664,44 @@ function Semnas({ ...props }) {
                     Need more help or want to reach out directly? Connect with our contact person for personalized
                     support and assistance.
                 </p>
-                {events.event_content.map((content, idx) => (
-                    <div key={idx} className="mt-10 grid grid-cols-1 items-center justify-center gap-12 md:grid-cols-3">
-                        {content.event_content_contact.map((contact, i) => (
-                            <div
-                                className="flex flex-row items-center gap-10 rounded-[10px] border-[1px] border-[#ACACAC] px-10 py-5"
-                                key={i}
-                                data-aos="fade-up"
-                                data-aos-delay={200 + i * 100}
-                            >
-                                <IconContactInCompetition />
-                                <div className="flex flex-col gap-3">
-                                    <p className="text-[18px] font-bold leading-[180%] text-[#000000] dark:text-white">
-                                        {contact.name ?? ''}
-                                    </p>
-                                    <div className="flex flex-col gap-2">
-                                        <div className="flex flex-row items-center gap-2 text-[16px] text-[#0F114C] dark:text-gray-400">
-                                            <LineIcon />
-                                            {contact.id_line ?? ''}
-                                        </div>
-                                        <div className="flex flex-row items-center gap-2 text-[16px] text-[#0F114C] dark:text-gray-400">
-                                            <WhatsappIcon />
-                                            {contact.wa_number ?? ''}
+                {
+                    events.event_content.map((content, idx) => (
+                        <div key={idx} className="mt-10 grid grid-cols-1 items-center justify-center gap-12 md:grid-cols-3">
+                            {content.event_content_contact.map((contact, i) => (
+                                <div
+                                    className="flex flex-row items-center gap-10 rounded-[10px] border-[1px] border-[#ACACAC] px-10 py-5"
+                                    key={i}
+                                    data-aos="fade-up"
+                                    data-aos-delay={200 + i * 100}
+                                >
+                                    <IconContactInCompetition />
+                                    <div className="flex flex-col gap-3">
+                                        <p className="text-[18px] font-bold leading-[180%] text-[#000000] dark:text-white">
+                                            {contact.name ?? ''}
+                                        </p>
+                                        <div className="flex flex-col gap-2">
+                                            <div className="flex flex-row items-center gap-2 text-[16px] text-[#0F114C] dark:text-gray-400">
+                                                <LineIcon />
+                                                {contact.id_line ?? ''}
+                                            </div>
+                                            <div className="flex flex-row items-center gap-2 text-[16px] text-[#0F114C] dark:text-gray-400">
+                                                <WhatsappIcon />
+                                                {contact.wa_number ?? ''}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        ))}
-                    </div>
-                ))}
+                            ))}
+                        </div>
+                    ))
+                }
                 <img
                     src={`${window.location.origin}/assets/images/competition/bannerContact.png`}
                     className="mt-10 h-auto w-full md:h-[471px] md:w-[471px]"
                     alt=""
                     data-aos="fade-up"
                 />
-            </section>
+            </section >
             {/* end contact */}
         </>
     );
