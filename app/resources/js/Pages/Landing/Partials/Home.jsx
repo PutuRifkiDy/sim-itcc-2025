@@ -81,7 +81,7 @@ export default function Home() {
                                     2025
                                 </h1>
                             </div>
-                            <p className="font-semibold text-[16px] leading-[35px] text-[#3A3A3A] md:absolute md:text-start text-center top-32 left-60 flex md:w-[40%] w-full h-[140px] dark:text-white" data-aos="fade-up" data-aos-delay="300">
+                            <p className="font-semibold text-[18px] leading-[35px] text-[#3A3A3A] md:absolute md:text-start text-center top-32 left-60 flex md:w-[40%] w-full h-[140px] dark:text-white" data-aos="fade-up" data-aos-delay="300">
                                 Transcending Boundaries: Realizing a Resilent Future With Human-Centric Interlaced Innovations
                             </p>
                             <motion.div
@@ -93,7 +93,7 @@ export default function Home() {
                                     repeat: Infinity,
                                     ease: "easeInOut"
                                 }}
-                                className="md:absolute flex top-72 left-60"
+                                className="md:absolute flex top-80 left-60"
                             >
 
                             <div  data-aos="fade-up" data-aos-delay="400">
