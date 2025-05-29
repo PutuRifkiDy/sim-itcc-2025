@@ -46,6 +46,14 @@ function Overview() {
             toast[flash_message.type || 'success'](flash_message.message);
         }
     }, [flash_message]);
+
+    const formatMoney = (nominal) => {
+        return new Intl.NumberFormat('id-ID', {
+            style: 'currency',
+            currency: 'IDR',
+            minimumFractionDigits: 0,
+        }).format(new Number(nominal));
+    };
     return (
         <div className="py-5">
             <div className="bg-white dark:bg-[#040529] p-4 shadow rounded-lg sm:p-8 gap-5">
@@ -79,7 +87,7 @@ function Overview() {
                             </div>
                             <div className="flex flex-col gap-1">
                                 <p className="text-[#3A3A3A]/90 text-[16px] font-medium dark:text-white">Participant Competition</p>
-                                <p className="font-bold text-[24px] text-[#232323] dark:text-white">{sum_total_payment_competition }</p>
+                                <p className="font-bold text-[24px] text-[#232323] dark:text-white">{sum_total_payment_competition}</p>
                             </div>
                         </div>
                         <div className="flex flex-col gap-1">
@@ -87,7 +95,7 @@ function Overview() {
                             <div className="flex justify-between">
                                 <p className="text-[#4DE45C] text-sm">{percentage_sales}%{" "} filled</p>
                                 <p className="text-[#718EBF] text-sm">
-                                    {sum_total_payment_competition }/{target_competition.target_sales}
+                                    {sum_total_payment_competition}/{formatMoney(target_competition.target_sales)}
                                 </p>
                             </div>
                         </div>
