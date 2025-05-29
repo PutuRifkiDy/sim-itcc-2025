@@ -63,10 +63,10 @@ function DashboardCompetition() {
                                 </Link>
                             ))}
                         </div>
-                        <div className="grid md:grid-cols-4 grid-cols-1 gap-5">
+                        <div className="flex flex-wrap">
                             <DropdownMenu>
                                 <DropdownMenuTrigger asChild>
-                                    <div className="rounded-[15px] border-2 border-gray-300 flex flex-col p-10 gap-10 transition ease-in-out duration-200 hover:shadow-[0_0_10px_#4880ff] justify-center items-center cursor-pointer">
+                                    <div className="rounded-[15px] border-2 border-gray-300 flex flex-col p-10 gap-10 transition ease-in-out duration-200 hover:shadow-[0_0_10px_#4880ff] justify-center items-center cursor-pointer md:min-w-fit min-w-full">
                                         <div className="flex justify-center items-center">
                                             <img src={`${window.location.origin}/assets/images/image_for_join_another_in_dashboard.png`} alt="" className="w-[150px] h-[150px]" />
                                         </div>
