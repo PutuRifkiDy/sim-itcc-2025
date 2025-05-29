@@ -115,21 +115,10 @@ function Semnas({ ...props }) {
                                 <span className="font-regular text-[16px] uppercase tracking-[0.03em] text-black dark:text-white">
                                     HYBRID
                                 </span>
-                                <motion.div 
-                                animate={{
-                                    y: [0, -20, 0],
-                                    
-                                }}
-                                transition={
-                                    {
-                                        duration: 5,
-                                        repeat: Infinity,
-                                        repeatType: "easeInOut",
-                                    }
-                                }
+                                <div 
                                 className="absolute left-[30rem] -top-4 hidden -translate-y-1/2 md:block">
                                     <SideLeftCrookedCrossIcon />
-                                </motion.div>
+                                </div>
                             </div>
 
                             <div className="h-2" />
@@ -263,20 +252,11 @@ function Semnas({ ...props }) {
                             </div>
 
                             <div className="relative flex flex-col items-center gap-2 md:flex-row md:items-start">
-                                <motion.div 
-                                
-                                    animate={{
-                                        x: [0, 20, 0], 
-                                    }}
-                                    transition={{
-                                        duration: 5,
-                                        repeat: Infinity,
-                                        ease: "easeInOut"
-                                    }}
+                                <div 
                                     className='left-160 md:top-20 top-40 hidden items-center gap-3 md:absolute md:inline-flex'
                                 >
                                     <SideLeftArrowLeftIcon />
-                                </motion.div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -346,12 +326,26 @@ function Semnas({ ...props }) {
                     <div className="h-[6px] w-10 bg-white md:w-48"></div>
                 </div>
                 <div className="container mx-auto flex flex-col items-center justify-center gap-8 px-4 pb-24 pt-10 md:flex-row md:justify-evenly md:pt-32">
-                    <img
-                        className="w-60 md:w-96"
-                        src={`${window.location.origin}/assets/images/about/ITCCLogo.png`}
-                        alt="ITCC 2025 Logo"
-                        data-aos="fade-up"
-                    />
+                    <motion.div className=""
+                    animate={{
+                        y: [0, -40, 0],
+                        
+                    }}
+                    transition={
+                        {
+                            duration: 6,
+                            repeat: Infinity,
+                            repeatType: "reverse",
+                        }
+                    }
+                    >
+                        <img
+                            className="w-60 md:w-96"
+                            src={`${window.location.origin}/assets/images/about/ITCCLogo.png`}
+                            alt="ITCC 2025 Logo"
+                            data-aos="fade-up"
+                        />
+                    </motion.div>
                     <div className="relative md:w-[600px]">
                         <h2
                             className="font-rubik text-xl font-bold uppercase tracking-[5px] text-[#A5CBD0] md:text-2xl"
@@ -367,19 +361,11 @@ function Semnas({ ...props }) {
                             data-aos="fade-up"
                             data-aos-delay="100"
                         /> */}
-                        <motion.div
-                        animate={{
-                            y: [0, -20, 0],
-                        }}
-                        transition={{
-                            duration: 5,
-                            repeat: Infinity,
-                            ease: "linear"
-                        }}
+                        <div
                         className="absolute -right-10 top-0 w-6 md:w-10"
                         >
                             <StarRightITCC />
-                        </motion.div>
+                        </div>
                         <p
                             className="font-rubik my-6 text-justify text-base font-light text-white md:text-lg"
                             data-aos="fade-up"
@@ -649,54 +635,21 @@ function Semnas({ ...props }) {
 
             {/* start contact */}
             <section className="relative mb-5 mt-20 flex flex-col items-center px-5 md:mb-10 md:mt-36 md:px-24">
-                <motion.div 
-                animate={{
-                    y: [0, -20, 0],
-                    
-                }}
-                transition={
-                    {
-                        duration: 5,
-                        repeat: Infinity,
-                        repeatType: "easeInOut",
-                    }
-                }
+                <div 
                 className="absolute bottom-0 right-24 hidden text-[#0F114C] md:block">
                     <SideRightBlueDotIcon />
-                </motion.div>
+                </div>
                 <div className="absolute bottom-12 left-24 hidden rotate-90 transform text-[#0F114C] md:block">
                     <SideRightCrossIcon />
                 </div>
-                <motion.div 
-                animate={{
-                    x: [0, 20, 0],
-                    
-                }}
-                transition={
-                    {
-                        duration: 5,
-                        repeat: Infinity,
-                        repeatType: "easeInOut",
-                    }
-                }
+                <div 
                 className="absolute right-24 top-24 hidden transform text-[#0F114C] md:block">
                     <SideLeftArrowLeftIcon />
-                </motion.div>
-                <motion.div 
-                animate={{
-                    y: [0, -20, 0],
-                    
-                }}
-                transition={
-                    {
-                        duration: 5,
-                        repeat: Infinity,
-                        repeatType: "easeInOut",
-                    }
-                }
+                </div>
+                <div 
                 className="absolute left-24 top-12 hidden transform text-[#0F114C] md:block">
                     <SideRightCircleIcon />
-                </motion.div>
+                </div>
                 <h2
                     className="text-2xl font-bold uppercase tracking-[5px] text-[#0F114C] dark:text-white lg:text-4xl lg:tracking-[10px]"
                     data-aos="fade-up"

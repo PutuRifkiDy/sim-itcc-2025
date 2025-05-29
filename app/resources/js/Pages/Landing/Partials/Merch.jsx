@@ -139,37 +139,14 @@ export default function Merch() {
                             className="absolute bottom-0 left-0 md:w-10 w-6 rotate-30 hidden md:inline"
                             alt=""
                         /> */}
-                        <motion.div 
-                                
-                            animate={{
-                                y: [0, -30, 0], 
-                            }}
-                            transition={{
-                                duration: 5,
-                                repeat: Infinity,
-                                ease: "easeInOut"
-                            }}
-                            className="absolute bottom-0 left-0 md:w-10 w-6 rotate-30 hidden md:inline"
-                        >
-                        
+                        <div 
+                            className="absolute bottom-0 left-0 md:w-10 w-6 rotate-30 hidden md:inline">
                             <StarRightITCC/>
-                        </motion.div>
+                        </div>
 
-                        <motion.div 
-                                
-                                animate={{
-                                    x: [0, 20, 0], 
-                                }}
-                                transition={{
-                                    duration: 5,
-                                    repeat: Infinity,
-                                    ease: "easeInOut"
-                                }}
-                                className="md:absolute flex bottom-24 left-48"
-                            >
-                            
+                        <div className="md:absolute flex bottom-24 left-48">
                             <ArrowRightIcon />
-                            </motion.div>
+                        </div>
                     </div>
 
                     <div className="relative">

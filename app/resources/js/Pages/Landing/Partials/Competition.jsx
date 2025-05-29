@@ -139,32 +139,8 @@ const Competition = () => {
 
             {/* SVG kiri dan kanan */}
             <div className="hidden relative md:flex justify-between items-center mt-16">
-                <motion.div 
-                                
-                    animate={{
-                        y: [0, -40, 0], 
-                    }}
-                    transition={{
-                        duration: 5,
-                        repeat: Infinity,
-                        ease: "easeInOut"
-                    }}
-                >
-                    {svgLeft}
-                </motion.div>
-                <motion.div 
-                                
-                    animate={{
-                        y: [0, -40, 0], 
-                    }}
-                    transition={{
-                        duration: 5,
-                        repeat: Infinity,
-                        ease: "easeInOut"
-                    }}
-                >
-                    {svgRight}
-                </motion.div>
+                {svgLeft}
+                {svgRight}
             </div>
 
             {/* Stacked Card Section */}
