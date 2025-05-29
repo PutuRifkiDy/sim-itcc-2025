@@ -57,10 +57,10 @@ export default function Home() {
                                     <SideLeftCrookedCrossIcon />
                                 </motion.div>
                             </div>
-                            <motion.div 
-                                
+                            <motion.div
+
                                 animate={{
-                                    y: [0, -15, 0], 
+                                    y: [0, -15, 0],
                                 }}
                                 transition={{
                                     duration: 5,
@@ -68,7 +68,7 @@ export default function Home() {
                                     ease: "easeInOut"
                                 }}
                             >
-                            
+
                                 <div className="flex justify-center items-center md:block" data-aos="fade-up">
                                     <img src="assets/images/landing/icon-maskot-itcc.png" className="md:w-[140px] md:h-auto w-full h-auto transform -rotate-12" alt="" />
                                 </div>
@@ -81,12 +81,12 @@ export default function Home() {
                                     2025
                                 </h1>
                             </div>
-                            <p className="font-semibold text-[21px] leading-[35px] text-[#3A3A3A] md:absolute md:text-start text-center top-32 left-60 flex md:w-[280px] w-full h-[140px] dark:text-white" data-aos="fade-up" data-aos-delay="300">
+                            <p className="font-semibold text-[21px] leading-[35px] text-[#3A3A3A] md:absolute md:text-start text-center top-32 left-60 flex md:w-[52%] w-full h-[140px] dark:text-white" data-aos="fade-up" data-aos-delay="300">
                                 Transcending Boundaries: Realizing a Resilent Future With Human-Centric Interlaced Innovations
                             </p>
                             <motion.div
                             animate={{
-                                    x: [0, 20, 0], 
+                                    x: [0, 20, 0],
                                 }}
                                 transition={{
                                     duration: 5,

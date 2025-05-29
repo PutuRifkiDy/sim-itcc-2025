@@ -4,10 +4,12 @@ import TextInput from "@/Components/TextInput";
 import { Button } from "@/Components/ui/button";
 import GuestLayout from "@/Layouts/GuestLayout";
 import { Link, useForm, usePage } from "@inertiajs/react";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
 import * as AOS from 'aos';
 import 'aos/dist/aos.css';
+import Modal from "@/Components/Modal";
+import { PiWarningBold } from "react-icons/pi";
 
 function RegisterTeam() {
     const slug = usePage().props.slug;
@@ -29,6 +31,18 @@ function RegisterTeam() {
         team_name: '',
         _method: 'POST',
     });
+
+    const [showTeamRegisterError, setShowTeamRegisterError] = useState(false);
+
+    useEffect(() => {
+        if (errors.team_name) {
+            setShowTeamRegisterError(true);
+        }
+    }, [errors]);
+
+    const closeModal = () => {
+        setShowTeamRegisterError(false);
+    };
 
     const onHandleSubmit = (e) => {
 
@@ -165,7 +179,6 @@ function RegisterTeam() {
                                             className="mt-1 block w-3/4 dark:bg-[#040529]"
                                             isFocused
                                             placeholder="Insert Team Name"
-                                            onErrors={errors.team_name && <InputError message={errors.team_name} className='mt-2' />}
                                         />
 
                                     </div>
@@ -212,6 +225,29 @@ function RegisterTeam() {
                 <div className="hidden md:flex flex-col absolute md:-bottom-32 md:right-20 z-3">
                     {/* <SideRightCrossIcon /> */}
                 </div>
+                <Modal show={showTeamRegisterError} onClose={closeModal} className="dark:bg-[#040529]" maxWidth="lg">
+                    <div className="border-b-2 dark:border-none border-gray-400 px-5 py-5 dark:bg-gradient-to-r from-[#00658F] to-[#0F114C]">
+                        <h2 className="text-lg font-semibold text-[#0F114C] dark:text-white flex flex-row gap-2 items-center">
+                            {/* Are you sure you want cancel your registration? */}
+                            <div className="flex justify-center items-center bg-[#FFE0E3] p-2 rounded-full">
+                                <PiWarningBold className="w-6 h-6 text-[#DC3545] font-bold" />
+                            </div>
+                            Register Team Error
+                        </h2>
+                    </div>
+                    <div className="px-5 py-5 dark:bg-[#0F114C]">
+                        <p className="text-[16px] text-[#000000] font-medium dark:text-white">
+                            {errors.team_name}
+                        </p>
+                        <ul class="list-inside list-disc mt-2 dark:text-white bg-gray-100 dark:bg-[#0F114C] rounded-[10px] px-2 py-2">
+                            <li className="text-red-700">Your status is not eligible to register this competition</li>
+                            <li className="text-red-700">Please enter a different team name, if it is already taken.</li>
+                        </ul>
+                        <div className="mt-6 flex w-full justify-end">
+                            <Button onClick={closeModal} variant="blue" className="ms-3 w-1/3 dark:bg-white dark:text-[#0F114C]" type="button">Accept</Button>
+                        </div>
+                    </div>
+                </Modal>
             </div>
         </>
     );

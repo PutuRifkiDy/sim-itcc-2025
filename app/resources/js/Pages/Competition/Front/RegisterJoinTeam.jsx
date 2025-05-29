@@ -12,6 +12,8 @@ import 'aos/dist/aos.css';
 function RegisterJoinTeam() {
     const slug = usePage().props.slug;
 
+
+
     useEffect(() => {
         AOS.init({
             duration: 800,
