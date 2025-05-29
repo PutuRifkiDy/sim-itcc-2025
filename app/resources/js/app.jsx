@@ -24,7 +24,7 @@ const AppWrapper = ({ App, props }) => {
         Inertia.on('finish', finish);
 
         return () => {
-            inertia.off('start', start);
+            Inertia.off('start', start);
             Inertia.off('finish', finish);
         };
     }, []);
