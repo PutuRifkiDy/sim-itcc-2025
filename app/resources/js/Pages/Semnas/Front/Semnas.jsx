@@ -115,10 +115,10 @@ function Semnas({ ...props }) {
                                 <span className="font-regular text-[16px] uppercase tracking-[0.03em] text-black dark:text-white">
                                     HYBRID
                                 </span>
-                                <motion.div 
+                                <motion.div
                                 animate={{
                                     y: [0, -20, 0],
-                                    
+
                                 }}
                                 transition={
                                     {
@@ -149,7 +149,7 @@ function Semnas({ ...props }) {
                             <div className="h-4" />
 
                             <div
-                                className="flex w-full items-center justify-between rounded-[10px] bg-gradient-to-r from-[#0F114C] to-[#00658F] px-4 py-6 md:w-[600px] gap-5"
+                                className="flex w-full items-center justify-between rounded-[10px] bg-gradient-to-r from-[#0F114C] to-[#00658F] px-4 py-6 md:max-w-[550px] gap-5"
                                 data-aos="fade-up"
                                 data-aos-delay="200"
                             >
@@ -263,10 +263,10 @@ function Semnas({ ...props }) {
                             </div>
 
                             <div className="relative flex flex-col items-center gap-2 md:flex-row md:items-start">
-                                <motion.div 
-                                
+                                <motion.div
+
                                     animate={{
-                                        x: [0, 20, 0], 
+                                        x: [0, 20, 0],
                                     }}
                                     transition={{
                                         duration: 5,
@@ -476,7 +476,7 @@ function Semnas({ ...props }) {
                                 </div>
                             </div> */}
                         {/* </div> */}
-                        
+
                     </div>
                 </div>
             </section>
@@ -588,10 +588,10 @@ function Semnas({ ...props }) {
 
             {/* start faq */}
             <section className="relative mx-auto mt-20 w-full max-w-[1440px] flex-shrink-0 bg-white px-4 dark:bg-[#040529] sm:px-8 md:mt-36">
-                <motion.div 
+                <motion.div
                 animate={{
                     y: [0, -20, 0],
-                    
+
                 }}
                 transition={
                     {
@@ -649,10 +649,10 @@ function Semnas({ ...props }) {
 
             {/* start contact */}
             <section className="relative mb-5 mt-20 flex flex-col items-center px-5 md:mb-10 md:mt-36 md:px-24">
-                <motion.div 
+                <motion.div
                 animate={{
                     y: [0, -20, 0],
-                    
+
                 }}
                 transition={
                     {
@@ -667,10 +667,10 @@ function Semnas({ ...props }) {
                 <div className="absolute bottom-12 left-24 hidden rotate-90 transform text-[#0F114C] md:block">
                     <SideRightCrossIcon />
                 </div>
-                <motion.div 
+                <motion.div
                 animate={{
                     x: [0, 20, 0],
-                    
+
                 }}
                 transition={
                     {
@@ -682,10 +682,10 @@ function Semnas({ ...props }) {
                 className="absolute right-24 top-24 hidden transform text-[#0F114C] md:block">
                     <SideLeftArrowLeftIcon />
                 </motion.div>
-                <motion.div 
+                <motion.div
                 animate={{
                     y: [0, -20, 0],
-                    
+
                 }}
                 transition={
                     {

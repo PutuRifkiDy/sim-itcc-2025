@@ -1,9 +1,11 @@
 import { LineIcon, WhatsappIcon } from "@/Components/IconAdmin";
+import InputError from "@/Components/InputError";
 import Modal from "@/Components/Modal";
+import TextInput from "@/Components/TextInput";
 import { Button } from "@/Components/ui/button";
 import DashboardLayout from "@/Layouts/DashboardLayout";
-import { ArrowTopRightOnSquareIcon, DocumentDuplicateIcon, InformationCircleIcon, NoSymbolIcon, UserGroupIcon } from "@heroicons/react/24/solid";
-import { Link, usePage } from "@inertiajs/react";
+import { ArrowTopRightOnSquareIcon, DocumentDuplicateIcon, InformationCircleIcon, NoSymbolIcon, PencilSquareIcon, UserGroupIcon } from "@heroicons/react/24/solid";
+import { Link, useForm, usePage } from "@inertiajs/react";
 import { useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
 
@@ -11,9 +13,30 @@ function About({ user_competition_registrations, className }) {
     const [isCopied, setIsCopied] = useState(false);
     const [confirmingUserDeletion, setConfirmingUserDeletion] = useState(false);
     const { flash_message } = usePage().props;
+    const [editingTeamNameModalOpen, setEditTeamNameModalOpen] = useState(false);
+
+    const { data, setData, post, errors, processing, recentlySuccessful, formData, clearErrors, reset } = useForm({
+        team_name: '',
+        leader_id: user_competition_registrations.teams?.leader_id,
+        token: user_competition_registrations.teams?.token,
+        _method: 'POST',
+    });
+
+    console.log(user_competition_registrations);
 
     const confirmUserDeletion = () => {
         setConfirmingUserDeletion(true);
+    };
+
+    const editTeamNameModalOpen = () => {
+        setEditTeamNameModalOpen(true);
+    };
+
+    const closeEditTeamNameModal = () => {
+        setEditTeamNameModalOpen(false);
+
+        clearErrors();
+        reset();
     };
 
     function handleCopy(text) {
@@ -43,6 +66,21 @@ function About({ user_competition_registrations, className }) {
 
         clearErrors();
         reset();
+    };
+
+    const onHandleSubmit = (e) => {
+        e.preventDefault();
+
+        if (!data.team_name) {
+            toast.error("Please enter team name.");
+            return;
+        }
+
+        post(route('dashboard.competition.team_name', { id: user_competition_registrations.teams.id }), {
+            forceFormData: true,
+            preserveScroll: true,
+            preserveState: true,
+        });
     };
 
     return (
@@ -96,8 +134,46 @@ function About({ user_competition_registrations, className }) {
                     )}
                     {user_competition_registrations.competitions.is_team == true ? (
                         <div className="flex flex-col gap-2">
-                            <p className="font-bold text-[14px] tracking-[0.03em] text-[#5E5E5E] dark:text-gray-400">Team Name</p>
-                            <p className="font-reguler text-[18px] tracking-[0.03em]">{user_competition_registrations.teams?.team_name ?? ' '}</p>
+                            <p className="font-bold text-[14px] tracking-[0.03em] text-[#5E5E5E] dark:text-gray-400">
+                                Team Name
+                            </p>
+                            <div className="flex flex-row gap-1 items-center">
+                                <p className="font-reguler text-[18px] tracking-[0.03em]">
+                                    {user_competition_registrations.teams?.team_name ?? ' '}
+                                </p>
+                                <Button variant="none" size="lg" onClick={editTeamNameModalOpen}>
+                                    <PencilSquareIcon className="w-5 h-5" />
+                                </Button>
+                                <Modal show={editingTeamNameModalOpen} onClose={closeEditTeamNameModal} maxWidth="lg" className="px-5 py-5 dark:bg-[#040529]">
+                                    <form onSubmit={(e) => onHandleSubmit(e)}>
+                                        <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
+                                            Please input a team name
+                                        </h2>
+
+                                        <p className="mt-1 text-sm text-gray-600 dark:text-white">
+                                            You will not be able to revert this action.
+                                        </p>
+                                        <div className="mt-6">
+                                            <TextInput
+                                                id="team_name"
+                                                type="team_name"
+                                                name="team_name"
+                                                value={data.team_name}
+                                                onChange={(e) => setData('team_name', e.target.value)}
+                                                className="mt-1 block w-3/4"
+                                                isFocused
+                                                placeholder="Update Team Name"
+                                            />
+
+                                            <InputError message={errors.team_name} className="mt-2" />
+                                        </div>
+
+                                        <Button disabled={processing} className="mt-6" variant="blue">
+                                            Update
+                                        </Button>
+                                    </form>
+                                </Modal>
+                            </div>
                         </div>
                     ) : (
 

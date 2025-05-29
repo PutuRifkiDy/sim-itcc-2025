@@ -5,6 +5,7 @@ use App\Enums\PaymentStatus;
 use App\Enums\SubmissionStatus;
 use App\Http\Requests\PaymentStoreRequest;
 use App\Http\Requests\SubmissionStoreRequest;
+use App\Http\Requests\TeamRegisterRequest;
 use App\Http\Resources\CompetitionRegistrationResource;
 use App\Http\Resources\PaymentMethodsResource;
 use App\Models\CompetitionPrices;
@@ -76,9 +77,28 @@ class DashboardCompetitionController extends Controller
         ]);
     }
 
+    public function update_team_name($id, TeamRegisterRequest $request): RedirectResponse
+    {
+        $team                     = Teams::findOrFail($id);
+        $competitionRegistrations = CompetitionRegistrations::where('team_id', $team->id)->first();
+
+        if ($competitionRegistrations->payment_status->value === PaymentStatus::VERIFIED->value) {
+            flashMessage('Payment has already been approved. No further uploads allowed.', 'error');
+            return back();
+        } else if ($competitionRegistrations->payment_status->value === PaymentStatus::PENDING->value
+            || $competitionRegistrations->payment_status->value === PaymentStatus::REQUESTED->value
+            || $competitionRegistrations->payment_status->value === PaymentStatus::REJECTED->value) {
+
+            $team->update([
+                'team_name' => $request->team_name,
+            ]);
+            flashMessage('Team name has been updated.', 'success');
+        }
+        return to_route('dashboard.competition.index');
+    }
+
     public function payment_store(PaymentStoreRequest $request, $id): RedirectResponse
     {
-        // Minus Jika team maka leader yang hanya bisa upload payment
         $competitionRegistrations = CompetitionRegistrations::findOrFail($id);
         $competition              = Competitions::findOrFail($competitionRegistrations->competition_id);
         $user                     = $request->user();

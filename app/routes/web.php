@@ -97,6 +97,7 @@ Route::controller(DashboardCompetitionController::class)->group(function() {
     Route::get('dashboard/competition', 'index')->name('dashboard.competition.index');
     Route::get('dashboard/competition/{id}', 'show')->name('dashboard.competition.show');
     Route::post('dashboard/competition/{id}/payment', 'payment_store')->name('dashboard.competition.payment');
+    Route::post('dashboard/competition/{id}/team_name', 'update_team_name')->name('dashboard.competition.team_name');
     Route::post('dashboard/competition/submission/submission-store', 'submission_store')->name('dashboard.competition.submission');
     Route::delete('dashboard/competition/{id}', 'destroy')->name('dashboard.competition.destroy');
 })->middleware('auth');

@@ -15,7 +15,7 @@ function Payment({ user_competition_registrations, payment_methods, payment_valu
     const { data, setData, post, put, patch, errors, processing, recentlySuccessful, formData } = useForm({
         payment_status: 'Pending',
         payment_proof_path: '',
-        event_id: user_competition_registrations.competition_id,
+        competition_id: user_competition_registrations.competition_id,
         user_id: user_competition_registrations.user_id,
         code_registration: user_competition_registrations.code_registration,
         total_payment: user_competition_registrations.total_payment,

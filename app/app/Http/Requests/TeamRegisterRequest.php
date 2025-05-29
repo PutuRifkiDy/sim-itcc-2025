@@ -25,7 +25,7 @@ class TeamRegisterRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'team_name' => ['required', 'string', 'max:255', Rule::unique(Teams::class, 'team_name')->ignore($this->id)],
+            'team_name' => ['required', 'string', 'max:20', Rule::unique(Teams::class, 'team_name')->ignore($this->id)],
         ];
     }
 }
