@@ -4,7 +4,7 @@ import Modal from "@/Components/Modal";
 import TextInput from "@/Components/TextInput";
 import { Button } from "@/Components/ui/button";
 import DashboardLayout from "@/Layouts/DashboardLayout";
-import { ArrowTopRightOnSquareIcon, DocumentDuplicateIcon, InformationCircleIcon, NoSymbolIcon, PencilSquareIcon, UserGroupIcon } from "@heroicons/react/24/solid";
+import { ArrowTopRightOnSquareIcon, DocumentDuplicateIcon, InformationCircleIcon, NoSymbolIcon, PencilSquareIcon, UserGroupIcon, XMarkIcon } from "@heroicons/react/24/solid";
 import { Link, useForm, usePage } from "@inertiajs/react";
 import { useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
@@ -77,6 +77,9 @@ function About({ user_competition_registrations, className }) {
         }
 
         post(route('dashboard.competition.team_name', { id: user_competition_registrations.teams.id }), {
+            onSuccess: (success) => {
+                closeEditTeamNameModal();
+            },
             forceFormData: true,
             preserveScroll: true,
             preserveState: true,
@@ -144,8 +147,9 @@ function About({ user_competition_registrations, className }) {
                                 <Button variant="none" size="lg" onClick={editTeamNameModalOpen}>
                                     <PencilSquareIcon className="w-5 h-5" />
                                 </Button>
-                                <Modal show={editingTeamNameModalOpen} onClose={closeEditTeamNameModal} maxWidth="lg" className="px-5 py-5 dark:bg-[#040529]">
+                                <Modal show={editingTeamNameModalOpen} onClose={closeEditTeamNameModal} maxWidth="lg" className="relative px-5 py-5 dark:bg-[#040529]">
                                     <form onSubmit={(e) => onHandleSubmit(e)}>
+                                        <XMarkIcon className="w-5 h-5 absolute top-4 right-3 cursor-pointer" onClick={closeEditTeamNameModal} />
                                         <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
                                             Please input a team name
                                         </h2>
