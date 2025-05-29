@@ -219,7 +219,6 @@ function Competitions({ ...props }) {
                                 </div>
                             </div>
 
-                            <div className="h-2" />
 
                             <span
                                 className="text-2xl font-bold uppercase leading-[120%] tracking-[3px] text-[#0F114C] dark:text-gray-300 md:text-[36px] md:tracking-[5.76px]"
@@ -242,7 +241,6 @@ function Competitions({ ...props }) {
                                 </p>
 
                             )}
-                            <div className="h-2" />
 
                             <div
                                 className="flex md:flex-row flex-col w-full items-center justify-between rounded-[10px] bg-gradient-to-r from-[#0F114C] to-[#00658F] px-4 py-6 md:w-10/12 gap-5"
@@ -335,7 +333,7 @@ function Competitions({ ...props }) {
                             </div>
 
                             <div className="mt-7 gap-2" >
-                                <Button variant="blue" size="lg" className="w-full" asChild data-aos="fade-up" data-aos-delay="400">
+                                <Button variant="blue" size="lg" className="w-full rounded-lg" asChild data-aos="fade-up" data-aos-delay="400">
                                     <a
                                         href={competitions.competition_content[0].guidebook_link}
                                         target="_blank"

@@ -225,7 +225,7 @@ function Semnas({ ...props }) {
                             </div>
 
                             <div className="mt-7 gap-2">
-                                <Button variant="blue" size="lg" className="w-full" asChild data-aos="fade-up" data-aos-delay="400">
+                                <Button variant="blue" size="lg" className="w-full rounded-lg" asChild data-aos="fade-up" data-aos-delay="400">
                                     <a
                                         href={events.event_content[0].guidebook_link}
                                         target="_blank"
@@ -255,7 +255,7 @@ function Semnas({ ...props }) {
 
                             <div className="relative flex flex-col items-center gap-2 md:flex-row md:items-start">
                                 <div
-                                    className='left-160 md:top-20 top-40 hidden items-center gap-3 md:absolute md:inline-flex'
+                                    className='absolute left-160 md:top-20 top-40 hidden items-center gap-3 md:absolute md:inline-flex'
                                 >
                                     <SideLeftArrowLeftIcon />
                                 </div>
@@ -316,7 +316,7 @@ function Semnas({ ...props }) {
             {/* end home */}
 
             {/* start about */}
-            <section className="relative mt-24 min-h-[500px] w-full overflow-hidden bg-gradient-to-r from-[#0F114C] to-[#00658F] dark:from-[#100961] md:mt-48">
+            <section className="relative mt-24 min-h-[500px] w-full overflow-hidden bg-gradient-to-r from-[#0F114C] to-[#00658F] dark:from-[#100961] md:mt-12">
                 <img
                     className="absolute left-0 top-0 w-40 md:w-80"
                     src={`${window.location.origin}/assets/images/about/leftEdge.png`}
