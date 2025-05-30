@@ -1,12 +1,12 @@
 import { BackButton, BigCircleBg } from "@/Components/MerchandiseIcon"
 import { Link, usePage } from "@inertiajs/react"
+import GuestLayout from "@/Layouts/GuestLayout";
 
 export default function MerchandiseDetail({ ...props }) {
     const merchandise_detail = usePage().props.merchandise_detail;
-    console.log(merchandise_detail);
     
     return (
-        <section className="min-h-screen px-4 md:px-12 py-8 relative">
+        <section className="min-h-screen px-4 md:px-12 py-8 relative mt-20">
             <div className="hidden md:block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -z-10">
                 <BigCircleBg />
             </div>
@@ -98,3 +98,5 @@ export default function MerchandiseDetail({ ...props }) {
         </section>
     )
 }
+
+MerchandiseDetail.layout = (page) => <GuestLayout children={page} title="Merchandise Detail" />;
