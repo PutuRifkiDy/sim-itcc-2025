@@ -29,15 +29,15 @@ class EventPricesSeeder extends Seeder
             [
                 'periode_name' => "Semnas Online Batch I",
                 'price'        => 70000,
-                'start_date'   => '2025-05-31 00:01:00.000',
-                'end_date'     => '2025-06-10 23:59:59.000',
+                'start_date'   => '2025-05-30 16:00:00.000',
+                'end_date'     => '2025-06-09 15:59:00.000',
                 'event_id'     => 2,
             ],
             [
                 'periode_name' => "Semnas Online Batch II",
                 'price'        => 85000,
-                'start_date'   => '2025-06-11 00:01:00.000',
-                'end_date'     => '2025-06-20 23:59:59.000',
+                'start_date'   => '2025-06-10 16:00:00.000',
+                'end_date'     => '2025-06-19 15:59:59.000',
                 'event_id'     => 2,
             ],
             [
@@ -50,15 +50,15 @@ class EventPricesSeeder extends Seeder
             [
                 'periode_name' => "Semnas Offline Batch I",
                 'price'        => 100000,
-                'start_date'   => '2025-05-31 00:01:00.000',
-                'end_date'     => '2025-06-10 23:59:59.000',
+                'start_date'   => '2025-05-30 16:00:00.000',
+                'end_date'     => '2025-06-09 15:59:00.000',
                 'event_id'     => 3,
             ],
             [
                 'periode_name' => "Semnas Offline Batch II",
                 'price'        => 115000,
-                'start_date'   => '2025-06-11 00:01:00.000',
-                'end_date'     => '2025-06-20 23:59:59.000',
+                'start_date'   => '2025-06-10 16:00:00.000',
+                'end_date'     => '2025-06-19 15:59:59.000',
                 'event_id'     => 3,
             ],
             [

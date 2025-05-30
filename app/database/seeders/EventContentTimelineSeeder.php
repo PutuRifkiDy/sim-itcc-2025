@@ -30,9 +30,9 @@ class EventContentTimelineSeeder extends Seeder
             ],
             [
                 'event_content_id' => 3,
-                'title'            => 'Coming soon',
-                'start_date'       => '2024-08-15 00:00:00',
-                'end_date'         => '2024-08-21 23:59:59',
+                'title'            => 'Test Timeline Semnas',
+                'start_date'              => '2025-05-30 16:00:00.000',
+                'end_date'                => '2025-06-19 15:59:00.000',
                 'date_range'       => 'Coming soon',
                 'description'      => '',
             ],
