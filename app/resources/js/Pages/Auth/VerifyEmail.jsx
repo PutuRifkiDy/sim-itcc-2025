@@ -40,7 +40,7 @@ export default function VerifyEmail({ status }) {
                                 <CardHeader className="flex flex-col items-center justify-center">
                                     <Link
                                         href="#"
-                                        className="text-[25px] font-bold leading-relaxed tracking-tighter text-[#0F114C]"
+                                        className="text-[25px] font-bold leading-relaxed tracking-tighter text-[#0F114C] dark:text-white"
                                     >
                                         Verify Email
                                     </Link>
@@ -49,8 +49,8 @@ export default function VerifyEmail({ status }) {
                                         address by clicking on the link we just emailed to you? If you didn't receive
                                         the email, we will gladly send you another.
                                     </h2>
-                                    <h4 className="text-md w-[400px] text-center font-medium leading-relaxed tracking-tight text-[#0F114C]">
-                                        Please check in your spam folder if you don't see the email.
+                                    <h4 className="text-md w-[400px] text-center font-medium leading-relaxed tracking-tight dark:text-[#F7F7F7] text-[#0F114C]">
+                                        Please check in your spam folder or junk email if you don't see the email.
                                     </h4>
                                 </CardHeader>
                                 <CardContent>
@@ -66,7 +66,7 @@ export default function VerifyEmail({ status }) {
                                             <div className="flex flex-col items-center justify-between gap-5">
                                                 <Button
                                                     disabled={processing}
-                                                    className="w-full border-2 border-[#0F114C] bg-white text-[#0F114C] transition-all duration-500 ease-in-out hover:bg-[#0F114C] hover:text-white"
+                                                    className="w-full border-2 border-[#0F114C] bg-white text-[#0F114C] transition-all duration-500 ease-in-out hover:bg-[#0F114C] hover:text-white dark:bg-[#0F114C] dark:text-white"
                                                 >
                                                     Resend Verification Email
                                                 </Button>
