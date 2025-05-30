@@ -9,6 +9,7 @@ import { ThemeProvider } from './Components/ThemeProvider';
 import Loading from './Components/Loading';
 import { useEffect, useState } from 'react';
 import { Inertia } from '@inertiajs/inertia';
+import DisableInspect from './Components/DisableInspect';
 
 const appName = import.meta.env.VITE_APP_NAME || 'ITCC-2025';
 
@@ -31,6 +32,7 @@ const AppWrapper = ({ App, props }) => {
 
     return (
         <ThemeProvider defaultTheme="light" storageKey="current-theme">
+            <DisableInspect />
             {isLoading && <Loading />}
             <App {...props} />
         </ThemeProvider>
