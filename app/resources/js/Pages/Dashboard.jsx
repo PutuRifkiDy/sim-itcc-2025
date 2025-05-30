@@ -24,7 +24,7 @@ export default function Dashboard() {
                     </div>
                 </div>
 
-                <div className="flex flex-row items-center gap-7"    >
+                <div className="flex flex-row items-center gap-7">
                     <img src={`${window.location.origin}/assets/images/landing/icon-maskot-itcc.png`} className="md:w-[46px] w-[50px] h-auto md:h-auto" alt="" />
                     <div className='border-2 border-gray-300 dark:border-gray-100 dark:border-[1px] px-5 py-3 w-full rounded-[5px] bg-white dark:bg-[#040529]'>
                         <p className='text-[17px]'>
@@ -42,7 +42,7 @@ export default function Dashboard() {
                     </div>
                 </div>
 
-                <div className="flex flex-row items-center gap-7" >
+                <div className="flex flex-row items-center gap-7">
                     <img src={`${window.location.origin}/assets/images/landing/icon-maskot-itcc.png`} className="md:w-[46px] w-[50px] h-auto md:h-auto" alt="" />
                     <div className='border-2 border-gray-300 dark:border-gray-100 dark:border-[1px] px-5 py-3 w-full rounded-[5px] bg-white dark:bg-[#040529]'>
                         <p className='text-[17px]'>
@@ -63,7 +63,7 @@ export default function Dashboard() {
                     </div>
                 </div>
 
-                <div className="flex flex-row items-center gap-7" >
+                <div className="flex flex-row items-center gap-7">
                     <img src={`${window.location.origin}/assets/images/landing/icon-maskot-itcc.png`} className="md:w-[46px] w-[50px] h-auto md:h-auto" alt="" />
                     <div className='border-2 border-gray-300 dark:border-gray-100 dark:border-[1px] px-5 py-3 w-full rounded-[5px] bg-white dark:bg-[#040529]'>
                         <p className='text-[17px]'>
@@ -84,7 +84,7 @@ export default function Dashboard() {
                     </div>
                 </div>
 
-                <div className="flex flex-row items-center gap-7" >
+                <div className="flex flex-row items-center gap-7">
                     <img src={`${window.location.origin}/assets/images/landing/icon-maskot-itcc.png`} className="md:w-[46px] w-[50px] h-auto md:h-auto" alt="" />
                     <div className='border-2 border-gray-300 dark:border-gray-100 dark:border-[1px] px-5 py-3 w-full rounded-[5px] bg-white dark:bg-[#040529]'>
                         <p className='text-[17px]'>
@@ -100,7 +100,7 @@ export default function Dashboard() {
                     </div>
                 </div>
 
-                <div className="flex flex-row items-center gap-7" >
+                <div className="flex flex-row items-center gap-7">
                     <img src={`${window.location.origin}/assets/images/landing/icon-maskot-itcc.png`} className="md:w-[46px] w-[50px] h-auto md:h-auto" alt="" />
                     <div className='border-2 border-gray-300 dark:border-gray-100 dark:border-[1px] px-5 py-3 w-full rounded-[5px] bg-white dark:bg-[#040529]'>
                         <p className='text-[17px]'>
