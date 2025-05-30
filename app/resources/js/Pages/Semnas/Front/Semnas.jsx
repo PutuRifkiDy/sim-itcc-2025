@@ -225,7 +225,7 @@ function Semnas({ ...props }) {
                             </div>
 
                             <div className="mt-7 gap-2 w-full">
-                                <Button variant="blue" size="lg" className="md:w-1/2 w-full rounded-lg py-6 px-5 text-[18px]" asChild data-aos="fade-up" data-aos-delay="400">
+                                <Button variant="none" size="lg" className="md:w-1/2 w-full rounded-lg py-6 px-5 text-[18px] border-2 border-[#0F114C] bg-white dark:bg-[#040529]" asChild data-aos="fade-up" data-aos-delay="400">
                                     <a
                                         href={events.event_content[0].guidebook_link}
                                         target="_blank"
@@ -239,7 +239,7 @@ function Semnas({ ...props }) {
                                             height="20"
                                             viewBox="0 0 20 20"
                                             fill="none"
-                                            className="text-white dark:text-white"
+                                            className="text-[#0F114C] dark:text-white"
                                         >
                                             <path
                                                 d="M8.33325 3.33334H4.99992C4.55789 3.33334 4.13397 3.50893 3.82141 3.82149C3.50885 4.13405 3.33325 4.55798 3.33325 5V15C3.33325 15.442 3.50885 15.866 3.82141 16.1785C4.13397 16.4911 4.55789 16.6667 4.99992 16.6667H14.9999C15.4419 16.6667 15.8659 16.4911 16.1784 16.1785C16.491 15.866 16.6666 15.442 16.6666 15V11.6667M9.99992 10L16.6666 3.33334M16.6666 3.33334V7.5M16.6666 3.33334H12.4999"
