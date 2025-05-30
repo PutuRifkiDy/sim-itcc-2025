@@ -79,8 +79,18 @@ class DashboardCompetitionController extends Controller
 
     public function update_team_name($id, TeamRegisterRequest $request): RedirectResponse
     {
+        if (! auth()->check()) {
+            return to_route('login');
+        }
+
+        $user                     = auth()->user();
         $team                     = Teams::findOrFail($id);
         $competitionRegistrations = CompetitionRegistrations::where('team_id', $team->id)->first();
+
+        if ($user->id !== $team->leader_id) {
+            flashMessage('Only the team leader can update the team name.', 'error');
+            return to_route('dashboard.competition.index');
+        }
 
         if ($competitionRegistrations->payment_status->value === PaymentStatus::VERIFIED->value) {
             flashMessage('Payment has already been approved. No changes allowed.', 'error');

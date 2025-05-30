@@ -86,7 +86,7 @@ function Overview() {
                                 <BanknotesIcon className="text-[#4DE45C] w-8 h-8" />
                             </div>
                             <div className="flex flex-col gap-1">
-                                <p className="text-[#3A3A3A]/90 text-[16px] font-medium dark:text-white">Participant Competition</p>
+                                <p className="text-[#3A3A3A]/90 text-[16px] font-medium dark:text-white">Total Payment</p>
                                 <p className="font-bold text-[24px] text-[#232323] dark:text-white">{sum_total_payment_competition}</p>
                             </div>
                         </div>
