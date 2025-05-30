@@ -746,7 +746,7 @@ function Competitions({ ...props }) {
                             )),
                         )}
                     </div>
-                    <div className="absolute bottom-4 right-4 hidden sm:bottom-10 sm:right-10 lg:block">
+                    <div className="absolute bottom-4 right-4 hidden sm:bottom-10 sm:right-10 lg:top-24">
                         <SideRightCrossIcon />
                     </div>
                 </div>
