@@ -124,7 +124,7 @@ function Register() {
                                 <p className="text-black font-medium leading-[120%] dark:text-gray-500">Registration</p>
 
                                 <div className="flex flex-col items-center gap-3 w-full mt-3">
-                                    <Button variant="blue" asChild className="w-full rounded-lg py-6 text-[16px]" size="lg">
+                                    <Button variant="blue" asChild className="w-full rounded-lg text-[16px]" size="lg">
                                         <Link
                                             href={route('register.competition.team.show', { competition: slug })}
                                             className="text-white"
@@ -135,7 +135,7 @@ function Register() {
                                     <div className="w-full flex flex-col items-center">
                                         <p className="text-[13px] text-[#121212] text-start leading-[120%] dark:text-white">Or</p>
                                     </div>
-                                    <Button variant="none" asChild className="w-full rounded-lg py-6 bg-white hover:bg-[#0F114C] border-2 border-[#0F114C] transition-all duration-300 ease-in-out text-[16px] dark:bg-[#040529]" size="lg">
+                                    <Button variant="none" asChild className="w-full rounded-lg bg-white hover:bg-[#0F114C] border-2 border-[#0F114C] transition-all duration-300 ease-in-out text-[16px] dark:bg-[#040529]" size="lg">
                                         <Link
                                             href={route('register.competition.join-team.show', { competition: slug })}
                                             className="hover:text-white text-[#0F114C] dark:text-white"

@@ -101,6 +101,7 @@ Route::controller(DashboardCompetitionController::class)->group(function() {
     Route::post('dashboard/competition/{id}/team_name', 'update_team_name')->name('dashboard.competition.team_name');
     Route::post('dashboard/competition/submission/submission-store', 'submission_store')->name('dashboard.competition.submission');
     Route::delete('dashboard/competition/{id}', 'destroy')->name('dashboard.competition.destroy');
+    Route::delete('dashboard/competition/member/{id}', 'destroy_member')->name('dashboard.competition.member.destroy');
 })->middleware('auth');
 
 

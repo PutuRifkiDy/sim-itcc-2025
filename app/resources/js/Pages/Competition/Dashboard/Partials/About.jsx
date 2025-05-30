@@ -3,8 +3,9 @@ import InputError from "@/Components/InputError";
 import Modal from "@/Components/Modal";
 import TextInput from "@/Components/TextInput";
 import { Button } from "@/Components/ui/button";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from "@/Components/ui/dropdown-menu";
 import DashboardLayout from "@/Layouts/DashboardLayout";
-import { ArrowTopRightOnSquareIcon, DocumentDuplicateIcon, InformationCircleIcon, NoSymbolIcon, PencilSquareIcon, UserGroupIcon, XMarkIcon } from "@heroicons/react/24/solid";
+import { ArrowTopRightOnSquareIcon, ChevronDownIcon, DocumentDuplicateIcon, InformationCircleIcon, NoSymbolIcon, PencilSquareIcon, TrashIcon, UserGroupIcon, XMarkIcon } from "@heroicons/react/24/solid";
 import { Link, useForm, usePage } from "@inertiajs/react";
 import { useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
@@ -13,6 +14,7 @@ function About({ user_competition_registrations, className }) {
     const [isCopied, setIsCopied] = useState(false);
     const [confirmingUserDeletion, setConfirmingUserDeletion] = useState(false);
     const { flash_message } = usePage().props;
+    const user = usePage().props.auth.user;
     const [editingTeamNameModalOpen, setEditTeamNameModalOpen] = useState(false);
 
     const { data, setData, post, errors, processing, recentlySuccessful, formData, clearErrors, reset } = useForm({
@@ -254,6 +256,30 @@ function About({ user_competition_registrations, className }) {
                             {user_competition_registrations.teams.team_members.map((member, index) => (
 
                                 <div className="flex flex-col gap-5 border-2 border-gray-200 rounded-xl p-5 hover:scale-[102%] transition-all duration-200 ease-in-out" key={index}>
+                                    <div className="flex justify-end">
+                                        {member.teams.leader_id === user.id && member.competition_registrations.user_id !== user.id ? (
+                                            <DropdownMenu>
+                                                <DropdownMenuTrigger asChild>
+                                                    <p className='cursor-pointer flex flex-row gap-2 items-center'>
+                                                        <PencilSquareIcon className="font-bold h-6 w-6 text-[#0f114c]" />
+                                                    </p>
+                                                </DropdownMenuTrigger>
+                                                <DropdownMenuContent className="w-56 flex flex-col justify-start px-4 gap-3 py-3 outline-none dark:bg-[#040529]" >
+                                                    <Link
+                                                        href={route('dashboard.competition.member.destroy', {
+                                                            id: member.id
+                                                        })}
+                                                        className="flex flex-row items-center justify-between"
+                                                        method="delete">
+                                                        Kick Member
+                                                        <TrashIcon className="w-6 h-6 text-[#0f114c]" />
+                                                    </Link>
+                                                </DropdownMenuContent>
+                                            </DropdownMenu>
+                                        ) : (
+                                            null
+                                        )}
+                                    </div>
                                     <div className="flex justify-center items-center">
                                         <img src={`${window.location.origin}/assets/images/landing/icon-maskot-itcc.png`} className="w-[161px] h-auto" alt="" />
                                     </div>

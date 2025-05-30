@@ -13,6 +13,7 @@ use App\Models\CompetitionRegistrations;
 use App\Models\Competitions;
 use App\Models\PaymentMethods;
 use App\Models\Submissions;
+use App\Models\TeamMembers;
 use App\Models\Teams;
 use App\Traits\HasFile;
 use Illuminate\Http\RedirectResponse;
@@ -267,5 +268,28 @@ class DashboardCompetitionController extends Controller
 
         flashMessage('Your registration has been cancelled.', 'success');
         return to_route('dashboard.competition.index');
+    }
+
+    public function destroy_member($id): RedirectResponse
+    {
+        $user        = auth()->user();
+        $team_member = TeamMembers::with('teams', 'competition_registrations')->findOrFail($id);
+
+        if ($user->id !== $team_member->teams->leader_id) {
+            flashMessage('Only the team leader can remove team member.', 'error');
+            return to_route('dashboard.competition.index');
+        }
+        if ($team_member->competition_registrations->payment_status->value === PaymentStatus::VERIFIED->value) {
+            flashMessage('Payment has already been approved. No further changes allowed.', 'error');
+            return to_route('dashboard.competition.index');
+        } else if ($team_member->competition_registrations->payment_status->value === PaymentStatus::PENDING->value
+            || $team_member->competition_registrations->payment_status->value === PaymentStatus::REQUESTED->value
+            || $team_member->competition_registrations->payment_status->value === PaymentStatus::REJECTED->value) {
+            CompetitionRegistrations::find($team_member->competition_registrations->id)->delete();
+            flashMessage('Your team member has been removed.', 'success');
+            return to_route('dashboard.competition.index');
+        }
+
+        return back();
     }
 }

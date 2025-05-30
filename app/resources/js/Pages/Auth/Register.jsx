@@ -181,7 +181,7 @@ export default function Register() {
                             <div className='absolute bottom-10 left-0 tranform rotate-180'>
                                 <LineOrnamenIcon />
                             </div>
-                            <img src="/assets/images/image_for_auth.png" alt="" className="h-[379px] w-[354px]" />
+                            <img src="assets/images/landing/icon-maskot-itcc.png" alt="" className="h-[379px] w-[354px]" />
                         </div>
                     </div>
                 </div>
