@@ -56,7 +56,7 @@ function Merchandise({ ...props }) {
                 alt="banner"
                 className="absolute z-0 rounded-none w-screen h-[800px] object-cover hidden md:block top-0 opacity-60"
             />
-            <div className="isolate min-h-screen md:mt-24">
+            <div className="isolate min-h-screen md:pt-0">
                 <div className="relative md:px-24 px-10">
                     <div
                         className="absolute inset-x-0 overflow-hidden -top-80 -z-10 transform-gpu blur-3xl sm:-top-24"
@@ -71,7 +71,7 @@ function Merchandise({ ...props }) {
                         />
                     </div>
 
-                    <div className="w-24 h-24 md:mt-0 mt-12 pointer-events-none">
+                    <div className="w-24 h-24 md:mt-14 mt-12 pointer-events-none relative">
                         <motion.div
                             animate={{
                                 rotate: [0, 360],
@@ -81,13 +81,13 @@ function Merchandise({ ...props }) {
                                 repeat: Infinity,
                                 ease: "linear"
                             }}
-                            className="w-full h-full"
+                            className="w-full h-full absolute top-24"
                         >
                             <SideLeftCrookedCrossIcon />
                         </motion.div>
                     </div>
 
-                    <div className="absolute top-12 right-48 md:block hidden text-[#0F114C]">
+                    <div className="absolute top-24 right-48 md:block hidden text-[#0F114C]">
                         <SideRightCrossIcon />
 
                     </div>

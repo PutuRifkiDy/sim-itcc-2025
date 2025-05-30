@@ -36,10 +36,10 @@ export default function Home() {
                 alt="banner"
                 className="absolute z-0 rounded-none w-screen h-[800px] object-cover hidden md:block top-0 opacity-40"
             />
-            <section className="px-12 md:px-24 md:pb-24 mb-18 md:mt-44 mt-24">
+            <section className="px-4 md:px-8 lg:px-16 pt-36 md:pt-32 pb-16 md:pb-40">
                 <div className="flex flex-row justify-center md:justify-between">
                     {/* side left */}
-                    <div className="w-full flex flex-col">
+                    <div className="md:mt-12 mt-0 w-full flex flex-col">
 
                         <div className="relative flex md:flex-row flex-col items-center md:gap-0 gap-2 md:items-start">
                             <div className="absolute left-0 md:-top-20 -top-10" data-aos="fade-up" data-aos-delay="50">
@@ -93,7 +93,7 @@ export default function Home() {
                                     repeat: Infinity,
                                     ease: "easeInOut"
                                 }}
-                                className="md:absolute flex top-80 left-60"
+                                className="md:absolute flex top-72 left-60"
                             >
 
                             <div  data-aos="fade-up" data-aos-delay="400">
@@ -101,7 +101,7 @@ export default function Home() {
                             </div>
                             </motion.div>
 
-                            <div className="md:absolute -bottom-72 left-60 flex justify-center items-center md:mt-0 pt-12" data-aos="fade-up" data-aos-delay="500">
+                            <div className="md:absolute -bottom-56 left-60 flex justify-center items-center md:mt-0 pt-12" data-aos="fade-up" data-aos-delay="500">
                                 <a href="#competition" className="flex flex-row gap-2 items-center text-gray-600 dark:text-white">
                                     Scroll down to Explore more
                                     <ArrowDownIcon className="w-6 h-6 animate-bounce" />

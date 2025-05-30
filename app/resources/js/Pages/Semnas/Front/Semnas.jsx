@@ -89,7 +89,7 @@ function Semnas({ ...props }) {
                 alt="banner"
                 className="absolute z-0 w-auto object-center rounded-none h-[800px] object-cover hidden md:block top-0"
             />
-            <section className="mb-18 mt-28 px-5 md:mt-44 md:px-24 md:pb-24">
+            <section className="px-4 md:px-8 lg:px-14 pt-35 md:pt-32">
                 <div className="flex flex-col justify-center gap-6 md:flex-row md:justify-between">
                     <div className="flex w-full flex-col">
                         <div className="relative flex flex-col items-start">
