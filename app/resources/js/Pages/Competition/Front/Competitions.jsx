@@ -630,11 +630,11 @@ function Competitions({ ...props }) {
                                 <div className={`relative h-max flex-1 flex-shrink-0 rounded-[10px] border border-[var(--Blue-Primary,#0F114C)] bg-white py-4 dark:bg-[#0F114C]`}>
                                     {/* Status Label */}
                                     <div className={`absolute right-3 top-3 flex items-center gap-2 rounded-md px-3 py-1 shadow-sm
-                                        ${timeline.title == current_periode?.title ? 'bg-green-100 text-green-700'
-                                            : 'bg-red-100 text-red-700'}`}
+                                        ${timeline.title == current_periode?.title ? 'bg-[#00D238]/20 text-[#00D238]'
+                                            : 'bg-[#E82323]/20 text-[#E82323]'}`}
                                     >
-                                        <div className={`h-3 w-3 rounded-full ${timeline.title == current_periode?.title ? 'bg-green-500' : 'bg-red-500'}`} />
-                                        <span className={`font-rubik text-xs font-medium ${timeline.title == current_periode?.title ? 'text-green-700' : 'text-red-700'}`}>
+                                        <div className={`h-3 w-3 rounded-full ${timeline.title == current_periode?.title ? 'bg-[#00D238]' : 'bg-[#E82323]'}`} />
+                                        <span className={`font-rubik text-xs font-medium ${timeline.title == current_periode?.title ? 'text-[#00D238]' : 'text-[#E82323]'}`}>
                                             {timeline.title == current_periode?.title ? 'Available' : 'Not Available'}
                                         </span>
                                     </div>
