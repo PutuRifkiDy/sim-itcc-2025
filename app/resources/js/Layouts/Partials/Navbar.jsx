@@ -78,7 +78,7 @@ export default function NavBar({ auth, competitions }) {
                                     <Link
                                         key={competition.id}
                                         href={route('competition.front.show', [competition.slug])}
-                                        className="truncate"
+                                        className="truncate hover:font-medium transition-all ease-in-out duration-400"
                                     >
                                         {competition.name}
                                     </Link>
@@ -204,7 +204,7 @@ export default function NavBar({ auth, competitions }) {
                                             <Link
                                                 key={competition.id}
                                                 href={route('competition.front.show', [competition.slug])}
-                                                className="truncate"
+                                                className="truncate hover:font-medium transition-all ease-in-out duration-400"
                                             >
                                                 {competition.name}
                                             </Link>

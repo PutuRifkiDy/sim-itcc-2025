@@ -149,7 +149,7 @@ function About({ user_competition_registrations, className }) {
                                 <Button variant="none" size="lg" onClick={editTeamNameModalOpen}>
                                     <PencilSquareIcon className="w-5 h-5" />
                                 </Button>
-                                <Modal show={editingTeamNameModalOpen} onClose={closeEditTeamNameModal} maxWidth="lg" className="relative px-5 py-5 dark:bg-[#040529]">
+                                <Modal show={editingTeamNameModalOpen} onClose={closeEditTeamNameModal} maxWidth="lg" className="relative px-5 py-5 dark:bg-[#040529] md:w-lg w-full">
                                     <form onSubmit={(e) => onHandleSubmit(e)}>
                                         <XMarkIcon className="w-5 h-5 absolute top-4 right-3 cursor-pointer" onClick={closeEditTeamNameModal} />
                                         <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
@@ -255,7 +255,7 @@ function About({ user_competition_registrations, className }) {
 
                                 <div className="flex flex-col gap-5 border-2 border-gray-200 rounded-xl p-5 hover:scale-[102%] transition-all duration-200 ease-in-out" key={index}>
                                     <div className="flex justify-center items-center">
-                                        <img src={`${window.location.origin}/assets/images/image_for_our_team.png`} className="w-[161px] h-[173px]" alt="" />
+                                        <img src={`${window.location.origin}/assets/images/landing/icon-maskot-itcc.png`} className="w-[161px] h-auto" alt="" />
                                     </div>
                                     <div className="flex flex-col gap-3 items-start">
                                         <p className="font-bold text-[18px] text-[#000000] line-clamp-1 dark:text-white">

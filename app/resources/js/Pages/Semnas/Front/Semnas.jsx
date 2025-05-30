@@ -89,7 +89,7 @@ function Semnas({ ...props }) {
                 alt="banner"
                 className="absolute z-0 w-auto object-center rounded-none h-[800px] object-cover hidden md:block top-0"
             />
-            <section className="px-4 md:px-8 lg:px-14 pt-35 md:pt-32">
+            <section className="px-4 md:px-8 lg:px-14 pt-28 md:pt-32">
                 <div className="flex flex-col justify-center gap-6 md:flex-row md:justify-between">
                     <div className="flex w-full flex-col">
                         <div className="relative flex flex-col items-start">
@@ -138,7 +138,7 @@ function Semnas({ ...props }) {
                             <div className="h-4" />
 
                             <div
-                                className="flex w-full items-center justify-between rounded-[10px] bg-gradient-to-r from-[#0F114C] to-[#00658F] px-4 py-6 md:w-10/12  gap-5"
+                                className="flex md:flex-row flex-col w-full items-center justify-between rounded-[10px] bg-gradient-to-r from-[#0F114C] to-[#00658F] px-4 py-6 md:w-10/12  gap-5"
                                 data-aos="fade-up"
                                 data-aos-delay="200"
                             >
@@ -316,7 +316,7 @@ function Semnas({ ...props }) {
             {/* end home */}
 
             {/* start about */}
-            <section className="relative mt-24 min-h-[500px] w-full overflow-hidden bg-gradient-to-r from-[#0F114C] to-[#00658F] dark:from-[#100961] md:mt-12">
+            <section className="relative mt-12 min-h-[500px] w-full overflow-hidden bg-gradient-to-r from-[#0F114C] to-[#00658F] dark:from-[#100961] md:mt-44">
                 <img
                     className="absolute left-0 top-0 w-40 md:w-80"
                     src={`${window.location.origin}/assets/images/about/leftEdge.png`}
@@ -426,7 +426,6 @@ function Semnas({ ...props }) {
                         <div
                             className="relative rounded-[10px] border border-[#0F114C] bg-white w-[280px] h-[360px] flex-shrink-0 p-4 overflow-hidden dark:bg-gradient-to-b dark:from-[#0F114C] dark:to-[#00658F]"
                             data-aos="fade-up"
-                            data-aos-delay="200"
                         >
                             <div className="absolute bottom-0 right-0 flex flex-col justify-end items-end z-0 pointer-events-none pr-4 pb-4">
                                 <p className="text-[48px] text-[#A0A0A0] font-bold opacity-10 select-none rotate-[-42.783deg] whitespace-nowrap text-right">
@@ -464,7 +463,7 @@ function Semnas({ ...props }) {
                         <div
                             className="relative rounded-[10px] border border-[#0F114C] bg-white w-[280px] h-[360px] flex-shrink-0 p-4 overflow-hidden dark:bg-gradient-to-b dark:from-[#0F114C] dark:to-[#00658F]"
                             data-aos="fade-up"
-                            data-aos-delay="200"
+                            data-aos-delay="100"
                         >
                             <div className="absolute bottom-0 right-0 flex flex-col justify-end items-end z-0 pointer-events-none pr-4 pb-4">
                                 <p className="text-[48px] text-[#A0A0A0] font-bold opacity-10 select-none rotate-[-42.783deg] whitespace-nowrap text-right">

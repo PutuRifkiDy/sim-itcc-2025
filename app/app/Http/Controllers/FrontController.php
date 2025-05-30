@@ -162,6 +162,7 @@ class FrontController extends Controller
 
     public function show_merchandise(): Response
     {
+        abort(503);
         $merchandise = Merchandise::select('id', 'name', 'slug', 'price', 'image_path', 'description', 'batch_name', 'start_date', 'end_date')->get();
         return inertia(component: 'Merchandise', props: [
             'merchandise' => MerchandiseResource::collection($merchandise),
@@ -170,6 +171,7 @@ class FrontController extends Controller
 
     public function show_merchandise_detail(Merchandise $merchandise): Response
     {
+        abort(503);
         return inertia(component: 'MerchandiseDetail', props: [
             'merchandise_detail' => $merchandise
         ]);
