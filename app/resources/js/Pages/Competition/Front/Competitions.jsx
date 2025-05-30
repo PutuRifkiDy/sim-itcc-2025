@@ -614,7 +614,7 @@ function Competitions({ ...props }) {
 
                 <div className="relative mt-12 flex min-h-fit flex-col items-center" style={{ gap: '96px' }}>
                     {/* Vertical blue line */}
-                    <div className="absolute bottom-0 left-[26%] top-0 z-0 flex -translate-x-1/2 items-center sm:left-[22%]">
+                    <div className="absolute bottom-0 left-[26%] top-0 z-0 flex -translate-x-1/2 items-center sm:left-[18%]">
                         <div className="h-full w-2 rounded-full bg-[var(--Blue-Primary,#0F114C)]" />
                     </div>
 
@@ -622,7 +622,7 @@ function Competitions({ ...props }) {
                     {competitions.competition_content.map((content, idx) =>
                         content.competition_content_timeline.map((timeline, i) => (
                             <div
-                                className="relative z-10 flex w-full max-w-[900px] items-center"
+                                className="relative z-10 flex w-full max-w-[1000px] items-center"
                                 key={i}
                                 data-aos="fade-up"
                                 data-aos-delay={idx * 100}
