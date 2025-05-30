@@ -53,6 +53,7 @@ Route::controller(FrontController::class)->group(function(){
 
     // merch
     Route::get('merchandise', 'show_merchandise')->name('merchandise.front.show');
+    Route::get('merchandise/{merchandise:id}', 'show_merchandise_detail')->name('merchandise.front.detail');
 })->middleware('role:guest');
 
 

@@ -162,9 +162,16 @@ class FrontController extends Controller
 
     public function show_merchandise(): Response
     {
-        $merchandise = Merchandise::select('name', 'slug', 'price', 'image_path', 'description', 'batch_name', 'start_date', 'end_date')->get();
+        $merchandise = Merchandise::select('id', 'name', 'slug', 'price', 'image_path', 'description', 'batch_name', 'start_date', 'end_date')->get();
         return inertia(component: 'Merchandise', props: [
             'merchandise' => MerchandiseResource::collection($merchandise),
+        ]);
+    }
+
+    public function show_merchandise_detail(Merchandise $merchandise): Response
+    {
+        return inertia(component: 'MerchandiseDetail', props: [
+            'merchandise_detail' => $merchandise
         ]);
     }
 
