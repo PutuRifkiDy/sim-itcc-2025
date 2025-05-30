@@ -35,7 +35,7 @@ class CompetitionCategoriesSeeder extends Seeder
             ],
         ];
 
-        foreach($competition_categories as $category) {
+        foreach ($competition_categories as $category) {
             CompetitionCategory::create($category);
         }
 

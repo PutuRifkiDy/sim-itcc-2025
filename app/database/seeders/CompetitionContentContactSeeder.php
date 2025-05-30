@@ -1,9 +1,7 @@
 <?php
-
 namespace Database\Seeders;
 
 use App\Models\CompetitionContentContactPerson;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class CompetitionContentContactSeeder extends Seeder
@@ -16,206 +14,205 @@ class CompetitionContentContactSeeder extends Seeder
         $competition_content_contacts = [
             [
                 'competition_content_id' => 1,
-                'name' => 'Devasya',
-                'id_line' => 'aawwwdeva',
-                'wa_number' => '+6289643860167'
+                'name'                   => 'Indah',
+                'id_line'                => 'indahsdn10pedungan',
+                'wa_number'              => '+6282236405141',
             ],
             [
                 'competition_content_id' => 1,
-                'name' => 'Tika',
-                'id_line' => 'tikatiktik',
-                'wa_number' => '+6281249432610'
+                'name'                   => 'Kayla',
+                'id_line'                => 'kaylaemily09',
+                'wa_number'              => '+6281238406579',
             ],
             [
                 'competition_content_id' => 1,
-                'name' => 'Andri',
-                'id_line' => 'andriantari.',
-                'wa_number' => '+6281238158327'
+                'name'                   => 'Nyoman Wiprayanka',
+                'id_line'                => 'nyomanwiprayanka',
+                'wa_number'              => '+6285969084584',
             ],
             [
                 'competition_content_id' => 2,
-                'name' => 'Coming soon',
-                'id_line' => 'Coming soon',
-                'wa_number' => '+62'
+                'name'                   => 'Coming soon',
+                'id_line'                => 'Coming soon',
+                'wa_number'              => '+62',
             ],
             [
                 'competition_content_id' => 2,
-                'name' => 'Coming soon',
-                'id_line' => 'Coming soon',
-                'wa_number' => '+62'
+                'name'                   => 'Coming soon',
+                'id_line'                => 'Coming soon',
+                'wa_number'              => '+62',
             ],
             [
                 'competition_content_id' => 2,
-                'name' => 'Coming soon',
-                'id_line' => 'Coming soon',
-                'wa_number' => '+62'
+                'name'                   => 'Coming soon',
+                'id_line'                => 'Coming soon',
+                'wa_number'              => '+62',
             ],
             [
                 'competition_content_id' => 3,
-                'name' => 'Dwiki',
-                'id_line' => 'kadek.dwiki_',
-                'wa_number' => '+6288219334678'
+                'name'                   => 'Nanda',
+                'id_line'                => 'nandaprasetya',
+                'wa_number'              => '+6285706693595',
             ],
             [
                 'competition_content_id' => 3,
-                'name' => 'Bunga',
-                'id_line' => 'bungalysa',
-                'wa_number' => '+6281529455259'
+                'name'                   => 'Nanta',
+                'id_line'                => 'putu_mahadi',
+                'wa_number'              => '+6281939456454',
             ],
             [
                 'competition_content_id' => 3,
-                'name' => 'Andri',
-                'id_line' => 'andriantari.',
-                'wa_number' => '+6281238158327'
+                'name'                   => 'Nyoman Wiprayanka',
+                'id_line'                => 'nyomanwiprayanka',
+                'wa_number'              => '+6285969084584',
             ],
             [
                 'competition_content_id' => 4,
-                'name' => 'Dwiki',
-                'id_line' => 'kadek.dwiki_',
-                'wa_number' => '+6288219334678'
+                'name'                   => 'Nanda',
+                'id_line'                => 'nandaprasetya',
+                'wa_number'              => '+6285706693595',
             ],
             [
                 'competition_content_id' => 4,
-                'name' => 'Bunga',
-                'id_line' => 'bungalysa',
-                'wa_number' => '+6281529455259'
+                'name'                   => 'Nanta',
+                'id_line'                => 'putu_mahadi',
+                'wa_number'              => '+6281529455259',
             ],
             [
                 'competition_content_id' => 4,
-                'name' => 'Andri',
-                'id_line' => 'andriantari.',
-                'wa_number' => '+6281238158327'
+                'name'                   => 'Nyoman Wiprayanka',
+                'id_line'                => 'nyomanwiprayanka',
+                'wa_number'              => '+6285969084584',
             ],
             [
                 'competition_content_id' => 5,
-                'name' => 'Nyoman',
-                'id_line' => 'nyomanwiprayanka',
-                'wa_number' => '+6285969084584'
+                'name'                   => 'Narendera Sancaya',
+                'id_line'                => 'sancacasan',
+                'wa_number'              => '+6281236405859',
             ],
             [
                 'competition_content_id' => 5,
-                'name' => 'Yoga',
-                'id_line' => 'dewaanoc135',
-                'wa_number' => '+6282145175076'
+                'name'                   => 'Sandika Wijaya',
+                'id_line'                => 'sandika_wijaya',
+                'wa_number'              => '+628970299632',
             ],
             [
                 'competition_content_id' => 5,
-                'name' => 'Andri',
-                'id_line' => 'andriantari.',
-                'wa_number' => '+6281238158327'
+                'name'                   => 'Nyoman Wiprayanka',
+                'id_line'                => 'nyomanwiprayanka',
+                'wa_number'              => '+6285969084584',
             ],
             [
                 'competition_content_id' => 6,
-                'name' => 'Coming soon',
-                'id_line' => 'Coming soon',
-                'wa_number' => '+62'
+                'name'                   => 'Coming soon',
+                'id_line'                => 'Coming soon',
+                'wa_number'              => '+62',
             ],
             [
                 'competition_content_id' => 6,
-                'name' => 'Coming soon',
-                'id_line' => 'Coming soon',
-                'wa_number' => '+62'
+                'name'                   => 'Coming soon',
+                'id_line'                => 'Coming soon',
+                'wa_number'              => '+62',
             ],
             [
                 'competition_content_id' => 6,
-                'name' => 'Coming soon',
-                'id_line' => 'Coming soon',
-                'wa_number' => '+62'
+                'name'                   => 'Coming soon',
+                'id_line'                => 'Coming soon',
+                'wa_number'              => '+62',
             ],
             [
                 'competition_content_id' => 7,
-                'name' => 'Krisna',
-                'id_line' => 'maheswaraadi',
-                'wa_number' => '+628999956224'
+                'name'                   => 'Elika',
+                'id_line'                => '8492748618',
+                'wa_number'              => '+6285776091830',
             ],
             [
                 'competition_content_id' => 7,
-                'name' => 'Razka',
-                'id_line' => 'razka1108',
-                'wa_number' => '+6285237027767'
+                'name'                   => 'Kendra',
+                'id_line'                => 'kendraaurelllia',
+                'wa_number'              => '+6285822024202',
             ],
             [
                 'competition_content_id' => 7,
-                'name' => 'Andri',
-                'id_line' => 'andriantari.',
-                'wa_number' => '+6281238158327'
+                'name'                   => 'Nyoman Wiprayanka',
+                'id_line'                => 'nyomanwiprayanka',
+                'wa_number'              => '+6285969084584',
             ],
             [
                 'competition_content_id' => 8,
-                'name' => 'Rama',
-                'id_line' => 'nomercyrama17',
-                'wa_number' => '+6283116054105'
+                'name'                   => 'Harun Yahya',
+                'id_line'                => 'yahyariil',
+                'wa_number'              => '628980714364',
             ],
             [
                 'competition_content_id' => 8,
-                'name' => 'Lucien',
-                'id_line' => 'lcpurnawarman',
-                'wa_number' => '+628113985061'
+                'name'                   => 'Abre Pramana',
+                'id_line'                => 'abrebarons',
+                'wa_number'              => '+628980230004',
             ],
             [
                 'competition_content_id' => 8,
-                'name' => 'Andri',
-                'id_line' => 'andriantari.',
-                'wa_number' => '+6281238158327'
+                'name'                   => 'Nyoman Wiprayanka',
+                'id_line'                => 'nyomanwiprayanka',
+                'wa_number'              => '+6285969084584',
             ],
             [
                 'competition_content_id' => 9,
-                'name' => 'Rama',
-                'id_line' => 'nomercyrama17',
-                'wa_number' => '+6283116054105'
+                'name'                   => 'Harun Yahya',
+                'id_line'                => 'yahyariil',
+                'wa_number'              => '+628980714364',
             ],
             [
                 'competition_content_id' => 9,
-                'name' => 'Lucien',
-                'id_line' => 'lcpurnawarman',
-                'wa_number' => '+628113985061'
+                'name'                   => 'Hendrik Pasaribu',
+                'id_line'                => 'xineria26',
+                'wa_number'              => '+6281276090144',
             ],
             [
                 'competition_content_id' => 9,
-                'name' => 'Andri',
-                'id_line' => 'andriantari.',
-                'wa_number' => '+6281238158327'
+                'name'                   => 'Nyoman Wiprayanka',
+                'id_line'                => 'nyomanwiprayanka',
+                'wa_number'              => '+6285969084584',
             ],
             [
                 'competition_content_id' => 10,
-                'name' => 'Ray',
-                'id_line' => '347707062005',
-                'wa_number' => '+6285155012963'
+                'name'                   => 'Sheva',
+                'id_line'                => '0111000222',
+                'wa_number'              => '+6281236012974',
             ],
             [
                 'competition_content_id' => 10,
-                'name' => 'Danar',
-                'id_line' => 'itsdanar',
-                'wa_number' => '+6281999941200'
+                'name'                   => 'Abrar',
+                'id_line'                => 'brrraar',
+                'wa_number'              => '+6289523892321',
             ],
             [
                 'competition_content_id' => 10,
-                'name' => 'Andri',
-                'id_line' => 'andriantari.',
-                'wa_number' => '+6281238158327'
+                'name'                   => 'Nyoman Wiprayanka',
+                'id_line'                => 'nyomanwiprayanka',
+                'wa_number'              => '+6285969084584',
             ],
             [
                 'competition_content_id' => 11,
-                'name' => 'Ray',
-                'id_line' => '347707062005',
-                'wa_number' => '+6285155012963'
+                'name'                   => 'Sheva',
+                'id_line'                => '0111000222',
+                'wa_number'              => '+6281236012974',
             ],
             [
                 'competition_content_id' => 11,
-                'name' => 'Danar',
-                'id_line' => 'itsdanar',
-                'wa_number' => '+6281999941200'
+                'name'                   => 'Abrar',
+                'id_line'                => 'brrraar',
+                'wa_number'              => '+6289523892321',
             ],
             [
                 'competition_content_id' => 11,
-                'name' => 'Andri',
-                'id_line' => 'andriantari.',
-                'wa_number' => '+6281238158327'
+                'name'                   => 'Nyoman Wiprayanka',
+                'id_line'                => 'nyomanwiprayanka',
+                'wa_number'              => '+6285969084584',
             ],
         ];
 
-        foreach ($competition_content_contacts as $competition_content_contact)
-        {
+        foreach ($competition_content_contacts as $competition_content_contact) {
             CompetitionContentContactPerson::create($competition_content_contact);
         }
     }

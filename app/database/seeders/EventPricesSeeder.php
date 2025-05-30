@@ -29,15 +29,15 @@ class EventPricesSeeder extends Seeder
             [
                 'periode_name' => "Semnas Online Batch I",
                 'price'        => 70000,
-                'start_date'   => '2025-03-01 16:00:00',
-                'end_date'     => '2025-03-30 15:59:59',
+                'start_date'   => '2025-05-31 00:01:00.000',
+                'end_date'     => '2025-06-10 23:59:59.000',
                 'event_id'     => 2,
             ],
             [
                 'periode_name' => "Semnas Online Batch II",
                 'price'        => 85000,
-                'start_date'   => '2025-04-01 16:00:00',
-                'end_date'     => '2025-06-30 15:59:59',
+                'start_date'   => '2025-06-11 00:01:00.000',
+                'end_date'     => '2025-06-20 23:59:59.000',
                 'event_id'     => 2,
             ],
             [
@@ -50,15 +50,15 @@ class EventPricesSeeder extends Seeder
             [
                 'periode_name' => "Semnas Offline Batch I",
                 'price'        => 100000,
-                'start_date'   => '2025-03-01 16:00:00',
-                'end_date'     => '2025-03-30 15:59:59',
+                'start_date'   => '2025-05-31 00:01:00.000',
+                'end_date'     => '2025-06-10 23:59:59.000',
                 'event_id'     => 3,
             ],
             [
                 'periode_name' => "Semnas Offline Batch II",
                 'price'        => 115000,
-                'start_date'   => '2025-04-01 16:00:00',
-                'end_date'     => '2025-06-30 15:59:59',
+                'start_date'   => '2025-06-11 00:01:00.000',
+                'end_date'     => '2025-06-20 23:59:59.000',
                 'event_id'     => 3,
             ],
             [
@@ -70,8 +70,7 @@ class EventPricesSeeder extends Seeder
             ],
         ];
 
-        foreach($event_prices as $event_price)
-        {
+        foreach ($event_prices as $event_price) {
             EventPrices::create($event_price);
         }
     }
