@@ -36,7 +36,7 @@ export default function VerifyEmail({ status }) {
                         </div>
 
                         <div className="w-full">
-                            <Card className="shadow-none border-none rounded-r-[28px] dark:bg-[#040529] min-h-[550px] flex flex-col justify-center">
+                            <Card className="shadow-none border-none rounded-r-[28px] dark:bg-[#040529] min-h-[600px] flex flex-col justify-center">
                                 <CardHeader className="flex flex-col items-center justify-center">
                                     <Link
                                         href="#"
