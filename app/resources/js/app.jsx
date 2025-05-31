@@ -32,7 +32,7 @@ const AppWrapper = ({ App, props }) => {
 
     return (
         <ThemeProvider defaultTheme="light" storageKey="current-theme">
-            <DisableInspect />
+            {/* <DisableInspect /> */}
             {isLoading && <Loading />}
             <App {...props} />
         </ThemeProvider>

@@ -9,16 +9,6 @@ import { useKeenSlider } from "keen-slider/react"
 import "keen-slider/keen-slider.min.css"
 import { motion } from 'framer-motion';
 
-
-// const AdaptiveHeight = (slider) => {
-//     function updateHeight() {
-//         slider.container.style.height =
-//             slider.slides[slider.track.details.rel].offsetHeight + "px"
-//     }
-//     slider.on("created", updateHeight)
-//     slider.on("slideChanged", updateHeight)
-// }
-
 function Arrow(props) {
     const disabled = props.disabled ? " arrow--disabled" : ""
     return (

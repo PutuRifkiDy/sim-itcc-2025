@@ -24,8 +24,6 @@ function About({ user_competition_registrations, className }) {
         _method: 'POST',
     });
 
-    console.log(user_competition_registrations);
-
     const confirmUserDeletion = () => {
         setConfirmingUserDeletion(true);
     };

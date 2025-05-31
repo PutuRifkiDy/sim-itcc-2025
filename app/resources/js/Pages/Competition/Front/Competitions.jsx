@@ -243,7 +243,7 @@ function Competitions({ ...props }) {
                             )}
 
                             <div
-                                className="flex md:flex-row flex-col w-full items-center justify-between rounded-[10px] bg-gradient-to-r from-[#0F114C] to-[#00658F] md:px-4 px-0 py-6 md:w-10/12 gap-5"
+                                className="flex md:flex-row flex-col w-full items-center justify-between rounded-[10px] bg-gradient-to-r from-[#0F114C] to-[#00658F] px-4 py-6 md:w-10/12 gap-5"
                                 data-aos="fade-up"
                                 data-aos-delay="200"
                             >
@@ -614,7 +614,7 @@ function Competitions({ ...props }) {
 
                 <div className="relative mt-12 flex min-h-fit flex-col items-center" style={{ gap: '96px' }}>
                     {/* Vertical blue line */}
-                    <div className="absolute bottom-0 left-[26%] top-0 z-0 flex -translate-x-1/2 items-center sm:left-[18%]">
+                    <div className="absolute bottom-0 left-[30%] top-0 z-0 flex -translate-x-1/2 items-center sm:left-[22%]">
                         <div className="h-full w-2 rounded-full bg-[var(--Blue-Primary,#0F114C)]" />
                     </div>
 
@@ -622,7 +622,7 @@ function Competitions({ ...props }) {
                     {competitions.competition_content.map((content, idx) =>
                         content.competition_content_timeline.map((timeline, i) => (
                             <div
-                                className="relative z-10 flex w-full max-w-[1000px] items-center"
+                                className="relative z-10 flex w-full max-w-[900px] items-center"
                                 key={i}
                                 data-aos="fade-up"
                                 data-aos-delay={idx * 100}
@@ -640,7 +640,7 @@ function Competitions({ ...props }) {
                                     </div>
 
                                     {/* Title */}
-                                    <p className="font-rubik xs:text-sm px-6 pt-10 text-center text-sm font-semibold capitalize leading-[120%] tracking-[1px] text-[var(--Blue-Primary,#0F114C)] dark:text-white sm:px-4 sm:pt-6 sm:text-lg md:text-xl md:tracking-[2px] lg:text-2xl">
+                                    <p className="font-rubik xs:text-sm px-6 pt-10 text-center text-lg font-semibold capitalize leading-[120%] tracking-[1px] text-[var(--Blue-Primary,#0F114C)] dark:text-white sm:px-4 sm:pt-6 sm:text-lg md:text-lg md:tracking-[2px] lg:text-xl">
                                         {timeline.title}
                                     </p>
 
@@ -789,7 +789,7 @@ function Competitions({ ...props }) {
                         <div key={idx} className="mt-10 grid grid-cols-1 items-center justify-center gap-12 md:grid-cols-3">
                             {content.competition_content_contact.map((contact, i) => (
                                 <div
-                                    className="flex flex-row items-center gap-10 rounded-[10px] border-[1px] border-[#ACACAC] px-10 py-5"
+                                    className="flex md:flex-row flex-col items-center gap-10 rounded-[10px] border-[1px] border-[#ACACAC] px-10 py-5"
                                     key={i}
                                     data-aos="fade-up"
                                     data-aos-delay={200 + i * 100}

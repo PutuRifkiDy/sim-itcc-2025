@@ -79,7 +79,6 @@ function Semnas({ ...props }) {
         });
     }, []);
 
-    console.log("cek isi events", events);
 
     return (
         <>

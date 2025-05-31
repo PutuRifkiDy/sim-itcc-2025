@@ -10,7 +10,6 @@ import { useEffect } from "react";
 
 function Merchandise({ ...props }) {
     const merchandise = usePage().props.merchandise;
-    console.log(merchandise);
     
     useEffect(() => {
         AOS.init({

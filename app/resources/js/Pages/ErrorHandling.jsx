@@ -6,7 +6,6 @@ function ErrorHandling({ status }) {
     const errorMessages = messages[status];
 
     const iconForErrorMessage = (status) => {
-        console.log(status);
         switch (status) {
             case '500':
                 return <Icon500 />;
