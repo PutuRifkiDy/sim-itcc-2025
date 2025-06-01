@@ -110,7 +110,7 @@ function DashboardCompetitionDetail() {
                                             className={`flex cursor-pointer flex-row gap-5 justify-evenly items-center border-2 px-3 py-5 rounded-[10px] w-full transition-all duration-200 hover:border-[#0f114c]/50 dark:hover:border-[#55b1d7]/50 ${paymentValue == payment_method.id ? 'border-[#0f114c] dark:border-2 dark:border-[#55b1d7]' : 'border-[#E6E6E6]'}`}
                                             onClick={(e) => {
                                                 e.preventDefault();
-                                                if (paymentValue !== payment_method.id) {
+                                                if (paymentValue != payment_method.id) {
                                                     setPendingPaymentValue(payment_method.id);
                                                     setShowModal(true);
                                                 }
@@ -139,7 +139,7 @@ function DashboardCompetitionDetail() {
     ${paymentValue == payment_method.id ? 'border-[#0f114c] dark:border-2 dark:border-[#55b1d7]' : 'border-[#E6E6E6]'}`}
                                             onClick={(e) => {
                                                 e.preventDefault();
-                                                if (paymentValue !== payment_method.id) {
+                                                if (paymentValue != payment_method.id) {
                                                     setPendingPaymentValue(payment_method.id);
                                                     setShowModal(true);
                                                 }

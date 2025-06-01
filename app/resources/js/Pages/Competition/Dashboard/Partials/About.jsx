@@ -255,7 +255,7 @@ function About({ user_competition_registrations, className }) {
 
                                 <div className="flex flex-col gap-5 border-2 border-gray-200 rounded-xl p-5 hover:scale-[102%] transition-all duration-200 ease-in-out" key={index}>
                                     <div className="flex justify-end">
-                                        {member.teams.leader_id === user.id && member.competition_registrations.user_id !== user.id ? (
+                                        {member.teams.leader_id == user.id && member.competition_registrations.user_id != user.id ? (
                                             <DropdownMenu>
                                                 <DropdownMenuTrigger asChild>
                                                     <p className='cursor-pointer flex flex-row gap-2 items-center'>
@@ -286,7 +286,7 @@ function About({ user_competition_registrations, className }) {
                                             {member.competition_registrations.user.name}
                                         </p>
                                         <div className="bg-[#0f114c] dark:bg-[#55b1d7]/20 rounded-md p-1 px-6 max-w-fit text-white text-[14px] font-medium">
-                                            {member.teams.leader_id === member.competition_registrations.user.id ? "Leader" : "Member"}
+                                            {member.teams.leader_id == member.competition_registrations.user.id ? "Leader" : "Member"}
                                         </div>
                                     </div>
                                 </div>

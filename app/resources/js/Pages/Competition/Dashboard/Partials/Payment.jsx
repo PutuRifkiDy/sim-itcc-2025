@@ -162,9 +162,9 @@ function Payment({ user_competition_registrations, payment_methods, payment_valu
                                     setPreview(previewUrl);
                                 }}
                                 // errorMessage={errors.payment_proof_path}
-                                classNameForBG={`${user_competition_registrations.payment_status === "Pending" && "cursor-not-allowed bg-[#4880FF]/15"}`}
+                                classNameForBG={`${user_competition_registrations.payment_status == "Pending" && "cursor-not-allowed bg-[#4880FF]/15"}`}
                             />
-                        ) : user_competition_registrations.payment_status === "Verified" && (
+                        ) : user_competition_registrations.payment_status == "Verified" && (
                             <div className="flex flex-col items-center justify-center gap-4">
                                 <img src={`${window.location.origin}/assets/images/image_for_people_verified_semnas.png`} className="w-[200px] h-[200px]" alt="" />
                                 <div className="flex flex-col gap-2 justify-center items-center">
@@ -178,7 +178,7 @@ function Payment({ user_competition_registrations, payment_methods, payment_valu
                             <Button variant="blue" type="submit" className="px-10 rounded-[8px] shadow-xl dark:bg-[#2b48a6]">
                                 Submit
                             </Button>
-                        ) : user_competition_registrations.payment_status === "Pending" && (
+                        ) : user_competition_registrations.payment_status == "Pending" && (
                             <Button variant="blue" type="submit" className="px-10 rounded-[8px] shadow-xl cursor-not-allowed dark:bg-[#2b48a6]" disabled>
                                 Submit
                             </Button>

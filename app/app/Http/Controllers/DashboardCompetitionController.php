@@ -56,7 +56,7 @@ class DashboardCompetitionController extends Controller
 
         $leaderRegistration = $show_registration_competition;
 
-        if ($show_registration_competition->team_id && $show_registration_competition->teams && $show_registration_competition->teams->leader_id !== $user->id) {
+        if ($show_registration_competition->team_id && $show_registration_competition->teams && $show_registration_competition->teams->leader_id != $user->id) {
             $leaderRegistration = CompetitionRegistrations::where('team_id', $show_registration_competition->team_id)
                 ->where('user_id', $show_registration_competition->teams->leader_id)
                 ->first();
@@ -88,17 +88,17 @@ class DashboardCompetitionController extends Controller
         $team                     = Teams::findOrFail($id);
         $competitionRegistrations = CompetitionRegistrations::where('team_id', $team->id)->first();
 
-        if ($user->id !== $team->leader_id) {
+        if ($user->id != $team->leader_id) {
             flashMessage('Only the team leader can update the team name.', 'error');
             return to_route('dashboard.competition.index');
         }
 
-        if ($competitionRegistrations->payment_status->value === PaymentStatus::VERIFIED->value) {
+        if ($competitionRegistrations->payment_status->value == PaymentStatus::VERIFIED->value) {
             flashMessage('Payment has already been approved. No changes allowed.', 'error');
             return to_route('dashboard.competition.index');
-        } else if ($competitionRegistrations->payment_status->value === PaymentStatus::PENDING->value
-            || $competitionRegistrations->payment_status->value === PaymentStatus::REQUESTED->value
-            || $competitionRegistrations->payment_status->value === PaymentStatus::REJECTED->value) {
+        } else if ($competitionRegistrations->payment_status->value == PaymentStatus::PENDING->value
+            || $competitionRegistrations->payment_status->value == PaymentStatus::REQUESTED->value
+            || $competitionRegistrations->payment_status->value == PaymentStatus::REJECTED->value) {
 
             $team->update([
                 'team_name' => $request->team_name,
@@ -124,7 +124,7 @@ class DashboardCompetitionController extends Controller
             return back();
         }
 
-        if ($competitionRegistrations->payment_status->value === PaymentStatus::VERIFIED->value) {
+        if ($competitionRegistrations->payment_status->value == PaymentStatus::VERIFIED->value) {
             flashMessage('Payment has already been approved. No further uploads allowed.', 'error');
             return back();
         }
@@ -136,7 +136,7 @@ class DashboardCompetitionController extends Controller
         if ($competition->is_team) {
             $team = Teams::findOrFail($competitionRegistrations->team_id);
 
-            if ($user->id !== $team->leader_id) {
+            if ($user->id != $team->leader_id) {
                 flashMessage('Only the team leader can upload the payment proof.', 'error');
                 return to_route('dashboard.competition.index');
             }
@@ -199,13 +199,13 @@ class DashboardCompetitionController extends Controller
         }
 
         if ($competition->is_team) {
-            if ($user->id !== $team->leader_id) {
+            if ($user->id != $team->leader_id) {
                 flashMessage('Only the team leader can upload submission', 'error');
                 return to_route('dashboard.competition.index');
             }
         }
 
-        if ($payment_status->value === PaymentStatus::VERIFIED->value) {
+        if ($payment_status->value == PaymentStatus::VERIFIED->value) {
             if (! $submission && $competition->is_need_submission && $in_periode_submission) {
                 Submissions::create([
                     'competition_registration_id' => $request->competition_registration_id,
@@ -235,7 +235,7 @@ class DashboardCompetitionController extends Controller
                 return to_route('dashboard.competition.index');
             }
 
-            if ($submission->submission_status->value === SubmissionStatus::PENDING->value) {
+            if ($submission->submission_status->value == SubmissionStatus::PENDING->value) {
                 flashMessage('Please wait until verification is done if you want to submit your submission again', 'error');
                 return to_route('dashboard.competition.index');
             }
@@ -254,7 +254,7 @@ class DashboardCompetitionController extends Controller
         if ($competition->is_team) {
             $team = Teams::where('id', $registration->team_id)->first();
 
-            if ($user->id !== $team->leader_id) {
+            if ($user->id != $team->leader_id) {
                 flashMessage('Only the team leader can cancel the registration.', 'error');
                 return to_route('dashboard.competition.index');
             }
@@ -275,16 +275,16 @@ class DashboardCompetitionController extends Controller
         $user        = auth()->user();
         $team_member = TeamMembers::with('teams', 'competition_registrations')->findOrFail($id);
 
-        if ($user->id !== $team_member->teams->leader_id) {
+        if ($user->id != $team_member->teams->leader_id) {
             flashMessage('Only the team leader can remove team member.', 'error');
             return to_route('dashboard.competition.index');
         }
-        if ($team_member->competition_registrations->payment_status->value === PaymentStatus::VERIFIED->value) {
+        if ($team_member->competition_registrations->payment_status->value == PaymentStatus::VERIFIED->value) {
             flashMessage('Payment has already been approved. No further changes allowed.', 'error');
             return to_route('dashboard.competition.index');
-        } else if ($team_member->competition_registrations->payment_status->value === PaymentStatus::PENDING->value
-            || $team_member->competition_registrations->payment_status->value === PaymentStatus::REQUESTED->value
-            || $team_member->competition_registrations->payment_status->value === PaymentStatus::REJECTED->value) {
+        } else if ($team_member->competition_registrations->payment_status->value == PaymentStatus::PENDING->value
+            || $team_member->competition_registrations->payment_status->value == PaymentStatus::REQUESTED->value
+            || $team_member->competition_registrations->payment_status->value == PaymentStatus::REJECTED->value) {
             CompetitionRegistrations::find($team_member->competition_registrations->id)->delete();
             flashMessage('Your team member has been removed.', 'success');
             return to_route('dashboard.competition.index');
