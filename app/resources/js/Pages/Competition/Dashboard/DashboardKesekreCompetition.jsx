@@ -385,7 +385,7 @@ function DashboardKesekreCompetition({ ...props }) {
                                                         </td>
                                                         <td className="whitespace-nowrap px-6 py-8 text-sm font-normal text-foreground">
                                                             {/* {competition.user.name} */}
-                                                            {competition.competitions.is_team ? competition.teams.team_name : competition.user.name}
+                                                            {competition?.competitions?.is_team ? competition?.teams?.team_name : competition?.user.name}
                                                         </td>
                                                         <td className="whitespace-nowrap px-6 py-8 text-sm font-normal text-foreground">
                                                             {competition.competitions.name}
@@ -417,16 +417,16 @@ function DashboardKesekreCompetition({ ...props }) {
                                                                                     </TableRow>
                                                                                 </TableHeader>
                                                                                 <TableBody>
-                                                                                    {competition.teams.team_members.map((team_member, index) => (
+                                                                                    {competition.teams?.team_members?.map((team_member, index) => (
                                                                                         <TableRow key={index}>
                                                                                             <TableCell className="font-normal">
                                                                                                 {index + 1}
                                                                                             </TableCell>
                                                                                             <TableCell className="font-normal">
-                                                                                                {team_member.competition_registrations.user.name}
+                                                                                                {team_member?.competition_registrations?.user.name}
                                                                                             </TableCell>
                                                                                             <TableCell className="font-normal">
-                                                                                                {team_member.competition_registrations.code_registration}
+                                                                                                {team_member?.competition_registrations?.code_registration}
                                                                                             </TableCell>
                                                                                         </TableRow>
                                                                                     ))}
@@ -450,8 +450,8 @@ function DashboardKesekreCompetition({ ...props }) {
                                                                     <DialogTitle>
                                                                         Proof Payment
                                                                     </DialogTitle>
-                                                                    <img src={competition.payment_proof_path ? `${competition.payment_proof_path}` : 'assets/images/default_image_profile.png'} className="h-64 w-auto" alt="" />
-                                                                    <a href={competition.payment_proof_path ? `${competition.payment_proof_path}` : 'assets/images/default_image_profile.png'} className="text-center" target="_blank" rel="noopener noreferrer">Open in new tab</a>
+                                                                    <img src={competition?.payment_proof_path ? `${competition.payment_proof_path}` : 'assets/images/default_image_profile.png'} className="h-64 w-auto" alt="" />
+                                                                    <a href={competition?.payment_proof_path ? `${competition.payment_proof_path}` : 'assets/images/default_image_profile.png'} className="text-center" target="_blank" rel="noopener noreferrer">Open in new tab</a>
                                                                 </DialogContent>
                                                             </Dialog>
                                                         </td>
@@ -503,7 +503,7 @@ function DashboardKesekreCompetition({ ...props }) {
                                                                                     </TableRow>
                                                                                 </TableHeader>
                                                                                 <TableBody>
-                                                                                    {competition.teams.team_members.map((team_member, index) => (
+                                                                                    {competition.teams?.team_members?.map((team_member, index) => (
                                                                                         <TableRow key={index}>
                                                                                             {/* <TableCell className="font-medium">
                                                                                                 {team_member.invoices.invoice}
@@ -515,28 +515,28 @@ function DashboardKesekreCompetition({ ...props }) {
                                                                                                 {index + 1}
                                                                                             </TableCell>
                                                                                             <TableCell className="font-normal">
-                                                                                                {team_member.competition_registrations.user.name}
+                                                                                                {team_member?.competition_registrations?.user.name}
                                                                                             </TableCell>
                                                                                             <TableCell className="font-normal">
-                                                                                                {team_member.competition_registrations.user.nim}
+                                                                                                {team_member?.competition_registrations?.user.nim}
                                                                                             </TableCell>
                                                                                             <TableCell className="font-normal">
-                                                                                                {team_member.competition_registrations.user.address}
+                                                                                                {team_member?.competition_registrations?.user.address}
                                                                                             </TableCell>
                                                                                             <TableCell className="font-normal">
-                                                                                                {team_member.competition_registrations.user.institution}
+                                                                                                {team_member?.competition_registrations?.user.institution}
                                                                                             </TableCell>
                                                                                             <TableCell className="font-normal">
-                                                                                                {team_member.competition_registrations.user.status}
+                                                                                                {team_member?.competition_registrations?.user.status}
                                                                                             </TableCell>
                                                                                             <TableCell className="font-normal">
-                                                                                                {team_member.competition_registrations.user.email}
+                                                                                                {team_member?.competition_registrations?.user.email}
                                                                                             </TableCell>
                                                                                             <TableCell className="font-normal">
-                                                                                                {team_member.competition_registrations.user.phone_number}
+                                                                                                {team_member?.competition_registrations?.user.phone_number}
                                                                                             </TableCell>
                                                                                             <TableCell className="font-normal">
-                                                                                                {team_member.competition_registrations.user.line_id}
+                                                                                                {team_member?.competition_registrations?.user.line_id}
                                                                                             </TableCell>
                                                                                             <TableCell className="font-normal">
                                                                                                 <Dialog>
@@ -548,8 +548,8 @@ function DashboardKesekreCompetition({ ...props }) {
                                                                                                         <DialogTitle>
                                                                                                             Institution Card
                                                                                                         </DialogTitle>
-                                                                                                        <img src={team_member.competition_registrations.user.institution_path ? `${team_member.competition_registrations.user.institution_path}` : 'assets/images/default_image_profile.png'} className="h-64 w-auto" alt="" />
-                                                                                                        <a href={team_member.competition_registrations.user.institution_path ? `${team_member.competition_registrations.user.institution_path}` : 'assets/images/default_image_profile.png'} className="text-center" target="_blank" rel="noopener noreferrer">Open in new tab</a>
+                                                                                                        <img src={team_member?.competition_registrations?.user.institution_path ? `${team_member?.competition_registrations?.user.institution_path}` : 'assets/images/default_image_profile.png'} className="h-64 w-auto" alt="" />
+                                                                                                        <a href={team_member?.competition_registrations?.user.institution_path ? `${team_member?.competition_registrations?.user.institution_path}` : 'assets/images/default_image_profile.png'} className="text-center" target="_blank" rel="noopener noreferrer">Open in new tab</a>
                                                                                                     </DialogContent>
                                                                                                 </Dialog>
 
