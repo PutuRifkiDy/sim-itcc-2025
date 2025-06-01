@@ -646,7 +646,7 @@ function DashboardKesekreCompetition({ ...props }) {
                                                             Rp.{" "}{competition.total_payment}
                                                         </td>
                                                         <td className="whitespace-nowrap px-6 py-8 flex md:flex-row gap-2">
-                                                            {competition.payment_status === 'Requested' ? (
+                                                            {competition.payment_status == 'Requested' ? (
                                                                 <Link
                                                                     className="flex justify-center items-center border-2 rounded-md border-[#4DE45C] p-1.5 hover:bg-[#4DE45C]/20 transition-all duration-300 ease-in-out cursor-not-allowed"
                                                                     href={route('dashboard.competition.admin-kesekre.payment', { id: competition.id })}

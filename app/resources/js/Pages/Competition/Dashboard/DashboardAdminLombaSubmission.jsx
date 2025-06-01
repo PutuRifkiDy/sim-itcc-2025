@@ -343,14 +343,14 @@ function DashboardAdminLombaSubmission({ ...props }) {
                                                             {index + 1}
                                                         </td>
                                                         <td className="whitespace-nowrap px-6 py-8 text-sm font-normal text-foreground">
-                                                            {submission?.competition_registrations?.competitions?.is_team ? submission.competition_registrations?.teams?.team_name : submission.competition_registrations.user.name}
+                                                            {submission?.competition_registrations?.competitions?.is_team == true ? submission.competition_registrations?.teams?.team_name : submission.competition_registrations.user.name}
                                                         </td>
                                                         <td className="whitespace-nowrap px-6 py-8 text-sm font-normal text-foreground">
                                                             {submission?.competition_registrations?.competitions?.name}
                                                         </td>
                                                         <td className="whitespace-nowrap px-6 py-8 text-sm font-normal text-foreground">
                                                             {/* {submission?.competition_registrations?.competitions?.is_team ? '-' : submission.competition_registrations.code_registration} */}
-                                                            {submission?.competition_registrations?.competitions?.is_team ? (
+                                                            {submission?.competition_registrations?.competitions?.is_team == true ? (
                                                                 <div>
                                                                     <Dialog>
                                                                         <DialogTrigger className='flex flex-row gap-3 justify-center items-center text-foreground font-normal'>
@@ -376,7 +376,7 @@ function DashboardAdminLombaSubmission({ ...props }) {
                                                                                     </TableRow>
                                                                                 </TableHeader>
                                                                                 <TableBody>
-                                                                                    {submission.competition_registrations?.teams?.team_members.map((team_member, index) => (
+                                                                                    {submission?.competition_registrations?.teams?.team_members.map((team_member, index) => (
                                                                                         <TableRow key={index}>
                                                                                             <TableCell className="font-normal">
                                                                                                 {index + 1}
@@ -394,13 +394,13 @@ function DashboardAdminLombaSubmission({ ...props }) {
                                                                         </DialogContent>
                                                                     </Dialog>
                                                                 </div>
-                                                            ) : submission.competition_registrations.code_registration}
+                                                            ) : submission?.competition_registrations?.code_registration}
                                                         </td>
                                                         <td className="whitespace-nowrap px-6 py-8 text-sm font-normal text-foreground">
-                                                            {submission?.competition_registrations?.competitions?.is_team ? 'Team' : 'Individual'}
+                                                            {submission?.competition_registrations?.competitions?.is_team == true ? 'Team' : 'Individual'}
                                                         </td>
                                                         <td className="whitespace-nowrap px-6 py-8 text-sm font-normal text-foreground">
-                                                            {submission?.competition_registrations?.competitions?.is_team ? (
+                                                            {submission?.competition_registrations?.competitions?.is_team == true ? (
                                                                 <div>
                                                                     <Dialog>
                                                                         <DialogTrigger className='flex flex-row gap-3 justify-center items-center text-foreground font-normal'>
@@ -447,7 +447,7 @@ function DashboardAdminLombaSubmission({ ...props }) {
                                                                                     </TableRow>
                                                                                 </TableHeader>
                                                                                 <TableBody>
-                                                                                    {submission.competition_registrations?.teams?.team_members.map((team_member, index) => (
+                                                                                    {submission?.competition_registrations?.teams?.team_members.map((team_member, index) => (
                                                                                         <TableRow key={index}>
                                                                                             <TableCell className="font-normal">
                                                                                                 {index + 1}
@@ -587,7 +587,7 @@ function DashboardAdminLombaSubmission({ ...props }) {
                                                             </Badge>
                                                         </td>
                                                         <td className="whitespace-nowrap px-6 py-8 flex md:flex-row gap-2">
-                                                            {submission.submission_status === 'Requested' ? (
+                                                            {submission.submission_status == 'Requested' ? (
                                                                 <Link
                                                                     className="flex justify-center items-center border-2 rounded-md border-[#4DE45C] p-1.5 hover:bg-[#4DE45C]/20 transition-all duration-300 ease-in-out cursor-not-allowed"
                                                                     href={route('dashboard.competition.admin-lomba.verif-submission', { id: submission.id })}
