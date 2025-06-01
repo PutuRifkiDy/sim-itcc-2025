@@ -27,6 +27,8 @@ function DashboardAdminLombaSubmission({ ...props }) {
     const [params, setParams] = useState(props.state);
     const show_competition_is_open_regis = usePage().props.show_competition_is_open_regis;
 
+    console.log(submissions);
+
 
     // untuk modal identity
     const [modalIdentifyUserOpen, setModalIdentifyUserOpen] = useState(false);
@@ -504,7 +506,7 @@ function DashboardAdminLombaSubmission({ ...props }) {
                                                                     <Button
                                                                         variant='none'
                                                                         className="flex flex-row gap-3 justify-center items-center text-foreground font-normal"
-                                                                        onClick={() => modalIdentifyUserHandler(competition.user)}
+                                                                        onClick={() => modalIdentifyUserHandler(submission.competition_registrations.user)}
                                                                     >
                                                                         Open
                                                                         <IconPreviewImageProfile />
