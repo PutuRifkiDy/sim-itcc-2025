@@ -111,7 +111,7 @@ class DatabaseSeeder extends Seeder
         ])->assignRole('admin');
 
         $adminIdeBisnis->managed_competitions()->attach(
-            Competitions::where('name', 'LIKE', '%Ide Bisnis%')->pluck('id')->toArray(),
+            Competitions::where('name', 'LIKE', '%ICT Business Idea%')->pluck('id')->toArray(),
         );
 
         $adminMobileDevelopment->managed_competitions()->attach(

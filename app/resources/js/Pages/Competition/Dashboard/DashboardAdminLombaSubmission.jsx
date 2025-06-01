@@ -343,14 +343,14 @@ function DashboardAdminLombaSubmission({ ...props }) {
                                                             {index + 1}
                                                         </td>
                                                         <td className="whitespace-nowrap px-6 py-8 text-sm font-normal text-foreground">
-                                                            {submission.competition_registrations.competitions.is_team ? submission.competition_registrations.teams.team_name : submission.competition_registrations.user.name}
+                                                            {submission?.competition_registrations?.competitions?.is_team ? submission.competition_registrations?.teams?.team_name : submission.competition_registrations.user.name}
                                                         </td>
                                                         <td className="whitespace-nowrap px-6 py-8 text-sm font-normal text-foreground">
-                                                            {submission.competition_registrations.competitions.name}
+                                                            {submission?.competition_registrations?.competitions?.name}
                                                         </td>
                                                         <td className="whitespace-nowrap px-6 py-8 text-sm font-normal text-foreground">
-                                                            {/* {submission.competition_registrations.competitions.is_team ? '-' : submission.competition_registrations.code_registration} */}
-                                                            {submission.competition_registrations.competitions.is_team ? (
+                                                            {/* {submission?.competition_registrations?.competitions?.is_team ? '-' : submission.competition_registrations.code_registration} */}
+                                                            {submission?.competition_registrations?.competitions?.is_team ? (
                                                                 <div>
                                                                     <Dialog>
                                                                         <DialogTrigger className='flex flex-row gap-3 justify-center items-center text-foreground font-normal'>
@@ -376,16 +376,16 @@ function DashboardAdminLombaSubmission({ ...props }) {
                                                                                     </TableRow>
                                                                                 </TableHeader>
                                                                                 <TableBody>
-                                                                                    {submission.competition_registrations.teams.team_members.map((team_member, index) => (
+                                                                                    {submission.competition_registrations?.teams?.team_members.map((team_member, index) => (
                                                                                         <TableRow key={index}>
                                                                                             <TableCell className="font-normal">
                                                                                                 {index + 1}
                                                                                             </TableCell>
                                                                                             <TableCell className="font-normal">
-                                                                                                {team_member.competition_registrations.user.name}
+                                                                                                {team_member?.competition_registrations?.user.name}
                                                                                             </TableCell>
                                                                                             <TableCell className="font-normal">
-                                                                                                {team_member.competition_registrations.code_registration}
+                                                                                                {team_member?.competition_registrations?.code_registration}
                                                                                             </TableCell>
                                                                                         </TableRow>
                                                                                     ))}
@@ -397,10 +397,10 @@ function DashboardAdminLombaSubmission({ ...props }) {
                                                             ) : submission.competition_registrations.code_registration}
                                                         </td>
                                                         <td className="whitespace-nowrap px-6 py-8 text-sm font-normal text-foreground">
-                                                            {submission.competition_registrations.competitions.is_team ? 'Team' : 'Individual'}
+                                                            {submission?.competition_registrations?.competitions?.is_team ? 'Team' : 'Individual'}
                                                         </td>
                                                         <td className="whitespace-nowrap px-6 py-8 text-sm font-normal text-foreground">
-                                                            {submission.competition_registrations.competitions.is_team ? (
+                                                            {submission?.competition_registrations?.competitions?.is_team ? (
                                                                 <div>
                                                                     <Dialog>
                                                                         <DialogTrigger className='flex flex-row gap-3 justify-center items-center text-foreground font-normal'>
@@ -447,34 +447,34 @@ function DashboardAdminLombaSubmission({ ...props }) {
                                                                                     </TableRow>
                                                                                 </TableHeader>
                                                                                 <TableBody>
-                                                                                    {submission.competition_registrations.teams.team_members.map((team_member, index) => (
+                                                                                    {submission.competition_registrations?.teams?.team_members.map((team_member, index) => (
                                                                                         <TableRow key={index}>
                                                                                             <TableCell className="font-normal">
                                                                                                 {index + 1}
                                                                                             </TableCell>
                                                                                             <TableCell className="font-normal">
-                                                                                                {team_member.competition_registrations.user.name}
+                                                                                                {team_member?.competition_registrations?.user.name}
                                                                                             </TableCell>
                                                                                             <TableCell className="font-normal">
-                                                                                                {team_member.competition_registrations.user.nim}
+                                                                                                {team_member?.competition_registrations?.user.nim}
                                                                                             </TableCell>
                                                                                             <TableCell className="font-normal">
-                                                                                                {team_member.competition_registrations.user.address}
+                                                                                                {team_member?.competition_registrations?.user.address}
                                                                                             </TableCell>
                                                                                             <TableCell className="font-normal">
-                                                                                                {team_member.competition_registrations.user.institution}
+                                                                                                {team_member?.competition_registrations?.user.institution}
                                                                                             </TableCell>
                                                                                             <TableCell className="font-normal">
-                                                                                                {team_member.competition_registrations.user.status}
+                                                                                                {team_member?.competition_registrations?.user.status}
                                                                                             </TableCell>
                                                                                             <TableCell className="font-normal">
-                                                                                                {team_member.competition_registrations.user.email}
+                                                                                                {team_member?.competition_registrations?.user.email}
                                                                                             </TableCell>
                                                                                             <TableCell className="font-normal">
-                                                                                                {team_member.competition_registrations.user.phone_number}
+                                                                                                {team_member?.competition_registrations?.user.phone_number}
                                                                                             </TableCell>
                                                                                             <TableCell className="font-normal">
-                                                                                                {team_member.competition_registrations.user.line_id}
+                                                                                                {team_member?.competition_registrations?.user.line_id}
                                                                                             </TableCell>
                                                                                             <TableCell className="font-normal">
                                                                                                 <Dialog>
@@ -486,8 +486,8 @@ function DashboardAdminLombaSubmission({ ...props }) {
                                                                                                         <DialogTitle>
                                                                                                             Institution Card
                                                                                                         </DialogTitle>
-                                                                                                        <img src={team_member.competition_registrations.user.institution_path ? `${team_member.competition_registrations.user.institution_path}` : 'assets/images/default_image_profile.png'} className="h-64 w-auto" alt="" />
-                                                                                                        <a href={team_member.competition_registrations.user.institution_path ? `${team_member.competition_registrations.user.institution_path}` : 'assets/images/default_image_profile.png'} className="text-center" target="_blank" rel="noopener noreferrer">Open in new tab</a>
+                                                                                                        <img src={team_member?.competition_registrations?.user.institution_path ? `${team_member?.competition_registrations?.user.institution_path}` : 'assets/images/default_image_profile.png'} className="h-64 w-auto" alt="" />
+                                                                                                        <a href={team_member?.competition_registrations?.user.institution_path ? `${team_member?.competition_registrations?.user.institution_path}` : 'assets/images/default_image_profile.png'} className="text-center" target="_blank" rel="noopener noreferrer">Open in new tab</a>
                                                                                                     </DialogContent>
                                                                                                 </Dialog>
 

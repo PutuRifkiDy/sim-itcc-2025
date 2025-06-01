@@ -97,8 +97,10 @@ class OverviewForAdminLomba extends Controller
         ];
 
         $target_competition_admin_lomba = collect($target_competition)
-            ->where('id', $adminCompetitionIds->first()->id)
+            ->whereIn('id', $adminIds)
             ->first();
+
+        // dd($target_competition_admin_lomba);
 
         $object_target_competition_admin_lomba = (object) $target_competition_admin_lomba;
 

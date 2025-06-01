@@ -385,13 +385,13 @@ function DashboardKesekreCompetition({ ...props }) {
                                                         </td>
                                                         <td className="whitespace-nowrap px-6 py-8 text-sm font-normal text-foreground">
                                                             {/* {competition.user.name} */}
-                                                            {competition?.competitions?.is_team ? competition?.teams?.team_name : competition?.user.name}
+                                                            {competition?.competitions?.is_team == true ? competition?.teams?.team_name : competition?.user.name}
                                                         </td>
                                                         <td className="whitespace-nowrap px-6 py-8 text-sm font-normal text-foreground">
                                                             {competition.competitions.name}
                                                         </td>
                                                         <td className="whitespace-nowrap px-6 py-8 text-sm font-normal text-foreground">
-                                                            {competition.competitions.is_team ? (
+                                                            {competition.competitions.is_team == true ? (
                                                                 <div>
                                                                     <Dialog>
                                                                         <DialogTrigger className='flex flex-row gap-3 justify-center items-center text-foreground font-normal'>
@@ -456,7 +456,7 @@ function DashboardKesekreCompetition({ ...props }) {
                                                             </Dialog>
                                                         </td>
                                                         <td className="whitespace-nowrap px-6 py-8 text-sm font-normal text-foreground">
-                                                            {competition.competitions.is_team ? (
+                                                            {competition.competitions.is_team == true ? (
                                                                 <div>
                                                                     <Dialog>
                                                                         <DialogTrigger className='flex flex-row gap-3 justify-center items-center text-foreground font-normal'>

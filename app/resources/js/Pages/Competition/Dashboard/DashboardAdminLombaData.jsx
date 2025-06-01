@@ -216,13 +216,13 @@ function DashboardAdminLombaData({ ...props }) {
                                                             {index + 1}
                                                         </td>
                                                         <td className="whitespace-nowrap px-6 py-8 text-sm font-normal text-foreground">
-                                                            {competition.competitions.is_team ? competition.teams.team_name : competition.user.name}
+                                                            {competition?.competitions?.is_team == true ? competition.teams.team_name : competition.user.name}
                                                         </td>
                                                         <td className="whitespace-nowrap px-6 py-8 text-sm font-normal text-foreground">
-                                                            {competition.competitions.name}
+                                                            {competition?.competitions?.name}
                                                         </td>
                                                         <td className="whitespace-nowrap px-6 py-8 text-sm font-normal text-foreground">
-                                                            {competition.competitions.is_team ? (
+                                                            {competition?.competitions?.is_team == true ? (
                                                                 <div>
                                                                     <Dialog>
                                                                         <DialogTrigger className='flex flex-row gap-3 justify-center items-center text-foreground font-normal'>
@@ -269,7 +269,7 @@ function DashboardAdminLombaData({ ...props }) {
                                                             ) : competition.code_registration}
                                                         </td>
                                                         <td className="whitespace-nowrap px-6 py-8 text-sm font-normal text-foreground">
-                                                            {competition.competitions.competition_content[0].location}
+                                                            {competition?.competitions?.competition_content[0].location}
                                                         </td>
                                                         <td className="whitespace-nowrap px-6 py-8 text-sm font-normal text-foreground">
                                                             <Dialog>
@@ -287,7 +287,7 @@ function DashboardAdminLombaData({ ...props }) {
                                                             </Dialog>
                                                         </td>
                                                         <td className="whitespace-nowrap px-6 py-8 text-sm font-normal text-foreground">
-                                                            {competition.competitions.is_team ? (
+                                                            {competition?.competitions?.is_team == true ? (
                                                                 <div>
                                                                     <Dialog>
                                                                         <DialogTrigger className='flex flex-row gap-3 justify-center items-center text-foreground font-normal'>
