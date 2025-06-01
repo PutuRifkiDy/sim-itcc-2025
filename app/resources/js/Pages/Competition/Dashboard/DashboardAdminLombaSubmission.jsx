@@ -15,7 +15,7 @@ import DashboardLayout from "@/Layouts/DashboardLayout";
 import { ArchiveBoxXMarkIcon, CheckBadgeIcon, ClockIcon, DocumentCheckIcon, XCircleIcon } from "@heroicons/react/24/solid";
 import { Link, useForm, usePage } from "@inertiajs/react";
 import { useEffect, useRef, useState } from "react";
-import { PiArrowLeft, PiArrowsClockwise, PiArrowsDownUp } from "react-icons/pi";
+import { PiArrowLeft, PiArrowRight, PiArrowsClockwise, PiArrowsDownUp } from "react-icons/pi";
 import { toast } from "sonner";
 
 function DashboardAdminLombaSubmission({ ...props }) {
