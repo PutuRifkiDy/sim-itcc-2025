@@ -2,16 +2,18 @@ import { LineOrnamenIcon, SideRightCrossIcon, SideRightDotIcon } from '@/Compone
 import { Button } from '@/Components/ui/button';
 import { Card, CardContent, CardHeader } from '@/Components/ui/card';
 import GuestLayout from '@/Layouts/GuestLayout';
-import { Link, useForm } from '@inertiajs/react';
+import { Link, useForm, usePage } from '@inertiajs/react';
 
 export default function VerifyEmail({ status }) {
     const { post, processing } = useForm({});
+    const auth = usePage().props.auth;
 
     const submit = (e) => {
         e.preventDefault();
 
         post(route('verification.send'));
     };
+    
 
     return (
         <>
@@ -50,7 +52,7 @@ export default function VerifyEmail({ status }) {
                                         the email, we will gladly send you another.
                                     </h2>
                                     <h4 className="text-md w-[400px] text-center font-medium leading-relaxed tracking-tight dark:text-[#F7F7F7] text-[#0F114C]">
-                                        Please check in your spam folder or junk email if you don't see the email.
+                                        The verification email has been send to {auth?.user?.email}, please check your inbox or spam folder. 
                                     </h4>
                                 </CardHeader>
                                 <CardContent>
