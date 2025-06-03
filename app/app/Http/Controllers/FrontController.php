@@ -416,6 +416,7 @@ class FrontController extends Controller
             ->exists();
 
         $get_competition = Competitions::where('id', $competition->id)->with('competition_category')->first();
+        $allowed_statuses = explode('/', $get_competition->competition_category->category_name);
 
         if ($already_registered) {
             flashMessage('You have already registered for this competition.', 'error');
@@ -426,13 +427,13 @@ class FrontController extends Controller
         } else if ($request->user()->already_filled == false) {
             flashMessage('Please fill your profile first.', 'error');
             return back();
-        } else if ($request->user()->status->value != $get_competition->competition_category->category_name) {
+        } else if (!in_array($request->user()->status->value, $allowed_statuses)) {
             flashMessage(
                 'You are not allowed to register for this competition.
                             Your education status is not ' . $get_competition->competition_category->category_name
                 , 'error');
             return back();
-        } else if ($request->user()->already_filled == true && $request->user()->status->value == $get_competition->competition_category->category_name) {
+        } else if ($request->user()->already_filled == true) {
             $request->user()->competition_registrations()->create([
                 'competition_id'    => $competition->id,
                 'user_id'           => auth()->user()->user_id,
