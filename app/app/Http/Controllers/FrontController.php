@@ -47,7 +47,7 @@ class FrontController extends Controller
             ->where('end_date', '>=', now())
             ->first();
 
-        if (! $current_batch) {
+        if (!$current_batch) {
             $current_batch = $competition->competition_prices()
                 ->where('start_date', '>', now())
                 ->orderBy('start_date')
@@ -62,7 +62,7 @@ class FrontController extends Controller
             ->where('end_date', '>=', now())
             ->first();
 
-        if (! $current_periode) {
+        if (!$current_periode) {
             $current_periode = CompetitionContentTimeline::where('competition_content_id', $get_id_content)
                 ->where('start_date', '>', now())
                 ->orderBy('start_date')
@@ -74,25 +74,25 @@ class FrontController extends Controller
 
         if ($diffInSeconds < 0) {
             $remaining_time = [
-                'status'  => 'expired',
-                'hours'   => 0,
+                'status' => 'expired',
+                'hours' => 0,
                 'minutes' => 0,
                 'seconds' => 0,
             ];
         } else {
             $remaining_time = [
-                'status'  => 'active',
-                'hours'   => floor($diffInSeconds / 3600),
+                'status' => 'active',
+                'hours' => floor($diffInSeconds / 3600),
                 'minutes' => floor(($diffInSeconds % 3600) / 60),
                 'seconds' => $diffInSeconds % 60,
             ];
         }
 
         return inertia('Competition/Front/Competitions', [
-            'competition'     => fn()     => new CompetitionResource($competition),
-            'current_batch'   => $current_batch,
+            'competition' => fn() => new CompetitionResource($competition),
+            'current_batch' => $current_batch,
             'current_periode' => $current_periode,
-            'remaining_time'  => $remaining_time,
+            'remaining_time' => $remaining_time,
         ]);
     }
 
@@ -112,7 +112,7 @@ class FrontController extends Controller
             ->where('end_date', '>=', now())
             ->first();
 
-        if (! $current_batch) {
+        if (!$current_batch) {
             $current_batch = $event->event_prices()
                 ->where('start_date', '>', now())
                 ->orderBy('start_date')
@@ -127,7 +127,7 @@ class FrontController extends Controller
             ->where('end_date', '>=', now())
             ->first();
 
-        if (! $current_periode) {
+        if (!$current_periode) {
             $current_periode = EventContentTimeline::where('event_content_id', $get_id_content)
                 ->where('start_date', '>', now())
                 ->orderBy('start_date')
@@ -138,25 +138,25 @@ class FrontController extends Controller
 
         if ($diffInSeconds < 0) {
             $remaining_time = [
-                'status'  => 'expired',
-                'hours'   => 0,
+                'status' => 'expired',
+                'hours' => 0,
                 'minutes' => 0,
                 'seconds' => 0,
             ];
         } else {
             $remaining_time = [
-                'status'  => 'active',
-                'hours'   => floor($diffInSeconds / 3600),
+                'status' => 'active',
+                'hours' => floor($diffInSeconds / 3600),
                 'minutes' => floor(($diffInSeconds % 3600) / 60),
                 'seconds' => $diffInSeconds % 60,
             ];
         }
 
         return inertia(component: 'Semnas/Front/Semnas', props: [
-            'event'           => fn()           => new EventResource($event),
-            'current_batch'   => $current_batch,
+            'event' => fn() => new EventResource($event),
+            'current_batch' => $current_batch,
             'current_periode' => $current_periode,
-            'remaining_time'  => $remaining_time,
+            'remaining_time' => $remaining_time,
         ]);
     }
 
@@ -216,10 +216,10 @@ class FrontController extends Controller
             return back();
         } else if ($request->user()->already_filled == true) {
             $request->user()->event_registrations()->create([
-                'event_id'          => $event->id,
-                'user_id'           => auth()->user()->user_id,
+                'event_id' => $event->id,
+                'user_id' => auth()->user()->user_id,
                 'code_registration' => $event->kode . '-' . '00' . $request->user()->id,
-                'total_payment'     => $total_payment ?? 0,
+                'total_payment' => $total_payment ?? 0,
             ]);
         }
         flashMessage('Your registration has been successful.');
@@ -231,11 +231,11 @@ class FrontController extends Controller
     // tampilin form register kalo lombanya berteam
     public function show_register_competition(Competitions $competition): Response
     {
-        $slug             = Competitions::where('slug', $competition->slug)->value('slug');
+        $slug = Competitions::where('slug', $competition->slug)->value('slug');
         $name_competition = Competitions::where('slug', $competition->slug)->value('name');
 
         return inertia(component: 'Competition/Front/Register', props: [
-            'slug'             => $slug,
+            'slug' => $slug,
             'name_competition' => $name_competition,
         ]);
     }
@@ -275,11 +275,13 @@ class FrontController extends Controller
 
         $get_competition = Competitions::where('id', $competition->id)->with('competition_category')->first();
 
+        $allowed_statuses = explode('/', $get_competition->competition_category->category_name);
+
         do {
             $token = Str::random(6);
         } while (Teams::where('token', $token)->exists());
 
-        if ($already_registered) {
+        if ($already_registered == true) {
             flashMessage('You have already registered for this competition.', 'error');
             return back();
         } else if ($in_periode_registration == false) {
@@ -288,32 +290,34 @@ class FrontController extends Controller
         } else if ($request->user()->already_filled == false) {
             flashMessage('Please fill your profile first.', 'error');
             return back();
-        } else if ($request->user()->status->value != $get_competition->competition_category->category_name) {
+        } else if (!in_array($request->user()->status->value, $allowed_statuses)) {
             flashMessage(
                 'You are not allowed to register for this competition.
                             Your education status is not ' . $get_competition->competition_category->category_name
-                , 'error');
+                ,
+                'error'
+            );
             return back();
-        } else if ($request->user()->already_filled == true && $request->user()->status->value == $get_competition->competition_category->category_name) {
+        } else if ($request->user()->already_filled == true) {
             $team = $user->teams()->create([
-                'leader_id'      => $user->id,
+                'leader_id' => $user->id,
                 'competition_id' => $competition->id,
-                'team_name'      => $request->team_name,
-                'token'          => $token,
+                'team_name' => $request->team_name,
+                'token' => $token,
             ]);
 
             // Create competition registration
             $competition_registration = $user->competition_registrations()->create([
-                'team_id'           => $team->id,
-                'competition_id'    => $competition->id,
-                'user_id'           => $user->id,
+                'team_id' => $team->id,
+                'competition_id' => $competition->id,
+                'user_id' => $user->id,
                 'code_registration' => $competition->kode . '-' . '00' . $request->user()->id,
-                'total_payment'     => $total_payment ?? 0,
+                'total_payment' => $total_payment ?? 0,
             ]);
 
             // Create team member
             $team->team_members()->create([
-                'team_id'                     => $team->id,
+                'team_id' => $team->id,
                 'competition_registration_id' => $competition_registration->id,
             ]);
         }
@@ -344,7 +348,9 @@ class FrontController extends Controller
             ->first();
         $get_token_exist = Teams::where('token', $request->token)->exists();
 
-        if ($get_token_exist) {
+        $allowed_statuses = explode('/', $get_competition->competition_category->category_name);
+
+        if ($get_token_exist == true) {
             $get_data_team = Teams::where('token', $request->token)->first();
 
             $get_leader_registration = CompetitionRegistrations::where('team_id', $get_data_team->id)
@@ -363,7 +369,7 @@ class FrontController extends Controller
             return back();
         }
 
-        if ($already_registered) {
+        if ($already_registered == true) {
             flashMessage('You have already registered for this competition.', 'error');
             return back();
         } else if ($in_periode_registration == false) {
@@ -372,25 +378,27 @@ class FrontController extends Controller
         } else if ($request->user()->already_filled == false) {
             flashMessage('Please fill your profile first.', 'error');
             return back();
-        } else if ($request->user()->status->value != $get_competition->competition_category->category_name) {
+        } else if (!in_array($request->user()->status->value, $allowed_statuses)) {
             flashMessage(
                 'You are not allowed to register for this competition.
                             Your education status is not ' . $get_competition->competition_category->category_name
-                , 'error');
+                ,
+                'error'
+            );
             return back();
-        } else if ($request->user()->already_filled == true && $request->user()->status->value == $get_competition->competition_category->category_name && $get_token_exist == true) {
+        } else if ($request->user()->already_filled == true && $get_token_exist == true) {
             $competition_registration = $user->competition_registrations()->create([
-                'user_id'           => $user->id,
-                'competition_id'    => $competition->id,
-                'team_id'           => $get_data_team->id,
+                'user_id' => $user->id,
+                'competition_id' => $competition->id,
+                'team_id' => $get_data_team->id,
                 'code_registration' => $competition->kode . '-' . '00' . $request->user()->id,
-                'total_payment'     => $total_payment ?? 0,
-                'payment_status'    => $get_leader_registration->payment_status,
-                'payment_proof'     => $get_leader_registration->payment_proof_path,
+                'total_payment' => $total_payment ?? 0,
+                'payment_status' => $get_leader_registration->payment_status,
+                'payment_proof' => $get_leader_registration->payment_proof_path,
             ]);
 
             $team_member = TeamMembers::create([
-                'team_id'                     => $get_data_team->id,
+                'team_id' => $get_data_team->id,
                 'competition_registration_id' => $competition_registration->id,
             ]);
         }
@@ -418,7 +426,7 @@ class FrontController extends Controller
         $get_competition = Competitions::where('id', $competition->id)->with('competition_category')->first();
         $allowed_statuses = explode('/', $get_competition->competition_category->category_name);
 
-        if ($already_registered) {
+        if ($already_registered == true) {
             flashMessage('You have already registered for this competition.', 'error');
             return back();
         } else if ($in_periode_registration == false) {
@@ -431,14 +439,16 @@ class FrontController extends Controller
             flashMessage(
                 'You are not allowed to register for this competition.
                             Your education status is not ' . $get_competition->competition_category->category_name
-                , 'error');
+                ,
+                'error'
+            );
             return back();
         } else if ($request->user()->already_filled == true) {
             $request->user()->competition_registrations()->create([
-                'competition_id'    => $competition->id,
-                'user_id'           => auth()->user()->user_id,
+                'competition_id' => $competition->id,
+                'user_id' => auth()->user()->user_id,
                 'code_registration' => $competition->kode . '-' . '00' . $request->user()->id,
-                'total_payment'     => $total_payment ?? 0,
+                'total_payment' => $total_payment ?? 0,
             ]);
         }
 

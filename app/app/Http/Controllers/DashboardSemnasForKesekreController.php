@@ -26,7 +26,9 @@ class DashboardSemnasForKesekreController extends Controller
                     });
 
                     $q->orWhere('payment_status', 'REGEXP', $value)
-                        ->orWhere('total_payment', 'REGEXP', $value);
+                        ->orWhere('total_payment', 'REGEXP', $value)
+                        ->orWhere('code_registration', 'REGEXP', $value);
+
                 });
             })
             ->when(request()->payment_status, function ($query, $value) {
@@ -36,10 +38,10 @@ class DashboardSemnasForKesekreController extends Controller
             ->paginate(request()->load ?? 10)
             ->withQueryString();
 
-        $count_verified  = EventRegistrations::where('payment_status', 'Verified')->count();
-        $count_pending   = EventRegistrations::where('payment_status', 'Pending')->count();
+        $count_verified = EventRegistrations::where('payment_status', 'Verified')->count();
+        $count_pending = EventRegistrations::where('payment_status', 'Pending')->count();
         $count_requested = EventRegistrations::where('payment_status', 'Requested')->count();
-        $count_rejected  = EventRegistrations::where('payment_status', 'Rejected')->count();
+        $count_rejected = EventRegistrations::where('payment_status', 'Rejected')->count();
 
         return inertia(component: 'Semnas/Dashboard/DashboardKesekreSemnas', props: [
             'event_registrations_semnas' => EventRegistrationResource::collection($event_registrations_semnas)->additional([
@@ -48,17 +50,17 @@ class DashboardSemnasForKesekreController extends Controller
                 ],
             ]),
 
-            'state'                      => [
-                'page'  => request()->page ?? 1,
+            'state' => [
+                'page' => request()->page ?? 1,
                 'searh' => request()->search ?? '',
                 'load' => 10,
                 'payment_status' => request()->payment_status ?? '',
             ],
 
-            'count_verified'             => $count_verified,
-            'count_pending'              => $count_pending,
-            'count_requested'            => $count_requested,
-            'count_rejected'             => $count_rejected,
+            'count_verified' => $count_verified,
+            'count_pending' => $count_pending,
+            'count_requested' => $count_requested,
+            'count_rejected' => $count_rejected,
         ]);
     }
 
@@ -76,7 +78,7 @@ class DashboardSemnasForKesekreController extends Controller
     {
         EventRegistrations::find($id)->update([
             'payment_status' => PaymentStatus::REJECTED->value,
-            'reject_reason'  => $request->reject_reason,
+            'reject_reason' => $request->reject_reason,
         ]);
 
         flashMessage('Payment has been rejected.', 'success');

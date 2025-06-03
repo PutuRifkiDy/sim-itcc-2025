@@ -25,7 +25,7 @@ class SubmissionStoreRequest extends FormRequest
     {
         return [
             'competition_registration_id' => ['required', 'exists:competition_registrations,id'],
-            'submission_link' => ['required', 'url'],
+            'submission_link' => ['required', 'url', 'max:255'],
             'submission_status' => ['required', new Enum(SubmissionStatus::class)],
         ];
     }

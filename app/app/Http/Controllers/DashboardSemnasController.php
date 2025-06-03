@@ -51,7 +51,7 @@ class DashboardSemnasController extends Controller
             ->where('end_date', '>=', now())
             ->exists();
 
-        if($in_periode_registration) {
+        if($in_periode_registration == true) {
             EventRegistrations::find($id)->update([
                 'payment_proof_path' => $request->hasFile('payment_proof_path') ? $this->upload_file($request, 'payment_proof_path', 'semnas_payments') : $eventRegistrations->payment_proof_path,
                 'payment_status' => $request->payment_status,
@@ -62,7 +62,7 @@ class DashboardSemnasController extends Controller
                 'reject_reason' => $eventRegistrations->reject_reason,
             ]);
             flashMessage('Your payment proof has been uploaded.', 'success');
-        } else if (!$in_periode_registration) {
+        } else if ($in_periode_registration == false) {
             flashMessage('Payment period has ended', 'error');
             return back();
         }

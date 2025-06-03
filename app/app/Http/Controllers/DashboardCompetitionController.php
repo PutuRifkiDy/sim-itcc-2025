@@ -119,7 +119,7 @@ class DashboardCompetitionController extends Controller
             ->where('end_date', '>=', now())
             ->exists();
 
-        if (! $in_periode_registration) {
+        if ($in_periode_registration == false) {
             flashMessage('Payment period has ended', 'error');
             return back();
         }
@@ -133,7 +133,7 @@ class DashboardCompetitionController extends Controller
         ? $this->upload_file($request, 'payment_proof_path', 'competition_payments')
         : $competitionRegistrations->payment_proof_path;
 
-        if ($competition->is_team) {
+        if ($competition->is_team == true) {
             $team = Teams::findOrFail($competitionRegistrations->team_id);
 
             if ($user->id != $team->leader_id) {
@@ -198,7 +198,7 @@ class DashboardCompetitionController extends Controller
             return to_route('dashboard.competition.index');
         }
 
-        if ($competition->is_team) {
+        if ($competition->is_team == true) {
             if ($user->id != $team->leader_id) {
                 flashMessage('Only the team leader can upload submission', 'error');
                 return to_route('dashboard.competition.index');
@@ -214,10 +214,10 @@ class DashboardCompetitionController extends Controller
                 ]);
                 flashMessage('Your submission has been uploaded.');
                 return to_route('dashboard.competition.index');
-            } else if (! $competition->is_need_submission) {
+            } else if ($competition->is_need_submission == false) {
                 flashMessage('This competition does not need submission.', 'error');
                 return to_route('dashboard.competition.index');
-            } else if (! $in_periode_submission) {
+            } else if ($in_periode_submission == false) {
                 flashMessage('Submission period has ended.', 'error');
                 return to_route('dashboard.competition.index');
             }
@@ -251,7 +251,7 @@ class DashboardCompetitionController extends Controller
         $registration = CompetitionRegistrations::with('teams')->findOrFail($id);
         $competition  = Competitions::findOrFail($registration->competition_id);
 
-        if ($competition->is_team) {
+        if ($competition->is_team == true) {
             $team = Teams::where('id', $registration->team_id)->first();
 
             if ($user->id != $team->leader_id) {

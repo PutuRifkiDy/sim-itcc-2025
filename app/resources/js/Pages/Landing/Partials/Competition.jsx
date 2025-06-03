@@ -90,10 +90,10 @@ const Competition = () => {
             image: "assets/images/landing/cp_for_our_compe.png",
             logo: "assets/images/landing/ITCC.png",
         },
-        {
-            image: "assets/images/landing/kgpi_for_our_compe.png", // KGP nanti di hapus
-            logo: "assets/images/landing/ITCC.png",
-        },
+        // {
+        //     image: "assets/images/landing/kgpi_for_our_compe.png", // KGP nanti di hapus
+        //     logo: "assets/images/landing/ITCC.png",
+        // },
         {
             image: "assets/images/landing/LCC.jpg",
             logo: "assets/images/landing/ITCC.png",

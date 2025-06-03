@@ -226,15 +226,15 @@ export default function NavBar({ auth, competitions }) {
                             </Link>
                         </div>
 
-                        <div className="flex flex-row gap-5 pt-5 justify-start">
+                        <div className="flex flex-row gap-5 px-5 pt-5 justify-start">
                             {auth ? (
                                 <DropdownMenu>
                                     <DropdownMenuTrigger asChild>
-                                        <p className='cursor-pointer flex flex-row gap-2 justify-center items-center px-5'>
+                                        <p className='cursor-pointer flex flex-row gap-2 justify-center items-center'>
                                             <UserCircleIcon className="h-8 w-8 text-gray-500" />
                                         </p>
                                     </DropdownMenuTrigger>
-                                    <DropdownMenuContent className="w-56 flex flex-col justify-start px-4 gap-4 py-3 outline-none mr-12 dark:bg-[#040529]" >
+                                    <DropdownMenuContent className="w-56 flex flex-col justify-start gap-4 py-3 outline-none mr-12 dark:bg-[#040529]" >
                                         {auth.is_admin === true && auth.name == 'Admin Kesekre' ? (
                                             <Link
                                                 href={route('dashboard.overview.admin-kesekre.index')}

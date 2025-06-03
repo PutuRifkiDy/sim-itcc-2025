@@ -26,7 +26,7 @@ function DashboardCompetition() {
                             {show_registration_competitions.map((competition_registration, index) => (
                                 <Link
                                     href={route('dashboard.competition.show', { id: competition_registration.id })}
-                                    className="rounded-[15px] flex flex-col p-5 gap-3 transition ease-in-out duration-200 hover:shadow-[0_0_10px_#4880ff] cursor-pointer border-2 hover:border-1 border-gray-300 md:min-w-fit min-w-full"
+                                    className="rounded-[15px] flex flex-col justify-between p-5 gap-3 transition ease-in-out duration-200 hover:shadow-[0_0_10px_#4880ff] cursor-pointer border-2 hover:border-1 border-gray-300 md:max-w-[280px] max-w-full"
                                     key={index}
                                 >
                                     <div className="flex justify-center items-center">
@@ -34,7 +34,7 @@ function DashboardCompetition() {
                                     </div>
                                     <div className="flex flex-col">
                                         <p className="text-[#5E5E5E] font-normal text-[14px] tracking-[0.03em] text-start dark:text-gray-400">Competition</p>
-                                        <p className="font-bold text-[20px] text-[#000000] line-clamp-1 uppercase dark:text-white">{competition_registration.competitions.name}</p>
+                                        <p className="font-bold text-[20px] text-[#000000] line-clamp-3 uppercase dark:text-white">{competition_registration.competitions.name}</p>
                                     </div>
                                     {competition_registration.payment_status == "Requested" && (
                                         <div className="flex flex-row gap-2 items-center bg-[#0F114C]/20 dark:bg-[#2b48a6]/20 py-1 px-2 rounded-lg text-[#0F114C] w-fit">

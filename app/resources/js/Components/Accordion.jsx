@@ -5,8 +5,10 @@ export const Accordion = ({ heading, description, isOpen, onClick }) => {
                 className="w-full px-4 py-2 text-left focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75"
                 onClick={onClick}
             >
-                <div className="flex items-center justify-between">
-                    <span className="text-[15px] md:text-lg font-semibold text-gray-900 dark:text-[#D9D9D9]">{heading}</span>
+                <div className="flex flex-shrink-0 items-center justify-between">
+                    <span className="md:w-[500px] w-full text-[15px] md:text-lg font-semibold text-gray-900 dark:text-[#D9D9D9">
+                        {heading}
+                    </span>
                     {/* icon arrow */}
                     <svg
                         className={`w-6 h-6 transition-transform ${isOpen ? 'transition-transform rotate-180' : ''

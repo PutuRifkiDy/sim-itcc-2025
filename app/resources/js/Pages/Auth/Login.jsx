@@ -6,9 +6,11 @@ import TextInput from '@/Components/TextInput';
 import { Button } from '@/Components/ui/button';
 import { Card, CardContent, CardHeader } from '@/Components/ui/card';
 import GuestLayout from '@/Layouts/GuestLayout';
+import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/solid';
 import { Link, useForm } from '@inertiajs/react';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 export default function Login({ status, canResetPassword }) {
+    const [viewPassword, setViewPassword] = useState(false);
     const { data, setData, post, processing, errors, reset } = useForm({
         email: '',
         password: '',
@@ -27,29 +29,37 @@ export default function Login({ status, canResetPassword }) {
         post(route('login'));
     };
 
+    const handleViewPassword = () => {
+        setViewPassword(!viewPassword);
+    };
+
     return (
         <>
-            <div className="flex flex-row items-center justify-center md:mt-32 mt-12 mb-12">
+            <div className="mb-12 mt-12 flex flex-row items-center justify-center md:mt-32">
                 <div className="min-h-full min-w-full">
-                    <div className="flex flex-row rounded-[28px] p-5 border-[1px] shadow md:mx-36 min-h-[650px]">
-                        <div className="relative hidden gap-5 rounded-l-[28px] bg-gradient-to-r from-[#0F114C] to-[#00658F] px-10 py-10 md:flex md:flex-col w-full dark:border-r-[1px] border-gray-100 dark:bg-none">
-                            <p className="md:w-[330px] text-[32px] font-bold text-[#FFFFFF]">
+                    <div className="flex min-h-[650px] flex-row rounded-[28px] border-[1px] p-5 shadow md:mx-36">
+                        <div className="relative hidden w-full gap-5 rounded-l-[28px] border-gray-100 bg-gradient-to-r from-[#0F114C] to-[#00658F] px-10 py-10 dark:border-r-[1px] dark:bg-none md:flex md:flex-col">
+                            <p className="text-[32px] font-bold text-[#FFFFFF] md:w-[330px]">
                                 Very good events are waiting for you Login Now
                             </p>
-                            <div className='absolute top-24'>
+                            <div className="absolute top-24">
                                 <SideRightDotIcon />
                             </div>
-                            <div className='absolute rotate-90 right-0 top-24'>
+                            <div className="absolute right-0 top-24 rotate-90">
                                 <SideRightCrossIcon />
                             </div>
-                            <div className='absolute bottom-10 right-0'>
+                            <div className="absolute bottom-10 right-0">
                                 <LineOrnamenIcon />
                             </div>
-                            <img src="assets/images/landing/icon-maskot-itcc.png" alt="" className="absolute left-24 bottom-24 h-auto md:w-[280px]" />
+                            <img
+                                src="assets/images/landing/icon-maskot-itcc.png"
+                                alt=""
+                                className="absolute bottom-24 left-24 h-auto md:w-[280px]"
+                            />
                         </div>
 
                         <div className="w-full">
-                            <Card className="shadow-none border-none rounded-r-[28px] dark:bg-[#040529] min-h-[650px] flex flex-col justify-center">
+                            <Card className="flex min-h-[650px] flex-col justify-center rounded-r-[28px] border-none shadow-none dark:bg-[#040529]">
                                 <CardHeader className="flex flex-col items-center justify-center">
                                     <Link href="/" className="text-[25px] font-bold leading-relaxed tracking-tighter">
                                         Login
@@ -76,7 +86,7 @@ export default function Login({ status, canResetPassword }) {
                                                     type="email"
                                                     name="email"
                                                     value={data.email}
-                                                    className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F] dark:text-white dark:bg-[#040529]"
+                                                    className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F] dark:bg-[#040529] dark:text-white"
                                                     placeholder="Insert your email address"
                                                     autoComplete="email"
                                                     isFocused={true}
@@ -95,10 +105,10 @@ export default function Login({ status, canResetPassword }) {
                                                     className="text-[16px] font-medium leading-[1.2em] text-[#121212] dark:text-white"
                                                 />
 
-                                                <div>
+                                                <div className="relative">
                                                     <TextInput
                                                         id="password"
-                                                        type="password"
+                                                        type={viewPassword == true ? 'text' : 'password'}
                                                         name="password"
                                                         value={data.password}
                                                         className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F] dark:bg-[#040529]"
@@ -114,6 +124,17 @@ export default function Login({ status, canResetPassword }) {
                                                             )
                                                         }
                                                     />
+                                                    {viewPassword == true ? (
+                                                        <EyeSlashIcon
+                                                            onClick={handleViewPassword}
+                                                            className="absolute right-4 top-[1.6rem] h-5 w-5 -translate-y-1/2 cursor-pointer text-[#6F6F6F]"
+                                                        />
+                                                    ) : (
+                                                        <EyeIcon
+                                                            onClick={handleViewPassword}
+                                                            className="absolute right-4 top-[1.6rem] h-5 w-5 -translate-y-1/2 cursor-pointer text-[#6F6F6F]"
+                                                        />
+                                                    )}
                                                 </div>
                                                 {canResetPassword && (
                                                     <div className="mt-3 text-end text-sm">
