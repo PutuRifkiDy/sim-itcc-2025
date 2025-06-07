@@ -26,7 +26,7 @@ function DashboardCompetition() {
                             {show_registration_competitions.map((competition_registration, index) => (
                                 <Link
                                     href={route('dashboard.competition.show', { id: competition_registration.id })}
-                                    className="rounded-[15px] flex flex-col justify-between p-5 gap-3 transition ease-in-out duration-200 hover:shadow-[0_0_10px_#4880ff] cursor-pointer border-2 hover:border-1 border-gray-300 md:max-w-[280px] max-w-full"
+                                    className="rounded-[15px] flex flex-col justify-between p-5 gap-3 transition ease-in-out duration-200 hover:shadow-[0_0_10px_#4880ff] cursor-pointer border-2 hover:border-1 border-gray-300 md:w-[280px] w-full"
                                     key={index}
                                 >
                                     <div className="flex justify-center items-center">
@@ -66,7 +66,7 @@ function DashboardCompetition() {
                         <div className="flex flex-wrap">
                             <DropdownMenu>
                                 <DropdownMenuTrigger asChild>
-                                    <div className="rounded-[15px] border-2 border-gray-300 flex flex-col p-10 gap-10 transition ease-in-out duration-200 hover:shadow-[0_0_10px_#4880ff] justify-center items-center cursor-pointer md:min-w-fit min-w-full">
+                                    <div className="rounded-[15px] border-2 border-gray-300 flex flex-col p-10 gap-10 transition ease-in-out duration-200 hover:shadow-[0_0_10px_#4880ff] justify-center items-center cursor-pointer md:w-[280px] w-full">
                                         <div className="flex justify-center items-center">
                                             <img src={`${window.location.origin}/assets/images/image_for_join_another_in_dashboard.png`} alt="" className="w-[150px] h-[150px]" />
                                         </div>
@@ -82,7 +82,7 @@ function DashboardCompetition() {
                                                 href={route('competition.front.show', [competition.slug])}
                                                 className="truncate"
                                             >
-                                                {competition.name}
+                                                {competition.slug == 'kids-game-programming-beginner' ? 'KGP (Beginner)' : competition.slug == 'kids-game-programming-intermediate' ? 'KGP (Intermediate)' : competition.name}
                                             </Link>
                                         ))}
                                 </DropdownMenuContent>
@@ -90,14 +90,14 @@ function DashboardCompetition() {
                         </div>
                     </div>
                 ) : (
-                    <div className="bg-white dark:bg-[#040529] p-4 shadow sm:rounded-lg sm:p-8 flex flex-col gap-2 justify-center items-center">
+                    <div className="bg-white dark:bg-[#040529] p-4 py-8 shadow rounded-lg sm:p-8 flex flex-col gap-2 justify-center items-center">
                         {/* {`${window.location.origin} */}
                         <img src={`${window.location.origin}/assets/images/image_for_dashboard_semnas.png`} alt="waw" className="w-[344px] h-[312px]" />
                         <div className="flex flex-col gap-2 justify-center items-center mb-5">
-                            <p className="font-semibold text-[22px] text-[#5E5E5E] dark:text-white">
+                            <p className="font-semibold text-[22px] text-[#5E5E5E] dark:text-white text-center">
                                 Not Registered for Any Competitions
                             </p>
-                            <p className="font-regular text-[16px] text-[#5E5E5E] w-[400px] text-center dark:text-gray-400">
+                            <p className="font-regular text-[16px] text-[#5E5E5E] md:w-[400px] w-full text-center dark:text-gray-400">
                                 Join now to compete, showcase your talents, and win exciting prizes!
                             </p>
                         </div>
@@ -118,7 +118,7 @@ function DashboardCompetition() {
                                             href={route('competition.front.show', [competition.slug])}
                                             className="truncate"
                                         >
-                                            {competition.name}
+                                            {competition.slug == 'kids-game-programming-beginner' ? 'KGP (Beginner)' : competition.slug == 'kids-game-programming-intermediate' ? 'KGP (Intermediate)' : competition.name}
                                         </Link>
                                     ))}
                             </DropdownMenuContent>

@@ -144,7 +144,7 @@ const Competition = () => {
             </div>
 
             {/* Stacked Card Section */}
-            <div className="flex flex-col gap-8 mt-[120px]">
+            <div className="flex flex-col gap-8 md:mt-[120px] mt-10">
 
                 {combinedCompetitionsWithAdditionalContent.map((item, idx) => (
                     <div

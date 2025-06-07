@@ -41,6 +41,11 @@ export default function NavBar({ auth, competitions }) {
         });
     }, [scrolled]);
 
+    useEffect(() => {
+        setOpenNav(false);
+        setOpenDropdown(false);
+    }, [url]);
+
     return (
         <>
             <nav className="md:flex hidden flex-row justify-between py-5 px-24 border-b-[1px] fixed top-0 left-0 w-full z-50 shadow bg-white dark:bg-[#040529]">
@@ -80,7 +85,7 @@ export default function NavBar({ auth, competitions }) {
                                         href={route('competition.front.show', [competition.slug])}
                                         className="truncate transition-all ease-in-out duration-400"
                                     >
-                                        {competition.name}
+                                        {competition.slug == 'kids-game-programming-beginner' ? 'KGP (Beginner)' : competition.slug == 'kids-game-programming-intermediate' ? 'KGP (Intermediate)' : competition.name}
                                     </Link>
                                 ))}
                         </DropdownMenuContent>
@@ -175,8 +180,18 @@ export default function NavBar({ auth, competitions }) {
 
             <nav className="md:hidden flex flex-col justify-between py-5 border-b-[1px] fixed top-0 left-0 w-full z-50 shadow bg-white dark:bg-[#040529]">
                 <div className="flex flex-row justify-between">
-                    <Bars3BottomLeftIcon className={`w-6 h-6 text-gray-600 mx-5 cursor-pointer dark:text-white ${openNav ? 'hidden' : 'flex'}`} onClick={() => setOpenNav(!openNav)} />
-                    <XMarkIcon className={`w-6 h-6 text-gray-600 mx-5 cursor-pointer transition-transform transform dark:text-white ${openNav ? 'flex rotate-180' : 'hidden'}`} onClick={() => setOpenNav(!openNav)} />
+                    <div className="flex flex-row gap-5 items-center">
+                        <Bars3BottomLeftIcon className={`w-6 h-6 text-gray-600 mx-5 cursor-pointer dark:text-white shrink-0 ${openNav ? 'hidden' : 'flex'}`} onClick={() => setOpenNav(!openNav)} />
+                        <XMarkIcon className={`w-6 h-6 text-gray-600 mx-5 cursor-pointer transition-transform transform shrink-0 dark:text-white ${openNav ? 'flex rotate-180' : 'hidden'}`} onClick={() => setOpenNav(!openNav)} />
+                        <div>
+                            <Link
+                                href={route('welcome')}
+                            >
+                                <img src={`${window.location.origin}/assets/images/image_for_icon_logo_itcc.png`} alt="" className="w-[82px] h-[49px] dark:hidden" />
+                                <img src={`${window.location.origin}/assets/images/landing/ITCC_ICON.svg`} alt="" className="w-[82px] h-[49px] hidden dark:block" />
+                            </Link>
+                        </div>
+                    </div>
                     {/* <SunIcon className="w-6 h-6 text-yellow-200 mx-5" /> */}
                     <div>
                         <ThemeSwitcher />
@@ -206,7 +221,7 @@ export default function NavBar({ auth, competitions }) {
                                                 href={route('competition.front.show', [competition.slug])}
                                                 className="truncate transition-all ease-in-out duration-400"
                                             >
-                                                {competition.name}
+                                                {competition.slug == 'kids-game-programming-beginner' ? 'KGP (Beginner)' : competition.slug == 'kids-game-programming-intermediate' ? 'KGP (Intermediate)' : competition.name}
                                             </Link>
                                         ))}
                                 </DropdownMenuContent>
@@ -234,7 +249,7 @@ export default function NavBar({ auth, competitions }) {
                                             <UserCircleIcon className="h-8 w-8 text-gray-500" />
                                         </p>
                                     </DropdownMenuTrigger>
-                                    <DropdownMenuContent className="w-56 flex flex-col justify-start gap-4 py-3 outline-none mr-12 dark:bg-[#040529]" >
+                                    <DropdownMenuContent className="w-56 ml-5 flex flex-col justify-start gap-4 py-3 outline-none mr-12 dark:bg-[#040529]" >
                                         {auth.is_admin === true && auth.name == 'Admin Kesekre' ? (
                                             <Link
                                                 href={route('dashboard.overview.admin-kesekre.index')}

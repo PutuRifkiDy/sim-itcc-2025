@@ -3,31 +3,35 @@ import { Input } from "@/components/ui/input";
 import InputError from "./InputError";
 
 export function ImageUpload({ imagePath, onChangeImage, errorMessage }) {
-  const [previewUrl, setPreviewUrl] = useState(null);
+    const [previewUrl, setPreviewUrl] = useState(null);
 
-  const handleChange = (e) => {
-    const file = e.target.files[0];
-    if (!file) return;
+    const handleChange = (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
 
-    const reader = new FileReader();
-    reader.onloadend = () => {
-      setPreviewUrl(reader.result);
-      if (onChangeImage) onChangeImage(file, reader.result);
+        const reader = new FileReader();
+        reader.onloadend = () => {
+            setPreviewUrl(reader.result);
+            if (onChangeImage) onChangeImage(file, reader.result);
+        };
+        reader.readAsDataURL(file);
     };
-    reader.readAsDataURL(file);
-  };
 
-  return (
-    <div className="space-y-2">
-      <Input type="file" accept="image/*" onChange={handleChange} className="dark:bg-[#040529]"/>
-      {errorMessage && <InputError message={errorMessage} className="mt-2 text-red-600" />}
-      {(previewUrl || imagePath) && (
-        <img
-          src={previewUrl ?? imagePath}
-          alt="Preview"
-          className="w-40 h-40 object-cover rounded-lg border"
-        />
-      )}
-    </div>
-  );
+    const getImageSrc = () => {
+        if (previewUrl) return previewUrl;
+        if (imagePath && imagePath !== `${window.location.origin}/storage/`) return imagePath;
+        return `${window.location.origin}/assets/images/default_image_profile.png`;
+    };
+
+    return (
+        <div className="space-y-2">
+            <Input type="file" accept="image/*" onChange={handleChange} className="dark:bg-[#040529]" />
+            {errorMessage && <InputError message={errorMessage} className="mt-2 text-red-600" />}
+            <img
+                src={getImageSrc()}
+                alt="Preview"
+                className="md:w-60 md:h-auto w-full h-auto object-cover rounded-lg border relative group"
+            />
+        </div>
+    );
 }

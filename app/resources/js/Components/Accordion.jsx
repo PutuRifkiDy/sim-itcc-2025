@@ -6,7 +6,7 @@ export const Accordion = ({ heading, description, isOpen, onClick }) => {
                 onClick={onClick}
             >
                 <div className="flex flex-shrink-0 items-center justify-between">
-                    <span className="md:w-[500px] w-full text-[15px] md:text-lg font-semibold text-gray-900 dark:text-[#D9D9D9">
+                    <span className="md:w-[500px] w-full text-[15px] md:text-lg font-semibold text-gray-900 dark:text-[#D9D9D9]">
                         {heading}
                     </span>
                     {/* icon arrow */}

@@ -56,10 +56,10 @@ export default function Welcome() {
                     className="absolute z-0 rounded-none w-1/2 h-auto object-cover hidden md:block top-0 left-0 opacity-40"
                 /> */}
                 <div className="absolute z-0 rounded-none w-1/2 h-auto object-cover hidden md:block top-0 left-0 opacity-40">
-                    <BackGroundCircleDarkMode/>
+                    <BackGroundCircleDarkMode />
                 </div>
                 <div className="absolute z-0 rounded-none w-1/2 h-auto object-cover hidden md:block top-0 left-0 opacity-100 dark:hidden">
-                    <BackGroundCircle/>
+                    <BackGroundCircle />
                 </div>
                 {/* <img
                     src="assets/images/bg_circle_ornamen_darkmode_sideleft.png"
@@ -122,17 +122,17 @@ export default function Welcome() {
                 </div>
                 <div className="md:flex-row flex-col flex items-center md:justify-evenly justify-center container mx-auto px-4 md:pt-32 pt-10 gap-8 pb-24 relative">
                     <motion.div className=""
-                    animate={{
-                        y: [0, -40, 0],
+                        animate={{
+                            y: [0, -40, 0],
 
-                    }}
-                    transition={
-                        {
-                            duration: 6,
-                            repeat: Infinity,
-                            repeatType: "reverse",
+                        }}
+                        transition={
+                            {
+                                duration: 6,
+                                repeat: Infinity,
+                                repeatType: "reverse",
+                            }
                         }
-                    }
                     >
                         <img
                             className="w-60 md:w-96"
@@ -144,11 +144,20 @@ export default function Welcome() {
                     <div className="md:w-[600px] relative">
                         <h2 className="text-[#A5CBD0] text-xl md:text-2xl font-rubik font-bold tracking-[5px] uppercase" data-aos="fade-up" data-aos-delay="100">What is ITCC?</h2>
                         {/* <img className="" src="assets/images/about/bluePlus.png" alt="" data-aos="fade-up" data-aos-delay="100" /> */}
-                        <div
-                        className="absolute top-0 right-0 md:w-10 w-6"
+
+                        <motion.div
+                            animate={{
+                                rotate: [0, 360],
+                            }}
+                            transition={{
+                                duration: 10,
+                                repeat: Infinity,
+                                ease: "linear"
+                            }}
+                            className="absolute left-[40rem] top-0 hidden -translate-y-1/2 md:block"
                         >
                             <SideLeftCrookedCrossIcon />
-                        </div>
+                        </motion.div>
                         {/* <div className="absolute top-0 right-0 md:w-10 w-6">
                             <StarRightITCC/>
                         </div> */}
@@ -158,20 +167,20 @@ export default function Welcome() {
                         </p>
                         <div className="flex flex-row gap-x-3" data-aos="fade-up" data-aos-delay="300">
                             <div
-                            className="w-0 h-0 border-t-[10px] border-b-[10px] border-l-[20px] border-t-transparent border-b-transparent border-l-white"></div>
-                            <div
                                 className="w-0 h-0 border-t-[10px] border-b-[10px] border-l-[20px] border-t-transparent border-b-transparent border-l-white"></div>
                             <div
                                 className="w-0 h-0 border-t-[10px] border-b-[10px] border-l-[20px] border-t-transparent border-b-transparent border-l-white"></div>
                             <div
-                            className="w-0 h-0 border-t-[10px] border-b-[10px] border-l-[20px] border-t-transparent border-b-transparent border-l-white"></div>
+                                className="w-0 h-0 border-t-[10px] border-b-[10px] border-l-[20px] border-t-transparent border-b-transparent border-l-white"></div>
+                            <div
+                                className="w-0 h-0 border-t-[10px] border-b-[10px] border-l-[20px] border-t-transparent border-b-transparent border-l-white"></div>
                         </div>
                     </div>
                 </div>
                 <img className="lg:w-52 xl:w-60 w-40 bottom-0 right-0 absolute" src="assets/images/about/rightEdge.png" />
                 <img className="bottom-0 left-0 md:w-80 w-40 absolute md:translate-y-10 translate-y-5 z-10" src="assets/images/about/leftLine.png" alt="" />
                 <img className="bottom-0 left-0 md:w-20 w-10 absolute" src="image/about/leftDots.png" alt="" />
-                <div className="md:absolute bottom-0 left-5 z-20 text-white" data-aos="fade-up" data-aos-delay="400">
+                <div className="md:absolute md:block hidden bottom-0 left-5 z-20 text-white" data-aos="fade-up" data-aos-delay="400">
                     <SideRightBlueDotIcon />
                 </div>
             </section>

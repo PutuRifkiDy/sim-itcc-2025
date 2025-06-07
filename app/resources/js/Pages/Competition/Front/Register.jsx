@@ -110,8 +110,8 @@ function Register() {
 
     return (
         <>
-            <div className="min-h-screen flex flex-col items-center justify-center relative w-full md:mt-40 mt-20">
-                <div className="w-full max-w-[600px] h-[700px] relative items-center">
+            <div className="min-h-screen flex flex-col items-center justify-center relative w-full md:mt-24 mt-5">
+                <div className="w-full max-w-[600px] relative items-center">
                     <div className="relative">
                         <div className="hidden md:flex flex-col absolute md:-bottom-28 md:left-0 z-3">
                             <SideLeftCrookedCrossIcon />

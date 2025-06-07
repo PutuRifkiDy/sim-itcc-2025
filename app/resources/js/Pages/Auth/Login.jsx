@@ -35,7 +35,7 @@ export default function Login({ status, canResetPassword }) {
 
     return (
         <>
-            <div className="mb-12 mt-12 flex flex-row items-center justify-center md:mt-32">
+            <div className="mb-12 mt-24 flex flex-row items-center justify-center md:mt-32">
                 <div className="min-h-full min-w-full">
                     <div className="flex min-h-[650px] flex-row rounded-[28px] border-[1px] p-5 shadow md:mx-36">
                         <div className="relative hidden w-full gap-5 rounded-l-[28px] border-gray-100 bg-gradient-to-r from-[#0F114C] to-[#00658F] px-10 py-10 dark:border-r-[1px] dark:bg-none md:flex md:flex-col">
@@ -58,7 +58,7 @@ export default function Login({ status, canResetPassword }) {
                             />
                         </div>
 
-                        <div className="w-full">
+                        <div className="w-full mt-10">
                             <Card className="flex min-h-[650px] flex-col justify-center rounded-r-[28px] border-none shadow-none dark:bg-[#040529]">
                                 <CardHeader className="flex flex-col items-center justify-center">
                                     <Link href="/" className="text-[25px] font-bold leading-relaxed tracking-tighter">

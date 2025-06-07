@@ -100,7 +100,6 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, stat
                                 value={data.name}
                                 onChange={onHandleChange}
                                 required
-                                isFocused
                                 autoComplete="name"
                                 onErrors={errors.name && <InputError message={errors.name} className='mt-2' />}
                             />
@@ -117,7 +116,6 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, stat
                                 value={data.email}
                                 onChange={onHandleChange}
                                 required
-                                isFocused
                                 autoComplete="username"
                                 onErrors={errors.email && <InputError message={errors.email} className='mt-2' />}
                             />
@@ -151,7 +149,6 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, stat
                                 className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F] dark:bg-[#040529]"
                                 value={data.phone_number}
                                 onChange={onHandleChange}
-                                isFocused
                                 placeholder="Insert your phone number"
                                 autoComplete="phone_number"
                                 onErrors={errors.phone_number && <InputError message={errors.phone_number} className='mt-2' />}
@@ -169,7 +166,6 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, stat
                                 className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F] dark:bg-[#040529]"
                                 value={data.address}
                                 onChange={onHandleChange}
-                                isFocused
                                 placeholder="Insert your address"
                                 autoComplete="address"
                                 onErrors={errors.address && <InputError message={errors.address} className='mt-2' />}
@@ -187,7 +183,6 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, stat
                                 className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F] dark:bg-[#040529]"
                                 value={data.line_id}
                                 onChange={onHandleChange}
-                                isFocused
                                 placeholder="Insert your line ID"
                                 autoComplete="line_id"
                                 onErrors={errors.line_id && <InputError message={errors.line_id} className='mt-2' />}
@@ -205,7 +200,6 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, stat
                                 className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F] dark:bg-[#040529]"
                                 value={data.institution}
                                 onChange={onHandleChange}
-                                isFocused
                                 placeholder="Insert your institution"
                                 autoComplete="institution"
                                 onErrors={errors.institution && <InputError message={errors.institution} className='mt-2' />}

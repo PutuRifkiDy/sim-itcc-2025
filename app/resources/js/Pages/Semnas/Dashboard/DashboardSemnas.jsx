@@ -171,14 +171,14 @@ function DashboardSemnas() {
                     </div>
 
                 ) : (
-                    <div className="bg-white dark:bg-[#040529] p-4 shadow sm:rounded-lg sm:p-8 flex flex-col gap-2 justify-center items-center">
+                    <div className="bg-white dark:bg-[#040529] p-4 py-8 shadow rounded-lg sm:p-8 flex flex-col gap-2 justify-center items-center">
                         {/* {`${window.location.origin} */}
                         <img src={`${window.location.origin}/assets/images/image_for_dashboard_semnas.png`} alt="waw" className="w-[344px] h-[312px]" />
                         <div className="flex flex-col gap-2 justify-center items-center">
-                            <p className="font-semibold text-[22px] text-[#5E5E5E] dark:text-white">
+                            <p className="font-semibold text-[22px] text-[#5E5E5E] dark:text-white text-center">
                                 Not Registered for Seminar National
                             </p>
-                            <p className="font-regular text-[16px] text-[#5E5E5E] dark:text-gray-400">
+                            <p className="font-regular text-[16px] text-[#5E5E5E] dark:text-gray-400 text-center">
                                 Get your ticket now to witness the awesomeness of our national seminar!
                             </p>
                         </div>

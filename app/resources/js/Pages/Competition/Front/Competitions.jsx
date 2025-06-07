@@ -212,11 +212,21 @@ function Competitions({ ...props }) {
                                 <span className="font-regular text-[16px] uppercase tracking-[0.03em] text-black dark:text-white">
                                     {competitions.competition_content[0].location}
                                 </span>
-                                <div
-                                    className="absolute left-[30rem] top-0 hidden -translate-y-1/2 md:block"
+
+                                <motion.div
+                                    animate={{
+                                        rotate: [0, 360],
+                                    }}
+                                    transition={{
+                                        duration: 10,
+                                        repeat: Infinity,
+                                        ease: "linear"
+                                    }}
+                                    className="absolute left-[40rem] top-0 hidden -translate-y-1/2 md:block"
                                 >
                                     <SideLeftCrookedCrossIcon />
-                                </div>
+                                </motion.div>
+
                             </div>
 
 
@@ -287,11 +297,11 @@ function Competitions({ ...props }) {
                                 data-aos-delay="300"
                             >
                                 {competitions.is_team == false ? (
-                                    <Button type="submit" variant="blue" size="lg" className="rounded-lg text-[18px] py-6 px-5 md:w-1/3 w-full" onClick={onHandleSubmit}>
+                                    <Button type="submit" variant="blue" size="lg" className="rounded-lg text-[18px] py-6 px-5 md:w-1/3 w-full hover:scale-[101%] transition-all duration-200 ease-in-out" onClick={onHandleSubmit}>
                                         Register
                                     </Button>
                                 ) : (
-                                    <Button asChild variant="blue" size="lg" className="rounded-lg text-[18px] md:w-1/3 w-full">
+                                    <Button asChild variant="blue" size="lg" className="rounded-lg text-[18px] md:w-1/3 w-full hover:scale-[101%] transition-all duration-200 ease-in-out">
                                         <Link href={route('register.competition.show', competitions.slug)} className="py-6 px-5">
                                             Register Team
                                         </Link>
@@ -372,7 +382,7 @@ function Competitions({ ...props }) {
                     </div >
 
                     {/* side right */}
-                    < div className="hidden w-full md:block" >
+                    < div className="hidden w-full md:block md:mt-12" >
                         <div className="relative">
                             <div
                                 className="flex flex-row justify-end text-[#0F114C]"
@@ -467,13 +477,26 @@ function Competitions({ ...props }) {
                             data-aos="fade-up"
                             data-aos-delay="100"
                         /> */}
-                        <div
+                        {/* <div
                             className="absolute -right-10 top-0 w-6 md:w-10"
                         >
                             <SideLeftCrookedCrossIcon />
-                        </div>
+                        </div> */}
+                        <motion.div
+                            animate={{
+                                rotate: [0, 360],
+                            }}
+                            transition={{
+                                duration: 10,
+                                repeat: Infinity,
+                                ease: "linear"
+                            }}
+                            className="absolute left-[40rem] top-0 hidden -translate-y-1/2 md:block"
+                        >
+                            <SideLeftCrookedCrossIcon />
+                        </motion.div>
                         <p
-                            className="font-rubik my-6 text-justify text-base font-light text-white md:text-lg"
+                            className="font-rubik my-6 text-justify text-base font-light text-white md:text-lg z-40"
                             data-aos="fade-up"
                             data-aos-delay="200"
                         >
@@ -492,7 +515,7 @@ function Competitions({ ...props }) {
                     </div >
                 </div >
                 <img
-                    className="absolute bottom-0 right-0 w-40 lg:w-52 xl:w-60"
+                    className="absolute bottom-0 right-0 w-40 lg:w-52 xl:w-60 z-10"
                     src={`${window.location.origin}/assets/images/about/rightEdge.png`}
                 />
                 <img
@@ -640,9 +663,11 @@ function Competitions({ ...props }) {
                                     </div>
 
                                     {/* Title */}
-                                    <p className="font-rubik xs:text-sm px-6 pt-10 text-center text-lg font-semibold capitalize leading-[120%] tracking-[1px] text-[var(--Blue-Primary,#0F114C)] dark:text-white sm:px-4 sm:pt-6 sm:text-lg md:text-lg md:tracking-[2px] lg:text-xl">
-                                        {timeline.title}
-                                    </p>
+                                    <div className='flex justify-center items-center'>
+                                        <p className="font-rubik xs:text-sm px-6 pt-10 text-center text-lg font-semibold capitalize leading-[120%] tracking-[1px] text-[var(--Blue-Primary,#0F114C)] dark:text-white sm:px-4 sm:pt-6 sm:text-lg md:text-lg md:tracking-[2px] lg:text-xl md:w-[600px] max-w-none">
+                                            {timeline.title}
+                                        </p>
+                                    </div>
 
                                     {/* Gap */}
                                     <div className="xs:mt-[300px] mt-6 sm:mt-10" />
@@ -794,7 +819,7 @@ function Competitions({ ...props }) {
                                     data-aos="fade-up"
                                     data-aos-delay={200 + i * 100}
                                 >
-                                    <IconContactInCompetition />
+                                    <IconContactInCompetition className="shrink-0"/>
                                     <div className="flex flex-col gap-3">
                                         <p className="text-[18px] font-bold leading-[180%] text-[#000000] dark:text-white">
                                             {contact.name ?? ''}

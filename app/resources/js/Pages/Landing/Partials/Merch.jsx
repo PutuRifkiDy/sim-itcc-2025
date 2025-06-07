@@ -124,17 +124,12 @@ export default function Merch() {
                                 </Link>
                             </Button>
                         </div>
-                        {/* <img
-                            src="assets/images/about/bluePlus.png"
-                            className="absolute bottom-0 left-0 md:w-10 w-6 rotate-30 hidden md:inline"
-                            alt=""
-                        /> */}
                         <div
                             className="absolute bottom-0 left-0 md:w-10 w-6 rotate-30 hidden md:inline">
                             <StarRightITCC/>
                         </div>
 
-                        <div className="md:absolute flex bottom-24 left-48">
+                        <div className="md:absolute flex bottom-16 left-48">
                             <ArrowRightIcon />
                         </div>
                     </div>
