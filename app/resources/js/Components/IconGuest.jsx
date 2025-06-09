@@ -120,7 +120,7 @@ export const SideLeftArrowLeftIcon = () => {
 
 export const SideRightCrossIcon = () => {
     return (
-        <svg width="111" height="29" viewBox="0 0 111 29" fill="#0F114C" xmlns="http://www.w3.org/2000/svg" className="dark:fill-white text-[#0F114C] dark:text-white">
+        <svg width="111" height="29" viewBox="0 0 111 29" fill="#0F114C" xmlns="http://www.w3.org/2000/svg" className="dark:fill-white text-[#0F114C] dark:text-white md:block hidden">
             <g clipPath="url(#clip0_613_46428)">
                 <path d="M20.3097 17.969L16.4206 14.0799L20.3097 10.1908C20.7869 9.71354 20.7869 8.9395 20.3097 8.46227L19.4455 7.59803C18.9682 7.1208 18.1942 7.1208 17.717 7.59803L13.8279 11.4871L9.93878 7.59803C9.46155 7.1208 8.68751 7.1208 8.21029 7.59803L7.34604 8.46227C6.86882 8.9395 6.86882 9.71354 7.34604 10.1908L11.2351 14.0799L7.34604 17.969C6.86882 18.4462 6.86882 19.2202 7.34604 19.6975L8.21029 20.5617C8.68751 21.0389 9.46155 21.0389 9.93878 20.5617L13.8279 16.6726L17.717 20.5617C18.1942 21.0389 18.9682 21.0389 19.4455 20.5617L20.3097 19.6975C20.7869 19.2202 20.7869 18.4462 20.3097 17.969Z" fill="currentColor" />
             </g>

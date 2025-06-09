@@ -87,6 +87,26 @@ function Payment({ user_competition_registrations, payment_methods, payment_valu
             image: "assets/images/dashboard/OVO_logo.png",
             className: "w-[63px] h-[20px]",
         },
+        {
+            image: "assets/images/dashboard/BNI_logo.png",
+            className: "w-[60px] h-auto",
+        },
+        {
+            image: "assets/images/dashboard/DANA_logo.png",
+            className: "w-[72px] h-[21px]",
+        },
+        {
+            image: "assets/images/dashboard/SHOPEE_PAY_logo.png",
+            className: "w-[57px] h-[25px]",
+        },
+        {
+            image: "assets/images/dashboard/GOPAY_logo.png",
+            className: "w-[75px] h-[27px]",
+        },
+        {
+            image: "assets/images/dashboard/OVO_logo.png",
+            className: "w-[63px] h-[20px]",
+        },
     ];
 
     const combinedPaymentMethodsWithAdditionalContent = payment_methods
@@ -129,11 +149,11 @@ function Payment({ user_competition_registrations, payment_methods, payment_valu
                 <div className={`grid ${["Verified", "Pending"].includes(user_competition_registrations.payment_status) ? 'md:grid-cols-3' : 'md:grid-cols-2'} ${user_competition_registrations.payment_status} grid-cols-1 md:gap-5 gap-4`}>
                     <div className="flex flex-col gap-2">
                         <p className="font-bold text-[14px] tracking-[0.03em] text-[#5E5E5E] dark:text-gray-400">Total Payment</p>
-                        <p className="font-bold text-[20px] tracking-[0.03em] text-[#000000] dark:text-white">Rp. {user_competition_registrations.total_payment}</p>
+                        <p className="font-medium text-[20px] tracking-[0.03em] text-[#000000] dark:text-white">Rp. {user_competition_registrations.total_payment}</p>
                     </div>
                     <div className="flex flex-col gap-2">
                         <p className="font-bold text-[14px] tracking-[0.03em] text-[#5E5E5E] dark:text-gray-400">Account Number</p>
-                        <div className="font-bold text-[20px] tracking-[0.03em] text-[#000000] dark:text-white flex flex-row gap-2 items-center">
+                        <div className="font-medium text-[20px] tracking-[0.03em] text-[#000000] dark:text-white flex flex-row gap-2 items-center">
                             <img src={`${window.location.origin}/${payment_method.image}`} className={payment_method.className} alt="" />
                             {payment_method.account_number}
                             {isCopied == true ? (
@@ -147,7 +167,7 @@ function Payment({ user_competition_registrations, payment_methods, payment_valu
                     </div>
                     <div className="flex flex-col gap-2">
                         <p className="font-bold text-[14px] tracking-[0.03em] text-[#5E5E5E] dark:text-gray-400">Recipient Name</p>
-                        <p className="font-bold text-[20px] tracking-[0.03em] text-[#000000] dark:text-white">{payment_method.recipient_name}</p>
+                        <p className="font-medium text-[20px] tracking-[0.03em] text-[#000000] dark:text-white">{payment_method.recipient_name}</p>
                     </div>
                 </div>
 

@@ -548,9 +548,14 @@ function Semnas({ ...props }) {
                             >
                                 <div className="relative h-max flex-1 flex-shrink-0 rounded-[10px] border border-[var(--Blue-Primary,#0F114C)] bg-white py-4 dark:bg-[#0F114C]">
                                     {/* Status Label */}
-                                    <div className="absolute right-3 top-3 flex items-center gap-2 rounded-md bg-green-100 px-3 py-1 text-green-700 shadow-sm">
-                                        <div className="h-3 w-3 rounded-full bg-green-500" />
-                                        <span className="font-rubik text-xs font-medium text-gray-600">available</span>
+                                    <div className={`absolute right-3 top-3 flex items-center gap-2 rounded-md px-3 py-1 shadow-sm
+                                        ${timeline.title == current_periode?.title ? 'bg-[#00D238]/20 text-[#00D238]'
+                                            : 'bg-[#E82323]/20 text-[#E82323]'}`}
+                                    >
+                                        <div className={`h-3 w-3 rounded-full ${timeline.title == current_periode?.title ? 'bg-[#00D238]' : 'bg-[#E82323]'}`} />
+                                        <span className={`font-rubik text-xs font-medium ${timeline.title == current_periode?.title ? 'text-[#00D238]' : 'text-[#E82323]'}`}>
+                                            {timeline.title == current_periode?.title ? 'Available' : 'Not Available'}
+                                        </span>
                                     </div>
 
                                     {/* Title */}
@@ -673,7 +678,7 @@ function Semnas({ ...props }) {
                             )),
                         )}
                     </div>
-                    <div className="absolute bottom-4 right-4 hidden sm:bottom-10 sm:right-10 lg:block">
+                    <div className="absolute bottom-4 right-4 hidden sm:bottom-10 sm:right-10 lg:top-24">
                         <SideRightCrossIcon />
                     </div>
                 </div>
@@ -713,28 +718,28 @@ function Semnas({ ...props }) {
                 </p>
                 {
                     events.event_content.map((content, idx) => (
-                        <div key={idx} className="mt-10 grid grid-cols-1 items-center justify-center gap-12 md:grid-cols-3">
+                        <div key={idx} className="mt-10 grid grid-cols-1 items-center justify-center gap-12 md:grid-cols-2">
                             {content.event_content_contact.map((contact, i) => (
                                 <div
-                                    className="flex flex-row items-center gap-10 rounded-[10px] border-[1px] border-[#ACACAC] px-10 py-5"
+                                    className="flex md:flex-row flex-col items-center gap-10 rounded-[10px] border-[1px] border-[#ACACAC] px-10 py-5"
                                     key={i}
                                     data-aos="fade-up"
                                     data-aos-delay={200 + i * 100}
                                 >
-                                    <IconContactInCompetition />
+                                    <IconContactInCompetition className="shrink-0" />
                                     <div className="flex flex-col gap-3">
                                         <p className="text-[18px] font-bold leading-[180%] text-[#000000] dark:text-white">
                                             {contact.name ?? ''}
                                         </p>
                                         <div className="flex flex-col gap-2">
-                                            <div className="flex flex-row items-center gap-2 text-[16px] text-[#0F114C] dark:text-gray-400">
+                                            <a href={`https://line.me/ti/p/${contact.id_line}`} className="flex flex-row items-center gap-2 text-[16px] text-[#0F114C] dark:text-gray-400" target='_blank'>
                                                 <LineIcon />
                                                 {contact.id_line ?? ''}
-                                            </div>
-                                            <div className="flex flex-row items-center gap-2 text-[16px] text-[#0F114C] dark:text-gray-400">
+                                            </a>
+                                            <a href={`https://wa.me/${contact.wa_number}`} className="flex flex-row items-center gap-2 text-[16px] text-[#0F114C] dark:text-gray-400" target='_blank'>
                                                 <WhatsappIcon />
                                                 {contact.wa_number ?? ''}
-                                            </div>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>

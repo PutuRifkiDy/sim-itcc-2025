@@ -24,18 +24,20 @@ class EventsSeeder extends Seeder
             [
                 'category'      => 'Mahasiswa/UMUM',
                 'kode'          => 'SMNTION',
-                'name'          => "Seminar Nasional Teknologi Informasi",
+                'name'          => "Seminar Nasional Information Technology Creative Competition",
                 'slug'          => 'seminar-nasional-teknologi-informasi-on',
-                'description'   => "Seminar Nasional ITCC is purposes in to give the knowledge about technology to the community. This seminar also will give the insight of information technological developments on the world.",
+                'description'   => 'The 2025 ITCC National Seminar is one of a series of the 2025 Information Technology Creative Competition (ITCC) which aims to provide knowledge about information technology to people. This year we have the theme "Data is Power: Reinventing Cybersecurity for the Next Digital Frontier" which highlights the importance of data as a key asset in the digital era.
+',
                 'is_open_regis' => true,
                 'event_type'    => 'semnas',
             ],
             [
                 'category'      => 'Mahasiswa/UMUM',
                 'kode'          => 'SMNTIOF',
-                'name'          => "Seminar Nasional Teknologi Informasi",
+                'name'          => "Seminar Nasional Information Technology Creative Competition",
                 'slug'          => 'seminar-nasional-teknologi-informasi-of',
-                'description'   => "Seminar Nasional ITCC is purposes in to give the knowledge about technology to the community. This seminar also will give the insight of information technological developments on the world.",
+                'description'   => 'The 2025 ITCC National Seminar is one of a series of the 2025 Information Technology Creative Competition (ITCC) which aims to provide knowledge about information technology to people. This year we have the theme "Data is Power: Reinventing Cybersecurity for the Next Digital Frontier" which highlights the importance of data as a key asset in the digital era.
+',
                 'is_open_regis' => true,
                 'event_type'    => 'semnas',
             ],

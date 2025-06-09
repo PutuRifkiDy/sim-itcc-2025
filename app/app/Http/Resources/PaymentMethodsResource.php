@@ -19,7 +19,8 @@ class PaymentMethodsResource extends JsonResource
             'account_number' => $this->account_number,
             'bank_name' => $this->bank_name,
             'recipient_name' => $this->recipient_name,
-            'payment_type' => $this->payment_type
+            'payment_type' => $this->payment_type,
+            'event_type' => $this->event_type,
         ];
     }
 }

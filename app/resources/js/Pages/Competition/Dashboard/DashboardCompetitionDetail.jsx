@@ -53,6 +53,26 @@ function DashboardCompetitionDetail() {
             image: "assets/images/dashboard/OVO_logo.png",
             className: "w-[130px] h-[40px]",
         },
+        {
+            image: "assets/images/dashboard/BNI_logo.png",
+            className: "w-[150px] h-auto",
+        },
+        {
+            image: "assets/images/dashboard/DANA_logo.png",
+            className: "w-[134px] h-[38px]",
+        },
+        {
+            image: "assets/images/dashboard/SHOPEE_PAY_logo.png",
+            className: "w-[129px] h-[57px]",
+        },
+        {
+            image: "assets/images/dashboard/GOPAY_logo.png",
+            className: "w-[143px] h-[52px]",
+        },
+        {
+            image: "assets/images/dashboard/OVO_logo.png",
+            className: "w-[130px] h-[40px]",
+        },
     ];
 
     const combinedPaymentMethodsWithAdditionalContent = payment_methods
@@ -103,7 +123,7 @@ function DashboardCompetitionDetail() {
                             <div className="flex flex-col gap-5">
                                 <p className="font-bold text-[18px] leading-[16px] text-[#3A3A3A] dark:text-white">Bank Transfer</p>
                                 {combinedPaymentMethodsWithAdditionalContent
-                                    .filter((payment_method) => payment_method.payment_type == "Bank Transfer")
+                                    .filter((payment_method) => payment_method.payment_type == "Bank Transfer" && payment_method.event_type == "competitions")
                                     .map((payment_method, index) => (
                                         <label
                                             key={index}
@@ -131,7 +151,7 @@ function DashboardCompetitionDetail() {
                             <div className="flex flex-col gap-5">
                                 <p className="font-bold text-[18px] leading-[16px] text-[#3A3A3A] dark:text-white">E-Wallet</p>
                                 {combinedPaymentMethodsWithAdditionalContent
-                                    .filter((payment_method) => payment_method.payment_type == "E-Wallet")
+                                    .filter((payment_method) => payment_method.payment_type == "E-Wallet" && payment_method.event_type == "competitions")
                                     .map((payment_method, index) => (
                                         <label
                                             key={index}

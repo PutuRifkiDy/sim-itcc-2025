@@ -15,7 +15,7 @@ function DashboardSemnas() {
     const [tabs, setTabs] = useState("about");
     const { flash_message } = usePage().props;
 
-    const [paymentValue, setPaymentValue] = useState(1);
+    const [paymentValue, setPaymentValue] = useState(6);
     const [showModal, setShowModal] = useState(false);
     const [pendingPaymentValue, setPendingPaymentValue] = useState(null);
     const [prevPaymentValue, setPrevPaymentValue] = useState(paymentValue);
@@ -48,6 +48,26 @@ function DashboardSemnas() {
             image: "assets/images/dashboard/OVO_logo.png",
             className: "w-[130px] h-[40px]",
         },
+        {
+            image: "assets/images/dashboard/BNI_logo.png",
+            className: "w-[150px] h-auto",
+        },
+        {
+            image: "assets/images/dashboard/DANA_logo.png",
+            className: "w-[134px] h-[38px]",
+        },
+        {
+            image: "assets/images/dashboard/SHOPEE_PAY_logo.png",
+            className: "w-[129px] h-[57px]",
+        },
+        {
+            image: "assets/images/dashboard/GOPAY_logo.png",
+            className: "w-[143px] h-[52px]",
+        },
+        {
+            image: "assets/images/dashboard/OVO_logo.png",
+            className: "w-[130px] h-[40px]",
+        },
     ];
 
     const combinedPaymentMethodsWithAdditionalContent = payment_methods
@@ -57,6 +77,8 @@ function DashboardSemnas() {
             className: additionalPaymentMethods[index]?.className || "w-[122px] h-[86px]",
         }))
         .concat(additionalPaymentMethods.slice(payment_methods.length));
+
+        console.log(combinedPaymentMethodsWithAdditionalContent);
 
     useEffect(() => {
         if (flash_message?.message) {
@@ -71,13 +93,13 @@ function DashboardSemnas() {
                         <div className={`bg-white p-4 shadow rounded-lg sm:p-8 dark:bg-[#040529] ${tabs == "payment" && ["Requested", "Rejected"].includes(event_registrations.payment_status) && event_registrations ? "md:w-[70%] w-full" : "w-full"}`}>
                             <div className="flex flex-row md:gap-10 gap-5">
                                 <Button variant="none" asChild onClick={() => setTabs("about")}>
-                                    <p className={`cursor-pointer ${tabs == "about" ? "text-[#0F114C] font-bold border-[#0F114C]  border-b-[4px] rounded-[2px] transition-all ease-in-out duration-400 text-[16px] dark:text-[#55b1d7] dark:border-[#55b1d7]" : "text-[#5E5E5E] text-[16px] dark:text-white"}`}>About</p>
+                                    <p className={`cursor-pointer ${tabs == "about" ? "text-[#0F114C] font-bold border-[#264A9D]  border-b-[4px] rounded-[2px] transition-all ease-in-out duration-400 text-[16px] dark:text-[#55b1d7] dark:border-[#55b1d7]" : "text-[#5E5E5E] text-[16px] dark:text-white"}`}>About</p>
                                 </Button>
                                 <Button variant="none" asChild onClick={() => setTabs("payment")}>
-                                    <p className={`cursor-pointer ${tabs == "payment" ? "text-[#0F114C] font-bold border-[#0F114C] border-b-[4px] rounded-[2px] transition-all ease-in-out duration-400 text-[16px] dark:text-[#55b1d7] dark:border-[#55b1d7]" : "text-[#5E5E5E] text-[16px] dark:text-white"}`} >Payment</p>
+                                    <p className={`cursor-pointer ${tabs == "payment" ? "text-[#0F114C] font-bold border-[#264A9D] border-b-[4px] rounded-[2px] transition-all ease-in-out duration-400 text-[16px] dark:text-[#55b1d7] dark:border-[#55b1d7]" : "text-[#5E5E5E] text-[16px] dark:text-white"}`} >Payment</p>
                                 </Button>
                                 <Button variant="none" asChild onClick={() => setTabs("ticket")}>
-                                    <p className={`cursor-pointer ${tabs == "ticket" ? "text-[#0F114C] font-bold border-[#0F114C] border-b-[4px] rounded-[2px] transition-all ease-in-out duration-400 text-[16px] dark:text-[#55b1d7] dark:border-[#55b1d7]" : "text-[#5E5E5E] text-[16px] dark:text-white"}`} >Ticket</p>
+                                    <p className={`cursor-pointer ${tabs == "ticket" ? "text-[#0F114C] font-bold border-[#264A9D] border-b-[4px] rounded-[2px] transition-all ease-in-out duration-400 text-[16px] dark:text-[#55b1d7] dark:border-[#55b1d7]" : "text-[#5E5E5E] text-[16px] dark:text-white"}`} >Ticket</p>
                                 </Button>
                             </div>
 
@@ -91,11 +113,11 @@ function DashboardSemnas() {
                                 <div className="flex flex-col gap-5">
                                     <p className="font-bold text-[18px] leading-[16px] text-[#3A3A3A] dark:text-white">Bank Transfer</p>
                                     {combinedPaymentMethodsWithAdditionalContent
-                                        .filter((payment_method) => payment_method.payment_type == "Bank Transfer")
+                                        .filter((payment_method) => payment_method.event_type == "semnas" && payment_method.payment_type == "Bank Transfer")
                                         .map((payment_method, index) => (
                                             <label
                                                 key={index}
-                                                className={`flex cursor-pointer flex-row gap-5 justify-evenly items-center border-2 px-3 py-5 rounded-[10px] w-full transition-all duration-200 dark:hover:border-[#55b1d7]/50 ${paymentValue == payment_method.id ? 'border-[#0f114c] dark:border-2 dark:border-[#55b1d7]' : 'border-[#E6E6E6]'}`}
+                                                className={`flex cursor-pointer flex-row gap-5 justify-evenly items-center border-2 px-3 py-5 rounded-[10px] w-full transition-all duration-200 dark:hover:border-[#55b1d7]/50 hover:border-[#0f114c]/50 ${paymentValue == payment_method.id ? 'border-[#0f114c] dark:border-2 dark:border-[#55b1d7]' : 'border-[#E6E6E6]'}`}
                                                 onClick={(e) => {
                                                     e.preventDefault();
                                                     if (paymentValue !== payment_method.id) {
@@ -119,12 +141,13 @@ function DashboardSemnas() {
                                 <div className="flex flex-col gap-5">
                                     <p className="font-bold text-[18px] leading-[16px] text-[#3A3A3A] dark:text-white">E-Wallet</p>
                                     {combinedPaymentMethodsWithAdditionalContent
-                                        .filter((payment_method) => payment_method.payment_type == "E-Wallet")
+                                        .filter((payment_method) =>
+                                            payment_method.payment_type == "E-Wallet" && payment_method.event_type == "semnas")
                                         .map((payment_method, index) => (
                                             <label
                                                 key={index}
-                                                className={`flex cursor-pointer flex-row gap-5 justify-evenly items-center border-2 px-3 py-5 rounded-[10px] w-full transition-all duration-200 hover:border-[#55b1d7]/50 dark:hover:border-[#55b1d7]/50
-    ${paymentValue == payment_method.id ? 'border-[#55b1d7] dark:border-2 dark:border-[#55b1d7]' : 'border-[#E6E6E6]'}`}
+                                                className={`flex cursor-pointer flex-row gap-5 justify-evenly items-center border-2 px-3 py-5 rounded-[10px] w-full transition-all duration-200 hover:border-[#0f114c]/50 dark:hover:border-[#55b1d7]/50
+    ${paymentValue == payment_method.id ? 'border-[#0f114c] dark:border-2 dark:border-[#55b1d7]' : 'border-[#E6E6E6]'}`}
                                                 onClick={(e) => {
                                                     e.preventDefault();
                                                     if (paymentValue !== payment_method.id) {
@@ -197,4 +220,4 @@ function DashboardSemnas() {
 }
 
 export default DashboardSemnas;
-DashboardSemnas.layout = (page) => <DashboardLayout children={page} title="Semnas" header="Seminar Nasional" description="Manage your payment ad get your ticket in this page" />;
+DashboardSemnas.layout = (page) => <DashboardLayout children={page} title="Semnas" header="Seminar Nasional" description="Manage your payment and get your ticket in this page" />;

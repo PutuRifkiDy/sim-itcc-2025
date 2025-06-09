@@ -20,13 +20,13 @@ class EventContentSeeder extends Seeder
             ],
             [
                 'event_id'         => 2,
-                'location'         => 'Online',
+                'location'         => 'Zoom Meeting',
                 'how_to_join_link' => 'https://itcc.hmtiudayana.id/coming-soon',
                 'guidebook_link'   => 'https://itcc.hmtiudayana.id/coming-soon',
             ],
             [
                 'event_id'         => 3,
-                'location'         => 'Offline',
+                'location'         => 'Gedung Undagi Graha, Fakultas Teknik, Jimbaran, Bali',
                 'how_to_join_link' => 'https://itcc.hmtiudayana.id/coming-soon',
                 'guidebook_link'   => 'https://itcc.hmtiudayana.id/coming-soon',
             ],

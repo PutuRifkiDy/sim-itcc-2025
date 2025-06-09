@@ -167,7 +167,7 @@ const Competition = () => {
                             {/* Text content */}
                             <div className="absolute top-10 left-10 right-10 md:left-[60px] md:right-[400px]">
                                 <h2 className="font-bold text-white text-2xl md:text-3xl tracking-wider line-clamp-1">
-                                    {item.name}
+                                    {item.slug == 'kids-game-programming-beginner' ? 'KGP (Beginner)' : item.slug == 'kids-game-programming-intermediate' ? 'KGP (Intermediate)' : item.name}
                                 </h2>
                                 <p className="text-white text-sm md:text-base lg:text-xl leading-relaxed max-w-xl mt-10 line-clamp-4">
                                     {item.description}

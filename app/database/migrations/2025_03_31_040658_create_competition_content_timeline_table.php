@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('competition_content_id')->constrained('competition_content')->cascadeOnDelete();
             $table->string('title');
-            $table->date('start_date');
-            $table->date('end_date');
+            $table->dateTimeTz('start_date');
+            $table->dateTimeTz('end_date');
             $table->string('date_range');
             $table->text('description')->nullable();
             $table->timestamps();

@@ -32,40 +32,29 @@ class EventContentContactSeeder extends Seeder
             ],
             [
                 'event_content_id' => 2,
-                'name'             => 'Coming soon',
-                'id_line'          => '',
-                'wa_number'        => '+62',
+                'name'             => 'Satria',
+                'id_line'          => 'satriawidhi',
+                'wa_number'        => '+6285161726654',
             ],
             [
                 'event_content_id' => 2,
-                'name'             => 'Coming soon',
-                'id_line'          => '',
-                'wa_number'        => '+62',
-            ],
-            [
-                'event_content_id' => 2,
-                'name'             => 'Coming soon',
-                'id_line'          => '',
-                'wa_number'        => '+62',
+                'name'             => 'Devasya',
+                'id_line'          => 'aawwwdeva',
+                'wa_number'        => '+6289643860167',
             ],
             [
                 'event_content_id' => 3,
-                'name'             => 'Coming soon',
-                'id_line'          => '',
-                'wa_number'        => '+62',
+                'name'             => 'Satria',
+                'id_line'          => 'satriawidhi',
+                'wa_number'        => '+6285161726654',
             ],
             [
                 'event_content_id' => 3,
-                'name'             => 'Coming soon',
-                'id_line'          => '',
-                'wa_number'        => '+62',
+                'name'             => 'Devasya',
+                'id_line'          => 'aawwwdeva',
+                'wa_number'        => '+6289643860167',
             ],
-            [
-                'event_content_id' => 3,
-                'name'             => 'Coming soon',
-                'id_line'          => '',
-                'wa_number'        => '+62',
-            ],
+
         ];
 
         foreach ($event_content_contacts as $event_content_contact) {

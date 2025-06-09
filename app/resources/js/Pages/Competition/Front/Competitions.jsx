@@ -21,6 +21,7 @@ import * as AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger, DropdownMenuItem } from '@/Components/ui/dropdown-menu';
 
 function Competitions({ ...props }) {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -71,7 +72,6 @@ function Competitions({ ...props }) {
         setOpenIndex(openIndex === index ? null : index);
     };
 
-    console.log(competitions);
     const { flash_message } = usePage().props;
     const { data, setData, post, processing, errors, reset, recentlySuccessful } = useForm({
         slug: competitions.slug ?? '',
@@ -292,11 +292,29 @@ function Competitions({ ...props }) {
                             <div className="h-12" />
 
                             <div
-                                className="flex flex-col items-center gap-4 md:flex-row md:gap-10 w-full"
+                                className="flex flex-col-reverse items-center gap-4 md:flex-row md:gap-10 w-full"
                                 data-aos="fade-up"
                                 data-aos-delay="300"
                             >
-                                {competitions.is_team == false ? (
+                                {competitions.is_team == false && ["kids-game-programming-beginner", "kids-game-programming-intermediate"].includes(competitions.slug) ? (
+                                    <DropdownMenu>
+                                        <DropdownMenuTrigger asChild>
+                                            <Button type="submit" variant="blue" size="lg" className="rounded-lg text-[18px] py-6 px-5 md:w-1/3 w-full hover:scale-[101%] transition-all duration-200 ease-in-out">
+                                                Register
+                                            </Button>
+                                        </DropdownMenuTrigger>
+                                        <DropdownMenuContent className="w-full">
+                                            <DropdownMenuItem>
+                                                <a href="http://" target="_blank" rel="noopener noreferrer" className='text-[15px] px-4'>Register on Google Form</a>
+                                            </DropdownMenuItem>
+                                            <DropdownMenuItem>
+                                                <Button type="submit" variant="none" className=" p-0 gap-0 font-normal h-5 text-[15px] px-4" onClick={onHandleSubmit}>
+                                                    Register on Website
+                                                </Button>
+                                            </DropdownMenuItem>
+                                        </DropdownMenuContent>
+                                    </DropdownMenu>
+                                ) : competitions.is_team == false ? (
                                     <Button type="submit" variant="blue" size="lg" className="rounded-lg text-[18px] py-6 px-5 md:w-1/3 w-full hover:scale-[101%] transition-all duration-200 ease-in-out" onClick={onHandleSubmit}>
                                         Register
                                     </Button>
@@ -767,6 +785,7 @@ function Competitions({ ...props }) {
                                     description={item.answer}
                                     isOpen={openIndex === i}
                                     onClick={() => handleAccordionClick(i)}
+                                    key={i}
                                 />
                             )),
                         )}
@@ -819,7 +838,7 @@ function Competitions({ ...props }) {
                                     data-aos="fade-up"
                                     data-aos-delay={200 + i * 100}
                                 >
-                                    <IconContactInCompetition className="shrink-0"/>
+                                    <IconContactInCompetition className="shrink-0" />
                                     <div className="flex flex-col gap-3">
                                         <p className="text-[18px] font-bold leading-[180%] text-[#000000] dark:text-white">
                                             {contact.name ?? ''}
