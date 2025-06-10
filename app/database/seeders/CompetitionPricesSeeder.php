@@ -25,7 +25,7 @@ class CompetitionPricesSeeder extends Seeder
                 'competition_category_id' => '5',
                 'periode_name'            => 'Ide Bisnis TIK Batch II',
                 'price'                   => 135000,
-                'start_date'              => '2025-06-10 16:00:00.000',
+                'start_date'              => '2025-06-09 16:00:00.000',
                 'end_date'                => '2025-06-19 15:59:59.000',
             ],
             [
@@ -57,7 +57,7 @@ class CompetitionPricesSeeder extends Seeder
                 'competition_category_id' => '4',
                 'periode_name'            => 'Web Design SMA/SMK Batch II',
                 'price'                   => 80000,
-                'start_date'              => '2025-06-10 16:00:00.000',
+                'start_date'              => '2025-06-09 16:00:00.000',
                 'end_date'                => '2025-06-19 15:59:59.000',
             ],
             [
@@ -73,7 +73,7 @@ class CompetitionPricesSeeder extends Seeder
                 'competition_category_id' => '5',
                 'periode_name'            => 'Web Design Mahasiswa Batch II',
                 'price'                   => 85000,
-                'start_date'              => '2025-06-10 16:00:00.000',
+                'start_date'              => '2025-06-09 16:00:00.000',
                 'end_date'                => '2025-06-19 15:59:59.000',
             ],
             [
@@ -89,7 +89,7 @@ class CompetitionPricesSeeder extends Seeder
                 'competition_category_id' => '4',
                 'periode_name'            => 'Pemrograman SMA/SMK Batch II',
                 'price'                   => 80000,
-                'start_date'              => '2025-06-10 16:00:00.000',
+                'start_date'              => '2025-06-09 16:00:00.000',
                 'end_date'                => '2025-06-19 15:59:59.000',
             ],
             [
@@ -113,7 +113,7 @@ class CompetitionPricesSeeder extends Seeder
                 'competition_category_id' => '4',
                 'periode_name'            => 'LCC SMA/SMK Batch II',
                 'price'                   => 125000,
-                'start_date'              => '2025-06-10 16:00:00.000',
+                'start_date'              => '2025-06-09 16:00:00.000',
                 'end_date'                => '2025-06-19 15:59:59.000',
             ],
             [
@@ -129,7 +129,7 @@ class CompetitionPricesSeeder extends Seeder
                 'competition_category_id' => '5',
                 'periode_name'            => 'UI/UX Mahasiswa Batch II',
                 'price'                   => 105000,
-                'start_date'              => '2025-06-10 16:00:00.000',
+                'start_date'              => '2025-06-09 16:00:00.000',
                 'end_date'                => '2025-06-19 15:59:59.000',
             ],
             [
@@ -145,7 +145,7 @@ class CompetitionPricesSeeder extends Seeder
                 'competition_category_id' => '4',
                 'periode_name'            => 'UI/UX SMA/SMK Batch II',
                 'price'                   => 90000,
-                'start_date'              => '2025-06-10 16:00:00.000',
+                'start_date'              => '2025-06-09 16:00:00.000',
                 'end_date'                => '2025-06-19 15:59:59.000',
             ],
             [
@@ -161,7 +161,7 @@ class CompetitionPricesSeeder extends Seeder
                 'competition_category_id' => '1',
                 'periode_name'            => 'Kids Game Programming Beginner Batch II',
                 'price'                   => 75000,
-                'start_date'              => '2025-06-10 16:00:00.000',
+                'start_date'              => '2025-06-09 16:00:00.000',
                 'end_date'                => '2025-06-19 15:59:59.000',
             ],
             [
@@ -177,7 +177,7 @@ class CompetitionPricesSeeder extends Seeder
                 'competition_category_id' => '2',
                 'periode_name'            => 'Kids Game Programming Intermediate Batch II',
                 'price'                   => 75000,
-                'start_date'              => '2025-06-10 16:00:00.000',
+                'start_date'              => '2025-06-09 16:00:00.000',
                 'end_date'                => '2025-06-19 15:59:59.000',
             ],
         ];
