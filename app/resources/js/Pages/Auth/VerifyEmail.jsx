@@ -13,7 +13,7 @@ export default function VerifyEmail({ status }) {
 
         post(route('verification.send'));
     };
-    
+
 
     return (
         <>
@@ -34,7 +34,7 @@ export default function VerifyEmail({ status }) {
                             <div className='absolute bottom-10 right-0'>
                                 <LineOrnamenIcon />
                             </div>
-                            <img src="assets/images/landing/icon-maskot-itcc.png" alt="" className="absolute right-24 bottom-24 h-auto md:w-[220px]" />
+                            <img src="assets/images/landing/icon-maskot-itcc.png" alt="" className="absolute right-24 bottom-24 h-auto md:w-[280px]" />
                         </div>
 
                         <div className="w-full">
@@ -52,7 +52,7 @@ export default function VerifyEmail({ status }) {
                                         the email, we will gladly send you another.
                                     </h2>
                                     <h4 className="text-md w-[400px] text-center font-medium leading-relaxed tracking-tight dark:text-[#F7F7F7] text-[#0F114C]">
-                                        The verification email has been send to {auth?.user?.email}, please check your inbox or spam folder. 
+                                        The verification email has been send to {auth?.user?.email}, please check your inbox or spam folder.
                                     </h4>
                                 </CardHeader>
                                 <CardContent>
