@@ -533,7 +533,7 @@ function Semnas({ ...props }) {
 
                 <div className="relative mt-12 flex min-h-fit flex-col items-center" style={{ gap: '96px' }}>
                     {/* Vertical blue line */}
-                    <div className="absolute bottom-0 left-[26%] top-0 z-0 flex -translate-x-1/2 items-center sm:left-[22%]">
+                    <div className="absolute bottom-0 left-[32%] top-0 z-0 flex -translate-x-1/2 items-center sm:left-[22%]">
                         <div className="h-full w-2 rounded-full bg-[var(--Blue-Primary,#0F114C)]" />
                     </div>
 
@@ -559,8 +559,8 @@ function Semnas({ ...props }) {
                                     </div>
 
                                     {/* Title */}
-                                    <div className="flex justify-center items-center">
-                                        <p className="font-rubik xs:text-sm px-6 pt-10 text-center text-sm font-semibold capitalize leading-[120%] tracking-[1px] text-[var(--Blue-Primary,#0F114C)] dark:text-white sm:px-4 sm:pt-6 sm:text-lg md:text-xl md:tracking-[2px] lg:text-2xl md:w-[600px] w-none">
+                                    <div className='flex justify-center items-center'>
+                                        <p className="font-rubik xs:text-sm px-6 pt-10 text-center text-lg font-semibold capitalize leading-[120%] tracking-[1px] text-[var(--Blue-Primary,#0F114C)] dark:text-white sm:px-4 sm:pt-6 sm:text-lg md:text-lg md:tracking-[2px] lg:text-xl md:w-[600px] max-w-none">
                                             {timeline.title}
                                         </p>
                                     </div>

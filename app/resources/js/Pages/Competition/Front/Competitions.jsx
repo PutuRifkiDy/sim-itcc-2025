@@ -655,7 +655,7 @@ function Competitions({ ...props }) {
 
                 <div className="relative mt-12 flex min-h-fit flex-col items-center" style={{ gap: '96px' }}>
                     {/* Vertical blue line */}
-                    <div className="absolute bottom-0 left-[30%] top-0 z-0 flex -translate-x-1/2 items-center sm:left-[22%]">
+                    <div className="absolute bottom-0 left-[32%] top-0 z-0 flex -translate-x-1/2 items-center sm:left-[22%]">
                         <div className="h-full w-2 rounded-full bg-[var(--Blue-Primary,#0F114C)]" />
                     </div>
 
