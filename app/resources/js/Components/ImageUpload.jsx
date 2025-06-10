@@ -19,7 +19,7 @@ export function ImageUpload({ imagePath, onChangeImage, errorMessage }) {
 
     const getImageSrc = () => {
         if (previewUrl) return previewUrl;
-        if (imagePath && imagePath !== `${window.location.origin}/storage/`) return imagePath;
+        if (imagePath && imagePath != `${window.location.origin}/storage/`) return imagePath;
         return `${window.location.origin}/assets/images/default_image_profile.png`;
     };
 
