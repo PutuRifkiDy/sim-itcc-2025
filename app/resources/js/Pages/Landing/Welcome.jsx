@@ -107,7 +107,7 @@ export default function Welcome() {
                         Only Rp. 100.000
                     </p>
                     <Button variant="blue" asChild size="lg" className="mt-5 tracking-[0.03em]" data-aos="fade-up" data-aos-delay="300">
-                        <a href="#">Buy Bundle</a>
+                        <a href="http://bit.ly/MerchITCC2025" target="_blank">Buy Bundle</a>
                     </Button>
                 </div>
             </Modal>

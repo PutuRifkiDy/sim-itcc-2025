@@ -10,7 +10,7 @@ import { useEffect } from "react";
 
 function Merchandise({ ...props }) {
     const merchandise = usePage().props.merchandise;
-    
+
     useEffect(() => {
         AOS.init({
             duration: 800,
@@ -112,7 +112,7 @@ function Merchandise({ ...props }) {
                                 Only Rp. 100.000
                             </p>
                             <Button variant="blue" asChild size="lg" className="mt-5" data-aos="fade-up" data-aos-delay="300">
-                                <a href="#">Buy Bundle</a>
+                                <a href="http://bit.ly/MerchITCC2025" target="_blank">Buy Bundle</a>
                             </Button>
                         </div>
                     </div>
