@@ -7,11 +7,72 @@ import { Link } from "@inertiajs/react";
 import { ArrowRightIcon } from "@heroicons/react/24/solid";
 
 const sponsors = [
-    { name: "Dana", src: "/sponsors/dana.png" },
-    { name: "Tokopedia", src: "/sponsors/tokopedia.png" },
-    { name: "Shopee", src: "/sponsors/shopee.png" },
-    { name: "Lazada", src: "/sponsors/lazada.png" },
-    { name: "CompanyX", src: "/sponsors/companyx.png" },
+    {
+        name: "Aston Kuta",
+        src: "/assets/images/landing/sponsor_aston_kuta.jpeg",
+        sizeMobile: 12,
+        sizeDekstop: 28,
+    },
+    {
+        name: "Tokopedia",
+        src: "/assets/images/landing/sponsor_BFT.jpg",
+        sizeMobile: 12,
+        sizeDekstop: 28,
+    },
+    {
+        name: "Shopee",
+        src: "/assets/images/landing/sponsor_bunda_cookies.png",
+        sizeMobile: 12,
+        sizeDekstop: 32,
+    },
+    {
+        name: "Lazada",
+        src: "/assets/images/landing/sponsor_esge_technic.png",
+        sizeMobile: 12,
+        sizeDekstop: 28,
+    },
+    {
+        name: "CompanyX",
+        src: "/assets/images/landing/sponsor_hirania_glowskin.jpg",
+        sizeMobile: 12,
+        sizeDekstop: 28,
+    },
+    {
+        name: "CompanyX",
+        src: "/assets/images/landing/sponsor_koding_bean.png",
+        sizeMobile: 12,
+        sizeDekstop: 32,
+    },
+    {
+        name: "CompanyX",
+        src: "/assets/images/landing/sponsor_LAC.jpg",
+        sizeMobile: 12,
+        sizeDekstop: 28,
+    },
+    {
+        name: "CompanyX",
+        src: "/assets/images/landing/sponsor_sirup_kurnia.jpg",
+        sizeMobile: 12,
+        sizeDekstop: 28,
+    },
+    {
+        name: "CompanyX",
+        src: "/assets/images/landing/sponsor_timedoor.svg",
+        sizeMobile: 12,
+        sizeDekstop: 28,
+    },
+    {
+        name: "CompanyX",
+        src: "/assets/images/landing/sponsor_toko_kita.jpg",
+        sizeMobile: 12,
+        sizeDekstop: 28,
+    },
+    {
+        name: "CompanyX",
+        src: "/assets/images/landing/sponsor_upadana_dupa.png",
+        sizeMobile: 12,
+        sizeDekstop: 28,
+    },
 ];
 
 const Sponsor = () => {
@@ -83,7 +144,7 @@ const Sponsor = () => {
                         <img
                             src={sponsor.src}
                             alt={sponsor.name}
-                            className="max-h-6 sm:max-h-10 md:max-h-12 object-contain"
+                            className={`max-h-${sponsor.sizeMobile} sm:max-h-12 md:max-h-${sponsor.sizeDekstop} object-contain`}
                         />
                     </div>
                 ))}
