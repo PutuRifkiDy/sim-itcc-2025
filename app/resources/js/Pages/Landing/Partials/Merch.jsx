@@ -113,12 +113,12 @@ export default function Merch() {
                             Level up your style with our official merch! Premium quality, unique designs, and a statement of support — grab yours now and stand out.
                         </p>
                         <div className="flex md:flex-row flex-col md:gap-7 gap-5 justify-center md:justify-start mt-10" data-aos="fade-up" data-aos-delay="100">
-                            <a href="http://bit.ly/MerchITCC2025" target="_blank">
-                                <Button className="bg-[#0F114C] text-white px-6 py-2 rounded-[10px] font-semibold flex items-center group focus:ring-2 focus:ring-[#0F114C]/80 hover:bg-[#0F114C]/80 focus:transition-all focus:duration-400 focus:ease-in-out" size="lg">
+                            <Button variant="none" size="lg" asChild>
+                                <a href="http://bit.ly/MerchITCC2025" target="_blank" className="bg-[#0F114C] text-white px-6 py-2 rounded-[10px] font-semibold flex items-center group focus:ring-2 focus:ring-[#0F114C]/80 hover:bg-[#0F114C]/80 focus:transition-all focus:duration-400 focus:ease-in-out">
                                     Buy Now
                                     <img src="assets/images/landing/arrow.png" className="inline ml-1 w-3 h-3 transform transition-transform duration-300 group-hover:translate-x-1" alt="" />
-                                </Button>
-                            </a>
+                                </a>
+                            </Button>
                             <Button asChild variant="none" size="lg">
                                 <Link className="border border-[#0F114C] px-6 py-2 rounded-[10px] text-[#0F114C] font-semibold dark:text-white focus:ring-2 focus:ring-[#0F114C]/80 dark:hover:bg-[#0F114C]/40 focus:transition-all focus:duration-400 focus:ease-in-out"
                                     href="/merchandise">

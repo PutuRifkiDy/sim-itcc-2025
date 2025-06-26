@@ -36,7 +36,7 @@ export default function Home() {
                 alt="banner"
                 className="absolute z-0 rounded-none w-screen h-[800px] object-cover hidden md:block top-0 opacity-40"
             />
-            <section className="px-4 md:px-8 lg:px-16 pt-36 md:pt-32 pb-16 md:pb-40">
+            <section className="px-4 md:px-8 lg:px-16 pt-28 md:pt-32 pb-16 md:pb-40">
                 <div className="flex flex-row justify-center md:justify-between">
                     {/* side left */}
                     <div className="md:mt-12 mt-0 w-full flex flex-col">
@@ -67,21 +67,21 @@ export default function Home() {
                                     repeat: Infinity,
                                     ease: "easeInOut"
                                 }}
-                                className="md:absolute -left-10 -top-30 -top-10 flex justify-center items-center"
+                                className="md:absolute -left-8 -top-30 -top-10 flex justify-center items-center"
                             >
                                 <div className="w-full h-full md:block" data-aos="fade-up">
                                     <img src="assets/images/landing/icon-maskot-itcc.png" className="md:w-[220px] md:h-auto w-[220px] h-auto transform -rotate-12 " alt="" />
                                 </div>
                             </motion.div>
-                            <h1 className="font-extrabold text-[80px] tracking-[0.05em] leading-[1.2em] text-[#0F114C] [text-shadow:_6px_4px_9px_rgb(0_0_0_/_0.54)] md:absolute flex justify-center items-center top-10 left-36 dark:text-white" data-aos="fade-up" data-aos-delay="100">
+                            <h1 className="font-extrabold text-[80px] tracking-[0.05em] leading-[1.2em] text-[#0F114C] [text-shadow:_6px_4px_9px_rgb(0_0_0_/_0.54)] md:absolute flex justify-center items-center md:top-10 top-80 left-40 dark:text-white" data-aos="fade-up" data-aos-delay="100">
                                 ITCC
                             </h1>
-                            <div className="flex flex-row justify-center items-center bg-gradient-to-l from-indigo-950 to-sky-800 px-4 md:w-16 md:h-40 w-full h-20 m md:absolute left-36 top-32 rounded-[10px] z-40" data-aos="fade-up" data-aos-delay="200">
+                            <div className="flex flex-row justify-center items-center bg-gradient-to-l from-indigo-950 to-sky-800 px-4 md:w-16 md:h-40 w-full h-20 m md:absolute left-40 top-32 rounded-[10px] z-40" data-aos="fade-up" data-aos-delay="200">
                                 <h1 className="md:-rotate-90 rotate-0 font-extrabold text-[48px] tracking-[0.05em] leading-[1.2em] text-white ">
                                     2025
                                 </h1>
                             </div>
-                            <p className="font-semibold text-[18px] leading-[35px] text-[#3A3A3A] md:absolute md:text-start text-center top-32 left-56 flex md:w-[44%] w-full h-[140px] dark:text-white text-balance" data-aos="fade-up" data-aos-delay="300">
+                            <p className="font-semibold text-[18px] leading-[35px] text-[#3A3A3A] md:absolute md:text-start text-center top-32 left-60 flex md:w-[44%] w-full h-[140px] dark:text-white text-balance" data-aos="fade-up" data-aos-delay="300">
                                 Transcending Boundaries: Realizing a Resilent Future With Human-Centric Interlaced Innovations
                             </p>
 

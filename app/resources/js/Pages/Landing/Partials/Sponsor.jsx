@@ -17,7 +17,7 @@ const sponsors = [
         name: "Tokopedia",
         src: "/assets/images/landing/sponsor_BFT.jpg",
         sizeMobile: 24,
-        sizeDekstop: 28,
+        sizeDekstop: 32,
     },
     {
         name: "Shopee",
@@ -29,13 +29,13 @@ const sponsors = [
         name: "Lazada",
         src: "/assets/images/landing/sponsor_esge_technic.png",
         sizeMobile: 24,
-        sizeDekstop: 28,
+        sizeDekstop: 32,
     },
     {
         name: "CompanyX",
         src: "/assets/images/landing/sponsor_hirania_glowskin.jpg",
         sizeMobile: 24,
-        sizeDekstop: 28,
+        sizeDekstop: 32,
     },
     {
         name: "CompanyX",
@@ -47,31 +47,31 @@ const sponsors = [
         name: "CompanyX",
         src: "/assets/images/landing/sponsor_LAC.jpg",
         sizeMobile: 24,
-        sizeDekstop: 28,
+        sizeDekstop: 32,
     },
     {
         name: "CompanyX",
         src: "/assets/images/landing/sponsor_sirup_kurnia.jpg",
         sizeMobile: 24,
-        sizeDekstop: 28,
+        sizeDekstop: 32,
     },
     {
         name: "CompanyX",
         src: "/assets/images/landing/sponsor_timedoor.svg",
         sizeMobile: 24,
-        sizeDekstop: 28,
+        sizeDekstop: 32,
     },
     {
         name: "CompanyX",
         src: "/assets/images/landing/sponsor_toko_kita.jpg",
         sizeMobile: 24,
-        sizeDekstop: 28,
+        sizeDekstop: 32,
     },
     {
         name: "CompanyX",
         src: "/assets/images/landing/sponsor_upadana_dupa.png",
         sizeMobile: 24,
-        sizeDekstop: 28,
+        sizeDekstop: 32,
     },
 ];
 
@@ -144,7 +144,7 @@ const Sponsor = () => {
                         <img
                             src={sponsor.src}
                             alt={sponsor.name}
-                            className={`max-h-${sponsor.sizeMobile} sm:max-h-12 md:max-h-${sponsor.sizeDekstop} object-contain`}
+                            className={`max-h-${sponsor.sizeMobile} sm:max-h-32 md:max-h-${sponsor.sizeDekstop} object-contain`}
                         />
                     </div>
                 ))}
