@@ -112,7 +112,7 @@ export default function Welcome() {
                 </div>
             </Modal>
             <Home />
-            <section className="w-full min-h-[500px] relative bg-gradient-to-r from-[#0F114C] dark:from-[#100961] to-[#00658F] overflow-hidden md:mt-72 mt-24">
+            <section className="w-full min-h-[500px] relative bg-gradient-to-r from-[#0F114C] dark:from-[#100961] to-[#00658F] overflow-hidden md:mt-96 mt-24">
                 <img className="md:w-80 w-40 top-0 left-0 absolute" src="assets/images/about/leftEdge.png" />
                 <div className="absolute top-0 right-0 flex flex-col items-end w-full">
                     <div className="md:w-96 w-20 h-[2px] bg-white mt-2"></div>

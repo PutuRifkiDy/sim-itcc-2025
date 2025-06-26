@@ -216,9 +216,9 @@ export default function Register() {
                                 <LineOrnamenIcon />
                             </div>
                             <img
-                                src="assets/images/landing/icon-maskot-itcc.png"
+                                src="assets/images/landing/icon-maskot-itcc-with-shield.png"
                                 alt=""
-                                className="absolute bottom-24 right-24 h-auto w-[280px]"
+                                className="absolute bottom-12 left-32 h-auto md:w-[500px]"
                             />
                         </div>
                     </div>

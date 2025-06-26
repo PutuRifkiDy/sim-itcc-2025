@@ -47,9 +47,9 @@ export default function Sidebar({ navigations, children, header, description }) 
                         <img src={`${window.location.origin}/assets/images/landing/ITCC.png`} alt="" className="w-[80px] h-auto dark:block hidden" />
                     </Link>
                     <img
-                        src={`${window.location.origin}/assets/images/landing/icon-maskot-itcc.png`}
+                        src={`${window.location.origin}/assets/images/landing/icon-maskot-itcc-with-shield.png`}
                         alt="Profile"
-                        className={`${isSidebarOpen ? 'h-[111px] w-[90px]' : 'h-[50px] w-[50px]'}`}
+                        className={`${isSidebarOpen ? 'h-auto w-[160px]' : 'h-[50px] w-[50px]'}`}
                     />
                     <nav className={`mt-1 w-full ${isSidebarOpen ? 'px-5' : ' '} text-center`}>
                         <ul className="font-bold">
@@ -192,7 +192,7 @@ export default function Sidebar({ navigations, children, header, description }) 
                             <DropdownMenu>
                                 <DropdownMenuTrigger asChild>
                                     <p className='cursor-pointer flex flex-row gap-4 justify-center items-center text-gray-800 dark:text-gray-200'>
-                                        <img src={`${window.location.origin}/assets/images/landing/icon-maskot-itcc.png`} className="md:w-[40px] w-[50px] h-auto md:h-auto" alt="" />
+                                        <img src={`${window.location.origin}/assets/images/landing/icon_people_sidebar.png`} className="md:w-[40px] w-[50px] h-auto md:h-auto" alt="" />
                                         <div className='flex flex-col items-start'>
                                             {auth.name}
                                             <div className='flex flex-row gap-1 items-center'>

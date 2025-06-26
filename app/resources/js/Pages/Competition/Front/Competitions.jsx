@@ -349,7 +349,7 @@ function Competitions({ ...props }) {
                                     <DialogContent className="max-w-3xl">
                                         <DialogTitle>How to Join</DialogTitle>
                                         <iframe
-                                            src="https://www.youtube.com/embed/xvFZjo5PgG0?si=Uq1_-POS0iBEixB2"
+                                            src={competitions.competition_content[0].how_to_join_link}
                                             title="How to Join Video"
                                             frameBorder="0"
                                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

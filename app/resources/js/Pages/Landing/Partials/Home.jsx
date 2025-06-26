@@ -42,7 +42,7 @@ export default function Home() {
                     <div className="md:mt-12 mt-0 w-full flex flex-col">
 
                         <div className="relative flex md:flex-row flex-col items-center md:gap-0 gap-2 md:items-start">
-                            <div className="absolute left-0 md:-top-20 -top-10" data-aos="fade-up" data-aos-delay="50">
+                            <div className="absolute left-24 md:-top-20 -top-10" data-aos="fade-up" data-aos-delay="50">
                                 <motion.div
                                     animate={{
                                         rotate: [0, 360],
@@ -67,13 +67,13 @@ export default function Home() {
                                     repeat: Infinity,
                                     ease: "easeInOut"
                                 }}
+                                className="md:absolute -left-10 -top-30 -top-10 flex justify-center items-center"
                             >
-
-                                <div className="flex justify-center items-center md:block" data-aos="fade-up">
-                                    <img src="assets/images/landing/icon-maskot-itcc.png" className="md:w-[140px] md:h-auto w-[140px] h-auto transform -rotate-12" alt="" />
+                                <div className="w-full h-full md:block" data-aos="fade-up">
+                                    <img src="assets/images/landing/icon-maskot-itcc.png" className="md:w-[220px] md:h-auto w-[220px] h-auto transform -rotate-12 " alt="" />
                                 </div>
                             </motion.div>
-                            <h1 className="font-extrabold text-[80px] tracking-[0.05em] leading-[1.2em] text-[#0F114C] [text-shadow:_6px_4px_9px_rgb(0_0_0_/_0.54)] md:absolute flex justify-center items-center top-8 left-36 dark:text-white" data-aos="fade-up" data-aos-delay="100">
+                            <h1 className="font-extrabold text-[80px] tracking-[0.05em] leading-[1.2em] text-[#0F114C] [text-shadow:_6px_4px_9px_rgb(0_0_0_/_0.54)] md:absolute flex justify-center items-center top-10 left-36 dark:text-white" data-aos="fade-up" data-aos-delay="100">
                                 ITCC
                             </h1>
                             <div className="flex flex-row justify-center items-center bg-gradient-to-l from-indigo-950 to-sky-800 px-4 md:w-16 md:h-40 w-full h-20 m md:absolute left-36 top-32 rounded-[10px] z-40" data-aos="fade-up" data-aos-delay="200">
@@ -90,7 +90,7 @@ export default function Home() {
                                 <SideLeftArrowLeftIcon />
                             </div>
 
-                            <div className="md:absolute -bottom-56 left-60 flex justify-center items-center md:mt-0 pt-12" data-aos="fade-up" data-aos-delay="500">
+                            <div className="md:absolute -bottom-96 left-60 flex justify-center items-center" data-aos="fade-up" data-aos-delay="500">
                                 <a href="#competition" className="flex flex-row gap-2 items-center text-gray-600 dark:text-white">
                                     Scroll down to Explore more
                                     <ArrowDownIcon className="w-6 h-6 animate-bounce" />
@@ -100,7 +100,7 @@ export default function Home() {
                     </div>
 
                     {/* side right */}
-                    <div className="w-full md:block hidden">
+                    <div className="w-full md:block hidden mb-10">
                         <div className="relative">
                             <div className="flex flex-row justify-end text-[#0F114C]" data-aos="fade-up" data-aos-delay="100">
                                 <SideRightCrossIcon />

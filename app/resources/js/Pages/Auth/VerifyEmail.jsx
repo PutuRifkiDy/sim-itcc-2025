@@ -34,7 +34,11 @@ export default function VerifyEmail({ status }) {
                             <div className='absolute bottom-10 right-0'>
                                 <LineOrnamenIcon />
                             </div>
-                            <img src="assets/images/landing/icon-maskot-itcc.png" alt="" className="absolute right-24 bottom-24 h-auto md:w-[280px]" />
+                            <img
+                                src="assets/images/landing/icon-maskot-itcc-with-shield.png"
+                                alt=""
+                                className="absolute bottom-12 left-24 h-auto md:w-[420px]"
+                            />
                         </div>
 
                         <div className="w-full">
