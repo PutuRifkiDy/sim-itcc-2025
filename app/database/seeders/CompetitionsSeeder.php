@@ -127,7 +127,7 @@ class CompetitionsSeeder extends Seeder
                 'slug'                    => 'kids-game-programming-beginner',
                 'description'             => 'The Kids Game Programming Competition is one of the national competition options in the 2025 ITCC activities organized by the Information Technology Student Association of the Faculty of Engineering, Udayana University. This competition aims to provide opportunities for children to develop their creativity in making interactive games. This competition consists of Beginner (Elementary School) and Intermediate (Junior High School) categories. They will learn about visual programming and use platforms such as Scratch 3.0 for Beginner and Intermediate, and Roblox Studio for Intermediate to design environments, characters, and challenges in their games.',
                 'is_team'                 => false,
-                'is_need_submission'      => false,
+                'is_need_submission'      => true,
                 'is_open_regis'           => true,
                 'icon_path'               => "assets/images/competition/kgpLogo.png",
                 'end_submission'          => '2025-06-19 15:59:59.000',
@@ -140,7 +140,7 @@ class CompetitionsSeeder extends Seeder
                 'description'             => 'The Kids Game Programming Competition is one of the national competition options in the 2025 ITCC activities organized by the Information Technology Student Association of the Faculty of Engineering, Udayana University. This competition aims to provide opportunities for children to develop their creativity in making interactive games. This competition consists of Beginner (Elementary School) and Intermediate (Elementary School/Junior High School) categories. They will learn about visual programming and use platforms such as Scratch 3.0 for Beginner and Intermediate, and Roblox Studio for Intermediate to design environments, characters, and challenges in their games.
 ',
                 'is_team'                 => false,
-                'is_need_submission'      => false,
+                'is_need_submission'      => true,
                 'is_open_regis'           => true,
                 'icon_path'               => "assets/images/competition/kgpLogo.png",
                 'end_submission'          => '2025-06-19 15:59:59.000',
