@@ -70,7 +70,7 @@ function Merchandise({ ...props }) {
                         />
                     </div>
 
-                    <div className="w-24 h-24 md:mt-14 mt-12 pointer-events-none relative">
+                    <div className="w-24 h-12 md:mt-5 mt-12 pointer-events-none relative">
                         <motion.div
                             animate={{
                                 rotate: [0, 360],
@@ -97,7 +97,7 @@ function Merchandise({ ...props }) {
                     </div>
 
                     <div className="flex md:flex-row flex-col justify-around">
-                        <img src="assets/images/merch_bundle.png" alt="" className="md:w-[446px] md:h-[468px] w-full h-auto object-contain " data-aos="fade-up" data-aos-delay="100" />
+                        <img src="/assets/images/merchandise/merch_image_bundle.png" alt="" className="md:w-[600px] w-full h-auto object-contain " data-aos="fade-up" data-aos-delay="100" />
                         <div className="flex flex-col items-center justify-center">
                             <p className="text-[#0F114C] dark:text-[#0886BB] leading-[1.2em] text-[50px] tracking-[0.016em] uppercase font-bold text-center" data-aos="fade-up" data-aos-delay="100">
                                 MERCHANDISE bundle
@@ -109,7 +109,7 @@ function Merchandise({ ...props }) {
                                 Rp. 199.000
                             </p>
                             <p className="text-[29px] font-medium text-center text-[#495190]" data-aos="fade-up" data-aos-delay="300">
-                                Only Rp. 100.000
+                                Only Rp. 120.000
                             </p>
                             <Button variant="blue" asChild size="lg" className="mt-5" data-aos="fade-up" data-aos-delay="300">
                                 <a href="http://bit.ly/MerchITCC2025" target="_blank">Buy Bundle</a>
@@ -186,10 +186,10 @@ function Merchandise({ ...props }) {
                                             </div>
 
                                             {/* merchandise path gambar */}
-                                            <div className="absolute z-10 -top-1 left-1/2 -translate-x-1/2 md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2">
+                                            <div className="absolute z-10 top-20 left-1/2 -translate-x-1/2 md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2">
                                                 <div className="flex justify-center items-center rounded-full transition-all duration-500">
                                                     <img
-                                                        src="assets/images/merchandise/merchItcc.png"
+                                                        src={`${merch.image_path}`}
                                                         alt="text"
                                                         className="transition-all duration-500 md:group-hover:scale-140"
                                                     />
@@ -219,7 +219,7 @@ function Merchandise({ ...props }) {
                                                         href={route('merchandise.front.detail', merch.id)}
                                                         className=""
                                                     >
-                                                        Register Now
+                                                        See More
                                                     </Link>
                                                 </Button>
                                             </div>

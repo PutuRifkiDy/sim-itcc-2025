@@ -95,7 +95,7 @@ export default function NavBar({ auth, competitions }) {
                         href={route('event.front.show', ['seminar-nasional-teknologi-informasi-of'])}
                         className={`relative transition-all duration-300 overflow-hidden hover:text-[#0F114C] dark:hover:text-[#55b1d7] group ${route().current('event.front.show') ? 'text-[#0F114C] dark:text-[#55b1d7]' : ''}`}
                     >
-                        Semnas
+                        Seminar
                         <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-[#0F114C]/90 to-[#0F114C]
                             transform origin-left transition-all duration-300 ease-out
                             ${route().current('event.front.show') ? 'translate-x-0' : '-translate-x-full'}
@@ -231,7 +231,7 @@ export default function NavBar({ auth, competitions }) {
                                 href={route('event.front.show', ['seminar-nasional-teknologi-informasi-of'])}
                                 className="truncate"
                             >
-                                Semnas
+                                Seminar
                             </Link>
 
                             <Link

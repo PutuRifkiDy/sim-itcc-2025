@@ -44,7 +44,7 @@ export default function Welcome() {
 
     return (
         <>
-            <Modal show={isPopupOpen} onClose={closeModal} className="md:px-12 px-2 md:py-12 py-5 dark:border-white dark:border-2 border-2 relative flex md:flex-row flex-col justify-evenly dark:bg-gradient-to-b dark:from-[#040529] dark:to-[#0F114C]/90" maxWidth="4xl">
+            <Modal show={isPopupOpen} onClose={closeModal} className="md:px-12 px-2 md:py-8 py-5 dark:border-white dark:border-2 border-2 relative flex md:flex-row flex-col justify-evenly dark:bg-gradient-to-b dark:from-[#040529] dark:to-[#0F114C]/90" maxWidth="4xl">
                 <img
                     src="assets/images/bg_ornament.png"
                     alt="banner"
@@ -91,7 +91,7 @@ export default function Welcome() {
                     <WhiteBlueDotMerchIcon />
                 </div>
                 <div className="flex justify-center items-center">
-                    <img src="assets/images/merch_bundle.png" className="w-[268.88px] h-[301px] object-contain" alt="" data-aos="fade-up" data-aos-delay="100" />
+                    <img src="assets/images/merchandise/merch_image_bundle.png" className="w-[300px] h-auto object-contain" alt="" data-aos="fade-up" data-aos-delay="100" />
                 </div>
                 <div className="flex flex-col items-center">
                     <p className="dark:text-white text-[#0F114C] leading-[1.2em] text-[32px] tracking-[0.016em] uppercase font-bold md:text-start text-center" data-aos="fade-up" data-aos-delay="100">

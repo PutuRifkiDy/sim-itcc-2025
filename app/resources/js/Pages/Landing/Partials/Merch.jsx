@@ -145,8 +145,8 @@ export default function Merch() {
                                 {merchandise.map((merch, index) => (
                                     <div key={index} className={`keen-slider__slide number-slide${index}`}>
                                         <img
-                                            src="assets/images/landing/ITCCmerch.png" alt="ITCC 2025 Merch"
-                                            className="relative md:w-[556px] w-full md:ml-24 md:mr-16 mr-0 ml-6 z-20"
+                                            src={`${merch.image_path}`} alt="ITCC 2025 Merch"
+                                            className="relative md:w-[400px] w-full md:ml-48 md:mr-16 mr-0 ml-6 z-20"
                                         />
                                     </div>
                                 ))}
