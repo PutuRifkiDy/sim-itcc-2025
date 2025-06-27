@@ -112,6 +112,15 @@ class DashboardCompetitionForKesekreController extends Controller
     {
         $registration = CompetitionRegistrations::findOrFail($id);
 
+
+        if(in_array($registration->payment_status->value, [
+            PaymentStatus::REQUESTED->value,
+            PaymentStatus::REJECTED->value
+        ])) {
+            flashMessage('Payment proof has not been uploaded.', 'error');
+            return back();
+        }
+
         if ($registration->team_id) {
             CompetitionRegistrations::where('team_id', $registration->team_id)
                 ->update([

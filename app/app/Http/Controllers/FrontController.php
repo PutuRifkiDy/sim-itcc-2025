@@ -170,7 +170,6 @@ class FrontController extends Controller
 
     public function show_merchandise_detail(Merchandise $merchandise): Response
     {
-        abort(503);
         return inertia(component: 'MerchandiseDetail', props: [
             'merchandise_detail' => $merchandise,
         ]);
