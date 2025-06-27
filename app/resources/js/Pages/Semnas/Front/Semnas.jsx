@@ -79,7 +79,6 @@ function Semnas({ ...props }) {
         });
     }, []);
 
-
     return (
         <>
             {/* start home */}
@@ -177,7 +176,7 @@ function Semnas({ ...props }) {
                                                 </div>
                                             </div>
                                         ) : (
-                                            <p className="text-[24px] font-medium">Period Has Ended</p>
+                                            <p className="text-[24px] font-medium">Coming Soon</p>
                                         )}
                                     </span>
                                 </div>

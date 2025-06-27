@@ -297,20 +297,22 @@ function Competitions({ ...props }) {
                                 data-aos="fade-up"
                                 data-aos-delay="300"
                             >
-                                {competitions.is_team == false && ["kids-game-programming-beginner", "kids-game-programming-intermediate"].includes(competitions.slug) &&
-                                    <p className='font-bold text-[23px] tracking-[0.03em] text-[#0F114C]'>
-                                        Register Now
-                                    </p>
-                                }
                                 {competitions.is_team == false && ["kids-game-programming-beginner", "kids-game-programming-intermediate"].includes(competitions.slug) ? (
-                                    <div className='flex md:flex-row flex-col gap-2'>
-                                        <Button type="submit" variant="blue" size="lg" className="rounded-lg text-[18px] py-6 px-5 md:min-w-fit w-full hover:scale-[101%] transition-all duration-200 ease-in-out bg-[#495190]">
-                                            <a href="http://" target="_blank" rel="noopener noreferrer">On Google Form</a>
-                                        </Button>
+                                    <div className='flex flex-col gap-2 w-full md:w-1/2'>
+                                        <p className='font-bold text-[23px] tracking-[0.03em] text-[#0F114C]'>
+                                            Register Now
+                                        </p>
+                                        <div className='flex md:flex-row flex-col gap-2'>
+                                            <Button type="submit" variant="blue" size="lg" className="rounded-lg text-[18px] py-6 px-5 md:min-w-fit w-full hover:scale-[101%] transition-all duration-200 ease-in-out bg-[#495190]" asChild>
+                                                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfcQgsj-vF_c6MCyh_vjk-hXqz2TRly4IzgY3CE4fzbsy98RQ/viewform?usp=header" target="_blank" rel="noopener noreferrer">
+                                                    On Google Form
+                                                </a>
+                                            </Button>
 
-                                        <Button type="submit" variant="blue" className="rounded-lg text-[18px] py-6 px-5 md:min-w-fit w-full hover:scale-[101%] transition-all duration-200 ease-in-out" onClick={onHandleSubmit}>
-                                            On Website
-                                        </Button>
+                                            <Button type="submit" variant="blue" className="rounded-lg text-[18px] py-6 px-5 md:min-w-fit w-full hover:scale-[101%] transition-all duration-200 ease-in-out" onClick={onHandleSubmit}>
+                                                On Website
+                                            </Button>
+                                        </div>
                                     </div>
                                 ) : competitions.is_team == false ? (
                                     <Button type="submit" variant="blue" size="lg" className="rounded-lg text-[18px] py-6 px-5 md:w-1/3 w-full hover:scale-[101%] transition-all duration-200 ease-in-out" onClick={onHandleSubmit}>
@@ -324,9 +326,35 @@ function Competitions({ ...props }) {
                                     </Button>
                                 )}
 
-                                <div className={`md:gap-10 flex flex-row-reverse ${competitions.is_team == false && ["kids-game-programming-beginner", "kids-game-programming-intermediate"].includes(competitions.slug) ? "md:mt-7" : ""}`}>
+                                <div className={`md:gap-10  w-full gap-5 flex md:flex-row flex-col-reverse ${competitions.is_team == false && ["kids-game-programming-beginner", "kids-game-programming-intermediate"].includes(competitions.slug) ? "md:mt-7" : ""}`}>
+                                    <Button variant="none" size="lg" className="md:w-1/2 w-full rounded-lg py-6 px-5 text-[18px] border-2 border-[#0F114C] bg-white dark:bg-[#040529]" asChild data-aos="fade-up" data-aos-delay="400">
+                                        <a
+                                            href={competitions.competition_content[0].guidebook_link}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="flex items-center gap-2 text-[#0F114C] dark:text-white"
+                                        >
+                                            Guidebook
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                width="20"
+                                                height="20"
+                                                viewBox="0 0 20 20"
+                                                fill="none"
+                                                className="text-[#0F114C] dark:text-white"
+                                            >
+                                                <path
+                                                    d="M8.33325 3.33334H4.99992C4.55789 3.33334 4.13397 3.50893 3.82141 3.82149C3.50885 4.13405 3.33325 4.55798 3.33325 5V15C3.33325 15.442 3.50885 15.866 3.82141 16.1785C4.13397 16.4911 4.55789 16.6667 4.99992 16.6667H14.9999C15.4419 16.6667 15.8659 16.4911 16.1784 16.1785C16.491 15.866 16.6666 15.442 16.6666 15V11.6667M9.99992 10L16.6666 3.33334M16.6666 3.33334V7.5M16.6666 3.33334H12.4999"
+                                                    stroke="currentColor"
+                                                    strokeWidth="2"
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                />
+                                            </svg>
+                                        </a>
+                                    </Button>
                                     <Dialog>
-                                        <DialogTrigger className="flex flex-row items-center gap-2" data-aos="fade-up" data-aos-delay="500">
+                                        <DialogTrigger className="flex flex-row items-center gap-2 md:min-w-fit w-0" data-aos="fade-up" data-aos-delay="500">
                                             <button
                                                 className="flex h-[60px] w-[60px] shrink-0 cursor-pointer items-center justify-center rounded-[500px] border-none bg-[#00658F] shadow-[0_10px_10px_#C8DBFF] dark:shadow-none"
                                                 onClick={openModal}
@@ -357,32 +385,6 @@ function Competitions({ ...props }) {
                                             ></iframe>
                                         </DialogContent>
                                     </Dialog>
-                                    <Button variant="none" size="lg" className="md:min-w-fit w-full rounded-lg py-6 px-5 text-[18px] border-2 border-[#0F114C] bg-white dark:bg-[#040529]" asChild data-aos="fade-up" data-aos-delay="400">
-                                        <a
-                                            href={competitions.competition_content[0].guidebook_link}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="flex items-center gap-2 text-[#0F114C] dark:text-white"
-                                        >
-                                            Guidebook
-                                            <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="20"
-                                                height="20"
-                                                viewBox="0 0 20 20"
-                                                fill="none"
-                                                className="text-[#0F114C] dark:text-white"
-                                            >
-                                                <path
-                                                    d="M8.33325 3.33334H4.99992C4.55789 3.33334 4.13397 3.50893 3.82141 3.82149C3.50885 4.13405 3.33325 4.55798 3.33325 5V15C3.33325 15.442 3.50885 15.866 3.82141 16.1785C4.13397 16.4911 4.55789 16.6667 4.99992 16.6667H14.9999C15.4419 16.6667 15.8659 16.4911 16.1784 16.1785C16.491 15.866 16.6666 15.442 16.6666 15V11.6667M9.99992 10L16.6666 3.33334M16.6666 3.33334V7.5M16.6666 3.33334H12.4999"
-                                                    stroke="currentColor"
-                                                    strokeWidth="2"
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                />
-                                            </svg>
-                                        </a>
-                                    </Button>
                                 </div>
                             </div>
 
