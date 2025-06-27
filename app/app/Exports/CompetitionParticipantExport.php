@@ -20,7 +20,13 @@ class CompetitionParticipantExport implements FromCollection, WithHeadings, With
 
     public function collection()
     {
+        $user = auth()->user();
+        if (! $user) {
+            return to_route('login');
+        }
+        $adminCompetitionIds = $user->managed_competitions()->pluck('competitions.id');
         return CompetitionRegistrations::with('user', 'competitions.competition_content', 'teams', 'competitions', 'teams.team_members')
+            ->whereIn('competition_id', $adminCompetitionIds)
             ->when($this->filters['search'] ?? null, function ($query, $value) {
                 $query->where(function ($q) use ($value) {
                     $q->whereHas('user', function ($q2) use ($value) {

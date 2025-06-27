@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Exports;
 
 use App\Models\Submissions;
@@ -10,8 +9,8 @@ use Maatwebsite\Excel\Concerns\WithMapping;
 class SubmissionExport implements FromCollection, WithHeadings, WithMapping
 {
     /**
-    * @return \Illuminate\Support\Collection
-    */
+     * @return \Illuminate\Support\Collection
+     */
     protected $filters;
 
     public function __construct($filters = [])
@@ -21,27 +20,36 @@ class SubmissionExport implements FromCollection, WithHeadings, WithMapping
 
     public function collection()
     {
+        $user = auth()->user();
+        if (! $user) {
+            return to_route('login');
+        }
+        $adminCompetitionIds = $user->managed_competitions()->pluck('competitions.id');
         return Submissions::with('competition_registrations.user', 'competition_registrations.competitions', 'competition_registrations', 'competition_registrations.teams', 'competition_registrations.teams.team_members')
-        ->when($this->filters['search'] ?? null, function ($query, $value) {
-            $query->where(function ($q) use ($value) {
-                $q->whereHas('competition_registrations.user', function ($q2) use ($value) {
-                    $q2->where('name', 'REGEXP', $value);
-                });
-                $q->orWhereHas('competition_registrations.competitions.competition_content', function ($q3) use ($value) {
-                    $q3->where('location', 'REGEXP', $value);
-                });
-                $q->orWhereHas('competition_registrations.competitions', function($q4) use ($value) {
-                    $q4->where('name', 'REGEXP', $value);
-                });
-                $q->orWhereHas('competition_registrations', function($q5) use ($value) {
-                    $q5->where('code_registration', 'REGEXP', $value);
-                });
+            // ->whereIn('competition_registrations.competitions.id', $adminCompetitionIds)
+            ->whereHas('competition_registrations.competitions', function ($query) use ($adminCompetitionIds) {
+                $query->whereIn('id', $adminCompetitionIds);
+            })
+            ->when($this->filters['search'] ?? null, function ($query, $value) {
+                $query->where(function ($q) use ($value) {
+                    $q->whereHas('competition_registrations.user', function ($q2) use ($value) {
+                        $q2->where('name', 'REGEXP', $value);
+                    });
+                    $q->orWhereHas('competition_registrations.competitions.competition_content', function ($q3) use ($value) {
+                        $q3->where('location', 'REGEXP', $value);
+                    });
+                    $q->orWhereHas('competition_registrations.competitions', function ($q4) use ($value) {
+                        $q4->where('name', 'REGEXP', $value);
+                    });
+                    $q->orWhereHas('competition_registrations', function ($q5) use ($value) {
+                        $q5->where('code_registration', 'REGEXP', $value);
+                    });
 
-                $q->orWhere('submission_link', 'REGEXP', $value)
-                    ->orWhere('submission_status', 'REGEXP', $value);
-            });
-        })
-        ->get();
+                    $q->orWhere('submission_link', 'REGEXP', $value)
+                        ->orWhere('submission_status', 'REGEXP', $value);
+                });
+            })
+            ->get();
     }
 
     public function headings(): array
