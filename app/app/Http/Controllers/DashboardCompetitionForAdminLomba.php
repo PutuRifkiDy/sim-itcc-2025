@@ -157,6 +157,15 @@ class DashboardCompetitionForAdminLomba extends Controller
 
     public function verif_submission($id): RedirectResponse
     {
+        $submission = Submissions::findOrFail($id);
+        if (in_array($submission->submission_status->value, [
+            SubmissionStatus::REQUESTED->value,
+            SubmissionStatus::REJECTED->value,
+        ])) {
+            flashMessage('Submission link has not been uploaded.', 'error');
+            return back();
+        }
+
         Submissions::find($id)->update([
             'submission_status' => SubmissionStatus::VERIFIED->value,
         ]);
