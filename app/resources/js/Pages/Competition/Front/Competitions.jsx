@@ -22,6 +22,8 @@ import 'aos/dist/aos.css';
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger, DropdownMenuItem } from '@/Components/ui/dropdown-menu';
+import { formatInTimeZone } from 'date-fns-tz';
+import { id } from 'date-fns/locale';
 
 function Competitions({ ...props }) {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -88,10 +90,7 @@ function Competitions({ ...props }) {
     };
 
     const formatDateInTimeLine = (tanggal) => {
-        return new Intl.DateTimeFormat('id', {
-            day: '2-digit',
-            month: 'long',
-        }).format(new Date(tanggal));
+        return formatInTimeZone(new Date(tanggal + 'Z'), 'Asia/Makassar', 'd MMMM', { locale: id });
     };
 
     const formatMoney = (nominal) => {

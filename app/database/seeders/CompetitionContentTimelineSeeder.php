@@ -17,7 +17,7 @@ class CompetitionContentTimelineSeeder extends Seeder
                 'title'                  => 'Coming Soon',
                 'end_date'               => '2025-06-30 15:59:59',
                 'date_range'             => 'Comming Soon',
-                'start_date'             => '2025-06-26 16:00:00',
+                'start_date'             => '2025-06-26 16:00:01',
                 'description'            => '',
             ],
             [
@@ -25,7 +25,7 @@ class CompetitionContentTimelineSeeder extends Seeder
                 'title'                  => 'Pendaftaran Batch 1 dan Pengumpulan BMC & Proposal',
                 'end_date'               => '2025-07-20 15:59:59',
                 'date_range'             => '1 - 20 Juli 2025',
-                'start_date'             => '2025-06-30 16:00:00',
+                'start_date'             => '2025-06-30 16:00:01',
                 'description'            => '',
             ],
             [
@@ -33,7 +33,7 @@ class CompetitionContentTimelineSeeder extends Seeder
                 'title'                  => 'Pendaftaran Batch 2 dan Pengumpulan BMC & Proposal',
                 'end_date'               => '2025-08-20 15:59:59',
                 'date_range'             => '21 Juli - 20 Agustus 2025',
-                'start_date'             => '2025-07-20 16:00:00',
+                'start_date'             => '2025-07-20 16:00:01',
                 'description'            => '',
             ],
             [
@@ -41,7 +41,7 @@ class CompetitionContentTimelineSeeder extends Seeder
                 'title'                  => 'Perpanjangan Pendaftaran dan Pengumpulan BMC & Proposal',
                 'end_date'               => '2025-08-31 15:59:59',
                 'date_range'             => '21 - 31 Agustus 2025',
-                'start_date'             => '2025-08-20 16:00:00',
+                'start_date'             => '2025-08-20 16:00:01',
                 'description'            => '',
             ],
             [
@@ -49,7 +49,7 @@ class CompetitionContentTimelineSeeder extends Seeder
                 'title'                  => 'Pengumuman Top 10 Finalis',
                 'end_date'               => '2025-10-02 15:59:59',
                 'date_range'             => '2 Oktober 2025',
-                'start_date'             => '2025-10-01 16:00:00',
+                'start_date'             => '2025-10-01 16:00:01',
                 'description'            => '',
             ],
             [
@@ -57,7 +57,7 @@ class CompetitionContentTimelineSeeder extends Seeder
                 'title'                  => 'Pengumpulan Video Iklan Singkat',
                 'end_date'               => '2025-10-18 15:59:59',
                 'date_range'             => '5 Oktober - 18 Oktober 2025',
-                'start_date'             => '2025-10-04 16:00:00',
+                'start_date'             => '2025-10-04 16:00:01',
                 'description'            => '',
             ],
             [
@@ -65,7 +65,7 @@ class CompetitionContentTimelineSeeder extends Seeder
                 'title'                  => 'Technical Meeting',
                 'end_date'               => '2025-10-19 15:59:59',
                 'date_range'             => '19 Oktober 2025',
-                'start_date'             => '2025-10-18 16:00:00',
+                'start_date'             => '2025-10-18 16:00:01',
                 'description'            => '',
             ],
             [
@@ -73,7 +73,7 @@ class CompetitionContentTimelineSeeder extends Seeder
                 'title'                  => 'Expo Video Iklan Singkat',
                 'end_date'               => '2025-10-29 15:59:59',
                 'date_range'             => '22 Oktober - 29 Oktober 2025',
-                'start_date'             => '2025-10-21 16:00:00',
+                'start_date'             => '2025-10-21 16:00:01',
                 'description'            => '',
             ],
             [
@@ -81,7 +81,7 @@ class CompetitionContentTimelineSeeder extends Seeder
                 'title'                  => 'Babak Final dan Pengumuman Juara',
                 'end_date'               => '2025-10-01 15:59:59',
                 'date_range'             => '1 November 2025',
-                'start_date'             => '2025-10-31 16:00:00',
+                'start_date'             => '2025-10-31 16:00:01',
                 'description'            => '',
             ],
             [
@@ -97,7 +97,7 @@ class CompetitionContentTimelineSeeder extends Seeder
                 'title'                  => 'Coming Soon',
                 'end_date'               => '2025-06-30 15:59:59',
                 'date_range'             => 'Comming Soon',
-                'start_date'             => '2025-06-26 16:00:00',
+                'start_date'             => '2025-06-26 16:00:01',
                 'description'            => '',
             ],
             [
@@ -105,7 +105,7 @@ class CompetitionContentTimelineSeeder extends Seeder
                 'title'                  => 'Pendaftaran Batch 1',
                 'end_date'               => '2025-07-20 15:59:59',
                 'date_range'             => '1 Juli – 20 Juli 2025',
-                'start_date'             => '2025-06-30 16:00:00',
+                'start_date'             => '2025-06-30 16:00:01',
                 'description'            => '',
             ],
             [
@@ -113,7 +113,7 @@ class CompetitionContentTimelineSeeder extends Seeder
                 'title'                  => 'Pendaftaran Batch 2',
                 'end_date'               => '2025-08-20 15:59:59',
                 'date_range'             => '22 Juli – 20 Agustus 2025',
-                'start_date'             => '2025-07-21 16:00:00',
+                'start_date'             => '2025-07-21 16:00:01',
                 'description'            => '',
             ],
             [
@@ -121,7 +121,7 @@ class CompetitionContentTimelineSeeder extends Seeder
                 'title'                  => 'Perpanjangan Pendaftaran',
                 'end_date'               => '2025-08-31 15:59:59',
                 'date_range'             => '21 Agustus – 31 Agustus 2025',
-                'start_date'             => '2025-08-20 16:00:00',
+                'start_date'             => '2025-08-20 16:00:01',
                 'description'            => '',
             ],
             [
@@ -129,7 +129,7 @@ class CompetitionContentTimelineSeeder extends Seeder
                 'title'                  => 'Pengumuman Top 10 Finalis',
                 'end_date'               => '2025-10-02 15:59:59',
                 'date_range'             => '2 Oktober 2025',
-                'start_date'             => '2025-10-01 16:00:00',
+                'start_date'             => '2025-10-01 16:00:01',
                 'description'            => '',
             ],
             [
@@ -137,7 +137,7 @@ class CompetitionContentTimelineSeeder extends Seeder
                 'title'                  => 'Technical Meeting',
                 'end_date'               => '2025-10-19 15:59:59',
                 'date_range'             => '19 Oktober 2025',
-                'start_date'             => '2025-10-18 16:00:00',
+                'start_date'             => '2025-10-18 16:00:01',
                 'description'            => '',
             ],
             [
@@ -145,7 +145,7 @@ class CompetitionContentTimelineSeeder extends Seeder
                 'title'                  => 'Babak Final',
                 'end_date'               => '2025-10-31 15:59:59',
                 'date_range'             => '31 Oktober 2025',
-                'start_date'             => '2025-10-30 16:00:00',
+                'start_date'             => '2025-10-30 16:00:01',
                 'description'            => '',
             ],
             [
@@ -153,7 +153,7 @@ class CompetitionContentTimelineSeeder extends Seeder
                 'title'                  => 'Pengumuman Juara',
                 'end_date'               => '2025-11-01 15:59:59',
                 'date_range'             => '1 November 2025',
-                'start_date'             => '2025-10-31 16:00:00',
+                'start_date'             => '2025-10-31 16:00:01',
                 'description'            => '',
             ],
 
@@ -162,7 +162,7 @@ class CompetitionContentTimelineSeeder extends Seeder
                 'title'                  => 'Coming Soon',
                 'end_date'               => '2025-06-30 15:59:59',
                 'date_range'             => 'Comming Soon',
-                'start_date'             => '2025-06-26 16:00:00',
+                'start_date'             => '2025-06-26 16:00:01',
                 'description'            => '',
             ],
             [
@@ -170,7 +170,7 @@ class CompetitionContentTimelineSeeder extends Seeder
                 'title'                  => 'Pendaftaran Batch 1',
                 'end_date'               => '2025-07-20 15:59:59',
                 'date_range'             => '1 Juli – 20 Juli 2025',
-                'start_date'             => '2025-06-30 16:00:00',
+                'start_date'             => '2025-06-30 16:00:01',
                 'description'            => '',
             ],
             [
@@ -178,7 +178,7 @@ class CompetitionContentTimelineSeeder extends Seeder
                 'title'                  => 'Pendaftaran Batch 2',
                 'end_date'               => '2025-08-20 15:59:59',
                 'date_range'             => '22 Juli – 20 Agustus 2025',
-                'start_date'             => '2025-07-21 16:00:00',
+                'start_date'             => '2025-07-21 16:00:01',
                 'description'            => '',
             ],
             [
@@ -186,7 +186,7 @@ class CompetitionContentTimelineSeeder extends Seeder
                 'title'                  => 'Perpanjangan Pendaftaran',
                 'end_date'               => '2025-08-31 15:59:59',
                 'date_range'             => '21 Agustus – 31 Agustus 2025',
-                'start_date'             => '2025-08-20 16:00:00',
+                'start_date'             => '2025-08-20 16:00:01',
                 'description'            => '',
             ],
             [
@@ -194,7 +194,7 @@ class CompetitionContentTimelineSeeder extends Seeder
                 'title'                  => 'Pengumuman Top 10 Finalis',
                 'end_date'               => '2025-10-02 15:59:59',
                 'date_range'             => '2 Oktober 2025',
-                'start_date'             => '2025-10-01 16:00:00',
+                'start_date'             => '2025-10-01 16:00:01',
                 'description'            => '',
             ],
             [
@@ -202,7 +202,7 @@ class CompetitionContentTimelineSeeder extends Seeder
                 'title'                  => 'Technical Meeting',
                 'end_date'               => '2025-10-19 15:59:59',
                 'date_range'             => '19 Oktober 2025',
-                'start_date'             => '2025-10-18 16:00:00',
+                'start_date'             => '2025-10-18 16:00:01',
                 'description'            => '',
             ],
             [
@@ -210,7 +210,7 @@ class CompetitionContentTimelineSeeder extends Seeder
                 'title'                  => 'Babak Final dan Pengumuman Juara',
                 'end_date'               => '2025-11-01 15:59:59',
                 'date_range'             => '1 November 2025',
-                'start_date'             => '2025-10-31 16:00:00',
+                'start_date'             => '2025-10-31 16:00:01',
                 'description'            => '',
             ],
             [
@@ -218,7 +218,7 @@ class CompetitionContentTimelineSeeder extends Seeder
                 'title'                  => 'Coming Soon',
                 'end_date'               => '2025-06-30 15:59:59',
                 'date_range'             => 'Comming Soon',
-                'start_date'             => '2025-06-26 16:00:00',
+                'start_date'             => '2025-06-26 16:00:01',
                 'description'            => '',
             ],
             [
@@ -226,7 +226,7 @@ class CompetitionContentTimelineSeeder extends Seeder
                 'title'                  => 'Pendaftaran Batch 1',
                 'end_date'               => '2025-07-20 15:59:59',
                 'date_range'             => '1-20 Juli 2025',
-                'start_date'             => '2025-06-30 16:00:00',
+                'start_date'             => '2025-06-30 16:00:01',
                 'description'            => '',
             ],
             [
@@ -234,7 +234,7 @@ class CompetitionContentTimelineSeeder extends Seeder
                 'title'                  => 'Pendaftaran Batch 2',
                 'end_date'               => '2025-08-20 15:59:59',
                 'date_range'             => '22 Juli-20 Agustus 2025',
-                'start_date'             => '2025-07-21 16:00:00',
+                'start_date'             => '2025-07-21 16:00:01',
                 'description'            => '',
             ],
             [
@@ -242,7 +242,7 @@ class CompetitionContentTimelineSeeder extends Seeder
                 'title'                  => 'Perpanjangan Pendaftaran',
                 'end_date'               => '2025-08-31 15:59:59',
                 'date_range'             => '21-31 Agustus 2025',
-                'start_date'             => '2025-08-20 16:00:00',
+                'start_date'             => '2025-08-20 16:00:01',
                 'description'            => '',
             ],
             [
@@ -250,7 +250,7 @@ class CompetitionContentTimelineSeeder extends Seeder
                 'title'                  => 'Technical Meeting Penysihan',
                 'end_date'               => '2025-09-05 15:59:59',
                 'date_range'             => '5 September 2025',
-                'start_date'             => '2025-09-04 16:00:00',
+                'start_date'             => '2025-09-04 16:00:01',
                 'description'            => '',
             ],
             [
@@ -258,7 +258,7 @@ class CompetitionContentTimelineSeeder extends Seeder
                 'title'                  => 'Pengumuman Top 10 Finalis',
                 'end_date'               => '2025-10-02 15:59:59',
                 'date_range'             => '2 Oktober 2025',
-                'start_date'             => '2025-10-01 16:00:00',
+                'start_date'             => '2025-10-01 16:00:01',
                 'description'            => '',
             ],
             [
@@ -266,7 +266,7 @@ class CompetitionContentTimelineSeeder extends Seeder
                 'title'                  => 'Technical Meeting Final',
                 'end_date'               => '2025-10-19 15:59:59',
                 'date_range'             => '19 Oktober 2025',
-                'start_date'             => '2025-10-18 16:00:00',
+                'start_date'             => '2025-10-18 16:00:01',
                 'description'            => '',
             ],
             [
@@ -274,7 +274,7 @@ class CompetitionContentTimelineSeeder extends Seeder
                 'title'                  => 'Babak Final dan Pengumuman Juara',
                 'end_date'               => '2025-11-01 15:59:59',
                 'date_range'             => '1 November 2025',
-                'start_date'             => '2025-10-31 16:00:00',
+                'start_date'             => '2025-10-31 16:00:01',
                 'description'            => '',
             ],
             [
@@ -290,7 +290,7 @@ class CompetitionContentTimelineSeeder extends Seeder
                 'title'                  => 'Coming Soon',
                 'end_date'               => '2025-06-30 15:59:59',
                 'date_range'             => 'Comming Soon',
-                'start_date'             => '2025-06-26 16:00:00',
+                'start_date'             => '2025-06-26 16:00:01',
                 'description'            => '',
             ],
             [
@@ -298,7 +298,7 @@ class CompetitionContentTimelineSeeder extends Seeder
                 'title'                  => 'Pendaftaran Batch 1',
                 'end_date'               => '2025-07-20 15:59:59',
                 'date_range'             => '1-20 Juli 2025',
-                'start_date'             => '2025-06-30 16:00:00',
+                'start_date'             => '2025-06-30 16:00:01',
                 'description'            => '',
             ],
             [
@@ -306,7 +306,7 @@ class CompetitionContentTimelineSeeder extends Seeder
                 'title'                  => 'Pendaftaran Batch 2',
                 'end_date'               => '2025-08-20 15:59:59',
                 'date_range'             => '22 Juli-20 Agustus 2025',
-                'start_date'             => '2025-07-21 16:00:00',
+                'start_date'             => '2025-07-21 16:00:01',
                 'description'            => '',
             ],
             [
@@ -314,7 +314,7 @@ class CompetitionContentTimelineSeeder extends Seeder
                 'title'                  => 'Perpanjangan Pendaftaran',
                 'end_date'               => '2025-08-31 15:59:59',
                 'date_range'             => '21-31 Agustus 2025',
-                'start_date'             => '2025-08-20 16:00:00',
+                'start_date'             => '2025-08-20 16:00:01',
                 'description'            => '',
             ],
             [
@@ -322,7 +322,7 @@ class CompetitionContentTimelineSeeder extends Seeder
                 'title'                  => 'Technical Meeting',
                 'end_date'               => '2025-10-19 15:59:59',
                 'date_range'             => '19 Oktober 2025',
-                'start_date'             => '2025-10-18 16:00:00',
+                'start_date'             => '2025-10-18 16:00:01',
                 'description'            => '',
             ],
             [
@@ -330,7 +330,7 @@ class CompetitionContentTimelineSeeder extends Seeder
                 'title'                  => 'Babak Penyisihan',
                 'end_date'               => '2025-10-31 15:59:59',
                 'date_range'             => '31 Oktober 2025',
-                'start_date'             => '2025-10-30 16:00:00',
+                'start_date'             => '2025-10-30 16:00:01',
                 'description'            => '',
             ],
             [
@@ -338,7 +338,7 @@ class CompetitionContentTimelineSeeder extends Seeder
                 'title'                  => 'Babak Semifinal 1, 2, 3, 4 & Pengumuman Juara',
                 'end_date'               => '2025-11-01 15:59:59',
                 'date_range'             => '31 Oktober - 1 November 2025',
-                'start_date'             => '2025-10-30 16:00:00',
+                'start_date'             => '2025-10-30 16:00:01',
                 'description'            => '',
             ],
             [
@@ -346,7 +346,7 @@ class CompetitionContentTimelineSeeder extends Seeder
                 'title'                  => 'Coming Soon',
                 'end_date'               => '2025-06-30 15:59:59',
                 'date_range'             => 'Comming Soon',
-                'start_date'             => '2025-06-26 16:00:00',
+                'start_date'             => '2025-06-26 16:00:01',
                 'description'            => '',
             ],
             [
@@ -354,7 +354,7 @@ class CompetitionContentTimelineSeeder extends Seeder
                 'title'                  => 'Pendaftaran Batch 1',
                 'end_date'               => '2025-07-20 15:59:59',
                 'date_range'             => '1 Juli - 20 Juli 2025',
-                'start_date'             => '2025-06-30 16:00:00',
+                'start_date'             => '2025-06-30 16:00:01',
                 'description'            => '',
             ],
             [
@@ -362,7 +362,7 @@ class CompetitionContentTimelineSeeder extends Seeder
                 'title'                  => 'Pendaftaran Batch 2',
                 'end_date'               => '2025-08-20 15:59:59',
                 'date_range'             => '22 Juli – 20 Agustus 2025',
-                'start_date'             => '2025-07-21 16:00:00',
+                'start_date'             => '2025-07-21 16:00:01',
                 'description'            => '',
             ],
             [
@@ -370,7 +370,7 @@ class CompetitionContentTimelineSeeder extends Seeder
                 'title'                  => 'Perpanjangan Pendaftaran',
                 'end_date'               => '2025-08-31 15:59:59',
                 'date_range'             => '21 Agustus – 31 Agustus 2025',
-                'start_date'             => '2025-08-20 16:00:00',
+                'start_date'             => '2025-08-20 16:00:01',
                 'description'            => '',
             ],
             [
@@ -378,7 +378,7 @@ class CompetitionContentTimelineSeeder extends Seeder
                 'title'                  => 'Pengumuman Top 10 Finalis',
                 'end_date'               => '2025-10-02 15:59:59',
                 'date_range'             => '2 Oktober 2025',
-                'start_date'             => '2025-10-01 16:00:00',
+                'start_date'             => '2025-10-01 16:00:01',
                 'description'            => '',
             ],
             [
@@ -386,7 +386,7 @@ class CompetitionContentTimelineSeeder extends Seeder
                 'title'                  => 'Technical Meeting',
                 'end_date'               => '2025-10-19 15:59:59',
                 'date_range'             => '19 Oktober 2025',
-                'start_date'             => '2025-10-18 16:00:00',
+                'start_date'             => '2025-10-18 16:00:01',
                 'description'            => '',
             ],
             [
@@ -394,7 +394,7 @@ class CompetitionContentTimelineSeeder extends Seeder
                 'title'                  => 'Babak Final dan Pengumuman Juara',
                 'end_date'               => '2025-11-01 15:59:59',
                 'date_range'             => '1 November 2025 ',
-                'start_date'             => '2025-10-31 16:00:00',
+                'start_date'             => '2025-10-31 16:00:01',
                 'description'            => '',
             ],
             [
@@ -402,7 +402,7 @@ class CompetitionContentTimelineSeeder extends Seeder
                 'title'                  => 'Coming Soon',
                 'end_date'               => '2025-06-30 15:59:59',
                 'date_range'             => 'Comming Soon',
-                'start_date'             => '2025-06-26 16:00:00',
+                'start_date'             => '2025-06-26 16:00:01',
                 'description'            => '',
             ],
             [
@@ -410,7 +410,7 @@ class CompetitionContentTimelineSeeder extends Seeder
                 'title'                  => 'Pendaftaran Batch 1',
                 'end_date'               => '2025-07-20 15:59:59',
                 'date_range'             => '1 Juli - 20 Juli 2025',
-                'start_date'             => '2025-06-30 16:00:00',
+                'start_date'             => '2025-06-30 16:00:01',
                 'description'            => '',
             ],
             [
@@ -418,7 +418,7 @@ class CompetitionContentTimelineSeeder extends Seeder
                 'title'                  => 'Pendaftaran Batch 2',
                 'end_date'               => '2025-08-20 15:59:59',
                 'date_range'             => '22 Juli – 20 Agustus 2025',
-                'start_date'             => '2025-07-21 16:00:00',
+                'start_date'             => '2025-07-21 16:00:01',
                 'description'            => '',
             ],
             [
@@ -426,7 +426,7 @@ class CompetitionContentTimelineSeeder extends Seeder
                 'title'                  => 'Perpanjangan Pendaftaran',
                 'end_date'               => '2025-08-31 15:59:59',
                 'date_range'             => '21 Agustus – 31 Agustus 2025',
-                'start_date'             => '2025-08-20 16:00:00',
+                'start_date'             => '2025-08-20 16:00:01',
                 'description'            => '',
             ],
             [
@@ -434,7 +434,7 @@ class CompetitionContentTimelineSeeder extends Seeder
                 'title'                  => 'Pengumuman Top 10 Finalis',
                 'end_date'               => '2025-10-02 15:59:59',
                 'date_range'             => '2 Oktober 2025',
-                'start_date'             => '2025-10-01 16:00:00',
+                'start_date'             => '2025-10-01 16:00:01',
                 'description'            => '',
             ],
             [
@@ -442,7 +442,7 @@ class CompetitionContentTimelineSeeder extends Seeder
                 'title'                  => 'Technical Meeting',
                 'end_date'               => '2025-10-19 15:59:59',
                 'date_range'             => '19 Oktober 2025',
-                'start_date'             => '2025-10-18 16:00:00',
+                'start_date'             => '2025-10-18 16:00:01',
                 'description'            => '',
             ],
             [
@@ -450,7 +450,7 @@ class CompetitionContentTimelineSeeder extends Seeder
                 'title'                  => 'Babak Final',
                 'end_date'               => '2025-10-31 15:59:59',
                 'date_range'             => '31 Oktober 2025',
-                'start_date'             => '2025-10-30 16:00:00',
+                'start_date'             => '2025-10-30 16:00:01',
                 'description'            => '',
             ],
             [
@@ -458,7 +458,7 @@ class CompetitionContentTimelineSeeder extends Seeder
                 'title'                  => 'Pengumuman Juara',
                 'end_date'               => '2025-11-01 15:59:59',
                 'date_range'             => '1 November 2025',
-                'start_date'             => '2025-10-31 16:00:00',
+                'start_date'             => '2025-10-31 16:00:01',
                 'description'            => '',
             ],
             [
@@ -466,7 +466,7 @@ class CompetitionContentTimelineSeeder extends Seeder
                 'title'                  => 'Coming Soon',
                 'end_date'               => '2025-06-30 15:59:59',
                 'date_range'             => 'Comming Soon',
-                'start_date'             => '2025-06-26 16:00:00',
+                'start_date'             => '2025-06-26 16:00:01',
                 'description'            => '',
             ],
             [
@@ -474,7 +474,7 @@ class CompetitionContentTimelineSeeder extends Seeder
                 'title'                  => 'Pendaftaran Batch 1',
                 'end_date'               => '2025-07-20 15:59:59',
                 'date_range'             => '1-20 Juli 2025',
-                'start_date'             => '2025-06-30 16:00:00',
+                'start_date'             => '2025-06-30 16:00:01',
                 'description'            => '',
             ],
             [
@@ -482,7 +482,7 @@ class CompetitionContentTimelineSeeder extends Seeder
                 'title'                  => 'Pendaftaran Batch 2',
                 'end_date'               => '2025-08-20 15:59:59',
                 'date_range'             => '22 Juli-20 Agustus 2025',
-                'start_date'             => '2025-07-21 16:00:00',
+                'start_date'             => '2025-07-21 16:00:01',
                 'description'            => '',
             ],
             [
@@ -490,7 +490,7 @@ class CompetitionContentTimelineSeeder extends Seeder
                 'title'                  => 'Pengumpulan Projek',
                 'end_date'               => '2025-08-31 15:59:59',
                 'date_range'             => '8 Juli-31 Agustus 2025',
-                'start_date'             => '2025-07-07 16:00:00',
+                'start_date'             => '2025-07-07 16:00:01',
                 'description'            => '',
             ],
             [
@@ -498,7 +498,7 @@ class CompetitionContentTimelineSeeder extends Seeder
                 'title'                  => 'Perpanjangan Pendaftaran',
                 'end_date'               => '2025-08-31 15:59:59',
                 'date_range'             => '21-31 Agustus 2025',
-                'start_date'             => '2025-08-20 16:00:00',
+                'start_date'             => '2025-08-20 16:00:01',
                 'description'            => '',
             ],
             [
@@ -506,7 +506,7 @@ class CompetitionContentTimelineSeeder extends Seeder
                 'title'                  => 'Pengumuman Top 10 Finalis',
                 'end_date'               => '2025-10-02 15:59:59',
                 'date_range'             => '2 Oktober 2025',
-                'start_date'             => '2025-10-01 16:00:00',
+                'start_date'             => '2025-10-01 16:00:01',
                 'description'            => '',
             ],
             [
@@ -514,7 +514,7 @@ class CompetitionContentTimelineSeeder extends Seeder
                 'title'                  => 'Technical Meeting',
                 'end_date'               => '2025-10-19 15:59:59',
                 'date_range'             => '19 Oktober 2025',
-                'start_date'             => '2025-10-18 16:00:00',
+                'start_date'             => '2025-10-18 16:00:01',
                 'description'            => '',
             ],
             [
@@ -522,7 +522,7 @@ class CompetitionContentTimelineSeeder extends Seeder
                 'title'                  => 'Babak Final',
                 'end_date'               => '2025-10-31 15:59:59',
                 'date_range'             => '31 Oktober 2025',
-                'start_date'             => '2025-10-30 16:00:00',
+                'start_date'             => '2025-10-30 16:00:01',
                 'description'            => '',
             ],
             [
@@ -530,7 +530,7 @@ class CompetitionContentTimelineSeeder extends Seeder
                 'title'                  => 'Pengumuman Juara',
                 'end_date'               => '2025-11-01 15:59:59',
                 'date_range'             => '1 November 2025',
-                'start_date'             => '2025-10-31 16:00:00',
+                'start_date'             => '2025-10-31 16:00:01',
                 'description'            => '',
             ],
 
@@ -539,7 +539,7 @@ class CompetitionContentTimelineSeeder extends Seeder
                 'title'                  => 'Coming Soon',
                 'end_date'               => '2025-06-30 15:59:59',
                 'date_range'             => 'Comming Soon',
-                'start_date'             => '2025-06-26 16:00:00',
+                'start_date'             => '2025-06-26 16:00:01',
                 'description'            => '',
             ],
             [
@@ -547,7 +547,7 @@ class CompetitionContentTimelineSeeder extends Seeder
                 'title'                  => 'Pendaftaran Batch 1',
                 'end_date'               => '2025-07-20 15:59:59',
                 'date_range'             => '1-20 Juli 2025',
-                'start_date'             => '2025-06-30 16:00:00',
+                'start_date'             => '2025-06-30 16:00:01',
                 'description'            => '',
             ],
             [
@@ -555,7 +555,7 @@ class CompetitionContentTimelineSeeder extends Seeder
                 'title'                  => 'Pendaftaran Batch 2',
                 'end_date'               => '2025-08-20 15:59:59',
                 'date_range'             => '22 Juli-20 Agustus 2025',
-                'start_date'             => '2025-07-21 16:00:00',
+                'start_date'             => '2025-07-21 16:00:01',
                 'description'            => '',
             ],
             [
@@ -563,7 +563,7 @@ class CompetitionContentTimelineSeeder extends Seeder
                 'title'                  => 'Pengumpulan Projek',
                 'end_date'               => '2025-08-31 15:59:59',
                 'date_range'             => '8 Juli-31 Agustus 2025',
-                'start_date'             => '2025-07-07 16:00:00',
+                'start_date'             => '2025-07-07 16:00:01',
                 'description'            => '',
             ],
             [
@@ -571,7 +571,7 @@ class CompetitionContentTimelineSeeder extends Seeder
                 'title'                  => 'Perpanjangan Pendaftaran',
                 'end_date'               => '2025-08-31 15:59:59',
                 'date_range'             => '21-31 Agustus 2025',
-                'start_date'             => '2025-08-20 16:00:00',
+                'start_date'             => '2025-08-20 16:00:01',
                 'description'            => '',
             ],
             [
@@ -579,7 +579,7 @@ class CompetitionContentTimelineSeeder extends Seeder
                 'title'                  => 'Pengumuman Top 10 Finalis',
                 'end_date'               => '2025-10-02 15:59:59',
                 'date_range'             => '2 Oktober 2025',
-                'start_date'             => '2025-10-01 16:00:00',
+                'start_date'             => '2025-10-01 16:00:01',
                 'description'            => '',
             ],
             [
@@ -587,7 +587,7 @@ class CompetitionContentTimelineSeeder extends Seeder
                 'title'                  => 'Technical Meeting',
                 'end_date'               => '2025-10-19 15:59:59',
                 'date_range'             => '19 Oktober 2025',
-                'start_date'             => '2025-10-18 16:00:00',
+                'start_date'             => '2025-10-18 16:00:01',
                 'description'            => '',
             ],
             [
@@ -595,7 +595,7 @@ class CompetitionContentTimelineSeeder extends Seeder
                 'title'                  => 'Babak Final',
                 'end_date'               => '2025-10-31 15:59:59',
                 'date_range'             => '31 Oktober 2025',
-                'start_date'             => '2025-10-30 16:00:00',
+                'start_date'             => '2025-10-30 16:00:01',
                 'description'            => '',
             ],
             [
@@ -603,7 +603,7 @@ class CompetitionContentTimelineSeeder extends Seeder
                 'title'                  => 'Pengumuman Juara',
                 'end_date'               => '2025-11-01 15:59:59',
                 'date_range'             => '1 November 2025',
-                'start_date'             => '2025-10-31 16:00:00',
+                'start_date'             => '2025-10-31 16:00:01',
                 'description'            => '',
             ],
 
