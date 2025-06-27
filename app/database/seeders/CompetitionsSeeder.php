@@ -22,7 +22,7 @@ class CompetitionsSeeder extends Seeder
                 'is_need_submission'      => true,
                 'is_open_regis'           => true,
                 'icon_path'               => "assets/images/competition/ideBisnisLogo.png",
-                'end_submission'          => '2025-06-19 15:59:59.000',
+                'end_submission'          => '2025-08-31 15:59:59.000',
             ],
             [
                 'competition_category_id' => '5',
@@ -34,7 +34,7 @@ class CompetitionsSeeder extends Seeder
                 'is_need_submission'      => false,
                 'is_open_regis'           => false,
                 'icon_path'               => "assets/images/competition/mobileAppsLogo.png",
-                'end_submission'          => '2025-06-19 15:59:59.000',
+                'end_submission'          => '2025-08-31 15:59:59.000',
             ],
             [
                 'competition_category_id' => '4',
@@ -46,7 +46,7 @@ class CompetitionsSeeder extends Seeder
                 'is_need_submission'      => true,
                 'is_open_regis'           => true,
                 'icon_path'               => "assets/images/competition/webDesignLogo.png",
-                'end_submission'          => '2025-06-19 15:59:59.000',
+                'end_submission'          => '2025-08-31 15:59:59.000',
             ],
             [
                 'competition_category_id' => '5',
@@ -58,7 +58,7 @@ class CompetitionsSeeder extends Seeder
                 'is_need_submission'      => true,
                 'is_open_regis'           => true,
                 'icon_path'               => "assets/images/competition/webDesignLogo.png",
-                'end_submission'          => '2025-06-19 15:59:59.000',
+                'end_submission'          => '2025-08-31 15:59:59.000',
             ],
             [
                 'competition_category_id' => '8',
@@ -70,7 +70,7 @@ class CompetitionsSeeder extends Seeder
                 'is_need_submission'      => false,
                 'is_open_regis'           => true,
                 'icon_path'               => "assets/images/competition/pemrogramanLogo.png",
-                'end_submission'          => '2025-06-19 15:59:59.000',
+                'end_submission'          => '2025-08-31 15:59:59.000',
             ],
             [
                 'competition_category_id' => '3',
@@ -82,7 +82,7 @@ class CompetitionsSeeder extends Seeder
                 'is_need_submission'      => false,
                 'is_open_regis'           => false,
                 'icon_path'               => "assets/images/competition/kgpLogo.png",
-                'end_submission'          => '2025-06-19 15:59:59.000',
+                'end_submission'          => '2025-08-31 15:59:59.000',
             ],
             [
                 'competition_category_id' => '4',
@@ -94,7 +94,7 @@ class CompetitionsSeeder extends Seeder
                 'is_need_submission'      => false,
                 'is_open_regis'           => true,
                 'icon_path'               => "assets/images/competition/lccLogo.png",
-                'end_submission'          => '2025-06-19 15:59:59.000',
+                'end_submission'          => '2025-08-31 15:59:59.000',
             ],
             [
                 'competition_category_id' => '5',
@@ -106,7 +106,7 @@ class CompetitionsSeeder extends Seeder
                 'is_need_submission'      => true,
                 'is_open_regis'           => true,
                 'icon_path'               => "assets/images/competition/UIUXLogo.png",
-                'end_submission'          => '2025-06-19 15:59:59.000',
+                'end_submission'          => '2025-08-31 15:59:59.000',
             ],
             [
                 'competition_category_id' => '4',
@@ -118,7 +118,7 @@ class CompetitionsSeeder extends Seeder
                 'is_need_submission'      => true,
                 'is_open_regis'           => true,
                 'icon_path'               => "assets/images/competition/UIUXLogo.png",
-                'end_submission'          => '2025-06-19 15:59:59.000',
+                'end_submission'          => '2025-08-31 15:59:59.000',
             ],
             [
                 'competition_category_id' => '1',
@@ -130,20 +130,19 @@ class CompetitionsSeeder extends Seeder
                 'is_need_submission'      => true,
                 'is_open_regis'           => true,
                 'icon_path'               => "assets/images/competition/kgpLogo.png",
-                'end_submission'          => '2025-06-19 15:59:59.000',
+                'end_submission'          => '2025-08-31 15:59:59.000',
             ],
             [
                 'competition_category_id' => '3',
                 'kode'                    => 'KGP2',
                 'name'                    => 'Kids Game Programming Intermediate',
                 'slug'                    => 'kids-game-programming-intermediate',
-                'description'             => 'The Kids Game Programming Competition is one of the national competition options in the 2025 ITCC activities organized by the Information Technology Student Association of the Faculty of Engineering, Udayana University. This competition aims to provide opportunities for children to develop their creativity in making interactive games. This competition consists of Beginner (Elementary School) and Intermediate (Elementary School/Junior High School) categories. They will learn about visual programming and use platforms such as Scratch 3.0 for Beginner and Intermediate, and Roblox Studio for Intermediate to design environments, characters, and challenges in their games.
-',
+                'description'             => 'The Kids Game Programming Competition is one of the national competition options in the 2025 ITCC activities organized by the Information Technology Student Association of the Faculty of Engineering, Udayana University. This competition aims to provide opportunities for children to develop their creativity in making interactive games. This competition consists of Beginner (Elementary School) and Intermediate (Elementary School/Junior High School) categories. They will learn about visual programming and use platforms such as Scratch 3.0 for Beginner and Intermediate, and Roblox Studio for Intermediate to design environments, characters, and challenges in their games.',
                 'is_team'                 => false,
                 'is_need_submission'      => true,
                 'is_open_regis'           => true,
                 'icon_path'               => "assets/images/competition/kgpLogo.png",
-                'end_submission'          => '2025-06-19 15:59:59.000',
+                'end_submission'          => '2025-08-31 15:59:59.000',
             ],
         ];
 
