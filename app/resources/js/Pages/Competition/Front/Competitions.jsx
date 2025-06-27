@@ -690,9 +690,17 @@ function Competitions({ ...props }) {
                                     <div className="xs:mt-[300px] mt-6 sm:mt-10" />
 
                                     {/* Description */}
-                                    <p className="font-rubik xs:text-sm mt-4 px-6 pt-6 text-center text-sm font-normal leading-[150%] tracking-[0.32px] text-[#000000] dark:text-white sm:mt-4 sm:px-4 sm:pt-2 sm:text-sm md:text-base lg:text-lg">
-                                        {`Timeline dimulai pada tanggal ${formatDateInTimeLine(timeline.start_date)} hingga ${formatDateInTimeLine(timeline.end_date)}`}
-                                    </p>
+                                    {(() => {
+                                        const startDateHasFormatted = formatDateInTimeLine(timeline.start_date);
+                                        const endDateHasFormatted = formatDateInTimeLine(timeline.end_date);
+                                        const isSameDate = startDateHasFormatted == endDateHasFormatted;
+
+                                        return (
+                                            <p className="font-rubik xs:text-sm mt-4 px-6 pt-6 text-center text-sm font-normal leading-[150%] tracking-[0.32px] text-[#000000] dark:text-white sm:mt-4 sm:px-4 sm:pt-2 sm:text-sm md:text-base lg:text-lg">
+                                                Timeline dimulai pada tanggal {isSameDate ? startDateHasFormatted : `${startDateHasFormatted} hingga ${endDateHasFormatted}`}
+                                            </p>
+                                        );
+                                    })()}
                                     <p className="font-rubik text-md text-center font-normal leading-[150%] tracking-[0.32px] text-[#5E5E5E] dark:text-gray-500">
                                         Melalui website resmi{' '}
                                         <a href='https://itcc.hmtiudayana.id/' className="text-[#0F114C] dark:text-[#00658F]">

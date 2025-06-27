@@ -109,7 +109,7 @@ function Merchandise({ ...props }) {
                                 Rp. 199.000
                             </p>
                             <p className="text-[29px] font-medium text-center text-[#495190]" data-aos="fade-up" data-aos-delay="300">
-                                Only Rp. 120.000
+                                Start From Rp. 105.000
                             </p>
                             <Button variant="blue" asChild size="lg" className="mt-5" data-aos="fade-up" data-aos-delay="300">
                                 <a href="http://bit.ly/MerchITCC2025" target="_blank">Buy Bundle</a>

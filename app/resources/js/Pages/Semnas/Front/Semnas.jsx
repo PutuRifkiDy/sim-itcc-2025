@@ -230,7 +230,7 @@ function Semnas({ ...props }) {
                                 </Dialog>
                             </div>
 
-                            <div className="mt-7 gap-2 w-full">
+                            {/* <div className="mt-7 gap-2 w-full">
                                 <Button variant="none" size="lg" className="md:w-1/2 w-full rounded-lg py-6 px-5 text-[18px] border-2 border-[#0F114C] bg-white dark:bg-[#040529]" asChild data-aos="fade-up" data-aos-delay="400">
                                     <a
                                         href={events.event_content[0].guidebook_link}
@@ -257,7 +257,7 @@ function Semnas({ ...props }) {
                                         </svg>
                                     </a>
                                 </Button>
-                            </div>
+                            </div> */}
 
                             <div className="relative flex flex-col items-center gap-2 md:flex-row md:items-start">
                                 <div
