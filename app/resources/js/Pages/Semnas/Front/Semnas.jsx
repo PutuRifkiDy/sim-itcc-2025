@@ -449,7 +449,7 @@ function Semnas({ ...props }) {
                                 <h2 className="text-xl font-bold text-[#0F114C] dark:text-white">
                                     Speaker 1
                                 </h2>
-                                <p className="text-sm text-gray-700 dark:text-gray-400">Community Specialist at Pintu</p>
+                                <p className="text-sm text-gray-700 dark:text-gray-400">Coming soon</p>
                             </div>
 
                             <div className="absolute bottom-0 left-0 w-[180px] h-auto z-10">
@@ -487,7 +487,7 @@ function Semnas({ ...props }) {
                                 <h2 className="text-xl font-bold text-[#0F114C] dark:text-white">
                                     Speaker 2
                                 </h2>
-                                <p className="text-sm text-gray-700 dark:text-gray-400">Community Specialist at Pintu</p>
+                                <p className="text-sm text-gray-700 dark:text-gray-400">Coming soon</p>
                             </div>
 
                             <div className="absolute bottom-0 left-0 w-[180px] h-auto z-10">
