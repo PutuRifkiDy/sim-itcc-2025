@@ -120,6 +120,7 @@ function Payment({ event_registrations, payment_methods, className, payment_valu
         }))
         .concat(additionalPaymentMethods.slice(payment_methods.length));
     const payment_method = combinedPaymentMethodsWithAdditionalContent.find((method) => method.id == payment_value);
+
     return (
         <>
             <section className={className}>
@@ -163,7 +164,7 @@ function Payment({ event_registrations, payment_methods, className, payment_valu
                                     <p className="text-sm text-muted-foreground">Copied.</p>
                                 </div>
                             ) : (
-                                <DocumentDuplicateIcon className="w-5 h-5 cursor-pointer text-gray-500" onClick={() => handleCopy(payment_methods.account_number)} />
+                                <DocumentDuplicateIcon className="w-5 h-5 cursor-pointer text-gray-500" onClick={() => handleCopy(payment_method.account_number)} />
                             )}
                         </div>
                     </div>
