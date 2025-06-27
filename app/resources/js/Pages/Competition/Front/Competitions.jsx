@@ -292,28 +292,26 @@ function Competitions({ ...props }) {
                             <div className="h-12" />
 
                             <div
-                                className="flex flex-col-reverse items-center gap-4 md:flex-row md:gap-10 w-full"
+                                className={`flex flex-col-reverse items-start gap-4 md:flex-col md:gap-10 w-full
+                                    ${competitions.is_team == false && ["kids-game-programming-beginner", "kids-game-programming-intermediate"].includes(competitions.slug) ? "md:gap-2" : ""}`}
                                 data-aos="fade-up"
                                 data-aos-delay="300"
                             >
+                                {competitions.is_team == false && ["kids-game-programming-beginner", "kids-game-programming-intermediate"].includes(competitions.slug) &&
+                                    <p className='font-bold text-[23px] tracking-[0.03em] text-[#0F114C]'>
+                                        Register Now
+                                    </p>
+                                }
                                 {competitions.is_team == false && ["kids-game-programming-beginner", "kids-game-programming-intermediate"].includes(competitions.slug) ? (
-                                    <DropdownMenu>
-                                        <DropdownMenuTrigger asChild>
-                                            <Button type="submit" variant="blue" size="lg" className="rounded-lg text-[18px] py-6 px-5 md:w-1/3 w-full hover:scale-[101%] transition-all duration-200 ease-in-out">
-                                                Register
-                                            </Button>
-                                        </DropdownMenuTrigger>
-                                        <DropdownMenuContent className="w-full">
-                                            <DropdownMenuItem>
-                                                <a href="http://" target="_blank" rel="noopener noreferrer" className='text-[15px] px-4'>Register on Google Form</a>
-                                            </DropdownMenuItem>
-                                            <DropdownMenuItem>
-                                                <Button type="submit" variant="none" className=" p-0 gap-0 font-normal h-5 text-[15px] px-4" onClick={onHandleSubmit}>
-                                                    Register on Website
-                                                </Button>
-                                            </DropdownMenuItem>
-                                        </DropdownMenuContent>
-                                    </DropdownMenu>
+                                    <div className='flex md:flex-row flex-col gap-2'>
+                                        <Button type="submit" variant="blue" size="lg" className="rounded-lg text-[18px] py-6 px-5 md:min-w-fit w-full hover:scale-[101%] transition-all duration-200 ease-in-out bg-[#495190]">
+                                            <a href="http://" target="_blank" rel="noopener noreferrer">On Google Form</a>
+                                        </Button>
+
+                                        <Button type="submit" variant="blue" className="rounded-lg text-[18px] py-6 px-5 md:min-w-fit w-full hover:scale-[101%] transition-all duration-200 ease-in-out" onClick={onHandleSubmit}>
+                                            On Website
+                                        </Button>
+                                    </div>
                                 ) : competitions.is_team == false ? (
                                     <Button type="submit" variant="blue" size="lg" className="rounded-lg text-[18px] py-6 px-5 md:w-1/3 w-full hover:scale-[101%] transition-all duration-200 ease-in-out" onClick={onHandleSubmit}>
                                         Register
@@ -326,68 +324,68 @@ function Competitions({ ...props }) {
                                     </Button>
                                 )}
 
-                                <Dialog>
-                                    <DialogTrigger className="flex items-center gap-2">
-                                        <button
-                                            className="flex h-[60px] w-[60px] shrink-0 cursor-pointer items-center justify-center rounded-[500px] border-none bg-[#00658F] shadow-[0_10px_10px_#C8DBFF] dark:shadow-none"
-                                            onClick={openModal}
+                                <div className={`md:gap-10 flex flex-row-reverse ${competitions.is_team == false && ["kids-game-programming-beginner", "kids-game-programming-intermediate"].includes(competitions.slug) ? "md:mt-7" : ""}`}>
+                                    <Dialog>
+                                        <DialogTrigger className="flex flex-row items-center gap-2" data-aos="fade-up" data-aos-delay="500">
+                                            <button
+                                                className="flex h-[60px] w-[60px] shrink-0 cursor-pointer items-center justify-center rounded-[500px] border-none bg-[#00658F] shadow-[0_10px_10px_#C8DBFF] dark:shadow-none"
+                                                onClick={openModal}
+                                            >
+                                                <svg
+                                                    width="20"
+                                                    height="20"
+                                                    viewBox="0 0 20 20"
+                                                    fill="white"
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                >
+                                                    <path d="M6 4L15 10L6 16V4Z" />
+                                                </svg>
+                                            </button>
+                                            <span className="flex-shrink-0 flex-grow text-[16px] font-semibold tracking-wide text-[#3A3A3A] dark:text-white">
+                                                How to Join
+                                            </span>
+                                        </DialogTrigger>
+                                        <DialogContent className="max-w-3xl">
+                                            <DialogTitle>How to Join</DialogTitle>
+                                            <iframe
+                                                src={competitions.competition_content[0].how_to_join_link}
+                                                title="How to Join Video"
+                                                frameBorder="0"
+                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                allowFullScreen
+                                                className="h-96 w-full rounded-lg shadow-lg"
+                                            ></iframe>
+                                        </DialogContent>
+                                    </Dialog>
+                                    <Button variant="none" size="lg" className="md:min-w-fit w-full rounded-lg py-6 px-5 text-[18px] border-2 border-[#0F114C] bg-white dark:bg-[#040529]" asChild data-aos="fade-up" data-aos-delay="400">
+                                        <a
+                                            href={competitions.competition_content[0].guidebook_link}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="flex items-center gap-2 text-[#0F114C] dark:text-white"
                                         >
+                                            Guidebook
                                             <svg
+                                                xmlns="http://www.w3.org/2000/svg"
                                                 width="20"
                                                 height="20"
                                                 viewBox="0 0 20 20"
-                                                fill="white"
-                                                xmlns="http://www.w3.org/2000/svg"
+                                                fill="none"
+                                                className="text-[#0F114C] dark:text-white"
                                             >
-                                                <path d="M6 4L15 10L6 16V4Z" />
+                                                <path
+                                                    d="M8.33325 3.33334H4.99992C4.55789 3.33334 4.13397 3.50893 3.82141 3.82149C3.50885 4.13405 3.33325 4.55798 3.33325 5V15C3.33325 15.442 3.50885 15.866 3.82141 16.1785C4.13397 16.4911 4.55789 16.6667 4.99992 16.6667H14.9999C15.4419 16.6667 15.8659 16.4911 16.1784 16.1785C16.491 15.866 16.6666 15.442 16.6666 15V11.6667M9.99992 10L16.6666 3.33334M16.6666 3.33334V7.5M16.6666 3.33334H12.4999"
+                                                    stroke="currentColor"
+                                                    strokeWidth="2"
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                />
                                             </svg>
-                                        </button>
-                                        <span className="flex-shrink-0 flex-grow text-[16px] font-semibold tracking-wide text-[#3A3A3A] dark:text-white">
-                                            How to Join
-                                        </span>
-                                    </DialogTrigger>
-                                    <DialogContent className="max-w-3xl">
-                                        <DialogTitle>How to Join</DialogTitle>
-                                        <iframe
-                                            src={competitions.competition_content[0].how_to_join_link}
-                                            title="How to Join Video"
-                                            frameBorder="0"
-                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                            allowFullScreen
-                                            className="h-96 w-full rounded-lg shadow-lg"
-                                        ></iframe>
-                                    </DialogContent>
-                                </Dialog>
+                                        </a>
+                                    </Button>
+                                </div>
                             </div>
 
-                            <div className="mt-7 gap-2 w-full">
-                                <Button variant="none" size="lg" className="md:w-1/2 w-full rounded-lg py-6 px-5 text-[18px] border-2 border-[#0F114C] bg-white dark:bg-[#040529]" asChild data-aos="fade-up" data-aos-delay="400">
-                                    <a
-                                        href={competitions.competition_content[0].guidebook_link}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="flex items-center gap-2 text-[#0F114C] dark:text-white"
-                                    >
-                                        Guidebook
-                                        <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            width="20"
-                                            height="20"
-                                            viewBox="0 0 20 20"
-                                            fill="none"
-                                            className="text-[#0F114C] dark:text-white"
-                                        >
-                                            <path
-                                                d="M8.33325 3.33334H4.99992C4.55789 3.33334 4.13397 3.50893 3.82141 3.82149C3.50885 4.13405 3.33325 4.55798 3.33325 5V15C3.33325 15.442 3.50885 15.866 3.82141 16.1785C4.13397 16.4911 4.55789 16.6667 4.99992 16.6667H14.9999C15.4419 16.6667 15.8659 16.4911 16.1784 16.1785C16.491 15.866 16.6666 15.442 16.6666 15V11.6667M9.99992 10L16.6666 3.33334M16.6666 3.33334V7.5M16.6666 3.33334H12.4999"
-                                                stroke="currentColor"
-                                                strokeWidth="2"
-                                                strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                            />
-                                        </svg>
-                                    </a>
-                                </Button>
-                            </div>
 
                             <div className="relative flex flex-col items-center gap-2 md:flex-row md:items-start">
                                 <div

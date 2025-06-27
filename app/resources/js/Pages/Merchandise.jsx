@@ -196,7 +196,6 @@ function Merchandise({ ...props }) {
                                                 </div>
                                             </div>
 
-                                            {/* Content (shown on mobile and on hover in desktop) */}
                                             <div className="absolute bottom-0 left-0 right-0 flex flex-col items-center p-5 my-5 opacity-100 translate-y-0 md:opacity-0 md:translate-y-4 transition-all duration-500 md:group-hover:opacity-100 md:group-hover:translate-y-0 z-30">
                                                 <h3 className="text-center text-2xl font-bold mb-4 text-white md:block hidden">
                                                     {merch.name}
@@ -215,9 +214,9 @@ function Merchandise({ ...props }) {
                                                     </div>
                                                     <p className="text-[16px] font-medium text-white">{formatMoney(merch.price)}</p>
                                                 </div>
-                                                <Button variant="blue" size="lg">
+                                                <Button variant="blue" size="lg" asChild>
                                                     <Link
-                                                        href={route('register')}
+                                                        href={route('merchandise.front.detail', merch.id)}
                                                         className=""
                                                     >
                                                         Register Now
