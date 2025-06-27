@@ -33,6 +33,9 @@ class CompetitionCategoriesSeeder extends Seeder
             [
                 'category_name' => 'Mahasiswa/Umum',
             ],
+            [
+                'category_name' => 'SMP/SMASMK',
+            ]
         ];
 
         foreach ($competition_categories as $category) {

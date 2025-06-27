@@ -78,7 +78,6 @@ function DashboardSemnas() {
         }))
         .concat(additionalPaymentMethods.slice(payment_methods.length));
 
-        console.log(combinedPaymentMethodsWithAdditionalContent);
 
     useEffect(() => {
         if (flash_message?.message) {

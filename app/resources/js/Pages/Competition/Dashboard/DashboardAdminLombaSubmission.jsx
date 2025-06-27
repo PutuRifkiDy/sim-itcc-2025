@@ -179,7 +179,7 @@ function DashboardAdminLombaSubmission({ ...props }) {
                         </div>
                     </div>
 
-                    <div className="flex w-full md:flex-row flex-col justify-between mt-4">
+                    <div className="flex w-full md:flex-row flex-col justify-between mt-4 gap-4">
                         <div className="flex md:flex-row flex-col gap-4 w-full">
                             <Input
                                 className="w-full sm:w-1/4 outline-none ring-0 focus-visible:ring-0 dark:border-white placeholder:dark:text-white"

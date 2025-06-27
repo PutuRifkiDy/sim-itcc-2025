@@ -61,7 +61,7 @@ class CompetitionsSeeder extends Seeder
                 'end_submission'          => '2025-06-19 15:59:59.000',
             ],
             [
-                'competition_category_id' => '4',
+                'competition_category_id' => '8',
                 'kode'                    => 'P1',
                 'name'                    => 'Pemrograman',
                 'slug'                    => 'pemrograman',
