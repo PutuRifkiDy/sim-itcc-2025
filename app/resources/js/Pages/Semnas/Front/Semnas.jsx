@@ -9,6 +9,8 @@ import { useEffect, useState } from "react";
 import * as AOS from 'aos';
 import 'aos/dist/aos.css';
 import { motion } from 'framer-motion';
+import { formatInTimeZone } from 'date-fns-tz';
+import { id } from 'date-fns/locale';
 
 function Semnas({ ...props }) {
     const events = usePage().props.event;
@@ -53,10 +55,7 @@ function Semnas({ ...props }) {
     };
 
     const formatDateInTimeLine = (tanggal) => {
-        return new Intl.DateTimeFormat('id', {
-            day: '2-digit',
-            month: 'long',
-        }).format(new Date(tanggal));
+        return formatInTimeZone(new Date(tanggal + 'Z'), 'Asia/Makassar', 'd MMMM', { locale: id });
     };
 
     const formatMoney = (nominal) => {
@@ -673,6 +672,7 @@ function Semnas({ ...props }) {
                                     description={item.answer}
                                     isOpen={openIndex === i}
                                     onClick={() => handleAccordionClick(i)}
+                                    key={i}
                                 />
                             )),
                         )}
