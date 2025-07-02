@@ -96,16 +96,6 @@ function Overview() {
                         </div>
 
                     </div>
-                    <div className="border-2 border-[#E4F0F8] flex items-center flex-row gap-5 py-5 px-5 rounded-xl">
-                        {/* start icon */}
-                        <div className="flex justify-center items-center p-4 rounded-2xl bg-[#396AFF]/20">
-                            <BuildingLibraryIcon className="text-[#396AFF] w-8 h-8" />
-                        </div>
-                        <div className="flex flex-col gap-1">
-                            <p className="text-[#3A3A3A]/90 text-[16px] font-medium dark:text-white">Total Institution</p>
-                            <p className="font-bold text-[24px] text-[#232323] dark:text-white">{count_institution}</p>
-                        </div>
-                    </div>
                 </div>
 
                 <div className='px-4 pt-5 pb-6 mt-8 bg-white border-2 rounded-lg sm:px-6 sm:pt-6 flex md:flex-row flex-col gap-5 dark:bg-[#040529] dark:border-[#E4F0F8]'>

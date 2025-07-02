@@ -101,10 +101,10 @@ export default function Welcome() {
                         Get your Exclusive Merchandise Bundle at a special price — limited time only!
                     </p>
                     <p className="text-[23px] font-medium text-center md:mt-24 mt-0 text-[#0886BB] line-through decoration-2" data-aos="fade-up" data-aos-delay="200">
-                        Rp. 199.000
+                        Rp. 100.000
                     </p>
                     <p className="text-[29px] font-medium text-center dark:text-white text-[#0F114C]" data-aos="fade-up" data-aos-delay="300">
-                        Start From Rp. 105.000
+                        Start From Rp. 25.000
                     </p>
                     <Button variant="blue" asChild size="lg" className="mt-5 tracking-[0.03em]" data-aos="fade-up" data-aos-delay="300">
                         <a href="http://bit.ly/MerchITCC2025" target="_blank">Buy Bundle</a>

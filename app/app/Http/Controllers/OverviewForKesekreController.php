@@ -42,8 +42,9 @@ class OverviewForKesekreController extends Controller
             ->sum('total_payment');
         $sum_total_payment_competition = $sum_total_payment_individual_competition + $sum_total_payment_team_competition;
 
-        $count_institution = User::where('institution', '!=', null)
-            ->count();
+        $count_institution = User::whereNotNull('institution')
+            ->distinct('institution')
+            ->count('institution');
 
         return inertia(component: 'Overview', props: [
             'count_participant_semnas'      => $count_participant_semnas,
@@ -52,7 +53,7 @@ class OverviewForKesekreController extends Controller
             'sum_total_payment_competition' => number_format($sum_total_payment_competition),
             'count_institution'             => $count_institution,
             'monthly_sales_chart'           => $this->monthlySalesChart(),
-            'monthly_registrations_chart'  => $this->monthlyRegistrationsChart(),
+            'monthly_registrations_chart'   => $this->monthlyRegistrationsChart(),
         ]);
     }
 
@@ -65,7 +66,7 @@ class OverviewForKesekreController extends Controller
         $semnasData      = [];
         $competitionData = [];
 
-        for($i = 0; $i < 6; $i++) {
+        for ($i = 0; $i < 6; $i++) {
             $monthLabel = $sixMonthsAgo->format('F');
             $labels[]   = $monthLabel;
 

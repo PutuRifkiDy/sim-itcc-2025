@@ -30,7 +30,6 @@ export default function MerchandiseDetail({ ...props }) {
     ]
 
     const selectedAdditionalImage = additionalImage.find((item) => item.id == merchandise_detail.id);
-    console.log(selectedAdditionalImage);
 
     return (
         <section className="min-h-screen px-4 md:px-24 py-8 relative mt-20">
@@ -42,37 +41,11 @@ export default function MerchandiseDetail({ ...props }) {
                 <h2 className="text-lg font-medium">Back</h2>
             </Link>
 
-            <div className="flex flex-col md:flex-row gap-24 max-w-full mx-auto">
-                <div className="flex flex-col w-[50%]">
-                    <div className="bg-white rounded-lg shadow-[0_0_10px_#ACACAC] p-12">
-                        {selectedAdditionalImage.is_filled_front_or_back == true ? (
-                            <div>
-                                {position == 'front' && (
-                                    <img
-                                        src={`${selectedAdditionalImage.image_back}`}
-                                        alt="ITCC T-Shirt"
-                                        className="w-1/2 object-contain mx-auto"
-                                    />
-                                )}
-                                {position == 'back' && (
-                                    <img
-                                        src={`${selectedAdditionalImage.image_front}`}
-                                        alt="ITCC T-Shirt"
-                                        className="w-1/2 object-contain mx-auto"
-                                    />
-                                )}
-                            </div>
-                        ) : (
-                            <img
-                                src={`${merchandise_detail.image_path}`}
-                                alt="ITCC T-Shirt"
-                                className="w-1/2 object-contain mx-auto"
-                            />
-                        )}
-                    </div>
+            <div className="flex md:flex-row flex-col md:justify-between max-w-full mx-auto">
+                <div className="flex flex-col md:flex-row md:w-[50%] w-full gap-12">
                     {selectedAdditionalImage.is_filled_front_or_back == true && (
-                        <div className="flex justify-center gap-12 mt-4">
-                            <div className="bg-white rounded-lg p-4 cursor-pointer w-1/2 flex items-center justify-center hover:scale-105 transition-all duration-200 ease-in-out shadow-[0_0_10px_#ACACAC]" onClick={() => setPosition('front')}>
+                        <div className="flex flex-col justify-start gap-12 md:w-[50%] w-full">
+                            <div className="bg-white rounded-lg p-4 cursor-pointer flex items-center justify-center hover:scale-105 transition-all duration-200 ease-in-out shadow-[0_0_10px_#ACACAC] w-full" onClick={() => setPosition('front')}>
                                 <div className="flex flex-col gap-2">
                                     <img
                                         src={`${selectedAdditionalImage.image_back}`}
@@ -82,7 +55,7 @@ export default function MerchandiseDetail({ ...props }) {
                                     <p className="text-center mt-2 font-bold">Front</p>
                                 </div>
                             </div>
-                            <div className="bg-white rounded-lg p-4 cursor-pointer w-1/2 flex items-center justify-center hover:scale-105 transition-all duration-200 ease-in-out shadow-[0_0_10px_#ACACAC]" onClick={() => setPosition('back')}>
+                            <div className="bg-white rounded-lg p-4 cursor-pointer flex items-center justify-center hover:scale-105 transition-all duration-200 ease-in-out shadow-[0_0_10px_#ACACAC] w-full" onClick={() => setPosition('back')}>
                                 <div className="flex flex-col gap-2">
                                     <img
                                         src={`${selectedAdditionalImage.image_front}`}
@@ -97,15 +70,41 @@ export default function MerchandiseDetail({ ...props }) {
                             </div>
                         </div>
                     )}
+                    <div className="bg-white rounded-lg shadow-[0_0_10px_#ACACAC] w-full p-16 h-min">
+                        {selectedAdditionalImage.is_filled_front_or_back == true ? (
+                            <div>
+                                {position == 'front' && (
+                                    <img
+                                        src={`${selectedAdditionalImage.image_back}`}
+                                        alt="ITCC T-Shirt"
+                                        className="w-full object-contain mx-auto"
+                                    />
+                                )}
+                                {position == 'back' && (
+                                    <img
+                                        src={`${selectedAdditionalImage.image_front}`}
+                                        alt="ITCC T-Shirt"
+                                        className="w-full object-contain mx-auto"
+                                    />
+                                )}
+                            </div>
+                        ) : (
+                            <img
+                                src={`${merchandise_detail.image_path}`}
+                                alt="ITCC T-Shirt"
+                                className="w-1/2 object-contain mx-auto"
+                            />
+                        )}
+                    </div>
                 </div>
 
-                <div className="flex flex-col w-[40%]">
+                <div className="flex flex-col md:w-[40%] w-full md:mt-0 mt-10">
                     <div className="bg-white rounded-lg p-10 h-full shadow-[0_0_10px_#ACACAC]">
-                        <h1 className="text-[47px] font-bold text-[#0F114C] mb-4">{merchandise_detail.name}</h1>
+                        <h1 className="text-[36px] font-bold text-[#0F114C] mb-4">{merchandise_detail.name}</h1>
                         <p className="text-gray-600 mb-10 md:mb-16">
                             {merchandise_detail.description}
                         </p>
-                        <p className="text-2xl md:text-[43px] font-semibold mb-6">Rp. {merchandise_detail.price.toLocaleString("id-ID")}</p>
+                        <p className="text-2xl md:text-[24px] font-semibold mb-6">Rp. {merchandise_detail.price.toLocaleString("id-ID")}</p>
 
                         <Button variant="none" className="w-full bg-[#0F114C] text-white py-5 rounded-lg mb-6 flex items-center justify-center gap-2" asChild>
                             <a href="http://bit.ly/MerchITCC2025" target="_blank" rel="noopener noreferrer">
@@ -118,7 +117,7 @@ export default function MerchandiseDetail({ ...props }) {
 
                         <div className="space-y-4">
                             <div className="items-center gap-4 rounded-lg p-8 border-2 border-[#808080]">
-                                <div className="flex mb-4 gap-10 items-center">
+                                <div className="flex md:flex-row flex-col mb-4 gap-10 items-center">
                                     <img src={`${window.location.origin}/assets/images/merchandise/preorder-icon.png`} alt="" className="w-10 h-10 m-4" />
                                     <div>
                                         <h3 className="font-medium">Pre-Order Batch I</h3>
@@ -135,7 +134,7 @@ export default function MerchandiseDetail({ ...props }) {
                                     </div>
                                 </div>
                                 <hr className="w-full h-[2px] bg-[#808080]"></hr>
-                                <div className="flex mt-4 gap-[60px] items-center ml-4">
+                                <div className="flex md:flex-row flex-col  mt-4 gap-[60px] items-center ml-4">
                                     <img src={`${window.location.origin}/assets/images/merchandise/pick-up-icon.png`} alt="" className="w-10 h-10" />
                                     <div>
                                         <h3 className="font-medium">Pick-up Offline</h3>

@@ -97,19 +97,19 @@ function Merchandise({ ...props }) {
                     </div>
 
                     <div className="flex md:flex-row flex-col justify-around">
-                        <img src="/assets/images/merchandise/merch_image_bundle.png" alt="" className="md:w-[600px] w-full h-auto object-contain " data-aos="fade-up" data-aos-delay="100" />
+                        <img src="/assets/images/merchandise/merch_image_bundle.png" alt="" className="md:w-[500px] w-full h-auto object-contain " data-aos="fade-up" data-aos-delay="100" />
                         <div className="flex flex-col items-center justify-center">
-                            <p className="text-[#0F114C] dark:text-[#0886BB] leading-[1.2em] text-[50px] tracking-[0.016em] uppercase font-bold text-center" data-aos="fade-up" data-aos-delay="100">
+                            <p className="text-[#0F114C] dark:text-[#0886BB] leading-[1.2em] text-[24px] md:text-[50px] tracking-[0.016em] uppercase font-bold text-center" data-aos="fade-up" data-aos-delay="100">
                                 MERCHANDISE bundle
                             </p>
                             <p className="text-[18px] tracking-[0.02em] leading-[1.8em] md:w-[380px] w-full text-center mt-5 text-[#000000] font-light dark:text-white" data-aos="fade-up" data-aos-delay="200">
                                 Get your Exclusive Merchandise Bundle at a special price — limited time only!
                             </p>
                             <p className="text-[23px] font-medium text-center mt-10 text-[#0886BB] line-through decoration-2" data-aos="fade-up" data-aos-delay="300">
-                                Rp. 199.000
+                                Rp. 100.000
                             </p>
                             <p className="text-[29px] font-medium text-center text-[#495190]" data-aos="fade-up" data-aos-delay="300">
-                                Start From Rp. 105.000
+                                Start From Rp. 25.000
                             </p>
                             <Button variant="blue" asChild size="lg" className="mt-5" data-aos="fade-up" data-aos-delay="300">
                                 <a href="http://bit.ly/MerchITCC2025" target="_blank">Buy Bundle</a>
