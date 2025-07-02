@@ -82,6 +82,22 @@ function DashboardAdminLombaData({ ...props }) {
                                     ))}
                                 </SelectContent>
                             </Select>
+                            <Select
+                                value={params?.payment_status}
+                                onValueChange={(e) => setParams({ ...params, payment_status: e })}
+                            >
+                                <SelectTrigger className="w-full h-9 sm:w-40 dark:bg-[#0F114C] dark:border-white dark:text-white"
+                                >
+                                    <SelectValue placeholder="Filter by Status" />
+                                </SelectTrigger>
+                                <SelectContent>
+                                    {['Verified', 'Pending', 'Requested', 'Rejected'].map((payment_status, index) => (
+                                        <SelectItem key={index} value={payment_status}>
+                                            {payment_status}
+                                        </SelectItem>
+                                    ))}
+                                </SelectContent>
+                            </Select>
                             <Button variant="outline" onClick={() => setParams(props.state)} className="dark:bg-[#0F114C] dark:border-white"  >
                                 <PiArrowsClockwise className="mr-2 h-5 w-5" />
                                 Clear Filter
@@ -396,8 +412,8 @@ function DashboardAdminLombaData({ ...props }) {
                                                                         Open
                                                                         <IconPreviewImageProfile />
                                                                     </Button>
-                                                                    <Modal show={modalIdentifyUserOpen} onClose={closeModal} className="px-5 py-5 ">
-                                                                        <h2 className="text-lg font-bold text-gray-900">Identity User</h2>
+                                                                    <Modal show={modalIdentifyUserOpen} onClose={closeModal} className="px-5 py-5 dark:bg-[#0F114C]">
+                                                                        <h2 className="text-lg font-bold text-gray-900 dark:text-white">Identity User</h2>
                                                                         <div className='mt-10 grid md:grid-cols-2 grid-cols-1 gap-5'>
                                                                             <div>
                                                                                 <InputLabel htmlFor="name" value="Name" className='text-[12px] text-[#676767] font-normal' />
@@ -480,7 +496,11 @@ function DashboardAdminLombaData({ ...props }) {
                         </CardContent>
                         <CardFooter className="justify-between border-t pt-6 text-sm text-muted-foreground">
                             <p className="text-sm text-muted-foreground dark:text-white">
-                                Showing <span className="font-normal text-[#4880FF]">{meta.from}</span> of {meta.total}
+                                Showing <span className="font-normal text-[#4880FF]">{meta.from}</span>
+                                {" to "}
+                                <span className="font-normal text-[#4880FF]">{meta.to}</span>
+                                {" of "}
+                                <span className="font-normal text-[#4880FF]">{meta.total}</span> results
                             </p>
                             {meta.has_page && (
                                 <div className="flex items-center gap-x-1">

@@ -218,7 +218,7 @@ export default function Register() {
                             <img
                                 src="assets/images/landing/icon-maskot-itcc-with-shield.png"
                                 alt=""
-                                className="absolute bottom-12 left-32 h-auto md:w-[500px]"
+                                className="absolute bottom-12 left-24 h-auto md:w-[440px]"
                             />
                         </div>
                     </div>

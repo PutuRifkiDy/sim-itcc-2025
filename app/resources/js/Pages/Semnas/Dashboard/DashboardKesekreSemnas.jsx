@@ -569,7 +569,11 @@ function DashboardKesekreSemnas({ ...props }) {
                         </CardContent>
                         <CardFooter className="justify-between border-t pt-6 text-sm text-muted-foreground">
                             <p className="text-sm text-muted-foreground dark:text-white">
-                                Showing <span className="font-normal text-[#4880FF]">{meta.from}</span> of {meta.total}
+                                Showing <span className="font-normal text-[#4880FF]">{meta.from}</span>
+                                {" to "}
+                                <span className="font-normal text-[#4880FF]">{meta.to}</span>
+                                {" of "}
+                                <span className="font-normal text-[#4880FF]">{meta.total}</span> results
                             </p>
                             {meta.has_page && (
                                 <div className="flex items-center gap-x-1">
@@ -608,4 +612,4 @@ function DashboardKesekreSemnas({ ...props }) {
 
 export default DashboardKesekreSemnas;
 
-DashboardKesekreSemnas.layout = (page) => <DashboardLayout children={page} title="Seminar Confirmation Payment" header="Seminar Confirmation Payment" description="Manage your seminar payments in this page"/>;
+DashboardKesekreSemnas.layout = (page) => <DashboardLayout children={page} title="Seminar Confirmation Payment" header="Seminar Confirmation Payment" description="Manage your seminar payments in this page" />;

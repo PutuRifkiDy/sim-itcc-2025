@@ -746,8 +746,15 @@ function DashboardKesekreCompetition({ ...props }) {
                             </div>
                         </CardContent>
                         <CardFooter className="justify-between border-t pt-6 text-sm text-muted-foreground">
-                            <p className="text-sm text-muted-foreground dark:text-white">
+                            {/* <p className="text-sm text-muted-foreground dark:text-white">
                                 Showing <span className="font-normal text-[#4880FF]">{meta.from}</span> of {meta.total}
+                            </p> */}
+                            <p className="text-sm text-muted-foreground dark:text-white">
+                                Showing <span className="font-normal text-[#4880FF]">{meta.from}</span>
+                                {" to "}
+                                <span className="font-normal text-[#4880FF]">{meta.to}</span>
+                                {" of "}
+                                <span className="font-normal text-[#4880FF]">{meta.total}</span> results
                             </p>
                             {meta.has_page && (
                                 <div className="flex items-center gap-x-1">

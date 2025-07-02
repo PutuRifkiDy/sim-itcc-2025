@@ -44,6 +44,9 @@ class DashboardCompetitionForAdminLomba extends Controller
                         ->orWhere('code_registration', 'REGEXP', $value);
                 });
             })
+            ->when(request()->payment_status, function ($query, $value) {
+                $query->where('payment_status', $value);
+            })
             ->when(request()->competition_name, function ($query, $value) {
                 $query->whereHas('competitions', function ($q) use ($value) {
                     $q->where('name', $value);
@@ -74,6 +77,7 @@ class DashboardCompetitionForAdminLomba extends Controller
                 'search'           => request()->search ?? '',
                 'load'             => 10,
                 'competition_name' => request()->competition_name ?? ' ',
+                'payment_status'   => request()->payment_status ?? '',
             ],
         ]);
     }
@@ -142,9 +146,9 @@ class DashboardCompetitionForAdminLomba extends Controller
             ]),
             'show_competition_is_open_regis' => $show_competition_is_open_regis,
             'state'                          => [
-                'page'             => request()->page ?? 1,
-                'search'           => request()->search ?? '',
-                'load'             => 10,
+                'page'              => request()->page ?? 1,
+                'search'            => request()->search ?? '',
+                'load'              => 10,
                 'submission_status' => request()->submission_status ?? '',
             ],
 

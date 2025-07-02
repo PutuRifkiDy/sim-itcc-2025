@@ -22,6 +22,9 @@ class DashboardCompetitionForKesekreController extends Controller
                     $q->orWhereHas('competitions.competition_content', function ($q3) use ($value) {
                         $q3->where('location', 'REGEXP', $value);
                     });
+                    $q->orWhereHas('competitions', function ($q4) use ($value) {
+                        $q4->where('name', 'REGEXP', $value);
+                    });
                     $q->orWhereHas('teams', function ($q4) use ($value) {
                         $q4->where('team_name', 'REGEXP', $value);
                     });
@@ -35,11 +38,11 @@ class DashboardCompetitionForKesekreController extends Controller
                 $query->where('payment_status', $value);
             })
             ->when(request()->field && request()->direction, fn($query) => $query->orderBy(request()->field, request()->direction))
-            ->when(true, function($query) {
+            ->when(true, function ($query) {
                 $query->where(function ($subQuery) {
                     $subQuery
                         ->whereNull('team_id')
-                        ->orWhereHas('teams', function($q) {
+                        ->orWhereHas('teams', function ($q) {
                             $q->whereColumn('leader_id', 'competition_registrations.user_id');
                         });
                 });
@@ -48,56 +51,57 @@ class DashboardCompetitionForKesekreController extends Controller
             ->withQueryString();
 
         // verified
-        $count_team_verified  = CompetitionRegistrations::where('payment_status', 'Verified')
+        $count_team_verified = CompetitionRegistrations::where('payment_status', 'Verified')
             ->whereNotNull('team_id')
             ->distinct('team_id')
             ->count();
-        $count_individual_verified  = CompetitionRegistrations::where('payment_status', 'Verified')
+        $count_individual_verified = CompetitionRegistrations::where('payment_status', 'Verified')
             ->whereNull('team_id')
             ->count();
-        $count_verified  = $count_individual_verified + $count_team_verified;
+        $count_verified = $count_individual_verified + $count_team_verified;
 
         // pending
-        $count_team_pending  = CompetitionRegistrations::where('payment_status', 'Pending')
+        $count_team_pending = CompetitionRegistrations::where('payment_status', 'Pending')
             ->whereNotNull('team_id')
             ->distinct('team_id')
             ->count();
-        $count_individual_pending  = CompetitionRegistrations::where('payment_status', 'Pending')
+        $count_individual_pending = CompetitionRegistrations::where('payment_status', 'Pending')
             ->whereNull('team_id')
             ->count();
-        $count_pending  = $count_individual_pending + $count_team_pending;
+        $count_pending = $count_individual_pending + $count_team_pending;
 
         // requested
-        $count_team_requested  = CompetitionRegistrations::where('payment_status', 'Requested')
+        $count_team_requested = CompetitionRegistrations::where('payment_status', 'Requested')
             ->whereNotNull('team_id')
             ->distinct('team_id')
             ->count();
-        $count_individual_requested  = CompetitionRegistrations::where('payment_status', 'Requested')
+        $count_individual_requested = CompetitionRegistrations::where('payment_status', 'Requested')
             ->whereNull('team_id')
             ->count();
-        $count_requested  = $count_individual_requested + $count_team_requested;
+        $count_requested = $count_individual_requested + $count_team_requested;
 
         // rejected
-        $count_team_rejected  = CompetitionRegistrations::where('payment_status', 'Rejected')
+        $count_team_rejected = CompetitionRegistrations::where('payment_status', 'Rejected')
             ->whereNotNull('team_id')
             ->distinct('team_id')
             ->count();
-        $count_individual_rejected  = CompetitionRegistrations::where('payment_status', 'Rejected')
+        $count_individual_rejected = CompetitionRegistrations::where('payment_status', 'Rejected')
             ->whereNull('team_id')
             ->count();
-        $count_rejected  = $count_individual_rejected + $count_team_rejected;
+        $count_rejected = $count_individual_rejected + $count_team_rejected;
 
         return inertia(component: 'Competition/Dashboard/DashboardKesekreCompetition', props: [
-            'admin_competition_registrations' => CompetitionRegistrationResource::collection($competition_registrations)->additional([
+            'admin_competition_registrations' => CompetitionRegistrationResource::collection($competition_registrations)
+            ->additional([
                 'meta' => [
                     'has_page' => $competition_registrations->hasPages(),
                 ],
             ]),
 
             'state'                           => [
-                'page'   => request()->page ?? 1,
-                'search' => request()->search ?? '',
-                'load'   => 10,
+                'page'           => request()->page ?? 1,
+                'search'         => request()->search ?? '',
+                'load'           => 10,
                 'payment_status' => request()->payment_status ?? '',
             ],
 
@@ -112,10 +116,9 @@ class DashboardCompetitionForKesekreController extends Controller
     {
         $registration = CompetitionRegistrations::findOrFail($id);
 
-
-        if(in_array($registration->payment_status->value, [
+        if (in_array($registration->payment_status->value, [
             PaymentStatus::REQUESTED->value,
-            PaymentStatus::REJECTED->value
+            PaymentStatus::REJECTED->value,
         ])) {
             flashMessage('Payment proof has not been uploaded.', 'error');
             return back();
