@@ -25,12 +25,13 @@ function Semnas({ ...props }) {
 
         const interval = setInterval(() => {
             setTime(prev => {
-                let totalSeconds = prev.hours * 3600 + prev.minutes * 60 + prev.seconds - 1;
+                let totalSeconds = prev.days * 86400 + prev.hours * 3600 + prev.minutes * 60 + prev.seconds - 1;
 
                 if (totalSeconds <= 0) {
                     clearInterval(interval);
                     return {
                         status: 'expired',
+                        days: 0,
                         hours: 0,
                         minutes: 0,
                         seconds: 0,
@@ -39,7 +40,8 @@ function Semnas({ ...props }) {
 
                 return {
                     status: 'active',
-                    hours: Math.floor(totalSeconds / 3600),
+                    days: Math.floor(totalSeconds / 86400),
+                    hours: Math.floor((totalSeconds % 86400) / 3600),
                     minutes: Math.floor((totalSeconds % 3600) / 60),
                     seconds: totalSeconds % 60,
                 };
@@ -47,7 +49,7 @@ function Semnas({ ...props }) {
         }, 1000);
 
         return () => clearInterval(interval);
-    }, [time.status]);
+    }, []);
 
     const [openIndex, setOpenIndex] = useState(null);
     const handleAccordionClick = (index) => {
@@ -162,16 +164,16 @@ function Semnas({ ...props }) {
                                         {time.status === 'active' ? (
                                             <div className='flex flex-row gap-5'>
                                                 <div className='flex flex-col'>
+                                                    <p className='font-medium text-[28px]'>{time.days}</p>
+                                                    <p className='text-[16px] font-bold'>Days</p>
+                                                </div>
+                                                <div className='flex flex-col'>
                                                     <p className='font-medium text-[28px]'>{time.hours}</p>
-                                                    <p className='text-[16px] font-bold'>Hours</p>
+                                                    <p className='text-[16px] font-medium opacity-80'>Hours</p>
                                                 </div>
                                                 <div className='flex flex-col'>
                                                     <p className='font-medium text-[28px]'>{time.minutes}</p>
-                                                    <p className='text-[16px] font-medium opacity-80'>Minutes</p>
-                                                </div>
-                                                <div className='flex flex-col'>
-                                                    <p className='font-medium text-[28px]'>{time.seconds}</p>
-                                                    <p className='text-[16px] font-medium opacity-50'>Seconds</p>
+                                                    <p className='text-[16px] font-medium opacity-50'>Minutes</p>
                                                 </div>
                                             </div>
                                         ) : (

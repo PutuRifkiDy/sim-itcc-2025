@@ -75,6 +75,7 @@ class FrontController extends Controller
         if ($diffInSeconds < 0) {
             $remaining_time = [
                 'status' => 'expired',
+                'days' => 0,
                 'hours' => 0,
                 'minutes' => 0,
                 'seconds' => 0,
@@ -82,7 +83,8 @@ class FrontController extends Controller
         } else {
             $remaining_time = [
                 'status' => 'active',
-                'hours' => floor($diffInSeconds / 3600),
+                'days' => floor($diffInSeconds / 86400),
+                'hours' => floor(($diffInSeconds % 86400) / 3600),
                 'minutes' => floor(($diffInSeconds % 3600) / 60),
                 'seconds' => $diffInSeconds % 60,
             ];
@@ -139,6 +141,7 @@ class FrontController extends Controller
         if ($diffInSeconds < 0) {
             $remaining_time = [
                 'status' => 'expired',
+                'days' => 0,
                 'hours' => 0,
                 'minutes' => 0,
                 'seconds' => 0,
@@ -146,7 +149,8 @@ class FrontController extends Controller
         } else {
             $remaining_time = [
                 'status' => 'active',
-                'hours' => floor($diffInSeconds / 3600),
+                'days' => floor($diffInSeconds / 86400),
+                'hours' => floor(($diffInSeconds % 86400) / 3600),
                 'minutes' => floor(($diffInSeconds % 3600) / 60),
                 'seconds' => $diffInSeconds % 60,
             ];
