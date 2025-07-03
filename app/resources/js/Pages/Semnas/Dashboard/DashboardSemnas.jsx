@@ -68,6 +68,14 @@ function DashboardSemnas() {
             image: "assets/images/dashboard/OVO_logo.png",
             className: "w-[130px] h-[40px]",
         },
+        {
+            image: "assets/images/dashboard/SEABANK_logo.png",
+            className: "w-[63px] h-[20px]",
+        },
+        {
+            image: "assets/images/dashboard/SEABANK_logo.png",
+            className: "w-[63px] h-[20px]",
+        },
     ];
 
     const combinedPaymentMethodsWithAdditionalContent = payment_methods

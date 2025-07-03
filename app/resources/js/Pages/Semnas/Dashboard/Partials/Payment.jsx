@@ -110,6 +110,14 @@ function Payment({ event_registrations, payment_methods, className, payment_valu
             image: "assets/images/dashboard/OVO_logo.png",
             className: "w-[63px] h-[20px]",
         },
+        {
+            image: "assets/images/dashboard/SEABANK_logo.png",
+            className: "w-[63px] h-[20px]",
+        },
+        {
+            image: "assets/images/dashboard/SEABANK_logo.png",
+            className: "w-[63px] h-[20px]",
+        },
     ];
 
     const combinedPaymentMethodsWithAdditionalContent = payment_methods
