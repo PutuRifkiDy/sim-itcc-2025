@@ -146,7 +146,7 @@ export default function Merch() {
                                     <div key={index} className={`keen-slider__slide number-slide${index}`}>
                                         <img
                                             src={`${merch.image_path}`} alt="ITCC 2025 Merch"
-                                            className="relative md:w-[400px] w-full md:ml-48 md:mr-16 mr-0 ml-6 z-20"
+                                            className="relative md:w-[400px] w-64 md:ml-48 md:mr-16 mr-0 ml-6 z-20"
                                         />
                                     </div>
                                 ))}
