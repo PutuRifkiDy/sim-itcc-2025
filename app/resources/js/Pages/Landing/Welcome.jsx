@@ -66,8 +66,8 @@ export default function Welcome() {
                     alt="banner"
                     className="absolute z-0 rounded-none w-1/2 h-auto object-cover hidden md:block top-0 left-0 opacity-100 dark:hidden"
                 /> */}
-                <Button onClick={closeModal} variant="none" className="absolute top-4 right-4 group">
-                    <XMarkIcon className="dark:text-white text-[#0F114C] w-6 h-6 font-bold focus-group:font-extrabold" />
+                <Button onClick={closeModal} variant="none" className="absolute top-4 right-4 group cursor-pointer">
+                    <XMarkIcon className="dark:text-white text-[#0F114C] md:w-6 md:h-6 w-8 h-8 font-bold focus-group:font-extrabold" />
                 </Button>
                 <div className="absolute md:block hidden top-12 left-12 dark:text-white text-[#0F114C]">
                     <SideRightCrossIcon />
@@ -91,19 +91,19 @@ export default function Welcome() {
                     <WhiteBlueDotMerchIcon />
                 </div>
                 <div className="flex justify-center items-center">
-                    <img src="assets/images/merchandise/merch_image_bundle.png" className="w-[300px] h-auto object-contain" alt="" data-aos="fade-up" data-aos-delay="100" />
+                    <img src="assets/images/merchandise/merch_image_bundle.png" className="md:w-[300px] w-auto md:h-auto object-contain max-h-72" alt="" data-aos="fade-up" data-aos-delay="100" />
                 </div>
                 <div className="flex flex-col items-center">
-                    <p className="dark:text-white text-[#0F114C] leading-[1.2em] text-[32px] tracking-[0.016em] uppercase font-bold md:text-start text-center" data-aos="fade-up" data-aos-delay="100">
+                    <p className="dark:text-white text-[#0F114C] leading-[1.2em] md:text-[32px] text-[24px] tracking-[0.016em] uppercase font-bold md:text-start text-center" data-aos="fade-up" data-aos-delay="100">
                         MERCHANDISE bundle
                     </p>
-                    <p className="text-[18px] tracking-[0.02em] leading-[1.8em] max-w-[380px] text-center md:mt-5 mt-0 text-[#5E5E5E] font-light dark:text-white" data-aos="fade-up" data-aos-delay="100">
+                    <p className="md:text-[18px] text-[15px] tracking-[0.02em] leading-[1.8em] max-w-[380px] text-center md:mt-5 mt-0 text-[#5E5E5E] font-light dark:text-white" data-aos="fade-up" data-aos-delay="100">
                         Get your Exclusive Merchandise Bundle at a special price — limited time only!
                     </p>
-                    <p className="text-[23px] font-medium text-center md:mt-24 mt-0 text-[#0886BB] line-through decoration-2" data-aos="fade-up" data-aos-delay="200">
+                    <p className="md:text-[23px] text-[14px] font-medium text-center md:mt-24 mt-0 text-[#0886BB] line-through decoration-2" data-aos="fade-up" data-aos-delay="200">
                         Rp. 100.000
                     </p>
-                    <p className="text-[29px] font-medium text-center dark:text-white text-[#0F114C]" data-aos="fade-up" data-aos-delay="300">
+                    <p className="md:text-[29px] text-[18px] font-medium text-center dark:text-white text-[#0F114C]" data-aos="fade-up" data-aos-delay="300">
                         Start From Rp. 25.000
                     </p>
                     <Button variant="blue" asChild size="lg" className="mt-5 tracking-[0.03em]" data-aos="fade-up" data-aos-delay="300">
