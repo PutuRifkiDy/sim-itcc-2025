@@ -91,7 +91,7 @@ export default function Welcome() {
                     <WhiteBlueDotMerchIcon />
                 </div>
                 <div className="flex justify-center items-center">
-                    <img src="assets/images/merchandise/merch_image_bundle.png" className="md:w-[300px] w-auto md:h-auto object-contain max-h-72" alt="" data-aos="fade-up" data-aos-delay="100" />
+                    <img src="assets/images/merchandise/merch_image_bundle.png" className="md:w-[300px] w-auto md:h-auto object-contain h-72" alt="" data-aos="fade-up" data-aos-delay="100" />
                 </div>
                 <div className="flex flex-col items-center">
                     <p className="dark:text-white text-[#0F114C] leading-[1.2em] md:text-[32px] text-[24px] tracking-[0.016em] uppercase font-bold md:text-start text-center" data-aos="fade-up" data-aos-delay="100">
