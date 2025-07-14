@@ -73,7 +73,7 @@ export default function Register() {
                                                     onChange={(e) => setData('name', e.target.value)}
                                                     onErrors={
                                                         errors.email && (
-                                                            <InputError message={errors.email} className="mt-2" />
+                                                            <InputError message={errors.name} className="mt-2" />
                                                         )
                                                     }
                                                     required
