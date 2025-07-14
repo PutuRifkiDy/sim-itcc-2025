@@ -17,15 +17,38 @@ class OverviewForAdminLomba extends Controller
         $adminCompetitionIds = $user->managed_competitions()->select('competitions.id', 'competitions.is_team')->get();
         $adminIds            = $adminCompetitionIds->pluck('id');
 
-        // untuk banyak competition
-        $count_competition = CompetitionRegistrations::where('payment_status', 'Verified')
+        // count orang competition yang individual
+        $count_individual_competition = CompetitionRegistrations::where('payment_status', 'Verified')
             ->whereIn('competition_id', $adminIds)
+            ->whereNull('team_id')
             ->count();
 
-        // untuk jumlah competition
-        $sum_total_payment_competition = CompetitionRegistrations::where('payment_status', 'Verified')
+        // count orang competition yang team
+        $count_team_competition = CompetitionRegistrations::where('payment_status', 'Verified')
             ->whereIn('competition_id', $adminIds)
+            ->whereNotNull('team_id')
+            ->distinct('team_id')
+            ->count();
+
+        $count_competition = ($count_individual_competition ?? 0) + ($count_team_competition ?? 0);
+
+        // sum total payment competition individual
+        $sum_total_payment_individual_competition = CompetitionRegistrations::where('payment_status', 'Verified')
+            ->whereIn('competition_id', $adminIds)
+            ->whereNull('team_id')
             ->sum('total_payment');
+
+        // sum total payment competition team
+        $sum_total_payment_team_competition = CompetitionRegistrations::where('payment_status', 'Verified')
+            ->whereIn('competition_id', $adminIds)
+            ->whereNotNull('team_id')
+            ->groupBy('team_id')
+            ->selectRaw('MIN(total_payment) as total_payment')
+            ->get()
+            ->sum('total_payment');
+
+        // untuk jumlah competition
+        $sum_total_payment_competition = ($sum_total_payment_individual_competition ?? 0) + ($sum_total_payment_team_competition ?? 0);
 
         // untuk target competition
         $target_competition = [
@@ -100,8 +123,6 @@ class OverviewForAdminLomba extends Controller
             ->whereIn('id', $adminIds)
             ->first();
 
-        // dd($target_competition_admin_lomba);
-
         $object_target_competition_admin_lomba = (object) $target_competition_admin_lomba;
 
         if ($count_competition > 0) {
@@ -147,11 +168,24 @@ class OverviewForAdminLomba extends Controller
             $monthLabel = $sixMonthsAgo->format('F');
             $labels[]   = $monthLabel;
 
-            $competitionTotal = CompetitionRegistrations::where('payment_status', 'Verified')
+            // count individual competition registrations
+            $countIndividualRegis = CompetitionRegistrations::where('payment_status', 'Verified')
+                ->whereIn('competition_id', $adminIds)
+                ->whereNull('team_id')
                 ->whereMonth('created_at', $sixMonthsAgo->month)
                 ->whereYear('created_at', $sixMonthsAgo->year)
-                ->whereIn('competition_id', $adminIds)
                 ->count();
+
+            // count team competition registrations
+            $countTeamRegis = CompetitionRegistrations::where('payment_status', 'Verified')
+                ->whereIn('competition_id', $adminIds)
+                ->whereNotNull('team_id')
+                ->distinct('team_id')
+                ->whereMonth('created_at', $sixMonthsAgo->month)
+                ->whereYear('created_at', $sixMonthsAgo->year)
+                ->count();
+
+            $competitionTotal = ($countIndividualRegis ?? 0) + ($countTeamRegis ?? 0);
 
             $competitionData[] = $competitionTotal;
 
@@ -191,11 +225,24 @@ class OverviewForAdminLomba extends Controller
             $monthLabel = $sixMonthsAgo->format('F');
             $labels[]   = $monthLabel;
 
-            $competitionTotal = CompetitionRegistrations::where('payment_status', 'Verified')
+            $sumCompetitionIndividual = CompetitionRegistrations::where('payment_status', 'Verified')
                 ->whereIn('competition_id', $adminIds)
+                ->whereNull('team_id')
                 ->whereMonth('created_at', $sixMonthsAgo->month)
                 ->whereYear('created_at', $sixMonthsAgo->year)
                 ->sum('total_payment');
+
+            $sumCompetitionTeam = CompetitionRegistrations::where('payment_status', 'Verified')
+                ->whereIn('competition_id', $adminIds)
+                ->whereNotNull('team_id')
+                ->whereMonth('created_at', $sixMonthsAgo->month)
+                ->whereYear('created_at', $sixMonthsAgo->year)
+                ->groupBy('team_id')
+                ->selectRaw('MIN(total_payment) as total_payment')
+                ->get()
+                ->sum('total_payment');
+
+            $competitionTotal = ($sumCompetitionIndividual ?? 0) + ($sumCompetitionTeam ?? 0);
 
             $competitionData[] = $competitionTotal;
 
