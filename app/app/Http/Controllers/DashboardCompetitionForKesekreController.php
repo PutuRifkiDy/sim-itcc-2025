@@ -28,7 +28,6 @@ class DashboardCompetitionForKesekreController extends Controller
                     $q->orWhereHas('teams', function ($q4) use ($value) {
                         $q4->where('team_name', 'REGEXP', $value);
                     });
-
                     $q->orWhere('payment_status', 'REGEXP', $value)
                         ->orWhere('total_payment', 'REGEXP', $value)
                         ->orWhere('code_registration', 'REGEXP', $value);

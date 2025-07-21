@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Enums\PaymentStatus;
 use App\Http\Requests\CompetitionRegistrationRequest;
 use App\Http\Requests\SemnasRegistrationRequest;
 use App\Http\Requests\TeamJoinRegisterRequest;
@@ -387,6 +388,9 @@ class FrontController extends Controller
                 ,
                 'error'
             );
+            return back();
+        } else if ($get_leader_registration->payment_status->value == PaymentStatus::VERIFIED->value){
+            flashMessage("The payment status of the team leader is verified. You can't join the team.", 'error');
             return back();
         } else if ($request->user()->already_filled == true && $get_token_exist == true) {
             $competition_registration = $user->competition_registrations()->create([
