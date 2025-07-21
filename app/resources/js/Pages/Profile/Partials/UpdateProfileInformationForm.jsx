@@ -234,6 +234,7 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, stat
                         </div>
                         <div className='flex flex-col gap-2'>
                             <InputLabel htmlFor="institution_path" value="Institution Card" className='text-[12px] text-[#676767] font-normal dark:text-white ' />
+                            <p className='text-[11px] text-[#000000] font-normal dark:text-white md:w-[500px] w-full'>KTP (Kartu Tanda Penduduk) / KTM (Kartu Tanda Mahasiswa) / KIA (Kartu Identitas Anak) / Halaman Data Diri Raport</p>
 
                             <ImageUpload
                                 imagePath={user.institution_path}
