@@ -1,8 +1,10 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Enums\PaymentStatus;
 use App\Enums\UserStatus;
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\CompetitionRegistrations;
 use App\Models\User;
 use App\Traits\HasFile;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -51,6 +53,15 @@ class ProfileController extends Controller
         }
 
         $user->already_filled = true;
+
+        $competition_registrations = CompetitionRegistrations::where('user_id', $user->id)
+            ->where('payment_status', PaymentStatus::VERIFIED->value)
+            ->first();
+
+        if ($competition_registrations) {
+            flashMessage('You have already registered for a competition. You cannot update your profile.', 'error');
+            return back();
+        }
 
         if ($user->save()) {
             flashMessage('Your profile has been updated.', 'success');
