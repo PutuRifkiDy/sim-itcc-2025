@@ -14,6 +14,11 @@ class OverviewForAdminLomba extends Controller
         if (! $user) {
             return to_route('login');
         }
+
+        if(!$user->hasRole('admin')) {
+            return to_route('login');
+        }
+
         $adminCompetitionIds = $user->managed_competitions()->select('competitions.id', 'competitions.is_team')->get();
         $adminIds            = $adminCompetitionIds->pluck('id');
 

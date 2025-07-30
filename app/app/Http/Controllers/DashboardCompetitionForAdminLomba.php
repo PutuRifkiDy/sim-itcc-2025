@@ -20,6 +20,9 @@ class DashboardCompetitionForAdminLomba extends Controller
         if (! $user) {
             return to_route('login');
         }
+        if (! $user->hasRole('admin')) {
+            return to_route('login');
+        }
         $adminCompetitionIds            = $user->managed_competitions()->pluck('competitions.id');
         $show_competition_is_open_regis = Competitions::where('is_open_regis', true)->get('name');
         $show_all_participant           = CompetitionRegistrations::with('competitions', 'user', 'teams.team_members')
@@ -82,9 +85,15 @@ class DashboardCompetitionForAdminLomba extends Controller
         ]);
     }
 
-    public function show_submission(): Response
+    public function show_submission(): Response|RedirectResponse
     {
-        $user                           = auth()->user();
+        $user = auth()->user();
+        if (! $user) {
+            return to_route('login');
+        }
+        if (! $user->hasRole('admin')) {
+            return to_route('login');
+        }
         $adminCompetitionIds            = $user->managed_competitions()->pluck('competitions.id');
         $show_competition_is_open_regis = Competitions::where('is_open_regis', true)
             ->where('is_need_submission', true)

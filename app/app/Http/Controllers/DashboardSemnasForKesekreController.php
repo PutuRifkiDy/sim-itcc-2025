@@ -13,8 +13,12 @@ class DashboardSemnasForKesekreController extends Controller
 {
     //
 
-    public function index(): Response
+    public function index(): Response|RedirectResponse
     {
+        $user = auth()->user();
+        if (!$user->hasRole('admin')) {
+            return to_route('login');
+        }
         $event_registrations_semnas = EventRegistrations::with('events', 'user')
             ->when(request()->search, function ($query, $value) {
                 $query->where(function ($q) use ($value) {
@@ -74,7 +78,7 @@ class DashboardSemnasForKesekreController extends Controller
             flashMessage('Payment proof has not been uploaded.', 'error');
             return back();
         }
-        
+
         EventRegistrations::find($id)->update([
             'payment_status' => PaymentStatus::VERIFIED->value,
         ]);

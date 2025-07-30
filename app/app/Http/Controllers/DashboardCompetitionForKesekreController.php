@@ -11,8 +11,15 @@ use Inertia\Response;
 
 class DashboardCompetitionForKesekreController extends Controller
 {
-    public function index(): Response
+    public function index(): Response|RedirectResponse
     {
+        $user = auth()->user();
+        if (!$user) {
+            return to_route('login');
+        }
+        if (!$user->hasRole('admin')) {
+            return to_route('login');
+        }
         $competition_registrations = CompetitionRegistrations::with('competitions', 'user', 'teams.team_members')
             ->when(request()->search, function ($query, $value) {
                 $query->where(function ($q) use ($value) {

@@ -5,12 +5,21 @@ use App\Models\CompetitionRegistrations;
 use App\Models\EventRegistrations;
 use App\Models\User;
 use Carbon\Carbon;
+use Illuminate\Http\RedirectResponse;
 use Inertia\Response;
 
 class OverviewForKesekreController extends Controller
 {
-    public function index(): Response
+    public function index(): Response|RedirectResponse
     {
+
+        $user = auth()->user();
+        if (!$user) {
+            return to_route('login');
+        }
+        if (!$user->hasRole('admin')) {
+            return to_route('login');
+        }
 
         // untuk jumlah semnas
         $count_participant_semnas = EventRegistrations::where('payment_status', 'Verified')
