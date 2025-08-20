@@ -16,6 +16,9 @@ class DashboardSemnasForKesekreController extends Controller
     public function index(): Response|RedirectResponse
     {
         $user = auth()->user();
+        if (!$user) {
+            return to_route('login');
+        }
         if (!$user->hasRole('admin')) {
             return to_route('login');
         }

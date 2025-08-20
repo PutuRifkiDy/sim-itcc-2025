@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Resources;
 
 use Illuminate\Http\Request;
@@ -15,12 +14,13 @@ class SubmissionResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'id' => $this->id,
+            'id'                          => $this->id,
             'competition_registration_id' => $this->competition_registration_id,
-            'submission_link' => $this->submission_link,
-            'submission_status' => $this->submission_status,
-            'reject_reason' => $this->reject_reason,
-            'competition_registrations' => new CompetitionRegistrationResource($this->competition_registrations),
+            'submission_link'             => $this->submission_link,
+            'submission_status'           => $this->submission_status,
+            'reject_reason'               => $this->reject_reason,
+            'approver_by'                 => $this->approver_by,
+            'competition_registrations'   => new CompetitionRegistrationResource($this->competition_registrations),
         ];
     }
 }

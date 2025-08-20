@@ -27,7 +27,6 @@ function DashboardAdminLombaSubmission({ ...props }) {
     const [params, setParams] = useState(props.state);
     const show_competition_is_open_regis = usePage().props.show_competition_is_open_regis;
 
-    console.log(submissions);
 
 
     // untuk modal identity
@@ -45,6 +44,7 @@ function DashboardAdminLombaSubmission({ ...props }) {
 
     const { data, setData, post, put, patch, errors, processing, recentlySuccessful, formData, clearErrors, reset } = useForm({
         reject_reason: submissions.reject_reason ?? '',
+        approver_by: submissions.approver_by ?? '',
         _method: 'POST',
     });
 
@@ -60,10 +60,22 @@ function DashboardAdminLombaSubmission({ ...props }) {
         reset();
     };
 
-    const onHandleVerif = (submissionId) => {
+    const onHandleVerif = (e, submissionId) => {
+        e.preventDefault();
+
+        if (!data.approver_by) {
+            if (!hasShownToast.current) {
+                toast.error("Please enter approver.");
+                hasShownToast.current = true;
+            }
+            return;
+        }
+
         post(route('dashboard.competition.admin-lomba.verif-submission', { id: submissionId }), {
             preserveScroll: true,
             onSuccess: () => closeModalVerif(),
+            preserveScroll: true,
+            preserveState: true,
         });
     };
 
@@ -333,6 +345,19 @@ function DashboardAdminLombaSubmission({ ...props }) {
                                                             variant="ghost"
                                                             className="group inline-flex hover:dark:bg-[#0F114C]"
                                                         >
+
+
+                                                            Approved by
+                                                        </Button>
+                                                    </th>
+                                                    <th
+                                                        className="5 font-semibold px-2 py-3 text-left text-sm text-foreground"
+                                                        scope="col"
+                                                    >
+                                                        <Button
+                                                            variant="ghost"
+                                                            className="group inline-flex hover:dark:bg-[#0F114C]"
+                                                        >
                                                             Action
                                                         </Button>
                                                     </th>
@@ -588,6 +613,9 @@ function DashboardAdminLombaSubmission({ ...props }) {
                                                                 {submission.submission_status}
                                                             </Badge>
                                                         </td>
+                                                        <td className="whitespace-nowrap px-6 py-8 text-sm font-normal text-foreground ">
+                                                            {submission.approver_by ? submission.approver_by : '-'}
+                                                        </td>
                                                         <td className="whitespace-nowrap px-6 py-8 flex md:flex-row gap-2">
                                                             {submission.submission_status == 'Requested' ? (
                                                                 <Link
@@ -609,27 +637,46 @@ function DashboardAdminLombaSubmission({ ...props }) {
                                                                     </Button>
 
                                                                     <Modal show={modalVerifOpen} onClose={closeModalVerif} maxWidth="md" className="p-4 dark:bg-[#0F172A]">
-                                                                        <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
-                                                                            Confirmation Of Payment Verification
-                                                                        </h2>
+                                                                        <form onSubmit={(e) => onHandleVerif(e, selectIdVerif)}>
 
-                                                                        <p className="mt-1 text-sm text-gray-600 dark:text-white">
-                                                                            You will not be able to revert this action.
-                                                                        </p>
+                                                                            <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
+                                                                                Please input a approving person this submission
+                                                                            </h2>
 
-                                                                        <div className="mt-6 flex justify-end">
-                                                                            <Button onClick={closeModalVerif} variant="red" type="button">Cancel</Button>
+                                                                            <p className="mt-1 text-sm text-gray-600 dark:text-white">
+                                                                                You will not be able to revert this action.
+                                                                            </p>
 
-                                                                            <Button
-                                                                                className="ms-3"
-                                                                                variant="blue"
-                                                                                type="submit"
-                                                                                disabled={processing}
-                                                                                onClick={() => onHandleVerif(selectIdVerif)}
-                                                                            >
-                                                                                Confirm
-                                                                            </Button>
-                                                                        </div>
+
+                                                                            <div className="mt-6">
+
+                                                                                <TextInput
+                                                                                    id="approver_by"
+                                                                                    type="approver_by"
+                                                                                    name="approver_by"
+                                                                                    value={data.approver_by}
+                                                                                    onChange={(e) => setData('approver_by', e.target.value)}
+                                                                                    className="mt-1 block w-3/4"
+                                                                                    isFocused
+                                                                                    placeholder="Approved By"
+                                                                                />
+
+                                                                                <InputError message={errors.approver_by} className="mt-2" />
+                                                                            </div>
+
+                                                                            <div className="mt-6 flex justify-end">
+                                                                                <Button onClick={closeModalVerif} variant="red" type="button">Cancel</Button>
+
+                                                                                <Button
+                                                                                    className="ms-3"
+                                                                                    variant="blue"
+                                                                                    type="submit"
+                                                                                    disabled={processing}
+                                                                                >
+                                                                                    Confirm
+                                                                                </Button>
+                                                                            </div>
+                                                                        </form>
                                                                     </Modal>
                                                                 </div>
                                                             )}
@@ -684,7 +731,7 @@ function DashboardAdminLombaSubmission({ ...props }) {
                             </div>
                         </CardContent>
                         <CardFooter className="justify-between border-t pt-6 text-sm text-muted-foreground">
-                             <p className="text-sm text-muted-foreground dark:text-white">
+                            <p className="text-sm text-muted-foreground dark:text-white">
                                 Showing <span className="font-normal text-[#4880FF]">{meta.from}</span>
                                 {" to "}
                                 <span className="font-normal text-[#4880FF]">{meta.to}</span>
@@ -725,7 +772,7 @@ function DashboardAdminLombaSubmission({ ...props }) {
                         *Make sure to download the current submission file before verification, as it will be replaced if the user uploads a new one.
                     </p>
                 </div>
-            </div>
+            </div >
         </>
     );
 }

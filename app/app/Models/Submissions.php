@@ -1,12 +1,11 @@
 <?php
-
 namespace App\Models;
 
 use App\Enums\SubmissionStatus;
-use Illuminate\Database\Eloquent\Model;
 use App\Models\CompetitionRegistrations;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Submissions extends Model
 {
@@ -16,13 +15,14 @@ class Submissions extends Model
         'competition_registration_id',
         'submission_link',
         'submission_status',
-        'reject_reason'
+        'reject_reason',
+        'approver_by',
     ];
 
     protected function casts(): array
     {
         return [
-            'submission_status' => SubmissionStatus::class
+            'submission_status' => SubmissionStatus::class,
         ];
     }
 

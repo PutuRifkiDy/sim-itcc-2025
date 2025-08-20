@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 
 use App\Enums\SubmissionStatus;
+use App\Http\Requests\ApproverRequest;
 use App\Http\Requests\RejectReasonRequest;
 use App\Http\Resources\CompetitionRegistrationResource;
 use App\Http\Resources\SubmissionResource;
@@ -85,7 +86,7 @@ class DashboardCompetitionForAdminLomba extends Controller
         ]);
     }
 
-    public function show_submission(): Response|RedirectResponse
+    public function show_submission(): Response | RedirectResponse
     {
         $user = auth()->user();
         if (! $user) {
@@ -168,8 +169,9 @@ class DashboardCompetitionForAdminLomba extends Controller
         ]);
     }
 
-    public function verif_submission($id): RedirectResponse
+    public function verif_submission($id, ApproverRequest $request): RedirectResponse
     {
+        // dd($request->approver_by);
         $submission = Submissions::findOrFail($id);
         if (in_array($submission->submission_status->value, [
             SubmissionStatus::REQUESTED->value,
@@ -181,6 +183,7 @@ class DashboardCompetitionForAdminLomba extends Controller
 
         Submissions::find($id)->update([
             'submission_status' => SubmissionStatus::VERIFIED->value,
+            'approver_by'       => $request->approver_by,
         ]);
 
         flashMessage('Submission has been verified.', 'success');
@@ -192,6 +195,7 @@ class DashboardCompetitionForAdminLomba extends Controller
         Submissions::find($id)->update([
             'submission_status' => SubmissionStatus::REJECTED->value,
             'reject_reason'     => $request->reject_reason,
+            'approver_by'       => null,
         ]);
 
         flashMessage('Submission has been rejected.', 'success');
