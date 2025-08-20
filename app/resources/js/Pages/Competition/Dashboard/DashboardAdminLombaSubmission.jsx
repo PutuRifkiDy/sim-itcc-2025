@@ -74,7 +74,6 @@ function DashboardAdminLombaSubmission({ ...props }) {
         post(route('dashboard.competition.admin-lomba.verif-submission', { id: submissionId }), {
             preserveScroll: true,
             onSuccess: () => closeModalVerif(),
-            preserveScroll: true,
             preserveState: true,
         });
     };
