@@ -4,6 +4,8 @@ import { Link, usePage } from '@inertiajs/react';
 
 export default function Dashboard() {
     const competitions = usePage().props.competitions;
+    const user = usePage().props.auth.user;
+
     return (
         <div className="py-5">
             <div className="mx-auto w-full flex flex-col gap-4">

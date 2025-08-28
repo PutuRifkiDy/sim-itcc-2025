@@ -181,6 +181,11 @@ class DashboardCompetitionForAdminLomba extends Controller
             return back();
         }
 
+        if ($submission->submission_status->value == SubmissionStatus::VERIFIED->value) {
+            flashMessage('Submission has already been verified.', 'error');
+            return back();
+        }
+
         Submissions::find($id)->update([
             'submission_status' => SubmissionStatus::VERIFIED->value,
             'approver_by'       => $request->approver_by,

@@ -34,9 +34,12 @@ class AuthenticatedSessionController extends Controller
         $request->session()->regenerate();
 
         $user = Auth::user();
+        // // $user->name === 'Admin Kesekre'
+        // dd($user);
 
-
-        if ($user->hasRole('admin') && $user->name === 'Admin Kesekre') {
+        if ($user->hasRole('admin') && $user->email == 'adminKesekre@gmail.com') {
+            return redirect()->route('dashboard.overview.admin-kesekre.index');
+        } else if ($user->hasRole('admin') && $user->email == 'adminKesekre2@gmail.com') {
             return redirect()->route('dashboard.overview.admin-kesekre.index');
         } else if ($user->hasRole('admin')) {
             return redirect()->route('dashboard.overview.admin-lomba.index');
