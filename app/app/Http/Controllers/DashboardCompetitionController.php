@@ -24,12 +24,12 @@ class DashboardCompetitionController extends Controller
 {
     use HasFile;
 
-    public function index(): Response | RedirectResponse
+    public function index(): Response|RedirectResponse
     {
-        if (! auth()->check()) {
+        if (!auth()->check()) {
             return to_route('login');
         }
-        $id_user                        = auth()->user()->id;
+        $id_user = auth()->user()->id;
         $show_registration_competitions = CompetitionRegistrations::with('user')
             ->where('user_id', $id_user)
             ->get();
@@ -38,9 +38,9 @@ class DashboardCompetitionController extends Controller
         ]);
     }
 
-    public function show($id): Response | RedirectResponse
+    public function show($id): Response|RedirectResponse
     {
-        if (! auth()->check()) {
+        if (!auth()->check()) {
             return to_route('login');
         }
         $user = auth()->user();
@@ -50,7 +50,7 @@ class DashboardCompetitionController extends Controller
             ->where('id', $id)
             ->first();
 
-        if (! $show_registration_competition) {
+        if (!$show_registration_competition) {
             abort(404);
         }
 
@@ -72,20 +72,20 @@ class DashboardCompetitionController extends Controller
 
         return inertia(component: 'Competition/Dashboard/DashboardCompetitionDetail', props: [
             'user_competition_registrations' => fn() => $show_registration_competition ? new CompetitionRegistrationResource($show_registration_competition) : null,
-            'payment_methods'                => PaymentMethodsResource::collection($payment_methods),
-            'status_submission'              => $show_status_submission ?? null,
-            'show_reject_reason_submission'  => $show_reject_reason_submission ?? null,
+            'payment_methods' => PaymentMethodsResource::collection($payment_methods),
+            'status_submission' => $show_status_submission ?? null,
+            'show_reject_reason_submission' => $show_reject_reason_submission ?? null,
         ]);
     }
 
     public function update_team_name($id, TeamRegisterRequest $request): RedirectResponse
     {
-        if (! auth()->check()) {
+        if (!auth()->check()) {
             return to_route('login');
         }
 
-        $user                     = auth()->user();
-        $team                     = Teams::findOrFail($id);
+        $user = auth()->user();
+        $team = Teams::findOrFail($id);
         $competitionRegistrations = CompetitionRegistrations::where('team_id', $team->id)->first();
 
         if ($user->id != $team->leader_id) {
@@ -96,9 +96,11 @@ class DashboardCompetitionController extends Controller
         if ($competitionRegistrations->payment_status->value == PaymentStatus::VERIFIED->value) {
             flashMessage('Payment has already been approved. No changes allowed.', 'error');
             return to_route('dashboard.competition.index');
-        } else if ($competitionRegistrations->payment_status->value == PaymentStatus::PENDING->value
+        } else if (
+            $competitionRegistrations->payment_status->value == PaymentStatus::PENDING->value
             || $competitionRegistrations->payment_status->value == PaymentStatus::REQUESTED->value
-            || $competitionRegistrations->payment_status->value == PaymentStatus::REJECTED->value) {
+            || $competitionRegistrations->payment_status->value == PaymentStatus::REJECTED->value
+        ) {
 
             $team->update([
                 'team_name' => $request->team_name,
@@ -111,8 +113,8 @@ class DashboardCompetitionController extends Controller
     public function payment_store(PaymentStoreRequest $request, $id): RedirectResponse
     {
         $competitionRegistrations = CompetitionRegistrations::findOrFail($id);
-        $competition              = Competitions::findOrFail($competitionRegistrations->competition_id);
-        $user                     = $request->user();
+        $competition = Competitions::findOrFail($competitionRegistrations->competition_id);
+        $user = $request->user();
 
         $in_periode_registration = CompetitionPrices::where('competition_id', $competitionRegistrations->competition_id)
             ->where('start_date', '<=', now())
@@ -130,8 +132,8 @@ class DashboardCompetitionController extends Controller
         }
 
         $paymentProofPath = $request->hasFile('payment_proof_path')
-        ? $this->upload_file($request, 'payment_proof_path', 'competition_payments')
-        : $competitionRegistrations->payment_proof_path;
+            ? $this->upload_file($request, 'payment_proof_path', 'competition_payments')
+            : $competitionRegistrations->payment_proof_path;
 
         if ($competition->is_team == true) {
             $team = Teams::findOrFail($competitionRegistrations->team_id);
@@ -148,24 +150,24 @@ class DashboardCompetitionController extends Controller
             foreach ($teamRegistrations as $registration) {
                 $registration->update([
                     'payment_proof_path' => $paymentProofPath,
-                    'payment_status'     => $request->payment_status,
-                    'competition_id'     => $competitionRegistrations->competition_id,
-                    'user_id'            => $registration->user_id,
-                    'code_registration'  => $registration->code_registration,
-                    'total_payment'      => $competitionRegistrations->total_payment,
-                    'reject_reason'      => $registration->reject_reason,
+                    'payment_status' => $request->payment_status,
+                    'competition_id' => $competitionRegistrations->competition_id,
+                    'user_id' => $registration->user_id,
+                    'code_registration' => $registration->code_registration,
+                    'total_payment' => $competitionRegistrations->total_payment,
+                    'reject_reason' => $registration->reject_reason,
                 ]);
             }
             flashMessage('Your payment proof has been uploaded.', 'success');
         } else {
             $competitionRegistrations->update([
                 'payment_proof_path' => $paymentProofPath,
-                'payment_status'     => $request->payment_status,
-                'competition_id'     => $competitionRegistrations->competition_id,
-                'user_id'            => $competitionRegistrations->user_id,
-                'code_registration'  => $competitionRegistrations->code_registration,
-                'total_payment'      => $competitionRegistrations->total_payment,
-                'reject_reason'      => $competitionRegistrations->reject_reason,
+                'payment_status' => $request->payment_status,
+                'competition_id' => $competitionRegistrations->competition_id,
+                'user_id' => $competitionRegistrations->user_id,
+                'code_registration' => $competitionRegistrations->code_registration,
+                'total_payment' => $competitionRegistrations->total_payment,
+                'reject_reason' => $competitionRegistrations->reject_reason,
             ]);
 
             flashMessage('Your payment proof has been uploaded.', 'success');
@@ -175,10 +177,10 @@ class DashboardCompetitionController extends Controller
 
     public function submission_store(SubmissionStoreRequest $request): RedirectResponse
     {
-        $user         = auth()->user();
+        $user = auth()->user();
         $registration = CompetitionRegistrations::findOrFail($request->competition_registration_id);
-        $competition  = Competitions::findOrFail($registration->competition_id);
-        $team         = Teams::where('id', $registration->team_id)->first();
+        $competition = Competitions::findOrFail($registration->competition_id);
+        $team = Teams::where('id', $registration->team_id)->first();
 
         $submission = Submissions::where('competition_registration_id', $registration->id)->first();
 
@@ -189,11 +191,13 @@ class DashboardCompetitionController extends Controller
             ->where('end_submission', '>=', now())
             ->exists();
 
-        if (in_array($payment_status->value, [
-            PaymentStatus::PENDING->value,
-            PaymentStatus::REQUESTED->value,
-            PaymentStatus::REJECTED->value,
-        ])) {
+        if (
+            in_array($payment_status->value, [
+                PaymentStatus::PENDING->value,
+                PaymentStatus::REQUESTED->value,
+                PaymentStatus::REJECTED->value,
+            ])
+        ) {
             flashMessage('Please finish your payment first', 'error');
             return to_route('dashboard.competition.index');
         }
@@ -206,11 +210,11 @@ class DashboardCompetitionController extends Controller
         }
 
         if ($payment_status->value == PaymentStatus::VERIFIED->value) {
-            if (! $submission && $competition->is_need_submission && $in_periode_submission) {
+            if (!$submission && $competition->is_need_submission && $in_periode_submission) {
                 Submissions::create([
                     'competition_registration_id' => $request->competition_registration_id,
-                    'submission_link'             => $request->submission_link,
-                    'submission_status'           => $request->submission_status,
+                    'submission_link' => $request->submission_link,
+                    'submission_status' => $request->submission_status,
                 ]);
                 flashMessage('Your submission has been uploaded.');
                 return to_route('dashboard.competition.index');
@@ -222,14 +226,16 @@ class DashboardCompetitionController extends Controller
                 return to_route('dashboard.competition.index');
             }
 
-            if (in_array($submission->submission_status->value, [
-                SubmissionStatus::REJECTED->value,
-                SubmissionStatus::VERIFIED->value,
-            ])) {
+            if (
+                in_array($submission->submission_status->value, [
+                    SubmissionStatus::REJECTED->value,
+                    SubmissionStatus::VERIFIED->value,
+                ])
+            ) {
                 $submission->update([
                     'competition_registration_id' => $request->competition_registration_id,
-                    'submission_link'             => $request->submission_link,
-                    'submission_status'           => $request->submission_status,
+                    'submission_link' => $request->submission_link,
+                    'submission_status' => $request->submission_status,
                 ]);
                 flashMessage('Your submission has been uploaded.');
                 return to_route('dashboard.competition.index');
@@ -247,9 +253,9 @@ class DashboardCompetitionController extends Controller
 
     public function destroy($id): RedirectResponse
     {
-        $user         = auth()->user();
+        $user = auth()->user();
         $registration = CompetitionRegistrations::with('teams')->findOrFail($id);
-        $competition  = Competitions::findOrFail($registration->competition_id);
+        $competition = Competitions::findOrFail($registration->competition_id);
 
         if ($competition->is_team == true) {
             $team = Teams::where('id', $registration->team_id)->first();
@@ -272,7 +278,7 @@ class DashboardCompetitionController extends Controller
 
     public function destroy_member($id): RedirectResponse
     {
-        $user        = auth()->user();
+        $user = auth()->user();
         $team_member = TeamMembers::with('teams', 'competition_registrations')->findOrFail($id);
 
         if ($user->id != $team_member->teams->leader_id) {
@@ -282,9 +288,11 @@ class DashboardCompetitionController extends Controller
         if ($team_member->competition_registrations->payment_status->value == PaymentStatus::VERIFIED->value) {
             flashMessage('Payment has already been approved. No further changes allowed.', 'error');
             return to_route('dashboard.competition.index');
-        } else if ($team_member->competition_registrations->payment_status->value == PaymentStatus::PENDING->value
+        } else if (
+            $team_member->competition_registrations->payment_status->value == PaymentStatus::PENDING->value
             || $team_member->competition_registrations->payment_status->value == PaymentStatus::REQUESTED->value
-            || $team_member->competition_registrations->payment_status->value == PaymentStatus::REJECTED->value) {
+            || $team_member->competition_registrations->payment_status->value == PaymentStatus::REJECTED->value
+        ) {
             CompetitionRegistrations::find($team_member->competition_registrations->id)->delete();
             flashMessage('Your team member has been removed.', 'success');
             return to_route('dashboard.competition.index');

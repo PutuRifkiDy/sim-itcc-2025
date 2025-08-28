@@ -137,6 +137,14 @@ export default function NavBar({ auth, competitions }) {
                                         <Squares2X2Icon className="h-6 w-6 text-gray-500" />
                                         Dashboard
                                     </Link>
+                                ) : auth.is_admin == true && auth.email == 'adminKesekre2@gmail.com' ? (
+                                    <Link
+                                        href={route('dashboard.overview.admin-kesekre.index')}
+                                        className="flex flex-row items-center gap-2"
+                                    >
+                                        <Squares2X2Icon className="h-6 w-6 text-gray-500" />
+                                        Dashboard
+                                    </Link>
                                 ) : auth.is_admin === true ? (
                                     <Link
                                         href={route('dashboard.overview.admin-lomba.index')}
