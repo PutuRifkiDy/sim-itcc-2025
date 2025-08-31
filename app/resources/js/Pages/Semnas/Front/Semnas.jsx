@@ -448,15 +448,17 @@ function Semnas({ ...props }) {
                                 </p>
                             </div>
                             <div className="text-left relative z-10">
-                                <h2 className="text-xl font-bold text-[#0F114C] dark:text-white">
-                                    Speaker 1
+                                <h2 className="text-[18px] font-bold text-[#0F114C] dark:text-white">
+                                    I Putu Sundika, ST., MT
                                 </h2>
-                                <p className="text-sm text-gray-700 dark:text-gray-400">Coming soon</p>
+                                <p className="text-sm text-gray-700 dark:text-gray-400">
+                                    Kepala Bidang Persandian Diskominfos Provinsi Bali
+                                </p>
                             </div>
 
-                            <div className="absolute bottom-0 left-0 w-[180px] h-auto z-10">
+                            <div className="absolute bottom-0 left-0 w-[220px] h-auto z-10">
                                 <img
-                                    src={`${window.location.origin}/assets/images/semnas/semnas_speaker.png`}
+                                    src={`${window.location.origin}/assets/images/semnas/pembicara_1.png`}
                                     alt="Speaker 1"
                                     className="relative w-full h-full object-cover z-10"
                                 />
@@ -486,15 +488,17 @@ function Semnas({ ...props }) {
                                 </p>
                             </div>
                             <div className="text-left relative z-10">
-                                <h2 className="text-xl font-bold text-[#0F114C] dark:text-white">
-                                    Speaker 2
+                                <h2 className="text-[18px] font-bold text-[#0F114C] dark:text-white">
+                                    Yohanes Priyo Atmojo, S.Kom., M.Eng
                                 </h2>
-                                <p className="text-sm text-gray-700 dark:text-gray-400">Coming soon</p>
+                                <p className="text-sm text-gray-700 dark:text-gray-400">
+                                    2nd Place Anugerah Bug Bounty Pusdatin 2024
+                                </p>
                             </div>
 
-                            <div className="absolute bottom-0 left-0 w-[180px] h-auto z-10">
+                            <div className="absolute bottom-0 left-0 w-[220px] h-auto z-10">
                                 <img
-                                    src={`${window.location.origin}/assets/images/semnas/semnas_speaker.png`}
+                                    src={`${window.location.origin}/assets/images/semnas/pembicara_2.png`}
                                     alt="Speaker 1"
                                     className="relative w-full h-full object-cover z-10"
                                 />
