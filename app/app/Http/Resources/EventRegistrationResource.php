@@ -25,6 +25,7 @@ class EventRegistrationResource extends JsonResource
             'total_payment'     => number_format($this->total_payment),
             'payment_status'    => $this->payment_status,
             'reject_reason'     => $this->reject_reason,
+            'ticket_path' => Storage::url($this->ticket_path),
             'events' => new EventResource($this->events),
             'user' => new UserSingleResource($this->user),
         ];

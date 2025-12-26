@@ -20,6 +20,7 @@ class EventRegistrations extends Model
         'payment_proof_path',
         'total_payment',
         'payment_status',
+        'ticket_path',
         'reject_reason',
     ];
 
