@@ -8,7 +8,7 @@ Sistem Informasi untuk mengelola event ITCC 2025, termasuk registrasi kompetisi,
 - **Frontend**: React 18, InertiaJS
 - **UI Framework**: ShadCNUI (berbasis Radix UI), TailwindCSS
 - **Database**: MySQL/PostgreSQL (sesuai konfigurasi)
-- **Authentication**: Laravel Sanctum
+- **Authentication**: Laravel Breeze
 - **Permissions**: Spatie Laravel Permission
 - **File Handling**: Intervention Image
 - **Export**: Maatwebsite Excel
@@ -198,6 +198,20 @@ Sistem Informasi untuk mengelola event ITCC 2025, termasuk registrasi kompetisi,
    cd frontend-template
    npm run dev
    ```
+
+## Testing
+
+Jalankan test menggunakan PestPHP:
+```bash
+php artisan test
+```
+
+## Deployment
+
+1. Pastikan semua dependencies terinstall dan konfigurasi environment sudah benar
+2. Jalankan migrasi database
+3. Build assets untuk production
+4. Konfigurasi web server (Apache/Nginx) untuk menjalankan Laravel
 
 ## Kontribusi
 
