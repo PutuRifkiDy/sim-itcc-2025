@@ -17,17 +17,89 @@ Sistem Informasi untuk mengelola event ITCC 2025, termasuk registrasi kompetisi,
 
 ## Fitur Utama
 
-- **Manajemen Pengguna**: Registrasi, login, dan manajemen role/permission
-- **Manajemen Kompetisi**: Buat dan kelola kompetisi dengan kategori, timeline, prize, FAQ, dan contact person
-- **Manajemen Event**: Buat dan kelola event dengan fitur serupa kompetisi
-- **Registrasi Kompetisi**: Pendaftaran tim untuk kompetisi dengan pembayaran
-- **Registrasi Event**: Pendaftaran individu untuk event
-- **Submission**: Upload dan kelola submission untuk kompetisi
-- **Pembayaran**: Integrasi metode pembayaran dan tracking status
-- **Tim Management**: Buat tim, tambah anggota, dan kelola
-- **Merchandise**: Manajemen produk merchandise
-- **Export Data**: Export data registrasi, submission, dan peserta dalam format Excel
-- **Dashboard Admin**: Panel admin untuk mengelola semua aspek sistem
+### Manajemen Pengguna
+- Registrasi dan login pengguna
+- Verifikasi email
+- Manajemen profil (NIM, institusi, nomor telepon, dll.)
+- Sistem role dan permission menggunakan Spatie Laravel Permission
+- Status pengguna (aktif, tidak aktif, dll.)
+
+### Manajemen Kompetisi
+- Buat dan kelola kompetisi dengan kode unik
+- Kategori kompetisi
+- Pengaturan tim atau individu
+- Pengaturan apakah perlu submission
+- Status registrasi terbuka/tutup
+- Harga kompetisi berdasarkan kategori
+- Konten kompetisi: deskripsi, timeline, prize, FAQ, contact person
+
+### Manajemen Event (Semnas)
+- Buat dan kelola event dengan kode unik
+- Kategori dan tipe event
+- Status registrasi terbuka/tutup
+- Harga event
+- Konten event: deskripsi, timeline, FAQ, contact person
+
+### Registrasi Kompetisi
+- Registrasi tim atau individu
+- Pembuatan tim dengan leader dan anggota
+- Upload bukti pembayaran
+- Tracking status pembayaran (pending, approved, rejected)
+- Kode registrasi unik
+- Total pembayaran
+
+### Registrasi Event
+- Registrasi individu untuk event
+- Tracking status pembayaran
+
+### Submission Kompetisi
+- Upload link submission untuk kompetisi yang memerlukan
+- Status submission (pending, approved, rejected)
+- Alasan penolakan
+- Approval oleh admin
+
+### Tim Management
+- Pembuatan tim oleh leader
+- Penambahan anggota tim
+- Token untuk join tim
+- Relasi dengan kompetisi
+
+### Pembayaran
+- Metode pembayaran
+- Upload bukti pembayaran
+- Approval/reject pembayaran oleh admin
+- Status pembayaran menggunakan enum
+
+### Merchandise
+- Manajemen produk merchandise
+- Batch merchandise dengan tanggal mulai dan akhir
+- Harga, deskripsi, gambar
+
+### Export Data
+- Export registrasi kompetisi dalam format Excel
+- Export registrasi event
+- Export submission
+- Export peserta kompetisi
+
+### Dashboard
+- Dashboard untuk peserta: lihat registrasi, submission, dll.
+- Dashboard admin lomba: kelola kompetisi, approval payment/submission
+- Dashboard kesekre: overview dan manajemen umum
+- Dashboard semnas: kelola event
+
+### Frontend Pages
+- Landing page (/home)
+- Halaman kompetisi (/competition)
+- Halaman semnas (/semnas)
+- Halaman merchandise (/merch)
+
+### Lainnya
+- Flash messages untuk notifikasi
+- Helper untuk pesan flash
+- Mail system untuk notifikasi
+- Image handling menggunakan Intervention Image
+- PDF generation untuk laporan
+- Testing menggunakan PestPHP
 
 ## Persyaratan Sistem
 
