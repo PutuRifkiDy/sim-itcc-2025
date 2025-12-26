@@ -13,7 +13,6 @@ Sistem Informasi untuk mengelola event ITCC 2025, termasuk registrasi kompetisi,
 - **File Handling**: Intervention Image
 - **Export**: Maatwebsite Excel
 - **PDF Generation**: Barryvdh Laravel DOMPDF
-- **Testing**: PestPHP
 
 ## Fitur Utama
 
@@ -127,20 +126,6 @@ Sistem Informasi untuk mengelola event ITCC 2025, termasuk registrasi kompetisi,
    cd frontend-template
    npm run dev
    ```
-
-## Testing
-
-Jalankan test menggunakan PestPHP:
-```bash
-php artisan test
-```
-
-## Deployment
-
-1. Pastikan semua dependencies terinstall dan konfigurasi environment sudah benar
-2. Jalankan migrasi database
-3. Build assets untuk production
-4. Konfigurasi web server (Apache/Nginx) untuk menjalankan Laravel
 
 ## Kontribusi
 
