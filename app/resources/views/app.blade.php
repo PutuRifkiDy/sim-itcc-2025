@@ -22,5 +22,7 @@
     </head>
     <body class="font-sans antialiased bg-white dark:bg-[#040529]">
         @inertia
+        <script src="https://cdn.botpress.cloud/webchat/v3.6/inject.js"></script>
+        <script src="https://files.bpcontent.cloud/2026/06/23/08/20260623080152-XKEECY6A.js" defer></script>
     </body>
 </html>
