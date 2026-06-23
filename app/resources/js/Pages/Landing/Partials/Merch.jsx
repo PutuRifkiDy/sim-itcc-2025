@@ -168,7 +168,7 @@ export default function Merch() {
                                         }
                                         disabled={
                                             currentSlide ===
-                                            instanceRef.current.track.details.slides.length - 1
+                                            (instanceRef.current.track.details?.slides?.length ?? 1) - 1
                                         }
                                         className="w-10 h-10 fill-[#0f114c]"
                                     />

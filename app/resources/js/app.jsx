@@ -3,12 +3,12 @@ import './bootstrap';
 
 import { createInertiaApp } from '@inertiajs/react';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
-import { createRoot, hydrateRoot } from 'react-dom/client';
+import { createRoot } from 'react-dom/client';
 import { ThemeProvider } from './Components/ThemeProvider';
 
 import Loading from './Components/Loading';
 import { useEffect, useState } from 'react';
-import { Inertia } from '@inertiajs/inertia';
+import { router } from '@inertiajs/react';
 import DisableInspect from './Components/DisableInspect';
 
 const appName = import.meta.env.VITE_APP_NAME || 'ITCC-2025';
@@ -18,15 +18,12 @@ const AppWrapper = ({ App, props }) => {
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
-        const start = () => setIsLoading(true);
-        const finish = () => setIsLoading(false);
-
-        Inertia.on('start', start);
-        Inertia.on('finish', finish);
+        const removeStart = router.on('start', () => setIsLoading(true));
+        const removeFinish = router.on('finish', () => setIsLoading(false));
 
         return () => {
-            Inertia.off('start', start);
-            Inertia.off('finish', finish);
+            removeStart();
+            removeFinish();
         };
     }, []);
 
@@ -45,14 +42,7 @@ createInertiaApp({
 
 
     setup({ el, App, props }) {
-        const Root = <AppWrapper App={App} props={props} />;
-
-        if (import.meta.env.DEV) {
-            createRoot(el).render(Root);
-            return;
-        }
-
-        hydrateRoot(el, Root);
+        createRoot(el).render(<AppWrapper App={App} props={props} />);
     },
     progress: {
         color: '#4B5563',
