@@ -9,6 +9,8 @@ services:
     envVars:
       - key: APP_NAME
         value: ITCC 2025 Official Website
+      - key: APP_URL
+        value: https://sim-itcc-2025.onrender.com
       - key: APP_ENV
         value: production
       - key: APP_DEBUG
