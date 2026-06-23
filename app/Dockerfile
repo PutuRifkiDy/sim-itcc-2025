@@ -15,8 +15,11 @@ FROM serversideup/php:8.2-fpm-nginx
 # Switch ke root untuk install dependency
 USER root
 
-# Install gettext untuk envsubst
-RUN apt-get update && apt-get install -y gettext-base \
+# Install gettext (envsubst) dan dependencies untuk PHP gd extension
+RUN apt-get update && apt-get install -y \
+    gettext-base libpng-dev libjpeg-dev libfreetype6-dev \
+    && docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && docker-php-ext-install gd \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Install Composer
