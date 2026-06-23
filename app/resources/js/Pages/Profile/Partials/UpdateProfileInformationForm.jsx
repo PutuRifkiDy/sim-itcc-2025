@@ -12,7 +12,7 @@ import {
     DialogHeader,
     DialogTitle,
     DialogTrigger,
-} from "@/components/ui/dialog"
+} from "@/Components/ui/dialog"
 import { Transition } from '@headlessui/react';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/Components/ui/select';
 import { flashMessage } from '@/lib/utils';

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Input } from "@/components/ui/input";
+import { Input } from "@/Components/ui/input";
 import InputError from "./InputError";
 
 export function ImageUpload({ imagePath, onChangeImage, errorMessage }) {

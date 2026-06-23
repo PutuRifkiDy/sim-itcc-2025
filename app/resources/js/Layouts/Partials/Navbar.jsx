@@ -10,7 +10,7 @@ import {
     DropdownMenuLabel,
     DropdownMenuSeparator,
     DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+} from "@/Components/ui/dropdown-menu"
 import { toast } from "sonner";
 import { check } from "prettier";
 import { ThemeSwitcher } from "@/Components/ThemeSwitcher";

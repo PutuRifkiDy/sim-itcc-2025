@@ -5,7 +5,7 @@ import {
     TooltipContent,
     TooltipProvider,
     TooltipTrigger,
-} from "@/components/ui/tooltip"
+} from "@/Components/ui/tooltip"
 
 const ScrollToTop = () => {
     const [isVisible, setIsVisible] = useState(false);
