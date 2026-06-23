@@ -29,8 +29,6 @@ services:
         sync: false
       - key: DB_PASSWORD
         sync: false
-      - key: MYSQL_ATTR_SSL_CA
-        value: /etc/ssl/certs/ca-certificates.crt
       - key: SESSION_DRIVER
         value: database
       - key: SESSION_LIFETIME
