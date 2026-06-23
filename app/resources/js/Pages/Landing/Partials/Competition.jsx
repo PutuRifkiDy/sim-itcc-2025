@@ -123,7 +123,7 @@ const Competition = () => {
             image: additionalCompetitions[index]?.image || "default.jpg",
             logo: additionalCompetitions[index]?.logo || "default-logo.png"
         }))
-        .concat(additionalCompetitions.slice(competitions.length));
+        .filter(item => item.slug);
 
 
     return (
