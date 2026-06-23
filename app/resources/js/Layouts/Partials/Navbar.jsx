@@ -21,7 +21,7 @@ export default function NavBar({ auth, competitions }) {
     const [scrolled, setScrolled] = useState(false);
     const { flash_message } = usePage().props;
     const { url } = usePage();
-    const urlName = window.location.pathname;
+    const urlName = typeof window !== 'undefined' ? window.location.pathname : '';
 
     useEffect(() => {
         if (flash_message?.message) {
@@ -53,8 +53,8 @@ export default function NavBar({ auth, competitions }) {
                     <Link
                         href={route('welcome')}
                     >
-                        <img src={`${window.location.origin}/assets/images/image_for_icon_logo_itcc.png`} alt="" className="w-[82px] h-[49px] dark:hidden" />
-                        <img src={`${window.location.origin}/assets/images/landing/ITCC_ICON.svg`} alt="" className="w-[82px] h-[49px] hidden dark:block" />
+                        <img src={"/assets/images/image_for_icon_logo_itcc.png"} alt="" className="w-[82px] h-[49px] dark:hidden" />
+                        <img src={"/assets/images/landing/ITCC_ICON.svg"} alt="" className="w-[82px] h-[49px] hidden dark:block" />
                     </Link>
                 </div>
                 <div className="flex flex-row gap-10 justify-center items-center">
@@ -195,8 +195,8 @@ export default function NavBar({ auth, competitions }) {
                             <Link
                                 href={route('welcome')}
                             >
-                                <img src={`${window.location.origin}/assets/images/image_for_icon_logo_itcc.png`} alt="" className="w-[82px] h-[49px] dark:hidden" />
-                                <img src={`${window.location.origin}/assets/images/landing/ITCC_ICON.svg`} alt="" className="w-[82px] h-[49px] hidden dark:block" />
+                                <img src={"/assets/images/image_for_icon_logo_itcc.png"} alt="" className="w-[82px] h-[49px] dark:hidden" />
+                                <img src={"/assets/images/landing/ITCC_ICON.svg"} alt="" className="w-[82px] h-[49px] hidden dark:block" />
                             </Link>
                         </div>
                     </div>
