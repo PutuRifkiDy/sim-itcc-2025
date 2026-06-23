@@ -33,10 +33,7 @@ echo "==> App running on port $PORT"
 # Queue worker di background
 php artisan queue:work --sleep=3 --tries=3 --daemon &
 
-# SSR server di background jika ada
-if [ -f "/var/www/html/bootstrap/ssr/ssr.js" ]; then
-    node /var/www/html/bootstrap/ssr/ssr.js &
-fi
+# SSR disabled — banyak komponen menggunakan window langsung, tidak kompatibel SSR
 
 # Start PHP-FPM sebagai daemon
 php-fpm -D
