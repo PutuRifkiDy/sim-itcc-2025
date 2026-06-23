@@ -3,7 +3,7 @@ FROM php:8.2-fpm
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
     git curl libpng-dev libonig-dev libxml2-dev libzip-dev \
-    zip unzip nginx supervisor libpq-dev \
+    zip unzip nginx supervisor libpq-dev gettext-base \
     && curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
     && apt-get install -y nodejs \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
@@ -38,12 +38,11 @@ RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache \
     && chmod -R 775 /var/www/storage /var/www/bootstrap/cache
 
 # Copy configs
-COPY nginx.conf /etc/nginx/sites-available/default
+COPY nginx.conf.template /etc/nginx/nginx.conf.template
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-
-EXPOSE 80
-
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 RUN chmod +x /usr/local/bin/docker-entrypoint.sh
+
+EXPOSE 8080
 
 ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
