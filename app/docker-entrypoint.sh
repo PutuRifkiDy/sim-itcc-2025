@@ -7,6 +7,7 @@ echo "==> Starting entrypoint script..."
 export PORT=${PORT:-8080}
 
 # Generate nginx config dari template (substitute $PORT)
+mkdir -p /etc/nginx/sites-enabled
 envsubst '${PORT}' < /etc/nginx/nginx.conf.template > /etc/nginx/sites-enabled/default
 
 cd /var/www/html
