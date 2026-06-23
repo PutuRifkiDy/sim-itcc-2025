@@ -1,0 +1,67 @@
+services:
+  - type: web
+    name: sim-itcc-2025
+    runtime: docker
+    dockerfilePath: ./app/Dockerfile
+    dockerContext: ./app
+    plan: free
+    healthCheckPath: /
+    envVars:
+      - key: APP_NAME
+        value: ITCC 2025 Official Website
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: false
+      - key: APP_KEY
+        value: base64:LD2PnU2AxwVN+qxrdhS8o6dHVhum9Eifu146D3mD3EY=
+      - key: APP_TIMEZONE
+        value: Asia/Makassar
+      - key: DB_CONNECTION
+        value: mysql
+      - key: DB_HOST
+        sync: false
+      - key: DB_PORT
+        sync: false
+      - key: DB_DATABASE
+        sync: false
+      - key: DB_USERNAME
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+      - key: MYSQL_ATTR_SSL_CA
+        value: /etc/ssl/certs/ca-certificates.crt
+      - key: SESSION_DRIVER
+        value: database
+      - key: SESSION_LIFETIME
+        value: 120
+      - key: QUEUE_CONNECTION
+        value: database
+      - key: CACHE_STORE
+        value: database
+      - key: FILESYSTEM_DISK
+        value: public
+      - key: LOG_CHANNEL
+        value: stderr
+      - key: LOG_LEVEL
+        value: error
+      - key: BROADCAST_CONNECTION
+        value: log
+      - key: MAIL_MAILER
+        value: smtp
+      - key: MAIL_HOST
+        value: smtp.gmail.com
+      - key: MAIL_PORT
+        value: 587
+      - key: MAIL_ENCRYPTION
+        value: tls
+      - key: MAIL_USERNAME
+        value: itcchmtiudayana@gmail.com
+      - key: MAIL_PASSWORD
+        value: vceggfyiypgrxnsj
+      - key: MAIL_FROM_ADDRESS
+        value: itcchmtiudayana@gmail.com
+      - key: MAIL_FROM_NAME
+        value: ITCC-2025
+      - key: VITE_APP_NAME
+        value: ITCC 2025 Official Website
