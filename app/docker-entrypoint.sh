@@ -23,6 +23,15 @@ php artisan view:cache
 echo "==> Running migrations..."
 php artisan migrate --force
 
+echo "==> Seeding database if empty..."
+COMPETITION_COUNT=$(php artisan tinker --execute="echo \App\Models\Competitions::count();" 2>/dev/null | tail -1)
+if [ "$COMPETITION_COUNT" = "0" ] || [ -z "$COMPETITION_COUNT" ]; then
+    echo "==> Database kosong, menjalankan seeder..."
+    php artisan db:seed --force
+else
+    echo "==> Data sudah ada ($COMPETITION_COUNT competitions), skip seeding."
+fi
+
 echo "==> Linking storage..."
 php artisan storage:link || true
 
