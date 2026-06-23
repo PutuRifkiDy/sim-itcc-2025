@@ -9,46 +9,38 @@ RUN npm ci
 COPY . .
 RUN npm run build
 
-# Stage 2: Production image (pre-built PHP dengan semua extension sudah ada)
-FROM serversideup/php:8.2-fpm-nginx
+# Stage 2: Production image
+FROM php:8.2-fpm-alpine
 
-# Switch ke root untuk install dependency
-USER root
-
-# Install gettext (envsubst) dan dependencies untuk PHP gd extension
-RUN apt-get update && apt-get install -y \
-    gettext-base libpng-dev libjpeg-dev libfreetype6-dev \
+# Install nginx, gettext (envsubst), node, dan PHP extensions
+RUN apk add --no-cache \
+    nginx \
+    gettext \
+    nodejs \
+    libpng-dev libjpeg-turbo-dev freetype-dev \
+    libzip-dev \
+    oniguruma-dev \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-install gd \
-    && apt-get clean && rm -rf /var/lib/apt/lists/*
+    && docker-php-ext-install pdo_mysql gd zip mbstring opcache
 
-# Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 WORKDIR /var/www/html
 
-# Copy composer files dan install dependencies
 COPY composer.json composer.lock ./
 RUN composer install --no-scripts --no-autoloader --no-dev --prefer-dist
 
-# Copy semua file aplikasi
 COPY . .
 
-# Copy hasil build frontend dari stage 1
 COPY --from=frontend /app/public/build ./public/build
 COPY --from=frontend /app/bootstrap/ssr ./bootstrap/ssr
 
-# Generate autoloader
 RUN composer dump-autoload --optimize --no-dev
 
-# Set permissions
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache \
     && chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
 
-# Copy nginx config template
 COPY nginx.conf.template /etc/nginx/nginx.conf.template
-
-# Copy entrypoint
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 
